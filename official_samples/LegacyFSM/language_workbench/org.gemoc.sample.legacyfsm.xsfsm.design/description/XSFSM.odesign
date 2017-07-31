@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" name="XSFSM" version="11.1.1.201610211630">
+  <ownedViewpoints name="LegacyFSM_XFSM_Viewpoint">
+    <ownedRepresentationExtensions xsi:type="description_1:DiagramExtensionDescription" name="LegacyFSM_XFSM" viewpointURI="viewpoint:/org.gemoc.sample.legacyfsm.fsm.design/LegacyFSM_FSM_ViewPoint" representationName="FSM">
+      <layers name="Debug" activeByDefault="true">
+        <toolSections name="Debug">
+          <ownedTools xsi:type="tool:PopupMenu" name="Gemoc">
+            <menuItemDescription xsi:type="tool:OperationAction" name="Debug" icon="/org.gemoc.executionframework.extensions.sirius/icons/debug_exc.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:ExternalJavaAction" name="Debug" icon="/org.gemoc.executionframework.extensions.sirius/icons/debug_exc.gif" id="org.gemoc.execution.sequential.javaengine.ui.debug.sirius.action.gemocDebugAs"/>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool:OperationAction" name="Toggle breakpoint" icon="/org.gemoc.executionframework.extensions.sirius/icons/debug_exc.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:ExternalJavaAction" name="Toggle Gemoc breakpoint" icon="/org.gemoc.executionframework.extensions.sirius/icons/breakpoint.gif" id="org.gemoc.execution.sequential.javaengine.ui.debug.sirius.action.GemocSequentialToggleBreakpointAction"/>
+              </initialOperation>
+            </menuItemDescription>
+          </ownedTools>
+        </toolSections>
+        <decorationDescriptionsSet>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="Enabled breakpoint" position="WEST" decoratorPath="/org.gemoc.executionframework.extensions.sirius/icons/breakpoint_enabled.gif" preconditionExpression="service:self.hasEnabledBreakpoint">
+            <mappings xsi:type="description_1:NodeMapping" href="../../org.gemoc.sample.legacyfsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='FSM_Legacy_ViewPoint']/@ownedRepresentations[name='TimedSystem']/@defaultLayer/@containerMappings[name='TimedSystem']/@subNodeMappings[name='GlobalClock']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="../../org.gemoc.sample.legacyfsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='FSM_Legacy_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@nodeMappings[name='Local%20Clock']"/>
+            <mappings xsi:type="description_1:ContainerMapping" href="../../org.gemoc.sample.legacyfsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='FSM_Legacy_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']"/>
+            <mappings xsi:type="description_1:EdgeMapping" href="../../org.gemoc.sample.legacyfsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='FSM_Legacy_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="../../org.gemoc.sample.legacyfsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='FSM_Legacy_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@nodeMappings[name='LocalEvents']"/>
+          </decorationDescriptions>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="Disabled breakpoint" position="WEST" decoratorPath="/org.gemoc.executionframework.extensions.sirius/icons/breakpoint_disabled.gif" preconditionExpression="service:self.hasDisabledBreakpoint">
+            <mappings xsi:type="description_1:NodeMapping" href="../../org.gemoc.sample.legacyfsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='FSM_Legacy_ViewPoint']/@ownedRepresentations[name='TimedSystem']/@defaultLayer/@containerMappings[name='TimedSystem']/@subNodeMappings[name='Event']"/>
+            <mappings xsi:type="description_1:EdgeMapping" href="../../org.gemoc.sample.legacyfsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='FSM_Legacy_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="../../org.gemoc.sample.legacyfsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='FSM_Legacy_ViewPoint']/@ownedRepresentations[name='TimedSystem']/@defaultLayer/@containerMappings[name='TimedSystem']/@subNodeMappings[name='GlobalClock']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="../../org.gemoc.sample.legacyfsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='FSM_Legacy_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@nodeMappings[name='Local%20Clock']"/>
+            <mappings xsi:type="description_1:NodeMapping" href="../../org.gemoc.sample.legacyfsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='FSM_Legacy_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@nodeMappings[name='LocalEvents']"/>
+            <mappings xsi:type="description_1:ContainerMapping" href="../../org.gemoc.sample.legacyfsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='FSM_Legacy_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']"/>
+          </decorationDescriptions>
+        </decorationDescriptionsSet>
+        <customization>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.isCurrentInstruction()">
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="borderColor" value="//@userColorsPalettes[name='XFSM%20Palette']/@entries[name='current%20instruction']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="strokeColor" value="//@userColorsPalettes[name='XFSM%20Palette']/@entries[name='current%20instruction']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='XFSM%20Palette']/@entries[name='current%20instruction']"/>
+          </vsmElementCustomizations>
+        </customization>
+      </layers>
+      <layers name="Animation">
+        <containerMappings semanticCandidatesExpression="[self/]" domainClass="StateMachine" childrenPresentation="List">
+          <subNodeMappings name="StringToProcess" semanticCandidatesExpression="[self/]" domainClass="StateMachine">
+            <style xsi:type="style:BundledImageDescription" showIcon="false" labelExpression="aql:' string to process: '+self.unprocessedString" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="ProducedString" semanticCandidatesExpression="[self/]" domainClass="StateMachine">
+            <style xsi:type="style:BundledImageDescription" showIcon="false" labelExpression="aql: ' produced String: '+self.producedString" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelExpression="aql:self.name+ ' processing status'" backgroundStyle="GradientTopToBottom">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+        <decorationDescriptionsSet>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="Current State" position="SOUTH_EAST" decoratorPath="/org.gemoc.sample.legacyfsm.xsfsm.design/icons/cursor-3-24.png" preconditionExpression="service:self.isCurrentState">
+            <mappings xsi:type="description_1:ContainerMapping" href="../../org.gemoc.sample.legacyfsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']"/>
+          </decorationDescriptions>
+        </decorationDescriptionsSet>
+        <customization>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="service:self.hasBeenActivated">
+            <featureCustomizations xsi:type="description:EReferenceCustomization" referenceName="strokeColor" value="//@userColorsPalettes[name='XFSM%20Palette']/@entries[name='hasBeenAnimated']">
+              <appliedOn href="../../org.gemoc.sample.legacyfsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']/@style"/>
+            </featureCustomizations>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" referenceName="borderColor" value="//@userColorsPalettes[name='XFSM%20Palette']/@entries[name='hasBeenAnimated']">
+              <appliedOn href="../../org.gemoc.sample.legacyfsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='TimedSystem']/@defaultLayer/@containerMappings[name='TimedSystem']/@style"/>
+              <appliedOn href="../../org.gemoc.sample.legacyfsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']/@style"/>
+              <appliedOn href="../../org.gemoc.sample.legacyfsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='TimedSystem']/@defaultLayer/@containerMappings[name='TimedSystem']/@subContainerMappings[name='FSM']/@style"/>
+              <appliedOn href="../../org.gemoc.sample.legacyfsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']/@conditionnalStyles.0/@style"/>
+              <appliedOn href="../../org.gemoc.sample.legacyfsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='TimedSystem']/@defaultLayer/@containerMappings[name='TimedSystem']/@subNodeMappings[name='GlobalClock']/@style"/>
+              <appliedOn href="../../org.gemoc.sample.legacyfsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@nodeMappings[name='Local%20Clock']/@style"/>
+              <appliedOn href="../../org.gemoc.sample.legacyfsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@nodeMappings[name='LocalEvents']/@style"/>
+              <appliedOn href="../../org.gemoc.sample.legacyfsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='TimedSystem']/@defaultLayer/@containerMappings[name='TimedSystem']/@subNodeMappings[name='Event']/@style"/>
+            </featureCustomizations>
+          </vsmElementCustomizations>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization">
+            <featureCustomizations xsi:type="description:EAttributeCustomization" attributeName="labelExpression" value="service:self.getClockLabel">
+              <appliedOn href="../../org.gemoc.sample.legacyfsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@nodeMappings[name='Local%20Clock']/@style"/>
+              <appliedOn href="../../org.gemoc.sample.legacyfsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='TimedSystem']/@defaultLayer/@containerMappings[name='TimedSystem']/@subNodeMappings[name='GlobalClock']/@style"/>
+            </featureCustomizations>
+          </vsmElementCustomizations>
+        </customization>
+      </layers>
+    </ownedRepresentationExtensions>
+    <ownedJavaExtensions qualifiedClassName="org.gemoc.sample.legacyfsm.xsfsm.design.services.XsfsmDebugServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.gemoc.sample.legacyfsm.xsfsm.design.services.XsfsmAnimatorServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.gemoc.sample.legacyfsm.xsfsm.design.services.XFSMServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.gemoc.sample.legacyfsm.fsm.design.services.FSMServices"/>
+  </ownedViewpoints>
+  <userColorsPalettes name="XFSM Palette">
+    <entries xsi:type="description:UserFixedColor" red="255" green="255" blue="47" name="current instruction"/>
+    <entries xsi:type="description:UserFixedColor" red="255" green="210" blue="210" name="hasBeenAnimated"/>
+  </userColorsPalettes>
+</description:Group>

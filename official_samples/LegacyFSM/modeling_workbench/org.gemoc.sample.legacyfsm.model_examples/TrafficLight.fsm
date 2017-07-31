@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fsm:StateMachine xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:fsm="http://www.gemoc.org/legacyfsm/fsm" name="TrafficLight" initialState="//@ownedStates.0">
+  <ownedStates name="Green" outgoingTransitions="//@ownedTransitions.0 //@ownedTransitions.1" incomingTransitions="//@ownedTransitions.0 //@ownedTransitions.3"/>
+  <ownedStates name="Yellow" outgoingTransitions="//@ownedTransitions.2" incomingTransitions="//@ownedTransitions.1"/>
+  <ownedStates name="Red" outgoingTransitions="//@ownedTransitions.3" incomingTransitions="//@ownedTransitions.2"/>
+  <ownedTransitions name="Green_to_Green" source="//@ownedStates.0" target="//@ownedStates.0" input="t" output="Timer"/>
+  <ownedTransitions name="Green_to_Yellow" source="//@ownedStates.0" target="//@ownedStates.1" input="b" output="Button"/>
+  <ownedTransitions name="Yellow_to_Red" source="//@ownedStates.1" target="//@ownedStates.2" input="t" output="Timer"/>
+  <ownedTransitions name="Red_to_Green" source="//@ownedStates.2" target="//@ownedStates.0" input="t" output="Timer"/>
+</fsm:StateMachine>

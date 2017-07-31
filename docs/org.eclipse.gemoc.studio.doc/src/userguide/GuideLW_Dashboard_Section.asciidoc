@@ -1,0 +1,67 @@
+[[language-workbench-dashboard-section]]
+=== Language workbench dashboard
+
+==== Open the dashboard
+The dashboard is available on .xdsml files from the Project Explorer or the Model Explorer views. See <<section-gemoc-language-project>> to view how to create an xDSML project.
+
+image::Guide/images/workbench/language/dashboard/open_dashboard_menu.png[Dashboard menu, 400]
+
+When the `Gemoc Dashboard` menu is selected a new editor opens.
+
+image::Guide/images/workbench/language/dashboard/dashboard_create_language.png[Dashboard, 800]
+
+This editor is divided in three main parts:
+
+. Overview part
+. Sections part
+. Projects view
+
+image::Guide/images/workbench/language/dashboard/dashboard_parts.png[Dashboard parts, 800]
+
+==== Overview
+
+The overview allows to access to the different parts of the <<gemoc-language-workbench>> process:
+
+* Create your language
+* Make your language executable
+* Define your runtime environment
+
+When you click on a step in the overview the related actions are automatically presented in the sections part.
+
+==== Sections
+This part provides sections which depends on the selected overview. The sections contain links that can be used to activate the different actions: create the domain model project, edit the DSA project, define a concrete syntax...
+
+
+image::Guide/images/workbench/language/dashboard/dashboard_create_language_sections.png[Dashboard sections]
+
+
+===== Description
+
+Each section provides a help button which shows the description associated to the section and explains the process step and which actions are available.
+
+image::Guide/images/workbench/language/dashboard/section_description.png[Section description]
+
+===== Links
+When a link is selected, the corresponding action is launched: open a wizard, open the documentation...
+
+image::Guide/images/workbench/language/dashboard/link.png[Link]
+
+image::Guide/images/workbench/language/dashboard/link_open_wizard.png[Open wizard, 800]
+
+==== Projects view
+
+On the right side of the dashboard, a tree viewer shows the projects associated to the current xDSML project.
+
+image::Guide/images/workbench/language/dashboard/projects_viewer.png[Projects viewer, 400]
+
+===== Synchronize
+
+The section toolbar provides a `synchronize` action. This action filters the content of the tree viewer to keep only projects relevant according to the current process step represented by the section.
+
+image::Guide/images/workbench/language/dashboard/synchronize.png[Synchronize projects, 800]
+
+===== Open existing projects
+
+By double-clicking on a project in the tree viewer, it is possible to open and update the corresponding file.
+
+image::Guide/images/workbench/language/dashboard/edit_project.png[Edit project, 800]

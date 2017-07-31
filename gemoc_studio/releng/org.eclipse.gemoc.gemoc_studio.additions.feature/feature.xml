@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (c) 2017 Inria and others.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        Inria - initial API and implementation
+ -->
+<feature
+      id="org.eclipse.gemoc.gemoc_studio.additions.feature"
+      label="GEMOC Studio Additional Features"
+      version="2.3.0.qualifier"
+      provider-name="%providerName"
+      image="gemocstudio32.png">
+
+   <description url="http://www.gemoc.org">
+      This feature is dependent of a list of additionnal features (possibly thirdparties) that are usually useful in GEMOC Studio but aren&apos;t part of the core of the GEMOC process.
+   </description>
+
+   <copyright url="http://www.eclipse.org/legal/epl-v10.html">
+      Copyright (c) 2012, 2017 Inria and others
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <requires>
+      <import feature="org.eclipse.team.svn.resource.ignore.rules.jdt" version="0.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.team.svn" version="0.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.egit" version="0.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.jgit" version="0.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.sdk" version="0.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.emf.query.sdk" version="0.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.emf.compare" version="2.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.emf.compare.source" version="2.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.emf.compare.ide.ui" version="2.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.emf.diffmerge.sdk.feature" version="0.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.m2e.feature" version="0.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.m2e.logback.feature" version="0.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.epp.mpc" version="1.2.1.v20140219-1000" match="greaterOrEqual"/>
+      <import feature="org.eclipse.xtend.sdk" version="0.0.0"/>
+      <import feature="org.eclipse.m2m.qvt.oml" version="0.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.m2m.qvt.oml.debug" version="0.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.m2m.qvt.oml.doc" version="0.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.m2m.qvt.oml.editor" version="0.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.m2m.qvt.oml.examples" version="0.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.m2m.qvt.oml.runtime" version="0.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.ajdt" version="0.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.fx.ide.basic.feature" version="2.2.0.201508240705" match="greaterOrEqual"/>
+      <import feature="org.eclipse.fx.ide.pde.feature" version="2.2.0.201508240705" match="greaterOrEqual"/>
+      <import feature="org.eclipse.sirius.runtime.ide.ui" version="0.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.amalgam.discovery.modeling"/>
+      <import feature="org.eclipse.elk.feature" version="0.1.0.201607121925" match="greaterOrEqual"/>
+   </requires>
+
+</feature>

@@ -1,0 +1,96 @@
+<!--
+    Copyright (c) 2017 Inria and others.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        Inria - initial API and implementation
+ -->
+<project name="full_kermeta_studio_updatesite" default="all">
+	<!-- configuration properties -->		
+	<!-- project configuration -->
+	<property environment="env"/>
+
+	<property name="env.WORKSPACE" location="."/>
+	<property name="source_to_upload.dir" location="${env.WORKSPACE}/gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.updatesite/target/repository"/>
+	<property name="source_server.base.url" value="https://ci.inria.fr/gemoc/job/org.gemoc.gemoc_studio.root/lastSuccessfulBuild/artifact/org/gemoc/gemoc_studio/org.eclipse.gemoc.gemoc_studio.product/target/products"/>
+	<property name="deploy.server" value="gemoc.irisa.fr"/>
+	<property name="deploy.user" value="web-gemoc"/>
+	<property name="deploy.path" value="/home/web/apache/sites/gemoc.irisa.fr/htdocs/updatesite/studio"/> 
+	
+	
+
+	<tstamp>
+	  <format property="TODAY_MONTH"
+		          pattern="MM"
+		          locale="en,UK"/>
+	  <format property="TODAY_DAY_OF_MONTH"
+	          pattern="dd"
+	          locale="en,UK"/>
+	  <format property="TODAY_DAY_OF_WEEK"
+			          pattern="E"
+			          locale="en,UK"/>
+	  <format property="TODAY_WEEK_OF_MONTH"
+				          pattern="F"
+				          locale="en,UK"/>
+	  <format property="TODAY_pattern"
+						          pattern="yy-MM-dd"
+						          locale="en,UK"/>
+		
+	</tstamp>
+	
+	<!-- <property name="deploy.month.path" value="/home/web/apache/sites/gemoc.irisa.fr/htdocs/pub/studio/time_shifting_versions/month_${TODAY_MONTH}"/>
+	<property name="deploy.day_of_month.path" value="/home/web/apache/sites/gemoc.irisa.fr/htdocs/pub/studio/time_shifting_versions/day_of_month_${TODAY_DAY_OF_MONTH}"/>
+	<property name="deploy.day_of_week.path" value="/home/web/apache/sites/gemoc.irisa.fr/htdocs/pub/studio/time_shifting_versions/day_of_week_${TODAY_DAY_OF_WEEK}"/>	
+	<property name="deploy.week_of_month.path" value="/home/web/apache/sites/gemoc.irisa.fr/htdocs/pub/studio/time_shifting_versions/week_of_month_${TODAY_WEEK_OF_MONTH}"/>-->
+	<property name="deploy.today.path" value="${deploy.path}_${TODAY_pattern}"/>
+	
+	<target name="all" depends="upload"></target>
+	
+	<target name="upload" > 
+		<echo>Month = ${TODAY_MONTH}</echo>
+		<echo>Day of month = ${TODAY_DAY_OF_MONTH}</echo>
+		<echo>Day of week = ${TODAY_DAY_OF_WEEK}</echo>
+		<echo>Week of month = ${TODAY_WEEK_OF_MONTH}</echo>
+		<echo>Month path = ${deploy.month.path}</echo>
+		<echo>Day of month path = ${deploy.day_of_month.path}</echo>
+		<echo>Day of week path = ${deploy.day_of_week.path}</echo>
+		<echo>Week of Month path = ${deploy.week_of_month.path}</echo>
+	    
+		<echo>Cleaning previous snapshots ${deploy.server}:${deploy.today.path} and previous link to nightly</echo>
+		<sshexec host="${deploy.server}"
+						         username="${deploy.user}"
+								 keyfile="${key.file}"
+								 passphrase=""
+							     trust="yes"
+							     command="rm -Rf ${deploy.path}_*_SNAPSHOT; rm -f ${deploy.path}_nightly;"/>
+		
+		<sshexec host="${deploy.server}"
+		         username="${deploy.user}"
+				 keyfile="${key.file}"
+				 passphrase=""
+			     trust="yes"
+			     command="mkdir ${deploy.today.path}_SNAPSHOT;"/>
+		
+		<echo>Uploading to ${deploy.server}:${deploy.today.path}</echo>
+		<scp todir="${deploy.user}@${deploy.server}:${deploy.today.path}_SNAPSHOT"
+			keyfile="${key.file}"
+			passphrase=""
+		    trust="yes" verbose="yes">
+		    <fileset dir="${source_to_upload.dir}">
+		      <include name="**/**"/>
+		      <exclude name="**/target/**"/>
+		    </fileset>
+		</scp>
+		<echo>Create link to latest to ${deploy.server}:${deploy.path}_nightly</echo>
+		<sshexec host="${deploy.server}"
+				         username="${deploy.user}"
+						 keyfile="${key.file}"
+						 passphrase=""
+					     trust="yes"
+					     command="ln -s ${deploy.today.path}_SNAPSHOT ${deploy.path}_nightly;"/>		
+	</target>
+	
+</project>

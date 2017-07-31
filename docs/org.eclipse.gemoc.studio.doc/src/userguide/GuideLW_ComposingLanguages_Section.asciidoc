@@ -1,0 +1,45 @@
+[[composing-languages-with-bcool-section]]
+=== Coordination of Languages with BCOoL
+==== What is ((BCOoL))?
+((BCOoL)) is a dedicated language to explicitly specify coordination patterns, i.e., to specify, at the language level, how some models conforming to different DSMLs can be coordinated. This enables the integrator to capture the knowledge of integration of systems. In BCOoL, the specification relies on _Operators_. Once an operator is defined between different DSMLs, it can be used to generate a coordination model between any  models conforming the DSMLs used in the operator.
+
+.Overview of the approach.
+image::http://timesquare.inria.fr/BCOoL/images/bcoolapr.jpg[Overview of the BCOoL approach, 800]
+
+'''
+
+((BCOoL)) is developed on top of the eclipse platform as a set of plugins. More precisely, it is integrated to the GEMOC studio. 
+////
+The GEMOC studio is the integration of various Eclipse Modeling Framework (EMF) based technologies adequate for the specification of executable domain specific modeling languages.
+////
+BCOoL is based on the EMF and its abstract syntax has been developed using Ecore (i.e., the meta-language associated with EMF). The textual concrete syntax has been developed using Xtext, providing advanced editing facilities. 
+
+BCOoL adds coordination facilities to the GEMOC studio. In the language workbench, an _integrator_ can develop BCOoL operators to specify coordination patterns between languages, and then a _system_ designer can use these operators in the modeling workbench to coordinate (possibly heterogeneous) models.
+
+The GEMOC studio includes example operators that can be automatically deployed by using the wizard. Such examples can be a good starting point with BCOoL. 
+
+
+=== Deploy a BCOoL project by using the wizard
+The GEMOC studio contains several examples than can be automatically deployed by using the wizard. The deployment of a BCOoL specification should be done in the language workbench. To do so, it is necessary to go to New > Example > GEMOC language workbench examples as is shown in the Figure 2. 
+
+.Wizard of the examples of coordination.
+image::http://timesquare.inria.fr/BCOoL/images/imagesgemoc/language_workbench_launchexamples.png[Wizard of the Examples of Coordination]
+'''
+
+The language workbench must also contain the languages that are used by the BCOoL project. For instance, for the operator between the SigPML and TFSM languages, the SigPML and TFSM projects must be deployed in the language workbench. If the corresponding languages are not deployed, we get no resolved problems (see Figure 3). These languages can be deployed by doing New > Example > GEMOC language workbench examples.
+
+.Windows Problems when languages are not correctly deployed.
+image::http://timesquare.inria.fr/BCOoL/images/imagesgemoc/language_worbench_problems.png[Windows Problems when languages are not correctly deployed]
+'''
+
+Once deployed, it is necessary to do Project > Clean in order to make the studio to find all the dependencies. The resulting language workbench should look as in the Figure 4. In this example, the directory operator contains the BCOoL specification. The project has already the BCOoL Nature, which makes compile automatically the BCOoL specification into a QVTo transformation and stores it in the /gemoc-gen directory.  
+
+.Correct deployment of languages and BCOoL operators in the language workbench.
+image::http://timesquare.inria.fr/BCOoL/images/imagesgemoc/language_workbenchcoordination.png[Wizard of the Examples of Coordination]
+'''
+
+Once a BCOoL specification is deployed in the language workbench, it can be used in the modeling workbench to automate the coordination of models. We show this in the section _Coordinating Model Execution_.
+
+=== Create a BCOoL project from scratch 
+
+Here we explain how to create a BCOoL project from scratch in the language workbench. To do so, it is necessary to first create an empty project by doing File > New > Other > General Project. Then, it is necessary to convert the project to a plugin by doing New > Configure > Convert to plugin. Finally, it is necessary to add the XText and BCOoL Nature. By doing so, we ensure the correct behavior of the XText mechanisms of scoping and the automatically compilation of the BCOoL specification.     

@@ -1,0 +1,52 @@
+[[modeling-workbench-coordinating-model-execution-section]]
+== Coordinating Model Execution
+In the modeling workbench, a system designer can use the BCOoL operators previously defined in the Language Workbench to automate the coordination of models. To do so, the modeling workbench includes BFLoW, a simple language to specify how BCOoL operators are applied between models. Conjointly with the GEMOC Coordinated Execution Engine, the BFLoW specification can be used to coordinate, and then, execute models.  
+
+The GEMOC studio includes examples that can be automatically deployed into the modeling workbench by using the wizard. We recommend to start with such examples.  
+
+=== Deploy an example project by using the wizard
+The GEMOC studio contains several examples than can be automatically deployed by using the wizard. The deployment of an example should be done in the modeling workbench. To do so, it is necessary to go to New > Example > GEMOC modeling workbench examples as is shown in the Figure 1.
+
+.Wizard of the examples of coordination for the modeling workbench.
+image::http://timesquare.inria.fr/BCOoL/images/imagesgemoc/modeing_workbench_launchexamples.png[Wizard of the examples of coordination for the modeling workbench] 
+
+'''
+
+The example contains the models together with a BFLoW specification that can be used to coordinate them. Note that the language workbench has to contain the languages and the BCOoL project used by the example. For instance, in the case of the example of the Coffee Machine by using the TFSM and SigPML languages, the language workbench has to contain the languages TFSM and SigPML and the BCOoL operator defined between these languages.     
+
+=== Description of a BFloW specification
+BFLoW is simple language that allows to specify how a particular system must be coordinated. To do so, BFLoW enables a system designer to specify how a set of BCOoL operators are applied between a set of models. While in the language workbench BCOoL is used to specify operators between languages, in the modeling workbench BFLoW is used to specify how these operators are applied to coordinate a particular system.    
+
+.BFLoW specification of the coffee machine by using the TFSM and SigPML languages.
+image::http://timesquare.inria.fr/BCOoL/images/imagesgemoc/bflowspec.png[BFLoW specification of the coffee machine by using the TFSM and SigPML languages] 
+
+'''
+
+Figure 2 shows the BFLoW specification for the coffee machine example. A BFLoW specification contains information about the BCOoL used and the models to be coordinated. Then, each flow defines what operator is applied and between which models. Note that the order of the models passed as parameters matters. The order must correspond with the operator definition. In addition, the BFLoW may contain information about the launchers used to launch the execution. When launchers are not defined in the BFLoW, it is necessary to define an output model in the beginning of the BFLoW specification (see CoffeeMachinewithoutLaunchers.bflow in the example project _org.gemoc.sample.bcool.coffeemachinewithsigpml_).  
+   
+
+==== Launching the coordinated execution 
+To execute the coordinated system, we first need to go to _Debug Configuration_ and configure the *Gemoc Coordinated eXecutable Models* as shown in the picture. 
+
+.Debug Configuration of the Gemoc Coordinated eXecutable Models.
+image::http://timesquare.inria.fr/BCOoL/images/imagesgemoc/modeling_launcherexecution.png[Debug Configuration for the Coordinated Execution Engine]
+
+'''
+The execution can be launched by using either a BCOoL or a BFLoW specification. In the first case, the BCOoL specification is in the modeling workbench and the model of coordination is built by applying the BCOoL specification between all the models. In such a case, it is mandatory to specify the launchers of the individual models before to launch the execution. 
+
+In the case that a BFLoW specification is used (as shown in Figure 3), the model of coordination is built by using the BFLoW specification. If the BFLoW specification does not define the launchers, they must be manually defined by clicking on "Add Configuration" (see Figure 4). 
+
+.Debug Configuration of the Gemoc Coordinated eXecutable Models with launchers.
+image::http://timesquare.inria.fr/BCOoL/images/imagesgemoc/modeling_launchwithlaunchers.png[Debug Configuration of the Gemoc Coordinated eXecutable Models with launchers]
+
+'''
+ 
+Once launched, the engine provides several options to drive the execution of the models. For instance, it enables a system designer to select the next valid execution step (see Figure 5). Also, the workbench provides the animation of models. 
+
+.Step by step execution of the coordinated models.
+image::http://timesquare.inria.fr/BCOoL/images/imagesgemoc/modelingexecution.png[Step by step execution of the coordinated models]
+
+'''
+
+
+For further information about BCOoL please visit http://timesquare.inria.fr/BCOoL[BCOoL site]. If you are experimenting problems during the compilation of the example, please email to mailto:matias.vara_larsen@inria.fr[me].

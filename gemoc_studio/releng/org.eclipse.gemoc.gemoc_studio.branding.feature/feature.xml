@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (c) 2017 Inria and others.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        Inria - initial API and implementation
+ -->
+
+<feature
+      id="org.eclipse.gemoc.gemoc_studio.branding.feature"
+      label="GEMOC Studio Main Features"
+      version="2.3.0.qualifier"
+      provider-name="%providerName"
+      plugin="org.eclipse.gemoc.gemoc_studio.branding"
+      image="gemocstudio32.png">
+
+   <description url="http://www.gemoc.org">
+      List of features in GEMOC Studio that are part of the core of the GEMOC process.
+   </description>
+
+   <copyright url="http://www.eclipse.org/legal/epl-v10.html">
+      Copyright (c) 2012, 2017 Inria and others
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <requires>
+      <import feature="org.eclipse.xtext.sdk" version="2.5.4" match="greaterOrEqual"/>
+      <import feature="org.eclipse.xtend.sdk" version="2.5.4" match="greaterOrEqual"/>
+      <import feature="org.eclipse.ocl.all.sdk" version="0.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.emf.ecoretools.sdk" version="2.0.0.0" match="greaterOrEqual"/>
+
+      <import feature="org.eclipse.gemoc.modeldebugging.feature" version="0.0.0" match="greaterOrEqual"/>
+
+
+      <import feature="fr.inria.diverse.k3.feature" version="0.0.0" match="greaterOrEqual"/>
+
+
+      <import feature="org.eclipse.sirius.runtime.ide.ui" version="1.0.0.201403121231" match="greaterOrEqual"/>
+      <import feature="org.eclipse.sirius.specifier.ide.ui" version="1.0.0.201403121231" match="greaterOrEqual"/>
+      
+      <import feature="org.eclipse.e4.rcp" version="0.0.0" match="greaterOrEqual"/>
+      <import feature="fr.inria.diverse.melange.sdk" version="0.0.0" match="greaterOrEqual"/>
+
+   </requires>
+
+   <plugin
+         id="org.eclipse.gemoc.gemoc_studio.branding"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.eclipse.gemoc.language_workbench.documentation"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

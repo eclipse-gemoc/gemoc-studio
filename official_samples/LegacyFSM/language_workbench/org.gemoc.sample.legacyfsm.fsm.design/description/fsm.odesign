@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="fsm" version="11.1.1.201610211630">
+  <ownedViewpoints name="LegacyFSM_FSM_ViewPoint">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="FSM" titleExpression="feature:name" initialisation="true" showOnStartup="true" domainClass="StateMachine">
+      <metamodel href="../../org.gemoc.sample.legacyfsm.fsm.model/model/fsm.ecore#/"/>
+      <defaultLayer name="Default">
+        <edgeMappings name="EventTransition" sourceMapping="//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']" targetMapping="//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']" targetFinderExpression="[self.target/]" sourceFinderExpression="[self.source/]" domainClass="Transition" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription showIcon="false" labelExpression="aql:self.getLabel()">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="State" labelDirectEdit="//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@toolSections.1/@ownedTools[name='editName']" semanticCandidatesExpression="[self.ownedStates/]" domainClass="State">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="50" arcHeight="50" borderSizeComputationExpression="1" showIcon="false" roundedCorner="true" backgroundStyle="Liquid">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+            <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.0"/>
+          </style>
+          <conditionnalStyles predicateExpression="[self.eContainer().oclAsType(StateMachine).initialState = self/]">
+            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="50" arcHeight="50" borderSizeComputationExpression="4" showIcon="false" roundedCorner="true" backgroundStyle="Liquid">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+              <labelBorderStyle href="environment:/viewpoint#//@labelBorderStyles/@labelBorderStyleDescriptions.0"/>
+            </style>
+          </conditionnalStyles>
+        </containerMappings>
+        <toolSections name="Node">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="State" containerMappings="//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']" iconPath="/org.gemoc.sample.legacyfsm.fsm.design/icons/state_small.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="State" referenceName="ownedStates" variableName="itsState">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="itsState"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Transition" edgeMappings="//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.eContainer()">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Transition" referenceName="ownedTransitions">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:source.name+'_to_'+target.name"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="source" valueExpression="aql:source"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="target" valueExpression="aql:target"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="input" valueExpression="aql:''"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="output" valueExpression="aql:''"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="edit">
+          <ownedTools xsi:type="tool:DirectEditLabel" name="editName" inputLabelExpression="&lt;%name%>">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="&lt;%$0%>"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="org.gemoc.sample.legacyfsm.fsm.design.services.FSMServices"/>
+  </ownedViewpoints>
+  <userColorsPalettes name="FSM Palette">
+    <entries xsi:type="description:UserFixedColor" red="255" green="255" blue="0" name="current instruction"/>
+    <entries xsi:type="description:UserFixedColor" red="0" green="240" blue="255" name="activated instruction"/>
+  </userColorsPalettes>
+</description:Group>

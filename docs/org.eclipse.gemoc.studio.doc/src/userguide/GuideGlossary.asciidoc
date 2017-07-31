@@ -1,0 +1,71 @@
+[glossary]
+== Glossary
+
+AS:: 
+Abstract Syntax.
+
+API:: 
+Application Programming Interface.
+
+Behavioral Semantics:: 
+see Execution semantics.
+
+CCSL:: 
+Clock-Constraint Specification Language.
+
+Domain Engineer:: 
+user of the Modeling Workbench.
+
+DSA:: 
+Domain-Specific Action.
+
+DSE:: 
+Domain-Specific Event.
+
+DSML:: 
+Domain-Specific (Modeling) Language.
+
+Dynamic Semantics:: 
+see Execution semantics.
+
+Eclipse Plugin:: an Eclipse plugin is a Java project with associated metadata that can be bundled and deployed as a contribution to an Eclipse-based IDE.
+
+ED:: 
+Execution Data.
+
+Execution Semantics:: 
+Defines when and how elements of a language will produce a model behavior.
+
+GEMOC Studio:: 
+Eclipse-based studio integrating both a language workbench and the corresponding modeling workbenches
+
+Language Workbench:: 
+a language workbench offers the facilities for designing and implementing modeling languages.
+
+Language Designer:: 
+a language designer is the user of the language workbench.
+
+MoCC:: 
+Model of Concurrency and Communication
+
+Model:: 
+model which contributes to the convent of a View
+
+Modeling Workbench:: 
+a modeling workbench offers all the required facilities for editing and animating domain specific models according to a given modeling language.
+
+MSA:: 
+Model-Specific Action.
+
+MSE:: 
+Model-Specific Event.
+
+RTD:: 
+RunTime Data.
+
+Static semantics:: 
+Constraints on a model that cannot be expressed in the metamodel.  For example, static semantics can be expressed as OCL invariants.
+
+xDSML:: 
+Executable Domain-Specific Modeling Language.
+

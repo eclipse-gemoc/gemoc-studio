@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<!--
+    Copyright (c) 2015, 2017  Inria  and others.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        Inria - initial API and implementation
+ -->
+
+<plugin>
+
+
+
+	<extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="org.gemoc.gemoc_language_workbench.samples.category"
+            name="GEMOC language workbench examples"
+            parentCategory="org.eclipse.ui.Examples"/>
+      <wizard
+            canFinishEarly="true"
+            category="org.eclipse.ui.Examples/org.gemoc.gemoc_language_workbench.samples.category"
+            class="org.eclipse.gemoc.sequential.language.wb.sample.deployer.wizards.LegacyFSMExampleWizard"
+            finalPerspective="org.eclipse.gemoc.xdsmlframework.ide.ui.xdsml.perspective"
+            hasPages="false"
+            icon="icons/IconeGemocLanguage-16.png"
+            id="org.eclipse.gemoc.sequential.language.wb.sample.deployer.legacyfsm.wizard"
+            name="GEMOC FSM Language (Sequential)"
+            preferredPerspectives="org.eclipse.gemoc.xdsmlframework.ide.ui.xdsml.perspective">
+         <description>
+            T⁮his set of projects features a simple Finite State Machine language which is extended and made executable using GEMOC.
+It illustrates the building of an executable sequential language (xsfsm) on top of an existing language environment and editor (fsm).
+         </description>
+      </wizard>      
+            
+   </extension>
+   <extension
+       point="org.eclipse.help.toc">
+    <toc
+          file="toc.xml"
+          primary="false">
+    </toc>
+   </extension>
+</plugin>

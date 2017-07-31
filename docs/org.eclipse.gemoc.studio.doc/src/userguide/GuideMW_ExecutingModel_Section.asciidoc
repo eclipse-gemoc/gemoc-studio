@@ -1,0 +1,18 @@
+[[modeling-workbench-executing-model-section]]
+== Executing model
+
+As the GEMOC Studio offer different engines that requires specific configurations, it currently offers one launch configuration per engine.
+The views offered when running or debugging a model will also vary depending on the execution mode and the engine kind.
+
+The GEMOC Studio currently embed 2 engines:
+- a sequential engine with its launch configuration
+- a concurrent engine with its launch configuration
+
+Both launch configurations offer a Run and a Debug mode.
+
+
+include::GuideMW_ExecutingSequentialModel_Section.asciidoc[]
+
+include::GuideMW_ExecutingConcurrentModel_Section.asciidoc[]
+
+include::GuideMW_ExhaustiveExploration_Section.asciidoc[]

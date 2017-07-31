@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="gexpressions" nsURI="http://www.gemoc.org/gexpressions" nsPrefix="gexpressions">
+  <eClassifiers xsi:type="ecore:EClass" name="GProgram">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
+        eType="#//GImportStatement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expressions" upperBound="-1"
+        eType="#//GExpression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GImportStatement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="importURI" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GExpression" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GNavigationExpression" eSuperTypes="#//GExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="body" lowerBound="1" eType="#//GExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referencedEObject" lowerBound="1"
+        eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GReferenceExpression" eSuperTypes="#//GExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="referencedObject" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referencedEObject" lowerBound="1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GPrimaryExpression" abstract="true"
+      eSuperTypes="#//GExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GStringExpression" eSuperTypes="#//GPrimaryExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GBooleanExpression" eSuperTypes="#//GPrimaryExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GNumericExpression" abstract="true"
+      eSuperTypes="#//GPrimaryExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GIntegerExpression" eSuperTypes="#//GNumericExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GDoubleExpression" eSuperTypes="#//GNumericExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GIfExpression" eSuperTypes="#//GPrimaryExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
+        eType="#//GExpression" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="thenExpression" lowerBound="1"
+        eType="#//GExpression" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elseExpression" lowerBound="1"
+        eType="#//GExpression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GBraceExpression" eSuperTypes="#//GPrimaryExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="innerExpression" lowerBound="1"
+        eType="#//GExpression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GEnumLiteralExpression" eSuperTypes="#//GPrimaryExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="ecore:EClass ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EEnumLiteral"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GBinaryOperatorExpression" abstract="true"
+      eSuperTypes="#//GExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftOperand" lowerBound="1"
+        eType="#//GExpression" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightOperand" lowerBound="1"
+        eType="#//GExpression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GUnaryOperatorExpression" abstract="true"
+      eSuperTypes="#//GExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operand" lowerBound="1"
+        eType="#//GExpression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GBooleanOperatorExpression" abstract="true"
+      eSuperTypes="#//GBinaryOperatorExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GAndExpression" eSuperTypes="#//GBooleanOperatorExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" lowerBound="1"
+        eType="#//GAndOperator"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GXorExpression" eSuperTypes="#//GBooleanOperatorExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" lowerBound="1"
+        eType="#//GXorOperator"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GOrExpression" eSuperTypes="#//GBooleanOperatorExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" lowerBound="1"
+        eType="#//GOrOperator"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GEqualityExpression" eSuperTypes="#//GBinaryOperatorExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" lowerBound="1"
+        eType="#//GEqualityOperator"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GRelationExpression" eSuperTypes="#//GBinaryOperatorExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" lowerBound="1"
+        eType="#//GRelationOperator"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GAdditionExpression" eSuperTypes="#//GBinaryOperatorExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" lowerBound="1"
+        eType="#//GAdditionOperator"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GMultiplicationExpression" eSuperTypes="#//GBinaryOperatorExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" lowerBound="1"
+        eType="#//GMultiplicationOperator"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GNegationExpression" eSuperTypes="#//GUnaryOperatorExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" lowerBound="1"
+        eType="#//GNegationOperator"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="GAndOperator">
+    <eLiterals name="AND" literal="and"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="GXorOperator">
+    <eLiterals name="XOR" literal="xor"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="GOrOperator">
+    <eLiterals name="OR" literal="or"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="GEqualityOperator">
+    <eLiterals name="EQUAL"/>
+    <eLiterals name="NOTEQUAL" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="GRelationOperator">
+    <eLiterals name="LESS" literal="&lt;"/>
+    <eLiterals name="GREATER" value="1" literal=">"/>
+    <eLiterals name="LESSEQUAL" value="2" literal="&lt;="/>
+    <eLiterals name="GREATEREQUAL" value="3" literal=">="/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="GAdditionOperator">
+    <eLiterals name="ADDITION" literal="+"/>
+    <eLiterals name="SUBTRACTION" value="1" literal="-"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="GMultiplicationOperator">
+    <eLiterals name="MULTIPLICATION" literal="*"/>
+    <eLiterals name="DIVISION" value="1" literal="/"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="GNegationOperator">
+    <eLiterals name="NEGATION" literal="not"/>
+    <eLiterals name="MINUS" value="1" literal="~"/>
+  </eClassifiers>
+</ecore:EPackage>

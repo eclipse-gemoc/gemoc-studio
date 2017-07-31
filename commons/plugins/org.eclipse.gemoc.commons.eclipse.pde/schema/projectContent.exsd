@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="org.gemoc.commons.eclipse.pde" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="org.gemoc.commons.eclipse.pde" id="projectContent" name="GEMOC Project Content Wizards"/>
+      </appinfo>
+      <documentation>
+         This extension point provides for contributing wizards that create additional content of the K3
+projects. After the key files have been
+created, these wizards can be used to add more files and
+extensions to the initial structure. A typical implementation
+of this wizard would add content based on a parametrized
+template customized based on the user choices in the wizard.
+The goal is to arrive at a plug-in that is does something
+useful right after the creation (e.g. contributes a view, 
+an editor etc.).
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="wizard" minOccurs="0" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  a fully qualified identifier of the target extension point
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  an optional identifier of the extension instance
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  an optional name of the extension instance
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="wizard">
+      <annotation>
+         <appinfo>
+            <meta.element labelAttribute="name" icon="icon"/>
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="description" minOccurs="0" maxOccurs="1"/>
+         </sequence>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  a unique name that will be used to identify this wizard.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="identifier"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string" use="required">
+            <annotation>
+               <documentation>
+                  a translatable name that will be used in UI representation
+of this wizard.
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="icon" type="string">
+            <annotation>
+               <documentation>
+                  a relative path of an icon that will be used to visually 
+represent the wizard.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="resource"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  a fully qualified name of a class which implements 
+&lt;samp&gt;org.eclipse.pde.ui.IPluginContentWizard&lt;/samp&gt; and extends from &lt;samp&gt;org.eclipse.jface.Wizard&lt;/samp&gt;.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn="org.eclipse.jface.Wizard:org.gemoc.commons.eclipse.pde.wizards.pages.pde.IProjectContentWizard"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="category" type="string">
+            <annotation>
+               <documentation>
+                  an optional tag that can be used to associate content wizards with different target projects.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="targetPluginId" type="string">
+            <annotation>
+               <documentation>
+                  an optional tag that can be used to restrict the content wizards to the main plugin wizard with the given ID.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="description" type="string">
+      <annotation>
+         <appinfo>
+            <meta.element translatable="true"/>
+         </appinfo>
+         <documentation>
+            Short description of this wizard.
+         </documentation>
+      </annotation>
+   </element>
+
+
+   <annotation>
+      <appinfo>
+         <meta.section type="examples"/>
+      </appinfo>
+      <documentation>
+         The following is an example of this extension point:
+&lt;pre&gt;   
+   &lt;extension point=&quot;org.eclipse.pde.ui.pluginContent&quot;&gt;
+      &lt;wizard
+         name=&quot;Example Plug-in Content Generator&quot;
+         icon=&quot;icons/content_wizard.png&quot;
+         class=&quot;com.example.xyz.ContentGeneratorWizard&quot;
+         id=&quot;com.example.xyz.ExampleContentGenerator&quot;&gt;
+         &lt;description&gt;
+            Adds a view and a preference page.
+         &lt;/description&gt;
+      &lt;/wizard&gt;
+   &lt;/extension&gt;
+&lt;/pre&gt;
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="apiInfo"/>
+      </appinfo>
+      <documentation>
+         Wizards that plug into this extension point must
+implement &lt;samp&gt;org.eclipse.pde.ui.IPluginContentWizard&lt;/samp&gt;
+interface and is expected to extend &lt;code&gt;org.eclipse.jface.wizard.Wizard&lt;/code&gt;.
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="implementation"/>
+      </appinfo>
+      <documentation>
+         PDE provides APIs for contributing content wizards based on customizable templates. A number of concrete wizards based on these templates is contributed by PDE UI itself.
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="copyright"/>
+      </appinfo>
+      <documentation>
+         Copyright (c) 2015 Inria and others.
+&lt;br&gt;
+All rights reserved. This program and the accompanying materials are made 
+available under the terms of the Eclipse Public License v1.0 which 
+accompanies this distribution, and is available at 
+&lt;a href=&quot;http://www.eclipse.org/legal/epl-v10.html&quot;&gt;http://www.eclipse.org/legal/epl-v10.html&lt;/a&gt;.
+      </documentation>
+   </annotation>
+
+</schema>

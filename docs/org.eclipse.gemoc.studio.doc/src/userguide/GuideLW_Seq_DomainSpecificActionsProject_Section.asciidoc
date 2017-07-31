@@ -1,0 +1,43 @@
+
+
+[[section-define-sequential-dsa-project]]
+==== Defining the Domain-Specific Actions (DSA) Project for Sequential language
+
+===== Purpose
+The Domain-Specific Actions define the runtime state (*Execution Data*) of the model and the operations (*Execution Functions*) which modify the runtime state of the model. 
+In the case of the sequential engine, this project will also define the (*control flow*) between the operations.
+
+===== Creating the DSA Project
+In the GEMOC Studio, the DSA are implemented using https://github.com/diverse-project/k3/wiki[Kermeta 3].
+To create a new DSA Project, in the main menu of the GEMOC Studio, go to: _File > New > Project... > K3 Project_. In the wizard, create it as a Plug-in with EMF using the template of your choice.
+Then, connect the xDSML Project to the DSA by referencing them in the _.melange_ file thanks to the keyword *with*.
+See <<section-melange-editor>> for more informations about Melange keywords and the content assist.
+
+===== Editing the DSA Project
+Kermeta 3 is based on http://www.eclipse.org/xtend/index.html[xTend]. The Execution Data and Execution Functions are defined through aspects weaved onto the metaclasses of the Domain Model.
+
+====== Defining the Execution Data
+The Execution Data consist in attributes and references added to existing concepts (metaclasses) of the Abstract Syntax. They may also include new metaclasses which define the type of these new attributes and references.
+
+====== Defining the Execution Functions
+The Execution Functions define how the Execution Data evolve during the execution of the model. Execution Functions can be implemented by defining the body of a method.
+
+These methods must have the _@Step_ annotation.
+
+Whenever a method with an _@Step_ annotation returns, the changes in the model will be applied (via a transaction) to the resource. This means that the changes will be visible from an animator.
+
+The technology used be K3 with its _@Step_ annotation allows nested call so that changes in the model will be applied when entering and leaving methods having this annotations.
+
+[NOTE]
+====
+Any change to the model must be done by operations with the _@Step_ annotation or that are called by an operation that have the annotation. 
+====
+
+====== Defining the control flow
+Defining the control flow between operation for the sequential engine is equivalent to write a Visitor where operations can call other operations.
+This is quite straightforward with K3 _@Aspect_ annotation since the operations are directly weaved on the metaclasses and applied on the target model elements. 
+
+====== Defining the entry point
+The sequential  engines will use as entry point methods having an _@Main_ annotation.
+
+This annotation must be placed on operations applicable to the root model element.

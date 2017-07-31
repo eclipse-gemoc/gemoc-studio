@@ -1,0 +1,10 @@
+[[defining-multidimensional-trace-project-section]]
+=== Defining Multidimentional Trace support
+
+The multidimentional trace is a mecanism that enable some extra feature in the debugger in the Modeling workbench.
+This turns the debugger into an omniscient debugger with forward/backward features and advanced visualization of data changes in the model.
+
+This feature can be enabled by using the generator on top of the xdsml project and generate the _Trace Addon Project_.
+
+
+TODO complete this section.

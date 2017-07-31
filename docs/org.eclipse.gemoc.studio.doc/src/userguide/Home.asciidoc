@@ -1,0 +1,44 @@
+
+== Welcome to the GEMOC Studio Documentation wiki! 
+
+This wiki offers a convenient way to quickly *_edit_* the GEMOC documentation.
+
+*If you are looking for the online version of GEMOC documentation please go on this page: http://gemoc.github.io/gemoc-studio/[http://gemoc.github.io/gemoc-studio/]*
+
+=== How it works
+There are two ways to contribute to the GEMOC documentation.
+
+==== Edit online using the github editor
+This is the easiest way to edit and and have a rough idea of the documentation content.
+*_However it is not possible to upload images._*
+
+We hope the online editor from github will soon provide the image upload function like in the markdown editor.
+
+Editing wiki pages will trigger a job in the CI that will build the documentation and publish it as github pages link:https://github.com/gemoc/gemoc-studio/tree/gh-pages[here] and the result is visible link:http://gemoc.github.io/gemoc-studio/[there].
+
+*Important* : currently the github wiki rendering may not create the correct navigation links (for example the includes) , _the wiki must be considered as a preview_. Please remember that the real documentation is there :
+http://gemoc.github.io/gemoc-studio/
+
+==== Edit locally on your machine
+This is also the way to manually build the documentation if the CI is down.
+
+That is the best way today to add images to the repository and upload them to the wiki.
+
+In this mode, you retreive the file locally and can work offline.
+
+1. clone the master branch from https://github.com/gemoc/gemoc-studio.wiki.git in let's say folder wiki.
+2. open Eclipse and import the project located in the wiki folder.
+3. edit the asciidoc (for better productivity use http://asciidoctor.org/docs/editing-asciidoc-with-live-preview/)
+4. run the pom.xml with maven.
++
+----
+mvn install
+----
+5. clone the gh-pages branch from repository https://github.com/gemoc/gemoc-studio.git in let's folder documentation.
+6. copy folder wiki/target/docbook/publish/en-US into folder documentation.
+7. in the repository documentation execute:
++
+----
+git commit -am "Updated site"
+git push
+----

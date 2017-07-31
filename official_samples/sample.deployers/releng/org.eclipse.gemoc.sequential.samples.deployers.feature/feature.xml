@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (c) 2015, 2017  Inria  and others.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        Inria - initial API and implementation
+ -->
+
+<feature
+      id="org.eclipse.gemoc.sequential.samples.deployers.feature"
+      label="GEMOC Official Samples"
+      version="2.3.0.qualifier"
+      provider-name="%providerName"
+      image="gemocstudio32.png">
+
+   <description url="http://gemoc.org/studio/">
+      Sample GEMOC-based languages, which can be used as examples and reference by specifiers. Install this if you plan to create GEMOC-based languages and want to have working examples to study.
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      Copyright (c) 2012, 2016 Inria and others.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License
+v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+Contributors:
+   Inria - initial API and implementation
+   I3S - initial API and implementation
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <plugin
+         id="org.eclipse.gemoc.sequential.language.wb.sample.deployer"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.gemoc.sequential.modeling.wb.sample.deployer"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

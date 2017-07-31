@@ -1,0 +1,81 @@
+
+
+[uml,file="uml-diagram.png"]
+--
+@startuml
+hide stereotype  
+
+skinparam class {
+	BackgroundColor White
+	ArrowColor Black
+	BorderColor Black
+}
+namespace fsm <<Node>> {
+	namespace fsm #LightGray-white {
+	  class FSM {
+	    name : String
+	    initialState : State
+	    finalState : State
+	  }
+	  class State{
+	    name : String
+	    incommingTransition : Transition
+	  }
+	  class Transition{
+	    input : String
+	    target : State
+	  }
+	  FSM *- State : ownedStates
+	  State *- Transition : outgoingTransitions
+	}
+	
+}
+
+namespace fsm.k3dsa  #LightGray-white {
+    class FSMAspect << (@,#FF7700) Aspect >>{
+	    currentState : State
+	    run()
+	}
+	class StateAspect << (@,#FF7700) Aspect >>{
+	    step()
+	}
+	class TransitionAspect << (@,#FF7700) Aspect >>{
+	    fire()
+	}
+}
+
+fsm.fsm.FSM .. fsm.k3dsa.FSMAspect  : <
+fsm.fsm.State .. fsm.k3dsa.StateAspect  : <
+fsm.fsm.Transition .. fsm.k3dsa.TransitionAspect  : <
+
+namespace xsfsm <<Node>> {
+	namespace fsm  #LightGray-white {
+	  class FSM {
+	    name : String
+	    initialState : State
+	    finalState : State
+	    currentState : State
+	    run()
+	  }
+	  class State{
+	    name : String
+	    incommingTransition : Transition
+	    step()
+	  }
+	  class Transition{
+	    input : String
+	    target : State
+	    fire()
+	  }
+	  FSM *- State : ownedStates
+	  State *- Transition : outgoingTransitions
+	}
+
+}
+
+fsm <|-- xsfsm : inherits
+xsfsm *-- fsm.k3dsa : with
+
+@enduml
+
+--

@@ -1,0 +1,226 @@
+[[section-gemoc-language-project]]
+=== xDSML Project
+
+==== Purpose
+The xDSML Project is the core project of languages created using the GEMOC Studio. It has one main purposes:
+
+* Referencing the different projects implementing the various parts constituting an xDSML;
+
+==== Creating the xDSML Project
+In the GEMOC Studio, go to: _File > New > Project... > New GEMOC Language Project_. This will create a new xDSML Project in your workspace.
+
+==== Editing the xDSML Project
+The .melange file is the main element of the xDSML Project.
+
+From the information contained in this file, the project generates additional code that is used by the Execution Engine during the execution of models conforming to the xDSML (see <<chapter-gemoc-modeling-workbench>>).
+
+==== xDSML perspective
+The GEMOC Language Workbench provides an *xDSML* perspective.
+It is available in the menu _Window > Open Perspective > Other_.
+
+This perspective eases the creation of a new xDSML project.
+In the menu _File > New_, you have direct access to
+
+* GEMOC Sequential xDSML Project
+* GEMOC Concurrent xDSML Project
+
+image::Guide/images/workbench/language/newProject.png[New xDSML project,1000]
+
+==== GEMOC Language menu
+On a right click on an xDSML project you have access to this menu containing theses commands:
+
+- Generate Multidimentional Trace Addon project for language
+- Create Domain Model Project for language
+- Create Sirius Editor for language
+- Create XText Editor Project for language
+- Create Animator Project for language
+
+image::Guide/images/workbench/language/project_menu.png[Project menu,1000]
+
+==== Melange menu
+On a right click on a .melange file you have access to this menu containing theses commands:
+
+Generate All::
+  Generate Language Runtime, Adapters, Interfaces and Plugin.xml
+Clean All::
+  Delete generated artifacts
+Generate Language Runtime::
+  Generate new Eclipse projects for Languages that inherit or with multiple *syntax*. A new project contains the .ecore merging the multiple Domain models of the Language. It also contains copies of inherited Aspects but applying on the new .ecore file (which has classes in another namespace).
+Generate Adapters::
+  Generates adaptation classes to see a model as an instance of a compatible Language. (experimental)
+Generate Interfaces::
+  Generate the ModelTypes as .ecore file. It represents the merge of Domain models and semantics of the Language.
+Generate Plugin.xml::
+  Generate extension points in the plugin.xml file. They are used by the Modelling Workbench to get informations about defined Languages.
+
+image::Guide/images/workbench/language/melange_menu.png[Project menu,1000]
+
+[[section-melange-editor]]
+==== Melange editor
+
+Melange is a Language designing tool. Through a .melange file you can define a Language as an assembly of abstract syntaxes with operational semantics and also as a composition of Languages.
+To do so, Melange is provided with a textual Languages editor.
+
+===== Syntax
+A .melange file start with
+
+[source,melange]
+package your.language.namespace
+
+and contains a list of Language definitions starting with the keyword *language*.
+
+.a basic Language
+[source,melange]
+----
+package org.gemoc.sample.tfsm.xdsml
+
+language Tfsm {
+	
+	/*
+	 * Declare abstract syntax
+	 */
+	syntax "platform:/resource/org.gemoc.sample.tfsm.plaink3.model/model/tfsm.ecore"
+	
+	/*
+	 * Set name of the ModelType (ie: the type of this language)
+	 */
+	exactType TfsmMT
+}
+----
+
+A Language definition accept theses keywords:
+
+syntax::
+  Link your language to your Domain Model. The path to your model follows the Eclipse platform URLs convention:
+"platform:/resource/<name of your EMF project>/<path to the .ecore file>"
+with::
+  Link the DSA project to your language. *with* is followed by the name of a Java class. Melange support wildcard character for this operator. Typing in your language 'with some.package.name.*' will import all classes under this namespace.
+ecl::
+  Link your language to your ECL project. The intended format for the path to your .ecl file is:
+"<name of your ECL project>/<path to the .ecl file>"
+inherits::
+  The keyword *inherits* allows you to define a Language as an extension of another. It means the abstract syntax and the semantics of the inherited Language are copied in your Language.
+
+[NOTE]
+====
+Your xDSML project need a dependency to your DSA project. Check the Require-Bundle section in the MANIFEST.MF if the Melange editor can't see the used Aspect.
+====
+
+.a Language with semantic
+[source,melange]
+----
+package org.gemoc.sample.tfsm.xdsml
+
+language Tfsm {
+	
+	/*
+	 * Declare abstract syntax
+	 */
+	syntax "platform:/resource/org.gemoc.sample.tfsm.plaink3.model/model/tfsm.ecore"
+	
+	/*
+	 * Declare DSA
+	 */
+	with org.gemoc.sample.tfsm.plaink3.dsa.TFSMAspect
+	with org.gemoc.sample.tfsm.plaink3.dsa.TFSMVisitorAspect
+	with org.gemoc.sample.tfsm.plaink3.dsa.FSMEventAspect
+	with org.gemoc.sample.tfsm.plaink3.dsa.FSMClockAspect
+	with org.gemoc.sample.tfsm.plaink3.dsa.FSMClockVisitorAspect
+	with org.gemoc.sample.tfsm.plaink3.dsa.StateAspect
+	with org.gemoc.sample.tfsm.plaink3.dsa.StateVisitorAspect
+	with org.gemoc.sample.tfsm.plaink3.dsa.TransitionAspect
+	with org.gemoc.sample.tfsm.plaink3.dsa.TransitionVisitorAspect
+	with org.gemoc.sample.tfsm.plaink3.dsa.GuardVisitorAspect
+	with org.gemoc.sample.tfsm.plaink3.dsa.TemporalGuardVisitorAspect
+	with org.gemoc.sample.tfsm.plaink3.dsa.EventGuardVisitorAspect
+	with org.gemoc.sample.tfsm.plaink3.dsa.TimedSystemAspect
+	with org.gemoc.sample.tfsm.plaink3.dsa.TimedSystemVisitorAspect
+	
+	/*
+	 * Set name of the ModelType (ie: the type of this language)
+	 */
+	exactType TfsmMT
+}
+----
+
+===== Content assist
+
+You can press Ctrl+Space to have a content assist in the Melange editor.
+
+* In *language* { ... }
+
+-- Create a Domain Model Project --::
+  Create a new EMF project and upadte the *syntax* of your language.
+-- Create a DSA Project --::
+  Create an new K3 project. Based on the *syntax* of your language, it automatically create Aspects for each class of your Domain.
+  Theses Aspects are also added in your Language.
+-- Import existing DSA project --::
+  Automatically imports all Aspects from a K3 project
+
+image::Guide/images/workbench/language/assist_language.png[Language content assist]
+
+* After *syntax*
+
+Display the list of available .ecore in your workspace and update *syntax* with the path to the selection.
+
+image::Guide/images/workbench/language/assist_syntax.png[Syntax content assist]
+
+* After *with*
+
+Display the list of accessible Java classes from your project dependencies. K3 Aspects are displayed first.
+
+image::Guide/images/workbench/language/assist_with.png[With content assist]
+
+* After *ecl*
+
+Display the list of available .ecl in your workspace and update *ecl* with the path to the selection.
+
+image::Guide/images/workbench/language/assist_ecl.png[Ecl content assist]
+
+===== Outline
+
+The outline view is available when you open a .melange file. It gives an overview of the file content.
+
+image::Guide/images/workbench/language/outline.png[Outline view,600]
+
+==== Plugin.xml
+
+The plugin.xml file is the link between the Languages and the Modelling Workbench.
+It is mainly composed of two extension points:
+
+- GEMOC extension point: *"org.gemoc.gemoc_language_workbench.sequential.xdsml"*
+- Melange extension point: *"fr.inria.diverse.melange.language"*
+
+Gemoc extension points declare Languages availables in the Modelling Workbench. It also give the class able to load models for each Language.
+
+.GEMOC language
+[source,xml]
+----
+<extension point="org.gemoc.gemoc_language_workbench.sequential.xdsml">
+<XDSML_Definition
+modelLoader_class="org.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" 
+name="org.gemoc.sample.tfsm.xdsml.Tfsm" 
+xdsmlFilePath="/org.gemoc.sample.tfsm.plaink3.xdsml/bin/org/gemoc/sample/tfsm/xdsml/Main.melange"
+>
+----
+
+Melange extension points declare semantic of Languages as list of Domain model classes associated to their K3 Aspects.
+It also gives the available entry points for the execution, which are the Aspects methods tagged with @Main.
+
+.Melange Language
+[source,xml]
+----
+<extension point="fr.inria.diverse.melange.language">
+<language
+aspects="FSMClock:org.gemoc.sample.tfsm.plaink3.dsa.FSMClockAspect,org.gemoc.sample.tfsm.plaink3.dsa.FSMClockVisitorAspect;..." 
+entryPoints="org.gemoc.sample.tfsm.plaink3.dsa.TimedSystemAspect.main(org.gemoc.sample.tfsm_plaink3.TimedSystem)" 
+exactType="org.gemoc.sample.tfsm.xdsml.TfsmMT" 
+id="org.gemoc.sample.tfsm.xdsml.Tfsm" 
+uri="http://tfsmmt/"
+>
+----
+
+[NOTE]
+====
+*<XDSML_Definition name>* have to be equal to *<language id>*
+====

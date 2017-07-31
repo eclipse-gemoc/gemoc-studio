@@ -1,0 +1,9 @@
+package org.gemoc.sample.legacyfsm.xsfsm
+	
+language XSFSM inherits org.gemoc.sample.legacyfsm.fsm.FSM {
+	
+	with org.gemoc.sample.legacyfsm.fsm.k3dsa.StateAspect
+	with org.gemoc.sample.legacyfsm.fsm.k3dsa.StateMachineAspect
+	with org.gemoc.sample.legacyfsm.fsm.k3dsa.TransitionAspect
+
+}

@@ -1,0 +1,14 @@
+[[section-define-AS-project]]
+=== Defining a Domain Model Project
+
+==== Purpose
+The Domain Model Project specifies the concepts of the domain at hand and the structural relations between the concepts.
+
+==== Creating the Domain Model Project
+The GEMOC Studio relies on the Eclipse Modeling Framework for its Domain Model Projects. See http://eclipse.org/modeling/emf/[the EMF website] for more information on how to create an EMF project in Eclipse. The Domain Model is materialized as an Ecore metamodel.
+
+When your EMF Project is done, connect your xDSML Project to it by specifying in the _.melange_ file the path to your Ecore metamodel thanks the keyword *syntax*.
+See <<section-melange-editor>> for more informations about Melange keywords and the content assist.
+
+==== Editing the Domain Model Project
+If you wish to modify your Domain Model, do not forget to reload the associated genmodel and regenerate the EMF model code (and edit/editor code if you use them).

@@ -1,0 +1,188 @@
+
+=== Executing model with the ((Concurrent Engine))
+
+==== Concurrent Launch configuration
+
+===== Concurrent General options
+Run and debug are configured using the launch configuration. An example of configuration:
+
+image:Guide/images/workbench/modeling/concurrent_launch_configuration.png[Concurrent launch configuration, 800]
+
+- Model to execute : this is the model that will be run
+- Melange languages : this field allows to select among the languages defined in Melange.
+- ((Decider)) : this field allows to select the solver strategy used by the engine when several ((Logical Step))s can be triggered. Possible choices are : 
+** Solver proposition : the solver internal strategy will be used to select a Logical Step
+** Random : will randomly select one of the available Logical Step (warning: execution cannot be reproduced when using this Decider)
+** Ask user : (available only in Debug mode), this option will use the <<modeling-workbench-executing-model-logical-step-view-section,Logical Step View>> or the <<mw-executing-concurrent-model-multibranch-timeline-view-section,MultiBranch Timeline View>> to present the available Logical Steps and pause if there are more than one Logical Step. The user will then need to click on one of the Logical Step to continue.
+** Ask user (Step by step) : (available only in Debug mode), this option is similar to the previous one. However, it will pause on every Logical Step, even if there is only one Logical Step that can be triggered. This is more or less equivalent as putting a breakpoint on every MSE of the language.
+
+More Deciders will be developed (for example for playing predefined scenario).
+
+===== Concurrent Run mode
+In run mode, it offers the faster way to run the model.
+It cannot be paused. However, you can stop it.
+It offers a limited set of views :
+
+- the <<mw-executing-concurrent-model-engine-view-section,((Engine)) View>> allows to stop a running model.
+- the <<mw-executing-concurrent-model-multibranch-timeline-view-section,((MultiBranch Timeline)) View>> is displayed at the end of the execution in order to control the resulting execution trace.
+
+If more feedback are required, please use one of the frontend or backend available for the xDSML, see <<modeling-workbench-backends-frontends-section,Backends and frontends>>. 
+
+===== Concurrent Debug mode
+In debug mode, the engine offers more control on the execution.
+It allows to pause, add breakpoint, and run in a step by step mode.
+
+It reuses the Eclipse Debug perspective and some of its views and add some GEMOC specific views.
+
+- the <<mw-executing-concurrent-model-engine-view-section,((Engine)) View>> allows to stop a running model.
+- the <<mw-executing-concurrent-model-multibranch-timeline-view-section,((MultiBranch Timeline)) View>> can be displayed during all the simulation.
+- the <<mw-executing-concurrent-model-logical-steps-view-section, Logical Steps View>> is available for concurrent execution.
+- the <<mw-executing-concurrent-model-stimuli-manager-view-section,((Stimuli Manager)) View>> is displayed during all the simulation.
+- the <<mw-executing-concurrent-model-animation-view-section,((Animation Manager)) View>> is displayed during all the simulation. It can display both an animation layer and a debug layer.
+- the <<mw-executing-concurrent-model-debug-view-section,Debug View>>. This view presents an interface for Step by Step execution at the Logical Step level or even at the DSA level.
+- the <<mw-executing-concurrent-model-variable-view-section,Variable View>>. This view presents the ((Runtime Data)) as a (EMF based) tree.
+
+When running a simulation in Debug mode, it is configured to activate automatically the Debug layer and the Animation layer in the Animation view.
+
+The _break at start_ tells to the debugger to add a virtual breakpoint on the first instruction that will run.
+
+[[modeling-workbench-backends-frontends-section]]
+===== Backends and frontends
+Backends and frontends offer additionnal view that can respectively display informations from the running model or provide event input to the running model.
+
+These backends and front ends usually open dedicated views. These views are always opened in all modes (Run or Debug).
+
+
+[[mw-executing-concurrent-model-engine-view-section]]
+==== Engine View
+The engine view displays a list of execution engine and their statuses:
+
+* its number of execution steps, 
+* its current running status,
+* and its logical steps deciding strategy.
+
+image:Guide/images/workbench/modeling/engine_view.png[Engine View, 400]
+
+[[modeling-workbench-executing-model-logical-step-view-section]]
+
+The buttons available on top right of this views respectivley allows to:
+
+* Stop the selected Engine (red square button)
+* Remove previously stopped engines from the view (crosses button)
+* Change the current logical step decider (shield button).
+
+[TIP]
+====
+When running in debug mode, You can easily "pause" an engine running with a solver or random decider by clicking on the change logical step decider (the shield button will be green when run in debub mode) this will automatically switch to the "Step by step decider". To restart, simply select back an automatic decider (solver or random) and select the next step in the LogicalStep view.
+====
+
+[[mw-executing-concurrent-model-logical-steps-view-section]]
+==== Logical Steps View
+The logical steps view displays the list of possible future executions. This list is provided by the solver. This view is organized around a tree. For each logical step, its underlying events can be seen and possibly for each event the associated operation is visible. 
+
+[NOTE]
+====
+This view displays nothing when execution runs in "run mode", per say this view is only of use when running in "debug mode".
+====
+
+image:Guide/images/workbench/modeling/logical_steps.png[Logical Steps]
+
+[[mw-executing-concurrent-model-multibranch-timeline-view-section]]
+==== MultiBranch Timeline View
+
+Formely known as _Event Scheduling Timeline view_, this view represents the line of the model's execution. It displays:
+
+* the different logical steps proposed by the solver in the past in blue color,
+* the selected logical steps at each execution step in green color,
+* and the possible future logical steps in yellow color,
+* the model specific events for each logical step.
+
+[NOTE]
+====
+This view can be enabled/disable in the launch configuration by checking "Execution tracing" in the Engine Addons tab.
+====
+
+[NOTE]
+====
+The possible future logical steps are shown under the condition that the model is executing.
+====
+
+image:Guide/images/workbench/modeling/timeline.png[Timeline, 800]
+
+In addition to displaying information, it also provides interaction with the user. During execution, it is possible to come back into the past by double-clicking on any of the blue logical steps. It does three things:
+
+. it resets the solver's state to the selected execution step,
+. and it resets the model's state to the selected execution step,
+. it also forks the current timeline and create a new branch of execution.
+
+image:Guide/images/workbench/modeling/timeline/timeline_branch.png[Timeline branch, 200]
+
+It is also possible to select a logical step and use the contextual menu to show its caller in the Sirius editor:
+
+image:Guide/images/workbench/modeling/timeline/show_caller_timeline.png[Show caller]
+
+image:Guide/images/workbench/modeling/timeline/show_caller_editor.png[Show caller]
+
+
+[[mw-executing-concurrent-model-stimuli-manager-view-section]]
+==== Stimuli Manager View
+
+The Stimuli Manager view display the list of MSE and has interactions with the Logical Steps view.
+
+image:Guide/images/workbench/modeling/stimuliManager_view.png[Stimuli manager view]
+
+When selecting an MSE you can constrain it by clicking on :
+
+* Green down arrow : no user constraint for this MSE in the next LogicalStep
+* Orange down arrow : forbid tick of this MSE in the next LogicalStep. The solver will propose only solutions where this MSE doesn't tick.
+* Orange up : force tick of this MSE in the next LogicalSteps. The solver will propose only solutions where this MSE ticks.
+
+Depending of your choice, the list of proposals will be changed in the Logical Steps view.
+
+Moreover selecting an element in the Logical Steps view will highlight the MSE involved in the Stimuli Manager view.
+
+[TIP]
+====
+This Stimuli Manager view can be used to manually simulate external events.
+====
+
+[[mw-executing-concurrent-model-animation-view-section]]
+==== Animation View
+
+If you have defined a debug representation using <<defining-a-debug-representation-section>>. You can use the following actions to start a debug session and toggle breakpoints.
+
+image::Guide/images/workbench/modeling/debug_actions.png[Debug actions]
+
+A decorator is shown on all element holding a breakpoint.
+The decorator also reflects the state of the breakpoint:
+
+- enabled
+
+image:Guide/images/workbench/modeling/breakpoint_enabled.png[breakpoint enabled]
+
+- disabled
+
+image:Guide/images/workbench/modeling/breakpoint_disabled.png[breakpoint disabled]
+
+When you hit a breakpoint on an element and are debugging with the decider "Step by step user decider", in order to restart the execution you must click the resume button from the debug perspective. Then don't forget to select the next logical step to execute. Do the same when debugging in step by step with the decider "Step by step user decider".
+
+While executing you can visualize execution data. This setting must be defined by hand since the data are language dependent (see <<defining-a-debug-representation-section>> for more details). Here the current state is decorated with a green arrow.
+
+image:Guide/images/workbench/modeling/execution_data_highlight.png[Execution data highlight]
+
+The default definition highlights the current instruction in yellow.
+
+[[mw-executing-concurrent-model-debug-view-section]]
+==== Debug View
+This view is part of the Debug perspective.
+It presents an interface for Step by Step execution at the Logical Step level or even at the DSA level.
+When an execution is paused, this view presents the current Logical Step.
+
+When paused on a ((Logical Step)), the Step over command allows to go to the next Logical Step. The Step Into command allows to run separately each of the internal DSA calls associated to the Logical Step.
+
+image:Guide/images/workbench/modeling/debug_view.png[Debug view]
+
+[[mw-executing-concurrent-model-variable-view-section]]
+==== Variable View
+This view is available on the Debug perspective.
+When an execution is paused, this view presents the current ((Runtime Data)) as an EMF based tree.

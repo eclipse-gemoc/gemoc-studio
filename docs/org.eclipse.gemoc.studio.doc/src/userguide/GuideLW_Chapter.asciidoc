@@ -1,0 +1,86 @@
+[[gemoc-language-workbench]]
+= GEMOC Language Workbench image:images/icons/IconeGemocLanguage_16.png[width=16, height=16, role=right]
+
+== Overview
+
+The *((GEMOC Language Workbench))* is intended to be used by the ((Language Designer))s and the ((Language Integrator))s. It provides the tools to create and compose eXecutable Domain-Specific Modeling Languages (xDSMLs) using the GEMOC approach.
+
+[[figure-glw-screenshot-of-language_workbench]]
+.Screenshot of the GEMOC Language Workbench showing the design of a Timed Finite State Machine (TFSM) example.
+image::Guide/images/gemoc_language_workbench_TFSM_screenshot.png[Screenshot of the GEMOC Language Workbench, 800]
+(((TFSM,Language Workbench)))
+
+'''
+
+include::GuideLW_XDSMLProject_Section.asciidoc[]
+
+include::GuideLW_Dashboard_Section.asciidoc[]
+
+
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+[[create-language-chapter]]
+== Create a language
+include::GuideLW_DomainModelProject_Section.asciidoc[]
+
+
+// === Defining Domain-Specific Constraints
+// TODO
+
+include::GuideLW_DefiningConcreteSyntax_Section.asciidoc[]
+
+
+
+[[make-language-executable-chapter]]
+== Make a language executable
+
+The GEMOC Studio currently supports two major ways to make a language executable :
+
+* one will target a sequential engine 
+* the second will target a concurrent engine
+
+[NOTE]
+====
+The underlying executionframework used by the GEMOC Studio can be extended to support other methodologies or engines. 
+However, this isn't the scope of this document to explain how to use this framework and build an alternate or dedicated engine.
+==== 
+
+[[make-sequential-language-executable-section]]
+=== Make a sequential executable language
+
+include::GuideLW_Seq_DomainSpecificActionsProject_Section.asciidoc[]
+
+
+[[make-concurrent-language-executable-section]]
+=== Make a concurrent executable language
+// Push titles down one level. in order to avoid a big rewriting 
+:leveloffset: 1
+include::GuideLW_DomainSpecificActionsProject_Section.asciidoc[]
+
+include::GuideLW_ECLMoCCML_Section.asciidoc[]
+
+include::GuideLW_DomainSpecificEvents_Section.asciidoc[]
+
+include::GuideLW_DefiningFeedbackSpecification_Section.asciidoc[]
+
+include::GuideLW_ExhaustiveExploration_Section.asciidoc[]
+
+// Return to normal title levels.
+:leveloffset: 0
+
+[[define-animator-chapter]]
+== Define an animator
+
+include::GuideLW_DefiningDebug_Section.asciidoc[]
+
+include::GuideLW_DefiningMultidimensionalTrace_Section.asciidoc[]
+
+[[compose-languages-chapter]]
+== Compose languages
+
+include::GuideLW_ComposingLanguages_Section.asciidoc[]
+
+[[deploy-languages-chapter]]
+== Deploy languages
+
+include::GuideLW_DeployLanguages_Section.asciidoc[]

@@ -1,0 +1,37 @@
+[[section-exhaustive-exploration-lw]]
+=== Exhaustive Exploration and Verification at Language Design Time
+
+One benefit of assigning an execution semantics onto a DSL is to pave the way for exhaustive exploration. Exhaustive exploration is a technique used in complex and safety system design to ensure the correct adequacy between the system requirements and the real behavior of the system. This is made possible by exploring and verifying properties on an exhaustive finite state space of the system representing the whole set of relevant configurations your system may reach. 
+
+Gemoc provides the first step towards exploration and verification by building the graph of all the possible schedules of a system model constrained with *((MoCCML))*. It can then be used in a model-checking tool to verify behavioral properties of the *((MoCCML))* models. Thanks to Gemoc approach the execution model is explicited and can be manipulated to for instance:
+
+- Verify temporal logic properties (safety and liveness) on the state space graph structure;
+- Extract a schedule that optimizes specific objectives;
+- Extract system properties by static analysis of an event-graph representation of the execution model.
+
+In the Gemoc approach the steps toward exploration and verification during language design are:
+
+- Define an executable model and its mapping on a DSL(we assume it has already been defined see <<section-defining-a-mocc>>);
+- Generate a configuration file from *((ECL))* model to target an exhaustive exploration tool;
+
+In the Gemoc approach the steps toward exploration and verification during modeling design are described in <<section-exhaustive-exploration-mw>>:
+The flow toward exhaustive exploration and verification in Gemoc is presented in figure <<figure-exploration-flow>> and described in the following sections.
+
+[[figure-exploration-flow]]
+.The exploration and verification flow in Gemoc
+image::Guide/images/exhaustive_exploration/flow.png[The Exploration and Verification Flow in Gemoc, 600]
+ 
+==== Generating inputs for Exhaustive Exploration tools : _T1_ at Language Level
+
+ECL specification is the starting point toward exploration. In this specification we define events associated with the actions of the *((DSA))* and also events associated with the *((DSE))* events. On these event bindings we apply the *((MoccML))* relations of the MoC Library to schedule the events. A finite state space of a system uses such scheduling constraints and therefore a configuration file to target an exhaustive exploration tool must be generated:
+
+_T1_ transformation generates a configuration file to later target exhaustive exploration or simulation tools.  _T1_ takes as input the *((ECL))* mapping definition between the DSL and the *((MoCCML))* to generate a transformation _T2_ describing transformation rules that will be used to produce the processes for the DSL related functions and data (DSA) and the behavioral processes corresponding to the *((MoCCML))* constraints.
+
+_T1_ is automatically generated from ecl model and results are stored in *((mtl-gen))* folder.
+
+However to execute _T1_ manually right-click on the *((ECL))* file -> image:Guide/images/exhaustive_exploration/clocksystem_logo_32x32.png[width=16, height=16, role=right]Exhaustive Exploration  -> image:Guide/images/exhaustive_exploration/cs_t1_16x16.png[width=16, height=16, role=right]Generate ClockSystem transformation from ECL model  as illustrated in figure <<figure-t1-t2>>._T2_ is generated in the repository <mtl-gen>.
+
+[[figure-t1-t2]]
+.Using T1 Tranformation
+image::Guide/images/exhaustive_exploration/t1_t2.png[Using T1 Tranformation, 500]
+

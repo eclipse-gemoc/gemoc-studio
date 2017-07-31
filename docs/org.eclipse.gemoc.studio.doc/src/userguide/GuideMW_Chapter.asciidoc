@@ -1,0 +1,27 @@
+[[chapter-gemoc-modeling-workbench]]
+= GEMOC Modeling workbench image:images/icons/IconeGemocModel_16.png[width=16, height=16, role=right]
+
+== Modeling workbench overview
+
+The GEMOC Modeling Workbench, intended to be used by domain designers: it allows creating and executing models conformant to executable DSMLs.
+
+[[figure-glw-screenshot-of-modeling_workbench]]
+.Screenshot of GEMOC Studio Modeling Workbench on the TFSM example (execution and animation).
+image::Guide/images/gemoc_modeling_workbench_TFSM_animation_screenshot.png["Screenshot of GEMOC Studio Modeling Workbench on the TFSM example (execution and animation)", 800]
+(((TFSM)))
+(((TFSM,Modeling workbench)))
+
+'''
+
+[[section-editing-model]]
+== Editing model
+As seen in Section <<defining-a-concrete-syntax-section>>, an xDSML can provide different concrete syntaxes. 
+
+include::GuideMW_EditingModelWithSirius_Section.asciidoc[]
+include::GuideMW_EditingModelEMFTreeEditor_Section.asciidoc[]
+
+
+include::GuideMW_ExecutingModel_Section.asciidoc[]
+
+
+include::GuideMW_CoordinatingModelExecution_Section.asciidoc[]
