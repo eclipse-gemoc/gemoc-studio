@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The source code of the [GEMOC Studio](http://gemoc.org/studio/) is currently spread among different git repositories in different github organizations.
+The source code of the [GEMOC Studio](http://gemoc.org/studio/) is currently spread among different git repositories in Eclipse organization.
 
 This project relies on the presence of the correct git repositories (cloned with the correct name) to locally build a working studio.
 
@@ -12,11 +12,8 @@ This project relies on the presence of the correct git repositories (cloned with
 First checkout the git repositories :
 
 ~~~
-git clone  https://github.com/gemoc/gemoc-studio
-git clone  https://github.com/gemoc/concurrency
-git clone  https://github.com/gemoc/coordination
-git clone  https://github.com/gemoc/gemoc-studio.wiki
-git clone  https://github.com//SiriusLab/ModelDebugging
+git clone  https://github.com/eclipse/gemoc-studio
+git clone  https://github.com/eclipse/gemoc-studio-modeldebugging
 ~~~
 
 Then compile using maven:
