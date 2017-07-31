@@ -54,7 +54,7 @@
         <repository>
             <id>Sirius</id>
             <layout>p2</layout>
-            <url>http://download.eclipse.org/sirius/updates/releases/4.1.1/neon/</url>
+            <url>http://download.eclipse.org/sirius/updates/releases/4.1.6/neon/</url>
         </repository>
 
         <repository>
