@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fsm:TimedSystem xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fsm="http://www.gemoc.org/legacyfsm/fsm" name="TrafficControl">
+  <fsms name="Semaphore" initialState="//@fsms.0/@ownedStates.0">
+    <ownedStates name="initSemaphore" outgoingTransitions="//@fsms.0/@ownedTransitions.0"/>
+    <ownedStates name="Yellow" outgoingTransitions="//@fsms.0/@ownedTransitions.1" incomingTransitions="//@fsms.0/@ownedTransitions.0 //@fsms.0/@ownedTransitions.2"/>
+    <ownedStates name="Green" outgoingTransitions="//@fsms.0/@ownedTransitions.2" incomingTransitions="//@fsms.0/@ownedTransitions.1"/>
+    <localEvents name="switch" sollicitingTransitions="//@fsms.0/@ownedTransitions.2"/>
+    <localClock name="minutes"/>
+    <ownedTransitions name="initSemaphore_to_Red" source="//@fsms.0/@ownedStates.0" target="//@fsms.0/@ownedStates.1" action="dosomething">
+      <ownedGuard xsi:type="fsm:TemporalGuard" name="guard_InitSemaphore_to_Red" onClock="//@fsms.0/@localClock" afterDuration="1"/>
+    </ownedTransitions>
+    <ownedTransitions name="Red_to_Green" source="//@fsms.0/@ownedStates.1" target="//@fsms.0/@ownedStates.2" action="doGreen">
+      <ownedGuard xsi:type="fsm:TemporalGuard" name="guard_Red_to_Green" onClock="//@fsms.0/@localClock" afterDuration="3"/>
+    </ownedTransitions>
+    <ownedTransitions name="Green_to_Red" source="//@fsms.0/@ownedStates.2" target="//@fsms.0/@ownedStates.1" action="doRed">
+      <ownedGuard xsi:type="fsm:EventGuard" name="guard_Green_to_Red" triggeringEvent="//@fsms.0/@localEvents.0"/>
+    </ownedTransitions>
+  </fsms>
+</fsm:TimedSystem>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2013, 2017 Obeo Cedric Brun <cedric.brun@obeo.fr> -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.gemoc.gemoc_studio</groupId>
+		<artifactId>org.gemoc.gemoc_studio.parent</artifactId>
+		<version>2.3.0-SNAPSHOT</version>
+		<relativePath>../..</relativePath>
+	</parent>
+
+	<properties>
+		<eclipse.version.name>Neon.3</eclipse.version.name>
+	</properties>
+
+	<artifactId>org.eclipse.gemoc.gemoc_studio.branding</artifactId>
+	<packaging>eclipse-plugin</packaging>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/filtered-resources</directory>
+				<filtering>true</filtering>
+				<targetPath>${basedir}/</targetPath>
+			</resource>
+		</resources>
+		<plugins>
+			<!-- create a timestamp for the filter -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>buildnumber-maven-plugin</artifactId>
+				<version>1.0</version>
+				<executions>
+					<execution>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>create</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<doCheck>false</doCheck>
+					<doUpdate>false</doUpdate>
+					<revisionOnScmFailure>false</revisionOnScmFailure>
+					<format>{0,date,yyyy-MM-dd HH:mm}</format>
+					<items>
+						<item>timestamp</item>
+					</items>
+				</configuration>
+			</plugin>
+			<!-- Generate the splash screen (support png only) -->
+			<plugin>
+	            <groupId>org.bitstrings.maven.plugins</groupId>
+	            <artifactId>splasher-maven-plugin</artifactId>
+	            <version>1.1.0</version>
+	            <executions>
+	                <execution>
+	                    <id>splash-bg</id>
+	                    <phase>generate-resources</phase>
+	                    <goals>
+	                        <goal>compose</goal>
+	                    </goals>
+	                    <configuration>
+	                        <outputImageFile>${project.build.directory}/splash.png</outputImageFile>
+	                        <resources>
+	                            <loadImage>
+	                                <imageFile>src/main/splash/splash.png</imageFile>
+	                                <name>splash</name>
+	                            </loadImage>
+	                            <loadImage>
+	                                <imageFile>src/main/splash/eclipse_white_48.png</imageFile>
+	                                <name>eclipse</name>
+	                            </loadImage>
+	                        </resources>
+	                        <canvas>
+	                        	<backgroundImageName>splash</backgroundImageName>
+	                            <draw>
+	                            	<drawText>
+			                            <text>${project.version}  ${buildNumber}</text>
+			                            <textColor>#909090</textColor>
+			                            <fontName>SansSerif</fontName>
+			                            <fontStyle>italic,bold</fontStyle>
+			                            <fontSize>12</fontSize>
+			                            <position>right-15,bottom-25</position>
+			                        </drawText>
+			                        <!-- Eclipse Logo 64 -->
+			                        <drawImage>
+                            			<imageName>eclipse</imageName>
+                            			<position>right-20,bottom-45</position>
+                        			</drawImage>
+			                        <!-- Eclipse version -->
+	                            	<drawText>
+			                            <text>${eclipse.version.name}</text>
+			                            <textColor>#4eeb0e</textColor>
+			                            <fontName>SansSerif</fontName>
+			                            <fontStyle>italic,bold</fontStyle>
+			                            <fontSize>16</fontSize>
+			                            <position>right-15,bottom-45</position>
+			                        </drawText>
+	                            </draw>
+	                        </canvas>
+	                    </configuration>
+	                </execution>
+	            </executions>
+	        </plugin>
+	        <!-- convert the splash screen to bmp -->
+	        <plugin>
+	        	<groupId>fr.inria.diverse.image-tools</groupId>
+				<artifactId>image-tools.mavenplugin</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+				<executions>
+					<execution>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>convert</goal>
+						</goals>
+						<configuration>
+							<input>${project.build.directory}/splash.png</input>
+							<outputFormat>bmp</outputFormat>
+							<output>splash.bmp</output>
+						</configuration>
+					</execution>
+				</executions>
+	        </plugin>	        
+		</plugins>
+	</build>	
+	<!-- used by buildnumber-maven-plugin -->
+	<scm>
+		<connection>scm:svn:http://127.0.0.1/dummy</connection>
+		<developerConnection>scm:svn:https://127.0.0.1/dummy</developerConnection>
+		<tag>HEAD</tag>
+		<url>http://127.0.0.1/dummy</url>
+	</scm>
+	
+	<pluginRepositories>
+		<pluginRepository>
+			<id>maven-inria-release</id>
+			<name>maven.inria.fr</name>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+				<checksumPolicy>warn</checksumPolicy>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+				<updatePolicy>always</updatePolicy>
+				<checksumPolicy>fail</checksumPolicy>
+			</snapshots>
+			<url>http://maven.inria.fr/artifactory/public-release</url>
+			<layout>default</layout>
+		</pluginRepository>
+		<pluginRepository>
+			<id>maven-inria-snapshot</id>
+			<name>maven.inria.fr</name>
+			<releases>
+				<enabled>false</enabled>
+				<updatePolicy>always</updatePolicy>
+				<checksumPolicy>warn</checksumPolicy>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+				<checksumPolicy>fail</checksumPolicy>
+			</snapshots>
+			<url>http://maven.inria.fr/artifactory/public-snapshot</url>
+			<layout>default</layout>
+		</pluginRepository>
+	</pluginRepositories>
+</project>

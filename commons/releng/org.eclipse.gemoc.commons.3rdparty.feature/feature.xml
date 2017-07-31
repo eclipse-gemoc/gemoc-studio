@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (c) 2017 Inria and others.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        Inria - initial API and implementation
+ -->
+<feature
+      id="org.eclipse.gemoc.commons.3rdparty.feature"
+      label="GEMOC Commons 3rd party"
+      version="2.3.0.qualifier"
+      provider-name="%providerName"
+      image="gemocstudio32.png">
+
+   <description url="http://gemoc.org/studio/">
+      Plugins coming from 3rd party that are bundled and redistributed here for convenience.
+   </description>
+
+   <copyright url="http://www.eclipse.org/legal/epl-v10.html">
+      Copyright (c) 2017 Inria and others
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <plugin
+         id="org.jaxen"
+         download-size="0"
+         install-size="0"
+         version="1.1.6.qualifier"
+         unpack="false"/>
+
+   <plugin
+         id="org.jdom2"
+         download-size="0"
+         install-size="0"
+         version="2.0.6.qualifier"
+         unpack="false"/>
+   <plugin
+         id="org.eclipse.gemoc.groovy"
+         download-size="0"
+         install-size="0"
+         version="2.4.9.qualifier"
+         unpack="false"/>
+
+
+</feature>

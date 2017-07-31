@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<!--
+    Copyright (c) 2015, 2017  Inria  and others.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        Inria - initial API and implementation
+ -->
+
+<plugin>
+
+
+
+	<extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="org.gemoc.gemoc_modeling_workbench.samples.category"
+            name="GEMOC modeling workbench examples"
+            parentCategory="org.eclipse.ui.Examples"/>
+      <wizard
+            canFinishEarly="true"
+            category="org.eclipse.ui.Examples/org.gemoc.gemoc_modeling_workbench.samples.category"
+            class="org.eclipse.gemoc.sequential.modeling.wb.sample.deployer.wizards.LegacyFSMExampleWizard"
+            finalPerspective="org.eclipse.sirius.ui.tools.perspective.modeling"
+            hasPages="false"
+            icon="icons/IconeGemocModel-16.png"
+            id="org.eclipse.gemoc.sequential.modeling.wb.sample.deployer.tfsm_plaink3.model.wizard"
+            name="GEMOC model for FSM Language (Sequential)"
+            preferredPerspectives="org.eclipse.sirius.ui.tools.perspective.modeling">
+         <description>
+            T⁮his project contains some FSM models that can be executed if you have installed the FSM language.
+         </description>
+      </wizard>      
+   </extension>
+ 
+</plugin>

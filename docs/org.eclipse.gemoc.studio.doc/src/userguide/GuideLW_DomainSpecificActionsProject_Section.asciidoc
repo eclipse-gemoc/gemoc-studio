@@ -1,0 +1,30 @@
+[[section-define-dsa-project]]
+=== Defining the Domain-Specific Actions (DSA) Project for concurrent language
+
+==== Purpose
+The Domain-Specific Actions define the runtime state (*Execution Data*) of the model and the operations (*Execution Functions*) which modify the runtime state of the model.
+
+==== Creating the DSA Project
+In the GEMOC Studio, the DSA are implemented using https://github.com/diverse-project/k3/wiki[Kermeta 3].
+To create a new DSA Project, in the main menu of the GEMOC Studio, go to: _File > New > Project... > K3 Project_. In the wizard, create it as a Plug-in with EMF using the template of your choice.
+Then, connect the xDSML Project to the DSA by referencing them in the _.melange_ file thanks to the keyword *with*.
+See <<section-melange-editor>> for more informations about Melange keywords and the content assist.
+
+==== Editing the DSA Project
+Kermeta 3 is based on http://www.eclipse.org/xtend/index.html[xTend]. The Execution Data and Execution Functions are defined through aspects weaved onto the metaclasses of the Domain Model.
+
+===== Defining the Execution Data
+The Execution Data consist in attributes and references added to existing concepts (metaclasses) of the Abstract Syntax. They may also include new metaclasses which define the type of these new attributes and references.
+
+===== Defining the Execution Functions
+The Execution Functions define how the Execution Data evolve during the execution of the model. Execution Functions can be implemented by defining the body of a method.
+
+[NOTE]
+For now, Execution Functions are considered as *atomic, instantaneous and blocking*. This means that any long computation will block the rest of the simulation, and concurrent Execution Functions are not executed in concurrence yet.
+
+[WARNING]
+For technical reasons, the Domain Model (Ecore metamodel) must specify the signature of the Execution Functions as EOperations.
+
+==== Testing the Domain-Specific Actions
+It is possible to test the DSA (in particular the Execution Functions) by simply writing a simple program with a _main_ function (using Java or Xtend/Kermeta3). Create or load a model conform to your Domain Model and call the Execution Functions in the right order to verify there are no runtime exceptions or domain issues.
+

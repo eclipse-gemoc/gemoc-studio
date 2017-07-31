@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fsm:StateMachine xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:fsm="http://www.gemoc.org/legacyfsm/fsm" name="BitShifting" initialState="//@ownedStates.0">
+  <ownedStates name="S0" outgoingTransitions="//@ownedTransitions.0 //@ownedTransitions.1"/>
+  <ownedStates name="S1" outgoingTransitions="//@ownedTransitions.3 //@ownedTransitions.4" incomingTransitions="//@ownedTransitions.0 //@ownedTransitions.3 //@ownedTransitions.5"/>
+  <ownedStates name="S2" outgoingTransitions="//@ownedTransitions.2 //@ownedTransitions.5" incomingTransitions="//@ownedTransitions.1 //@ownedTransitions.2 //@ownedTransitions.4"/>
+  <ownedTransitions name="S0_to_S1" source="//@ownedStates.0" target="//@ownedStates.1" input="1" output="0"/>
+  <ownedTransitions name="S0_to_S2" source="//@ownedStates.0" target="//@ownedStates.2" input="0" output="0"/>
+  <ownedTransitions name="S2_to_S2" source="//@ownedStates.2" target="//@ownedStates.2" input="0" output="0"/>
+  <ownedTransitions name="S1_to_S1" source="//@ownedStates.1" target="//@ownedStates.1" input="1" output="1"/>
+  <ownedTransitions name="S1_to_S2" source="//@ownedStates.1" target="//@ownedStates.2" input="0" output="1"/>
+  <ownedTransitions name="S2_to_S1" source="//@ownedStates.2" target="//@ownedStates.1" input="1" output="0"/>
+</fsm:StateMachine>

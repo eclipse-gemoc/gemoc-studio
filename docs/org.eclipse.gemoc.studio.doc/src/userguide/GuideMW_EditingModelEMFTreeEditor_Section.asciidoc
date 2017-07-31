@@ -1,0 +1,5 @@
+[[section-modeling-workbench-editing-model-with-emf-tree-editor]]
+=== Editing model with ((EMF Tree Editor))
+If you have defined an editor thanks to EMF genmodel, it can be used to create and edit models for your language as a complement to Sirius editor for example. 
+
+image::Guide/images/workbench/modeling/editing_with_tree_editor.png[Editing with tree editor, 400]

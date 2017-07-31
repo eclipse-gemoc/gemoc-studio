@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.gemoc.execution.sequential.javaengine.ui.launcher">
+<stringAttribute key="First Instruction" value="http://www.eclipse.org/emf/2002/Ecore#/"/>
+<intAttribute key="GEMOC_ANIMATE_DELAY" value="0"/>
+<stringAttribute key="GEMOC_DEBUG_MODEL_ID" value="org.gemoc.execution.sequential.javaengine.ui.debugModel"/>
+<booleanAttribute key="GEMOC_LAUNCH_BREAK_START" value="true"/>
+<stringAttribute key="GEMOC_LAUNCH_INITIALIZATION_ARGUMENTS" value="00011111011110000100"/>
+<stringAttribute key="GEMOC_LAUNCH_INITIALIZATION_METHOD" value="org.gemoc.sample.legacyfsm.xsfsm.xsfsm.aspects.StateMachineAspect.initializeModel"/>
+<stringAttribute key="GEMOC_LAUNCH_MELANGE_QUERY" value="?lang=org.gemoc.sample.legacyfsm.xsfsm.XSFSM"/>
+<stringAttribute key="GEMOC_LAUNCH_SELECTED_LANGUAGE" value="org.gemoc.sample.legacyfsm.xsfsm.XSFSM"/>
+<stringAttribute key="LAUNCH_METHOD_ENTRY_POINT" value="public static void org.gemoc.sample.legacyfsm.xsfsm.xsfsm.aspects.StateMachineAspect.main(org.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.StateMachine)"/>
+<stringAttribute key="LAUNCH_MODEL_ENTRY_POINT" value="/"/>
+<stringAttribute key="Resource" value="/org.gemoc.sample.legacyfsm.model_examples/EdgeDetector.fsm"/>
+<stringAttribute key="airdResource" value="/org.gemoc.sample.legacyfsm.model_examples/EdgeDetector.aird"/>
+<booleanAttribute key="fsm MultiDimensional Trace" value="true"/>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/org.gemoc.sample.legacyfsm.model_examples/EdgeDetector.fsm"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+</launchConfiguration>

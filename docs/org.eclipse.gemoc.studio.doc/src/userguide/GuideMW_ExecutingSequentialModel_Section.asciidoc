@@ -1,0 +1,195 @@
+
+
+=== Executing model with the ((Sequential Engine))
+
+==== Sequential Launch configuration
+
+===== Sequential general options
+Run and debug are configured using the launch configuration. An example of configuration:
+
+image:Guide/images/workbench/modeling/sequential_launch_configuration.png[Sequential Launch configuration, 800]
+
+- Model to execute : this is the model that will be executed 
+- Model initialization method and argument : if the choosen language has a valid method with the `@InitializeModel` annotation in its DSA, the field Model initialization method will be set and this method will be called before launching the animation. 
+- Model initialization arguments : optional string arguments that can be passed to the initialization method. (one string per line)
+- Melange languages : this field allows to select among the languages defined in Melange.
+- Main method : the name of the method that can be used to start the engine. The possible value are specified by the language designer in the language definition by adding an `@Main` annotation on methods in the DSA.
+- Main model element path : after having selected a main method, use the browse button to select a model element on wich this method will be called. This field presents its path in the model, the following field _Main model element name_ displays a human readable name for this element.
+
+The _break at start_ tells to the debugger to add a virtual breakpoint on the first instruction that will run. 
+
+[NOTE]
+====
+`@Main` and `@InitializeModel` annotations used to declare possible methods used in this launcher are detailed in <<section-define-sequential-dsa-project>>.
+====
+
+===== Sequential Run mode
+The run mode is the fastest way to execute a model.
+The execution cannot be paused. It can however be stopped.
+It offers a limited set of views :
+
+- the <<mw-executing-sequential-model-engine-view-section,((Engine)) View>> allows to stop a running model.
+- the <<mw-executing-sequential-model-multibranch-timeline-view-section,((MultiBranch Timeline)) View>> is displayed at the end of the execution in order to check the resulting execution trace.
+
+If more feedback is required, please use one of the frontend or backend available for the xDSML, see <<modeling-workbench-backends-frontends-section,Backends and frontends>>. 
+
+===== Sequential Debug mode
+In debug mode, the engine offers more control over the execution.
+It allows to pause, add breakpoints, and execute the model in a step by step mode.
+
+It reuses the Eclipse Debug perspective and some of its views and adds some Gemoc specific views.
+
+- the <<mw-executing-sequential-model-engine-view-section,((Engine)) View>> allows to stop a running model.
+- the <<mw-executing-sequential-model-animation-view-section,((Animation Manager)) View>> is displayed and updated in real-time during the simulation. It can display both an animation layer and a debug layer.
+- the <<mw-executing-sequential-model-debug-view-section,Debug View>>. This view presents an interface for Step by Step execution of the model.
+- the <<mw-executing-sequential-model-variable-view-section,Variable View>>. This view presents the ((Runtime Data)) as a (EMF based) tree.
+
+When running a simulation in Debug mode, it is configured to activate automatically the Debug layer and the Animation layer in the Animation view.
+
+On the engine addon tab, one can activate several optional addons.
+
+- the <<mw-executing-sequential-model-multibranch-timeline-view-section,((MultiBranch Timeline)) View>> can be displayed during all the simulation.
+- the <<mw-executing-sequential-model-multidimensional-timeline-view-section,((MultiDimensional Timeline)) View>> can be displayed during all the simulation.
+
+[[mw-executing-sequential-model-engine-view-section]]
+==== Engine View
+The engine view displays a list of execution engines and their status:
+
+* number of execution steps, 
+* current running status.
+
+image:Guide/images/workbench/modeling/engine_view.png[Engine View, 400]
+
+[[modeling-workbench-executing-model-logical-step-view-section]]
+
+The buttons available on the top right of this view respectively allow to:
+
+* Stop the selected engine (red square button)
+* Remove previously stopped engines from the view (crosses button)
+
+
+[[mw-executing-sequential-model-multidimensional-timeline-view-section]]
+==== MultiDimentional Timeline View
+
+The Multidimensional Timeline view provides an interactive representation of the execution trace being captured. 
+When double-clicking on a previous state represented in the timeline, the model is brought back into this state.
+Moreover, the timeline represents all the different dimensions captured in a trace, each being the sequence of 
+values taken by one specific element of the model. When double-clicking on a value that was reached by an element, 
+the complete model is brought back in the state corresponding to this value.
+
+In this mode, the Debug interface is extended with backward actions that behave similarly to their forward counterparts, but follow execution steps in the opposite direction:
+
+* image:Guide/images/workbench/ui_icons/stepbackinto_co.png[stepbackinto] _StepBack Into_ 
+* image:Guide/images/workbench/ui_icons/stepbackout_co.png[stepbackout] _StepBack Out_
+* image:Guide/images/workbench/ui_icons/stepbackover_co.png[stepbackover] _StepBack Over_
+
+
+[WARNING]
+====
+When going backward then forward again, the execution is a kind of `replay` where only the model is updated. The DSA operations are *not* run.  The DSA will run again normally when the engine will try to run the last Step in the timeline.
+====
+
+[NOTE]
+====
+This view currently works only with the Sequential engine. We're working on extending its use to concurrent model execution too.
+====
+
+.MutiDimensional Timeline
+image:Guide/images/workbench/modeling/timeline/sequential_omniscient_debugging_multidimensionnal_timeline.png[Sequential Execution Multidimensionnal Timeline, 800]
+
+[[mw-executing-sequential-model-multibranch-timeline-view-section]]
+==== MultiBranch Timeline View
+
+[WARNING]
+====
+Formerly known as `Event Scheduling Timeline` view, this view is limited when run in Sequential. Since there is no choice of Logical Step like with the concurrent engine, the branch mechanism is disabled and this view presents only a single line. 
+
+However, despite the Multidimensional trace, this view does not require to generate a specific trace addon for the language.
+====
+
+This view represents the line of the model's execution. It displays:
+
+* the different steps executed by the engine. Steps that have completely finished (ie. operation has returned) are shown in blue. Unfinished Steps are shown in yellow.
+* the model specific events for each  step.
+
+[NOTE]
+====
+This view is enabled/disable in the launch configuration by checking "Event Scheduling Execution tracing" in the Engine Addons tab.
+====
+.Sequential Execution MultiBranch Timeline
+image:Guide/images/workbench/modeling/timeline/sequential_model_event_scheduling_timeline.png[Sequential Execution MultiBranch Timeline, 800]
+
+It is  possible to select a logical step and use the contextual menu to show its caller by selecting the corresponding model element in the Sirius editor:
+
+image:Guide/images/workbench/modeling/timeline/sequential_model_event_schduling_timeline_show_caller.png[Show caller]
+
+
+
+[[mw-executing-sequential-model-animation-view-section]]
+==== Animation View
+
+If you have defined a debug representation using <<defining-a-debug-representation-section>>. You can use the following actions to start a debug session and toggle breakpoints.
+
+image::Guide/images/workbench/modeling/debug_actions.png[Debug actions]
+
+A decorator is shown on all element holding a breakpoint.
+The decorator also reflects the state of the breakpoint:
+
+- enabled
+
+image:Guide/images/workbench/modeling/breakpoint_enabled.png[breakpoint enabled]
+
+- disabled
+
+image:Guide/images/workbench/modeling/breakpoint_disabled.png[breakpoint disabled]
+
+When you hit a breakpoint on an element and are debugging with the decider "Step by step user decider", in order to restart the execution you must clic the resume button from the debug perspective. Then don't forget to select the next logical step to execute. Do the same when debugging in step by step with the decider "Step by step user decider".
+
+While executing you can visualize execution data. This setting must be defined by hand since the data are language dependent (see <<defining-a-debug-representation-section>> for more details). Here the current state is decorated with a green arrow.
+
+image:Guide/images/workbench/modeling/execution_data_highlight.png[Execution data highlight]
+
+The default definition highlights the current instruction in yellow.
+
+[[mw-executing-sequential-model-debug-view-section]]
+==== Debug View
+This view is part of the Debug perspective.
+It presents an interface for Step by Step execution of the model.
+
+When an execution is paused, this view presents a stack containing all ongoing steps, with the last started step at the top of the stack.
+
+At the bottom of the stack is a particular stackframe named `Global context`.
+When selected, this stackframe displays the runtime data in the <<mw-executing-sequential-model-variable-view-section,Variable View>>. 
+
+When paused, the usual debugging tools (step into, step over and step return) can be used to control the execution step by step. With the multidimentional trace enabled, the execution can be controlled backward using the image:Guide/images/workbench/ui_icons/stepbackinto_co.png[stepbackinto] _StepBack Into_, 
+ image:Guide/images/workbench/ui_icons/stepbackout_co.png[stepbackout] _StepBack Out_ and
+ image:Guide/images/workbench/ui_icons/stepbackover_co.png[stepbackover] _StepBack Over_ commands.
+
+[[mw-debug-variable-sequential-view-figure]]
+.Debug and Variable views with the sequential engine
+image:Guide/images/workbench/modeling/sequential_omniscient_debugging_stack_variables.png[Debug view, 800]
+
+
+[NOTE]
+====
+In order to improve the look and feel in <<mw-debug-variable-sequential-view-figure>>, the icons have been customized using the technique described in <<defining-a-concrete-syntax-with-emf-section>>
+====
+
+
+
+[[mw-executing-sequential-model-variable-view-section]]
+==== Variable View
+This view is available on the Debug perspective.
+When an execution is paused, this view presents the current ((Runtime Data)) of the model. 
+
+[NOTE]
+====
+To control which Runtime Data should be presented in the Variable view, you need to set an EAnnotation with nsURI set to `aspect` on the corresponding EAttributes, EReferences or EClass in the ecore metamodel.
+====
+
+[TIP]
+====
+When the execution is paused, it is possible to edit the values in this view and then manually change the Runtime Data of the model. 
+
+If the Multidimenstional trace is activated, this tip works only if the execution is paused on the last instraction of the trace.
+====

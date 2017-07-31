@@ -1,0 +1,8 @@
+[[modeling-workbench-editing-model-with-sirius-section]]
+=== Editing model with ((Sirius))
+After defining your editor with ((Sirius)) (see <<defining-a-concrete-syntax-with-sirius-section>> for more details about ((Sirius))), you can use your editor as described in the http://www.eclipse.org/sirius/doc/user/Sirius%20User%20Manual.html[Sirius User Manual].
+
+==== Debug specific
+If you have defined a debug representation using <<defining-a-debug-representation-section>>. You can use the following actions to start a debug session and toggle breakpoints.
+
+image::Guide/images/workbench/modeling/debug_actions.png[Debug actions, 400]

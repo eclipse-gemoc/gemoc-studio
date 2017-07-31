@@ -1,0 +1,179 @@
+= GEMOC Studio User Guide
+:doctype: book
+:toc:
+:numbered:
+
+ifdef::pdf[]
+:max-width: 450
+:half-width: 275
+:quarter-width: 137
+endif::[]
+ifndef::pdf[]
+:max-width: 1000
+:half-width: 500
+:quarter-width: 250
+endif::[]
+
+
+////////////////////////////////////////////////////////////////
+	use dedication to place image before the TOC
+////////////////////////////////////////////////////////////////
+
+[dedication]
+== Navigation Overview
+image::Guide/images/intro/GemocWorkbenchesGlobalPicture.png[Sunset, 800,  link="http://www.gemoc.org"]
+
+[preface]
+== Introduction
+The GEMOC Studio offers 2 main usages:
+
+* Building and composing new executable DSML. This mode is intended to be used by language designers and language integrators (aka domain experts).
+
+* Creating and executing models conformant to executable DSMLs. This mode is intended to be used by domain designers.
+
+Each of these usage has it own set of tools that are referenced as *Gemoc Language workbench* for the tools for _language designers_ and *Gemoc Modeling Workbench* for the tools for _domain designers_.
+
+
+[[img-GemocWorkbenchesGlobalPicture]]
+.Gemoc Workbenches Global Picture
+image::Guide/images/intro/GemocWorkbenchesGlobalPicture.png[Sunset, 800,  link="http://www.gemoc.org"]
+
+
+In this document:
+
+ * items or roles relative to the Language Workbench are identified with the following icon : image:images/icons/IconeGemocLanguage_32.png[width=48, height=48]
+ * items or roles relative to the Modeling Workbench are identified with the following icon : image:images/icons/IconeGemocModel_32.png[width=48, height=48]
+
+[NOTE]
+====
+The latest version of this document is available online from http://gemoc.github.io/gemoc-studio/
+====
+
+=== Language Workbench overview image:images/icons/IconeGemocLanguage_16.png[width=16, height=16, role=right]
+
+The GEMOC Language Workbench allows building and composing new executable DSMLs.
+
+
+
+To acheive that, it offers appropriate tools and guidance for the underlying activities wich are grouped in categories.
+
+
+.Build executable language
+The first main activity is to build an executable language. The language designer is assited by a dedicated Dashboard to guide him during his work.
+
+This first dashboard groups the activities as follow:
+
+Create a language::
+    This activity can be decomposed in activities in two groups :
+        Domain model (abstract syntax):::
+            * Create the abstract syntax with EMF (incl., the ecore model and the genmodel) 
+        <<defining-a-concrete-syntax-section, Model editors (concrete syntax)>>::: 
+            * <<defining-a-concrete-syntax-with-sirius-section, Create a graphical editor with Sirius Designer>>
+            * Create a textual editor with Xtext
+Make your language executable::
+    This activity is decomposed in 2 main parts:
+        Sequential Execution semantics:::
+            * Create the execution semantics with Kermeta and Melange
+        Concurrent Execution semantics:::
+            * Create the Domain-Specific Actions with Kermeta and Melange
+            * Create the Domain-Specific Events with ECL
+            * Create a library of Model of Computation with MoccML
+Define the runtime environnement for the language::
+        Model Debugger:::
+            * Select your breakpointable elements
+        Model dynamic representation (for debugging, animation, monitoring):::
+            * Create the graphical representation with Sirius Animator
+            * Plug your own add-ons 
+
+TODO add links to the corresponding sections in the main chapters
+
+TODO: add snapshot of the dashboard
+
+.Compose executable languages
+The second main activity is to define the composition between executable languages.
+The language integrator is also assisted by a dedicated dashboard that proposes the following activity groups:
+
+Compose languages::
+    This activity can be decomposed in activities in two groups :
+        Create composition operators:::
+            * Create operators with BCOoL
+        Combine languages::
+            * Select a set of language to combine
+            * Apply composition operators to a set of languages.
+            * Customize composition
+
+
+TODO: add snapshot of the dashboard
+
+
+=== Modeling workbench overview image:images/icons/IconeGemocModel_16.png[width=16, height=16, role=right]
+
+The GEMOC Modeling Workbench allows the use of available languages to create and execute models.
+
+Create Models::
+    * Use available editors to create domain models.
+Execute and debug models::
+    * Use execution engine
+    * Use step by step debugger
+    * Analyse time trace
+Animate models::
+    * Use animation views
+
+=== General concerns and prerequisite
+
+
+[NOTE]
+.Note
+=====================================================================
+In order to run, Eclipse workbench work better with additional memory. Use the following setting to start Eclipse: -Xms1024m -Xmx1024m -XX:PermSize=512m -XX:MaxPermSize=512m
+=====================================================================
+
+
+////////////////////////////////////////////////////////////////
+Inclusion of the chapters, please open the corresponding files
+////////////////////////////////////////////////////////////////
+
+include::GuideLW_Chapter.asciidoc[]
+
+include::GuideMW_Chapter.asciidoc[]
+
+// Push titles down one level.
+:leveloffset: 1
+
+////////////////////////////////////////////////////////////////
+include::GuideTutorialMarkedGraph.asciidoc[]
+////////////////////////////////////////////////////////////////
+
+// Return to normal title levels.
+:leveloffset: 0
+
+:numbered!:
+
+////////////////////////////////////////////////////////////////
+[appendix]
+== Example Appendix
+
+One or more optional appendixes go here at section level 1.
+
+=== Appendix Sub-section
+
+Sub-section body.
+////////////////////////////////////////////////////////////////
+
+include::GuideBibliography.asciidoc[]
+
+include::GuideGlossary.asciidoc[]
+
+////////////////////////////////////////////////////////////////
+[colophon]
+== Example Colophon
+
+Text at the end of a book describing facts about its production.
+////////////////////////////////////////////////////////////////
+
+[index]
+== Index
+////////////////////////////////////////////////////////////////
+The index is normally left completely empty, it's contents being
+generated automatically by the DocBook toolchain.
+////////////////////////////////////////////////////////////////

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+Syntax highlighting definition for Java
+
+xslthl - XSLT Syntax Highlighting
+http://sourceforge.net/projects/xslthl/
+Copyright (C) 2005-2008 Michal Molhanec, Jirka Kosek, Michiel Hendriks
+
+This software is provided 'as-is', without any express or implied
+warranty.  In no event will the authors be held liable for any damages
+arising from the use of this software.
+
+Permission is granted to anyone to use this software for any purpose,
+including commercial applications, and to alter it and redistribute it
+freely, subject to the following restrictions:
+
+1. The origin of this software must not be misrepresented; you must not
+   claim that you wrote the original software. If you use this software
+   in a product, an acknowledgment in the product documentation would be
+   appreciated but is not required.
+2. Altered source versions must be plainly marked as such, and must not be
+   misrepresented as being the original software.
+3. This notice may not be removed or altered from any source distribution.
+
+Michal Molhanec <mol1111 at users.sourceforge.net>
+Jirka Kosek <kosek at users.sourceforge.net>
+Michiel Hendriks <elmuerte at users.sourceforge.net>
+
+-->
+<highlighters>
+	<highlighter type="multiline-comment">
+		<start>/**</start>
+		<end>*/</end>
+		<style>doccomment</style>
+	</highlighter>
+	<highlighter type="multiline-comment">
+		<start>/*</start>
+		<end>*/</end>
+	</highlighter>
+	<highlighter type="oneline-comment" >//</highlighter>
+	<!-- <highlighter type="regex">	
+		<pattern>^(\[.+\]\s*)$</pattern>
+		<style>keyword</style>
+		<flags>MULTILINE</flags>
+	</highlighter>-->
+	<highlighter type="string" >
+		<string>"</string>
+		<escape>\</escape>
+	</highlighter>
+	<!--  <highlighter type="string">
+		<string>'</string>
+		<escape>\</escape>
+	</highlighter> -->
+	<!-- <highlighter type="annotation" >
+		<start>@</start>
+		<valueStart>"</valueStart>
+		<valueEnd>"</valueEnd>
+	</highlighter>-->
+	<!--  <highlighter type="number">
+		<point>.</point>
+		<exponent>e</exponent>
+		<suffix>f</suffix>
+		<suffix>d</suffix>
+		<suffix>l</suffix>
+		<ignoreCase />
+	</highlighter> -->
+	<highlighter type="keywords">
+		<keyword>and</keyword>
+		<keyword>Boolean</keyword>
+		<keyword>context</keyword>
+		<keyword>def</keyword>
+		<keyword>ECLimport</keyword>
+		<keyword>Event</keyword>
+		<keyword>endpackage</keyword>
+		<keyword>Expression</keyword>
+		<keyword>implies</keyword>
+		<keyword>import</keyword>
+		<keyword>in</keyword>
+		<keyword>Integer</keyword>
+		<keyword>inv</keyword>
+		<keyword>let</keyword>
+		<keyword>not</keyword>
+		<keyword>OclAny</keyword>
+		<keyword>OclVoid</keyword>
+		<keyword>or</keyword>
+		<keyword>package</keyword>
+		<keyword>self</keyword>
+		<keyword>Relation</keyword>
+
+	</highlighter>
+	<!-- <highlighter type="keywords">
+		<keyword>require</keyword>
+		<keyword>using</keyword>    
+		<style>filekeyword</style>
+	</highlighter>
+	<highlighter type="keywords">
+		<keyword>each</keyword>
+		<keyword>select</keyword>
+		<keyword>collect</keyword>
+		<keyword>detect</keyword>
+		<keyword>excludes</keyword>
+		<keyword>excludesAll</keyword>
+		<keyword>exists</keyword>
+		<keyword>forAll</keyword>
+		<keyword>existsCpl</keyword>
+		<keyword>forAllCpl</keyword>
+		<keyword>includes</keyword>
+		<keyword>includesAll</keyword>
+		<keyword>one</keyword>
+		<keyword>collect</keyword>
+		<keyword>reject</keyword>   
+		<keyword>new</keyword>     
+		<keyword>oid</keyword>    
+		<keyword>clone</keyword> 
+		<style>specialoperation</style>
+	</highlighter>-->
+</highlighters>

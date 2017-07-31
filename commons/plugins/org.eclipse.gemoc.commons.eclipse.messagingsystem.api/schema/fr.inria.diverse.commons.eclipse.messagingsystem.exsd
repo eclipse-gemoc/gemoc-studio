@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="org.eclipse.gemoc.commons.eclipse.messagingsystem.api" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="org.eclipse.gemoc.commons.eclipse.messagingsystem.api" id="fr.inria.diverse.commons.eclipse.messagingsystem" name="MessagingSystem contribution"/>
+      </appinfo>
+      <documentation>
+         Possibility to contribute a MessagingSystem so it can be used by the factory.
+It is used to provide MessagingSystem dedicated to the current platform. For example allowing to use UI consoles or dedicated logger instead of using standard IO.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <choice>
+            <element ref="MessagingSystem_Contribution"/>
+         </choice>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="MessagingSystem_Contribution">
+      <complexType>
+         <attribute name="name_string" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Name of the MessagingSystem so it can be used to identify it
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="MessagingSystem_class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Class that implements MessagingSystem with additional services
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn="fr.inria.diverse.commons.messagingsystem.api.MessagingSystem:"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="since"/>
+      </appinfo>
+      <documentation>
+         [Enter the first release in which this extension point appears.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="examples"/>
+      </appinfo>
+      <documentation>
+         [Enter extension point usage example here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="apiinfo"/>
+      </appinfo>
+      <documentation>
+         [Enter API information here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="implementation"/>
+      </appinfo>
+      <documentation>
+         [Enter information about supplied implementation of this extension point.]
+      </documentation>
+   </annotation>
+
+
+</schema>

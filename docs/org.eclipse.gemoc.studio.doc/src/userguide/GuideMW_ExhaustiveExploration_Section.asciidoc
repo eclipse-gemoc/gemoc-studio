@@ -1,0 +1,153 @@
+[[section-exhaustive-exploration-mw]]
+=== Exhaustive Exploration and Verification at Model Design Time
+
+One benefit of assigning an execution semantics onto a DSL is to pave the way for exhaustive exploration. Exhaustive exploration is a technique used in complex and safety system design to ensure the correct adequacy between the system requirements and the real behavior of the system. This is made possible by exploring and verifying properties on an exhaustive finite state space of the system representing the whole set of relevant configurations your system may reach. 
+
+Gemoc provides the first step towards exploration and verification by building the graph of all the possible schedules of a system model constrained with *((MoCCML))*. It can then be used in a model-checking tool to verify behavioral properties of the *((MoCCML))* models. Thanks to Gemoc approach the execution model is explicited and can be manipulated to for instance:
+
+- Verify temporal logic properties (safety and liveness) on the state space graph structure;
+- Extract a schedule that optimizes specific objectives;
+- Extract system properties by static analysis of an event-graph representation of the execution model.
+
+In the Gemoc approach the steps toward exploration and verification during language design are described in <<section-exhaustive-exploration-lw>>.
+
+Besides the steps toward exploration and verification during modeling design are:
+
+- Generate a model for an exhaustive exploration tool using the configuration file;
+- Invoke *((ClockSystem))*'s services to generate a finite state space of the system;
+- Formalize a set of properties to verify(in *((CDL))* language for instance);
+- Use a model checking infrastructure to perform the verification of properties on the finite state space(like _OBP_).
+
+The flow toward exhaustive exploration and verification in Gemoc is presented in figure <<figure-exploration-flow>> and described in the following sections.
+ 
+==== Generating inputs for Exhaustive Exploration tools : _T2_ at Modeling Level
+
+ECL specification is the starting point toward exploration. In this specification we define events associated with the actions of the *((DSA))* and also events associated with the *((DSE))* events. On these event bindings we apply the *((MoccML))* relations of the MoC Library to schedule the events. A finite state space of a system uses such scheduling constraints and therefore is generated from using a transformation:
+
+In the Modeling workbench where the DSL instance model is realized, the transformation _T2_ takes as input the instance system model to generate a _MOCC_ instance model described in *((ClockSystem))* specification format.
+Th call the transformation right-click on your model -> image:Guide/images/exhaustive_exploration/clocksystem_logo_32x32.png[width=16, height=16]Exhaustive Exploration -> image:Guide/images/exhaustive_exploration/cs_t2_16x16.png[width=16, height=16]Generate ClockSystem file from DSL model. 
+
+A wizard allows you to select one xdsml project referencing a concurrent model, click on finish to execute the transformation.
+_T2_  generates the .clocksystem file corresponding to the Mocc-based specification model to take as input in *((ClockSystem))*.
+
+[[figure-xdsml-wizard-exploration]]
+.Xdsml Wizard
+image::Guide/images/exhaustive_exploration/select_xdsml_wizard.png[Select Xsdml Wizard, 400]
+
+==== *((ClockSystem))*
+
+===== Description
+*((ClockSystem))* is a meta-described clock-constraint engine developped during Gemoc which embeds a formal model of logical time. It relies on the primitives provided by Clock Constraint Specification Language (CCSL) defining a simple yet powerful toolkit for logical time specifications. It also extends the CCSL language, through an automata-based approach, with domain-specific user-defined operators and provides an embedded DSL for writing executable specification in a language close to the abstract CCSL notation.
+
+*((ClockSystem))* toolkit provides the possibility to perform exhaustive reachability analysis of relation specifications (e.g. *((MoCCML))* or CCSL specifications). The possibility to exhaustively explore the state-space of a given specification paves the way to verification of properties by model-checking as such an interface with the _OBP_ model-checking toolkit was developed.
+
+===== Using ClockSystem
+
+*((ClockSystem))* consists of an image and a Pharo VM which depends on the operating system. Their integration in Gemoc studio can be realized through the discovery mecanism. To activate discovery mecanism click on the Gemoc icon in toolbar as illustrated <<figure-discovery>>. 
+
+[[figure-discovery]]
+.Discovery
+image::Guide/images/exhaustive_exploration/discovery.png[Discovery, 400]
+
+Select *((ClockSystem))* add on <<figure-discovery-comp>> and click on _Finish_.
+
+[[figure-discovery-comp]]
+.Discovery Components
+image::Guide/images/exhaustive_exploration/discovery_comp.png[Discovery Components, 400]
+
+Select the unique feature and _Next_ as illustrated in <<figure-dicovery-cs>>. Then again select _Next_.
+
+[[figure-dicovery-cs]]
+.Discovery Clocksystem
+image::Guide/images/exhaustive_exploration/discovery_cs.png[Discovery for ClockSystem, 400]
+
+Approve the licence and click _Finish_. Gemoc must be restarted(this should be automatically prompted to the user).
+
+[[figure-dicovery-lic]]
+.Approve licensing
+image::Guide/images/exhaustive_exploration/discovery_lic.png[Approve licence of ClockSystem, 400]
+
+
+[NOTE]
+====
+*((ClockSystem))* VM and Image will be extracted in your default temporary folder at the first call of Clocksystem services. Although Gemoc provides an action to invoke *((ClockSystem))*, it can be also used as a standalone application outside of Gemoc studio.
+====
+
+Calling *((ClockSystem))* from Gemoc studio on the file generated by _T2_(.clocksystem) generates exploration results including a LTS. 
+To invoke ClockSystem right-click on the *((ClockSystem))* file .clocksystem->image:Guide/images/exhaustive_exploration/clocksystem_logo_32x32.png[width=16, height=16]ClockSystem ->image:Guide/images/exhaustive_exploration/clocksystem_logo_32x32.png[width=16, height=16]Execute ClockSystem . 
+
+Generated files are: 
+
+- .lts file stores labeled transition system (LTS) which represents all the possible configurations the system can reach.
+- obp.lts file stores labeled transition system (LTS) in a format understandable by http://www.obpcdl.org/doku.php[OBP].
+- .results extract global information about the size of the explored graph(number of states, transitions and time of exploration).
+- full.gml is the representation of the LTS graph stored in a Graph Modelling Language (http://www.fim.uni-passau.de/fileadmin/files/lehrstuhl/brandenburg/projekte/gml/gml-technical-report.pdf[GML])  format providing a simple syntax to represent graph.
+- fcr.gml is the representation of the LTS graph with the coincidences flatten for Fiacre stored in GML.
+- .mtx stores the representation of the LTS graph as a http://math.nist.gov/MatrixMarket/formats.html[Matrix Market] providing a simple and standardised way to exchange matrix data. 
+
+The picture below illustrates an instance and its corresponding exploration graph <<figure-instance-graph>>.
+[[figure-instance-graph]]
+.Exploration Graph for an Instance
+image::Guide/images/exhaustive_exploration/instance_graph.png[Exploration Graph for an Instance, 500]
+
+==== Defining Properties
+
+The properties are expressed using assertions or/and observer automata with appropriate variables and clocks of the model instance.  Several groups of properties are interesting to verify at different level in the Gemoc process.
+Properties can be expressed on the model instance based on variables and clocks of one (or several) model element(s) and allows to check deadlocks, precedency between events, reachability etc... The expression of the properties are model dependent so on each instance you must rewrite the properties.
+However properties can also be related to representative instances which are based on a mapping between a generic abstract syntax, or a metamodel pattern and a mapped Mocc on this abstract syntax. In this approach we are looking for a reducing number of instance to verify and increase the generality of the verification approach.
+A representative instance is a model that spreads a configuration that is structuraly relevant regarding the metamodel pattern.      
+On this representative model, we can verify properties tightly linked with the *((MoCCML))* semantics. 
+
+For instance the model <<figure-instance-graph>> can be considered as a representative instance of a _Classifier-Relationship_ metamodel pattern.
+On it wish to apply a Mocc SDF semantics and therefore generic properties can be expressed as:
+- If all the input ports of a _Block_ haven't enought data to consume then the _Block_ canno't execute.
+- If the number of data of an output port is less than the _Connector_ capacity minus the current size of the _Connector_ then the _Block_ can execute.
+- In any case, the current size of a _Connector_ canno't exceed its capacity. 
+
+These properties are representatives of the Mocc and could be verified for every model. So we verify these properties on the representative model instance, to improve the trust on our pattern.
+
+===== Expressing Properties (CDL Formalization)
+
+Properties have to be formalized for a checking tool. As *((ClockSystem))* provides a connector to _OBP_ model-checking infrastructure we present a _CDL_ formalization of the properties, which is also an _OBP_ compatible format. The _CDL_ formalism provides 3 distincts constructs for expressing safety and bounded-liveness properties predicates to express invariants over states, observers to express invariants over execution traces and property patterns, for simplifying the expression of complex properties.
+
+Properties are described using CDL syntax and must be specified at instance level therefore the name of the processes or variable used in properties reflects the names and variables of instances within the verified model. CDL properties can be written in a simple text file with the extension .cdl.
+
+For instance we impose our model to respect a SDF-like semantics and therefore we are interested in verifying properties that defines SDF:
+- If all the input ports of a _Block_ haven't enought data to consume then the _Block_ canno't be executed.
+- The current size of a _Connector_ canno't exceed its capacity. An internal moc variable called _current_size_ increments or decrements respectively if a data is _push_ or _pop_ within the _Connector_, and this variable must be always lower than the maximal capacity of the Connector.
+
+In the listing below three properties are encoded in CDL.
+
+[source]
+[[cdl_properties_example]]
+--------------------------------------
+// Size of connector A to B never exceeds its capacity
+predicate p2 is { {connectorAB}1 : currentsize <= 4 }
+
+// If Output channel is full the Block does not execute
+predicate p3 is { {connectorBA}1 : currentsize + {outport1}1 : rate <= {connectorBA}1 : capacity }
+property o1 is {
+	start -- / p3 // -> s1
+	; s1 -- / / eB / -> reject
+	; s1 -- / not p3 / / -> start
+}
+
+// Select the properties to be checked
+cdl representativeInstance is {
+	properties
+	, o1
+	assert p1
+	; assert p2
+	main is {skip}
+}
+--------------------------------------
+
+- The size of channels between A and B canno't exceed the capacity of the connector. This is described with predicates _p1_ and _p2_ that check if the fifo size limit is reached.
+- It is not possible to write in a _Connector_ if it is full. This is checked via the observer automata o1 for one _Connector_. If the size of the _Connector_ plus the output rate exceed the size limit and if then _Block_ execute(eB) the observer o1 goes to reject state.
+
+===== OBP example
+The _OBP_ Observation Engine checks a set of CDL properties using reachability strategy (breath-first-search algorithm) on the graph induced by the parallel composition of the system, with its contexts.
+
+In the context of Gemoc OBP _OBP_ requires two input files i.e the LTS generated from _ClockSystem_ and the CDL properties.
+This operation has to be done manually and is not part of the Gemoc studio tooling since OBP is not integrated to the studio.
+

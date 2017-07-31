@@ -1,0 +1,33 @@
+Eclipse propose several way to deploy and distribute the language created using the GEMOc approach. The most appropriate method will depent on the main usage.
+
+Basicaly it consist in launching the plugins of the language using PDE (Plugin Development Environment) offerd by Eclipse. 
+
+Some Eclipse articles describe this process:
+
+* https://eclipse.org/articles/Article-PDE-does-plugins/PDE-intro.html
+* http://www.eclipse.org/articles/Article-EMF-goes-RCP/rcp.html
+
+
+[[deploy-language-for-language-designer-section]]
+=== Deployment of languages for the Language designer
+The language designer can test the language he is designing by launching a new Eclipse runtime from his development workbench.
+
+This is done by creating a run configuration. Select "run / run Configurations" Double click on "Eclipse Application" and change the name "New Configuration" into "<YourSuperLanguage> Modeling Workbench". We can now click "Run" to start the new runtime Eclipse which indeed corresponds to the Modeling Workbench for your language.
+
+TIP: This mode offer some fine control. For example, it is possible to put breakpoint in the DSA code in order to finely develop them.
+
+.Runtime workbench launch configuration
+image::./Guide/images/workbench/language/runtime_workbench_launchconfig_screenshot.png[Runtime workbench launch configuration]
+
+[[distribute-language-for-model-designer-section]]
+=== Distribution of languages to the Model designer
+
+Distributing the language concist in distributing the plugins. This typically could be done via an https://wiki.eclipse.org/FAQ_How_do_I_create_an_update_site_%28site.xml%29%3F[update site] or a full eclipse package (https://wiki.eclipse.org/Rich_Client_Platform[RCP application]).
+
+* The update site will allow to install the language in an existing Eclipse.
+* The RCP methodoly will allow to create an application with a dedicated set of plugins including the language. This application could look like a classic eclipse IDE (including java, etc) or be completly customized for a given purpose by providing only required tools.
+
+
+TIP: Once the updatesite or product have been defined, you may need to automate the build. The current best practice is to use https://eclipse.org/tycho/[Tycho]. (see also some good http://www.vogella.com/tutorials/EclipseTycho/article.html[tutorial] about this on internet.
+
+

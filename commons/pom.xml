@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.eclipse.gemoc.commons</groupId>
+    <artifactId>org.eclipse.gemoc.commons.root</artifactId>
+    <version>2.3.0-SNAPSHOT</version>
+    <packaging>pom</packaging>    
+	<parent>
+		<groupId>org.eclipse.gemoc</groupId>
+		<artifactId>org.gemoc.gemoc_studio.root</artifactId>
+    	<version>2.3.0-SNAPSHOT</version>
+		<relativePath>..</relativePath>
+	</parent>
+    <modules>
+        <!-- plugins -->
+<!--         <module>../../org/gemoc/gemoc_language_workbench/org.gemoc.gemoc_language_workbench.api</module> -->
+        <module>plugins/org.eclipse.gemoc.commons.eclipse</module>
+        <module>plugins/org.eclipse.gemoc.commons.eclipse.messagingsystem.api</module>
+        <module>plugins/org.eclipse.gemoc.commons.eclipse.messagingsystem.ui</module>
+        <module>plugins/org.eclipse.gemoc.commons.eclipse.pde</module>
+        <module>plugins/org.eclipse.gemoc.commons.eclipse.jdt</module>
+        <module>plugins/org.eclipse.gemoc.commons.eclipse.ui</module>
+        <module>plugins/org.eclipse.gemoc.groovy</module>
+        <module>plugins/org.eclipse.gemoc.timeline</module>
+        <module>plugins/gexpressions/org.eclipse.gemoc.gexpressions</module>
+        <module>plugins/gexpressions/org.eclipse.gemoc.gexpressions.edit</module>
+        <module>plugins/gexpressions/org.eclipse.gemoc.gexpressions.editor</module>
+        <module>plugins/gexpressions/org.eclipse.gemoc.gexpressions.xtext</module>
+        <module>plugins/gexpressions/org.eclipse.gemoc.gexpressions.xtext.ui</module>
+
+        <!-- feature and update site -->
+        <module>releng/org.eclipse.gemoc.commons.feature</module>
+        <module>releng/org.eclipse.gemoc.commons.3rdparty.feature</module>
+        <module>releng/org.eclipse.gemoc.gexpressions.feature</module>
+        <module>releng/org.eclipse.gemoc.commons.repository</module>
+    </modules>
+	<properties>
+		<xtend.version>2.9.1</xtend.version>
+	</properties>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.xtend</groupId>
+				<artifactId>xtend-maven-plugin</artifactId>
+				<version>${xtend.version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>xtend-gen</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+ 
+ 	<repositories>
+        <repository> <!-- this repo is used to provide jdom and jaxen plugins -->
+            <id>app4mc</id>
+            <layout>p2</layout>
+            <url>http://download.eclipse.org/app4mc/updatesites/releases/0.8.0/</url>
+        </repository>
+	</repositories>
+	<profiles>
+    <!-- Profiles are used for switching the repositories used for the build so they either use the CI update sites or local repositories -->
+    	<profile>
+	        <id>ignore_CI_repositories</id>
+	        <activation>
+	            <activeByDefault>true</activeByDefault>
+	        </activation>
+	        <repositories>
+		    </repositories>
+	    </profile>
+	    <profile>
+	        <id>use_CI_repositories</id>
+	        <activation>
+	            <activeByDefault>true</activeByDefault>
+	        </activation>
+	        <!-- <repositories>
+		        <repository>
+		            <id>Gemoc Target Platform all-except-gemoc-commons</id>
+		            <layout>p2</layout>
+		            <url>https://ci.inria.fr/gemoc/job/org.gemoc.targetplatform.redirects/lastSuccessfulBuild/artifact/org/gemoc/targetplatform/update/all-except-gemoc-commons</url>
+		        </repository>
+		    </repositories>-->
+	    </profile>
+    	
+    </profiles>
+</project>

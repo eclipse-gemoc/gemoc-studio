@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="ASCII"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.gemoc.sample.legacyfsm.xsfsm.xsfsm/src/" modelPluginID="org.gemoc.sample.legacyfsm.xsfsm.xsfsm" modelName="XSFSM" complianceLevel="7.0" copyrightFields="false">
+  <foreignModel>platform:/resource/org.gemoc.sample.legacyfsm.xsfsm.xsfsm/model/XSFSM.ecore</foreignModel>
+  <genPackages prefix="Fsm" basePackage="org.gemoc.sample.legacyfsm.xsfsm.xsfsm" disposableProviderFactory="true" fileExtensions="xsfsm">
+    <ecorePackage href="XSFSM.ecore#/"/>
+    <genClasses>
+      <ecoreClass href="XSFSM.ecore#//StateMachine"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSFSM.ecore#//StateMachine/ownedStates"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSFSM.ecore#//StateMachine/initialState"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSFSM.ecore#//StateMachine/ownedTransitions"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSFSM.ecore#//StateMachine/currentState"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSFSM.ecore#//StateMachine/unprocessedString"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSFSM.ecore#//StateMachine/consummedString"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSFSM.ecore#//StateMachine/producedString"/>
+      </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XSFSM.ecore#//StateMachine/main"/>
+      </genOperations>
+      <genOperations>
+        <ecoreOperation href="XSFSM.ecore#//StateMachine/initializeModel"/>
+        <genParameters>
+          <ecoreParameter href="XSFSM.ecore#//StateMachine/initializeModel/args"/>
+        </genParameters>
+      </genOperations>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSFSM.ecore#//State"/>
+      <genFeatures property="None" notify="false" createChild="false">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSFSM.ecore#//State/owningFSM"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSFSM.ecore#//State/outgoingTransitions"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSFSM.ecore#//State/incomingTransitions"/>
+      </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XSFSM.ecore#//State/step"/>
+        <genParameters>
+          <ecoreParameter href="XSFSM.ecore#//State/step/inputString"/>
+        </genParameters>
+      </genOperations>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="XSFSM.ecore#//Transition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSFSM.ecore#//Transition/source"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="XSFSM.ecore#//Transition/target"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSFSM.ecore#//Transition/input"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSFSM.ecore#//Transition/output"/>
+      </genFeatures>
+      <genOperations>
+        <ecoreOperation href="XSFSM.ecore#//Transition/fire"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false">
+      <ecoreClass href="XSFSM.ecore#//NamedElement"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="XSFSM.ecore#//NamedElement/name"/>
+      </genFeatures>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

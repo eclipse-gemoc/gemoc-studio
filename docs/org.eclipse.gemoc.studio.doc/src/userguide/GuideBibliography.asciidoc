@@ -1,0 +1,16 @@
+
+[bibliography]
+== Bibliography
+
+The bibliography lists some useful external documents. For a more complete list, please refer to the publications section on http://gemoc.org site.
+
+////////////////////////////////////////////////////////////////
+[bibliography]
+.Books
+- [[[globalizing-modeling-languages]]] http://hal.inria.fr/hal-00994551[Globalizing Modeling Languages] (Benoit Combemale, Julien Deantoni, Benoit Baudry, Robert France, Jean-Marc Jezequel, Jeff Gray), In Computer, IEEE, 2014.
+////////////////////////////////////////////////////////////////
+
+[bibliography]
+.Articles
+- [[[globalizing-modeling-languages]]] http://hal.inria.fr/hal-00994551[Globalizing Modeling Languages] (Benoit Combemale, Julien Deantoni, Benoit Baudry, Robert France, Jean-Marc Jezequel, Jeff Gray), In Computer, IEEE, 2014.
+

@@ -1,0 +1,52 @@
+[[defining-a-concrete-syntax-section]]
+=== Defining a Concrete Syntax
+An xDSML can support different concrete syntaxes. Most EMF-based editors should work with GEMOC, however the GEMOC Studio provides additional support for some specific editors. Thus, we recommend using: an EMF arborescent editor, an Xtext editor, and/or a Sirius editor.
+
+
+[[defining-a-concrete-syntax-with-xtext-section]]
+==== Defining a Concrete Syntax with Xtext
+See http://www.eclipse.org/Xtext/[the Xtext website].
+
+
+[[defining-a-concrete-syntax-with-sirius-section]]
+==== Defining a Concrete Syntax with ((Sirius))
+If you want to create a graphical concrete syntax you can use Sirius. The http://www.eclipse.org/sirius/doc/[Sirius documentation] provides information for http://www.eclipse.org/sirius/doc/specifier/Sirius%20Specifier%20Manual.html[Sirius Specifier Manual].
+
+[[defining-a-concrete-syntax-with-emf-section]]
+==== Defining a Concrete Syntax with ((EMF))
+EMF provides several services, as seen in <<section-define-AS-project>> , EMf allwos to generate many artifacts. In addition to generate the java code for the metamodel and provide a reflective tree editor, EMF allows to generate a customizable Tree Editor.
+
+On the .genmodel right click on the root element then `Generate Edit Code` and  `Generate Editor Code`.
+
+Some very easy customizations can be done in the `.edit` project:
+
+- change the icons for each of the metaclasses of yourmetamodel by replacing the  `.gif` files in the `icons` folder.
+- change the displayed labels by providing a custom implementation of the getText methos in the `*ItemProvider.java` classes. 
+
+Table <<customized-non-customized-tree-editor-table>> illustrates the value of adding dedicated icons for a given domain.
+
+[[customized-non-customized-tree-editor-table]]
+.Example of customization of icons on Timed Finite State Machine tree editor.
+[cols=">,<"]
+|===
+| image:Guide/images/workbench/language/editors/tfsm_non_customized_tree_editor.png[Same editor without customization]
+| image:Guide/images/workbench/language/editors/tfsm_customized_tree_editor.png[Same editor without customization]
+|===
+
+
+
+[NOTE]
+====
+When modifing java code in the generated projects, do not forget to change the comment from `generated` to `generated NOT`, so the genmodel generator will keep your changes.
+====
+
+
+[TIP]
+====
+Providing custom icons and labels are not dedicated to the Tree Editor only. When possible, these elements will also be used to improve the Outline, the Debug Stack or the Variable views (see sections <<mw-executing-concurrent-model-debug-view-section>>, <<mw-executing-concurrent-model-variable-view-section>>, <<mw-executing-sequential-model-debug-view-section>> and <<mw-executing-sequential-model-variable-view-section>>).
+====
+
+[TIP]
+====
+More complex images can be obtained by implementing the `getImage` method in the `*ItemProvider.java` classes. For example by using overlay or switching the image depending on one of its attribute in order to represent more precisely the content of model element.
+====

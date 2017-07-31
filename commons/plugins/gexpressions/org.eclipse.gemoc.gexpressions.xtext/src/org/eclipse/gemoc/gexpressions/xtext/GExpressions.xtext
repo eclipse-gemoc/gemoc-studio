@@ -1,0 +1,220 @@
+grammar org.eclipse.gemoc.gexpressions.xtext.GExpressions with org.eclipse.xtext.common.Terminals
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+import "http://www.gemoc.org/gexpressions"
+
+//-----------------------------------------------------------------------------
+// Main and import in order to be able to test the language as standalone
+//-----------------------------------------------------------------------------
+
+GProgram returns GProgram:
+	(imports+=GImportStatement)*
+	(expressions+=GExpression (';'? expressions+=GExpression)* )?
+;
+
+GImportStatement returns GImportStatement:
+	'import' importURI=STRING
+;
+
+GExpression returns GExpression:
+	GOrExpression
+;
+
+
+//-----------------------------------------------------------------------------
+// Binary and unary operators, navigation, reference, ...
+//-----------------------------------------------------------------------------
+GOrExpression returns GExpression:
+	GXorExpression
+	({GOrExpression.leftOperand = current}
+		operator = GOrOperator
+		rightOperand = GXorExpression
+	)*
+;
+
+GXorExpression returns GExpression:
+	GAndExpression
+	({GXorExpression.leftOperand = current}
+		operator = GXorOperator
+		rightOperand=GAndExpression
+	)*
+;
+
+GAndExpression returns GExpression:
+	GEqualityExpression 
+	({GAndExpression.leftOperand = current}
+		operator = GAndOperator
+		rightOperand=GEqualityExpression
+	)*
+;
+
+GEqualityExpression returns GExpression:
+	GRelationExpression
+	({GEqualityExpression.leftOperand = current}
+		operator = GEqualityOperator
+		rightOperand = GRelationExpression
+	)*
+;
+
+GRelationExpression returns GExpression:
+	GAdditionExpression
+	({GRelationExpression.leftOperand = current}
+		operator = GRelationOperator
+		rightOperand = GAdditionExpression
+	)*
+;
+
+GAdditionExpression returns GExpression:
+	GMultiplicationExpression
+	({GAdditionExpression.leftOperand = current}
+		operator = GAdditionOperator
+		rightOperand = GMultiplicationExpression
+	)*
+;
+
+GMultiplicationExpression returns GExpression:
+	GNegationExpression
+	({GMultiplicationExpression.leftOperand = current}
+		operator = GMultiplicationOperator
+		rightOperand = GNegationExpression
+	)*
+;
+
+GNegationExpression returns GExpression:
+	GNavigationExpression
+	| {GNegationExpression} operator = GNegationOperator operand = GNavigationExpression
+;
+
+GNavigationExpression returns GExpression:
+	GReferenceExpression
+	({GNavigationExpression.body = current}
+	NavigationOperator
+	referencedEObject=[ecore::EObject|ID])*
+;
+
+GReferenceExpression returns GExpression:
+	GPrimaryExpression
+	| {GReferenceExpression} referencedEObject=[ecore::EObject|ID]
+;
+
+//-----------------------------------------------------------------------------
+// Primary expressions
+//-----------------------------------------------------------------------------
+GPrimaryExpression returns GExpression:
+	GStringExpression
+	| GBooleanExpression
+	| GNumericExpression
+	| GEnumLiteralExpression
+	| GIfExpression
+	| GBraceExpression
+;
+
+GStringExpression returns GExpression:
+	{GStringExpression}
+	value=STRING
+;
+
+GBooleanExpression returns GExpression:
+	{GBooleanExpression}
+	value = BOOLEAN
+;
+
+GNumericExpression returns GExpression:
+	GIntegerExpression
+	| GDoubleExpression
+;
+
+GIntegerExpression returns GExpression:
+	{GIntegerExpression}
+	value = INT
+;
+
+GDoubleExpression returns GExpression:
+	{GDoubleExpression}
+	value = DOUBLE
+;
+
+GEnumLiteralExpression returns GExpression:
+	{GEnumLiteralExpression}
+	'#' value = [ecore::EEnumLiteral|QualifiedName]
+;
+
+GIfExpression returns GExpression:
+	{GIfExpression}
+	'if' condition = GExpression
+	'then' thenExpression = GExpression
+	'else' elseExpression = GExpression
+	'endif'
+;
+
+GBraceExpression returns GExpression:
+	{GBraceExpression}
+	'('
+	innerExpression = GExpression
+	')'
+;
+
+
+//-----------------------------------------------------------------------------
+// Operators enumerations
+//-----------------------------------------------------------------------------
+
+enum GAndOperator returns GAndOperator:
+	AND = 'and'
+;
+
+enum GXorOperator returns GXorOperator:
+	XOR = 'xor'
+;
+
+enum GOrOperator returns GOrOperator:
+	OR = 'or'
+;
+
+enum GEqualityOperator returns GEqualityOperator:
+	EQUAL = '='
+	| NOTEQUAL = '<>'
+;
+
+enum GRelationOperator returns GRelationOperator:
+	LESS = '<'
+	| GREATER = '>'
+	|LESSEQUAL = '<='
+	|GREATEREQUAL = '>='
+;
+enum GAdditionOperator returns GAdditionOperator:
+	ADDITION = '+'
+	| SUBTRACTION = '-'
+;
+
+enum GMultiplicationOperator returns GMultiplicationOperator:
+	MULTIPLICATION = '*'
+	| DIVISION = '/'
+;
+
+enum GNegationOperator returns GNegationOperator:
+	NEGATION = 'not'
+	| MINUS = '~' // TODO: fix unary negation
+;
+
+//-----------------------------------------------------------------------------
+// Additional terminals
+//-----------------------------------------------------------------------------
+NavigationOperator returns ecore::EString:
+	'.'
+	| '->'
+;
+
+terminal BOOLEAN returns ecore::EBoolean:
+	'true' 
+	| 'false'
+;
+
+terminal DOUBLE returns ecore::EDouble:
+	('-'|'+')? 
+	(INT '.' INT| '.' INT | INT '.') ('e' ('-'|'+') INT)?
+;
+
+QualifiedName returns ecore::EString: 
+	ID (=>'.' ID)*
+;

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<project name="Regenerate xsl file for triskell-title-page.xml" default="regenerate" basedir=".">
+
+	<property name="input.file" location="${basedir}/customized.titlepage.xml"/>
+	<property name="output.file" location="${basedir}/customized.titlepage.xsl"/>
+	
+	<property name="ant.docbook.styler.dir"  location="../../../.." />
+	<property name="xslt.processor" value="com.dawidweiss.ant.taskdefs.XsltProcLiaison"/>
+	<property name="catalog.location" location="${ant.docbook.styler.dir}/preprocess/catalog.xml" />	    
+	<xmlcatalog id="dtdcatalog">
+	    <catalogpath>
+	        <fileset file="${catalog.location}"/>
+	    </catalogpath>
+	</xmlcatalog>
+	<path id="ant-extensions">
+    	<fileset dir="${ant.docbook.styler.dir}/ant-extensions" includes="**/*.jar" />
+    	<pathelement path="${ant.docbook.styler.dir}/ant-extensions" />
+	</path>
+	
+	
+	<target name="regenerate" description="">
+		<echo>${ant.docbook.styler.dir}</echo>
+		<xslt
+	        in      = "${input.file}"
+	        style   = "${ant.docbook.styler.dir}/docbook/xsl/template/titlepage.xsl"
+	        out     = "${output.file}"
+	        processor = "${xslt.processor}"
+	        >
+	        <xmlcatalog refid="dtdcatalog"/>
+	        <classpath refid="ant-extensions" />
+
+	        <param name="xsltproc.option.debug"  expression="" /> 
+	        <param name="xsltproc.catalog" expression="${catalog.location}" />
+	        <param name="xsltproc.option.--nonet"  expression="" />
+	    </xslt>
+	</target>
+	
+	<target name="clean">
+		<delete>
+			<fileset file="${output.file}"/>
+		</delete>
+	</target>
+</project>
