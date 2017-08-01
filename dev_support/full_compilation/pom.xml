@@ -1,27 +1,20 @@
-
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
                              http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+	<modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.eclipse.gemoc</groupId>
-    <artifactId>complete-studio</artifactId>
-    <packaging>pom</packaging>
-    <version>1.0</version>
-    <name>Complete GEMOC Studio compilation</name>
+	<groupId>org.eclipse.gemoc</groupId>
+	<artifactId>complete-studio</artifactId>
+	<packaging>pom</packaging>
+	<version>1.0</version>
+	<name>Complete GEMOC Studio compilation</name>
 
-    <modules>
-        <module>../../../gemoc-studio/commons</module>
-        <module>../../../gemoc-studio/official_samples/sample.deployers</module>
-        <module>../../../gemoc-studio/gemoc_studio</module>
-        <module>../../../ModelDebugging</module>
-        <module>../../../concurrency/moccml</module>
-        <module>../../../concurrency/ccsljava_execution</module>
-        <module>../../../concurrency/exploration</module>
-	<module>../../../coordination/bcool/deployment/org.eclipse.gemoc.bcool.build</module>
-	<module>../../../coordination/heterogeneousCoordinationEngine</module>
-	<module>../../../gemoc-studio.wiki</module>
-    </modules>
+	<modules>
+		<module>../../../gemoc-studio/commons</module>
+		<module>../../../gemoc-studio/official_samples/sample.deployers</module>
+		<module>../../../gemoc-studio/docs/org.eclipse.gemoc.studio.doc/src/userguide</module>
+		<module>../../../gemoc-studio/gemoc_studio</module>
+		<module>../../../gemoc-studio-modeldebugging</module>
+	</modules>
 
 </project>
