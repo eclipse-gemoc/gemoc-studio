@@ -30,7 +30,7 @@
         <repository>
             <id>melange</id>
             <layout>p2</layout>
-            <url>http://melange-lang.org/updatesite/</url>
+            <url>http://melange.inria.fr/updatesite/releases/0.2.0/neon/</url>
         </repository>
         <repository>
             <id>Sirius</id>
