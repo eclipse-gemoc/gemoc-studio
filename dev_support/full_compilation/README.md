@@ -16,10 +16,12 @@ git clone  https://github.com/eclipse/gemoc-studio
 git clone  https://github.com/eclipse/gemoc-studio-modeldebugging
 ~~~
 
+Note: the reposistories must keep their names (ie. do not change the destination folder name) as the maven pom file expects to find them at specific locations.
+
 Then compile using maven:
 
 ~~~
-cd gemoc-studio/dev_support/full_build
+cd gemoc-studio/gemoc-studio/dev_support/full_build
 mvn package -Dmaven.repo.local=$PWD/localm2 -P 'ignore_CI_repositories,!use_CI_repositories'
 ~~~
 
@@ -34,6 +36,6 @@ If you prefer to use your own local maven repository (ie. in <HOME>/.m2/reposito
 mvn package -P 'ignore_CI_repositories,!use_CI_repositories'
 ~~~
 
-If you already compiled and resolved all dependencies at least once (ie. if you filled your local maven repository with everything needed for the build), add the option `-o` to perform an offline only build, which is signficantly faster since it skips checking all maven repositories online. 
+If you already compiled and resolved all dependencies at least once (ie. if you filled your local maven repository with everything needed for the build), add the option `-o` to perform an offline only build, which is significantly faster since it skips checking all maven repositories online. 
 
-In the end, the result can then be found in `gemoc_studio/releng/org.gemoc.gemoc_studio.product/target/products/`, with one studio zip per platform.
+In the end, the result can be found in `gemoc_studio/gemoc_studio/releng/org.gemoc.gemoc_studio.product/target/products/`, with one studio zip per platform.
