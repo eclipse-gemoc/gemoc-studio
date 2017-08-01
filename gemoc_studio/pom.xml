@@ -54,7 +54,7 @@
         <repository>
             <id>Sirius</id>
             <layout>p2</layout>
-            <url>http://download.eclipse.org/sirius/updates/releases/4.1.1/neon/</url>
+            <url>http://download.eclipse.org/sirius/updates/releases/4.1.6/neon/</url>
         </repository>
 
         <repository>
@@ -62,7 +62,11 @@
             <layout>p2</layout>
             <url>http://download.eclipse.org/tools/ajdt/46/dev/update</url>
         </repository>
-    
+        <repository> <!-- this repo is used to provide jdom and jaxen plugins -->
+            <id>app4mc_081</id>
+            <layout>p2</layout>
+            <url>http://download.eclipse.org/app4mc/updatesites/releases/0.8.1/</url>
+        </repository>
     </repositories>
 
     <build>

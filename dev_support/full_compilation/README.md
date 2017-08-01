@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The source code of the [GEMOC Studio](http://gemoc.org/studio/) is currently spread among different git repositories in different github organizations.
+The source code of the [GEMOC Studio](http://gemoc.org/studio/) is currently spread among different git repositories in Eclipse organization.
 
 This project relies on the presence of the correct git repositories (cloned with the correct name) to locally build a working studio.
 
@@ -12,17 +12,16 @@ This project relies on the presence of the correct git repositories (cloned with
 First checkout the git repositories :
 
 ~~~
-git clone  https://github.com/gemoc/gemoc-studio
-git clone  https://github.com/gemoc/concurrency
-git clone  https://github.com/gemoc/coordination
-git clone  https://github.com/gemoc/gemoc-studio.wiki
-git clone  https://github.com//SiriusLab/ModelDebugging
+git clone  https://github.com/eclipse/gemoc-studio
+git clone  https://github.com/eclipse/gemoc-studio-modeldebugging
 ~~~
+
+Note: the reposistories must keep their names (ie. do not change the destination folder name) as the maven pom file expects to find them at specific locations.
 
 Then compile using maven:
 
 ~~~
-cd gemoc-studio/dev_support/full_build
+cd gemoc-studio/gemoc-studio/dev_support/full_build
 mvn package -Dmaven.repo.local=$PWD/localm2 -P 'ignore_CI_repositories,!use_CI_repositories'
 ~~~
 
@@ -37,6 +36,6 @@ If you prefer to use your own local maven repository (ie. in <HOME>/.m2/reposito
 mvn package -P 'ignore_CI_repositories,!use_CI_repositories'
 ~~~
 
-If you already compiled and resolved all dependencies at least once (ie. if you filled your local maven repository with everything needed for the build), add the option `-o` to perform an offline only build, which is signficantly faster since it skips checking all maven repositories online. 
+If you already compiled and resolved all dependencies at least once (ie. if you filled your local maven repository with everything needed for the build), add the option `-o` to perform an offline only build, which is significantly faster since it skips checking all maven repositories online. 
 
-In the end, the result can then be found in `gemoc_studio/releng/org.gemoc.gemoc_studio.product/target/products/`, with one studio zip per platform.
+In the end, the result can be found in `gemoc_studio/gemoc_studio/releng/org.gemoc.gemoc_studio.product/target/products/`, with one studio zip per platform.
