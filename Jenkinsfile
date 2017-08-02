@@ -23,13 +23,15 @@ node {
    stage('Build') {
       // Run the maven build without any test            
       dir ('gemoc-studio/dev_support/full_compilation') {
-         sh "'${mvnHome}/bin/mvn' -DskipTests=true clean package --debug --errors -P ignore_CI_repositories,!use_CI_repositories"
+         // sh "'${mvnHome}/bin/mvn' -DskipTests=true clean package --debug --errors -P ignore_CI_repositories,!use_CI_repositories"
+         sh "'${mvnHome}/bin/mvn' -DskipTests=true clean package --errors -P ignore_CI_repositories,!use_CI_repositories"
       }      
    }
    stage('Tests') {
       // Run the maven build without  the tests but off line (this is supposed to be already downloaded)            
       dir ('gemoc-studio/dev_support/full_compilation') {
-         sh "'${mvnHome}/bin/mvn' -o -Dmaven.test.failure.ignore verify --debug --errors -P ignore_CI_repositories,!use_CI_repositories"
+         // sh "'${mvnHome}/bin/mvn' -o -Dmaven.test.failure.ignore verify --debug --errors -P ignore_CI_repositories,!use_CI_repositories"
+         sh "'${mvnHome}/bin/mvn' -o -Dmaven.test.failure.ignore verify --errors -P ignore_CI_repositories,!use_CI_repositories"
       }      
    }
    stage('Results') {
