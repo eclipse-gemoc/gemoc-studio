@@ -31,6 +31,6 @@
     <package uri="fsmTrace_fsm" class="fsmTrace.States.fsm.FsmPackage" genModel="model/fsmTrace.genmodel" />
   </extension>
   <extension point="org.gemoc.gemoc_language_workbench.engine_addon">
-    <Addon Class="org.gemoc.sample.legacyfsm.xsfsm.trace.tracemanager.FsmTraceEngineAddon" Default="false" id="org.gemoc.sample.legacyfsm.xsfsm.trace" Name="fsm MultiDimensional Trace" ShortDescription="MultiDimensional Trace support dedicated to fsm language" openViewIds="org.eclipse.gemoc.sequential_addons.multidimensional.timeline.views.timeline.MultidimensionalTimeLineView" AddonGroupId="Sequential.AddonGroup" />
+    <Addon Class="org.gemoc.sample.legacyfsm.xsfsm.trace.tracemanager.FsmTraceEngineAddon" Default="false" id="org.gemoc.sample.legacyfsm.xsfsm.trace" Name="fsm MultiDimensional Trace" ShortDescription="MultiDimensional Trace support dedicated to fsm language" openViewIds="org.eclipse.gemoc.addon.multidimensional.timeline.views.timeline.MultidimensionalTimeLineView" AddonGroupId="Sequential.AddonGroup" />
   </extension>
 </plugin>

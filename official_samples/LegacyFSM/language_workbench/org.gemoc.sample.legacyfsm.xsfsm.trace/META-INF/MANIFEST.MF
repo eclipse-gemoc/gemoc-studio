@@ -31,8 +31,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.gemoc.trace.gemoc,
  org.eclipse.gemoc.trace.gemoc.api,
  org.eclipse.gemoc.xdsmlframework.api,
- org.eclipse.gemoc.sequential_addons.multidimensional.timeline,
  org.eclipse.gemoc.timeline,
- org.eclipse.gemoc.trace.commons
+ org.eclipse.gemoc.trace.commons,
+ org.eclipse.gemoc.addon.multidimensional.timeline
 Bundle-ActivationPolicy: lazy
 
