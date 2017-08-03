@@ -23,24 +23,14 @@ node {
 	      // in order to find existing tools and their name, use the snippet generator available in the target jenkins instance (ie.  "Pipeline Syntax" link on the job)         
 	      mvnHome = tool 'apache-maven-latest'
 	   }
-	   stage('Build') {
+	   stage('Build and verify') {
 	      // Run the maven build without any test            
 	      dir ('gemoc-studio/dev_support/full_compilation') {
-	         // sh "'${mvnHome}/bin/mvn' -DskipTests=true clean package --debug --errors -P ignore_CI_repositories,!use_CI_repositories"
-	         sh "'${mvnHome}/bin/mvn' -DskipTests=true clean package --errors -P ignore_CI_repositories,!use_CI_repositories"
+	         // sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean verify --errors -P ignore_CI_repositories,!use_CI_repositories"
+	         sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean verify --errors -P ignore_CI_repositories,!use_CI_repositories"
 	      }      
-	   }
-	   stage('Tests') {
-	      // Run the maven build with the tests (integration tests need Xvnc)
-	      // run offline (this is supposed to be already downloaded)
-	      dir ('gemoc-studio/dev_support/full_compilation') {
-	         wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
-	            // sh "'${mvnHome}/bin/mvn' -o -Dmaven.test.failure.ignore verify --debug --errors -P ignore_CI_repositories,!use_CI_repositories"
-	            sh "'${mvnHome}/bin/mvn' -o -Dmaven.test.failure.ignore verify --errors -P ignore_CI_repositories,!use_CI_repositories"
-	         }
-	      }      
-	   }
-	   stage('Results') {
+	   }	   
+	   stage('Deployment') {
 	      junit '**/target/surefire-reports/TEST-*.xml'
 	      archiveArtifacts '**/target/products/*.zip,**/gemoc-studio/gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.updatesite/target/repository/**'
 	   }
