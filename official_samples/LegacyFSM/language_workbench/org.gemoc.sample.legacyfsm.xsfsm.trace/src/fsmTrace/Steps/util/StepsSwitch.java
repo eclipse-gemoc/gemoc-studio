@@ -1,22 +1,6 @@
-/*******************************************************************************
- * Copyright (c) 2015, 2017  Inria  and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     Inria - initial API and implementation
- *******************************************************************************/
 /**
  */
 package fsmTrace.Steps.util;
-
-import org.eclipse.gemoc.trace.commons.model.trace.BigStep;
-import org.eclipse.gemoc.trace.commons.model.trace.SequentialStep;
-import org.eclipse.gemoc.trace.commons.model.trace.SmallStep;
-import org.eclipse.gemoc.trace.commons.model.trace.State;
-import org.eclipse.gemoc.trace.commons.model.trace.Step;
 
 import fsmTrace.Steps.*;
 
@@ -24,6 +8,12 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
+
+import org.eclipse.gemoc.trace.commons.model.trace.BigStep;
+import org.eclipse.gemoc.trace.commons.model.trace.SequentialStep;
+import org.eclipse.gemoc.trace.commons.model.trace.SmallStep;
+import org.eclipse.gemoc.trace.commons.model.trace.State;
+import org.eclipse.gemoc.trace.commons.model.trace.Step;
 
 /**
  * <!-- begin-user-doc -->
