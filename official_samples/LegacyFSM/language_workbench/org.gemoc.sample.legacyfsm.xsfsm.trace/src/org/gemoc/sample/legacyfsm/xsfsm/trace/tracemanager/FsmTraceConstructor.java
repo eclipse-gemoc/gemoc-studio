@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2015, 2017  Inria  and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     Inria - initial API and implementation
- *******************************************************************************/
 package org.gemoc.sample.legacyfsm.xsfsm.trace.tracemanager;
 
 import java.util.Collection;
@@ -68,12 +58,12 @@ public class FsmTraceConstructor implements ITraceConstructor {
 	private boolean addNewObjectToState(org.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.NamedElement o_cast,
 			fsmTrace.States.SpecificState newState) {
 		boolean added = false;
-		if (o_cast instanceof org.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.StateMachine) {
-			added = addNewObjectToState((org.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.StateMachine) o_cast, newState);
-		} else if (o_cast instanceof org.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.State) {
+		if (o_cast instanceof org.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.State) {
 			added = addNewObjectToState((org.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.State) o_cast, newState);
 		} else if (o_cast instanceof org.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.Transition) {
 			added = addNewObjectToState((org.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.Transition) o_cast, newState);
+		} else if (o_cast instanceof org.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.StateMachine) {
+			added = addNewObjectToState((org.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.StateMachine) o_cast, newState);
 		}
 
 		return added;
@@ -187,7 +177,8 @@ public class FsmTraceConstructor implements ITraceConstructor {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public void addState(List<org.eclipse.gemoc.xdsmlframework.api.engine_addon.modelchangelistener.ModelChange> changes) {
+	public void addState(
+			List<org.eclipse.gemoc.xdsmlframework.api.engine_addon.modelchangelistener.ModelChange> changes) {
 		if (lastState == null) {
 			addInitialState();
 		} else if (!changes.isEmpty()) {
@@ -210,29 +201,25 @@ public class FsmTraceConstructor implements ITraceConstructor {
 						org.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.StateMachine o_cast = (org.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.StateMachine) o;
 
 						if (p.getFeatureID() == org.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.FsmPackage.eINSTANCE
-								.getStateMachine_CurrentState().getFeatureID()) {
+								.getStateMachine_ProducedString().getFeatureID()) {
 
 							// Rollback: we remove the last value of this field from the new state
 							fsmTrace.States.fsm.TracedStateMachine traced = (fsmTrace.States.fsm.TracedStateMachine) exeToTraced
 									.get(o);
-							fsmTrace.States.StateMachine_currentState_Value lastValue = traced
-									.getStateMachine_currentState_Dimension().getValues()
-									.get(traced.getStateMachine_currentState_Dimension().getValues().size() - 1);
+							fsmTrace.States.StateMachine_producedString_Value lastValue = traced
+									.getStateMachine_producedString_Dimension().getValues()
+									.get(traced.getStateMachine_producedString_Dimension().getValues().size() - 1);
 							newState.getValues().remove(lastValue);
 
 							// And we create a proper new value
-							fsmTrace.States.StateMachine_currentState_Value newValue = fsmTrace.States.StatesFactory.eINSTANCE
-									.createStateMachine_currentState_Value();
+							fsmTrace.States.StateMachine_producedString_Value newValue = fsmTrace.States.StatesFactory.eINSTANCE
+									.createStateMachine_producedString_Value();
 
-							fsmTrace.States.fsm.TracedState value = null;
-							if (o_cast.getCurrentState() != null) {
-								addNewObjectToState(o_cast.getCurrentState(), newState);
-								value = ((fsmTrace.States.fsm.TracedState) exeToTraced.get(o_cast.getCurrentState()));
-							}
+							java.lang.String value = o_cast.getProducedString();
 
-							newValue.setCurrentState((fsmTrace.States.fsm.TracedState) value);
+							newValue.setProducedString((java.lang.String) value);
 
-							traced.getStateMachine_currentState_Dimension().getValues().add(newValue);
+							traced.getStateMachine_producedString_Dimension().getValues().add(newValue);
 							newState.getValues().add(newValue);
 						} else
 
@@ -283,25 +270,29 @@ public class FsmTraceConstructor implements ITraceConstructor {
 						} else
 
 						if (p.getFeatureID() == org.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.FsmPackage.eINSTANCE
-								.getStateMachine_ProducedString().getFeatureID()) {
+								.getStateMachine_CurrentState().getFeatureID()) {
 
 							// Rollback: we remove the last value of this field from the new state
 							fsmTrace.States.fsm.TracedStateMachine traced = (fsmTrace.States.fsm.TracedStateMachine) exeToTraced
 									.get(o);
-							fsmTrace.States.StateMachine_producedString_Value lastValue = traced
-									.getStateMachine_producedString_Dimension().getValues()
-									.get(traced.getStateMachine_producedString_Dimension().getValues().size() - 1);
+							fsmTrace.States.StateMachine_currentState_Value lastValue = traced
+									.getStateMachine_currentState_Dimension().getValues()
+									.get(traced.getStateMachine_currentState_Dimension().getValues().size() - 1);
 							newState.getValues().remove(lastValue);
 
 							// And we create a proper new value
-							fsmTrace.States.StateMachine_producedString_Value newValue = fsmTrace.States.StatesFactory.eINSTANCE
-									.createStateMachine_producedString_Value();
+							fsmTrace.States.StateMachine_currentState_Value newValue = fsmTrace.States.StatesFactory.eINSTANCE
+									.createStateMachine_currentState_Value();
 
-							java.lang.String value = o_cast.getProducedString();
+							fsmTrace.States.fsm.TracedState value = null;
+							if (o_cast.getCurrentState() != null) {
+								addNewObjectToState(o_cast.getCurrentState(), newState);
+								value = ((fsmTrace.States.fsm.TracedState) exeToTraced.get(o_cast.getCurrentState()));
+							}
 
-							newValue.setProducedString((java.lang.String) value);
+							newValue.setCurrentState((fsmTrace.States.fsm.TracedState) value);
 
-							traced.getStateMachine_producedString_Dimension().getValues().add(newValue);
+							traced.getStateMachine_currentState_Dimension().getValues().add(newValue);
 							newState.getValues().add(newValue);
 						}
 					}

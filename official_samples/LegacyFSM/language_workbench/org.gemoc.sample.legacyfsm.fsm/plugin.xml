@@ -10,7 +10,6 @@
     Contributors:
         Inria - initial API and implementation
  -->
-
 <plugin>
   <extension point="org.gemoc.gemoc_language_workbench.sequential.xdsml">
     <XDSML_Definition modelLoader_class="org.eclipse.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" name="org.gemoc.sample.legacyfsm.fsm.FSM" xdsmlFilePath="/org.gemoc.sample.legacyfsm.fsm/src/org/gemoc/sample/legacyfsm/fsm/FSM.melange" />

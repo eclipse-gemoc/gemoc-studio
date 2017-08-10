@@ -12,7 +12,7 @@
         <eTypeArguments>
           <eUpperBound eClassifier="//States/SpecificState"/>
         </eTypeArguments>
-        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/fr.inria.diverse.trace.commons.model/model/GenericTrace.ecore#//SequentialStep"/>
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.eclipse.gemoc.trace.commons.model/model/GenericTrace.ecore#//SequentialStep"/>
       </eTypeArguments>
       <eTypeArguments eClassifier="//States/SpecificTracedObject">
         <eTypeArguments>
@@ -24,7 +24,7 @@
         </eTypeArguments>
       </eTypeArguments>
       <eTypeArguments eClassifier="//States/SpecificState"/>
-      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/fr.inria.diverse.trace.commons.model/model/GenericTrace.ecore#//Trace"/>
+      <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.eclipse.gemoc.trace.commons.model/model/GenericTrace.ecore#//Trace"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eSubpackages name="Steps" nsURI="fsmTrace_Steps" nsPrefix="events">
@@ -37,7 +37,7 @@
       <eGenericSuperTypes eClassifier="//Steps/SpecificStep"/>
       <eGenericSuperTypes>
         <eTypeArguments eClassifier="//States/SpecificState"/>
-        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/fr.inria.diverse.trace.commons.model/model/GenericTrace.ecore#//SmallStep"/>
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.eclipse.gemoc.trace.commons.model/model/GenericTrace.ecore#//SmallStep"/>
       </eGenericSuperTypes>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Fsm_State_Step">
@@ -50,7 +50,7 @@
       <eGenericSuperTypes>
         <eTypeArguments eClassifier="//Steps/Fsm_State_Step_AbstractSubStep"/>
         <eTypeArguments eClassifier="//States/SpecificState"/>
-        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/fr.inria.diverse.trace.commons.model/model/GenericTrace.ecore#//SequentialStep"/>
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.eclipse.gemoc.trace.commons.model/model/GenericTrace.ecore#//SequentialStep"/>
       </eGenericSuperTypes>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Fsm_State_Step_AbstractSubStep" abstract="true" interface="true" eSuperTypes="//Steps/SpecificStep"/>
@@ -58,7 +58,7 @@
       <eGenericSuperTypes eClassifier="//Steps/Fsm_State_Step_AbstractSubStep"/>
       <eGenericSuperTypes>
         <eTypeArguments eClassifier="//States/SpecificState"/>
-        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/fr.inria.diverse.trace.commons.model/model/GenericTrace.ecore#//SmallStep"/>
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.eclipse.gemoc.trace.commons.model/model/GenericTrace.ecore#//SmallStep"/>
       </eGenericSuperTypes>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Fsm_Transition_Fire">
@@ -71,27 +71,27 @@
       <eGenericSuperTypes eClassifier="//Steps/SpecificStep"/>
       <eGenericSuperTypes>
         <eTypeArguments eClassifier="//States/SpecificState"/>
-        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/fr.inria.diverse.trace.commons.model/model/GenericTrace.ecore#//SmallStep"/>
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.eclipse.gemoc.trace.commons.model/model/GenericTrace.ecore#//SmallStep"/>
       </eGenericSuperTypes>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RootImplicitStep">
       <eGenericSuperTypes>
         <eTypeArguments eClassifier="//States/SpecificState"/>
-        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/fr.inria.diverse.trace.commons.model/model/GenericTrace.ecore#//SmallStep"/>
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.eclipse.gemoc.trace.commons.model/model/GenericTrace.ecore#//SmallStep"/>
       </eGenericSuperTypes>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SpecificRootStep">
       <eGenericSuperTypes>
         <eTypeArguments eClassifier="//Steps/SpecificStep"/>
         <eTypeArguments eClassifier="//States/SpecificState"/>
-        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/fr.inria.diverse.trace.commons.model/model/GenericTrace.ecore#//SequentialStep"/>
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.eclipse.gemoc.trace.commons.model/model/GenericTrace.ecore#//SequentialStep"/>
       </eGenericSuperTypes>
       <eGenericSuperTypes eClassifier="//Steps/SpecificStep"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SpecificStep" abstract="true">
       <eGenericSuperTypes>
         <eTypeArguments eClassifier="//States/SpecificState"/>
-        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/fr.inria.diverse.trace.commons.model/model/GenericTrace.ecore#//Step"/>
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.eclipse.gemoc.trace.commons.model/model/GenericTrace.ecore#//Step"/>
       </eGenericSuperTypes>
     </eClassifiers>
   </eSubpackages>
@@ -103,7 +103,7 @@
       </eTypeParameters>
       <eGenericSuperTypes>
         <eTypeArguments eTypeParameter="//States/SpecificDimension/ValueSubType"/>
-        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/fr.inria.diverse.trace.commons.model/model/GenericTrace.ecore#//Dimension"/>
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.eclipse.gemoc.trace.commons.model/model/GenericTrace.ecore#//Dimension"/>
       </eGenericSuperTypes>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SpecificReferenceValue" abstract="true" interface="true" eSuperTypes="//States/SpecificValue">
@@ -113,7 +113,7 @@
       <eGenericSuperTypes>
         <eTypeArguments eClassifier="//Steps/SpecificStep"/>
         <eTypeArguments eClassifier="//States/SpecificValue"/>
-        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/fr.inria.diverse.trace.commons.model/model/GenericTrace.ecore#//State"/>
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.eclipse.gemoc.trace.commons.model/model/GenericTrace.ecore#//State"/>
       </eGenericSuperTypes>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SpecificTracedObject" abstract="true">
@@ -126,13 +126,13 @@
       </eTypeParameters>
       <eGenericSuperTypes>
         <eTypeArguments eTypeParameter="//States/SpecificTracedObject/DimensionSubType"/>
-        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/fr.inria.diverse.trace.commons.model/model/GenericTrace.ecore#//TracedObject"/>
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.eclipse.gemoc.trace.commons.model/model/GenericTrace.ecore#//TracedObject"/>
       </eGenericSuperTypes>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SpecificValue" abstract="true">
       <eGenericSuperTypes>
         <eTypeArguments eClassifier="//States/SpecificState"/>
-        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/fr.inria.diverse.trace.commons.model/model/GenericTrace.ecore#//Value"/>
+        <eClassifier xsi:type="ecore:EClass" href="../../../plugin/org.eclipse.gemoc.trace.commons.model/model/GenericTrace.ecore#//Value"/>
       </eGenericSuperTypes>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="StateMachine_consummedString_Dimension">
@@ -225,7 +225,7 @@
       <eClassifiers xsi:type="ecore:EClass" name="TracedStateMachine" eSuperTypes="//States/fsm/TracedNamedElement">
         <eOperations name="getDimensionsInternal" upperBound="-1">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="body" value="final EList&lt;SpecificDimension&lt;?>> result = new org.eclipse.emf.ecore.util.BasicInternalEList&lt;SpecificDimension&lt;?>>(Object.class);&#xA;result.addAll(super.getDimensionsInternal());&#xA;result.add(getStateMachine_currentState_Dimension());&#xA;result.add(getStateMachine_unprocessedString_Dimension());&#xA;result.add(getStateMachine_consummedString_Dimension());&#xA;result.add(getStateMachine_producedString_Dimension());&#xA;return result;&#xA;"/>
+            <details key="body" value="final EList&lt;SpecificDimension&lt;?>> result = new org.eclipse.emf.ecore.util.BasicInternalEList&lt;SpecificDimension&lt;?>>(Object.class);&#xA;result.addAll(super.getDimensionsInternal());&#xA;result.add(getStateMachine_producedString_Dimension());&#xA;result.add(getStateMachine_unprocessedString_Dimension());&#xA;result.add(getStateMachine_consummedString_Dimension());&#xA;result.add(getStateMachine_currentState_Dimension());&#xA;return result;&#xA;"/>
           </eAnnotations>
           <eGenericType eClassifier="//States/SpecificDimension">
             <eTypeArguments/>

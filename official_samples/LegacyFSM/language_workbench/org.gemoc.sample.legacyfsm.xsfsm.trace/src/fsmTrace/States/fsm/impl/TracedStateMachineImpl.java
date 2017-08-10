@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2015, 2017  Inria  and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     Inria - initial API and implementation
- *******************************************************************************/
 /**
  */
 package fsmTrace.States.fsm.impl;
@@ -338,10 +328,10 @@ public class TracedStateMachineImpl extends TracedNamedElementImpl implements Tr
 	public EList<SpecificDimension<?>> getDimensionsInternal() {
 		final EList<SpecificDimension<?>> result = new org.eclipse.emf.ecore.util.BasicInternalEList<SpecificDimension<?>>(Object.class);
 		result.addAll(super.getDimensionsInternal());
-		result.add(getStateMachine_currentState_Dimension());
+		result.add(getStateMachine_producedString_Dimension());
 		result.add(getStateMachine_unprocessedString_Dimension());
 		result.add(getStateMachine_consummedString_Dimension());
-		result.add(getStateMachine_producedString_Dimension());
+		result.add(getStateMachine_currentState_Dimension());
 		return result;
 		
 	}

@@ -103,7 +103,7 @@
     <ownedJavaExtensions qualifiedClassName="org.gemoc.sample.legacyfsm.fsm.design.services.FSMServices"/>
   </ownedViewpoints>
   <userColorsPalettes name="XFSM Palette">
-    <entries xsi:type="description:UserFixedColor" red="255" green="255" blue="47" name="current instruction"/>
+    <entries xsi:type="description:UserFixedColor" red="139" green="105" blue="20" name="current instruction"/>
     <entries xsi:type="description:UserFixedColor" red="255" green="210" blue="210" name="hasBeenAnimated"/>
   </userColorsPalettes>
 </description:Group>

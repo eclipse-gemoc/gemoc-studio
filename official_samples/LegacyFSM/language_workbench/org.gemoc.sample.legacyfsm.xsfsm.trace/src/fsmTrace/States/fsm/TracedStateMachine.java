@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2015, 2017  Inria  and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     Inria - initial API and implementation
- *******************************************************************************/
 /**
  */
 package fsmTrace.States.fsm;
@@ -177,7 +167,7 @@ public interface TracedStateMachine extends TracedNamedElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final EList<SpecificDimension<?>> result = new org.eclipse.emf.ecore.util.BasicInternalEList<SpecificDimension<?>>(Object.class);\nresult.addAll(super.getDimensionsInternal());\nresult.add(getStateMachine_currentState_Dimension());\nresult.add(getStateMachine_unprocessedString_Dimension());\nresult.add(getStateMachine_consummedString_Dimension());\nresult.add(getStateMachine_producedString_Dimension());\nreturn result;\n'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final EList<SpecificDimension<?>> result = new org.eclipse.emf.ecore.util.BasicInternalEList<SpecificDimension<?>>(Object.class);\nresult.addAll(super.getDimensionsInternal());\nresult.add(getStateMachine_producedString_Dimension());\nresult.add(getStateMachine_unprocessedString_Dimension());\nresult.add(getStateMachine_consummedString_Dimension());\nresult.add(getStateMachine_currentState_Dimension());\nreturn result;\n'"
 	 * @generated
 	 */
 	EList<SpecificDimension<?>> getDimensionsInternal();

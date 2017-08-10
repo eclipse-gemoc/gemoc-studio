@@ -166,6 +166,6 @@
       </nestedGenPackages>
     </nestedGenPackages>
   </genPackages>
-  <usedGenPackages href="../../../plugin/fr.inria.diverse.trace.commons.model/model/GenericTrace.genmodel#//trace"/>
+  <usedGenPackages href="../../../plugin/org.eclipse.gemoc.trace.commons.model/model/GenericTrace.genmodel#//trace"/>
   <usedGenPackages href="../../org.gemoc.sample.legacyfsm.xsfsm.xsfsm/model/XSFSM.genmodel#//fsm"/>
 </genmodel:GenModel>
