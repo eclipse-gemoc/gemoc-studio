@@ -10,7 +10,6 @@
  *******************************************************************************/
 package org.eclipse.gemoc.commons.eclipse.messagingsystem.api;
 
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.gemoc.commons.messagingsystem.api.impl.StdioSimpleMessagingSystem;
@@ -64,7 +63,7 @@ public class MessagingSystemManager {
 				result = (MessagingSystem) confElements[i].createExecutableExtension(MESSAGINGSYSTEM_EXTENSION_POINT_CONTRIB_MESSAGINGSYSTEM_ATT);
 				result.initialize(baseMessageGroup, userFriendlyName);
 				if(result != null)	break;
-			} catch (CoreException e) {;
+			} catch (Throwable e) {;
 			}
 		}
 		if (result == null){
