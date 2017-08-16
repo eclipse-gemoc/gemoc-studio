@@ -25,7 +25,8 @@ node {
 	   }
 	   stage('Build and verify') {
 	      // Run the maven build with tests  
-	      withEnv(["studio.variant=${env.JENKINS_URL}","branch.variant=${env.BRANCH_NAME}"]){          
+	      withEnv(["STUDIO_VARIANT=${JENKINS_URL}","BRANCH_VARIANT=${BRANCH_NAME}"]){ 
+	          sh 'printenv'         
 		      dir ('gemoc-studio/dev_support/full_compilation') {
 		          wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
 		              // sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean verify --errors -P ignore_CI_repositories,!use_CI_repositories"
