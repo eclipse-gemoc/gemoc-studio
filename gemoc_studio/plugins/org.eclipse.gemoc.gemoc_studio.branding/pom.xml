@@ -14,6 +14,9 @@
 
 	<properties>
 		<eclipse.version.name>Neon.3</eclipse.version.name>
+		<!-- override these values using system properties specific to the CI (see jenkinsfile for CI configuration)-->
+		<studio.variant>Local build </studio.variant>
+		<branch.variant>Unknown branch</branch.variant>
 	</properties>
 
 	<artifactId>org.eclipse.gemoc.gemoc_studio.branding</artifactId>
@@ -99,6 +102,24 @@
 			                            <fontStyle>italic,bold</fontStyle>
 			                            <fontSize>16</fontSize>
 			                            <position>right-15,bottom-45</position>
+			                        </drawText>
+			                        <!-- Studio variant -->
+	                            	<drawText>
+			                            <text>${studio.variant}</text>
+			                            <textColor>#909090</textColor>
+			                            <fontName>SansSerif</fontName>
+			                            <fontStyle>italic,bold</fontStyle>
+			                            <fontSize>12</fontSize>
+			                            <position>right-15,bottom-125</position>
+			                        </drawText>
+			                        <!-- Branch variant -->
+	                            	<drawText>
+			                            <text>${branch.variant}</text>
+			                            <textColor>#909090</textColor>
+			                            <fontName>SansSerif</fontName>
+			                            <fontStyle>italic,bold</fontStyle>
+			                            <fontSize>12</fontSize>
+			                            <position>right-15,bottom-105</position>
 			                        </drawText>
 	                            </draw>
 	                        </canvas>
