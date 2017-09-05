@@ -24,13 +24,19 @@ node {
 	      mvnHome = tool 'apache-maven-latest'
 	   }
 	   stage('Build and verify') {
+	      def studioVariant
+	      if(  "${JENKINS_URL}".equals("https://hudson.eclipse.org/gemoc/")){
+	      	studioVariant = "Official build"
+	      } else {
+	      	studioVariant = "${JENKINS_URL}"
+	      }
 	      // Run the maven build with tests  
-	      withEnv(["STUDIO_VARIANT=${JENKINS_URL}","BRANCH_VARIANT=${BRANCH_NAME}"]){ 
+	      withEnv(["STUDIO_VARIANT=${studioVariant}","BRANCH_VARIANT=${BRANCH_NAME}"]){ 
 	          sh 'printenv'         
 		      dir ('gemoc-studio/dev_support/full_compilation') {
 		          wrap([$class: 'Xvnc', takeScreenshot: false, useXauthority: true]) {
 		              // sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean verify --errors -P ignore_CI_repositories,!use_CI_repositories"
-		              sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore -Dstudio.variant=${STUDIO_VARIANT} -Dbranch.variant=${BRANCH_VARIANT} clean verify --errors -P ignore_CI_repositories,!use_CI_repositories"
+		              sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore -Dstudio.variant=${studioVariant} -Dbranch.variant=${BRANCH_VARIANT} clean verify --errors -P ignore_CI_repositories,!use_CI_repositories"
 		          }
 		      }      
 	      }

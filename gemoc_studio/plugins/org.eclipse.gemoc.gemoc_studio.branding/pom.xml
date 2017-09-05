@@ -87,12 +87,12 @@
 			                            <fontName>SansSerif</fontName>
 			                            <fontStyle>italic,bold</fontStyle>
 			                            <fontSize>12</fontSize>
-			                            <position>right-15,bottom-25</position>
+			                            <position>right-15,bottom-45</position>
 			                        </drawText>
 			                        <!-- Eclipse Logo 64 -->
 			                        <drawImage>
                             			<imageName>eclipse</imageName>
-                            			<position>right-20,bottom-45</position>
+                            			<position>right-20,bottom-65</position>
                         			</drawImage>
 			                        <!-- Eclipse version -->
 	                            	<drawText>
@@ -101,25 +101,16 @@
 			                            <fontName>SansSerif</fontName>
 			                            <fontStyle>italic,bold</fontStyle>
 			                            <fontSize>16</fontSize>
-			                            <position>right-15,bottom-45</position>
+			                            <position>right-15,bottom-65</position>
 			                        </drawText>
 			                        <!-- Studio variant -->
 	                            	<drawText>
-			                            <text>${studio.variant}</text>
+			                            <text>${studio.variant} - ${branch.variant} branch</text>
 			                            <textColor>#909090</textColor>
 			                            <fontName>SansSerif</fontName>
 			                            <fontStyle>italic,bold</fontStyle>
 			                            <fontSize>12</fontSize>
-			                            <position>right-15,bottom-125</position>
-			                        </drawText>
-			                        <!-- Branch variant -->
-	                            	<drawText>
-			                            <text>${branch.variant}</text>
-			                            <textColor>#909090</textColor>
-			                            <fontName>SansSerif</fontName>
-			                            <fontStyle>italic,bold</fontStyle>
-			                            <fontSize>12</fontSize>
-			                            <position>right-15,bottom-105</position>
+			                            <position>right-15,bottom-30</position>
 			                        </drawText>
 	                            </draw>
 	                        </canvas>
