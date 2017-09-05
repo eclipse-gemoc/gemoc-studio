@@ -14,13 +14,9 @@
 
 	<properties>
 		<eclipse.version.name>Neon.3</eclipse.version.name>
-		<!-- override these values using system properties specific to the CI (see jenkinsfile for CI configuration)-->
-		<!-- note: jenkinsfile doesn't deal very well with dot in the property name, so use this uppercase version instead -->
-		<STUDIO_VARIANT>Local build </STUDIO_VARIANT>
-		<BRANCH_VARIANT>Unknown branch</BRANCH_VARIANT>
-		<!-- copy in a more readable variable for use in the rest of the pom -->
-		<studio.variant>${STUDIO_VARIANT}</studio.variant>
-		<branch.variant>${BRANCH_VARIANT}</branch.variant>
+		<!-- override these values using -D option on the maven command line on the CI (see jenkinsfile for CI configuration)-->		
+		<studio.variant>Local build</studio.variant>
+		<branch.variant>Unknown</branch.variant>
 	</properties>
 
 	<artifactId>org.eclipse.gemoc.gemoc_studio.branding</artifactId>
