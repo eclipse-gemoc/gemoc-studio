@@ -25,7 +25,7 @@ node {
 	   }
 	   stage('Build and verify') {
 	      def studioVariant
-	      if(  "${JENKINS_URL}".equals("https://hudson.eclipse.org/gemoc/")){
+	      if(  env.JENKINS_URL.contains("https://hudson.eclipse.org/gemoc/")){
 	      	studioVariant = "Official build"
 	      } else {
 	      	studioVariant = "${JENKINS_URL}"
