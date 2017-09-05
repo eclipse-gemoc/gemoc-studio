@@ -14,6 +14,9 @@
 
 	<properties>
 		<eclipse.version.name>Neon.3</eclipse.version.name>
+		<!-- override these values using -D option on the maven command line on the CI (see jenkinsfile for CI configuration)-->		
+		<studio.variant>Local build</studio.variant>
+		<branch.variant>Unknown</branch.variant>
 	</properties>
 
 	<artifactId>org.eclipse.gemoc.gemoc_studio.branding</artifactId>
@@ -84,12 +87,12 @@
 			                            <fontName>SansSerif</fontName>
 			                            <fontStyle>italic,bold</fontStyle>
 			                            <fontSize>12</fontSize>
-			                            <position>right-15,bottom-25</position>
+			                            <position>right-15,bottom-45</position>
 			                        </drawText>
 			                        <!-- Eclipse Logo 64 -->
 			                        <drawImage>
                             			<imageName>eclipse</imageName>
-                            			<position>right-20,bottom-45</position>
+                            			<position>right-20,bottom-65</position>
                         			</drawImage>
 			                        <!-- Eclipse version -->
 	                            	<drawText>
@@ -98,7 +101,16 @@
 			                            <fontName>SansSerif</fontName>
 			                            <fontStyle>italic,bold</fontStyle>
 			                            <fontSize>16</fontSize>
-			                            <position>right-15,bottom-45</position>
+			                            <position>right-15,bottom-65</position>
+			                        </drawText>
+			                        <!-- Studio variant -->
+	                            	<drawText>
+			                            <text>${studio.variant} - ${branch.variant} branch</text>
+			                            <textColor>#909090</textColor>
+			                            <fontName>SansSerif</fontName>
+			                            <fontStyle>italic,bold</fontStyle>
+			                            <fontSize>12</fontSize>
+			                            <position>right-15,bottom-30</position>
 			                        </drawText>
 	                            </draw>
 	                        </canvas>

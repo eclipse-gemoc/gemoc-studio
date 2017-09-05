@@ -1,2 +1,4 @@
 0=${project.version}
 1=${buildNumber}
+2=${studio.variant}
+3=${branch.variant}
