@@ -13,7 +13,7 @@
 <feature
       id="org.eclipse.gemoc.gemoc_studio.branding.feature"
       label="GEMOC Studio Main Features"
-      version="2.3.0.qualifier"
+      version="2.4.0.qualifier"
       provider-name="%providerName"
       plugin="org.eclipse.gemoc.gemoc_studio.branding"
       image="gemocstudio32.png">

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: GEMOC Commons Eclipse JDT
 Bundle-SymbolicName: org.eclipse.gemoc.commons.eclipse.jdt;singleton:=true
-Bundle-Version: 2.3.0.qualifier
+Bundle-Version: 2.4.0.qualifier
 Require-Bundle: org.eclipse.jdt.core,
  org.eclipse.core.runtime,
  org.eclipse.gemoc.commons.eclipse;visibility:=reexport,
