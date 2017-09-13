@@ -11,10 +11,10 @@
  -->
 
 <site>
-   <feature url="features/org.eclipse.gemoc.sequential.samples.deployers.feature_2.3.0.qualifier.jar" id="org.eclipse.gemoc.sequential.samples.deployers.feature" version="2.3.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.sequential.samples.deployers.feature_2.4.0.qualifier.jar" id="org.eclipse.gemoc.sequential.samples.deployers.feature" version="2.4.0.qualifier">
       <category name="gemoc_samples"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.sequential.samples.deployers.feature.source_2.3.0.qualifier.jar" id="org.eclipse.gemoc.sequential.samples.deployers.feature.source" version="2.3.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.sequential.samples.deployers.feature.source_2.4.0.qualifier.jar" id="org.eclipse.gemoc.sequential.samples.deployers.feature.source" version="2.4.0.qualifier">
       <category name="gemoc_samples"/>
    </feature>
    
