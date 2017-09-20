@@ -21,7 +21,7 @@ Note: the reposistories must keep their names (ie. do not change the destination
 Then compile using maven:
 
 ~~~
-cd gemoc-studio/gemoc-studio/dev_support/full_build
+cd gemoc-studio/dev_support/full_compilation
 mvn package -Dmaven.repo.local=$PWD/localm2 -P 'ignore_CI_repositories,!use_CI_repositories'
 ~~~
 
