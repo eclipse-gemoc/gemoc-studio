@@ -310,6 +310,34 @@ public abstract class OptionTemplateSection extends BaseOptionTemplateSection {
 			page.setErrorMessage(message);
 		}
 	}
+	
+	/**
+	 * Locates the page that this option is presented in and flags that the
+	 * option has an error. The flagging is done by
+	 * setting the page incomplete and setting the error message with the 
+	 * provided message prefixed by the option's message label.
+	 * 
+	 * @param option
+	 *            the option that is required and currently not set
+	 * @param msg
+	 *            the message indicating the error for the given option
+	 */
+	protected void flagErrorOnOption(TemplateOption option, String msg) {
+		WizardPage page = null;
+		for (int i = 0; i < pages.size(); i++) {
+			TemplatePage tpage = pages.get(i);
+			ArrayList<TemplateOption> list = tpage.options;
+			if (list.contains(option)) {
+				page = tpage.page;
+				break;
+			}
+		}
+		if (page != null) {
+			page.setPageComplete(false);
+			String message = option.getMessageLabel()+": "+msg;
+			page.setErrorMessage(message);
+		}
+	}
 
 	/**
 	 * Resets the current page state by clearing the error message and making
