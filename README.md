@@ -8,7 +8,7 @@ Reporting issues
 ============
 
 In case of trouble with the studio, you can use one the issue trackers of the Studio. Since the Studio is an assemblty of various tools and components, the precise traker will depend on the involved component.
-A dashboard of all issues is available as a waffle:  [https://waffle.io/gemoc/gemoc-studio](https://waffle.io/gemoc/gemoc-studio).
+A dashboard of all issues is available as a waffle:  [https://waffle.io/eclipse/gemoc-studio](https://waffle.io/eclipse/gemoc-studio).
 
 * https://github.com/eclipse/gemoc-studio/issues : Main/Global tracker, use this tracker if this is an assembly problem or if you don't know which precise component is affected.
 * https://github.com/eclipse/gemoc-studio-modeldebugging/issues : Tracker for issues related to the main framework, to the definition of Sequential languages and to the sequential engine.
