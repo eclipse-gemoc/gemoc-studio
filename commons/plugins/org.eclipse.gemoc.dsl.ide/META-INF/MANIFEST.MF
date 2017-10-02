@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.eclipse.gemoc.dsl.ide
+Bundle-Vendor: My Company
+Bundle-Version: 2.4.0.qualifier
+Bundle-SymbolicName: org.eclipse.gemoc.dsl.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.gemoc.dsl,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.eclipse.gemoc.ide.contentassist.antlr.internal,
+ org.eclipse.gemoc.ide.contentassist.antlr
+
