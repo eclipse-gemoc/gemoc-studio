@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.eclipse.gemoc.dsl
+Bundle-Vendor: My Company
+Bundle-Version: 2.4.0.qualifier
+Bundle-SymbolicName: org.eclipse.gemoc.dsl; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib,
+ org.antlr.runtime,
+ org.eclipse.xtext.util,
+ org.eclipse.xtend.lib,
+ org.eclipse.emf.common
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.eclipse.gemoc.dsl.util,
+ org.eclipse.gemoc.serializer,
+ org.eclipse.gemoc.scoping,
+ org.eclipse.gemoc.dsl.impl,
+ org.eclipse.gemoc.dsl,
+ org.eclipse.gemoc,
+ org.eclipse.gemoc.parser.antlr.internal,
+ org.eclipse.gemoc.parser.antlr,
+ org.eclipse.gemoc.services,
+ org.eclipse.gemoc.validation,
+ org.eclipse.gemoc.generator,
+ org.eclipse.gemoc.formatting2
+Import-Package: org.apache.log4j

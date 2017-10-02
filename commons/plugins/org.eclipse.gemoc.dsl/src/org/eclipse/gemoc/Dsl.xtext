@@ -1,0 +1,60 @@
+grammar org.eclipse.gemoc.Dsl with org.eclipse.xtext.common.Terminals
+
+generate dsl "http://www.eclipse.org/gemoc/Dsl"
+
+Dsl:
+	'DSL' name=(QUALIFIED |  ID) '{'
+		(displayName = DisplayName)?
+		(metaprog = Metaprog)?
+		(abstractSyntax = AbstractSyntax)?
+		(semantic = Semantic)?
+		values+=Value*
+	'}'
+;
+	
+Value:
+	SimpleValue | CompositeValue
+;
+	
+SimpleValue:
+	name=ID '=' values+=STRING (',' values+=STRING)*
+;
+
+CompositeValue:
+	name=ID '{'
+		values+=Value*
+	'}'
+;
+
+//-----------------------------------
+
+DisplayName returns DisplayName:
+	{DisplayName}
+	'displayName' '=' value=STRING
+;
+
+Metaprog returns Metaprog:
+	{Metaprog}
+	'metaprog' '=' value=STRING
+;
+
+AbstractSyntax returns AbstractSyntax:
+	{AbstractSyntax}
+	'abstract-syntax' '{'
+		values+=Value*
+	'}'
+;
+
+Semantic returns Semantic:
+	{Semantic}
+	'semantic' '{'
+		values+=Value*
+	'}'
+;
+
+//-----------------------------------
+
+terminal QUALIFIED:
+  ID '.' ID ('.' ID)*
+;
+
