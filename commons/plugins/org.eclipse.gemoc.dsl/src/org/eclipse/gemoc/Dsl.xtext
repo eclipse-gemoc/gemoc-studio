@@ -56,4 +56,5 @@ Semantic returns Semantic:
 
 terminal QUALIFIED:
   ID '.' ID ('.' ID)*
-; 
+;
+
