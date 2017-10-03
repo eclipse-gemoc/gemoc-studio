@@ -18,9 +18,9 @@
   	<!--  must NOT include the repositories of the tools included in the Studio has it has its own complementary list -->
   	        
         <repository>
-            <id>Neon release</id>
+            <id>Oxygen release</id>
             <layout>p2</layout>
-            <url>http://download.eclipse.org/releases/neon</url>
+            <url>http://download.eclipse.org/releases/oxygen</url>
         </repository>
 		<repository>
             <id>kermeta-3</id>
@@ -35,7 +35,7 @@
         <repository>
             <id>Sirius</id>
             <layout>p2</layout>
-            <url>http://download.eclipse.org/sirius/updates/releases/4.1.2/neon/</url>
+            <url>http://download.eclipse.org/sirius/updates/releases/5.0.2/oxygen</url>
         </repository>
         <repository>
             <id>nebula</id>
