@@ -94,7 +94,7 @@ public class IFileUtils {
 	    String str = null;
 	    StringBuilder sb = new StringBuilder();
 	    while ((str = r.readLine()) != null) {
-	    	sb.append(str);
+	    	sb.append(str+'\n');
 	    }
 		return sb.toString();     
 	}
