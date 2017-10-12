@@ -39,12 +39,7 @@
 
     <repositories>
        
-    	<!-- Repositories specific for the studio (typically referred by the additional feature) -->
-    	<repository>
-            <id>Subversive</id>
-            <layout>p2</layout>
-            <url>http://community.polarion.com/projects/subversive/download/eclipse/6.0/neon-site/</url>
-        </repository>         
+    	<!-- Repositories specific for the studio (typically referred by the additional feature) -->       
 
         <repository>
             <id>elk</id>
