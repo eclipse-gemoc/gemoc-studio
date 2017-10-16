@@ -42,11 +42,6 @@
             <layout>p2</layout>
             <url>http://archive.eclipse.org/nebula/Q22016/incubation</url>
         </repository>
-        <repository>
-            <id>GEF</id>
-            <layout>p2</layout>
-            <url>http://download.eclipse.org/tools/gef/updates/milestones</url>
-        </repository>
     </repositories>
 
 
