@@ -37,7 +37,7 @@ The import is used to load all the concepts of language that are used to clarify
 [source,ecl]
 [[eclimport]]
 ----
-import "platform:/resource/org.gemoc.model.dpl.dplextended/model/dplExtended.ecore"
+import "platform:/resource/org.eclipse.gemoc.model.dpl.dplextended/model/dplExtended.ecore"
 ----
 
 ====== Define Event-Action Creation 
@@ -137,7 +137,7 @@ For instance, the invariant related to the context Philosopher (_PhilosopherCons
 [source,ecl]
 [[eclContextConstraintUse]]
 ----
-ECLimport "platform:/resource/org.gemoc.dpl.xdsml.mocc.model/mocc/rendez_vous.moccml"
+ECLimport "platform:/resource/org.eclipse.gemoc.dpl.xdsml.mocc.model/mocc/rendez_vous.moccml"
 ECLimport "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/kernel.ccslLib" 
 ECLimport "platform:/plugin/fr.inria.aoste.timesquare.ccslkernel.model/ccsllibrary/CCSL.ccslLib" 
 

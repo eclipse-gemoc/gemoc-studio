@@ -37,12 +37,12 @@
    <extension
          point="org.eclipse.ui.commands">
       <category
-            id="org.gemoc.gemoc_studio.commands.category"
+            id="org.eclipse.gemoc.gemoc_studio.commands.category"
             name="Gemoc Studio">
       </category>
       <command
-            categoryId="org.gemoc.gemoc_studio.commands.category"
-            id="org.gemoc.gemoc_studio.commands.discoveryCommand"
+            categoryId="org.eclipse.gemoc.gemoc_studio.commands.category"
+            id="org.eclipse.gemoc.gemoc_studio.commands.discoveryCommand"
             name="Install Additional GEMOC Components">
       </command>
    </extension>
@@ -50,7 +50,7 @@
          point="org.eclipse.ui.handlers">
       <handler
             class="org.eclipse.gemoc.gemoc_studio.branding.handlers.GemocDiscoveryHandler"
-            commandId="org.gemoc.gemoc_studio.commands.discoveryCommand">
+            commandId="org.eclipse.gemoc.gemoc_studio.commands.discoveryCommand">
       </handler>
    </extension>
    <extension
@@ -58,11 +58,11 @@
       <menuContribution
             locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
          <toolbar
-               id="org.gemoc.gemoc_studio.toolbars.sampleToolbar">
+               id="org.eclipse.gemoc.gemoc_studio.toolbars.sampleToolbar">
             <command
-                  commandId="org.gemoc.gemoc_studio.commands.discoveryCommand"
+                  commandId="org.eclipse.gemoc.gemoc_studio.commands.discoveryCommand"
                   icon="images/icons/IconeGemocStudio/png/IconeGemocStudio_16x16x32.png"
-                  id="org.gemoc.gemoc_studio.toolbars.discoveryCommand"
+                  id="org.eclipse.gemoc.gemoc_studio.toolbars.discoveryCommand"
                   tooltip="Install GEMOC Components">
             </command>
          </toolbar>
@@ -74,9 +74,9 @@
       <menuContribution
             locationURI="menu:help?after=org.eclipse.equinox.p2.ui.sdk.install">
             <command
-                  commandId="org.gemoc.gemoc_studio.commands.discoveryCommand"
+                  commandId="org.eclipse.gemoc.gemoc_studio.commands.discoveryCommand"
                   icon="images/icons/IconeGemocStudio/png/IconeGemocStudio_16x16x32.png"
-                  id="org.gemoc.gemoc_studio.toolbars.discoveryCommand"
+                  id="org.eclipse.gemoc.gemoc_studio.toolbars.discoveryCommand"
                   tooltip="Install Additional Components">
             </command>
       </menuContribution>

@@ -14,12 +14,12 @@
         license="EPL"
         groups="//@filters.0"
         image32="images/IconeGemocLanguagePlusModel-32.png">
-      <sitesURLS>https://ci.inria.fr/gemoc/job/ActivityDiagram_updatesite/lastSuccessfulBuild/artifact/dev/releng/org.gemoc.activitydiagram.repository/target/repository/</sitesURLS>
+      <sitesURLS>https://ci.inria.fr/gemoc/job/ActivityDiagram_updatesite/lastSuccessfulBuild/artifact/dev/releng/org.eclipse.gemoc.activitydiagram.repository/target/repository/</sitesURLS>
       <overview
           summary="Deployer that installs the project sources for two versions of the Activitydiagram Language developped using GEMOC. One version will run using the GEMOC Sequential engine, the second using Concurrent engine.  The deployer also provides sample models."
           screenshot="images/activitydiagram_sequential-screenshot-320x240.png"
           url="http://github.com/gemoc/activitydiagram"/>
-      <id>org.gemoc.activitydiagram.feature</id>
+      <id>org.eclipse.gemoc.activitydiagram.feature</id>
       <messages
           title="Getting started"
           message="Once Eclipse has restarted, your example languages will be available in the File > New > Example... menu. Look for the GEMOC categories. Some more informations will be available in the Eclipse help."/>
@@ -31,12 +31,12 @@
         license="EPL"
         groups="//@filters.0"
         image32="images/IconeGemocLanguagePlusModel-32.png">
-      <sitesURLS>https://ci.inria.fr/gemoc/job/ArduinoModeling_updatesite/lastSuccessfulBuild/artifact/dev/releng/org.gemoc.arduinomodeling.repository/target/repository/</sitesURLS>
+      <sitesURLS>https://ci.inria.fr/gemoc/job/ArduinoModeling_updatesite/lastSuccessfulBuild/artifact/dev/releng/org.eclipse.gemoc.arduinomodeling.repository/target/repository/</sitesURLS>
       <overview
           summary="Deployer that installs the project sources for two versions of the ArduinoModeling Language developped using GEMOC.  One version run using the GEMOC Sequential engine, the second using the Concurrent engine. The deployer also provides some sample models."
           screenshot="images/arduinomodeling_sequential-screenshot-320x240.png"
           url="http://github.com/gemoc/arduinomodeling"/>
-      <id>org.gemoc.arduinomodeling.feature</id>
+      <id>org.eclipse.gemoc.arduinomodeling.feature</id>
       <messages
           title="Getting started"
           message="Once Eclipse has restarted, your example languages will be available in the File > New > Example... menu. Look for the GEMOC categories. Some more informations will be available in the Eclipse help."/>
@@ -48,12 +48,12 @@
         license="EPL"
         groups="//@filters.0"
         image32="images/IconeGemocLanguagePlusModel-32.png">
-      <sitesURLS>https://ci.inria.fr/gemoc/job/Markedgraph_updatesite/lastSuccessfulBuild/artifact/sample/markedgraph/releng/org.gemoc.sample.markedgraph.repository/target/repository/</sitesURLS>
+      <sitesURLS>https://ci.inria.fr/gemoc/job/Markedgraph_updatesite/lastSuccessfulBuild/artifact/sample/markedgraph/releng/org.eclipse.gemoc.sample.markedgraph.repository/target/repository/</sitesURLS>
       <overview
           summary="Deployer that installs the project sources for the Markedgraph Language developped using GEMOC.  This version runs using the GEMOC Concurrent engine. The deployer also provides some sample models. This is the result of the GEMOC tutorial available in the eclipse help."
           screenshot="images/markedgraph_sequential-screenshot-320x240.png"
           url="http://gemoc.github.io/gemoc-studio/publish/tutorial_markedgraph/html_single/GuideTutorialMarkedGraph.html"/>
-      <id>org.gemoc.sample.markedgraph.feature</id>
+      <id>org.eclipse.gemoc.sample.markedgraph.feature</id>
       <messages
           title="Getting started"
           message="Once Eclipse has restarted, your example languages will be available in the File > New > Example... menu. Look for the GEMOC categories. Some more informations will be available in the Eclipse help."/>
@@ -110,11 +110,11 @@
         license="MIT"
         groups="//@filters.0"
         image32="images/clocksystem_logo_32x32.png">
-      <sitesURLS>https://ci.inria.fr/gemoc/job/concurrency_exploration/lastSuccessfulBuild/artifact/exploration/releng/org.gemoc.mocc.clocksystem.features.updatesite/target/repository</sitesURLS>
+      <sitesURLS>https://ci.inria.fr/gemoc/job/concurrency_exploration/lastSuccessfulBuild/artifact/exploration/releng/org.eclipse.gemoc.mocc.clocksystem.features.updatesite/target/repository</sitesURLS>
       <overview
           summary="Clocksystem is meta-described clock-constraint engine, which embeds a formal model of logical time into the Smalltalk general-purpose language and environment"
           screenshot="images/cs_screenshot_320x240.png"/>
-      <id>org.gemoc.mocc.clocksystem.common.feature</id>
+      <id>org.eclipse.gemoc.mocc.clocksystem.common.feature</id>
     </components>
   </categories>
   <categories

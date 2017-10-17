@@ -6,7 +6,7 @@
 	<property name="env.WORKSPACE" location="."/>
 	<!--<property name="updatesite.repository" location="${env.WORKSPACE}/k3.eclipse/fr.inria.diverse.k3.p2updatesite/target/site"/>-->
 	<property name="temp.backup.dir" location="${env.WORKSPACE}/backup_temp"/>
-	<property name="source_server.base.url" value="https://ci.inria.fr/gemoc/job/org.gemoc.gemoc_studio.root/lastSuccessfulBuild/artifact/org/gemoc/gemoc_studio/org.eclipse.gemoc.gemoc_studio.product/target/products"/>
+	<property name="source_server.base.url" value="https://ci.inria.fr/gemoc/job/org.eclipse.gemoc.gemoc_studio.root/lastSuccessfulBuild/artifact/org/eclipse/gemoc/gemoc_studio/org.eclipse.gemoc.gemoc_studio.product/target/products"/>
 	<property name="deploy.server" value="gemoc.irisa.fr"/>
 	<property name="deploy.user" value="web-gemoc"/>
 	<property name="deploy.path" value="/home/web/apache/sites/gemoc.irisa.fr/htdocs/pub/studio/time_shifting_versions"/> 

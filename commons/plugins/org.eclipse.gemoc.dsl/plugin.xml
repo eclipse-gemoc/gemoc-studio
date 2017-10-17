@@ -3,7 +3,7 @@
 <plugin>
 	<extension point="org.eclipse.emf.ecore.generated_package">
 		<package 
-			uri = "http://www.eclipse.org/gemoc/Dsl"
+			uri = "http://www.eclipse.org/eclipse/gemoc/Dsl"
 			class = "org.eclipse.gemoc.dsl.DslPackage"
 			genModel = "model/generated/Dsl.genmodel" />
 	</extension>

@@ -76,8 +76,8 @@ def generate_redirects(sitejsonfile='sites.json'):
   <project>\n\
       <modelVersion>4.0.0</modelVersion>\n\
       <name>Mirroring</name>\n\
-      <groupId>org.gemoc.gemoc_studio</groupId>\n\
-      <artifactId>org.gemoc.gemoc_studio.root</artifactId>\n\
+      <groupId>org.eclipse.gemoc.gemoc_studio</groupId>\n\
+      <artifactId>org.eclipse.gemoc.gemoc_studio.root</artifactId>\n\
       <version>1.0.0-SNAPSHOT</version>\n\
       <packaging>pom</packaging>\n\
   \n\

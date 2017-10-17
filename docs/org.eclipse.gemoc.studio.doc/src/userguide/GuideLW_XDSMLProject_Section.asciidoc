@@ -72,14 +72,14 @@ and contains a list of Language definitions starting with the keyword *language*
 .a basic Language
 [source,melange]
 ----
-package org.gemoc.sample.tfsm.xdsml
+package org.eclipse.gemoc.sample.tfsm.xdsml
 
 language Tfsm {
 	
 	/*
 	 * Declare abstract syntax
 	 */
-	syntax "platform:/resource/org.gemoc.sample.tfsm.plaink3.model/model/tfsm.ecore"
+	syntax "platform:/resource/org.eclipse.gemoc.sample.tfsm.plaink3.model/model/tfsm.ecore"
 	
 	/*
 	 * Set name of the ModelType (ie: the type of this language)
@@ -109,32 +109,32 @@ Your xDSML project need a dependency to your DSA project. Check the Require-Bund
 .a Language with semantic
 [source,melange]
 ----
-package org.gemoc.sample.tfsm.xdsml
+package org.eclipse.gemoc.sample.tfsm.xdsml
 
 language Tfsm {
 	
 	/*
 	 * Declare abstract syntax
 	 */
-	syntax "platform:/resource/org.gemoc.sample.tfsm.plaink3.model/model/tfsm.ecore"
+	syntax "platform:/resource/org.eclipse.gemoc.sample.tfsm.plaink3.model/model/tfsm.ecore"
 	
 	/*
 	 * Declare DSA
 	 */
-	with org.gemoc.sample.tfsm.plaink3.dsa.TFSMAspect
-	with org.gemoc.sample.tfsm.plaink3.dsa.TFSMVisitorAspect
-	with org.gemoc.sample.tfsm.plaink3.dsa.FSMEventAspect
-	with org.gemoc.sample.tfsm.plaink3.dsa.FSMClockAspect
-	with org.gemoc.sample.tfsm.plaink3.dsa.FSMClockVisitorAspect
-	with org.gemoc.sample.tfsm.plaink3.dsa.StateAspect
-	with org.gemoc.sample.tfsm.plaink3.dsa.StateVisitorAspect
-	with org.gemoc.sample.tfsm.plaink3.dsa.TransitionAspect
-	with org.gemoc.sample.tfsm.plaink3.dsa.TransitionVisitorAspect
-	with org.gemoc.sample.tfsm.plaink3.dsa.GuardVisitorAspect
-	with org.gemoc.sample.tfsm.plaink3.dsa.TemporalGuardVisitorAspect
-	with org.gemoc.sample.tfsm.plaink3.dsa.EventGuardVisitorAspect
-	with org.gemoc.sample.tfsm.plaink3.dsa.TimedSystemAspect
-	with org.gemoc.sample.tfsm.plaink3.dsa.TimedSystemVisitorAspect
+	with org.eclipse.gemoc.sample.tfsm.plaink3.dsa.TFSMAspect
+	with org.eclipse.gemoc.sample.tfsm.plaink3.dsa.TFSMVisitorAspect
+	with org.eclipse.gemoc.sample.tfsm.plaink3.dsa.FSMEventAspect
+	with org.eclipse.gemoc.sample.tfsm.plaink3.dsa.FSMClockAspect
+	with org.eclipse.gemoc.sample.tfsm.plaink3.dsa.FSMClockVisitorAspect
+	with org.eclipse.gemoc.sample.tfsm.plaink3.dsa.StateAspect
+	with org.eclipse.gemoc.sample.tfsm.plaink3.dsa.StateVisitorAspect
+	with org.eclipse.gemoc.sample.tfsm.plaink3.dsa.TransitionAspect
+	with org.eclipse.gemoc.sample.tfsm.plaink3.dsa.TransitionVisitorAspect
+	with org.eclipse.gemoc.sample.tfsm.plaink3.dsa.GuardVisitorAspect
+	with org.eclipse.gemoc.sample.tfsm.plaink3.dsa.TemporalGuardVisitorAspect
+	with org.eclipse.gemoc.sample.tfsm.plaink3.dsa.EventGuardVisitorAspect
+	with org.eclipse.gemoc.sample.tfsm.plaink3.dsa.TimedSystemAspect
+	with org.eclipse.gemoc.sample.tfsm.plaink3.dsa.TimedSystemVisitorAspect
 	
 	/*
 	 * Set name of the ModelType (ie: the type of this language)
@@ -188,7 +188,7 @@ image::Guide/images/workbench/language/outline.png[Outline view,600]
 The plugin.xml file is the link between the Languages and the Modelling Workbench.
 It is mainly composed of two extension points:
 
-- GEMOC extension point: *"org.gemoc.gemoc_language_workbench.sequential.xdsml"*
+- GEMOC extension point: *"org.eclipse.gemoc.gemoc_language_workbench.sequential.xdsml"*
 - Melange extension point: *"fr.inria.diverse.melange.language"*
 
 Gemoc extension points declare Languages availables in the Modelling Workbench. It also give the class able to load models for each Language.
@@ -196,11 +196,11 @@ Gemoc extension points declare Languages availables in the Modelling Workbench. 
 .GEMOC language
 [source,xml]
 ----
-<extension point="org.gemoc.gemoc_language_workbench.sequential.xdsml">
+<extension point="org.eclipse.gemoc.gemoc_language_workbench.sequential.xdsml">
 <XDSML_Definition
-modelLoader_class="org.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" 
-name="org.gemoc.sample.tfsm.xdsml.Tfsm" 
-xdsmlFilePath="/org.gemoc.sample.tfsm.plaink3.xdsml/bin/org/gemoc/sample/tfsm/xdsml/Main.melange"
+modelLoader_class="org.eclipse.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" 
+name="org.eclipse.gemoc.sample.tfsm.xdsml.Tfsm" 
+xdsmlFilePath="/org.eclipse.gemoc.sample.tfsm.plaink3.xdsml/bin/org/eclipse/gemoc/sample/tfsm/xdsml/Main.melange"
 >
 ----
 
@@ -212,10 +212,10 @@ It also gives the available entry points for the execution, which are the Aspect
 ----
 <extension point="fr.inria.diverse.melange.language">
 <language
-aspects="FSMClock:org.gemoc.sample.tfsm.plaink3.dsa.FSMClockAspect,org.gemoc.sample.tfsm.plaink3.dsa.FSMClockVisitorAspect;..." 
-entryPoints="org.gemoc.sample.tfsm.plaink3.dsa.TimedSystemAspect.main(org.gemoc.sample.tfsm_plaink3.TimedSystem)" 
-exactType="org.gemoc.sample.tfsm.xdsml.TfsmMT" 
-id="org.gemoc.sample.tfsm.xdsml.Tfsm" 
+aspects="FSMClock:org.eclipse.gemoc.sample.tfsm.plaink3.dsa.FSMClockAspect,org.eclipse.gemoc.sample.tfsm.plaink3.dsa.FSMClockVisitorAspect;..." 
+entryPoints="org.eclipse.gemoc.sample.tfsm.plaink3.dsa.TimedSystemAspect.main(org.eclipse.gemoc.sample.tfsm_plaink3.TimedSystem)" 
+exactType="org.eclipse.gemoc.sample.tfsm.xdsml.TfsmMT" 
+id="org.eclipse.gemoc.sample.tfsm.xdsml.Tfsm" 
 uri="http://tfsmmt/"
 >
 ----

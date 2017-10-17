@@ -39,7 +39,7 @@ public interface DslPackage extends EPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  String eNS_URI = "http://www.eclipse.org/gemoc/Dsl";
+  String eNS_URI = "http://www.eclipse.org/eclipse/gemoc/Dsl";
 
   /**
    * The package namespace name.
