@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.eclipse.gemoc.commons.feature_2.4.0.qualifier.jar" id="org.eclipse.gemoc.commons.feature" version="2.4.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.commons.feature_3.0.0.qualifier.jar" id="org.eclipse.gemoc.commons.feature" version="3.0.0.qualifier">
       <category name="gemoc_commons"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.commons.feature.source_2.4.0.qualifier.jar" id="org.eclipse.gemoc.commons.feature.source" version="2.4.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.commons.feature.source_3.0.0.qualifier.jar" id="org.eclipse.gemoc.commons.feature.source" version="3.0.0.qualifier">
       <category name="gemoc_commons"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.gexpressions.feature_2.4.0.qualifier.jar" id="org.eclipse.gemoc.gexpressions.feature" version="2.4.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.gexpressions.feature_3.0.0.qualifier.jar" id="org.eclipse.gemoc.gexpressions.feature" version="3.0.0.qualifier">
       <category name="gemoc_commons"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.gexpressions.feature.source_2.4.0.qualifier.jar" id="org.eclipse.gemoc.gexpressions.feature.source" version="2.4.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.gexpressions.feature.source_3.0.0.qualifier.jar" id="org.eclipse.gemoc.gexpressions.feature.source" version="3.0.0.qualifier">
       <category name="gemoc_commons"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.commons.3rdparty.feature_2.4.0.qualifier.jar" id="org.eclipse.gemoc.commons.3rdparty.feature" version="2.4.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.commons.3rdparty.feature_3.0.0.qualifier.jar" id="org.eclipse.gemoc.commons.3rdparty.feature" version="3.0.0.qualifier">
       <category name="gemoc_commons"/>
    </feature>
    <category-def name="gemoc_commons" label="GEMOC Commons"/>

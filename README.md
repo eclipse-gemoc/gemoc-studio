@@ -7,7 +7,7 @@ This repository contain the code for assembling the [GEMOC Studio](http://gemoc.
 Reporting issues
 ============
 
-In case of trouble with the studio, you can use one the issue trackers of the Studio. Since the Studio is an assemblty of various tools and components, the precise traker will depend on the involved component.
+In case of trouble with the studio, you can use one the issue trackers of the Studio. Since the Studio is an assembly of various tools and components, the precise tracker will depend on the involved component.
 A dashboard of all issues is available as a waffle:  [https://waffle.io/eclipse/gemoc-studio](https://waffle.io/eclipse/gemoc-studio).
 
 * https://github.com/eclipse/gemoc-studio/issues : Main/Global tracker, use this tracker if this is an assembly problem or if you don't know which precise component is affected.
