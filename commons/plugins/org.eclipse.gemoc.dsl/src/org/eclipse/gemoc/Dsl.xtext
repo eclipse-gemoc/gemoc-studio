@@ -1,6 +1,6 @@
 grammar org.eclipse.gemoc.Dsl with org.eclipse.xtext.common.Terminals
 
-generate dsl "http://www.eclipse.org/eclipse/gemoc/Dsl"
+generate dsl "http://www.eclipse.org/gemoc/Dsl"
 
 Dsl:
 	'DSL' name=(QUALIFIED |  ID) '{'

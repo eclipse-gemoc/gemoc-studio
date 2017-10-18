@@ -38,7 +38,7 @@ Languages designed using GEMOC.
 
         <h4>Update site</h4>
         <ul>
-            <li><a href="https://ci.inria.fr/gemoc/job/ActivityDiagram_updatesite/lastSuccessfulBuild/artifact/dev/releng/org.eclipse.gemoc.activitydiagram.repository/target/repository/">https://ci.inria.fr/gemoc/job/ActivityDiagram_updatesite/lastSuccessfulBuild/artifact/dev/releng/org.eclipse.gemoc.activitydiagram.repository/target/repository/</a></li>            
+            <li><a href="https://ci.inria.fr/gemoc/job/ActivityDiagram_updatesite/lastSuccessfulBuild/artifact/dev/releng/org.gemoc.activitydiagram.repository/target/repository/">https://ci.inria.fr/gemoc/job/ActivityDiagram_updatesite/lastSuccessfulBuild/artifact/dev/releng/org.gemoc.activitydiagram.repository/target/repository/</a></li>            
         </ul>
     </div>
     <div class="col-md-4 col-md-pull-8">
@@ -57,7 +57,7 @@ Languages designed using GEMOC.
 
         <h4>Update site</h4>
         <ul>
-            <li><a href="https://ci.inria.fr/gemoc/job/ArduinoModeling_updatesite/lastSuccessfulBuild/artifact/dev/releng/org.eclipse.gemoc.arduinomodeling.repository/target/repository/">https://ci.inria.fr/gemoc/job/ArduinoModeling_updatesite/lastSuccessfulBuild/artifact/dev/releng/org.eclipse.gemoc.arduinomodeling.repository/target/repository/</a></li>            
+            <li><a href="https://ci.inria.fr/gemoc/job/ArduinoModeling_updatesite/lastSuccessfulBuild/artifact/dev/releng/org.gemoc.arduinomodeling.repository/target/repository/">https://ci.inria.fr/gemoc/job/ArduinoModeling_updatesite/lastSuccessfulBuild/artifact/dev/releng/org.gemoc.arduinomodeling.repository/target/repository/</a></li>            
         </ul>
     </div>
     <div class="col-md-4 col-md-pull-8">
@@ -76,7 +76,7 @@ Languages designed using GEMOC.
 
         <h4>Update site</h4>
         <ul>
-            <li><a href="https://ci.inria.fr/gemoc/job/Markedgraph_updatesite/lastSuccessfulBuild/artifact/sample/markedgraph/releng/org.eclipse.gemoc.sample.markedgraph.repository/target/repository/">https://ci.inria.fr/gemoc/job/Markedgraph_updatesite/lastSuccessfulBuild/artifact/sample/markedgraph/releng/org.eclipse.gemoc.sample.markedgraph.repository/target/repository/</a></li>            
+            <li><a href="https://ci.inria.fr/gemoc/job/Markedgraph_updatesite/lastSuccessfulBuild/artifact/sample/markedgraph/releng/org.gemoc.sample.markedgraph.repository/target/repository/">https://ci.inria.fr/gemoc/job/Markedgraph_updatesite/lastSuccessfulBuild/artifact/sample/markedgraph/releng/org.gemoc.sample.markedgraph.repository/target/repository/</a></li>            
         </ul>
     </div>
     <div class="col-md-4 col-md-pull-8">
@@ -99,7 +99,7 @@ Language coordination operators designed using GEMOC.
 
         <h4>Update site</h4>
         <ul>
-            <li><a href="https://ci.inria.fr/gemoc/job/gemoc-studio_official_samples_deployer/lastSuccessfulBuild/artifact/official_samples/sample.deployers/releng/org.eclipse.gemoc.official_samples.deployers.repository/target/repository/">https://ci.inria.fr/gemoc/job/gemoc-studio_official_samples_deployer/lastSuccessfulBuild/artifact/official_samples/sample.deployers/releng/org.eclipse.gemoc.official_samples.deployers.repository/target/repository/</a></li>            
+            <li><a href="https://ci.inria.fr/gemoc/job/gemoc-studio_official_samples_deployer/lastSuccessfulBuild/artifact/official_samples/sample.deployers/releng/org.eclipse.gemoc.samples.deployers.repository/target/repository/">https://ci.inria.fr/gemoc/job/gemoc-studio_official_samples_deployer/lastSuccessfulBuild/artifact/official_samples/sample.deployers/releng/org.eclipse.gemoc.samples.deployers.repository/target/repository/</a></li>            
         </ul>
     </div>
     <div class="col-md-4 col-md-pull-8">
@@ -142,7 +142,7 @@ Tools for Exhaustive Exploration.
         
         <h4>Update site</h4>
         <ul>
-            <li><a href="https://ci.inria.fr/gemoc/job/concurrency_exploration/lastSuccessfulBuild/artifact/exploration/releng/org.eclipse.gemoc.mocc.clocksystem.features.updatesite/target/repository">https://ci.inria.fr/gemoc/job/concurrency_exploration/lastSuccessfulBuild/artifact/exploration/releng/org.eclipse.gemoc.mocc.clocksystem.features.updatesite/target/repository</a></li>
+            <li><a href="https://ci.inria.fr/gemoc/job/concurrency_exploration/lastSuccessfulBuild/artifact/exploration/releng/org.gemoc.mocc.clocksystem.features.updatesite/target/repository">https://ci.inria.fr/gemoc/job/concurrency_exploration/lastSuccessfulBuild/artifact/exploration/releng/org.gemoc.mocc.clocksystem.features.updatesite/target/repository</a></li>
         </ul>
     </div>
     <div class="col-md-4 col-md-pull-8">

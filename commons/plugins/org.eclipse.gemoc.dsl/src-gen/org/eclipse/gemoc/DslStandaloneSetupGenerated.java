@@ -30,8 +30,8 @@ public class DslStandaloneSetupGenerated implements ISetup {
 	}
 	
 	public void register(Injector injector) {
-		if (!EPackage.Registry.INSTANCE.containsKey("http://www.eclipse.org/eclipse/gemoc/Dsl")) {
-			EPackage.Registry.INSTANCE.put("http://www.eclipse.org/eclipse/gemoc/Dsl", DslPackage.eINSTANCE);
+		if (!EPackage.Registry.INSTANCE.containsKey("http://www.eclipse.org/gemoc/Dsl")) {
+			EPackage.Registry.INSTANCE.put("http://www.eclipse.org/gemoc/Dsl", DslPackage.eINSTANCE);
 		}
 		IResourceFactory resourceFactory = injector.getInstance(IResourceFactory.class);
 		IResourceServiceProvider serviceProvider = injector.getInstance(IResourceServiceProvider.class);
