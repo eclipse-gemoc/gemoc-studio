@@ -65,7 +65,7 @@ public abstract class AbstractDslRuntimeModule extends DefaultRuntimeModule {
 
 	@Override
 	public void configure(Binder binder) {
-		properties = tryBindProperties(binder, "org/eclipse/gemoc/Dsl.properties");
+		properties = tryBindProperties(binder, "org/gemoc/Dsl.properties");
 		super.configure(binder);
 	}
 	

@@ -38,4 +38,4 @@ mvn package -P 'ignore_CI_repositories,!use_CI_repositories'
 
 If you already compiled and resolved all dependencies at least once (ie. if you filled your local maven repository with everything needed for the build), add the option `-o` to perform an offline only build, which is significantly faster since it skips checking all maven repositories online. 
 
-In the end, the result can be found in `gemoc_studio/gemoc_studio/releng/org.gemoc.gemoc_studio.product/target/products/`, with one studio zip per platform.
+In the end, the result can be found in `gemoc_studio/gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.product/target/products/`, with one studio zip per platform.

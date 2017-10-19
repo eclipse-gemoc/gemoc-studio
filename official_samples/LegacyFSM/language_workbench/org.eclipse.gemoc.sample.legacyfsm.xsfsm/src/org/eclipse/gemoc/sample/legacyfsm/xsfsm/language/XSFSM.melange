@@ -1,0 +1,9 @@
+package org.eclipse.gemoc.sample.legacyfsm.xsfsm
+	
+language XSFSM inherits org.eclipse.gemoc.sample.legacyfsm.fsm.FSM {
+	
+	with org.eclipse.gemoc.sample.legacyfsm.fsm.k3dsa.StateAspect
+	with org.eclipse.gemoc.sample.legacyfsm.fsm.k3dsa.StateMachineAspect
+	with org.eclipse.gemoc.sample.legacyfsm.fsm.k3dsa.TransitionAspect
+
+}

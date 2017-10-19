@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- Schema file written by PDE -->
-<schema targetNamespace="org.gemoc.commons.eclipse.pde" xmlns="http://www.w3.org/2001/XMLSchema">
+<schema targetNamespace="org.eclipse.gemoc.commons.eclipse.pde" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appinfo>
-         <meta.schema plugin="org.gemoc.commons.eclipse.pde" id="templates" name="GEMOC Templates"/>
+         <meta.schema plugin="org.eclipse.gemoc.commons.eclipse.pde" id="templates" name="GEMOC Templates"/>
       </appinfo>
       <documentation>
          This extension point registers GEMOC project content templates that are used to generate code for GEMOC. Templates are used in two contexts:

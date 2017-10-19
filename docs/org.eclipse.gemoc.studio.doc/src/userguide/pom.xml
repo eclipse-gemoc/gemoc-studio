@@ -3,7 +3,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.gemoc.documentation</groupId>
+    <groupId>org.eclipse.gemoc.documentation</groupId>
     <artifactId>gemoc-studio-guide</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <!-- <packaging>jdocbook</packaging>--> 

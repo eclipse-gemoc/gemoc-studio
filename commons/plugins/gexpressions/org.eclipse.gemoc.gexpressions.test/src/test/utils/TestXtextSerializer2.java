@@ -30,7 +30,7 @@ public class TestXtextSerializer2 {
 
 		// Load the model
 		URI modelURI = URI
-				.createFileURI("/home/flatombe/thesis/gemoc/git/gemoc-dev/org/gemoc/GEL/org.eclipse.gemoc.gel.gexpressions.test/model/test.gexpressions");
+				.createFileURI("/home/flatombe/thesis/gemoc/git/gemoc-dev/org/eclipse/gemoc/GEL/org.eclipse.gemoc.gel.gexpressions.test/model/test.gexpressions");
 		XtextResourceSet resSet = injector.getInstance(XtextResourceSet.class);
 		resSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.TRUE);
 		Resource resource = resSet.getResource(modelURI, true);
@@ -52,7 +52,7 @@ public class TestXtextSerializer2 {
 	// Serializer serializer = injector.getInstance(Serializer.class);
 	//
 	// URI uri = URI
-	// .createFileURI("/home/flatombe/thesis/gemoc/git/gemoc-dev/org/gemoc/sample_deployed/TFSM/language_workbench/org.eclipse.gemoc.sample.tfsm.dse/gel/domainSpecificEvents.GEL");
+	// .createFileURI("/home/flatombe/thesis/gemoc/git/gemoc-dev/org/eclipse/gemoc/sample_deployed/TFSM/language_workbench/org.eclipse.gemoc.sample.tfsm.dse/gel/domainSpecificEvents.GEL");
 	// XtextResourceSet resSet = injector.getInstance(XtextResourceSet.class);
 	// resSet.addLoadOption(XtextResource.OPTION_RESOLVE_ALL, Boolean.TRUE);
 	// Resource gelResource = resSet.getResource(uri, true);

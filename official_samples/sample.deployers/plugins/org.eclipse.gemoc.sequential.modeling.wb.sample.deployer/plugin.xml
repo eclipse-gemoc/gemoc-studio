@@ -18,12 +18,12 @@
 	<extension
          point="org.eclipse.ui.newWizards">
       <category
-            id="org.gemoc.gemoc_modeling_workbench.samples.category"
+            id="org.eclipse.gemoc.gemoc_modeling_workbench.samples.category"
             name="GEMOC modeling workbench examples"
             parentCategory="org.eclipse.ui.Examples"/>
       <wizard
             canFinishEarly="true"
-            category="org.eclipse.ui.Examples/org.gemoc.gemoc_modeling_workbench.samples.category"
+            category="org.eclipse.ui.Examples/org.eclipse.gemoc.gemoc_modeling_workbench.samples.category"
             class="org.eclipse.gemoc.sequential.modeling.wb.sample.deployer.wizards.LegacyFSMExampleWizard"
             finalPerspective="org.eclipse.sirius.ui.tools.perspective.modeling"
             hasPages="false"

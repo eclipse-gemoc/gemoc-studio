@@ -96,7 +96,7 @@ namespace xsfsm.melange <<Cloud>> #PaleGreen-white {
 	}
 }
 
-note "ecore and java implementation (including aspect)\nfor the new language is generated\nin <i>org.gemoc.sample.legacyfsm.xsfsm.xsfsm</i>" as N4
+note "ecore and java implementation (including aspect)\nfor the new language is generated\nin <i>org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm</i>" as N4
 N4 .. xsfsm.melange.fsm
 
 fsm.melange --> fsm.ecore : syntax 

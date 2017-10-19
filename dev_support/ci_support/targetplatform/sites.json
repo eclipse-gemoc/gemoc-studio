@@ -44,16 +44,16 @@
         "https://ci.inria.fr/gemoc/job/MoCCML-mapping/lastSuccessfulBuild/artifact/moccml/mapping/deployment/org.eclipse.gemoc.moccml.mapping.updatesite/target/repository/"
         ],
     "gemoc-commons": [
-        "https://ci.inria.fr/gemoc/job/org.gemoc.gemoc_commons.root/lastSuccessfulBuild/artifact/org/gemoc/gemoc_commons/org.gemoc.commons.root/p2updatesite/target/repository/"
+        "https://ci.inria.fr/gemoc/job/org.eclipse.gemoc.gemoc_commons.root/lastSuccessfulBuild/artifact/org/eclipse/gemoc/gemoc_commons/org.eclipse.gemoc.commons.root/p2updatesite/target/repository/"
         ],
     "gemoc-language-workbench": [
-        "https://ci.inria.fr/gemoc/job/org.gemoc.gemoc_language_workbench.root/lastSuccessfulBuild/artifact/org/gemoc/gemoc_language_workbench/org.gemoc.gemoc_language_workbench.p2updatesite/target/repository"
+        "https://ci.inria.fr/gemoc/job/org.eclipse.gemoc.gemoc_language_workbench.root/lastSuccessfulBuild/artifact/org/eclipse/gemoc/gemoc_language_workbench/org.eclipse.gemoc.gemoc_language_workbench.p2updatesite/target/repository"
         ],
     "gemoc-modeling-workbench": [
-        "https://ci.inria.fr/gemoc/job/org.gemoc.gemoc_modeling_workbench.root/lastSuccessfulBuild/artifact/org/gemoc/gemoc_modeling_workbench/org.gemoc.gemoc_modeling_workbench.p2updatesite/target/repository/"
+        "https://ci.inria.fr/gemoc/job/org.eclipse.gemoc.gemoc_modeling_workbench.root/lastSuccessfulBuild/artifact/org/eclipse/gemoc/gemoc_modeling_workbench/org.eclipse.gemoc.gemoc_modeling_workbench.p2updatesite/target/repository/"
         ],
     "gemoc-mocc": [
-        "https://ci.inria.fr/gemoc/job/org.gemoc.mocc.root/lastSuccessfulBuild/artifact/org/gemoc/MoCC/releng/org.gemoc.mocc.p2updatesite/target/repository/"
+        "https://ci.inria.fr/gemoc/job/org.eclipse.gemoc.mocc.root/lastSuccessfulBuild/artifact/org/eclipse/gemoc/MoCC/releng/org.eclipse.gemoc.mocc.p2updatesite/target/repository/"
         ],
     "kermeta3": [
 		"http://www.kermeta.org/k3/update/",

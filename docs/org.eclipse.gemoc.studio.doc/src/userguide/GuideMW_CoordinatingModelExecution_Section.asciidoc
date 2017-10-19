@@ -22,7 +22,7 @@ image::http://timesquare.inria.fr/BCOoL/images/imagesgemoc/bflowspec.png[BFLoW s
 
 '''
 
-Figure 2 shows the BFLoW specification for the coffee machine example. A BFLoW specification contains information about the BCOoL used and the models to be coordinated. Then, each flow defines what operator is applied and between which models. Note that the order of the models passed as parameters matters. The order must correspond with the operator definition. In addition, the BFLoW may contain information about the launchers used to launch the execution. When launchers are not defined in the BFLoW, it is necessary to define an output model in the beginning of the BFLoW specification (see CoffeeMachinewithoutLaunchers.bflow in the example project _org.gemoc.sample.bcool.coffeemachinewithsigpml_).  
+Figure 2 shows the BFLoW specification for the coffee machine example. A BFLoW specification contains information about the BCOoL used and the models to be coordinated. Then, each flow defines what operator is applied and between which models. Note that the order of the models passed as parameters matters. The order must correspond with the operator definition. In addition, the BFLoW may contain information about the launchers used to launch the execution. When launchers are not defined in the BFLoW, it is necessary to define an output model in the beginning of the BFLoW specification (see CoffeeMachinewithoutLaunchers.bflow in the example project _org.eclipse.gemoc.sample.bcool.coffeemachinewithsigpml_).  
    
 
 ==== Launching the coordinated execution 
