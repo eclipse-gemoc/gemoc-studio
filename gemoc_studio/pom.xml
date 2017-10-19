@@ -280,37 +280,5 @@
     			</plugins>
     		</build>
     	</profile>
-    	
-    	<!-- Profiles are used for switching the repositories used for the build so they either use the CI update sites or local repositories -->
-    	<profile>
-	        <id>ignore_CI_repositories</id>
-	        <activation>
-	        </activation>
-	        <repositories>
-		    </repositories>
-	    </profile>
-	    <profile>
-	        <id>use_CI_repositories</id>
-	        <activation>
-	            <activeByDefault>true</activeByDefault>
-	        </activation>
-	        <repositories>
-				<repository>
-		            <id>gemoc-studio_commons on CI</id>
-		            <layout>p2</layout>
-		            <url>https://ci.inria.fr/gemoc/job/gemoc-studio_commons/lastSuccessfulBuild/artifact/commons/releng/org.eclipse.gemoc.commons.repository/target/repository/</url>
-		        </repository>
-		        <repository>
-		            <id>modelanimation_siriusmodelanimation on CI</id>
-		            <layout>p2</layout>
-		            <url>http://obeo-siriuslab-nightly.s3-website-eu-west-1.amazonaws.com/SiriusAnimator/master/repository/</url>
-		        </repository>	
-		        <repository>
-		            <id>gemoc-studio_official_samples_deployer on CI</id>
-		            <layout>p2</layout>
-		            <url>https://ci.inria.fr/gemoc/job/gemoc-studio_official_samples_deployer/lastSuccessfulBuild/artifact/official_samples/sample.deployers/releng/org.eclipse.gemoc.samples.deployers.repository/target/repository/</url>
-		        </repository>
-		    </repositories>
-	    </profile>
     </profiles>
 </project> 

@@ -66,29 +66,4 @@
             <url>http://download.eclipse.org/app4mc/updatesites/releases/0.8.0/</url>
         </repository>
 	</repositories>
-	<profiles>
-    <!-- Profiles are used for switching the repositories used for the build so they either use the CI update sites or local repositories -->
-    	<profile>
-	        <id>ignore_CI_repositories</id>
-	        <activation>
-	            <activeByDefault>true</activeByDefault>
-	        </activation>
-	        <repositories>
-		    </repositories>
-	    </profile>
-	    <profile>
-	        <id>use_CI_repositories</id>
-	        <activation>
-	            <activeByDefault>true</activeByDefault>
-	        </activation>
-	        <!-- <repositories>
-		        <repository>
-		            <id>Gemoc Target Platform all-except-gemoc-commons</id>
-		            <layout>p2</layout>
-		            <url>https://ci.inria.fr/gemoc/job/org.eclipse.gemoc.targetplatform.redirects/lastSuccessfulBuild/artifact/org/eclipse/gemoc/targetplatform/update/all-except-gemoc-commons</url>
-		        </repository>
-		    </repositories>-->
-	    </profile>
-    	
-    </profiles>
 </project>
