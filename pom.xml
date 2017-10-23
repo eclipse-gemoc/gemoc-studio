@@ -18,9 +18,9 @@
   	<!--  must NOT include the repositories of the tools included in the Studio has it has its own complementary list -->
   	        
         <repository>
-            <id>Neon release</id>
+            <id>Oxygen release</id>
             <layout>p2</layout>
-            <url>http://download.eclipse.org/releases/neon</url>
+            <url>http://download.eclipse.org/releases/oxygen</url>
         </repository>
 		<repository>
             <id>kermeta-3</id>
@@ -30,22 +30,17 @@
         <repository>
             <id>melange</id>
             <layout>p2</layout>
-            <url>http://melange.inria.fr/updatesite/releases/0.2.0/neon/</url>
+            <url>http://melange.inria.fr/updatesite/nightly/update_2017-10-12</url>
         </repository>
         <repository>
             <id>Sirius</id>
             <layout>p2</layout>
-            <url>http://download.eclipse.org/sirius/updates/releases/4.1.2/neon/</url>
+            <url>http://download.eclipse.org/sirius/updates/releases/5.0.2/oxygen</url>
         </repository>
         <repository>
             <id>nebula</id>
             <layout>p2</layout>
             <url>http://archive.eclipse.org/nebula/Q22016/incubation</url>
-        </repository>
-        <repository>
-            <id>GEF</id>
-            <layout>p2</layout>
-            <url>http://download.eclipse.org/tools/gef/updates/milestones</url>
         </repository>
     </repositories>
 
