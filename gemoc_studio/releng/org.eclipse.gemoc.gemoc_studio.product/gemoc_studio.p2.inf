@@ -1,10 +1,10 @@
 instructions.configure=\
-addRepository(type:0,location:http${#58}//download.eclipse.org/releases/neon,name:Neon);\
-addRepository(type:1,location:http${#58}//download.eclipse.org/releases/neon,name:Neon);\
-addRepository(type:0,location:http${#58}//timesquare.inria.fr/ecl/update_site/neon,name:Timesquare ECL);\
-addRepository(type:1,location:http${#58}//timesquare.inria.fr/ecl/update_site/neon,name:Timesquare ECL);\
-addRepository(type:0,location:http${#58}//timesquare.inria.fr/update_site/neon,name:Timesquare);\
-addRepository(type:1,location:http${#58}//timesquare.inria.fr/update_site/neon,name:Timesquare);\
+addRepository(type:0,location:http${#58}//download.eclipse.org/releases/oxygen,name:Oxygen);\
+addRepository(type:1,location:http${#58}//download.eclipse.org/releases/oxygen,name:Oxygen);\
+addRepository(type:0,location:http${#58}//timesquare.inria.fr/ecl/update_site/oxygen,name:Timesquare ECL);\
+addRepository(type:1,location:http${#58}//timesquare.inria.fr/ecl/update_site/oxygen,name:Timesquare ECL);\
+addRepository(type:0,location:http${#58}//timesquare.inria.fr/update_site/oxygen,name:Timesquare);\
+addRepository(type:1,location:http${#58}//timesquare.inria.fr/update_site/oxygen,name:Timesquare);\
 addRepository(type:0,location:http${#58}//melange-lang.org/updatesite/,name:Melange);\
 addRepository(type:1,location:http${#58}//melange-lang.org/updatesite/,name:Melange);\
 addRepository(type:0,location:http${#58}//gemoc.org/updatesite/studio_nightly/,name:All Gemoc components - nightly);\

@@ -91,7 +91,7 @@
         license="EPL"
         image32="images/xmof-icon-30x30.png">
       <sitesURLS>http://moliz.github.io/moliz.gemoc/updatesite/nightly/</sitesURLS>
-      <sitesURLS>http://download.eclipse.org/releases/neon</sitesURLS>
+      <sitesURLS>http://download.eclipse.org/releases/oxygen</sitesURLS>
       <overview
           summary="The xMOF language allows you to define the execution semantics of your language with UML activity diagrams. This component provides the xMOF language, editor and execution engine, as well as wizards helping you to setup your xMOF projects."
           screenshot="images/xmof-figure-320x240.png"
