@@ -38,12 +38,7 @@
 
     <repositories>
        
-    	<!-- Repositories specific for the studio (typically referred by the additional feature) -->
-    	<repository>
-            <id>Subversive</id>
-            <layout>p2</layout>
-            <url>http://community.polarion.com/projects/subversive/download/eclipse/6.0/neon-site/</url>
-        </repository>         
+    	<!-- Repositories specific for the studio (typically referred by the additional feature) -->       
 
         <repository>
             <id>elk</id>
@@ -53,16 +48,16 @@
         <repository>
             <id>Sirius</id>
             <layout>p2</layout>
-            <url>http://download.eclipse.org/sirius/updates/releases/4.1.6/neon/</url>
+            <url>http://download.eclipse.org/sirius/updates/releases/5.0.2/oxygen/</url>
         </repository>
 
         <repository>
             <id>AspectJ</id>
             <layout>p2</layout>
-            <url>http://download.eclipse.org/tools/ajdt/46/dev/update</url>
+            <url>http://download.eclipse.org/tools/ajdt/47/dev/update</url>
         </repository>
         <repository> <!-- this repo is used to provide jdom and jaxen plugins -->
-            <id>app4mc_081</id>
+            <id>app4mc</id>
             <layout>p2</layout>
             <url>http://download.eclipse.org/app4mc/updatesites/releases/0.8.1/</url>
         </repository>
