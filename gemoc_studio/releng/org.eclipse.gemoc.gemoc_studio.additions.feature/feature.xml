@@ -54,7 +54,8 @@ http://www.eclipse.org/legal/epl-v10.html
       <import feature="org.eclipse.ajdt" version="0.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.fx.ide.basic.feature" version="2.2.0.201508240705" match="greaterOrEqual"/>
       <import feature="org.eclipse.fx.ide.pde.feature" version="2.2.0.201508240705" match="greaterOrEqual"/>
-      <import feature="org.eclipse.sirius.runtime.ide.ui" version="0.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.sirius.runtime.ide.xtext" version="5.0.0.0" match="greaterOrEqual"/>    
+      <import feature="org.eclipse.sirius.specifier" version="5.0.0.0" match="greaterOrEqual"/>    
       <import plugin="org.eclipse.amalgam.discovery.modeling"/>
       <import feature="org.eclipse.elk.feature" version="0.1.0.201607121925" match="greaterOrEqual"/>
    </requires>

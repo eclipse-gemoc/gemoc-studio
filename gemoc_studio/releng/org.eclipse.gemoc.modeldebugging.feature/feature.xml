@@ -146,16 +146,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <import feature="org.eclipse.gemoc.dsl.debug.ui.feature.source" version="0.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.gemoc.dsl.debug.sirius.ui.feature" version="0.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.gemoc.dsl.debug.sirius.ui.feature.source" version="0.0.0" match="greaterOrEqual"/>
-      <import feature="org.eclipse.sirius.doc.feature" version="1.0.0.201403121231" match="greaterOrEqual"/>
-      <import feature="org.eclipse.sirius.runtime" version="1.0.0.201403121231" match="greaterOrEqual"/>
-      <import feature="org.eclipse.sirius.runtime.acceleo" version="1.0.0.201403121231" match="greaterOrEqual"/>
-      <import feature="org.eclipse.sirius.runtime.ide.eef" version="1.0.0.201403121231" match="greaterOrEqual"/>
-      <import feature="org.eclipse.sirius.runtime.ide.ui" version="1.0.0.201403121231" match="greaterOrEqual"/>
-      <import feature="org.eclipse.sirius.runtime.ide.ui.acceleo" version="1.0.0.201403121231" match="greaterOrEqual"/>
-      <import feature="org.eclipse.sirius.runtime.ide.xtext" version="1.0.0.201403121231" match="greaterOrEqual"/>
-      <import feature="org.eclipse.sirius.runtime.ocl" version="1.0.0.201403121231" match="greaterOrEqual"/>
-      <import feature="org.eclipse.sirius.specifier.ide.ui" version="1.0.0.201403121231" match="greaterOrEqual"/>
-      <import feature="org.eclipse.sirius.specifier.ide.ui.acceleo" version="1.0.0.201403121231" match="greaterOrEqual"/>
+      <import feature="org.eclipse.sirius.specifier" version="5.0.0.0" match="greaterOrEqual"/>      
       <import feature="fr.inria.diverse.melange.sdk" version="0.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.gemoc.trace.commons.feature" version="0.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.gemoc.trace.commons.feature.source" version="0.0.0" match="greaterOrEqual"/>
