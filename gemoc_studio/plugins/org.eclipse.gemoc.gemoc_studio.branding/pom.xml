@@ -8,12 +8,12 @@
 	<parent>
 		<groupId>org.eclipse.gemoc.gemoc_studio</groupId>
 		<artifactId>org.eclipse.gemoc.gemoc_studio.parent</artifactId>
-		<version>2.4.0-SNAPSHOT</version>
+		<version>3.0.0-SNAPSHOT</version>
 		<relativePath>../..</relativePath>
 	</parent>
 
 	<properties>
-		<eclipse.version.name>Neon.3</eclipse.version.name>
+		<eclipse.version.name>Oxygen.1A</eclipse.version.name>
 		<!-- override these values using -D option on the maven command line on the CI (see jenkinsfile for CI configuration)-->		
 		<studio.variant>Local build</studio.variant>
 		<branch.variant>Unknown</branch.variant>
@@ -73,10 +73,10 @@
 	                                <imageFile>src/main/splash/splash.png</imageFile>
 	                                <name>splash</name>
 	                            </loadImage>
-	                            <loadImage>
+	                          <!--   <loadImage>
 	                                <imageFile>src/main/splash/eclipse_white_48.png</imageFile>
 	                                <name>eclipse</name>
-	                            </loadImage>
+	                            </loadImage> -->
 	                        </resources>
 	                        <canvas>
 	                        	<backgroundImageName>splash</backgroundImageName>
@@ -87,21 +87,21 @@
 			                            <fontName>SansSerif</fontName>
 			                            <fontStyle>italic,bold</fontStyle>
 			                            <fontSize>12</fontSize>
-			                            <position>right-15,bottom-45</position>
+			                            <position>right-15,bottom-55</position>
 			                        </drawText>
 			                        <!-- Eclipse Logo 64 -->
-			                        <drawImage>
+			                       <!--  <drawImage>
                             			<imageName>eclipse</imageName>
                             			<position>right-20,bottom-65</position>
-                        			</drawImage>
+                        			</drawImage>-->
 			                        <!-- Eclipse version -->
 	                            	<drawText>
 			                            <text>${eclipse.version.name}</text>
-			                            <textColor>#4eeb0e</textColor>
+			                            <textColor>#ffffff</textColor>
 			                            <fontName>SansSerif</fontName>
-			                            <fontStyle>italic,bold</fontStyle>
-			                            <fontSize>16</fontSize>
-			                            <position>right-15,bottom-65</position>
+			                            <fontStyle>italic</fontStyle>
+			                            <fontSize>10</fontSize>
+			                            <position>right-52,bottom-143</position>
 			                        </drawText>
 			                        <!-- Studio variant -->
 	                            	<drawText>
@@ -110,7 +110,7 @@
 			                            <fontName>SansSerif</fontName>
 			                            <fontStyle>italic,bold</fontStyle>
 			                            <fontSize>12</fontSize>
-			                            <position>right-15,bottom-30</position>
+			                            <position>right-15,bottom-40</position>
 			                        </drawText>
 	                            </draw>
 	                        </canvas>
