@@ -1,26 +1,4 @@
 instructions.configure=\
-addRepository(type:0,location:http${#58}//download.eclipse.org/releases/neon,name:Neon);\
-addRepository(type:1,location:http${#58}//download.eclipse.org/releases/neon,name:Neon);\
-addRepository(type:0,location:http${#58}//timesquare.inria.fr/ecl/update_site/neon,name:Timesquare ECL);\
-addRepository(type:1,location:http${#58}//timesquare.inria.fr/ecl/update_site/neon,name:Timesquare ECL);\
-addRepository(type:0,location:http${#58}//timesquare.inria.fr/update_site/neon,name:Timesquare);\
-addRepository(type:1,location:http${#58}//timesquare.inria.fr/update_site/neon,name:Timesquare);\
-addRepository(type:0,location:http${#58}//melange-lang.org/updatesite/,name:Melange);\
-addRepository(type:1,location:http${#58}//melange-lang.org/updatesite/,name:Melange);\
-addRepository(type:0,location:http${#58}//gemoc.org/updatesite/studio_nightly/,name:All Gemoc components - nightly);\
-addRepository(type:1,location:http${#58}//gemoc.org/updatesite/studio_nightly/,name:All Gemoc components - nightly);\
-addRepository(type:0,location:https${#58}//hudson.polarsys.org/kitalpha/job/Kitalpha_Nightly/380/artifact/result/publish/kitalpha/site.p2/,name:KitAlpha);\
-addRepository(type:1,location:https${#58}//hudson.polarsys.org/kitalpha/job/Kitalpha_Nightly/380/artifact/result/publish/kitalpha/site.p2/,name:KitAlpha);\
-addRepository(type:0,location:http${#58}//download.eclipse.org/diffmerge/releases/0.4.0/emf-diffmerge-site,name:DiffMerge 0.4.0);\
-addRepository(type:1,location:http${#58}//download.eclipse.org/diffmerge/releases/0.4.0/emf-diffmerge-site,name:DiffMerge 0.4.0);\
-addRepository(type:0,location:https${#58}//hudson.polarsys.org/capella/job/capella-gerrit/113/artifact/result/publish/org.polarsys.capella/site.p2/,name:Capella for luna);\
-addRepository(type:1,location:https${#58}//hudson.polarsys.org/capella/job/capella-gerrit/113/artifact/result/publish/org.polarsys.capella/site.p2/,name:Capella for luna);\
-addRepository(type:0,location:http${#58}//download.eclipse.org/technology/nebula/archives/Q42015/incubation,name:Nebula incubation);\
-addRepository(type:1,location:http${#58}//download.eclipse.org/technology/nebula/archives/Q42015/incubation,name:Nebula incubation);\
-addRepository(type:0,location:http${#58}//gemoc.org/pub/studio/patch_sirius_palette/,name:Patch For Sirius (enabling animation));\
-addRepository(type:1,location:http${#58}//gemoc.org/pub/studio/patch_sirius_palette/,name:Patch For Sirius (enabling animation));\
-addRepository(type:0,location:http${#58}//dist.springsource.org/snapshot/GRECLIPSE/e4.5/,name:Greclipse);\
-addRepository(type:1,location:http${#58}//dist.springsource.org/snapshot/GRECLIPSE/e4.5/,name:Greclipse);\
   mkdir(path:${installFolder}/dropins);
 
 requires.1.namespace=org.eclipse.equinox.p2.iu
