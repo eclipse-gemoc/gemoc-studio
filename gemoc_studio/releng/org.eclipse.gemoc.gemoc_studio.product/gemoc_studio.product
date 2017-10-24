@@ -79,9 +79,9 @@
       <repository location="http://timesquare.inria.fr/update_site/neon" enabled="false" />
       <repository location="http://melange-lang.org/updatesite/" enabled="true" />
       <repository location="http://archive.eclipse.org/nebula/Q22016/incubation" enabled="true" />
+      <repository location="http://download.eclipse.org/releases/oxygen" enabled="true" />
       <repository location="http://www.kermeta.org/k3/update/" enabled="true" />
       <repository location="http://ci.eclipse.org/gemoc/job/gemoc-studio/job/eclipse-oxygen/lastSuccessfulBuild/artifact/gemoc-studio/gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.updatesite/target/repository/" enabled="true" />
-      <repository location="http://download.eclipse.org/releases/oxygen" enabled="true" />
    </repositories>
 
    <preferencesInfo>

@@ -1,18 +1,4 @@
 instructions.configure=\
-addRepository(type:0,location:http${#58}//download.eclipse.org/releases/oxygen,name:Oxygen);\
-addRepository(type:1,location:http${#58}//download.eclipse.org/releases/oxygen,name:Oxygen);\
-addRepository(type:0,location:http${#58}//timesquare.inria.fr/ecl/update_site/neon,name:Timesquare ECL);\
-addRepository(type:1,location:http${#58}//timesquare.inria.fr/ecl/update_site/neon,name:Timesquare ECL);\
-addRepository(type:0,location:http${#58}//timesquare.inria.fr/update_site/neon,name:Timesquare);\
-addRepository(type:1,location:http${#58}//timesquare.inria.fr/update_site/neon,name:Timesquare);\
-addRepository(type:0,location:http${#58}//melange-lang.org/updatesite/,name:Melange);\
-addRepository(type:1,location:http${#58}//melange-lang.org/updatesite/,name:Melange);\
-addRepository(type:0,location:https${#58}//ci.eclipse.org/gemoc/job/gemoc-studio/job/eclipse-oxygen/lastSuccessfulBuild/artifact/gemoc-studio/gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.updatesite/target/repository/,name:All Gemoc components - nightly);\
-addRepository(type:1,location:https${#58}//ci.eclipse.org/gemoc/job/gemoc-studio/job/eclipse-oxygen/lastSuccessfulBuild/artifact/gemoc-studio/gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.updatesite/target/repository/,name:All Gemoc components - nightly);\
-addRepository(type:0,location:https${#58}//www.kermeta.org/k3/update_2017-09-15/,name:Kermeta 3);\
-addRepository(type:1,location:https${#58}//www.kermeta.org/k3/update_2017-09-15/,name:Kermeta 3);\
-addRepository(type:0,location:http${#58}//archive.eclipse.org/nebula/Q22016/incubation,name:Nebula incubation);\
-addRepository(type:1,location:http${#58}//archive.eclipse.org/nebula/Q22016/incubation,name:Nebula incubation);\
   mkdir(path:${installFolder}/dropins);
 
 requires.1.namespace=org.eclipse.equinox.p2.iu
