@@ -48,13 +48,11 @@
       </win>
    </launcher>
 
-
    <vm>
       <linux include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</linux>
       <macos include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</macos>
       <windows include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</windows>
    </vm>
-
 
    <plugins>
    </plugins>
@@ -81,7 +79,7 @@
       <repository location="http://archive.eclipse.org/nebula/Q22016/incubation" enabled="true" />
       <repository location="http://download.eclipse.org/releases/oxygen" enabled="true" />
       <repository location="http://www.kermeta.org/k3/update/" enabled="true" />
-      <repository location="http://ci.eclipse.org/gemoc/job/gemoc-studio/job/eclipse-oxygen/lastSuccessfulBuild/artifact/gemoc-studio/gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.updatesite/target/repository/" enabled="true" />
+      <repository location="http://ci.eclipse.org/gemoc/job/gemoc-studio/job/master/lastSuccessfulBuild/artifact/gemoc-studio/gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.updatesite/target/repository/" enabled="true" />
    </repositories>
 
    <preferencesInfo>
