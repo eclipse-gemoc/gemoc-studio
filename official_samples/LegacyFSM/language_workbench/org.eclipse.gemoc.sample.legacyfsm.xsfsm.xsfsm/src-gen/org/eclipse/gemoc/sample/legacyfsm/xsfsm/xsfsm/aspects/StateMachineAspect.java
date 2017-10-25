@@ -1,13 +1,3 @@
-/*******************************************************************************
- * Copyright (c) 2015, 2017  Inria  and others.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     Inria - initial API and implementation
- *******************************************************************************/
 package org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.aspects;
 
 import fr.inria.diverse.k3.al.annotationprocessor.Aspect;
@@ -15,12 +5,12 @@ import fr.inria.diverse.k3.al.annotationprocessor.InitializeModel;
 import fr.inria.diverse.k3.al.annotationprocessor.Main;
 import fr.inria.diverse.k3.al.annotationprocessor.Step;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.xtext.xbase.lib.Exceptions;
-import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.State;
 import org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.StateMachine;
 import org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.aspects.StateAspect;
 import org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.aspects.StateMachineAspectStateMachineAspectProperties;
+import org.eclipse.xtext.xbase.lib.Exceptions;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 
 @Aspect(className = StateMachine.class)
 @SuppressWarnings("all")
@@ -47,10 +37,6 @@ public class StateMachineAspect {
     if (stepManager != null) {
     	stepManager.executeStep(_self,command,"StateMachine","initializeModel");
     } else {
-    	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IEventManager eventManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.EventManagerRegistry.getInstance().findEventManager();
-    	if (eventManager != null) {
-    		eventManager.manageEvents();
-    	}
     	command.execute();
     }
     ;;
@@ -123,9 +109,7 @@ public class StateMachineAspect {
   protected static void _privk3_main(final StateMachineAspectStateMachineAspectProperties _self_, final StateMachine _self) {
     try {
       while ((!StateMachineAspect.unprocessedString(_self).isEmpty())) {
-        State _currentState = StateMachineAspect.currentState(_self);
-        String _unprocessedString = StateMachineAspect.unprocessedString(_self);
-        StateAspect.step(_currentState, _unprocessedString);
+        StateAspect.step(StateMachineAspect.currentState(_self), StateMachineAspect.unprocessedString(_self));
       }
     } catch (final Throwable _t) {
       if (_t instanceof Exception) {
@@ -149,10 +133,8 @@ public class StateMachineAspect {
   }
   
   protected static void _privk3_initializeModel(final StateMachineAspectStateMachineAspectProperties _self_, final StateMachine _self, final EList<String> args) {
-    State _initialState = _self.getInitialState();
-    StateMachineAspect.currentState(_self, _initialState);
-    String _get = args.get(0);
-    StateMachineAspect.unprocessedString(_self, _get);
+    StateMachineAspect.currentState(_self, _self.getInitialState());
+    StateMachineAspect.unprocessedString(_self, args.get(0));
     StateMachineAspect.consummedString(_self, "");
     StateMachineAspect.producedString(_self, "");
   }
@@ -165,6 +147,8 @@ public class StateMachineAspect {
     				Object ret = m.invoke(_self);
     				if (ret != null) {
     					return (org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.State) ret;
+    				} else {
+    					return null;
     				}
     		}
     	}
@@ -175,15 +159,20 @@ public class StateMachineAspect {
   }
   
   protected static void _privk3_currentState(final StateMachineAspectStateMachineAspectProperties _self_, final StateMachine _self, final State currentState) {
-    _self_.currentState = currentState; try {
+    boolean setterCalled = false;
+    try {
     	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
     		if (m.getName().equals("setCurrentState")
     				&& m.getParameterTypes().length == 1) {
     			m.invoke(_self, currentState);
+    			setterCalled = true;
     		}
     	}
     } catch (Exception e) {
     	// Chut !
+    }
+    if (!setterCalled) {
+    	_self_.currentState = currentState;
     }
   }
   
@@ -195,6 +184,8 @@ public class StateMachineAspect {
     				Object ret = m.invoke(_self);
     				if (ret != null) {
     					return (java.lang.String) ret;
+    				} else {
+    					return null;
     				}
     		}
     	}
@@ -205,15 +196,20 @@ public class StateMachineAspect {
   }
   
   protected static void _privk3_unprocessedString(final StateMachineAspectStateMachineAspectProperties _self_, final StateMachine _self, final String unprocessedString) {
-    _self_.unprocessedString = unprocessedString; try {
+    boolean setterCalled = false;
+    try {
     	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
     		if (m.getName().equals("setUnprocessedString")
     				&& m.getParameterTypes().length == 1) {
     			m.invoke(_self, unprocessedString);
+    			setterCalled = true;
     		}
     	}
     } catch (Exception e) {
     	// Chut !
+    }
+    if (!setterCalled) {
+    	_self_.unprocessedString = unprocessedString;
     }
   }
   
@@ -225,6 +221,8 @@ public class StateMachineAspect {
     				Object ret = m.invoke(_self);
     				if (ret != null) {
     					return (java.lang.String) ret;
+    				} else {
+    					return null;
     				}
     		}
     	}
@@ -235,15 +233,20 @@ public class StateMachineAspect {
   }
   
   protected static void _privk3_consummedString(final StateMachineAspectStateMachineAspectProperties _self_, final StateMachine _self, final String consummedString) {
-    _self_.consummedString = consummedString; try {
+    boolean setterCalled = false;
+    try {
     	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
     		if (m.getName().equals("setConsummedString")
     				&& m.getParameterTypes().length == 1) {
     			m.invoke(_self, consummedString);
+    			setterCalled = true;
     		}
     	}
     } catch (Exception e) {
     	// Chut !
+    }
+    if (!setterCalled) {
+    	_self_.consummedString = consummedString;
     }
   }
   
@@ -255,6 +258,8 @@ public class StateMachineAspect {
     				Object ret = m.invoke(_self);
     				if (ret != null) {
     					return (java.lang.String) ret;
+    				} else {
+    					return null;
     				}
     		}
     	}
@@ -265,15 +270,20 @@ public class StateMachineAspect {
   }
   
   protected static void _privk3_producedString(final StateMachineAspectStateMachineAspectProperties _self_, final StateMachine _self, final String producedString) {
-    _self_.producedString = producedString; try {
+    boolean setterCalled = false;
+    try {
     	for (java.lang.reflect.Method m : _self.getClass().getMethods()) {
     		if (m.getName().equals("setProducedString")
     				&& m.getParameterTypes().length == 1) {
     			m.invoke(_self, producedString);
+    			setterCalled = true;
     		}
     	}
     } catch (Exception e) {
     	// Chut !
+    }
+    if (!setterCalled) {
+    	_self_.producedString = producedString;
     }
   }
 }

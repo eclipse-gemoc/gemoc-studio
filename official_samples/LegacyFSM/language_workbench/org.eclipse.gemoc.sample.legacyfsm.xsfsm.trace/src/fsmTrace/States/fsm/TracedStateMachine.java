@@ -167,7 +167,7 @@ public interface TracedStateMachine extends TracedNamedElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final EList<SpecificDimension<?>> result = new org.eclipse.emf.ecore.util.BasicInternalEList<SpecificDimension<?>>(Object.class);\nresult.addAll(super.getDimensionsInternal());\nresult.add(getStateMachine_producedString_Dimension());\nresult.add(getStateMachine_unprocessedString_Dimension());\nresult.add(getStateMachine_consummedString_Dimension());\nresult.add(getStateMachine_currentState_Dimension());\nreturn result;\n'"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='final EList&lt;SpecificDimension&lt;?&gt;&gt; result = new org.eclipse.emf.ecore.util.BasicInternalEList&lt;SpecificDimension&lt;?&gt;&gt;(Object.class);\nresult.addAll(super.getDimensionsInternal());\nresult.add(getStateMachine_currentState_Dimension());\nresult.add(getStateMachine_producedString_Dimension());\nresult.add(getStateMachine_unprocessedString_Dimension());\nresult.add(getStateMachine_consummedString_Dimension());\nreturn result;\n'"
 	 * @generated
 	 */
 	EList<SpecificDimension<?>> getDimensionsInternal();
