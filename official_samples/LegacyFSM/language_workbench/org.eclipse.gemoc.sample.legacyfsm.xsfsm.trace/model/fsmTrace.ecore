@@ -225,7 +225,7 @@
       <eClassifiers xsi:type="ecore:EClass" name="TracedStateMachine" eSuperTypes="//States/fsm/TracedNamedElement">
         <eOperations name="getDimensionsInternal" upperBound="-1">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-            <details key="body" value="final EList&lt;SpecificDimension&lt;?>> result = new org.eclipse.emf.ecore.util.BasicInternalEList&lt;SpecificDimension&lt;?>>(Object.class);&#xA;result.addAll(super.getDimensionsInternal());&#xA;result.add(getStateMachine_producedString_Dimension());&#xA;result.add(getStateMachine_unprocessedString_Dimension());&#xA;result.add(getStateMachine_consummedString_Dimension());&#xA;result.add(getStateMachine_currentState_Dimension());&#xA;return result;&#xA;"/>
+            <details key="body" value="final EList&lt;SpecificDimension&lt;?>> result = new org.eclipse.emf.ecore.util.BasicInternalEList&lt;SpecificDimension&lt;?>>(Object.class);&#xA;result.addAll(super.getDimensionsInternal());&#xA;result.add(getStateMachine_currentState_Dimension());&#xA;result.add(getStateMachine_producedString_Dimension());&#xA;result.add(getStateMachine_unprocessedString_Dimension());&#xA;result.add(getStateMachine_consummedString_Dimension());&#xA;return result;&#xA;"/>
           </eAnnotations>
           <eGenericType eClassifier="//States/SpecificDimension">
             <eTypeArguments/>

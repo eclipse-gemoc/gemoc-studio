@@ -35,12 +35,15 @@ import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.ETypeParameter;
+import org.eclipse.emf.ecore.EcorePackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import org.eclipse.gemoc.trace.commons.model.trace.TracePackage;
-
 import org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.FsmPackage;
+
+import org.eclipse.gemoc.trace.commons.model.launchconfiguration.LaunchconfigurationPackage;
+
+import org.eclipse.gemoc.trace.commons.model.trace.TracePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -196,6 +199,8 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 		// Initialize simple dependencies
 		TracePackage.eINSTANCE.eClass();
 		FsmPackage.eINSTANCE.eClass();
+		EcorePackage.eINSTANCE.eClass();
+		LaunchconfigurationPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		FsmTracePackageImpl theFsmTracePackage = (FsmTracePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(FsmTracePackage.eNS_URI) instanceof FsmTracePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(FsmTracePackage.eNS_URI) : FsmTracePackage.eINSTANCE);

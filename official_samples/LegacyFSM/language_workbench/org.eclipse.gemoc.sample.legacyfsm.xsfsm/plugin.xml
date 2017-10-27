@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?eclipse version="3.4"?>
-<!--
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?eclipse version="3.4"?><!--
     Copyright (c) 2015, 2017  Inria  and others.
     All rights reserved. This program and the accompanying materials
     are made available under the terms of the Eclipse Public License v1.0
@@ -9,26 +8,26 @@
    
     Contributors:
         Inria - initial API and implementation
- -->
-<plugin>
+ --><plugin>
   <extension point="org.eclipse.gemoc.gemoc_language_workbench.sequential.xdsml">
     <XDSML_Definition modelLoader_class="org.eclipse.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" name="org.eclipse.gemoc.sample.legacyfsm.xsfsm.XSFSM" xdsmlFilePath="/org.eclipse.gemoc.sample.legacyfsm.xsfsm/src/org/eclipse/gemoc/sample/legacyfsm/xsfsm/language/XSFSM.melange">
-      <XDSML_Definition_Customization fileExtensions="fsm, xsfsm" />
+      <XDSML_Definition_Customization fileExtensions="fsm, xsfsm"/>
     </XDSML_Definition>
   </extension>
   <extension point="org.eclipse.emf.ecore.generated_package">
     <!-- @generated XSFSMMT -->
-    <package class="org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsmmt.fsm.FsmPackage" genModel="model-gen/XSFSMMT.genmodel" uri="http://org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsmmt/fsm/" />
+    <package class="org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsmmt.fsm.FsmPackage" genModel="model-gen/XSFSMMT.genmodel" uri="http://org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsmmt/fsm/"/>
   </extension>
-  <extension point="fr.inria.diverse.melange.modeltype">
+  
+<extension point="fr.inria.diverse.melange.modeltype">
     <modeltype id="org.eclipse.gemoc.sample.legacyfsm.xsfsm.XSFSMMT" uri="http://org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsmmt/">
-      <subtyping modeltypeId="org.eclipse.gemoc.sample.legacyfsm.fsm.FSMMT" />
+      <subtyping modeltypeId="org.eclipse.gemoc.sample.legacyfsm.fsm.FSMMT"/>
     </modeltype>
   </extension>
   <extension point="fr.inria.diverse.melange.language">
     <language aspects="State:org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.aspects.StateAspect;StateMachine:org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.aspects.StateMachineAspect;Transition:org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.aspects.TransitionAspect" entryPoints="org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.aspects.StateMachineAspect.main(org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.StateMachine)" exactType="org.eclipse.gemoc.sample.legacyfsm.xsfsm.XSFSMMT" id="org.eclipse.gemoc.sample.legacyfsm.xsfsm.XSFSM" uri="http://org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm/fsm/">
-      <adapter class="org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.adapters.fsmmt.XSFSMAdapter" modeltypeId="org.eclipse.gemoc.sample.legacyfsm.fsm.FSMMT" />
-      <adapter class="org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.adapters.xsfsmmt.XSFSMAdapter" modeltypeId="org.eclipse.gemoc.sample.legacyfsm.xsfsm.XSFSMMT" />
+      <adapter class="org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.adapters.fsmmt.XSFSMAdapter" modeltypeId="org.eclipse.gemoc.sample.legacyfsm.fsm.FSMMT"/>
+      <adapter class="org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.adapters.xsfsmmt.XSFSMAdapter" modeltypeId="org.eclipse.gemoc.sample.legacyfsm.xsfsm.XSFSMMT"/>
     </language>
   </extension>
 </plugin>

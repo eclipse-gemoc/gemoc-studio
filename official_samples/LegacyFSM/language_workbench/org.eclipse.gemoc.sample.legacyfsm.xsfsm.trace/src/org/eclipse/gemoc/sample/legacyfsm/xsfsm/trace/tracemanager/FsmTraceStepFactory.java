@@ -16,8 +16,8 @@ public class FsmTraceStepFactory implements IStepFactory {
 				+ mse.getAction().getName();
 
 		if (mse.getAction().getName().equalsIgnoreCase("step")
-				&& (ec.getClassifierID() == org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.FsmPackage.eINSTANCE.getState()
-						.getClassifierID()))
+				&& (ec.getClassifierID() == org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.FsmPackage.eINSTANCE
+						.getState().getClassifierID()))
 
 		{
 			step = fsmTrace.Steps.StepsFactory.eINSTANCE.createFsm_State_Step();
