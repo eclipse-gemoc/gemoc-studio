@@ -15,17 +15,13 @@ The following table tries to list the features, which test implement it and wher
 | Create Empty Sequential Language  						|   				| 	 					|
 | Create Sequential Language from ecore model				|   				| 	 					|
 | Create Sequential Language from ecore model and k3		|   				| 	 					|
-| Generate language runtime for official sample languages	|   				| 	 					|
-| Generate traceability for official sample languages		|   				| 	 					|
-| xDSML Perspective shortcuts  								|   				| 	 					|
-
+| Generate language runtime for official sample languages	|  GenerateLangRuntime4OfficialSampleLegacyFSM_Test.xtend 				| 	 					|
+| Generate traceability for official sample languages		|  GenerateTrace4OfficialSampleLegacyFSM_Test.xtend  				| 	 					|
+| xDSML Perspective shortcuts  								|  XDSMLPerspective_Test.xtend 				| 	 					|
 | Create domain model for language 							|   				| 	 					|
-
 | Create behavior for sequential language (k3)				|   				| 	 					|
 | Create behavior for sequential language (ale)				|   				| 	 					|
-
 | Create concrete syntax for language (sirius)				|   				| 	 					|
 | Create concrete syntax for language (xtext)				|   				| 	 					|
 | Create concrete syntax for language (emf.editor)			|   				| 	 					|
-
 | Create animation diagram for language (sirius)			|   				| 	 					|

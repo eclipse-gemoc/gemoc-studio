@@ -14,13 +14,11 @@ The following table tries to list the features, which test implement it and wher
 |---														|---				|--- 					|
 | Create a Sequential model	for a language					|   				| 	 					|
 | Create a Sequential model	for official sample languages	|   				| 	 					|
-
 | Add a break point for a model execution (before execution)|   				| 	 					|
 | Add a break point for a model execution (while execution)	|   				| 	 					|
 | Stop/kill an execution									|   				| 	 					|
 | Debug Perspective shortcuts  								|   				| 	 					|
 | Debug Perspective shortcuts  								|   				| 	 					|
-
 | Pause/continue execution		 							|   				| 	 					|
 | Highlight Model element (sirius) for last executed step	|   				| 	 					|
 | Highlight Model element (xtext) for last executed step	|   				| 	 					|
