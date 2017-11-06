@@ -22,9 +22,7 @@ The following table tries to list the features, which test implement it and wher
 | Pause/continue execution		 							|   				| 	 					|
 | Highlight Model element (sirius) for last executed step	|   				| 	 					|
 | Highlight Model element (xtext) for last executed step	|   				| 	 					|
-| Highlight Model element (sirius) for current selected step 
-  (click in stack view)
+| Highlight Model element (sirius) for current selected step   (click in stack view)
 								 							|   				| 	 					|
-| Highlight Model element (xtext) for current selected step 
-  (click in stack view)
+| Highlight Model element (xtext) for current selected step (click in stack view)
 								 							|   				| 	 					|
