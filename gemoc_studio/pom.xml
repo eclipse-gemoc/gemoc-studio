@@ -34,6 +34,12 @@
         <module>releng/org.eclipse.gemoc.gemoc_studio.additions.feature</module>	
         <module>releng/org.eclipse.gemoc.modeldebugging.feature</module>
         <module>releng/org.eclipse.gemoc.gemoc_studio.updatesite</module>
+        
+        <!-- Tests -->
+        <module>tests/org.eclipse.gemoc.studio.tests.system</module>
+        <module>tests/org.eclipse.gemoc.studio.tests.system.backlog</module>
+        
+        
     </modules>
 
     <repositories>
