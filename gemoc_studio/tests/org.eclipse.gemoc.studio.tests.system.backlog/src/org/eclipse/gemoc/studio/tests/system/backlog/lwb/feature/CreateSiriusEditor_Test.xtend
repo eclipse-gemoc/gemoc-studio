@@ -91,7 +91,7 @@ public class CreateSiriusEditor_Test extends AbstractXtextTests
 	
 	
 	@Test
-	def void test01CreateEditorProject_usingGemocMenuOnProject() {
+	def void test01_CreateEditorProject_usingGemocMenuOnProject() {
 	
 		val SWTBotTreeItem projectItem = bot.tree().getTreeItem(PROJECT_NAME).select();
 		projectItem.contextMenu("GEMOC Language").menu("Create Sirius Editor Project for language").click();
@@ -109,7 +109,7 @@ public class CreateSiriusEditor_Test extends AbstractXtextTests
 	
 	
 	@Test
-	def void test02CreateEditorProject_usingDropDownMenu(){
+	def void test02_CreateEditorProject_usingDropDownMenuNew(){
 		bot.toolbarDropDownButtonWithTooltip("New").menuItem("Viewpoint Specification Project").click();		
 		bot.textWithLabel("&Project name:").setText(PROJECT_NAME + ".design");
 		bot.button("Next >").click();

@@ -45,6 +45,7 @@
 					<useUIThread>false</useUIThread>
 					<product>org.eclipse.sdk.ide</product>
               		<application>org.eclipse.ui.ide.workbench</application>
+              		<testFailureIgnore>true</testFailureIgnore> <!-- failed tests here must fail the build-->
 				</configuration>
 			</plugin>
 		

@@ -45,6 +45,8 @@
 					<useUIThread>false</useUIThread>
 					<product>org.eclipse.sdk.ide</product>
               		<application>org.eclipse.ui.ide.workbench</application>
+              		<testFailureIgnore>true</testFailureIgnore> <!-- failed tests here should not break the build-->
+              		<failIfNoTests>false</failIfNoTests> <!-- backlog may be empty, (even if this quite unlikely ;-) ) -->
 				</configuration>
 			</plugin>
 		

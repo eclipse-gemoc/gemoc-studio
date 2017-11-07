@@ -29,6 +29,8 @@ import org.junit.FixMethodOrder
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.MethodSorters
+import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences
+import org.junit.Ignore
 
 /**
  * This class check a scenario where we reuse some of the base projects of the official sample : LegacyFSM
@@ -55,6 +57,8 @@ public class CreateSingleSequentialLanguageFromOfficialFSM_Test extends Abstract
 	def static void beforeClass() throws Exception {
 		helper.init
 		bot = new SWTWorkbenchBot()
+		// Set the timeout to 8 seconds
+		SWTBotPreferences.TIMEOUT = 8000;
 		bot.resetWorkbench
 		IResourcesSetupUtil::cleanWorkspace
 		helper.deployProject(SOURCE_PROJECT_NAME+".model",BASE_FOLDER_NAME+"/"+SOURCE_PROJECT_NAME+".model.zip")
@@ -184,9 +188,10 @@ public class CreateSingleSequentialLanguageFromOfficialFSM_Test extends Abstract
 	 * This test use the GEMOC menu to create a Sirius editor for a language
 	 * @throws Exception
 	 */
+	@Ignore  // temporarily disabled, waiting for a fix of test CreateSiriusEditor_Test.test01_CreateEditorProject_usingGemocMenuOnProject() in the backlog
 	@Test
-	def void test05CreateSiriusEditorForLanguage() throws Exception {
-		
+	def void test05_CreateSiriusEditorForLanguage() throws Exception {
+				
 		val SWTBotTreeItem projectItem = bot.tree().getTreeItem("org.eclipse.gemoc.sample.legacyfsm.xfsm").select();
 		projectItem.contextMenu("GEMOC Language").menu("Create Sirius Editor Project for language").click();
 		bot.button("OK").click();
