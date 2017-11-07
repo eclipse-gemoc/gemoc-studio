@@ -63,7 +63,6 @@
 						</goals>
 						<configuration>
 							<target>
-								<echo>hello</echo>
 								<mkdir dir="${tests-inputs-gen.path}" />
 
 								<!-- LegacyFSM -->

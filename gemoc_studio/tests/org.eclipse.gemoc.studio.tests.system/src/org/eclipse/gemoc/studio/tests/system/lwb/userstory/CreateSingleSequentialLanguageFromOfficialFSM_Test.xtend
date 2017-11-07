@@ -74,6 +74,7 @@ public class CreateSingleSequentialLanguageFromOfficialFSM_Test extends Abstract
 		// make sure we are on the correct perspective
 		bot.perspectiveById(XDSMLFrameworkUI.ID_PERSPECTIVE).activate()
 		val projExplorerBot = bot.viewByTitle("Project Explorer").bot
+		IResourcesSetupUtil::reallyWaitForAutoBuild
 	}
 	
 	@After
@@ -106,7 +107,7 @@ public class CreateSingleSequentialLanguageFromOfficialFSM_Test extends Abstract
 		bot.tree().getTreeItem(SOURCE_PROJECT_NAME + ".model").getNode("model").expand();
 		bot.tree().getTreeItem(SOURCE_PROJECT_NAME + ".model").getNode("model").getNode("fsm.ecore").click();
 		bot.button("OK").click();
-		bot.button("Browse...",1).click();
+		activeShell.bot.button("Browse...",1).click();
 		bot.button("OK").click();
 		
 		/* or 
