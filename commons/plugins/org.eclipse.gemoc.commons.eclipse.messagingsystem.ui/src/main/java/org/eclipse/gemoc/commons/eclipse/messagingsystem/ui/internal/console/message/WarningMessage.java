@@ -14,7 +14,7 @@ package org.eclipse.gemoc.commons.eclipse.messagingsystem.ui.internal.console.me
 public class WarningMessage extends ConsoleMessage {
 
 	public WarningMessage(String content) {
-		super(content, ConsoleMessage.WARNING);
+		super(content, ConsoleMessage.WARNING, ConsoleMessage.WARNING_STYLE);
 	}
 	
 }

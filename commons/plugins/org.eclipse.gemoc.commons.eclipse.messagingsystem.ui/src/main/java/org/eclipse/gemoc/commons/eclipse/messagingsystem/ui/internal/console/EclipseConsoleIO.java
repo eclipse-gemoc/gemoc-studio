@@ -25,6 +25,7 @@ import org.eclipse.gemoc.commons.eclipse.messagingsystem.ui.internal.console.mes
 import org.eclipse.gemoc.commons.eclipse.messagingsystem.ui.preferences.PreferenceConstants;
 import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.util.PropertyChangeEvent;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.ui.console.ConsolePlugin;
 import org.eclipse.ui.console.IOConsoleOutputStream;
@@ -190,6 +191,19 @@ public class EclipseConsoleIO extends ConsoleIO implements IPropertyChangeListen
 			// need to change to another stream for the new color
 			changeStream(); // reset the stream
 			((IOConsoleOutputStream) getOutputStream()).setColor(c);
+		}
+	}
+	/**
+	 * this methods allow to change the color of futur message
+	 * (this is because a simple change of current stream color, change the color for all messages, even previous ones ...) 
+	 * @param c
+	 */
+	public void changeFontStyle(Color c){
+		Color previousColor = ((IOConsoleOutputStream) getOutputStream()).getColor();
+		if( (c==null && c!= previousColor) || (c!=null && !c.equals(previousColor)) ){
+			// need to change to another stream for the new color
+			changeStream(); // reset the stream
+			((IOConsoleOutputStream) getOutputStream()).setFontStyle(SWT.NORMAL);
 		}
 	}
 	/**

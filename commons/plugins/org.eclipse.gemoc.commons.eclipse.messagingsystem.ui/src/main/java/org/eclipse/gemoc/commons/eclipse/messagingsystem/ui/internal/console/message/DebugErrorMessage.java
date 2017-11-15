@@ -13,7 +13,7 @@ package org.eclipse.gemoc.commons.eclipse.messagingsystem.ui.internal.console.me
 public class DebugErrorMessage extends ConsoleMessage {
 
 	public DebugErrorMessage(String content) {
-		super(content, ConsoleMessage.DEBUG_ERROR);
+		super(content, ConsoleMessage.DEBUG_ERROR, ConsoleMessage.DEBUG_ERROR_STYLE);
 	}
 	
 }
