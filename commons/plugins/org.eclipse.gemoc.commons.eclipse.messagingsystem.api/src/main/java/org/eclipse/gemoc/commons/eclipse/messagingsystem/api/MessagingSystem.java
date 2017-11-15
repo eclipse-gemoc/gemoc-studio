@@ -95,10 +95,10 @@ public abstract class MessagingSystem {
 	/**
 	 * convenient operation for quicker call
 	 * Equivalent to
-	 * log(MessagingSystem.Kind.UserWARNING, message, messageGroup, senderTrace)
+	 * log(MessagingSystem.Kind.DevWARNING, message, messageGroup, senderTrace)
 	 */
 	public void warn(String message, String messageGroup, Throwable senderTrace){
-		log(MessagingSystem.Kind.UserWARNING, message, messageGroup, senderTrace);
+		log(MessagingSystem.Kind.DevWARNING, message, messageGroup, senderTrace);
 	}
 	/**
 	 * convenient operation for quicker call
@@ -111,10 +111,10 @@ public abstract class MessagingSystem {
 	/**
 	 * convenient operation for quicker call
 	 * Equivalent to
-	 * log(MessagingSystem.Kind.UserERROR, message, messageGroup, senderTrace)
+	 * log(MessagingSystem.Kind.DevERROR, message, messageGroup, senderTrace)
 	 */
 	public void error(String message, String messageGroup, Throwable senderTrace){
-		log(MessagingSystem.Kind.UserERROR, message, messageGroup, senderTrace);
+		log(MessagingSystem.Kind.DevERROR, message, messageGroup, senderTrace);
 	}
 	/**
 	 * convenient operation for quicker call
