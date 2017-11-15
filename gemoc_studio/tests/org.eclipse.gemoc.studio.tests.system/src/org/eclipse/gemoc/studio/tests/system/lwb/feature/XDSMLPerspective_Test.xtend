@@ -26,6 +26,7 @@ import org.junit.Before
 import org.junit.BeforeClass
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences
 
 /**
  * This class check the content of the XDSML Perspective
@@ -43,6 +44,7 @@ public class XDSMLPerspective_Test extends AbstractXtextTests
 	@BeforeClass
 	def static void beforeClass() throws Exception {
 		bot = new SWTWorkbenchBot()
+		SWTBotPreferences.TIMEOUT = WorkspaceTestHelper.SWTBotPreferencesTIMEOUT_4_GEMOC;
 		IResourcesSetupUtil::cleanWorkspace
 		helper.init
 

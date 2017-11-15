@@ -30,6 +30,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.MethodSorters
 import org.eclipse.swt.widgets.Display
+import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences
 
 /**
  * Verifies that we can use the wizard to install the official sample
@@ -52,6 +53,7 @@ public class DeployOfficialSampleLegacyFSM_Test extends AbstractXtextTests
 	def static void beforeClass() throws Exception {
 		helper.init
 		bot = new SWTWorkbenchBot()
+		SWTBotPreferences.TIMEOUT = WorkspaceTestHelper.SWTBotPreferencesTIMEOUT_4_GEMOC;
 		bot.resetWorkbench
 		IResourcesSetupUtil::cleanWorkspace
 	}
