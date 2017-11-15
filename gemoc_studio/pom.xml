@@ -37,7 +37,9 @@
         
         <!-- Tests -->
         <module>tests/org.eclipse.gemoc.studio.tests.system</module>
+        <!-- backlog tests are not part of the main CI build
         <module>tests/org.eclipse.gemoc.studio.tests.system.backlog</module>
+        -->
         
         
     </modules>
