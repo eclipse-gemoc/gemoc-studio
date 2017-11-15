@@ -10,10 +10,10 @@
  *******************************************************************************/
 package org.eclipse.gemoc.commons.eclipse.messagingsystem.ui.internal.console.message;
 
-public class DebugWarningMessage extends ConsoleMessage {
+public class ImportantMessage extends ConsoleMessage {
 
-	public DebugWarningMessage(String content) {
-		super(content, ConsoleMessage.DEBUG_WARNING, ConsoleMessage.DEBUG_WARNING_STYLE);
+	public ImportantMessage(String content) {
+		super(content, ConsoleMessage.IMPORTANT, ConsoleMessage.IMPORTANT_STYLE);
 	}
 	
 }

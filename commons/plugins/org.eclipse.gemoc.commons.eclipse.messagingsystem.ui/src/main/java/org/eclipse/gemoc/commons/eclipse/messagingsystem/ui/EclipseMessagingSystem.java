@@ -31,6 +31,7 @@ import org.eclipse.gemoc.commons.eclipse.messagingsystem.ui.internal.console.mes
 import org.eclipse.gemoc.commons.eclipse.messagingsystem.ui.internal.console.message.DebugMessage;
 import org.eclipse.gemoc.commons.eclipse.messagingsystem.ui.internal.console.message.DebugWarningMessage;
 import org.eclipse.gemoc.commons.eclipse.messagingsystem.ui.internal.console.message.ErrorMessage;
+import org.eclipse.gemoc.commons.eclipse.messagingsystem.ui.internal.console.message.ImportantMessage;
 import org.eclipse.gemoc.commons.eclipse.messagingsystem.ui.internal.console.message.InfoMessage;
 import org.eclipse.gemoc.commons.eclipse.messagingsystem.ui.internal.console.message.WarningMessage;
 import org.eclipse.gemoc.commons.messagingsystem.api.reference.Reference;
@@ -368,6 +369,8 @@ public class EclipseMessagingSystem extends MessagingSystem {
 			return new DebugMessage(message+"\n");
 		case UserINFO:
 			return new InfoMessage(message+"\n");
+		case UserImportantINFO:
+			return new ImportantMessage(message+"\n");
 		case DevINFO:
 			return new DebugMessage(message+"\n");
 		case UserWARNING:

@@ -18,8 +18,9 @@ public class ConsoleLogLevel{
 	public static final int 	DEV_WARNING = 3;
 	public static final int 	DEV_ERROR = 4;
 	public static final int 	USER_INFO= 8;
-	public static final int 	USER_WARNING = 9;
-	public static final int 	USER_ERROR = 10;
+	public static final int 	USER_IMPORTANTINFO= 9;
+	public static final int 	USER_WARNING = 10;
+	public static final int 	USER_ERROR = 11;
 	
 	public static boolean isLevelEnoughToLog(Integer requiredLevel, Integer allowedLevel){
 		return requiredLevel>=allowedLevel;
@@ -37,6 +38,8 @@ public class ConsoleLogLevel{
 			return "DEV_ERROR";
 		case USER_INFO :
 			return "USER_INFO";
+		case USER_IMPORTANTINFO :
+			return "USER_IMPORTANT";
 		case USER_WARNING :
 			return "USER_WARNING";
 		case USER_ERROR :
@@ -51,6 +54,7 @@ public class ConsoleLogLevel{
 		if(s.equals("DEV_WARNING")) return DEV_WARNING;
 		if(s.equals("DEV_ERROR"))	return DEV_ERROR;
 		if(s.equals("USER_INFO")) 	return USER_INFO;
+		if(s.equals("USER_IMPORTANT")) 	return USER_IMPORTANTINFO;
 		if(s.equals("USER_WARNING"))return USER_WARNING;
 		if(s.equals("USER_ERROR")) 	return USER_ERROR;
 		return DEV_DEBUG;
@@ -60,6 +64,8 @@ public class ConsoleLogLevel{
 		switch (msgKind) {
 		case DevDEBUG:
 			return DEV_DEBUG;
+		case UserImportantINFO:
+			return USER_IMPORTANTINFO;
 		case UserINFO:
 			return USER_INFO;
 		case DevINFO:

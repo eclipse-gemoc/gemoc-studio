@@ -109,6 +109,8 @@ public class StdioSimpleMessagingSystem extends MessagingSystem {
 		
 		case UserINFO :
 			return "INFO";
+		case UserImportantINFO :
+			return "IMPORTANT";
 		case UserWARNING :
 			return "WARNING";
 		case UserERROR :
@@ -136,7 +138,7 @@ public class StdioSimpleMessagingSystem extends MessagingSystem {
 		// return first caller which isn't getCallerString or log
 		for(StackTraceElement stackTraceElement : stackTraceElements){
 			if(! (	stackTraceElement.getMethodName().contains("log") || 
-					stackTraceElement.getClassName().contains("org.kermeta.utils.systemservices.api"))){
+					stackTraceElement.getClassName().contains("org.eclipse.gemoc.commons.eclipse.messagingsystem.api"))){
 				
 				return stackTraceElement.toString();
 			}

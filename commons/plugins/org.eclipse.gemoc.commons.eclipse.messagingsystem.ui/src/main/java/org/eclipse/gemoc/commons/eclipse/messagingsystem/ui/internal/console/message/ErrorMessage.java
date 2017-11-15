@@ -13,7 +13,7 @@ package org.eclipse.gemoc.commons.eclipse.messagingsystem.ui.internal.console.me
 public class ErrorMessage extends ConsoleMessage {
 
 	public ErrorMessage(String content) {
-		super(content, ConsoleMessage.ERROR);
+		super(content, ConsoleMessage.ERROR, ConsoleMessage.ERROR_STYLE);
 	}
 	
 }

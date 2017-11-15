@@ -24,7 +24,7 @@ import org.eclipse.gemoc.commons.messagingsystem.api.reference.Reference;
  */
 public abstract class MessagingSystem {
 	public static enum Kind {
-		UserINFO, UserWARNING, UserERROR, DevDEBUG, DevINFO, DevWARNING, DevERROR 
+		UserINFO, UserImportantINFO, UserWARNING, UserERROR, DevDEBUG, DevINFO, DevWARNING, DevERROR 
 	}
 	
 	public static int UNKNOWN_NBWORKUNIT = -1;
@@ -91,6 +91,14 @@ public abstract class MessagingSystem {
 	 */
 	public void info(String message, String messageGroup){
 		log(MessagingSystem.Kind.UserINFO, message, messageGroup);
+	}
+	/**
+	 * convenient operation for quicker call
+	 * Equivalent to
+	 * log(MessagingSystem.Kind.UserImportantINFO, message, messageGroup)
+	 */
+	public void important(String message, String messageGroup){
+		log(MessagingSystem.Kind.UserImportantINFO, message, messageGroup);
 	}
 	/**
 	 * convenient operation for quicker call
