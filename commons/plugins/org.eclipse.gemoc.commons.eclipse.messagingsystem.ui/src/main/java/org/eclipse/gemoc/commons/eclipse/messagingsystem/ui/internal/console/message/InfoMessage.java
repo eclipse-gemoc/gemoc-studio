@@ -13,7 +13,7 @@ package org.eclipse.gemoc.commons.eclipse.messagingsystem.ui.internal.console.me
 public class InfoMessage extends ConsoleMessage {
 
 	public InfoMessage(String content) {
-		super(content, ConsoleMessage.INFO);
+		super(content, ConsoleMessage.INFO, ConsoleMessage.INFO_STYLE);
 	}
 	
 }

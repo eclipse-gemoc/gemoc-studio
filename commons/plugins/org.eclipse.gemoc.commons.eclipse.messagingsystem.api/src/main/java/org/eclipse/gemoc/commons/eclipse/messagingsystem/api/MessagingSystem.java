@@ -24,7 +24,7 @@ import org.eclipse.gemoc.commons.messagingsystem.api.reference.Reference;
  */
 public abstract class MessagingSystem {
 	public static enum Kind {
-		UserINFO, UserWARNING, UserERROR, DevDEBUG, DevINFO, DevWARNING, DevERROR 
+		UserINFO, UserImportantINFO, UserWARNING, UserERROR, DevDEBUG, DevINFO, DevWARNING, DevERROR 
 	}
 	
 	public static int UNKNOWN_NBWORKUNIT = -1;
@@ -95,10 +95,18 @@ public abstract class MessagingSystem {
 	/**
 	 * convenient operation for quicker call
 	 * Equivalent to
-	 * log(MessagingSystem.Kind.UserWARNING, message, messageGroup, senderTrace)
+	 * log(MessagingSystem.Kind.UserImportantINFO, message, messageGroup)
+	 */
+	public void important(String message, String messageGroup){
+		log(MessagingSystem.Kind.UserImportantINFO, message, messageGroup);
+	}
+	/**
+	 * convenient operation for quicker call
+	 * Equivalent to
+	 * log(MessagingSystem.Kind.DevWARNING, message, messageGroup, senderTrace)
 	 */
 	public void warn(String message, String messageGroup, Throwable senderTrace){
-		log(MessagingSystem.Kind.UserWARNING, message, messageGroup, senderTrace);
+		log(MessagingSystem.Kind.DevWARNING, message, messageGroup, senderTrace);
 	}
 	/**
 	 * convenient operation for quicker call
@@ -111,10 +119,10 @@ public abstract class MessagingSystem {
 	/**
 	 * convenient operation for quicker call
 	 * Equivalent to
-	 * log(MessagingSystem.Kind.UserERROR, message, messageGroup, senderTrace)
+	 * log(MessagingSystem.Kind.DevERROR, message, messageGroup, senderTrace)
 	 */
 	public void error(String message, String messageGroup, Throwable senderTrace){
-		log(MessagingSystem.Kind.UserERROR, message, messageGroup, senderTrace);
+		log(MessagingSystem.Kind.DevERROR, message, messageGroup, senderTrace);
 	}
 	/**
 	 * convenient operation for quicker call

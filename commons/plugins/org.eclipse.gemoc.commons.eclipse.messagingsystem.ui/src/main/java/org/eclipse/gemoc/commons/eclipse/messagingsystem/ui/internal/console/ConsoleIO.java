@@ -109,11 +109,25 @@ abstract public class ConsoleIO {
 	abstract public void print(ConsoleMessage message);
 	
 	/**
-	 * this methods allow to change the color of futur message
+	 * this methods allow to change the color of future messages
 	 * (this is because a simple change of current stream color, change the color for all messages, even previous ones ...) 
 	 * @param c
 	 */
 	abstract public void changeColor(Color c);
+	
+	/**
+	 * this methods allow to change the style and color of future messages
+	 * (this is because a simple change of current stream color, change the color for all messages, even previous ones ...) 
+	 * @param c
+	 * @param style
+	 */
+	abstract public void changeStyle(Color c, int style);
+	/**
+	 * this methods allow to change the style of future messages
+	 * (this is because a simple change of current stream color, change the color for all messages, even previous ones ...) 
+	 * @param style
+	 */
+	abstract public void changeFontStyle(int style);
 	
 	abstract public void println(ConsoleMessage message);
 	//////////////////////////////////////

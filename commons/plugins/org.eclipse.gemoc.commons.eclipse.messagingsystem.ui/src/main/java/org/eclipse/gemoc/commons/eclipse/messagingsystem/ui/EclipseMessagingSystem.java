@@ -31,6 +31,7 @@ import org.eclipse.gemoc.commons.eclipse.messagingsystem.ui.internal.console.mes
 import org.eclipse.gemoc.commons.eclipse.messagingsystem.ui.internal.console.message.DebugMessage;
 import org.eclipse.gemoc.commons.eclipse.messagingsystem.ui.internal.console.message.DebugWarningMessage;
 import org.eclipse.gemoc.commons.eclipse.messagingsystem.ui.internal.console.message.ErrorMessage;
+import org.eclipse.gemoc.commons.eclipse.messagingsystem.ui.internal.console.message.ImportantMessage;
 import org.eclipse.gemoc.commons.eclipse.messagingsystem.ui.internal.console.message.InfoMessage;
 import org.eclipse.gemoc.commons.eclipse.messagingsystem.ui.internal.console.message.WarningMessage;
 import org.eclipse.gemoc.commons.messagingsystem.api.reference.Reference;
@@ -218,17 +219,20 @@ public class EclipseMessagingSystem extends MessagingSystem {
 		getConsoleIO().clear();
 	}
 	
+	/**
+	 * This method dispatches the messages between the console and error log view
+	 * DevError and DevWarning go in both
+	 * UserError and UserWarning go only in the colsole
+	 */
 	@Override
 	public void log(Kind msgKind, String message, String messageGroup) {
 		
 		// some error message should go to the eclipse error view
 		switch (msgKind) {
-		case UserWARNING:
 		case DevWARNING:
 			if(messageGroup ==  null || !messageGroup.isEmpty())
 				Activator.getDefault().getLog().log(new Status(IStatus.WARNING, messageGroup, IStatus.WARNING, message != null ? message : "<null>",null));
 			break;
-		case UserERROR:
 		case DevERROR:
 			if(messageGroup ==  null || !messageGroup.isEmpty())
 				Activator.getDefault().getLog().log(new Status(IStatus.ERROR, messageGroup, IStatus.ERROR, message != null ? message : "<null>",null));
@@ -240,24 +244,23 @@ public class EclipseMessagingSystem extends MessagingSystem {
 		if(ConsoleLogLevel.isLevelEnoughToLog(ConsoleLogLevel.kind2Level(msgKind), getConsoleLogLevel())){
 			getConsoleIO().print(getConsoleMessageFor(msgKind,message));
 		}
-		// currently redirect to stdio
-		//StdioSimpleMessagingSystem stdioRedirect = new StdioSimpleMessagingSystem();
-		//stdioRedirect.log(msgKind, message, messageGroup);
 	}
 
 	
-
+	/**
+	 * This method dispatches the messages between the console and error log view
+	 * DevError and DevWarning go in both
+	 * UserError and UserWarning go only in the colsole
+	 */
 	@Override
 	public void log(Kind msgKind, String message, String messageGroup, Throwable throwable) {
 		
 		// some error message should go to the eclipse error view
 		switch (msgKind) {
-		case UserWARNING:
 		case DevWARNING:
 			if(messageGroup ==  null || !messageGroup.isEmpty())
 				Activator.getDefault().getLog().log(new Status(IStatus.WARNING, messageGroup, IStatus.WARNING, message != null ? message : "<null>",throwable));
 			break;
-		case UserERROR:
 		case DevERROR:
 			if(messageGroup ==  null || !messageGroup.isEmpty())
 				Activator.getDefault().getLog().log(new Status(IStatus.ERROR, messageGroup, IStatus.ERROR, message != null ? message : "<null>",throwable));
@@ -366,6 +369,8 @@ public class EclipseMessagingSystem extends MessagingSystem {
 			return new DebugMessage(message+"\n");
 		case UserINFO:
 			return new InfoMessage(message+"\n");
+		case UserImportantINFO:
+			return new ImportantMessage(message+"\n");
 		case DevINFO:
 			return new DebugMessage(message+"\n");
 		case UserWARNING:
@@ -416,40 +421,6 @@ public class EclipseMessagingSystem extends MessagingSystem {
 		this.progressBarMaxDepth = progressBarMaxDepth;
 	}
 	
-	
-	/*
-	class ProgressWrapperStarter extends org.eclipse.ui.progress.UIJob{
-		ProgressWrapper progressWrapper; 
-		IProgressMonitor progressMonitor;
-		EclipseMessagingSystem logger;
-		
-		public ProgressWrapperStarter(ProgressWrapper progressWrapper, IProgressMonitor progressMonitor, EclipseMessagingSystem logger){
-			super("adding progress monitor");
-			this.progressMonitor = progressMonitor;
-			this.progressWrapper = progressWrapper;
-			this.logger = logger;
-		}
-		@Override
-		public IStatus runInUIThread(IProgressMonitor arg0) {
-			try {
-
-				IWorkbench wb = PlatformUI.getWorkbench();
-				IProgressService ps = wb.getProgressService();
-				ps.busyCursorWhile(progressWrapper);
-
-				logger.log(Kind.DevINFO, "["+this.getClass()+"]progressWrapper created" , this.getClass().toString());
-			} catch (InvocationTargetException e) {
-				logger.log(Kind.DevWARNING, "["+progressWrapper.getRootProgressGroup()+"] cannot create progress monitor, => log only. "+e.getMessage(), progressWrapper.getRootProgressGroup(), e);
-				//mustLog = true;
-			} catch (InterruptedException e) {
-				logger.log(Kind.DevWARNING, "["+progressWrapper.getRootProgressGroup()+"] cannot create progress monitor, => log only. "+e.getMessage(), progressWrapper.getRootProgressGroup(), e);
-				//mustLog = true;
-			}
-			return null;
-		}
-		
-	}
-	*/
 	/**
 	 * Show the console view on this MessagingSystem console
 	 */
