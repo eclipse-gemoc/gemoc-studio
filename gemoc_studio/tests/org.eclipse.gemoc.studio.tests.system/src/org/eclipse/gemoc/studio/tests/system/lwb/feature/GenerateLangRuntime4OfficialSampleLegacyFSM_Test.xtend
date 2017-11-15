@@ -32,6 +32,7 @@ import org.eclipse.gemoc.xdsmlframework.test.lib.WorkspaceTestHelper
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem
 import com.google.inject.Injector
 import java.util.ArrayList
+import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences
 
 /**
  * Checks that the provided official sample can compile without error 
@@ -59,6 +60,7 @@ public class GenerateLangRuntime4OfficialSampleLegacyFSM_Test extends AbstractXt
 	@BeforeClass
 	def static void beforeClass() throws Exception {
 		bot = new SWTWorkbenchBot()
+		SWTBotPreferences.TIMEOUT = WorkspaceTestHelper.SWTBotPreferencesTIMEOUT_4_GEMOC;
 		bot.resetWorkbench
 	}
 	

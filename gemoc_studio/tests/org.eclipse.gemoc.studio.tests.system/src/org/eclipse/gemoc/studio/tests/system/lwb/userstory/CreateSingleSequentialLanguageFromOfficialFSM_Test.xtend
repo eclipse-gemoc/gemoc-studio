@@ -57,8 +57,8 @@ public class CreateSingleSequentialLanguageFromOfficialFSM_Test extends Abstract
 	def static void beforeClass() throws Exception {
 		helper.init
 		bot = new SWTWorkbenchBot()
-		// Set the timeout to 8 seconds
-		SWTBotPreferences.TIMEOUT = 8000;
+		// Set the SWTBot timeout
+		SWTBotPreferences.TIMEOUT = WorkspaceTestHelper.SWTBotPreferencesTIMEOUT_4_GEMOC;
 		bot.resetWorkbench
 		IResourcesSetupUtil::cleanWorkspace
 		helper.deployProject(SOURCE_PROJECT_NAME+".model",BASE_FOLDER_NAME+"/"+SOURCE_PROJECT_NAME+".model.zip")
