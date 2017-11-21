@@ -4,7 +4,7 @@
 'abstract-syntax'=19
 'displayName'=17
 'metaprog'=18
-'semantic'=20
+'semantics'=20
 '{'=13
 '}'=14
 RULE_ANY_OTHER=11

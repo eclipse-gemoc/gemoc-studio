@@ -213,10 +213,10 @@ public class InternalDslLexer extends Lexer {
         try {
             int _type = T__20;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalDsl.g:19:7: ( 'semantic' )
-            // InternalDsl.g:19:9: 'semantic'
+            // InternalDsl.g:19:7: ( 'semantics' )
+            // InternalDsl.g:19:9: 'semantics'
             {
-            match("semantic"); 
+            match("semantics"); 
 
 
             }
@@ -907,17 +907,17 @@ public class InternalDslLexer extends Lexer {
 
     protected DFA13 dfa13 = new DFA13(this);
     static final String DFA13_eotS =
-        "\1\uffff\1\24\4\uffff\4\24\1\21\1\24\1\uffff\3\21\2\uffff\2\24\6\uffff\5\24\5\uffff\1\51\4\24\1\uffff\21\24\1\77\1\24\1\101\1\24\3\uffff\1\24\1\104\1\uffff";
+        "\1\uffff\1\24\4\uffff\4\24\1\21\1\24\1\uffff\3\21\2\uffff\2\24\6\uffff\5\24\5\uffff\1\51\4\24\1\uffff\21\24\1\77\3\24\2\uffff\1\103\1\24\1\uffff\1\105\1\uffff";
     static final String DFA13_eofS =
-        "\105\uffff";
+        "\106\uffff";
     static final String DFA13_minS =
-        "\1\0\1\56\4\uffff\4\56\1\101\1\56\1\uffff\2\0\1\52\2\uffff\2\56\6\uffff\5\56\5\uffff\5\56\1\uffff\22\56\1\55\2\56\3\uffff\2\56\1\uffff";
+        "\1\0\1\56\4\uffff\4\56\1\101\1\56\1\uffff\2\0\1\52\2\uffff\2\56\6\uffff\5\56\5\uffff\5\56\1\uffff\22\56\1\55\2\56\2\uffff\2\56\1\uffff\1\56\1\uffff";
     static final String DFA13_maxS =
-        "\1\uffff\1\172\4\uffff\6\172\1\uffff\2\uffff\1\57\2\uffff\2\172\6\uffff\5\172\5\uffff\5\172\1\uffff\25\172\3\uffff\2\172\1\uffff";
+        "\1\uffff\1\172\4\uffff\6\172\1\uffff\2\uffff\1\57\2\uffff\2\172\6\uffff\5\172\5\uffff\5\172\1\uffff\25\172\2\uffff\2\172\1\uffff\1\172\1\uffff";
     static final String DFA13_acceptS =
-        "\2\uffff\1\2\1\3\1\4\1\5\6\uffff\1\14\3\uffff\1\20\1\21\2\uffff\1\13\1\12\1\2\1\3\1\4\1\5\5\uffff\1\14\1\15\1\16\1\17\1\20\5\uffff\1\1\25\uffff\1\7\1\10\1\11\2\uffff\1\6";
+        "\2\uffff\1\2\1\3\1\4\1\5\6\uffff\1\14\3\uffff\1\20\1\21\2\uffff\1\13\1\12\1\2\1\3\1\4\1\5\5\uffff\1\14\1\15\1\16\1\17\1\20\5\uffff\1\1\25\uffff\1\7\1\10\2\uffff\1\11\1\uffff\1\6";
     static final String DFA13_specialS =
-        "\1\2\14\uffff\1\0\1\1\66\uffff}>";
+        "\1\1\14\uffff\1\0\1\2\67\uffff}>";
     static final String[] DFA13_transitionS = {
             "\11\21\2\20\2\21\1\20\22\21\1\20\1\21\1\15\4\21\1\16\4\21\1\5\2\21\1\17\12\14\3\21\1\4\3\21\3\13\1\1\26\13\3\21\1\12\1\13\1\21\1\10\2\13\1\6\10\13\1\7\5\13\1\11\7\13\1\2\1\21\1\3\uff82\21",
             "\1\25\1\uffff\12\23\7\uffff\22\23\1\22\7\23\4\uffff\1\23\1\uffff\32\23",
@@ -980,12 +980,13 @@ public class InternalDslLexer extends Lexer {
             "\1\25\1\uffff\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\1\76\31\23",
             "\1\25\1\uffff\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
             "\1\100\1\25\1\uffff\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
-            "\1\25\1\uffff\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
+            "\1\25\1\uffff\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\22\23\1\101\7\23",
             "\1\25\1\uffff\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\14\23\1\102\15\23",
             "",
             "",
+            "\1\25\1\uffff\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
+            "\1\25\1\uffff\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\4\23\1\104\25\23",
             "",
-            "\1\25\1\uffff\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\4\23\1\103\25\23",
             "\1\25\1\uffff\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
             ""
     };
@@ -1037,16 +1038,6 @@ public class InternalDslLexer extends Lexer {
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA13_14 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA13_14>='\u0000' && LA13_14<='\uFFFF')) ) {s = 32;}
-
-                        else s = 17;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
                         int LA13_0 = input.LA(1);
 
                         s = -1;
@@ -1083,6 +1074,16 @@ public class InternalDslLexer extends Lexer {
                         else if ( ((LA13_0>='\t' && LA13_0<='\n')||LA13_0=='\r'||LA13_0==' ') ) {s = 16;}
 
                         else if ( ((LA13_0>='\u0000' && LA13_0<='\b')||(LA13_0>='\u000B' && LA13_0<='\f')||(LA13_0>='\u000E' && LA13_0<='\u001F')||LA13_0=='!'||(LA13_0>='#' && LA13_0<='&')||(LA13_0>='(' && LA13_0<='+')||(LA13_0>='-' && LA13_0<='.')||(LA13_0>=':' && LA13_0<='<')||(LA13_0>='>' && LA13_0<='@')||(LA13_0>='[' && LA13_0<=']')||LA13_0=='`'||LA13_0=='|'||(LA13_0>='~' && LA13_0<='\uFFFF')) ) {s = 17;}
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
+                        int LA13_14 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA13_14>='\u0000' && LA13_14<='\uFFFF')) ) {s = 32;}
+
+                        else s = 17;
 
                         if ( s>=0 ) return s;
                         break;
