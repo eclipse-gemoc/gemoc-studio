@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalDslParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_QUALIFIED", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'DSL'", "'{'", "'}'", "'='", "','", "'displayName'", "'metaprog'", "'abstract-syntax'", "'semantic'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_QUALIFIED", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'DSL'", "'{'", "'}'", "'='", "','", "'displayName'", "'metaprog'", "'abstract-syntax'", "'semantics'"
     };
     public static final int RULE_STRING=6;
     public static final int RULE_SL_COMMENT=9;
@@ -1392,7 +1392,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSemantic"
-    // InternalDsl.g:576:1: ruleSemantic returns [EObject current=null] : ( () otherlv_1= 'semantic' otherlv_2= '{' ( (lv_values_3_0= ruleValue ) )* otherlv_4= '}' ) ;
+    // InternalDsl.g:576:1: ruleSemantic returns [EObject current=null] : ( () otherlv_1= 'semantics' otherlv_2= '{' ( (lv_values_3_0= ruleValue ) )* otherlv_4= '}' ) ;
     public final EObject ruleSemantic() throws RecognitionException {
         EObject current = null;
 
@@ -1406,11 +1406,11 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalDsl.g:582:2: ( ( () otherlv_1= 'semantic' otherlv_2= '{' ( (lv_values_3_0= ruleValue ) )* otherlv_4= '}' ) )
-            // InternalDsl.g:583:2: ( () otherlv_1= 'semantic' otherlv_2= '{' ( (lv_values_3_0= ruleValue ) )* otherlv_4= '}' )
+            // InternalDsl.g:582:2: ( ( () otherlv_1= 'semantics' otherlv_2= '{' ( (lv_values_3_0= ruleValue ) )* otherlv_4= '}' ) )
+            // InternalDsl.g:583:2: ( () otherlv_1= 'semantics' otherlv_2= '{' ( (lv_values_3_0= ruleValue ) )* otherlv_4= '}' )
             {
-            // InternalDsl.g:583:2: ( () otherlv_1= 'semantic' otherlv_2= '{' ( (lv_values_3_0= ruleValue ) )* otherlv_4= '}' )
-            // InternalDsl.g:584:3: () otherlv_1= 'semantic' otherlv_2= '{' ( (lv_values_3_0= ruleValue ) )* otherlv_4= '}'
+            // InternalDsl.g:583:2: ( () otherlv_1= 'semantics' otherlv_2= '{' ( (lv_values_3_0= ruleValue ) )* otherlv_4= '}' )
+            // InternalDsl.g:584:3: () otherlv_1= 'semantics' otherlv_2= '{' ( (lv_values_3_0= ruleValue ) )* otherlv_4= '}'
             {
             // InternalDsl.g:584:3: ()
             // InternalDsl.g:585:4: 
@@ -1425,7 +1425,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             otherlv_1=(Token)match(input,20,FOLLOW_4); 
 
-            			newLeafNode(otherlv_1, grammarAccess.getSemanticAccess().getSemanticKeyword_1());
+            			newLeafNode(otherlv_1, grammarAccess.getSemanticAccess().getSemanticsKeyword_1());
             		
             otherlv_2=(Token)match(input,13,FOLLOW_9); 
 

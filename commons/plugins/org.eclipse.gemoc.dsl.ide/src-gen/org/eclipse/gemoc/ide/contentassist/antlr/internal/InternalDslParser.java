@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalDslParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_QUALIFIED", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'DSL'", "'{'", "'}'", "'='", "','", "'displayName'", "'metaprog'", "'abstract-syntax'", "'semantic'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_QUALIFIED", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'DSL'", "'{'", "'}'", "'='", "','", "'displayName'", "'metaprog'", "'abstract-syntax'", "'semantics'"
     };
     public static final int RULE_STRING=6;
     public static final int RULE_SL_COMMENT=9;
@@ -3599,21 +3599,21 @@ public class InternalDslParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Semantic__Group__1__Impl"
-    // InternalDsl.g:1197:1: rule__Semantic__Group__1__Impl : ( 'semantic' ) ;
+    // InternalDsl.g:1197:1: rule__Semantic__Group__1__Impl : ( 'semantics' ) ;
     public final void rule__Semantic__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalDsl.g:1201:1: ( ( 'semantic' ) )
-            // InternalDsl.g:1202:1: ( 'semantic' )
+            // InternalDsl.g:1201:1: ( ( 'semantics' ) )
+            // InternalDsl.g:1202:1: ( 'semantics' )
             {
-            // InternalDsl.g:1202:1: ( 'semantic' )
-            // InternalDsl.g:1203:2: 'semantic'
+            // InternalDsl.g:1202:1: ( 'semantics' )
+            // InternalDsl.g:1203:2: 'semantics'
             {
-             before(grammarAccess.getSemanticAccess().getSemanticKeyword_1()); 
+             before(grammarAccess.getSemanticAccess().getSemanticsKeyword_1()); 
             match(input,20,FOLLOW_2); 
-             after(grammarAccess.getSemanticAccess().getSemanticKeyword_1()); 
+             after(grammarAccess.getSemanticAccess().getSemanticsKeyword_1()); 
 
             }
 
