@@ -5,6 +5,7 @@ package org.eclipse.gemoc.formatting2
 
 import com.google.inject.Inject
 import org.eclipse.gemoc.dsl.Dsl
+import org.eclipse.gemoc.dsl.DslPackage
 import org.eclipse.gemoc.dsl.Entry
 import org.eclipse.gemoc.services.DslGrammarAccess
 import org.eclipse.xtext.formatting2.AbstractFormatter2
@@ -16,10 +17,12 @@ class DslFormatter extends AbstractFormatter2 {
 
 	def dispatch void format(Dsl dsl, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
+		
+		dsl.regionFor.feature(DslPackage.eINSTANCE.getDsl_Name()).append[newLine]
+		
 		for (Entry entry : dsl.getEntries()) {
 			entry.format;
+			entry.append[newLine]
 		}
 	}
-	
-	// TODO: implement for 
 }
