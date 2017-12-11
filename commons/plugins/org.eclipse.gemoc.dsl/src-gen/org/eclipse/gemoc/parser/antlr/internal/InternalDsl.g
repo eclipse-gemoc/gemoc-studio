@@ -77,23 +77,82 @@ ruleDsl returns [EObject current=null]
 }:
 	(
 		(
+			this_SPACE_0=RULE_SPACE
 			{
-				newCompositeNode(grammarAccess.getDslAccess().getEntriesEntryParserRuleCall_0());
+				newLeafNode(this_SPACE_0, grammarAccess.getDslAccess().getSPACETerminalRuleCall_0());
 			}
-			lv_entries_0_0=ruleEntry
+		)*
+		otherlv_1='name'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getDslAccess().getNameKeyword_1());
+		}
+		(
+			this_SPACE_2=RULE_SPACE
 			{
-				if ($current==null) {
-					$current = createModelElementForParent(grammarAccess.getDslRule());
+				newLeafNode(this_SPACE_2, grammarAccess.getDslAccess().getSPACETerminalRuleCall_2());
+			}
+		)*
+		this_SEPARATOR_3=RULE_SEPARATOR
+		{
+			newLeafNode(this_SEPARATOR_3, grammarAccess.getDslAccess().getSEPARATORTerminalRuleCall_3());
+		}
+		(
+			this_SPACE_4=RULE_SPACE
+			{
+				newLeafNode(this_SPACE_4, grammarAccess.getDslAccess().getSPACETerminalRuleCall_4());
+			}
+		)*
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDslAccess().getNameMULTILINEParserRuleCall_5_0());
 				}
-				add(
-					$current,
-					"entries",
-					lv_entries_0_0,
-					"org.eclipse.gemoc.Dsl.Entry");
-				afterParserOrEnumRuleCall();
-			}
+				lv_name_5_0=ruleMULTILINE
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDslRule());
+					}
+					set(
+						$current,
+						"name",
+						lv_name_5_0,
+						"org.eclipse.gemoc.Dsl.MULTILINE");
+					afterParserOrEnumRuleCall();
+				}
+			)
 		)
-	)*
+		(
+			this_SPACE_6=RULE_SPACE
+			{
+				newLeafNode(this_SPACE_6, grammarAccess.getDslAccess().getSPACETerminalRuleCall_6());
+			}
+		)*
+		(
+			otherlv_7='\n'
+			{
+				newLeafNode(otherlv_7, grammarAccess.getDslAccess().getLineFeedKeyword_7());
+			}
+		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDslAccess().getEntriesEntryParserRuleCall_8_0());
+				}
+				lv_entries_8_0=ruleEntry
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDslRule());
+					}
+					add(
+						$current,
+						"entries",
+						lv_entries_8_0,
+						"org.eclipse.gemoc.Dsl.Entry");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+	)
 ;
 
 // Entry rule entryRuleEntry

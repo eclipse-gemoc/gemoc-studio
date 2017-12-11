@@ -20,6 +20,11 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected DslGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_Dsl_LineFeedKeyword_7_q;
+	protected AbstractElementAlias match_Dsl_SPACETerminalRuleCall_0_a;
+	protected AbstractElementAlias match_Dsl_SPACETerminalRuleCall_2_a;
+	protected AbstractElementAlias match_Dsl_SPACETerminalRuleCall_4_a;
+	protected AbstractElementAlias match_Dsl_SPACETerminalRuleCall_6_a;
 	protected AbstractElementAlias match_Entry_LineFeedKeyword_7_q;
 	protected AbstractElementAlias match_Entry_SPACETerminalRuleCall_0_a;
 	protected AbstractElementAlias match_Entry_SPACETerminalRuleCall_2_a;
@@ -29,6 +34,11 @@ public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (DslGrammarAccess) access;
+		match_Dsl_LineFeedKeyword_7_q = new TokenAlias(false, true, grammarAccess.getDslAccess().getLineFeedKeyword_7());
+		match_Dsl_SPACETerminalRuleCall_0_a = new TokenAlias(true, true, grammarAccess.getDslAccess().getSPACETerminalRuleCall_0());
+		match_Dsl_SPACETerminalRuleCall_2_a = new TokenAlias(true, true, grammarAccess.getDslAccess().getSPACETerminalRuleCall_2());
+		match_Dsl_SPACETerminalRuleCall_4_a = new TokenAlias(true, true, grammarAccess.getDslAccess().getSPACETerminalRuleCall_4());
+		match_Dsl_SPACETerminalRuleCall_6_a = new TokenAlias(true, true, grammarAccess.getDslAccess().getSPACETerminalRuleCall_6());
 		match_Entry_LineFeedKeyword_7_q = new TokenAlias(false, true, grammarAccess.getEntryAccess().getLineFeedKeyword_7());
 		match_Entry_SPACETerminalRuleCall_0_a = new TokenAlias(true, true, grammarAccess.getEntryAccess().getSPACETerminalRuleCall_0());
 		match_Entry_SPACETerminalRuleCall_2_a = new TokenAlias(true, true, grammarAccess.getEntryAccess().getSPACETerminalRuleCall_2());
@@ -74,7 +84,17 @@ public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_Entry_LineFeedKeyword_7_q.equals(syntax))
+			if (match_Dsl_LineFeedKeyword_7_q.equals(syntax))
+				emit_Dsl_LineFeedKeyword_7_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Dsl_SPACETerminalRuleCall_0_a.equals(syntax))
+				emit_Dsl_SPACETerminalRuleCall_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Dsl_SPACETerminalRuleCall_2_a.equals(syntax))
+				emit_Dsl_SPACETerminalRuleCall_2_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Dsl_SPACETerminalRuleCall_4_a.equals(syntax))
+				emit_Dsl_SPACETerminalRuleCall_4_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Dsl_SPACETerminalRuleCall_6_a.equals(syntax))
+				emit_Dsl_SPACETerminalRuleCall_6_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Entry_LineFeedKeyword_7_q.equals(syntax))
 				emit_Entry_LineFeedKeyword_7_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Entry_SPACETerminalRuleCall_0_a.equals(syntax))
 				emit_Entry_SPACETerminalRuleCall_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
@@ -88,6 +108,76 @@ public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 		}
 	}
 
+	/**
+	 * Ambiguous syntax:
+	 *     '
+	  *     '?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     name=MULTILINE SPACE* (ambiguity) (rule end)
+	 *     name=MULTILINE SPACE* (ambiguity) entries+=Entry
+	 */
+	protected void emit_Dsl_LineFeedKeyword_7_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     SPACE*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) 'name' SPACE* SEPARATOR SPACE* name=MULTILINE
+	 */
+	protected void emit_Dsl_SPACETerminalRuleCall_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     SPACE*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) SPACE* 'name' (ambiguity) SEPARATOR SPACE* name=MULTILINE
+	 */
+	protected void emit_Dsl_SPACETerminalRuleCall_2_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     SPACE*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) SPACE* 'name' SPACE* SEPARATOR (ambiguity) name=MULTILINE
+	 */
+	protected void emit_Dsl_SPACETerminalRuleCall_4_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     SPACE*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (
+	 *         name=MULTILINE 
+	 *         (ambiguity) 
+	 *         '
+	 *         '? 
+	 *         (rule end)
+	 *     )
+	 *     (
+	 *         name=MULTILINE 
+	 *         (ambiguity) 
+	 *         '
+	 *         '? 
+	 *         entries+=Entry
+	 *     )
+	 */
+	protected void emit_Dsl_SPACETerminalRuleCall_6_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 	/**
 	 * Ambiguous syntax:
 	 *     '

@@ -5,9 +5,10 @@ generate dsl "http://www.eclipse.org/gemoc/Dsl"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 Dsl:
+	SPACE* 'name' SPACE* SEPARATOR SPACE* name=MULTILINE SPACE* '\n'?
 	entries+=Entry*
 ;
-	
+
 Entry:
 	SPACE* key=WORD SPACE* SEPARATOR SPACE* value=MULTILINE SPACE* '\n'?
 ;

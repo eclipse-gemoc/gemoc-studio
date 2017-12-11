@@ -68,13 +68,22 @@ public interface DslPackage extends EPackage
   int DSL = 0;
 
   /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DSL__NAME = 0;
+
+  /**
    * The feature id for the '<em><b>Entries</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DSL__ENTRIES = 0;
+  int DSL__ENTRIES = 1;
 
   /**
    * The number of structural features of the '<em>Dsl</em>' class.
@@ -83,7 +92,7 @@ public interface DslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DSL_FEATURE_COUNT = 1;
+  int DSL_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.eclipse.gemoc.dsl.impl.EntryImpl <em>Entry</em>}' class.
@@ -132,6 +141,17 @@ public interface DslPackage extends EPackage
    * @generated
    */
   EClass getDsl();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.eclipse.gemoc.dsl.Dsl#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.eclipse.gemoc.dsl.Dsl#getName()
+   * @see #getDsl()
+   * @generated
+   */
+  EAttribute getDsl_Name();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.eclipse.gemoc.dsl.Dsl#getEntries <em>Entries</em>}'.
@@ -208,6 +228,14 @@ public interface DslPackage extends EPackage
      * @generated
      */
     EClass DSL = eINSTANCE.getDsl();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DSL__NAME = eINSTANCE.getDsl_Name();
 
     /**
      * The meta object literal for the '<em><b>Entries</b></em>' containment reference list feature.

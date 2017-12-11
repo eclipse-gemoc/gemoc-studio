@@ -23,18 +23,59 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public class DslElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.gemoc.Dsl.Dsl");
-		private final Assignment cEntriesAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cEntriesEntryParserRuleCall_0 = (RuleCall)cEntriesAssignment.eContents().get(0);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cSPACETerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Keyword cNameKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final RuleCall cSPACETerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final RuleCall cSEPARATORTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final RuleCall cSPACETerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final Assignment cNameAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cNameMULTILINEParserRuleCall_5_0 = (RuleCall)cNameAssignment_5.eContents().get(0);
+		private final RuleCall cSPACETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		private final Keyword cLineFeedKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cEntriesAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cEntriesEntryParserRuleCall_8_0 = (RuleCall)cEntriesAssignment_8.eContents().get(0);
 		
 		//Dsl:
+		//	SPACE* 'name' SPACE* SEPARATOR SPACE* name=MULTILINE SPACE* '\n'?
 		//	entries+=Entry*;
 		@Override public ParserRule getRule() { return rule; }
 		
+		//SPACE* 'name' SPACE* SEPARATOR SPACE* name=MULTILINE SPACE* '\n'? entries+=Entry*
+		public Group getGroup() { return cGroup; }
+		
+		//SPACE*
+		public RuleCall getSPACETerminalRuleCall_0() { return cSPACETerminalRuleCall_0; }
+		
+		//'name'
+		public Keyword getNameKeyword_1() { return cNameKeyword_1; }
+		
+		//SPACE*
+		public RuleCall getSPACETerminalRuleCall_2() { return cSPACETerminalRuleCall_2; }
+		
+		//SEPARATOR
+		public RuleCall getSEPARATORTerminalRuleCall_3() { return cSEPARATORTerminalRuleCall_3; }
+		
+		//SPACE*
+		public RuleCall getSPACETerminalRuleCall_4() { return cSPACETerminalRuleCall_4; }
+		
+		//name=MULTILINE
+		public Assignment getNameAssignment_5() { return cNameAssignment_5; }
+		
+		//MULTILINE
+		public RuleCall getNameMULTILINEParserRuleCall_5_0() { return cNameMULTILINEParserRuleCall_5_0; }
+		
+		//SPACE*
+		public RuleCall getSPACETerminalRuleCall_6() { return cSPACETerminalRuleCall_6; }
+		
+		//'\n'?
+		public Keyword getLineFeedKeyword_7() { return cLineFeedKeyword_7; }
+		
 		//entries+=Entry*
-		public Assignment getEntriesAssignment() { return cEntriesAssignment; }
+		public Assignment getEntriesAssignment_8() { return cEntriesAssignment_8; }
 		
 		//Entry
-		public RuleCall getEntriesEntryParserRuleCall_0() { return cEntriesEntryParserRuleCall_0; }
+		public RuleCall getEntriesEntryParserRuleCall_8_0() { return cEntriesEntryParserRuleCall_8_0; }
 	}
 	public class EntryElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.gemoc.Dsl.Entry");
@@ -275,6 +316,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Dsl:
+	//	SPACE* 'name' SPACE* SEPARATOR SPACE* name=MULTILINE SPACE* '\n'?
 	//	entries+=Entry*;
 	public DslElements getDslAccess() {
 		return pDsl;
