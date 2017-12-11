@@ -7,7 +7,7 @@ import org.eclipse.xtext.nodemodel.INode
 public class DslValueConverter implements IValueConverter {
 	
 	override toString(Object value) throws ValueConverterException {
-		return ""
+		return value.toString()
 	}
 	
 	override toValue(String string, INode node) throws ValueConverterException {
