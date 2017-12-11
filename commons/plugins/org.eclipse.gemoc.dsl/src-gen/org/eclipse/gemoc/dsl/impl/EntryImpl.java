@@ -11,23 +11,44 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.gemoc.dsl.DslPackage;
-import org.eclipse.gemoc.dsl.Metaprog;
+import org.eclipse.gemoc.dsl.Entry;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Metaprog</b></em>'.
+ * An implementation of the model object '<em><b>Entry</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.gemoc.dsl.impl.MetaprogImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.eclipse.gemoc.dsl.impl.EntryImpl#getKey <em>Key</em>}</li>
+ *   <li>{@link org.eclipse.gemoc.dsl.impl.EntryImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class MetaprogImpl extends MinimalEObjectImpl.Container implements Metaprog
+public class EntryImpl extends MinimalEObjectImpl.Container implements Entry
 {
+  /**
+   * The default value of the '{@link #getKey() <em>Key</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getKey()
+   * @generated
+   * @ordered
+   */
+  protected static final String KEY_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getKey() <em>Key</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getKey()
+   * @generated
+   * @ordered
+   */
+  protected String key = KEY_EDEFAULT;
+
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -53,7 +74,7 @@ public class MetaprogImpl extends MinimalEObjectImpl.Container implements Metapr
    * <!-- end-user-doc -->
    * @generated
    */
-  protected MetaprogImpl()
+  protected EntryImpl()
   {
     super();
   }
@@ -66,7 +87,30 @@ public class MetaprogImpl extends MinimalEObjectImpl.Container implements Metapr
   @Override
   protected EClass eStaticClass()
   {
-    return DslPackage.Literals.METAPROG;
+    return DslPackage.Literals.ENTRY;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getKey()
+  {
+    return key;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setKey(String newKey)
+  {
+    String oldKey = key;
+    key = newKey;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.ENTRY__KEY, oldKey, key));
   }
 
   /**
@@ -89,7 +133,7 @@ public class MetaprogImpl extends MinimalEObjectImpl.Container implements Metapr
     String oldValue = value;
     value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.METAPROG__VALUE, oldValue, value));
+      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.ENTRY__VALUE, oldValue, value));
   }
 
   /**
@@ -102,7 +146,9 @@ public class MetaprogImpl extends MinimalEObjectImpl.Container implements Metapr
   {
     switch (featureID)
     {
-      case DslPackage.METAPROG__VALUE:
+      case DslPackage.ENTRY__KEY:
+        return getKey();
+      case DslPackage.ENTRY__VALUE:
         return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -118,7 +164,10 @@ public class MetaprogImpl extends MinimalEObjectImpl.Container implements Metapr
   {
     switch (featureID)
     {
-      case DslPackage.METAPROG__VALUE:
+      case DslPackage.ENTRY__KEY:
+        setKey((String)newValue);
+        return;
+      case DslPackage.ENTRY__VALUE:
         setValue((String)newValue);
         return;
     }
@@ -135,7 +184,10 @@ public class MetaprogImpl extends MinimalEObjectImpl.Container implements Metapr
   {
     switch (featureID)
     {
-      case DslPackage.METAPROG__VALUE:
+      case DslPackage.ENTRY__KEY:
+        setKey(KEY_EDEFAULT);
+        return;
+      case DslPackage.ENTRY__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
     }
@@ -152,7 +204,9 @@ public class MetaprogImpl extends MinimalEObjectImpl.Container implements Metapr
   {
     switch (featureID)
     {
-      case DslPackage.METAPROG__VALUE:
+      case DslPackage.ENTRY__KEY:
+        return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals(key);
+      case DslPackage.ENTRY__VALUE:
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
@@ -169,10 +223,12 @@ public class MetaprogImpl extends MinimalEObjectImpl.Container implements Metapr
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (value: ");
+    result.append(" (key: ");
+    result.append(key);
+    result.append(", value: ");
     result.append(value);
     result.append(')');
     return result.toString();
   }
 
-} //MetaprogImpl
+} //EntryImpl

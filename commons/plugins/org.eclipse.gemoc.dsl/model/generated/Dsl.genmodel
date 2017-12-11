@@ -7,33 +7,11 @@
   <genPackages prefix="Dsl" basePackage="org.eclipse.gemoc" disposableProviderFactory="true"
       fileExtensions="dsl" ecorePackage="Dsl.ecore#/">
     <genClasses ecoreClass="Dsl.ecore#//Dsl">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Dsl/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Dsl/displayName"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Dsl/metaprog"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Dsl/abstractSyntax"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Dsl/semantic"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Dsl/values"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Dsl/entries"/>
     </genClasses>
-    <genClasses ecoreClass="Dsl.ecore#//Value">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Value/name"/>
-    </genClasses>
-    <genClasses ecoreClass="Dsl.ecore#//SimpleValue">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//SimpleValue/values"/>
-    </genClasses>
-    <genClasses ecoreClass="Dsl.ecore#//CompositeValue">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//CompositeValue/values"/>
-    </genClasses>
-    <genClasses ecoreClass="Dsl.ecore#//DisplayName">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//DisplayName/value"/>
-    </genClasses>
-    <genClasses ecoreClass="Dsl.ecore#//Metaprog">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Metaprog/value"/>
-    </genClasses>
-    <genClasses ecoreClass="Dsl.ecore#//AbstractSyntax">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//AbstractSyntax/values"/>
-    </genClasses>
-    <genClasses ecoreClass="Dsl.ecore#//Semantic">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Semantic/values"/>
+    <genClasses ecoreClass="Dsl.ecore#//Entry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Entry/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Entry/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

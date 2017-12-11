@@ -6,7 +6,6 @@ package org.eclipse.gemoc.services;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.List;
-import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.Grammar;
@@ -16,7 +15,6 @@ import org.eclipse.xtext.Keyword;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.TerminalRule;
-import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
 import org.eclipse.xtext.service.AbstractElementFinder.AbstractGrammarElementFinder;
 import org.eclipse.xtext.service.GrammarProvider;
 
@@ -25,364 +23,232 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public class DslElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.gemoc.Dsl.Dsl");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cDSLKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final Alternatives cNameAlternatives_1_0 = (Alternatives)cNameAssignment_1.eContents().get(0);
-		private final RuleCall cNameQUALIFIEDTerminalRuleCall_1_0_0 = (RuleCall)cNameAlternatives_1_0.eContents().get(0);
-		private final RuleCall cNameIDTerminalRuleCall_1_0_1 = (RuleCall)cNameAlternatives_1_0.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cDisplayNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cDisplayNameDisplayNameParserRuleCall_3_0 = (RuleCall)cDisplayNameAssignment_3.eContents().get(0);
-		private final Assignment cMetaprogAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cMetaprogMetaprogParserRuleCall_4_0 = (RuleCall)cMetaprogAssignment_4.eContents().get(0);
-		private final Assignment cAbstractSyntaxAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cAbstractSyntaxAbstractSyntaxParserRuleCall_5_0 = (RuleCall)cAbstractSyntaxAssignment_5.eContents().get(0);
-		private final Assignment cSemanticAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cSemanticSemanticParserRuleCall_6_0 = (RuleCall)cSemanticAssignment_6.eContents().get(0);
-		private final Assignment cValuesAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cValuesValueParserRuleCall_7_0 = (RuleCall)cValuesAssignment_7.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Assignment cEntriesAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cEntriesEntryParserRuleCall_0 = (RuleCall)cEntriesAssignment.eContents().get(0);
 		
 		//Dsl:
-		//	'DSL' name=(QUALIFIED | ID) '{'
-		//	displayName=DisplayName?
-		//	metaprog=Metaprog?
-		//	abstractSyntax=AbstractSyntax?
-		//	semantic=Semantic?
-		//	values+=Value*
-		//	'}';
+		//	entries+=Entry*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'DSL' name=(QUALIFIED | ID) '{' displayName=DisplayName? metaprog=Metaprog? abstractSyntax=AbstractSyntax?
-		//semantic=Semantic? values+=Value* '}'
-		public Group getGroup() { return cGroup; }
+		//entries+=Entry*
+		public Assignment getEntriesAssignment() { return cEntriesAssignment; }
 		
-		//'DSL'
-		public Keyword getDSLKeyword_0() { return cDSLKeyword_0; }
-		
-		//name=(QUALIFIED | ID)
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-		
-		//(QUALIFIED | ID)
-		public Alternatives getNameAlternatives_1_0() { return cNameAlternatives_1_0; }
-		
-		//QUALIFIED
-		public RuleCall getNameQUALIFIEDTerminalRuleCall_1_0_0() { return cNameQUALIFIEDTerminalRuleCall_1_0_0; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0_1() { return cNameIDTerminalRuleCall_1_0_1; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
-		
-		//displayName=DisplayName?
-		public Assignment getDisplayNameAssignment_3() { return cDisplayNameAssignment_3; }
-		
-		//DisplayName
-		public RuleCall getDisplayNameDisplayNameParserRuleCall_3_0() { return cDisplayNameDisplayNameParserRuleCall_3_0; }
-		
-		//metaprog=Metaprog?
-		public Assignment getMetaprogAssignment_4() { return cMetaprogAssignment_4; }
-		
-		//Metaprog
-		public RuleCall getMetaprogMetaprogParserRuleCall_4_0() { return cMetaprogMetaprogParserRuleCall_4_0; }
-		
-		//abstractSyntax=AbstractSyntax?
-		public Assignment getAbstractSyntaxAssignment_5() { return cAbstractSyntaxAssignment_5; }
-		
-		//AbstractSyntax
-		public RuleCall getAbstractSyntaxAbstractSyntaxParserRuleCall_5_0() { return cAbstractSyntaxAbstractSyntaxParserRuleCall_5_0; }
-		
-		//semantic=Semantic?
-		public Assignment getSemanticAssignment_6() { return cSemanticAssignment_6; }
-		
-		//Semantic
-		public RuleCall getSemanticSemanticParserRuleCall_6_0() { return cSemanticSemanticParserRuleCall_6_0; }
-		
-		//values+=Value*
-		public Assignment getValuesAssignment_7() { return cValuesAssignment_7; }
-		
-		//Value
-		public RuleCall getValuesValueParserRuleCall_7_0() { return cValuesValueParserRuleCall_7_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
+		//Entry
+		public RuleCall getEntriesEntryParserRuleCall_0() { return cEntriesEntryParserRuleCall_0; }
 	}
-	public class ValueElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.gemoc.Dsl.Value");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cSimpleValueParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cCompositeValueParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		
-		//Value:
-		//	SimpleValue | CompositeValue;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//SimpleValue | CompositeValue
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//SimpleValue
-		public RuleCall getSimpleValueParserRuleCall_0() { return cSimpleValueParserRuleCall_0; }
-		
-		//CompositeValue
-		public RuleCall getCompositeValueParserRuleCall_1() { return cCompositeValueParserRuleCall_1; }
-	}
-	public class SimpleValueElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.gemoc.Dsl.SimpleValue");
+	public class EntryElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.gemoc.Dsl.Entry");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cValuesAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cValuesSTRINGTerminalRuleCall_2_0 = (RuleCall)cValuesAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cCommaKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cValuesAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cValuesSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cValuesAssignment_3_1.eContents().get(0);
+		private final RuleCall cSPACETerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cKeyAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cKeyWORDParserRuleCall_1_0 = (RuleCall)cKeyAssignment_1.eContents().get(0);
+		private final RuleCall cSPACETerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final RuleCall cSEPARATORTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final RuleCall cSPACETerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final Assignment cValueAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cValueMULTILINEParserRuleCall_5_0 = (RuleCall)cValueAssignment_5.eContents().get(0);
+		private final RuleCall cSPACETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		private final Keyword cLineFeedKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
-		//SimpleValue:
-		//	name=ID '=' values+=STRING (',' values+=STRING)*;
+		//Entry:
+		//	SPACE* key=WORD SPACE* SEPARATOR SPACE* value=MULTILINE SPACE* '\n'?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID '=' values+=STRING (',' values+=STRING)*
+		//SPACE* key=WORD SPACE* SEPARATOR SPACE* value=MULTILINE SPACE* '\n'?
 		public Group getGroup() { return cGroup; }
 		
-		//name=ID
-		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		//SPACE*
+		public RuleCall getSPACETerminalRuleCall_0() { return cSPACETerminalRuleCall_0; }
 		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
+		//key=WORD
+		public Assignment getKeyAssignment_1() { return cKeyAssignment_1; }
 		
-		//'='
-		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
+		//WORD
+		public RuleCall getKeyWORDParserRuleCall_1_0() { return cKeyWORDParserRuleCall_1_0; }
 		
-		//values+=STRING
-		public Assignment getValuesAssignment_2() { return cValuesAssignment_2; }
+		//SPACE*
+		public RuleCall getSPACETerminalRuleCall_2() { return cSPACETerminalRuleCall_2; }
 		
-		//STRING
-		public RuleCall getValuesSTRINGTerminalRuleCall_2_0() { return cValuesSTRINGTerminalRuleCall_2_0; }
+		//SEPARATOR
+		public RuleCall getSEPARATORTerminalRuleCall_3() { return cSEPARATORTerminalRuleCall_3; }
 		
-		//(',' values+=STRING)*
-		public Group getGroup_3() { return cGroup_3; }
+		//SPACE*
+		public RuleCall getSPACETerminalRuleCall_4() { return cSPACETerminalRuleCall_4; }
 		
-		//','
-		public Keyword getCommaKeyword_3_0() { return cCommaKeyword_3_0; }
+		//value=MULTILINE
+		public Assignment getValueAssignment_5() { return cValueAssignment_5; }
 		
-		//values+=STRING
-		public Assignment getValuesAssignment_3_1() { return cValuesAssignment_3_1; }
+		//MULTILINE
+		public RuleCall getValueMULTILINEParserRuleCall_5_0() { return cValueMULTILINEParserRuleCall_5_0; }
 		
-		//STRING
-		public RuleCall getValuesSTRINGTerminalRuleCall_3_1_0() { return cValuesSTRINGTerminalRuleCall_3_1_0; }
+		//SPACE*
+		public RuleCall getSPACETerminalRuleCall_6() { return cSPACETerminalRuleCall_6; }
+		
+		//'\n'?
+		public Keyword getLineFeedKeyword_7() { return cLineFeedKeyword_7; }
 	}
-	public class CompositeValueElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.gemoc.Dsl.CompositeValue");
+	public class WORDElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.gemoc.Dsl.WORD");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cValuesAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cValuesValueParserRuleCall_2_0 = (RuleCall)cValuesAssignment_2.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final RuleCall cLETTERTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Alternatives cAlternatives_1_0 = (Alternatives)cGroup_1.eContents().get(0);
+		private final RuleCall cLETTERTerminalRuleCall_1_0_0 = (RuleCall)cAlternatives_1_0.eContents().get(0);
+		private final RuleCall cSPACETerminalRuleCall_1_0_1 = (RuleCall)cAlternatives_1_0.eContents().get(1);
+		private final RuleCall cLETTERTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
 		
-		//CompositeValue:
-		//	name=ID '{'
-		//	values+=Value*
-		//	'}';
+		///*
+		// * Start and finish with a letter. Can contain spaces.  
+		// */ WORD:
+		//	LETTER ((LETTER | SPACE)* -> LETTER)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID '{' values+=Value* '}'
+		//LETTER ((LETTER | SPACE)* -> LETTER)?
 		public Group getGroup() { return cGroup; }
 		
-		//name=ID
-		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		//LETTER
+		public RuleCall getLETTERTerminalRuleCall_0() { return cLETTERTerminalRuleCall_0; }
 		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
+		//((LETTER | SPACE)* -> LETTER)?
+		public Group getGroup_1() { return cGroup_1; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+		//(LETTER | SPACE)*
+		public Alternatives getAlternatives_1_0() { return cAlternatives_1_0; }
 		
-		//values+=Value*
-		public Assignment getValuesAssignment_2() { return cValuesAssignment_2; }
+		//LETTER
+		public RuleCall getLETTERTerminalRuleCall_1_0_0() { return cLETTERTerminalRuleCall_1_0_0; }
 		
-		//Value
-		public RuleCall getValuesValueParserRuleCall_2_0() { return cValuesValueParserRuleCall_2_0; }
+		//SPACE
+		public RuleCall getSPACETerminalRuleCall_1_0_1() { return cSPACETerminalRuleCall_1_0_1; }
 		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
+		//-> LETTER
+		public RuleCall getLETTERTerminalRuleCall_1_1() { return cLETTERTerminalRuleCall_1_1; }
 	}
-	public class DisplayNameElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.gemoc.Dsl.DisplayName");
+	public class VALUE_WORDElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.gemoc.Dsl.VALUE_WORD");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cDisplayNameAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cDisplayNameKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cValueSTRINGTerminalRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final RuleCall cLETTERTerminalRuleCall_0_0 = (RuleCall)cAlternatives_0.eContents().get(0);
+		private final RuleCall cSEPARATORTerminalRuleCall_0_1 = (RuleCall)cAlternatives_0.eContents().get(1);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Alternatives cAlternatives_1_0 = (Alternatives)cGroup_1.eContents().get(0);
+		private final Alternatives cAlternatives_1_0_0 = (Alternatives)cAlternatives_1_0.eContents().get(0);
+		private final RuleCall cLETTERTerminalRuleCall_1_0_0_0 = (RuleCall)cAlternatives_1_0_0.eContents().get(0);
+		private final RuleCall cSEPARATORTerminalRuleCall_1_0_0_1 = (RuleCall)cAlternatives_1_0_0.eContents().get(1);
+		private final RuleCall cSPACETerminalRuleCall_1_0_1 = (RuleCall)cAlternatives_1_0.eContents().get(1);
+		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
+		private final Alternatives cAlternatives_1_1_0 = (Alternatives)cGroup_1_1.eContents().get(0);
+		private final RuleCall cLETTERTerminalRuleCall_1_1_0_0 = (RuleCall)cAlternatives_1_1_0.eContents().get(0);
+		private final RuleCall cSEPARATORTerminalRuleCall_1_1_0_1 = (RuleCall)cAlternatives_1_1_0.eContents().get(1);
 		
-		////-----------------------------------
-		//DisplayName:
-		//	{DisplayName}
-		//	'displayName' '=' value=STRING;
+		///*
+		// * A WORD that may contain ':' and '='
+		// */ VALUE_WORD:
+		//	(LETTER | SEPARATOR) (((LETTER | SEPARATOR) | SPACE)* -> (LETTER | SEPARATOR))?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{DisplayName} 'displayName' '=' value=STRING
+		//(LETTER | SEPARATOR) (((LETTER | SEPARATOR) | SPACE)* -> (LETTER | SEPARATOR))?
 		public Group getGroup() { return cGroup; }
 		
-		//{DisplayName}
-		public Action getDisplayNameAction_0() { return cDisplayNameAction_0; }
+		//LETTER | SEPARATOR
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
 		
-		//'displayName'
-		public Keyword getDisplayNameKeyword_1() { return cDisplayNameKeyword_1; }
+		//LETTER
+		public RuleCall getLETTERTerminalRuleCall_0_0() { return cLETTERTerminalRuleCall_0_0; }
 		
-		//'='
-		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
+		//SEPARATOR
+		public RuleCall getSEPARATORTerminalRuleCall_0_1() { return cSEPARATORTerminalRuleCall_0_1; }
 		
-		//value=STRING
-		public Assignment getValueAssignment_3() { return cValueAssignment_3; }
+		//(((LETTER | SEPARATOR) | SPACE)* -> (LETTER | SEPARATOR))?
+		public Group getGroup_1() { return cGroup_1; }
 		
-		//STRING
-		public RuleCall getValueSTRINGTerminalRuleCall_3_0() { return cValueSTRINGTerminalRuleCall_3_0; }
+		//((LETTER | SEPARATOR) | SPACE)*
+		public Alternatives getAlternatives_1_0() { return cAlternatives_1_0; }
+		
+		//(LETTER | SEPARATOR)
+		public Alternatives getAlternatives_1_0_0() { return cAlternatives_1_0_0; }
+		
+		//LETTER
+		public RuleCall getLETTERTerminalRuleCall_1_0_0_0() { return cLETTERTerminalRuleCall_1_0_0_0; }
+		
+		//SEPARATOR
+		public RuleCall getSEPARATORTerminalRuleCall_1_0_0_1() { return cSEPARATORTerminalRuleCall_1_0_0_1; }
+		
+		//SPACE
+		public RuleCall getSPACETerminalRuleCall_1_0_1() { return cSPACETerminalRuleCall_1_0_1; }
+		
+		//-> (LETTER | SEPARATOR)
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//LETTER | SEPARATOR
+		public Alternatives getAlternatives_1_1_0() { return cAlternatives_1_1_0; }
+		
+		//LETTER
+		public RuleCall getLETTERTerminalRuleCall_1_1_0_0() { return cLETTERTerminalRuleCall_1_1_0_0; }
+		
+		//SEPARATOR
+		public RuleCall getSEPARATORTerminalRuleCall_1_1_0_1() { return cSEPARATORTerminalRuleCall_1_1_0_1; }
 	}
-	public class MetaprogElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.gemoc.Dsl.Metaprog");
+	public class MULTILINEElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.gemoc.Dsl.MULTILINE");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cMetaprogAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cMetaprogKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cValueSTRINGTerminalRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
+		private final RuleCall cVALUE_WORDParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cReverseSolidusControl000aKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final RuleCall cSPACETerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		private final RuleCall cVALUE_WORDParserRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
 		
-		//Metaprog:
-		//	{Metaprog}
-		//	'metaprog' '=' value=STRING;
+		///*
+		// * VALUE_WORD splited on severals lines.
+		// * Starting spaces are ignored for each new lines (see DslValueConverter)
+		// */ MULTILINE:
+		//	VALUE_WORD ('\\\n' SPACE* VALUE_WORD)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Metaprog} 'metaprog' '=' value=STRING
+		//VALUE_WORD ('\\\n' SPACE* VALUE_WORD)*
 		public Group getGroup() { return cGroup; }
 		
-		//{Metaprog}
-		public Action getMetaprogAction_0() { return cMetaprogAction_0; }
+		//VALUE_WORD
+		public RuleCall getVALUE_WORDParserRuleCall_0() { return cVALUE_WORDParserRuleCall_0; }
 		
-		//'metaprog'
-		public Keyword getMetaprogKeyword_1() { return cMetaprogKeyword_1; }
+		//('\\\n' SPACE* VALUE_WORD)*
+		public Group getGroup_1() { return cGroup_1; }
 		
-		//'='
-		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
+		//'\\\n'
+		public Keyword getReverseSolidusControl000aKeyword_1_0() { return cReverseSolidusControl000aKeyword_1_0; }
 		
-		//value=STRING
-		public Assignment getValueAssignment_3() { return cValueAssignment_3; }
+		//SPACE*
+		public RuleCall getSPACETerminalRuleCall_1_1() { return cSPACETerminalRuleCall_1_1; }
 		
-		//STRING
-		public RuleCall getValueSTRINGTerminalRuleCall_3_0() { return cValueSTRINGTerminalRuleCall_3_0; }
-	}
-	public class AbstractSyntaxElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.gemoc.Dsl.AbstractSyntax");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cAbstractSyntaxAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cAbstractSyntaxKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cValuesAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cValuesValueParserRuleCall_3_0 = (RuleCall)cValuesAssignment_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		
-		//AbstractSyntax:
-		//	{AbstractSyntax}
-		//	'abstract-syntax' '{'
-		//	values+=Value*
-		//	'}';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{AbstractSyntax} 'abstract-syntax' '{' values+=Value* '}'
-		public Group getGroup() { return cGroup; }
-		
-		//{AbstractSyntax}
-		public Action getAbstractSyntaxAction_0() { return cAbstractSyntaxAction_0; }
-		
-		//'abstract-syntax'
-		public Keyword getAbstractSyntaxKeyword_1() { return cAbstractSyntaxKeyword_1; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
-		
-		//values+=Value*
-		public Assignment getValuesAssignment_3() { return cValuesAssignment_3; }
-		
-		//Value
-		public RuleCall getValuesValueParserRuleCall_3_0() { return cValuesValueParserRuleCall_3_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
-	}
-	public class SemanticElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.gemoc.Dsl.Semantic");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cSemanticAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cSemanticsKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cValuesAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cValuesValueParserRuleCall_3_0 = (RuleCall)cValuesAssignment_3.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		
-		//Semantic:
-		//	{Semantic}
-		//	'semantics' '{'
-		//	values+=Value*
-		//	'}';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//{Semantic} 'semantics' '{' values+=Value* '}'
-		public Group getGroup() { return cGroup; }
-		
-		//{Semantic}
-		public Action getSemanticAction_0() { return cSemanticAction_0; }
-		
-		//'semantics'
-		public Keyword getSemanticsKeyword_1() { return cSemanticsKeyword_1; }
-		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
-		
-		//values+=Value*
-		public Assignment getValuesAssignment_3() { return cValuesAssignment_3; }
-		
-		//Value
-		public RuleCall getValuesValueParserRuleCall_3_0() { return cValuesValueParserRuleCall_3_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+		//VALUE_WORD
+		public RuleCall getVALUE_WORDParserRuleCall_1_2() { return cVALUE_WORDParserRuleCall_1_2; }
 	}
 	
 	
 	private final DslElements pDsl;
-	private final ValueElements pValue;
-	private final SimpleValueElements pSimpleValue;
-	private final CompositeValueElements pCompositeValue;
-	private final DisplayNameElements pDisplayName;
-	private final MetaprogElements pMetaprog;
-	private final AbstractSyntaxElements pAbstractSyntax;
-	private final SemanticElements pSemantic;
-	private final TerminalRule tQUALIFIED;
+	private final EntryElements pEntry;
+	private final WORDElements pWORD;
+	private final VALUE_WORDElements pVALUE_WORD;
+	private final TerminalRule tSEPARATOR;
+	private final TerminalRule tSL_COMMENT;
+	private final TerminalRule tLETTER;
+	private final MULTILINEElements pMULTILINE;
+	private final TerminalRule tSPACE;
 	
 	private final Grammar grammar;
-	
-	private final TerminalsGrammarAccess gaTerminals;
 
 	@Inject
-	public DslGrammarAccess(GrammarProvider grammarProvider,
-			TerminalsGrammarAccess gaTerminals) {
+	public DslGrammarAccess(GrammarProvider grammarProvider) {
 		this.grammar = internalFindGrammar(grammarProvider);
-		this.gaTerminals = gaTerminals;
 		this.pDsl = new DslElements();
-		this.pValue = new ValueElements();
-		this.pSimpleValue = new SimpleValueElements();
-		this.pCompositeValue = new CompositeValueElements();
-		this.pDisplayName = new DisplayNameElements();
-		this.pMetaprog = new MetaprogElements();
-		this.pAbstractSyntax = new AbstractSyntaxElements();
-		this.pSemantic = new SemanticElements();
-		this.tQUALIFIED = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.gemoc.Dsl.QUALIFIED");
+		this.pEntry = new EntryElements();
+		this.pWORD = new WORDElements();
+		this.pVALUE_WORD = new VALUE_WORDElements();
+		this.tSEPARATOR = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.gemoc.Dsl.SEPARATOR");
+		this.tSL_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.gemoc.Dsl.SL_COMMENT");
+		this.tLETTER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.gemoc.Dsl.LETTER");
+		this.pMULTILINE = new MULTILINEElements();
+		this.tSPACE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.gemoc.Dsl.SPACE");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -406,20 +272,10 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		return grammar;
 	}
 	
-	
-	public TerminalsGrammarAccess getTerminalsGrammarAccess() {
-		return gaTerminals;
-	}
 
 	
 	//Dsl:
-	//	'DSL' name=(QUALIFIED | ID) '{'
-	//	displayName=DisplayName?
-	//	metaprog=Metaprog?
-	//	abstractSyntax=AbstractSyntax?
-	//	semantic=Semantic?
-	//	values+=Value*
-	//	'}';
+	//	entries+=Entry*;
 	public DslElements getDslAccess() {
 		return pDsl;
 	}
@@ -428,133 +284,74 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		return getDslAccess().getRule();
 	}
 	
-	//Value:
-	//	SimpleValue | CompositeValue;
-	public ValueElements getValueAccess() {
-		return pValue;
+	//Entry:
+	//	SPACE* key=WORD SPACE* SEPARATOR SPACE* value=MULTILINE SPACE* '\n'?;
+	public EntryElements getEntryAccess() {
+		return pEntry;
 	}
 	
-	public ParserRule getValueRule() {
-		return getValueAccess().getRule();
+	public ParserRule getEntryRule() {
+		return getEntryAccess().getRule();
 	}
 	
-	//SimpleValue:
-	//	name=ID '=' values+=STRING (',' values+=STRING)*;
-	public SimpleValueElements getSimpleValueAccess() {
-		return pSimpleValue;
+	///*
+	// * Start and finish with a letter. Can contain spaces.  
+	// */ WORD:
+	//	LETTER ((LETTER | SPACE)* -> LETTER)?;
+	public WORDElements getWORDAccess() {
+		return pWORD;
 	}
 	
-	public ParserRule getSimpleValueRule() {
-		return getSimpleValueAccess().getRule();
+	public ParserRule getWORDRule() {
+		return getWORDAccess().getRule();
 	}
 	
-	//CompositeValue:
-	//	name=ID '{'
-	//	values+=Value*
-	//	'}';
-	public CompositeValueElements getCompositeValueAccess() {
-		return pCompositeValue;
+	///*
+	// * A WORD that may contain ':' and '='
+	// */ VALUE_WORD:
+	//	(LETTER | SEPARATOR) (((LETTER | SEPARATOR) | SPACE)* -> (LETTER | SEPARATOR))?;
+	public VALUE_WORDElements getVALUE_WORDAccess() {
+		return pVALUE_WORD;
 	}
 	
-	public ParserRule getCompositeValueRule() {
-		return getCompositeValueAccess().getRule();
+	public ParserRule getVALUE_WORDRule() {
+		return getVALUE_WORDAccess().getRule();
 	}
 	
-	////-----------------------------------
-	//DisplayName:
-	//	{DisplayName}
-	//	'displayName' '=' value=STRING;
-	public DisplayNameElements getDisplayNameAccess() {
-		return pDisplayName;
-	}
-	
-	public ParserRule getDisplayNameRule() {
-		return getDisplayNameAccess().getRule();
-	}
-	
-	//Metaprog:
-	//	{Metaprog}
-	//	'metaprog' '=' value=STRING;
-	public MetaprogElements getMetaprogAccess() {
-		return pMetaprog;
-	}
-	
-	public ParserRule getMetaprogRule() {
-		return getMetaprogAccess().getRule();
-	}
-	
-	//AbstractSyntax:
-	//	{AbstractSyntax}
-	//	'abstract-syntax' '{'
-	//	values+=Value*
-	//	'}';
-	public AbstractSyntaxElements getAbstractSyntaxAccess() {
-		return pAbstractSyntax;
-	}
-	
-	public ParserRule getAbstractSyntaxRule() {
-		return getAbstractSyntaxAccess().getRule();
-	}
-	
-	//Semantic:
-	//	{Semantic}
-	//	'semantics' '{'
-	//	values+=Value*
-	//	'}';
-	public SemanticElements getSemanticAccess() {
-		return pSemantic;
-	}
-	
-	public ParserRule getSemanticRule() {
-		return getSemanticAccess().getRule();
-	}
-	
-	//terminal QUALIFIED:
-	//	ID '.' ID ('.' ID)*;
-	public TerminalRule getQUALIFIEDRule() {
-		return tQUALIFIED;
-	}
-	
-	//terminal ID:
-	//	'^'? ('a'..'z' | 'A'..'Z' | '_') ('a'..'z' | 'A'..'Z' | '_' | '0'..'9')*;
-	public TerminalRule getIDRule() {
-		return gaTerminals.getIDRule();
-	}
-	
-	//terminal INT returns ecore::EInt:
-	//	'0'..'9'+;
-	public TerminalRule getINTRule() {
-		return gaTerminals.getINTRule();
-	}
-	
-	//terminal STRING:
-	//	'"' ('\\' . | !('\\' | '"'))* '"' |
-	//	"'" ('\\' . | !('\\' | "'"))* "'";
-	public TerminalRule getSTRINGRule() {
-		return gaTerminals.getSTRINGRule();
-	}
-	
-	//terminal ML_COMMENT:
-	//	'/*'->'*/';
-	public TerminalRule getML_COMMENTRule() {
-		return gaTerminals.getML_COMMENTRule();
+	//terminal SEPARATOR:
+	//	'=' | ':';
+	public TerminalRule getSEPARATORRule() {
+		return tSEPARATOR;
 	}
 	
 	//terminal SL_COMMENT:
-	//	'//' !('\n' | '\r')* ('\r'? '\n')?;
+	//	('!' | '#') !('\n' | '\r')* ('\r'? '\n')?;
 	public TerminalRule getSL_COMMENTRule() {
-		return gaTerminals.getSL_COMMENTRule();
+		return tSL_COMMENT;
 	}
 	
-	//terminal WS:
-	//	' ' | '\t' | '\r' | '\n'+;
-	public TerminalRule getWSRule() {
-		return gaTerminals.getWSRule();
+	//terminal LETTER:
+	//	!(SEPARATOR | SPACE | '\\\n' | '\r' | '\n') | '\\=' | '\\:' | '\\#' | '\\!';
+	public TerminalRule getLETTERRule() {
+		return tLETTER;
 	}
 	
-	//terminal ANY_OTHER:
-	//	.;
-	public TerminalRule getANY_OTHERRule() {
-		return gaTerminals.getANY_OTHERRule();
+	///*
+	// * VALUE_WORD splited on severals lines.
+	// * Starting spaces are ignored for each new lines (see DslValueConverter)
+	// */ MULTILINE:
+	//	VALUE_WORD ('\\\n' SPACE* VALUE_WORD)*;
+	public MULTILINEElements getMULTILINEAccess() {
+		return pMULTILINE;
+	}
+	
+	public ParserRule getMULTILINERule() {
+		return getMULTILINEAccess().getRule();
+	}
+	
+	//terminal SPACE:
+	//	' ' | '\t';
+	public TerminalRule getSPACERule() {
+		return tSPACE;
 	}
 }
