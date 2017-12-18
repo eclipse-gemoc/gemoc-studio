@@ -26,6 +26,7 @@ import org.eclipse.gemoc.commons.eclipse.messagingsystem.ui.preferences.Preferen
 import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.console.ConsolePlugin;
 import org.eclipse.ui.console.IOConsoleOutputStream;
 
@@ -150,7 +151,7 @@ public class EclipseConsoleIO extends ConsoleIO implements IPropertyChangeListen
 	/** deal with not justified and large string
 	 * this is because large string may block Eclipse UI
 	 */
-	protected void safePrint(String message, Color c, int style, IProgressMonitor monitor){
+	protected void safePrint(String message, final Color c, final int style, IProgressMonitor monitor){
 		try {
 			String justifiedMsg = justifyMessage(message);
 			if(justifiedMsg.length() > LARGE_MESSAGE_SIZE){
@@ -162,17 +163,17 @@ public class EclipseConsoleIO extends ConsoleIO implements IPropertyChangeListen
 					start = LARGE_MESSAGE_SIZE*i;
 					end = LARGE_MESSAGE_SIZE*i + LARGE_MESSAGE_SIZE;
 					changeStream();
-					changeStyle(c, style);
+					safeChangeStyle(c, style);
 					((IOConsoleOutputStream)getOutputStream()).write(justifiedMsg.substring(start, end));
 					monitor.worked(1);
 				}
 				changeStream();
-				changeStyle(c, style);
+				safeChangeStyle(c, style);
 				((IOConsoleOutputStream)getOutputStream()).write(justifiedMsg.substring(end, justifiedMsg.length()));
 				monitor.done();
 			}
 			else{
-				changeStyle(c, style);
+				safeChangeStyle(c, style);
 				((IOConsoleOutputStream)getOutputStream()).write(justifiedMsg);
 			}
 		} catch (IOException e) {
@@ -208,6 +209,26 @@ public class EclipseConsoleIO extends ConsoleIO implements IPropertyChangeListen
 			changeStream(); // reset the stream
 			((IOConsoleOutputStream) getOutputStream()).setColor(c);
 			((IOConsoleOutputStream) getOutputStream()).setFontStyle(style);
+		}
+	}
+	
+	/**
+	 * does the same as changeStyle() but ensure to do it in the UI Thread
+	 * @param c
+	 * @param style
+	 */
+	protected void safeChangeStyle(final Color c, final int style) {
+		Color previousColor = ((IOConsoleOutputStream) getOutputStream()).getColor();
+		int previousStyle = ((IOConsoleOutputStream) getOutputStream()).getFontStyle();
+		if( (c==null && c!= previousColor) || (c!=null && !c.equals(previousColor)) || style!= previousStyle ){
+			Display.getDefault().syncExec(new Runnable() {
+				public void run() {
+					// need to change to another stream for the new color
+					changeStream(); // reset the stream
+					((IOConsoleOutputStream) getOutputStream()).setColor(c);
+					((IOConsoleOutputStream) getOutputStream()).setFontStyle(style);
+				}
+			});
 		}
 	}
 	/**
