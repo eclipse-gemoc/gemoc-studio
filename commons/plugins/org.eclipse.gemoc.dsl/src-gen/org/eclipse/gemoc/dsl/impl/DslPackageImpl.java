@@ -10,16 +10,10 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import org.eclipse.gemoc.dsl.AbstractSyntax;
-import org.eclipse.gemoc.dsl.CompositeValue;
-import org.eclipse.gemoc.dsl.DisplayName;
 import org.eclipse.gemoc.dsl.Dsl;
 import org.eclipse.gemoc.dsl.DslFactory;
 import org.eclipse.gemoc.dsl.DslPackage;
-import org.eclipse.gemoc.dsl.Metaprog;
-import org.eclipse.gemoc.dsl.Semantic;
-import org.eclipse.gemoc.dsl.SimpleValue;
-import org.eclipse.gemoc.dsl.Value;
+import org.eclipse.gemoc.dsl.Entry;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,49 +35,7 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass valueEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass simpleValueEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass compositeValueEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass displayNameEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass metaprogEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass abstractSyntaxEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass semanticEClass = null;
+  private EClass entryEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -173,7 +125,7 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDsl_DisplayName()
+  public EReference getDsl_Entries()
   {
     return (EReference)dslEClass.getEStructuralFeatures().get(1);
   }
@@ -183,9 +135,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDsl_Metaprog()
+  public EClass getEntry()
   {
-    return (EReference)dslEClass.getEStructuralFeatures().get(2);
+    return entryEClass;
   }
 
   /**
@@ -193,9 +145,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDsl_AbstractSyntax()
+  public EAttribute getEntry_Key()
   {
-    return (EReference)dslEClass.getEStructuralFeatures().get(3);
+    return (EAttribute)entryEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -203,159 +155,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDsl_Semantic()
+  public EAttribute getEntry_Value()
   {
-    return (EReference)dslEClass.getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDsl_Values()
-  {
-    return (EReference)dslEClass.getEStructuralFeatures().get(5);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getValue()
-  {
-    return valueEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getValue_Name()
-  {
-    return (EAttribute)valueEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getSimpleValue()
-  {
-    return simpleValueEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getSimpleValue_Values()
-  {
-    return (EAttribute)simpleValueEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getCompositeValue()
-  {
-    return compositeValueEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getCompositeValue_Values()
-  {
-    return (EReference)compositeValueEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getDisplayName()
-  {
-    return displayNameEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getDisplayName_Value()
-  {
-    return (EAttribute)displayNameEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getMetaprog()
-  {
-    return metaprogEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getMetaprog_Value()
-  {
-    return (EAttribute)metaprogEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getAbstractSyntax()
-  {
-    return abstractSyntaxEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getAbstractSyntax_Values()
-  {
-    return (EReference)abstractSyntaxEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getSemantic()
-  {
-    return semanticEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getSemantic_Values()
-  {
-    return (EReference)semanticEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)entryEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -390,32 +192,11 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     // Create classes and their features
     dslEClass = createEClass(DSL);
     createEAttribute(dslEClass, DSL__NAME);
-    createEReference(dslEClass, DSL__DISPLAY_NAME);
-    createEReference(dslEClass, DSL__METAPROG);
-    createEReference(dslEClass, DSL__ABSTRACT_SYNTAX);
-    createEReference(dslEClass, DSL__SEMANTIC);
-    createEReference(dslEClass, DSL__VALUES);
+    createEReference(dslEClass, DSL__ENTRIES);
 
-    valueEClass = createEClass(VALUE);
-    createEAttribute(valueEClass, VALUE__NAME);
-
-    simpleValueEClass = createEClass(SIMPLE_VALUE);
-    createEAttribute(simpleValueEClass, SIMPLE_VALUE__VALUES);
-
-    compositeValueEClass = createEClass(COMPOSITE_VALUE);
-    createEReference(compositeValueEClass, COMPOSITE_VALUE__VALUES);
-
-    displayNameEClass = createEClass(DISPLAY_NAME);
-    createEAttribute(displayNameEClass, DISPLAY_NAME__VALUE);
-
-    metaprogEClass = createEClass(METAPROG);
-    createEAttribute(metaprogEClass, METAPROG__VALUE);
-
-    abstractSyntaxEClass = createEClass(ABSTRACT_SYNTAX);
-    createEReference(abstractSyntaxEClass, ABSTRACT_SYNTAX__VALUES);
-
-    semanticEClass = createEClass(SEMANTIC);
-    createEReference(semanticEClass, SEMANTIC__VALUES);
+    entryEClass = createEClass(ENTRY);
+    createEAttribute(entryEClass, ENTRY__KEY);
+    createEAttribute(entryEClass, ENTRY__VALUE);
   }
 
   /**
@@ -447,38 +228,15 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    simpleValueEClass.getESuperTypes().add(this.getValue());
-    compositeValueEClass.getESuperTypes().add(this.getValue());
 
     // Initialize classes and features; add operations and parameters
     initEClass(dslEClass, Dsl.class, "Dsl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDsl_Name(), ecorePackage.getEString(), "name", null, 0, 1, Dsl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDsl_DisplayName(), this.getDisplayName(), null, "displayName", null, 0, 1, Dsl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDsl_Metaprog(), this.getMetaprog(), null, "metaprog", null, 0, 1, Dsl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDsl_AbstractSyntax(), this.getAbstractSyntax(), null, "abstractSyntax", null, 0, 1, Dsl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDsl_Semantic(), this.getSemantic(), null, "semantic", null, 0, 1, Dsl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDsl_Values(), this.getValue(), null, "values", null, 0, -1, Dsl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDsl_Entries(), this.getEntry(), null, "entries", null, 0, -1, Dsl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(valueEClass, Value.class, "Value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getValue_Name(), ecorePackage.getEString(), "name", null, 0, 1, Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(simpleValueEClass, SimpleValue.class, "SimpleValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSimpleValue_Values(), ecorePackage.getEString(), "values", null, 0, -1, SimpleValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(compositeValueEClass, CompositeValue.class, "CompositeValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getCompositeValue_Values(), this.getValue(), null, "values", null, 0, -1, CompositeValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(displayNameEClass, DisplayName.class, "DisplayName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getDisplayName_Value(), ecorePackage.getEString(), "value", null, 0, 1, DisplayName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(metaprogEClass, Metaprog.class, "Metaprog", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getMetaprog_Value(), ecorePackage.getEString(), "value", null, 0, 1, Metaprog.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(abstractSyntaxEClass, AbstractSyntax.class, "AbstractSyntax", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getAbstractSyntax_Values(), this.getValue(), null, "values", null, 0, -1, AbstractSyntax.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(semanticEClass, Semantic.class, "Semantic", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSemantic_Values(), this.getValue(), null, "values", null, 0, -1, Semantic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(entryEClass, Entry.class, "Entry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getEntry_Key(), ecorePackage.getEString(), "key", null, 0, 1, Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getEntry_Value(), ecorePackage.getEString(), "value", null, 0, 1, Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

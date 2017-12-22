@@ -66,13 +66,7 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
     switch (eClass.getClassifierID())
     {
       case DslPackage.DSL: return createDsl();
-      case DslPackage.VALUE: return createValue();
-      case DslPackage.SIMPLE_VALUE: return createSimpleValue();
-      case DslPackage.COMPOSITE_VALUE: return createCompositeValue();
-      case DslPackage.DISPLAY_NAME: return createDisplayName();
-      case DslPackage.METAPROG: return createMetaprog();
-      case DslPackage.ABSTRACT_SYNTAX: return createAbstractSyntax();
-      case DslPackage.SEMANTIC: return createSemantic();
+      case DslPackage.ENTRY: return createEntry();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -94,76 +88,10 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Value createValue()
+  public Entry createEntry()
   {
-    ValueImpl value = new ValueImpl();
-    return value;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public SimpleValue createSimpleValue()
-  {
-    SimpleValueImpl simpleValue = new SimpleValueImpl();
-    return simpleValue;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public CompositeValue createCompositeValue()
-  {
-    CompositeValueImpl compositeValue = new CompositeValueImpl();
-    return compositeValue;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public DisplayName createDisplayName()
-  {
-    DisplayNameImpl displayName = new DisplayNameImpl();
-    return displayName;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Metaprog createMetaprog()
-  {
-    MetaprogImpl metaprog = new MetaprogImpl();
-    return metaprog;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public AbstractSyntax createAbstractSyntax()
-  {
-    AbstractSyntaxImpl abstractSyntax = new AbstractSyntaxImpl();
-    return abstractSyntax;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Semantic createSemantic()
-  {
-    SemanticImpl semantic = new SemanticImpl();
-    return semantic;
+    EntryImpl entry = new EntryImpl();
+    return entry;
   }
 
   /**

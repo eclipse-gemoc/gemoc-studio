@@ -33,67 +33,13 @@ public interface DslFactory extends EFactory
   Dsl createDsl();
 
   /**
-   * Returns a new object of class '<em>Value</em>'.
+   * Returns a new object of class '<em>Entry</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Value</em>'.
+   * @return a new object of class '<em>Entry</em>'.
    * @generated
    */
-  Value createValue();
-
-  /**
-   * Returns a new object of class '<em>Simple Value</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Simple Value</em>'.
-   * @generated
-   */
-  SimpleValue createSimpleValue();
-
-  /**
-   * Returns a new object of class '<em>Composite Value</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Composite Value</em>'.
-   * @generated
-   */
-  CompositeValue createCompositeValue();
-
-  /**
-   * Returns a new object of class '<em>Display Name</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Display Name</em>'.
-   * @generated
-   */
-  DisplayName createDisplayName();
-
-  /**
-   * Returns a new object of class '<em>Metaprog</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Metaprog</em>'.
-   * @generated
-   */
-  Metaprog createMetaprog();
-
-  /**
-   * Returns a new object of class '<em>Abstract Syntax</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Abstract Syntax</em>'.
-   * @generated
-   */
-  AbstractSyntax createAbstractSyntax();
-
-  /**
-   * Returns a new object of class '<em>Semantic</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Semantic</em>'.
-   * @generated
-   */
-  Semantic createSemantic();
+  Entry createEntry();
 
   /**
    * Returns the package supported by this factory.

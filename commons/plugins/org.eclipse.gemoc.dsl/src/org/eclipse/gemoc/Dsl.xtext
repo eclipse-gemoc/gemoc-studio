@@ -1,60 +1,62 @@
-grammar org.eclipse.gemoc.Dsl with org.eclipse.xtext.common.Terminals
+grammar org.eclipse.gemoc.Dsl hidden(SL_COMMENT) 
 
-generate dsl "http://www.eclipse.org/gemoc/Dsl"
+generate dsl "http://www.eclipse.org/gemoc/Dsl" 
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 Dsl:
-	'DSL' name=(QUALIFIED |  ID) '{'
-		(displayName = DisplayName)?
-		(metaprog = Metaprog)?
-		(abstractSyntax = AbstractSyntax)?
-		(semantic = Semantic)?
-		values+=Value*
-	'}'
+	SPACE* 'name' SPACE* SEPARATOR SPACE* name=MULTILINE SPACE* '\n'?
+	entries+=Entry*
 ;
+
+Entry:
+	SPACE* key=WORD SPACE* SEPARATOR SPACE* value=MULTILINE SPACE* '\n'?
+;
+
+/*
+ * Start and finish with a letter. Can contain spaces.  
+ */
+WORD:
+	LETTER ((LETTER | SPACE )* -> LETTER)?
+;
+
+/*
+ * A WORD that may contain ':' and '='
+ */
+VALUE_WORD:
+	(LETTER|SEPARATOR) (((LETTER|SEPARATOR) | SPACE )* -> (LETTER|SEPARATOR))?
+;
+
+terminal SEPARATOR:
+	'=' | ':'
+;
+
+/*
+ * Line starting with '!' or '#'
+ */
+terminal SL_COMMENT :
+	('!' | '#') !('\n'|'\r')* ('\r'? '\n')?
+;
+
+/*
+ * Everything that is not ':', '=', space or ending line.
+ * Escaped separators are LETTER
+ */
+terminal LETTER:
+	!( SEPARATOR | SPACE | '\\\n' | '\r' | '\n' ) | '\\=' | '\\:' | '\\#' | '\\!' 
+;
+
+/*
+ * VALUE_WORD splited on severals lines.
+ * Starting spaces are ignored for each new lines (see DslValueConverter)
+ */
+MULTILINE:
+	VALUE_WORD ('\\\n' SPACE* VALUE_WORD)*
+;
+
+terminal SPACE:
+	' '|'\t'
 	
-Value:
-	SimpleValue | CompositeValue
-;
-	
-SimpleValue:
-	name=ID '=' values+=STRING (',' values+=STRING)*
 ;
 
-CompositeValue:
-	name=ID '{'
-		values+=Value*
-	'}'
-;
-
-//-----------------------------------
-
-DisplayName returns DisplayName:
-	{DisplayName}
-	'displayName' '=' value=STRING
-;
-
-Metaprog returns Metaprog:
-	{Metaprog}
-	'metaprog' '=' value=STRING
-;
-
-AbstractSyntax returns AbstractSyntax:
-	{AbstractSyntax}
-	'abstract-syntax' '{'
-		values+=Value*
-	'}'
-;
-
-Semantic returns Semantic:
-	{Semantic}
-	'semantics' '{'
-		values+=Value*
-	'}'
-;
-
-//-----------------------------------
-
-terminal QUALIFIED:
-  ID '.' ID ('.' ID)*
-;
 

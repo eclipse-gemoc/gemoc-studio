@@ -31,31 +31,24 @@ public class DslParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getDslAccess().getNameAlternatives_1_0(), "rule__Dsl__NameAlternatives_1_0");
-					put(grammarAccess.getValueAccess().getAlternatives(), "rule__Value__Alternatives");
+					put(grammarAccess.getWORDAccess().getAlternatives_1_0(), "rule__WORD__Alternatives_1_0");
+					put(grammarAccess.getVALUE_WORDAccess().getAlternatives_0(), "rule__VALUE_WORD__Alternatives_0");
+					put(grammarAccess.getVALUE_WORDAccess().getAlternatives_1_0(), "rule__VALUE_WORD__Alternatives_1_0");
+					put(grammarAccess.getVALUE_WORDAccess().getAlternatives_1_0_0(), "rule__VALUE_WORD__Alternatives_1_0_0");
+					put(grammarAccess.getVALUE_WORDAccess().getAlternatives_1_1_0(), "rule__VALUE_WORD__Alternatives_1_1_0");
 					put(grammarAccess.getDslAccess().getGroup(), "rule__Dsl__Group__0");
-					put(grammarAccess.getSimpleValueAccess().getGroup(), "rule__SimpleValue__Group__0");
-					put(grammarAccess.getSimpleValueAccess().getGroup_3(), "rule__SimpleValue__Group_3__0");
-					put(grammarAccess.getCompositeValueAccess().getGroup(), "rule__CompositeValue__Group__0");
-					put(grammarAccess.getDisplayNameAccess().getGroup(), "rule__DisplayName__Group__0");
-					put(grammarAccess.getMetaprogAccess().getGroup(), "rule__Metaprog__Group__0");
-					put(grammarAccess.getAbstractSyntaxAccess().getGroup(), "rule__AbstractSyntax__Group__0");
-					put(grammarAccess.getSemanticAccess().getGroup(), "rule__Semantic__Group__0");
-					put(grammarAccess.getDslAccess().getNameAssignment_1(), "rule__Dsl__NameAssignment_1");
-					put(grammarAccess.getDslAccess().getDisplayNameAssignment_3(), "rule__Dsl__DisplayNameAssignment_3");
-					put(grammarAccess.getDslAccess().getMetaprogAssignment_4(), "rule__Dsl__MetaprogAssignment_4");
-					put(grammarAccess.getDslAccess().getAbstractSyntaxAssignment_5(), "rule__Dsl__AbstractSyntaxAssignment_5");
-					put(grammarAccess.getDslAccess().getSemanticAssignment_6(), "rule__Dsl__SemanticAssignment_6");
-					put(grammarAccess.getDslAccess().getValuesAssignment_7(), "rule__Dsl__ValuesAssignment_7");
-					put(grammarAccess.getSimpleValueAccess().getNameAssignment_0(), "rule__SimpleValue__NameAssignment_0");
-					put(grammarAccess.getSimpleValueAccess().getValuesAssignment_2(), "rule__SimpleValue__ValuesAssignment_2");
-					put(grammarAccess.getSimpleValueAccess().getValuesAssignment_3_1(), "rule__SimpleValue__ValuesAssignment_3_1");
-					put(grammarAccess.getCompositeValueAccess().getNameAssignment_0(), "rule__CompositeValue__NameAssignment_0");
-					put(grammarAccess.getCompositeValueAccess().getValuesAssignment_2(), "rule__CompositeValue__ValuesAssignment_2");
-					put(grammarAccess.getDisplayNameAccess().getValueAssignment_3(), "rule__DisplayName__ValueAssignment_3");
-					put(grammarAccess.getMetaprogAccess().getValueAssignment_3(), "rule__Metaprog__ValueAssignment_3");
-					put(grammarAccess.getAbstractSyntaxAccess().getValuesAssignment_3(), "rule__AbstractSyntax__ValuesAssignment_3");
-					put(grammarAccess.getSemanticAccess().getValuesAssignment_3(), "rule__Semantic__ValuesAssignment_3");
+					put(grammarAccess.getEntryAccess().getGroup(), "rule__Entry__Group__0");
+					put(grammarAccess.getWORDAccess().getGroup(), "rule__WORD__Group__0");
+					put(grammarAccess.getWORDAccess().getGroup_1(), "rule__WORD__Group_1__0");
+					put(grammarAccess.getVALUE_WORDAccess().getGroup(), "rule__VALUE_WORD__Group__0");
+					put(grammarAccess.getVALUE_WORDAccess().getGroup_1(), "rule__VALUE_WORD__Group_1__0");
+					put(grammarAccess.getVALUE_WORDAccess().getGroup_1_1(), "rule__VALUE_WORD__Group_1_1__0");
+					put(grammarAccess.getMULTILINEAccess().getGroup(), "rule__MULTILINE__Group__0");
+					put(grammarAccess.getMULTILINEAccess().getGroup_1(), "rule__MULTILINE__Group_1__0");
+					put(grammarAccess.getDslAccess().getNameAssignment_5(), "rule__Dsl__NameAssignment_5");
+					put(grammarAccess.getDslAccess().getEntriesAssignment_8(), "rule__Dsl__EntriesAssignment_8");
+					put(grammarAccess.getEntryAccess().getKeyAssignment_1(), "rule__Entry__KeyAssignment_1");
+					put(grammarAccess.getEntryAccess().getValueAssignment_5(), "rule__Entry__ValueAssignment_5");
 				}
 			};
 		}
@@ -64,7 +57,7 @@ public class DslParser extends AbstractContentAssistParser {
 			
 	@Override
 	protected String[] getInitialHiddenTokens() {
-		return new String[] { "RULE_WS", "RULE_ML_COMMENT", "RULE_SL_COMMENT" };
+		return new String[] { "RULE_SL_COMMENT" };
 	}
 
 	public DslGrammarAccess getGrammarAccess() {

@@ -77,49 +77,13 @@ public interface DslPackage extends EPackage
   int DSL__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Display Name</b></em>' containment reference.
+   * The feature id for the '<em><b>Entries</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DSL__DISPLAY_NAME = 1;
-
-  /**
-   * The feature id for the '<em><b>Metaprog</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DSL__METAPROG = 2;
-
-  /**
-   * The feature id for the '<em><b>Abstract Syntax</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DSL__ABSTRACT_SYNTAX = 3;
-
-  /**
-   * The feature id for the '<em><b>Semantic</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DSL__SEMANTIC = 4;
-
-  /**
-   * The feature id for the '<em><b>Values</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DSL__VALUES = 5;
+  int DSL__ENTRIES = 1;
 
   /**
    * The number of structural features of the '<em>Dsl</em>' class.
@@ -128,119 +92,26 @@ public interface DslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DSL_FEATURE_COUNT = 6;
+  int DSL_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link org.eclipse.gemoc.dsl.impl.ValueImpl <em>Value</em>}' class.
+   * The meta object id for the '{@link org.eclipse.gemoc.dsl.impl.EntryImpl <em>Entry</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.eclipse.gemoc.dsl.impl.ValueImpl
-   * @see org.eclipse.gemoc.dsl.impl.DslPackageImpl#getValue()
+   * @see org.eclipse.gemoc.dsl.impl.EntryImpl
+   * @see org.eclipse.gemoc.dsl.impl.DslPackageImpl#getEntry()
    * @generated
    */
-  int VALUE = 1;
+  int ENTRY = 1;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VALUE__NAME = 0;
-
-  /**
-   * The number of structural features of the '<em>Value</em>' class.
+   * The feature id for the '<em><b>Key</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VALUE_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link org.eclipse.gemoc.dsl.impl.SimpleValueImpl <em>Simple Value</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.eclipse.gemoc.dsl.impl.SimpleValueImpl
-   * @see org.eclipse.gemoc.dsl.impl.DslPackageImpl#getSimpleValue()
-   * @generated
-   */
-  int SIMPLE_VALUE = 2;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_VALUE__NAME = VALUE__NAME;
-
-  /**
-   * The feature id for the '<em><b>Values</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_VALUE__VALUES = VALUE_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Simple Value</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link org.eclipse.gemoc.dsl.impl.CompositeValueImpl <em>Composite Value</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.eclipse.gemoc.dsl.impl.CompositeValueImpl
-   * @see org.eclipse.gemoc.dsl.impl.DslPackageImpl#getCompositeValue()
-   * @generated
-   */
-  int COMPOSITE_VALUE = 3;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPOSITE_VALUE__NAME = VALUE__NAME;
-
-  /**
-   * The feature id for the '<em><b>Values</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPOSITE_VALUE__VALUES = VALUE_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Composite Value</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPOSITE_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link org.eclipse.gemoc.dsl.impl.DisplayNameImpl <em>Display Name</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.eclipse.gemoc.dsl.impl.DisplayNameImpl
-   * @see org.eclipse.gemoc.dsl.impl.DslPackageImpl#getDisplayName()
-   * @generated
-   */
-  int DISPLAY_NAME = 4;
+  int ENTRY__KEY = 0;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -249,100 +120,16 @@ public interface DslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DISPLAY_NAME__VALUE = 0;
+  int ENTRY__VALUE = 1;
 
   /**
-   * The number of structural features of the '<em>Display Name</em>' class.
+   * The number of structural features of the '<em>Entry</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DISPLAY_NAME_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link org.eclipse.gemoc.dsl.impl.MetaprogImpl <em>Metaprog</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.eclipse.gemoc.dsl.impl.MetaprogImpl
-   * @see org.eclipse.gemoc.dsl.impl.DslPackageImpl#getMetaprog()
-   * @generated
-   */
-  int METAPROG = 5;
-
-  /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int METAPROG__VALUE = 0;
-
-  /**
-   * The number of structural features of the '<em>Metaprog</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int METAPROG_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link org.eclipse.gemoc.dsl.impl.AbstractSyntaxImpl <em>Abstract Syntax</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.eclipse.gemoc.dsl.impl.AbstractSyntaxImpl
-   * @see org.eclipse.gemoc.dsl.impl.DslPackageImpl#getAbstractSyntax()
-   * @generated
-   */
-  int ABSTRACT_SYNTAX = 6;
-
-  /**
-   * The feature id for the '<em><b>Values</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ABSTRACT_SYNTAX__VALUES = 0;
-
-  /**
-   * The number of structural features of the '<em>Abstract Syntax</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ABSTRACT_SYNTAX_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link org.eclipse.gemoc.dsl.impl.SemanticImpl <em>Semantic</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.eclipse.gemoc.dsl.impl.SemanticImpl
-   * @see org.eclipse.gemoc.dsl.impl.DslPackageImpl#getSemantic()
-   * @generated
-   */
-  int SEMANTIC = 7;
-
-  /**
-   * The feature id for the '<em><b>Values</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SEMANTIC__VALUES = 0;
-
-  /**
-   * The number of structural features of the '<em>Semantic</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SEMANTIC_FEATURE_COUNT = 1;
+  int ENTRY_FEATURE_COUNT = 2;
 
 
   /**
@@ -367,206 +154,47 @@ public interface DslPackage extends EPackage
   EAttribute getDsl_Name();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.eclipse.gemoc.dsl.Dsl#getDisplayName <em>Display Name</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.eclipse.gemoc.dsl.Dsl#getEntries <em>Entries</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Display Name</em>'.
-   * @see org.eclipse.gemoc.dsl.Dsl#getDisplayName()
+   * @return the meta object for the containment reference list '<em>Entries</em>'.
+   * @see org.eclipse.gemoc.dsl.Dsl#getEntries()
    * @see #getDsl()
    * @generated
    */
-  EReference getDsl_DisplayName();
+  EReference getDsl_Entries();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.eclipse.gemoc.dsl.Dsl#getMetaprog <em>Metaprog</em>}'.
+   * Returns the meta object for class '{@link org.eclipse.gemoc.dsl.Entry <em>Entry</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Metaprog</em>'.
-   * @see org.eclipse.gemoc.dsl.Dsl#getMetaprog()
-   * @see #getDsl()
+   * @return the meta object for class '<em>Entry</em>'.
+   * @see org.eclipse.gemoc.dsl.Entry
    * @generated
    */
-  EReference getDsl_Metaprog();
+  EClass getEntry();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.eclipse.gemoc.dsl.Dsl#getAbstractSyntax <em>Abstract Syntax</em>}'.
+   * Returns the meta object for the attribute '{@link org.eclipse.gemoc.dsl.Entry#getKey <em>Key</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Abstract Syntax</em>'.
-   * @see org.eclipse.gemoc.dsl.Dsl#getAbstractSyntax()
-   * @see #getDsl()
+   * @return the meta object for the attribute '<em>Key</em>'.
+   * @see org.eclipse.gemoc.dsl.Entry#getKey()
+   * @see #getEntry()
    * @generated
    */
-  EReference getDsl_AbstractSyntax();
+  EAttribute getEntry_Key();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.eclipse.gemoc.dsl.Dsl#getSemantic <em>Semantic</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Semantic</em>'.
-   * @see org.eclipse.gemoc.dsl.Dsl#getSemantic()
-   * @see #getDsl()
-   * @generated
-   */
-  EReference getDsl_Semantic();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.eclipse.gemoc.dsl.Dsl#getValues <em>Values</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Values</em>'.
-   * @see org.eclipse.gemoc.dsl.Dsl#getValues()
-   * @see #getDsl()
-   * @generated
-   */
-  EReference getDsl_Values();
-
-  /**
-   * Returns the meta object for class '{@link org.eclipse.gemoc.dsl.Value <em>Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Value</em>'.
-   * @see org.eclipse.gemoc.dsl.Value
-   * @generated
-   */
-  EClass getValue();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipse.gemoc.dsl.Value#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.eclipse.gemoc.dsl.Value#getName()
-   * @see #getValue()
-   * @generated
-   */
-  EAttribute getValue_Name();
-
-  /**
-   * Returns the meta object for class '{@link org.eclipse.gemoc.dsl.SimpleValue <em>Simple Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Simple Value</em>'.
-   * @see org.eclipse.gemoc.dsl.SimpleValue
-   * @generated
-   */
-  EClass getSimpleValue();
-
-  /**
-   * Returns the meta object for the attribute list '{@link org.eclipse.gemoc.dsl.SimpleValue#getValues <em>Values</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Values</em>'.
-   * @see org.eclipse.gemoc.dsl.SimpleValue#getValues()
-   * @see #getSimpleValue()
-   * @generated
-   */
-  EAttribute getSimpleValue_Values();
-
-  /**
-   * Returns the meta object for class '{@link org.eclipse.gemoc.dsl.CompositeValue <em>Composite Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Composite Value</em>'.
-   * @see org.eclipse.gemoc.dsl.CompositeValue
-   * @generated
-   */
-  EClass getCompositeValue();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.eclipse.gemoc.dsl.CompositeValue#getValues <em>Values</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Values</em>'.
-   * @see org.eclipse.gemoc.dsl.CompositeValue#getValues()
-   * @see #getCompositeValue()
-   * @generated
-   */
-  EReference getCompositeValue_Values();
-
-  /**
-   * Returns the meta object for class '{@link org.eclipse.gemoc.dsl.DisplayName <em>Display Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Display Name</em>'.
-   * @see org.eclipse.gemoc.dsl.DisplayName
-   * @generated
-   */
-  EClass getDisplayName();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipse.gemoc.dsl.DisplayName#getValue <em>Value</em>}'.
+   * Returns the meta object for the attribute '{@link org.eclipse.gemoc.dsl.Entry#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Value</em>'.
-   * @see org.eclipse.gemoc.dsl.DisplayName#getValue()
-   * @see #getDisplayName()
+   * @see org.eclipse.gemoc.dsl.Entry#getValue()
+   * @see #getEntry()
    * @generated
    */
-  EAttribute getDisplayName_Value();
-
-  /**
-   * Returns the meta object for class '{@link org.eclipse.gemoc.dsl.Metaprog <em>Metaprog</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Metaprog</em>'.
-   * @see org.eclipse.gemoc.dsl.Metaprog
-   * @generated
-   */
-  EClass getMetaprog();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipse.gemoc.dsl.Metaprog#getValue <em>Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value</em>'.
-   * @see org.eclipse.gemoc.dsl.Metaprog#getValue()
-   * @see #getMetaprog()
-   * @generated
-   */
-  EAttribute getMetaprog_Value();
-
-  /**
-   * Returns the meta object for class '{@link org.eclipse.gemoc.dsl.AbstractSyntax <em>Abstract Syntax</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Abstract Syntax</em>'.
-   * @see org.eclipse.gemoc.dsl.AbstractSyntax
-   * @generated
-   */
-  EClass getAbstractSyntax();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.eclipse.gemoc.dsl.AbstractSyntax#getValues <em>Values</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Values</em>'.
-   * @see org.eclipse.gemoc.dsl.AbstractSyntax#getValues()
-   * @see #getAbstractSyntax()
-   * @generated
-   */
-  EReference getAbstractSyntax_Values();
-
-  /**
-   * Returns the meta object for class '{@link org.eclipse.gemoc.dsl.Semantic <em>Semantic</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Semantic</em>'.
-   * @see org.eclipse.gemoc.dsl.Semantic
-   * @generated
-   */
-  EClass getSemantic();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.eclipse.gemoc.dsl.Semantic#getValues <em>Values</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Values</em>'.
-   * @see org.eclipse.gemoc.dsl.Semantic#getValues()
-   * @see #getSemantic()
-   * @generated
-   */
-  EReference getSemantic_Values();
+  EAttribute getEntry_Value();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -610,108 +238,30 @@ public interface DslPackage extends EPackage
     EAttribute DSL__NAME = eINSTANCE.getDsl_Name();
 
     /**
-     * The meta object literal for the '<em><b>Display Name</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Entries</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DSL__DISPLAY_NAME = eINSTANCE.getDsl_DisplayName();
+    EReference DSL__ENTRIES = eINSTANCE.getDsl_Entries();
 
     /**
-     * The meta object literal for the '<em><b>Metaprog</b></em>' containment reference feature.
+     * The meta object literal for the '{@link org.eclipse.gemoc.dsl.impl.EntryImpl <em>Entry</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see org.eclipse.gemoc.dsl.impl.EntryImpl
+     * @see org.eclipse.gemoc.dsl.impl.DslPackageImpl#getEntry()
      * @generated
      */
-    EReference DSL__METAPROG = eINSTANCE.getDsl_Metaprog();
+    EClass ENTRY = eINSTANCE.getEntry();
 
     /**
-     * The meta object literal for the '<em><b>Abstract Syntax</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DSL__ABSTRACT_SYNTAX = eINSTANCE.getDsl_AbstractSyntax();
-
-    /**
-     * The meta object literal for the '<em><b>Semantic</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DSL__SEMANTIC = eINSTANCE.getDsl_Semantic();
-
-    /**
-     * The meta object literal for the '<em><b>Values</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DSL__VALUES = eINSTANCE.getDsl_Values();
-
-    /**
-     * The meta object literal for the '{@link org.eclipse.gemoc.dsl.impl.ValueImpl <em>Value</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.eclipse.gemoc.dsl.impl.ValueImpl
-     * @see org.eclipse.gemoc.dsl.impl.DslPackageImpl#getValue()
-     * @generated
-     */
-    EClass VALUE = eINSTANCE.getValue();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute VALUE__NAME = eINSTANCE.getValue_Name();
-
-    /**
-     * The meta object literal for the '{@link org.eclipse.gemoc.dsl.impl.SimpleValueImpl <em>Simple Value</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.eclipse.gemoc.dsl.impl.SimpleValueImpl
-     * @see org.eclipse.gemoc.dsl.impl.DslPackageImpl#getSimpleValue()
-     * @generated
-     */
-    EClass SIMPLE_VALUE = eINSTANCE.getSimpleValue();
-
-    /**
-     * The meta object literal for the '<em><b>Values</b></em>' attribute list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SIMPLE_VALUE__VALUES = eINSTANCE.getSimpleValue_Values();
-
-    /**
-     * The meta object literal for the '{@link org.eclipse.gemoc.dsl.impl.CompositeValueImpl <em>Composite Value</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.eclipse.gemoc.dsl.impl.CompositeValueImpl
-     * @see org.eclipse.gemoc.dsl.impl.DslPackageImpl#getCompositeValue()
-     * @generated
-     */
-    EClass COMPOSITE_VALUE = eINSTANCE.getCompositeValue();
-
-    /**
-     * The meta object literal for the '<em><b>Values</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference COMPOSITE_VALUE__VALUES = eINSTANCE.getCompositeValue_Values();
-
-    /**
-     * The meta object literal for the '{@link org.eclipse.gemoc.dsl.impl.DisplayNameImpl <em>Display Name</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.eclipse.gemoc.dsl.impl.DisplayNameImpl
-     * @see org.eclipse.gemoc.dsl.impl.DslPackageImpl#getDisplayName()
-     * @generated
-     */
-    EClass DISPLAY_NAME = eINSTANCE.getDisplayName();
+    EAttribute ENTRY__KEY = eINSTANCE.getEntry_Key();
 
     /**
      * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -719,61 +269,7 @@ public interface DslPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DISPLAY_NAME__VALUE = eINSTANCE.getDisplayName_Value();
-
-    /**
-     * The meta object literal for the '{@link org.eclipse.gemoc.dsl.impl.MetaprogImpl <em>Metaprog</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.eclipse.gemoc.dsl.impl.MetaprogImpl
-     * @see org.eclipse.gemoc.dsl.impl.DslPackageImpl#getMetaprog()
-     * @generated
-     */
-    EClass METAPROG = eINSTANCE.getMetaprog();
-
-    /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute METAPROG__VALUE = eINSTANCE.getMetaprog_Value();
-
-    /**
-     * The meta object literal for the '{@link org.eclipse.gemoc.dsl.impl.AbstractSyntaxImpl <em>Abstract Syntax</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.eclipse.gemoc.dsl.impl.AbstractSyntaxImpl
-     * @see org.eclipse.gemoc.dsl.impl.DslPackageImpl#getAbstractSyntax()
-     * @generated
-     */
-    EClass ABSTRACT_SYNTAX = eINSTANCE.getAbstractSyntax();
-
-    /**
-     * The meta object literal for the '<em><b>Values</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ABSTRACT_SYNTAX__VALUES = eINSTANCE.getAbstractSyntax_Values();
-
-    /**
-     * The meta object literal for the '{@link org.eclipse.gemoc.dsl.impl.SemanticImpl <em>Semantic</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.eclipse.gemoc.dsl.impl.SemanticImpl
-     * @see org.eclipse.gemoc.dsl.impl.DslPackageImpl#getSemantic()
-     * @generated
-     */
-    EClass SEMANTIC = eINSTANCE.getSemantic();
-
-    /**
-     * The meta object literal for the '<em><b>Values</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SEMANTIC__VALUES = eINSTANCE.getSemantic_Values();
+    EAttribute ENTRY__VALUE = eINSTANCE.getEntry_Value();
 
   }
 

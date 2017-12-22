@@ -81,39 +81,9 @@ public class DslAdapterFactory extends AdapterFactoryImpl
         return createDslAdapter();
       }
       @Override
-      public Adapter caseValue(Value object)
+      public Adapter caseEntry(Entry object)
       {
-        return createValueAdapter();
-      }
-      @Override
-      public Adapter caseSimpleValue(SimpleValue object)
-      {
-        return createSimpleValueAdapter();
-      }
-      @Override
-      public Adapter caseCompositeValue(CompositeValue object)
-      {
-        return createCompositeValueAdapter();
-      }
-      @Override
-      public Adapter caseDisplayName(DisplayName object)
-      {
-        return createDisplayNameAdapter();
-      }
-      @Override
-      public Adapter caseMetaprog(Metaprog object)
-      {
-        return createMetaprogAdapter();
-      }
-      @Override
-      public Adapter caseAbstractSyntax(AbstractSyntax object)
-      {
-        return createAbstractSyntaxAdapter();
-      }
-      @Override
-      public Adapter caseSemantic(Semantic object)
-      {
-        return createSemanticAdapter();
+        return createEntryAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -153,106 +123,16 @@ public class DslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.gemoc.dsl.Value <em>Value</em>}'.
+   * Creates a new adapter for an object of class '{@link org.eclipse.gemoc.dsl.Entry <em>Entry</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.eclipse.gemoc.dsl.Value
+   * @see org.eclipse.gemoc.dsl.Entry
    * @generated
    */
-  public Adapter createValueAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.gemoc.dsl.SimpleValue <em>Simple Value</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.gemoc.dsl.SimpleValue
-   * @generated
-   */
-  public Adapter createSimpleValueAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.gemoc.dsl.CompositeValue <em>Composite Value</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.gemoc.dsl.CompositeValue
-   * @generated
-   */
-  public Adapter createCompositeValueAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.gemoc.dsl.DisplayName <em>Display Name</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.gemoc.dsl.DisplayName
-   * @generated
-   */
-  public Adapter createDisplayNameAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.gemoc.dsl.Metaprog <em>Metaprog</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.gemoc.dsl.Metaprog
-   * @generated
-   */
-  public Adapter createMetaprogAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.gemoc.dsl.AbstractSyntax <em>Abstract Syntax</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.gemoc.dsl.AbstractSyntax
-   * @generated
-   */
-  public Adapter createAbstractSyntaxAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipse.gemoc.dsl.Semantic <em>Semantic</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipse.gemoc.dsl.Semantic
-   * @generated
-   */
-  public Adapter createSemanticAdapter()
+  public Adapter createEntryAdapter()
   {
     return null;
   }

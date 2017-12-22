@@ -19,13 +19,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.eclipse.gemoc.dsl.AbstractSyntax;
-import org.eclipse.gemoc.dsl.DisplayName;
 import org.eclipse.gemoc.dsl.Dsl;
 import org.eclipse.gemoc.dsl.DslPackage;
-import org.eclipse.gemoc.dsl.Metaprog;
-import org.eclipse.gemoc.dsl.Semantic;
-import org.eclipse.gemoc.dsl.Value;
+import org.eclipse.gemoc.dsl.Entry;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,11 +32,7 @@ import org.eclipse.gemoc.dsl.Value;
  * </p>
  * <ul>
  *   <li>{@link org.eclipse.gemoc.dsl.impl.DslImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipse.gemoc.dsl.impl.DslImpl#getDisplayName <em>Display Name</em>}</li>
- *   <li>{@link org.eclipse.gemoc.dsl.impl.DslImpl#getMetaprog <em>Metaprog</em>}</li>
- *   <li>{@link org.eclipse.gemoc.dsl.impl.DslImpl#getAbstractSyntax <em>Abstract Syntax</em>}</li>
- *   <li>{@link org.eclipse.gemoc.dsl.impl.DslImpl#getSemantic <em>Semantic</em>}</li>
- *   <li>{@link org.eclipse.gemoc.dsl.impl.DslImpl#getValues <em>Values</em>}</li>
+ *   <li>{@link org.eclipse.gemoc.dsl.impl.DslImpl#getEntries <em>Entries</em>}</li>
  * </ul>
  *
  * @generated
@@ -68,54 +60,14 @@ public class DslImpl extends MinimalEObjectImpl.Container implements Dsl
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getDisplayName() <em>Display Name</em>}' containment reference.
+   * The cached value of the '{@link #getEntries() <em>Entries</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDisplayName()
+   * @see #getEntries()
    * @generated
    * @ordered
    */
-  protected DisplayName displayName;
-
-  /**
-   * The cached value of the '{@link #getMetaprog() <em>Metaprog</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getMetaprog()
-   * @generated
-   * @ordered
-   */
-  protected Metaprog metaprog;
-
-  /**
-   * The cached value of the '{@link #getAbstractSyntax() <em>Abstract Syntax</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAbstractSyntax()
-   * @generated
-   * @ordered
-   */
-  protected AbstractSyntax abstractSyntax;
-
-  /**
-   * The cached value of the '{@link #getSemantic() <em>Semantic</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getSemantic()
-   * @generated
-   * @ordered
-   */
-  protected Semantic semantic;
-
-  /**
-   * The cached value of the '{@link #getValues() <em>Values</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValues()
-   * @generated
-   * @ordered
-   */
-  protected EList<Value> values;
+  protected EList<Entry> entries;
 
   /**
    * <!-- begin-user-doc -->
@@ -166,205 +118,13 @@ public class DslImpl extends MinimalEObjectImpl.Container implements Dsl
    * <!-- end-user-doc -->
    * @generated
    */
-  public DisplayName getDisplayName()
+  public EList<Entry> getEntries()
   {
-    return displayName;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetDisplayName(DisplayName newDisplayName, NotificationChain msgs)
-  {
-    DisplayName oldDisplayName = displayName;
-    displayName = newDisplayName;
-    if (eNotificationRequired())
+    if (entries == null)
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DslPackage.DSL__DISPLAY_NAME, oldDisplayName, newDisplayName);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
+      entries = new EObjectContainmentEList<Entry>(Entry.class, this, DslPackage.DSL__ENTRIES);
     }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setDisplayName(DisplayName newDisplayName)
-  {
-    if (newDisplayName != displayName)
-    {
-      NotificationChain msgs = null;
-      if (displayName != null)
-        msgs = ((InternalEObject)displayName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DslPackage.DSL__DISPLAY_NAME, null, msgs);
-      if (newDisplayName != null)
-        msgs = ((InternalEObject)newDisplayName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DslPackage.DSL__DISPLAY_NAME, null, msgs);
-      msgs = basicSetDisplayName(newDisplayName, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.DSL__DISPLAY_NAME, newDisplayName, newDisplayName));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Metaprog getMetaprog()
-  {
-    return metaprog;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetMetaprog(Metaprog newMetaprog, NotificationChain msgs)
-  {
-    Metaprog oldMetaprog = metaprog;
-    metaprog = newMetaprog;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DslPackage.DSL__METAPROG, oldMetaprog, newMetaprog);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setMetaprog(Metaprog newMetaprog)
-  {
-    if (newMetaprog != metaprog)
-    {
-      NotificationChain msgs = null;
-      if (metaprog != null)
-        msgs = ((InternalEObject)metaprog).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DslPackage.DSL__METAPROG, null, msgs);
-      if (newMetaprog != null)
-        msgs = ((InternalEObject)newMetaprog).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DslPackage.DSL__METAPROG, null, msgs);
-      msgs = basicSetMetaprog(newMetaprog, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.DSL__METAPROG, newMetaprog, newMetaprog));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public AbstractSyntax getAbstractSyntax()
-  {
-    return abstractSyntax;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetAbstractSyntax(AbstractSyntax newAbstractSyntax, NotificationChain msgs)
-  {
-    AbstractSyntax oldAbstractSyntax = abstractSyntax;
-    abstractSyntax = newAbstractSyntax;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DslPackage.DSL__ABSTRACT_SYNTAX, oldAbstractSyntax, newAbstractSyntax);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setAbstractSyntax(AbstractSyntax newAbstractSyntax)
-  {
-    if (newAbstractSyntax != abstractSyntax)
-    {
-      NotificationChain msgs = null;
-      if (abstractSyntax != null)
-        msgs = ((InternalEObject)abstractSyntax).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DslPackage.DSL__ABSTRACT_SYNTAX, null, msgs);
-      if (newAbstractSyntax != null)
-        msgs = ((InternalEObject)newAbstractSyntax).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DslPackage.DSL__ABSTRACT_SYNTAX, null, msgs);
-      msgs = basicSetAbstractSyntax(newAbstractSyntax, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.DSL__ABSTRACT_SYNTAX, newAbstractSyntax, newAbstractSyntax));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Semantic getSemantic()
-  {
-    return semantic;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetSemantic(Semantic newSemantic, NotificationChain msgs)
-  {
-    Semantic oldSemantic = semantic;
-    semantic = newSemantic;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DslPackage.DSL__SEMANTIC, oldSemantic, newSemantic);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setSemantic(Semantic newSemantic)
-  {
-    if (newSemantic != semantic)
-    {
-      NotificationChain msgs = null;
-      if (semantic != null)
-        msgs = ((InternalEObject)semantic).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DslPackage.DSL__SEMANTIC, null, msgs);
-      if (newSemantic != null)
-        msgs = ((InternalEObject)newSemantic).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DslPackage.DSL__SEMANTIC, null, msgs);
-      msgs = basicSetSemantic(newSemantic, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.DSL__SEMANTIC, newSemantic, newSemantic));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Value> getValues()
-  {
-    if (values == null)
-    {
-      values = new EObjectContainmentEList<Value>(Value.class, this, DslPackage.DSL__VALUES);
-    }
-    return values;
+    return entries;
   }
 
   /**
@@ -377,16 +137,8 @@ public class DslImpl extends MinimalEObjectImpl.Container implements Dsl
   {
     switch (featureID)
     {
-      case DslPackage.DSL__DISPLAY_NAME:
-        return basicSetDisplayName(null, msgs);
-      case DslPackage.DSL__METAPROG:
-        return basicSetMetaprog(null, msgs);
-      case DslPackage.DSL__ABSTRACT_SYNTAX:
-        return basicSetAbstractSyntax(null, msgs);
-      case DslPackage.DSL__SEMANTIC:
-        return basicSetSemantic(null, msgs);
-      case DslPackage.DSL__VALUES:
-        return ((InternalEList<?>)getValues()).basicRemove(otherEnd, msgs);
+      case DslPackage.DSL__ENTRIES:
+        return ((InternalEList<?>)getEntries()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -403,16 +155,8 @@ public class DslImpl extends MinimalEObjectImpl.Container implements Dsl
     {
       case DslPackage.DSL__NAME:
         return getName();
-      case DslPackage.DSL__DISPLAY_NAME:
-        return getDisplayName();
-      case DslPackage.DSL__METAPROG:
-        return getMetaprog();
-      case DslPackage.DSL__ABSTRACT_SYNTAX:
-        return getAbstractSyntax();
-      case DslPackage.DSL__SEMANTIC:
-        return getSemantic();
-      case DslPackage.DSL__VALUES:
-        return getValues();
+      case DslPackage.DSL__ENTRIES:
+        return getEntries();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -431,21 +175,9 @@ public class DslImpl extends MinimalEObjectImpl.Container implements Dsl
       case DslPackage.DSL__NAME:
         setName((String)newValue);
         return;
-      case DslPackage.DSL__DISPLAY_NAME:
-        setDisplayName((DisplayName)newValue);
-        return;
-      case DslPackage.DSL__METAPROG:
-        setMetaprog((Metaprog)newValue);
-        return;
-      case DslPackage.DSL__ABSTRACT_SYNTAX:
-        setAbstractSyntax((AbstractSyntax)newValue);
-        return;
-      case DslPackage.DSL__SEMANTIC:
-        setSemantic((Semantic)newValue);
-        return;
-      case DslPackage.DSL__VALUES:
-        getValues().clear();
-        getValues().addAll((Collection<? extends Value>)newValue);
+      case DslPackage.DSL__ENTRIES:
+        getEntries().clear();
+        getEntries().addAll((Collection<? extends Entry>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -464,20 +196,8 @@ public class DslImpl extends MinimalEObjectImpl.Container implements Dsl
       case DslPackage.DSL__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case DslPackage.DSL__DISPLAY_NAME:
-        setDisplayName((DisplayName)null);
-        return;
-      case DslPackage.DSL__METAPROG:
-        setMetaprog((Metaprog)null);
-        return;
-      case DslPackage.DSL__ABSTRACT_SYNTAX:
-        setAbstractSyntax((AbstractSyntax)null);
-        return;
-      case DslPackage.DSL__SEMANTIC:
-        setSemantic((Semantic)null);
-        return;
-      case DslPackage.DSL__VALUES:
-        getValues().clear();
+      case DslPackage.DSL__ENTRIES:
+        getEntries().clear();
         return;
     }
     super.eUnset(featureID);
@@ -495,16 +215,8 @@ public class DslImpl extends MinimalEObjectImpl.Container implements Dsl
     {
       case DslPackage.DSL__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case DslPackage.DSL__DISPLAY_NAME:
-        return displayName != null;
-      case DslPackage.DSL__METAPROG:
-        return metaprog != null;
-      case DslPackage.DSL__ABSTRACT_SYNTAX:
-        return abstractSyntax != null;
-      case DslPackage.DSL__SEMANTIC:
-        return semantic != null;
-      case DslPackage.DSL__VALUES:
-        return values != null && !values.isEmpty();
+      case DslPackage.DSL__ENTRIES:
+        return entries != null && !entries.isEmpty();
     }
     return super.eIsSet(featureID);
   }
