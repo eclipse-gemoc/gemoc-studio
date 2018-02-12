@@ -80,6 +80,8 @@ public class GenerateTrace4OfficialSampleLegacyFSM_Test extends AbstractXtextTes
 		melangeProject2 = helper.deployProject(PROJECT_NAME2+".xsfsm",BASE_FOLDER_NAME+"/"+PROJECT_NAME2+".xsfsm.zip")
 		//helper.deployProject(PROJECT_NAME2+".design",BASE_FOLDER_NAME+"/"+PROJECT_NAME2+".design.zip")
 		
+		IResourcesSetupUtil::cleanBuild()
+		IResourcesSetupUtil::reallyWaitForAutoBuild	
 		IResourcesSetupUtil::fullBuild
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 		WorkspaceTestHelper::reallyWaitForJobs(4)
@@ -104,9 +106,10 @@ public class GenerateTrace4OfficialSampleLegacyFSM_Test extends AbstractXtextTes
 			}
 		])
 		thrownException.forall[e| throw new Exception(e)] // rethrown exception that was executed in the ui thread
-		
-		IResourcesSetupUtil::reallyWaitForAutoBuild
-		
+		IResourcesSetupUtil::cleanBuild()
+		IResourcesSetupUtil::reallyWaitForAutoBuild		
+		IResourcesSetupUtil::fullBuild
+		IResourcesSetupUtil::reallyWaitForAutoBuild	
 		WorkspaceTestHelper::reallyWaitForJobs(50)
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 		

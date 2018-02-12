@@ -69,6 +69,7 @@ public class DeployOfficialSampleLegacyFSM_Test extends AbstractXtextTests
 		key.pressShortcut(Keystrokes.ESC);		
 		// make sure we are on the correct perspective
 		bot.perspectiveById(XDSMLFrameworkUI.ID_PERSPECTIVE).activate()
+		IResourcesSetupUtil::reallyWaitForAutoBuild
 	}
 	
 	@After
@@ -84,7 +85,7 @@ public class DeployOfficialSampleLegacyFSM_Test extends AbstractXtextTests
 		bot.tree().getTreeItem("GEMOC language workbench examples").expand();
 		bot.tree().getTreeItem("GEMOC language workbench examples").getNode("GEMOC FSM Language (Sequential)").select();
 	  	bot.button("Finish").click();
-
+		IResourcesSetupUtil::cleanBuild()
 		WorkspaceTestHelper::reallyWaitForJobs(2)
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 		IResourcesSetupUtil::fullBuild
