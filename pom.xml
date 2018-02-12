@@ -41,7 +41,7 @@
         <repository>
             <id>nebula</id>
             <layout>p2</layout>
-            <url>http://archive.eclipse.org/nebula/Q22016/incubation</url>
+            <url>http://download.eclipse.org/nebula/snapshot/</url>
         </repository>
     </repositories>
 
