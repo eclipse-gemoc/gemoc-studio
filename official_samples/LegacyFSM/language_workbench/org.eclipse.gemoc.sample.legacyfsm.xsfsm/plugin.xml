@@ -10,7 +10,7 @@
         Inria - initial API and implementation
  --><plugin>
   <extension point="org.eclipse.gemoc.gemoc_language_workbench.sequential.xdsml">
-    <XDSML_Definition modelLoader_class="org.eclipse.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" name="org.eclipse.gemoc.sample.legacyfsm.xsfsm.XSFSM" xdsmlFilePath="/org.eclipse.gemoc.sample.legacyfsm.xsfsm/src/org/eclipse/gemoc/sample/legacyfsm/xsfsm/language/XSFSM.melange">
+    <XDSML_Definition modelLoader_class="org.eclipse.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" name="org.eclipse.gemoc.sample.legacyfsm.xsfsm.XSFSM" xdsmlFilePath="/org.eclipse.gemoc.sample.legacyfsm.xsfsm/bin/org/eclipse/gemoc/sample/legacyfsm/xsfsm/language/XSFSM.melange">
       <XDSML_Definition_Customization fileExtensions="fsm, xsfsm"/>
     </XDSML_Definition>
   </extension>
