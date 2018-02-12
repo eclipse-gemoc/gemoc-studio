@@ -50,5 +50,5 @@ node {
 	      archiveArtifacts '**/target/products/*.zip,**/gemoc-studio/gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.updatesite/target/repository/**'
 	   }
    }
-   step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: '', sendToIndividuals: true])
+   step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'didider.vojtisek@inria.fr', sendToIndividuals: true])
 }
