@@ -1,11 +1,14 @@
 #!groovy
 node {
    properties([[$class: 'BuildDiscarderProperty', strategy: [$class: 'LogRotator', artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '10']]]);
+
 	catchError {
 	   def mvnHome
 	   stage('Preparation') {
-	   
-	      // Get code from GitHub repositories
+   		  // Wipe the workspace so we are building completely clean
+  		  deleteDir()
+  		  	   
+		  // Get code from GitHub repositories
 	
 	      // this will check if there is a branch with the same name as the current branch (ie. the branch containing this Jenkinsfile) and use that for the checkout, but if there is no
 	      // branch with the same name it will fall back to the master branch
