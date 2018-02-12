@@ -15,7 +15,6 @@ import org.eclipse.core.resources.IProject
 import org.eclipse.xtext.junit4.AbstractXtextTests
 import org.eclipse.xtext.junit4.InjectWith
 import org.eclipse.xtext.junit4.XtextRunner
-import org.eclipse.xtext.junit4.ui.util.IResourcesSetupUtil
 import org.junit.After
 import org.junit.Before
 import org.junit.FixMethodOrder
@@ -33,6 +32,7 @@ import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem
 import com.google.inject.Injector
 import java.util.ArrayList
 import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences
+import org.eclipse.xtext.ui.testing.util.IResourcesSetupUtil
 
 /**
  * Checks that the provided official sample can compile without error 
@@ -70,6 +70,7 @@ public class GenerateLangRuntime4OfficialSampleLegacyFSM_Test extends AbstractXt
 		super.setUp
 		helper.init
 		IResourcesSetupUtil::cleanWorkspace
+		IResourcesSetupUtil::reallyWaitForAutoBuild
 		
 		// try to respect build order in order to ease compilation, this will speed up the test
 		helper.deployProject(PROJECT_NAME+".model",BASE_FOLDER_NAME+"/"+PROJECT_NAME+".model.zip")
@@ -84,9 +85,12 @@ public class GenerateLangRuntime4OfficialSampleLegacyFSM_Test extends AbstractXt
 		//helper.deployProject(PROJECT_NAME2+".design",BASE_FOLDER_NAME+"/"+PROJECT_NAME2+".design.zip")
 		
 		IResourcesSetupUtil::reallyWaitForAutoBuild
+		WorkspaceTestHelper::reallyWaitForJobs(4)
 		melangeHelper.cleanAll(MELANGE_FILE)
 		melangeHelper.cleanAll(MELANGE_FILE2)
+		IResourcesSetupUtil::fullBuild
 		IResourcesSetupUtil::reallyWaitForAutoBuild
+		WorkspaceTestHelper::reallyWaitForJobs(4)
 		
 		val ArrayList<Throwable> thrownException = newArrayList()
 		Display.^default.syncExec([

@@ -56,6 +56,8 @@ public class DeployOfficialSampleLegacyFSM_Test extends AbstractXtextTests
 		SWTBotPreferences.TIMEOUT = WorkspaceTestHelper.SWTBotPreferencesTIMEOUT_4_GEMOC;
 		bot.resetWorkbench
 		IResourcesSetupUtil::cleanWorkspace
+		IResourcesSetupUtil::reallyWaitForAutoBuild
+		WorkspaceTestHelper::reallyWaitForJobs(4)
 	}
 	
 	@Before
@@ -76,7 +78,7 @@ public class DeployOfficialSampleLegacyFSM_Test extends AbstractXtextTests
 	
 	@Test
 	def void test01_InstallLegacyFsm() throws Exception {
-		val activeShell = bot.activeShell // the focus is lost after click on "Browse..."
+		//val activeShell = bot.activeShell // the focus is lost after click on "Browse..."
 		bot.menu("File").menu("New").menu("Example...").click();
 		bot.tree().getTreeItem("GEMOC language workbench examples").select();
 		bot.tree().getTreeItem("GEMOC language workbench examples").expand();

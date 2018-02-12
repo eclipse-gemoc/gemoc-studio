@@ -63,6 +63,12 @@ public class CreateSingleSequentialLanguageFromOfficialFSM_Test extends Abstract
 		IResourcesSetupUtil::cleanWorkspace
 		helper.deployProject(SOURCE_PROJECT_NAME+".model",BASE_FOLDER_NAME+"/"+SOURCE_PROJECT_NAME+".model.zip")
 		helper.deployProject(SOURCE_PROJECT_NAME+".k3dsa",BASE_FOLDER_NAME+"/"+SOURCE_PROJECT_NAME+".k3dsa.zip")
+		
+		WorkspaceTestHelper::reallyWaitForJobs(2)
+		IResourcesSetupUtil::reallyWaitForAutoBuild
+		IResourcesSetupUtil::fullBuild
+		IResourcesSetupUtil::reallyWaitForAutoBuild
+		WorkspaceTestHelper::reallyWaitForJobs(4)
 	}
 	
 	@Before
@@ -74,7 +80,9 @@ public class CreateSingleSequentialLanguageFromOfficialFSM_Test extends Abstract
 		// make sure we are on the correct perspective
 		bot.perspectiveById(XDSMLFrameworkUI.ID_PERSPECTIVE).activate()
 		val projExplorerBot = bot.viewByTitle("Project Explorer").bot
+		
 		IResourcesSetupUtil::reallyWaitForAutoBuild
+		WorkspaceTestHelper::reallyWaitForJobs(4)
 	}
 	
 	@After
