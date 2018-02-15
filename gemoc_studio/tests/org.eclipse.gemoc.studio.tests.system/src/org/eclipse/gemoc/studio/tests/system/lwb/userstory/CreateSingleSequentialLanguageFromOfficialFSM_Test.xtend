@@ -61,9 +61,12 @@ public class CreateSingleSequentialLanguageFromOfficialFSM_Test extends Abstract
 		SWTBotPreferences.TIMEOUT = WorkspaceTestHelper.SWTBotPreferencesTIMEOUT_4_GEMOC;
 		bot.resetWorkbench
 		IResourcesSetupUtil::cleanWorkspace
+		WorkspaceTestHelper::reallyWaitForJobs(2)
+		IResourcesSetupUtil::reallyWaitForAutoBuild
 		helper.deployProject(SOURCE_PROJECT_NAME+".model",BASE_FOLDER_NAME+"/"+SOURCE_PROJECT_NAME+".model.zip")
 		helper.deployProject(SOURCE_PROJECT_NAME+".k3dsa",BASE_FOLDER_NAME+"/"+SOURCE_PROJECT_NAME+".k3dsa.zip")
 		
+		WorkspaceTestHelper::reallyWaitForJobs(2)
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 		IResourcesSetupUtil::fullBuild
 		IResourcesSetupUtil::reallyWaitForAutoBuild
