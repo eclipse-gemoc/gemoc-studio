@@ -64,9 +64,10 @@ public class CreateSingleSequentialLanguageFromOfficialFSM_Test extends Abstract
 		helper.deployProject(SOURCE_PROJECT_NAME+".model",BASE_FOLDER_NAME+"/"+SOURCE_PROJECT_NAME+".model.zip")
 		helper.deployProject(SOURCE_PROJECT_NAME+".k3dsa",BASE_FOLDER_NAME+"/"+SOURCE_PROJECT_NAME+".k3dsa.zip")
 		
+		IResourcesSetupUtil::reallyWaitForAutoBuild
 		IResourcesSetupUtil::fullBuild
 		IResourcesSetupUtil::reallyWaitForAutoBuild
-		WorkspaceTestHelper::reallyWaitForJobs(2)
+		WorkspaceTestHelper::reallyWaitForJobs(4)
 	}
 	
 	@Before
