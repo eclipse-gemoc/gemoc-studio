@@ -57,7 +57,7 @@ public class DeployOfficialSampleLegacyFSM_Test extends AbstractXtextTests
 		bot.resetWorkbench
 		IResourcesSetupUtil::cleanWorkspace
 		IResourcesSetupUtil::reallyWaitForAutoBuild
-		WorkspaceTestHelper::reallyWaitForJobs(4)
+		WorkspaceTestHelper::reallyWaitForJobs(2)
 	}
 	
 	@Before
@@ -85,9 +85,7 @@ public class DeployOfficialSampleLegacyFSM_Test extends AbstractXtextTests
 		bot.tree().getTreeItem("GEMOC language workbench examples").expand();
 		bot.tree().getTreeItem("GEMOC language workbench examples").getNode("GEMOC FSM Language (Sequential)").select();
 	  	bot.button("Finish").click();
-		IResourcesSetupUtil::cleanBuild()
-		WorkspaceTestHelper::reallyWaitForJobs(2)
-		IResourcesSetupUtil::reallyWaitForAutoBuild
+
 		IResourcesSetupUtil::fullBuild
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 		WorkspaceTestHelper::reallyWaitForJobs(4)
