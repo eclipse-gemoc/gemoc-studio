@@ -1,6 +1,6 @@
 #!groovy
 node {
-	properties([[$class: 'RebuildSettings', autoRebuild: false, rebuildDisabled: false], buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '1', daysToKeepStr: '', numToKeepStr: '10')), pipelineTriggers([[$class: 'PeriodicFolderTrigger', interval: '15m']])])
+	properties([disableConcurrentBuilds(), [$class: 'RebuildSettings', autoRebuild: false, rebuildDisabled: false], buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '1', daysToKeepStr: '', numToKeepStr: '10')), pipelineTriggers([[$class: 'PeriodicFolderTrigger', interval: '15m']])])
    
 	catchError {
 	   def mvnHome
