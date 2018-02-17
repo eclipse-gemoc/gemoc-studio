@@ -1,5 +1,7 @@
+Manifest-Version: 1.0
 Bundle-SymbolicName: org.eclipse.gemoc.sample.legacyfsm.fsm.k3dsa;singleton:=true
-Export-Package: org.eclipse.gemoc.sample.legacyfsm.fsm.k3dsa,org.eclipse.gemoc.sample.legacyfsm.fsm.k3dsa
+Export-Package: org.eclipse.gemoc.sample.legacyfsm.fsm.k3dsa,
+ org.eclipse.gemoc.sample.legacyfsm.fsm.k3dsa
 Bundle-Name: org.eclipse.gemoc.sample.legacyfsm.fsm.k3dsa
 Bundle-Version: 1.0.0
 Bundle-ClassPath: .
@@ -13,4 +15,3 @@ Require-Bundle: fr.inria.diverse.k3.al.annotationprocessor.plugin;bundle-version
  org.eclipse.gemoc.sample.legacyfsm.fsm.model;bundle-version="0.0.0";visibility:=private
 Bundle-ManifestVersion: 2
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Manifest-Version: 1.0

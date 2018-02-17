@@ -56,6 +56,8 @@ public class DeployOfficialSampleLegacyFSM_Test extends AbstractXtextTests
 		SWTBotPreferences.TIMEOUT = WorkspaceTestHelper.SWTBotPreferencesTIMEOUT_4_GEMOC;
 		bot.resetWorkbench
 		IResourcesSetupUtil::cleanWorkspace
+		IResourcesSetupUtil::reallyWaitForAutoBuild
+		WorkspaceTestHelper::reallyWaitForJobs(2)
 	}
 	
 	@Before
@@ -67,6 +69,7 @@ public class DeployOfficialSampleLegacyFSM_Test extends AbstractXtextTests
 		key.pressShortcut(Keystrokes.ESC);		
 		// make sure we are on the correct perspective
 		bot.perspectiveById(XDSMLFrameworkUI.ID_PERSPECTIVE).activate()
+		IResourcesSetupUtil::reallyWaitForAutoBuild
 	}
 	
 	@After
@@ -76,15 +79,13 @@ public class DeployOfficialSampleLegacyFSM_Test extends AbstractXtextTests
 	
 	@Test
 	def void test01_InstallLegacyFsm() throws Exception {
-		val activeShell = bot.activeShell // the focus is lost after click on "Browse..."
+		//val activeShell = bot.activeShell // the focus is lost after click on "Browse..."
 		bot.menu("File").menu("New").menu("Example...").click();
 		bot.tree().getTreeItem("GEMOC language workbench examples").select();
 		bot.tree().getTreeItem("GEMOC language workbench examples").expand();
 		bot.tree().getTreeItem("GEMOC language workbench examples").getNode("GEMOC FSM Language (Sequential)").select();
 	  	bot.button("Finish").click();
 
-		WorkspaceTestHelper::reallyWaitForJobs(2)
-		IResourcesSetupUtil::reallyWaitForAutoBuild
 		IResourcesSetupUtil::fullBuild
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 		WorkspaceTestHelper::reallyWaitForJobs(4)

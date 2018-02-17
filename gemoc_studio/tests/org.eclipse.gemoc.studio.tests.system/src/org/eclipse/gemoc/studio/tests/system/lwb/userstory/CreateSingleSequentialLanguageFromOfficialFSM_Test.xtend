@@ -59,14 +59,24 @@ public class CreateSingleSequentialLanguageFromOfficialFSM_Test extends Abstract
 		bot = new SWTWorkbenchBot()
 		// Set the SWTBot timeout
 		SWTBotPreferences.TIMEOUT = WorkspaceTestHelper.SWTBotPreferencesTIMEOUT_4_GEMOC;
+		helper.setTargetPlatform
 		bot.resetWorkbench
 		IResourcesSetupUtil::cleanWorkspace
+		WorkspaceTestHelper::reallyWaitForJobs(2)
+		IResourcesSetupUtil::reallyWaitForAutoBuild
 		helper.deployProject(SOURCE_PROJECT_NAME+".model",BASE_FOLDER_NAME+"/"+SOURCE_PROJECT_NAME+".model.zip")
 		helper.deployProject(SOURCE_PROJECT_NAME+".k3dsa",BASE_FOLDER_NAME+"/"+SOURCE_PROJECT_NAME+".k3dsa.zip")
+		
+		WorkspaceTestHelper::reallyWaitForJobs(2)
+		IResourcesSetupUtil::reallyWaitForAutoBuild
+		IResourcesSetupUtil::fullBuild
+		IResourcesSetupUtil::reallyWaitForAutoBuild
+		WorkspaceTestHelper::reallyWaitForJobs(4)
 	}
 	
 	@Before
 	override setUp() {
+		helper.setTargetPlatform
 		bot.resetWorkbench
 		// helps to reset the workspace state by closing menu as bot.resetWorkbench is not enough
 		val Keyboard key = KeyboardFactory.getSWTKeyboard();
@@ -74,7 +84,9 @@ public class CreateSingleSequentialLanguageFromOfficialFSM_Test extends Abstract
 		// make sure we are on the correct perspective
 		bot.perspectiveById(XDSMLFrameworkUI.ID_PERSPECTIVE).activate()
 		val projExplorerBot = bot.viewByTitle("Project Explorer").bot
+		
 		IResourcesSetupUtil::reallyWaitForAutoBuild
+		WorkspaceTestHelper::reallyWaitForJobs(4)
 	}
 	
 	@After
@@ -97,6 +109,7 @@ public class CreateSingleSequentialLanguageFromOfficialFSM_Test extends Abstract
 		bot.menu("File").menu("New").menu("GEMOC Sequential xDSML Project").click();
 		bot.text().setText(PROJECT_NAME);
 		bot.button("Next >").click();
+		//bot.buttonWithLabel("Next >").click();
 		bot.button("Next >").click();
 		bot.textWithLabel("&Package name(*)").setText(BASE_NAME);
 				
@@ -118,6 +131,8 @@ public class CreateSingleSequentialLanguageFromOfficialFSM_Test extends Abstract
 		activeShell.bot.button("Finish").click()
 		//bot.button("Finish").click();
 
+		IResourcesSetupUtil::reallyWaitForAutoBuild
+		WorkspaceTestHelper::reallyWaitForJobs(4)
 		helper.assertProjectExists(PROJECT_NAME);
 
 		IResourcesSetupUtil.reallyWaitForAutoBuild();

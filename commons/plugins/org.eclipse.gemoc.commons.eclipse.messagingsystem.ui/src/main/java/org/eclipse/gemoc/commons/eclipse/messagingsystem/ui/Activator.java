@@ -12,6 +12,7 @@ package org.eclipse.gemoc.commons.eclipse.messagingsystem.ui;
 
 import java.io.PrintStream;
 
+import org.eclipse.gemoc.commons.eclipse.messagingsystem.ui.helper.TeeOutputStream;
 import org.eclipse.gemoc.commons.eclipse.messagingsystem.ui.internal.EclipseConsoleOutputStream;
 import org.eclipse.gemoc.commons.eclipse.messagingsystem.ui.internal.console.ConsoleIO;
 import org.eclipse.gemoc.commons.eclipse.messagingsystem.ui.internal.console.EclipseConsoleIO;
@@ -106,8 +107,8 @@ public class Activator extends AbstractUIPlugin {
 		return consoleIO;
 	}
 
-	protected PrintStream OriginalSystemOut = null;
-	protected PrintStream OriginalSystemErr = null;
+	protected PrintStream originalSystemOut = null;
+	protected PrintStream originalSystemErr = null;
 
 	/**
 	 * set the current System.out and System.err so they are redirected to our
@@ -115,17 +116,19 @@ public class Activator extends AbstractUIPlugin {
 	 */
 	public void captureSystemOutAndErr() {
 		Activator.getDefault().getConsoleIO().print("Redirecting System.out and System.err to this console.\n");
-		if (OriginalSystemOut != System.out) {
-			OriginalSystemOut = System.out;
-			PrintStream outPrintStream = new PrintStream(
+		if (originalSystemOut != System.out) {
+			originalSystemOut = System.out;
+			TeeOutputStream teeOutputStream = new TeeOutputStream(
+					originalSystemOut, 
 					new EclipseConsoleOutputStream(Activator.getDefault().getConsoleIO(), false));
-			System.setOut(outPrintStream);
+			System.setOut(new PrintStream(teeOutputStream));
 		}
-		if (OriginalSystemErr != System.err) {
-			OriginalSystemOut = System.out;
-			PrintStream errPrintStream = new PrintStream(
+		if (originalSystemErr != System.err) {
+			originalSystemErr = System.err;
+			TeeOutputStream teeOutputStream = new TeeOutputStream(
+					originalSystemErr,
 					new EclipseConsoleOutputStream(Activator.getDefault().getConsoleIO(), true));
-			System.setErr(errPrintStream);
+			System.setErr(new PrintStream(teeOutputStream));
 		}
 	}
 
@@ -139,12 +142,12 @@ public class Activator extends AbstractUIPlugin {
 			System.err.flush();
 		if(consoleIO != null)
 			consoleIO.print("Stopping redirection of System.out and System.err to this console.\n");
-		if (OriginalSystemOut != null)
-			System.setOut(OriginalSystemOut);
-		if (OriginalSystemErr != null)
-			System.setErr(OriginalSystemErr);
-		OriginalSystemOut = null;
-		OriginalSystemErr = null;
+		if (originalSystemOut != null)
+			System.setOut(originalSystemOut);
+		if (originalSystemErr != null)
+			System.setErr(originalSystemErr);
+		originalSystemOut = null;
+		originalSystemErr = null;
 	}
 
 }

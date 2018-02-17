@@ -1,11 +1,14 @@
 #!groovy
 node {
-   properties([[$class: 'BuildDiscarderProperty', strategy: [$class: 'LogRotator', artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '10']]]);
+	properties([disableConcurrentBuilds(), [$class: 'RebuildSettings', autoRebuild: false, rebuildDisabled: false], buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '1', daysToKeepStr: '', numToKeepStr: '10')), pipelineTriggers([[$class: 'PeriodicFolderTrigger', interval: '15m']])])
+   
 	catchError {
 	   def mvnHome
 	   stage('Preparation') {
-	   
-	      // Get code from GitHub repositories
+   		  // Wipe the workspace so we are building completely clean
+  		  deleteDir()
+  		  	   
+		  // Get code from GitHub repositories
 	
 	      // this will check if there is a branch with the same name as the current branch (ie. the branch containing this Jenkinsfile) and use that for the checkout, but if there is no
 	      // branch with the same name it will fall back to the master branch
@@ -43,9 +46,9 @@ node {
 	      }
 	   }	   
 	   stage('Deployment') {
-	      junit '**/target/surefire-reports/TEST-*.xml'
+	      junit keepLongStdio: true, testResults: '**/target/surefire-reports/TEST-*.xml'
 	      archiveArtifacts '**/target/products/*.zip,**/gemoc-studio/gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.updatesite/target/repository/**'
 	   }
    }
-   step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: '', sendToIndividuals: true])
+   step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'didier.vojtisek@inria.fr', sendToIndividuals: true])
 }
