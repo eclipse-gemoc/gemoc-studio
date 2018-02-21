@@ -82,13 +82,13 @@ pipeline {
 				echo "Deploy products to download.eclipse.org"
 				sh 'rm -rf ${DOWNLOAD_FOLDER}/packages/nightly'
 				sh 'mkdir -p ${DOWNLOAD_FOLDER}/packages/nightly'
-				sh 'cp -r gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.product/target/products/* ${DOWNLOAD_FOLDER}/packages/nightly'
+				sh 'cp -r gemoc_studio/gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.product/target/products/* ${DOWNLOAD_FOLDER}/packages/nightly'
 		        
 		        echo "Deploy updatesite to download.eclipse.org"
 				sh 'rm -rf   ${DOWNLOAD_FOLDER}/updates/nightly'
 				sh 'mkdir -p ${DOWNLOAD_FOLDER}/updates/nightly'
-				sh 'cp -r    gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.product/target/repository/* ${DOWNLOAD_FOLDER}/updates/nightly'
-				sh 'zip -R   ${DOWNLOAD_FOLDER}/updates/nightly/repository.zip gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.product/target/repository/*'
+				sh 'cp -r    gemoc_studio/gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.product/target/repository/* ${DOWNLOAD_FOLDER}/updates/nightly'
+				sh 'zip -R   ${DOWNLOAD_FOLDER}/updates/nightly/repository.zip gemoc_studio/gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.product/target/repository/*'
 			}
 		}
 	}
