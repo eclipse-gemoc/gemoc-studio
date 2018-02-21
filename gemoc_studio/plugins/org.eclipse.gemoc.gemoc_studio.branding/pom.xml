@@ -35,23 +35,19 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>buildnumber-maven-plugin</artifactId>
-				<version>1.0</version>
+				<version>1.4</version>
 				<executions>
 					<execution>
 						<phase>generate-resources</phase>
 						<goals>
-							<goal>create</goal>
+							<goal>create-timestamp</goal>
 						</goals>
 					</execution>
 				</executions>
 				<configuration>
-					<doCheck>false</doCheck>
-					<doUpdate>false</doUpdate>
-					<revisionOnScmFailure>false</revisionOnScmFailure>
-					<format>{0,date,yyyy-MM-dd HH:mm}</format>
-					<items>
-						<item>timestamp</item>
-					</items>
+        			<timestampFormat>yyyy-MM-dd  HH:mm, z</timestampFormat>
+        			<timestampPropertyName>timestamp</timestampPropertyName> 
+        			<timezone>UTC</timezone>
 				</configuration>
 			</plugin>
 			<!-- Generate the splash screen (support png only) -->
@@ -82,7 +78,7 @@
 	                        	<backgroundImageName>splash</backgroundImageName>
 	                            <draw>
 	                            	<drawText>
-			                            <text>${project.version}  ${buildNumber}</text>
+			                            <text>${project.version}  ${timestamp}</text>
 			                            <textColor>#909090</textColor>
 			                            <fontName>SansSerif</fontName>
 			                            <fontStyle>italic,bold</fontStyle>
@@ -140,12 +136,12 @@
 		</plugins>
 	</build>	
 	<!-- used by buildnumber-maven-plugin -->
-	<scm>
+	<!-- <scm>
 		<connection>scm:svn:http://127.0.0.1/dummy</connection>
 		<developerConnection>scm:svn:https://127.0.0.1/dummy</developerConnection>
 		<tag>HEAD</tag>
 		<url>http://127.0.0.1/dummy</url>
-	</scm>
+	</scm>-->
 	
 	<pluginRepositories>
 		<pluginRepository>
