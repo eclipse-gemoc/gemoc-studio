@@ -92,7 +92,7 @@ pipeline {
 			script { 
             	if(  "${BRANCH_NAME}".equals("master")){
             		// note: sendToIndividuals doesn't work due to https://issues.jenkins-ci.org/browse/JENKINS-43202
-            		step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: "didier.vojtisek@inria.fr, ", sendToIndividuals: true])
+            		step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: "didier.vojtisek@inria.fr, erwan.bousse@tuwien.ac.at", sendToIndividuals: true])
 			    }
             }  
 		}
