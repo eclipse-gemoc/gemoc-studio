@@ -11,6 +11,9 @@ pipeline {
         	maven 'apache-maven-latest'
         	jdk 'jdk1.8.0-latest'
     }
+	environment {
+		DOWNLOAD_FOLDER = "/home/data/httpd/download.eclipse.org/gemoc"
+	}
 	stages {
 		stage('Prepare') {
 			steps {
@@ -65,22 +68,27 @@ pipeline {
 		stage("Archive in Jenkins") {
 			steps {
 				echo "archive artifact"
-				archiveArtifacts '**/target/products/*.zip,**/gemoc-studio/gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.updatesite/target/repository/**'
+				archiveArtifacts '**/target/products/*.zip, **/gemoc-studio/gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.updatesite/target/repository/**'
 			}
 		}
 		stage('Web upload') {
 			when {
         		// skip this stage unless on Master branch
-        		branch "master"
+        		//branch "master"
+        		// TODO move back to master when test is done
+        		branch "releng_updates"
 			}
 			steps {
-				echo "Deploy to download.eclipse.org"
-		        // TO DO				
-//				sh 'rm -rf /home/data/httpd/download.eclipse.org/gemoc/snapshots'
-//				sh 'mkdir -p /home/data/httpd/download.eclipse.org/gemoc/snapshots'
-//				sh 'cp -r repository/target/repository/* /home/data/httpd/download.eclipse.org/gemoc/snapshots'
-//				sh 'zip -R /home/data/httpd/download.eclipse.org/gemoc/snapshots/repository.zip repository/target/repository/*'
+				echo "Deploy products to download.eclipse.org"
+				sh 'rm -rf ${DOWNLOAD_FOLDER}/packages/nightly'
+				sh 'mkdir -p ${DOWNLOAD_FOLDER}/packages/nightly'
+				sh 'cp -r gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.product/target/products/* ${DOWNLOAD_FOLDER}/packages/nightly'
 		        
+		        echo "Deploy updatesite to download.eclipse.org"
+				sh 'rm -rf   ${DOWNLOAD_FOLDER}/updates/nightly'
+				sh 'mkdir -p ${DOWNLOAD_FOLDER}/updates/nightly'
+				sh 'cp -r    gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.product/target/repository/* ${DOWNLOAD_FOLDER}/updates/nightly'
+				sh 'zip -R   ${DOWNLOAD_FOLDER}/updates/nightly/repository.zip gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.product/target/repository/*'
 			}
 		}
 	}
