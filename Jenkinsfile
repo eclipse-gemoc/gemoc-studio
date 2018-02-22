@@ -74,9 +74,7 @@ pipeline {
 		stage('Web upload') {
 			when {
         		// skip this stage unless on Master branch
-        		//branch "master"
-        		// TODO move back to master when test is done
-        		branch "releng_updates"
+        		branch "master"
 			}
 			steps {
 				echo "Deploy products to download.eclipse.org"
