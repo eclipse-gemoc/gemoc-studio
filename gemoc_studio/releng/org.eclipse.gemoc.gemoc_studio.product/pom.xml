@@ -27,7 +27,33 @@
 
 
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/filtered-resources</directory>
+				<filtering>true</filtering>
+				<targetPath>${project.build.directory}/</targetPath>
+			</resource>
+		</resources>
 		<plugins>
+			<!-- create a timestamp for the filter -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>buildnumber-maven-plugin</artifactId>
+				<version>1.4</version>
+				<executions>
+					<execution>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>create-timestamp</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+        			<timestampFormat>yyyy-MM-dd  HH:mm, z</timestampFormat>
+        			<timestampPropertyName>timestamp</timestampPropertyName> 
+        			<timezone>UTC</timezone>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-p2-repository-plugin</artifactId>
