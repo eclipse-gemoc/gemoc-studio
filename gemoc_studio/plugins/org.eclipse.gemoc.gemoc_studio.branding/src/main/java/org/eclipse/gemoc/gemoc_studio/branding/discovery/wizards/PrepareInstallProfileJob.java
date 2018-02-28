@@ -163,6 +163,7 @@ public class PrepareInstallProfileJob implements IRunnableWithProgress {
 						installableConnectors.size()));
 		
 		if (operationStatus.getSeverity() > IStatus.WARNING) {
+			Activator.getDefault().getLog().log(operationStatus);
 			throw new RuntimeException(getFullMessage(operationStatus));
 		}
 		return installOperation;
