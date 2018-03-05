@@ -17,7 +17,6 @@ import java.util.Collections;
 import org.eclipse.amalgam.discovery.DiscoveryDefinition;
 import org.eclipse.amalgam.discovery.core.CancellableXMIResourceImpl;
 import org.eclipse.amalgam.discovery.ui.viewer.DiscoveryContentProvider;
-import org.eclipse.amalgam.discovery.ui.wizards.DiscoveryWizard;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.OperationCanceledException;
@@ -32,6 +31,7 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.progress.IProgressService;
 import org.eclipse.gemoc.gemoc_studio.branding.Activator;
+import org.eclipse.gemoc.gemoc_studio.branding.discovery.wizards.DiscoveryWizard;
 
 public class GemocPackageDiscovery extends DiscoveryContentProvider {
 
