@@ -30,6 +30,8 @@ import org.eclipse.xtext.ui.testing.util.IResourcesSetupUtil
 import org.junit.BeforeClass
 import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot
+import org.eclipse.gemoc.xdsmlframework.test.lib.TailWorkspaceLogToStderrRule
+import org.junit.Rule
 
 /**
  * Checks that the provided official sample can compile without error 
@@ -60,6 +62,10 @@ public class GenerateTrace4OfficialSampleLegacyFSM_Test extends AbstractXtextTes
 		IResourcesSetupUtil::cleanWorkspace
 	}
 		
+	
+	@Rule
+    public TailWorkspaceLogToStderrRule workspaceLogRule = new TailWorkspaceLogToStderrRule();
+    
 	@Before
 	override setUp() {
 		helper.setTargetPlatform

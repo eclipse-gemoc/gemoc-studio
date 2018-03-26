@@ -33,6 +33,8 @@ import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences
 import org.junit.Ignore
 import org.eclipse.swt.widgets.Display
 import org.eclipse.gemoc.execution.sequential.javaxdsml.ide.ui.templates.WizardTemplateMessages
+import org.eclipse.gemoc.xdsmlframework.test.lib.TailWorkspaceLogToStderrRule
+import org.junit.Rule
 
 /**
  * This class check a scenario where we reuse some of the base projects of the official sample : LegacyFSM
@@ -76,6 +78,9 @@ public class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test exte
 		WorkspaceTestHelper::reallyWaitForJobs(4)
 	}
 	
+	@Rule
+    public TailWorkspaceLogToStderrRule workspaceLogRule = new TailWorkspaceLogToStderrRule();
+    
 	@Before
 	override setUp() {
 		helper.setTargetPlatform

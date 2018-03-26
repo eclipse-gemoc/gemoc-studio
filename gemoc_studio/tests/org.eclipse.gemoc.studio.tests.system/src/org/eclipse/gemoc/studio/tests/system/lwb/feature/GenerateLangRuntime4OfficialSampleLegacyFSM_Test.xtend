@@ -33,6 +33,8 @@ import com.google.inject.Injector
 import java.util.ArrayList
 import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences
 import org.eclipse.xtext.ui.testing.util.IResourcesSetupUtil
+import org.eclipse.gemoc.xdsmlframework.test.lib.TailWorkspaceLogToStderrRule
+import org.junit.Rule
 
 /**
  * Checks that the provided official sample can compile without error 
@@ -64,6 +66,9 @@ public class GenerateLangRuntime4OfficialSampleLegacyFSM_Test extends AbstractXt
 		bot.resetWorkbench
 	}
 	
+	@Rule
+    public TailWorkspaceLogToStderrRule workspaceLogRule = new TailWorkspaceLogToStderrRule();
+    
 	@Before
 	override setUp() {
 		helper.setTargetPlatform

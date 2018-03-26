@@ -31,6 +31,8 @@ import org.junit.runner.RunWith
 import org.junit.runners.MethodSorters
 import org.eclipse.swt.widgets.Display
 import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences
+import org.eclipse.gemoc.xdsmlframework.test.lib.TailWorkspaceLogToStderrRule
+import org.junit.Rule
 
 /**
  * Verifies that we can use the wizard to install the official sample
@@ -60,6 +62,9 @@ public class DeployOfficialSampleLegacyFSM_Test extends AbstractXtextTests
 		WorkspaceTestHelper::reallyWaitForJobs(2)
 	}
 	
+	@Rule
+    public TailWorkspaceLogToStderrRule workspaceLogRule = new TailWorkspaceLogToStderrRule();
+    
 	@Before
 	override setUp() {
 		helper.setTargetPlatform
