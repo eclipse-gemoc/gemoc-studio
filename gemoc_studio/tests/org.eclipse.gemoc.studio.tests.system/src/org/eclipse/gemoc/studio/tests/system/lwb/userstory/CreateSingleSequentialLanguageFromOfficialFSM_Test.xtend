@@ -65,7 +65,7 @@ public class CreateSingleSequentialLanguageFromOfficialFSM_Test extends Abstract
 		helper.init
 		bot = new SWTWorkbenchBot()
 		// Set the SWTBot timeout
-		SWTBotPreferences.TIMEOUT = WorkspaceTestHelper.SWTBotPreferencesTIMEOUT_4_GEMOC *10 ;
+		SWTBotPreferences.TIMEOUT = WorkspaceTestHelper.SWTBotPreferencesTIMEOUT_4_GEMOC ;
 		helper.setTargetPlatform
 		bot.resetWorkbench
 		IResourcesSetupUtil::cleanWorkspace
