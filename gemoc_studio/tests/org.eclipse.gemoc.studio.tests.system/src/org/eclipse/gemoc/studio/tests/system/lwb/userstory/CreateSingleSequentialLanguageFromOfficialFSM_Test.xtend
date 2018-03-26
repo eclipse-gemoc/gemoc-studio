@@ -10,14 +10,19 @@
  *******************************************************************************/
 package org.eclipse.gemoc.studio.tests.system.lwb.userstory
 
+import org.eclipse.gemoc.execution.sequential.javaxdsml.ide.ui.templates.WizardTemplateMessages
 import org.eclipse.gemoc.xdsmlframework.ide.ui.XDSMLFrameworkUI
 import org.eclipse.gemoc.xdsmlframework.test.lib.MelangeUiInjectorProvider
+import org.eclipse.gemoc.xdsmlframework.test.lib.TailWorkspaceLogToStderrRule
 import org.eclipse.gemoc.xdsmlframework.test.lib.WorkspaceTestHelper
+import org.eclipse.swt.widgets.Display
+import org.eclipse.swt.widgets.Table
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner
 import org.eclipse.swtbot.swt.finder.keyboard.Keyboard
 import org.eclipse.swtbot.swt.finder.keyboard.KeyboardFactory
 import org.eclipse.swtbot.swt.finder.keyboard.Keystrokes
+import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem
 import org.eclipse.xtext.junit4.AbstractXtextTests
 import org.eclipse.xtext.junit4.InjectWith
@@ -26,14 +31,13 @@ import org.junit.After
 import org.junit.Before
 import org.junit.BeforeClass
 import org.junit.FixMethodOrder
+import org.junit.Ignore
+import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.MethodSorters
-import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences
-import org.junit.Ignore
-import org.eclipse.gemoc.commons.eclipse.pde.wizards.pages.pde.TemplateListSelectionPage
-import org.eclipse.swt.widgets.Display
-import org.eclipse.gemoc.execution.sequential.javaxdsml.ide.ui.templates.WizardTemplateMessages
+
+import static org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences.*
 
 /**
  * This class check a scenario where we reuse some of the base projects of the official sample : LegacyFSM
@@ -61,7 +65,7 @@ public class CreateSingleSequentialLanguageFromOfficialFSM_Test extends Abstract
 		helper.init
 		bot = new SWTWorkbenchBot()
 		// Set the SWTBot timeout
-		SWTBotPreferences.TIMEOUT = WorkspaceTestHelper.SWTBotPreferencesTIMEOUT_4_GEMOC ;
+		SWTBotPreferences.TIMEOUT = WorkspaceTestHelper.SWTBotPreferencesTIMEOUT_4_GEMOC  ;
 		helper.setTargetPlatform
 		bot.resetWorkbench
 		IResourcesSetupUtil::cleanWorkspace
@@ -76,6 +80,9 @@ public class CreateSingleSequentialLanguageFromOfficialFSM_Test extends Abstract
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 		WorkspaceTestHelper::reallyWaitForJobs(4)
 	}
+	
+	@Rule
+    public TailWorkspaceLogToStderrRule workspaceLogRule = new TailWorkspaceLogToStderrRule();
 	
 	@Before
 	override setUp() {
@@ -121,7 +128,7 @@ public class CreateSingleSequentialLanguageFromOfficialFSM_Test extends Abstract
 		printFocusedWidget
 		bot.sleep(500)
 		val Keyboard key = KeyboardFactory.getSWTKeyboard();
-		(1..10).takeWhile[!( bot.focusedWidget instanceof org.eclipse.swt.widgets.Table)].forEach[i |
+		(1..10).takeWhile[!( bot.focusedWidget instanceof Table)].forEach[i |
 			key.pressShortcut(Keystrokes.TAB)
 			printFocusedWidget
 			bot.sleep(500)
@@ -129,7 +136,7 @@ public class CreateSingleSequentialLanguageFromOfficialFSM_Test extends Abstract
 		// normally, we are now on the table
 		Display.getDefault().syncExec(new Runnable() {
            override void run() {
-				val org.eclipse.swt.widgets.Table table = bot.focusedWidget as org.eclipse.swt.widgets.Table
+				val Table table = bot.focusedWidget as Table
 				table.items.forEach[i|println(i+" "+i.text)]
 				val index = table.items.indexOf(table.items.findFirst[item | 
 					item.text.contains(WizardTemplateMessages.SequentialSingleLanguageTemplate_title)
@@ -184,12 +191,17 @@ public class CreateSingleSequentialLanguageFromOfficialFSM_Test extends Abstract
 		val SWTBotTreeItem projectItem = projExplorerBot.tree().getTreeItem(PROJECT_NAME).select();
 		projectItem.contextMenu("GEMOC Language").menu("Generate Multidimensional Trace Addon project for language")
 				.click();
+		
 		bot.button("OK").click();
+		/*
+		val logEntry = WorkspaceLogReaderHelper.findLastErrorEntryRelatedTo("org.eclipse.gemoc","gemoc");
+		if(logEntry.present){
+			fail("Error log contains Error messages related to gemoc: "+logEntry.get.message)
+		}*/
 		bot.button("OK").click();
 
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 		WorkspaceTestHelper::waitForJobs
-
 		helper.assertProjectExists(PROJECT_NAME + ".trace");
 
 		helper.assertNoMarkers();
