@@ -20,5 +20,6 @@ Export-Package: org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.aspects,
  org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm,
  org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.impl,
  org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.util
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Automatic-Module-Name: org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm
 

@@ -14,6 +14,7 @@ Require-Bundle: org.eclipse.ui,
 Bundle-ManifestVersion: 2
 Bundle-Activator: org.eclipse.gemoc.sample.legacyfsm.xsfsm.design.Activator
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Manifest-Version: 1.0
 Export-Package: org.eclipse.gemoc.sample.legacyfsm.xsfsm.design.services
+Automatic-Module-Name: org.eclipse.gemoc.sample.legacyfsm.xsfsm.design

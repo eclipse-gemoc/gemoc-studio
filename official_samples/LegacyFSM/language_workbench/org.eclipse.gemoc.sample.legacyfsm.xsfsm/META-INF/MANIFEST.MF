@@ -30,5 +30,6 @@ Require-Bundle: org.eclipse.xtend.lib;bundle-version="2.7.0";visibility:="privat
  org.eclipse.gemoc.sample.legacyfsm.fsm;bundle-version="1.0.0",
  org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm
 Bundle-ManifestVersion: 2
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Automatic-Module-Name: org.eclipse.gemoc.sample.legacyfsm.xsfsm
 
