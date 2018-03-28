@@ -91,6 +91,8 @@ public class DeployOfficialSampleLegacyFSM_Test extends AbstractXtextTests
 		bot.tree().getTreeItem("GEMOC language workbench examples").getNode("GEMOC FSM Language (Sequential)").select();
 	  	bot.button("Finish").click();
 
+		IResourcesSetupUtil::reallyWaitForAutoBuild
+		WorkspaceTestHelper::reallyWaitForJobs(4)
 		IResourcesSetupUtil::fullBuild
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 		WorkspaceTestHelper::reallyWaitForJobs(4)
