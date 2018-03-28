@@ -108,7 +108,7 @@ public class GenerateTrace4OfficialSampleLegacyFSM_Test extends AbstractXtextTes
 		val ArrayList<Throwable> thrownException = newArrayList()
 		Display.^default.syncExec([
 			try{
-				melangeHelper.generateTrace(DSL_FILE2, "XSFSM", PROJECT_NAME2+".trace")
+				melangeHelper.generateTrace(DSL_FILE2, "XSFSM", RUNTIME_PROJECT_NAME2+".trace")
 			} catch (Exception e) {
 				thrownException.add(e)
 			}
