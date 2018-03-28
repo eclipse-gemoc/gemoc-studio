@@ -92,11 +92,11 @@
 								<zip destfile="${sequentialFSM.tests-inputs-gen.path}/org.eclipse.gemoc.sample.legacyfsm.xsfsm.design.zip">
 									<fileset dir="${sequentialFSM.language.root}/org.eclipse.gemoc.sample.legacyfsm.xsfsm.design/" />
 								</zip>
-								<zip destfile="${sequentialFSM.tests-inputs-gen.path}/org.eclipse.gemoc.sample.legacyfsm.xsfsm.trace.zip">
-									<fileset dir="${sequentialFSM.language.root}/org.eclipse.gemoc.sample.legacyfsm.xsfsm.trace/" />
-								</zip>
 								<zip destfile="${sequentialFSM.tests-inputs-gen.path}/org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.zip">
 									<fileset dir="${sequentialFSM.language.root}/org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm/" />
+								</zip>
+								<zip destfile="${sequentialFSM.tests-inputs-gen.path}/org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.trace.zip">
+									<fileset dir="${sequentialFSM.language.root}/org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.trace/" />
 								</zip>
 
 							</target>
