@@ -32,8 +32,8 @@ public class LegacyFSMExampleWizard
 		projects.add(new ProjectDescriptor(Activator.PLUGIN_ID, "zips/org.eclipse.gemoc.sample.legacyfsm.fsm.model.editor.zip", "org.eclipse.gemoc.sample.legacyfsm.fsm.model.editor"));
 		projects.add(new ProjectDescriptor(Activator.PLUGIN_ID, "zips/org.eclipse.gemoc.sample.legacyfsm.xsfsm.zip", 		"org.eclipse.gemoc.sample.legacyfsm.xsfsm"));
 		projects.add(new ProjectDescriptor(Activator.PLUGIN_ID, "zips/org.eclipse.gemoc.sample.legacyfsm.xsfsm.design.zip", "org.eclipse.gemoc.sample.legacyfsm.xsfsm.design"));
-		projects.add(new ProjectDescriptor(Activator.PLUGIN_ID, "zips/org.eclipse.gemoc.sample.legacyfsm.xsfsm.trace.zip", 	"org.eclipse.gemoc.sample.legacyfsm.xsfsm.trace"));
 		projects.add(new ProjectDescriptor(Activator.PLUGIN_ID, "zips/org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.zip", 	"org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm"));
+		projects.add(new ProjectDescriptor(Activator.PLUGIN_ID, "zips/org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.trace.zip", "org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.trace"));
 		return projects;
 	}
 
