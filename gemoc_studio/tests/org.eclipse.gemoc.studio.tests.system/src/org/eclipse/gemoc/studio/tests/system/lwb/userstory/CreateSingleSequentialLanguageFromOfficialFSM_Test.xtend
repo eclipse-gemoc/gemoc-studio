@@ -193,12 +193,6 @@ public class CreateSingleSequentialLanguageFromOfficialFSM_Test extends Abstract
 				.click();
 		
 		bot.button("OK").click();
-		/*
-		val logEntry = WorkspaceLogReaderHelper.findLastErrorEntryRelatedTo("org.eclipse.gemoc","gemoc");
-		if(logEntry.present){
-			fail("Error log contains Error messages related to gemoc: "+logEntry.get.message)
-		}*/
-		bot.button("OK").click();
 
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 		WorkspaceTestHelper::waitForJobs

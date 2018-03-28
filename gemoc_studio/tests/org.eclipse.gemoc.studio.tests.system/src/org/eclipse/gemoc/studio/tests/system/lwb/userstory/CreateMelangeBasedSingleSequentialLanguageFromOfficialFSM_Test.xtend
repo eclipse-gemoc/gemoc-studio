@@ -230,7 +230,6 @@ public class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test exte
 		projectItem.contextMenu("GEMOC Language").menu("Generate Multidimensional Trace Addon project for language")
 				.click();
 		bot.button("OK").click();
-		bot.button("OK").click();
 
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 		WorkspaceTestHelper::waitForJobs
