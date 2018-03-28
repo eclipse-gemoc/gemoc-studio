@@ -105,8 +105,8 @@ public class DeployOfficialSampleLegacyFSM_Test extends AbstractXtextTests
 		helper.assertProjectExists(BASE_NAME+".fsm.model.editor");
 		helper.assertProjectExists(BASE_NAME+".xsfsm");
 		helper.assertProjectExists(BASE_NAME+".xsfsm.design");
-		helper.assertProjectExists(BASE_NAME+".xsfsm.trace");
 		helper.assertProjectExists(BASE_NAME+".xsfsm.xsfsm");
+		helper.assertProjectExists(BASE_NAME+".xsfsm.xsfsm.trace");
 
 		helper.assertNoMarkers();		
 	}
