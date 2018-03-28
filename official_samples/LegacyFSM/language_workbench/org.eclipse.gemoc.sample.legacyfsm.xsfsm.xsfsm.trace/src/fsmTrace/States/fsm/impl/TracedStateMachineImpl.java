@@ -328,9 +328,9 @@ public class TracedStateMachineImpl extends TracedNamedElementImpl implements Tr
 	public EList<SpecificDimension<?>> getDimensionsInternal() {
 		final EList<SpecificDimension<?>> result = new org.eclipse.emf.ecore.util.BasicInternalEList<SpecificDimension<?>>(Object.class);
 		result.addAll(super.getDimensionsInternal());
-		result.add(getStateMachine_currentState_Dimension());
-		result.add(getStateMachine_producedString_Dimension());
 		result.add(getStateMachine_unprocessedString_Dimension());
+		result.add(getStateMachine_producedString_Dimension());
+		result.add(getStateMachine_currentState_Dimension());
 		result.add(getStateMachine_consummedString_Dimension());
 		return result;
 		

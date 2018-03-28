@@ -1,4 +1,4 @@
-package org.eclipse.gemoc.sample.legacyfsm.xsfsm.trace.tracemanager;
+package org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.trace.tracemanager;
 
 import java.util.Map;
 

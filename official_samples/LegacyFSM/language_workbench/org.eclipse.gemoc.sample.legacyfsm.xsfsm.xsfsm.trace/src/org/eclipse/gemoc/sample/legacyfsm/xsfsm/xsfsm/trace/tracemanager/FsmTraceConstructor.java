@@ -1,4 +1,4 @@
-package org.eclipse.gemoc.sample.legacyfsm.xsfsm.trace.tracemanager;
+package org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.trace.tracemanager;
 
 import java.util.Collection;
 import java.util.Deque;
@@ -58,11 +58,11 @@ public class FsmTraceConstructor implements ITraceConstructor {
 	private boolean addNewObjectToState(org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.NamedElement o_cast,
 			fsmTrace.States.SpecificState newState) {
 		boolean added = false;
-		if (o_cast instanceof org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.State) {
-			added = addNewObjectToState((org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.State) o_cast, newState);
-		} else if (o_cast instanceof org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.Transition) {
+		if (o_cast instanceof org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.Transition) {
 			added = addNewObjectToState((org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.Transition) o_cast,
 					newState);
+		} else if (o_cast instanceof org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.State) {
+			added = addNewObjectToState((org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.State) o_cast, newState);
 		} else if (o_cast instanceof org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.StateMachine) {
 			added = addNewObjectToState((org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.StateMachine) o_cast,
 					newState);
@@ -203,29 +203,25 @@ public class FsmTraceConstructor implements ITraceConstructor {
 						org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.StateMachine o_cast = (org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.StateMachine) o;
 
 						if (p.getFeatureID() == org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.FsmPackage.eINSTANCE
-								.getStateMachine_CurrentState().getFeatureID()) {
+								.getStateMachine_UnprocessedString().getFeatureID()) {
 
 							// Rollback: we remove the last value of this field from the new state
 							fsmTrace.States.fsm.TracedStateMachine traced = (fsmTrace.States.fsm.TracedStateMachine) exeToTraced
 									.get(o);
-							fsmTrace.States.StateMachine_currentState_Value lastValue = traced
-									.getStateMachine_currentState_Dimension().getValues()
-									.get(traced.getStateMachine_currentState_Dimension().getValues().size() - 1);
+							fsmTrace.States.StateMachine_unprocessedString_Value lastValue = traced
+									.getStateMachine_unprocessedString_Dimension().getValues()
+									.get(traced.getStateMachine_unprocessedString_Dimension().getValues().size() - 1);
 							newState.getValues().remove(lastValue);
 
 							// And we create a proper new value
-							fsmTrace.States.StateMachine_currentState_Value newValue = fsmTrace.States.StatesFactory.eINSTANCE
-									.createStateMachine_currentState_Value();
+							fsmTrace.States.StateMachine_unprocessedString_Value newValue = fsmTrace.States.StatesFactory.eINSTANCE
+									.createStateMachine_unprocessedString_Value();
 
-							fsmTrace.States.fsm.TracedState value = null;
-							if (o_cast.getCurrentState() != null) {
-								addNewObjectToState(o_cast.getCurrentState(), newState);
-								value = ((fsmTrace.States.fsm.TracedState) exeToTraced.get(o_cast.getCurrentState()));
-							}
+							java.lang.String value = o_cast.getUnprocessedString();
 
-							newValue.setCurrentState((fsmTrace.States.fsm.TracedState) value);
+							newValue.setUnprocessedString((java.lang.String) value);
 
-							traced.getStateMachine_currentState_Dimension().getValues().add(newValue);
+							traced.getStateMachine_unprocessedString_Dimension().getValues().add(newValue);
 							newState.getValues().add(newValue);
 						} else
 
@@ -253,25 +249,29 @@ public class FsmTraceConstructor implements ITraceConstructor {
 						} else
 
 						if (p.getFeatureID() == org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.FsmPackage.eINSTANCE
-								.getStateMachine_UnprocessedString().getFeatureID()) {
+								.getStateMachine_CurrentState().getFeatureID()) {
 
 							// Rollback: we remove the last value of this field from the new state
 							fsmTrace.States.fsm.TracedStateMachine traced = (fsmTrace.States.fsm.TracedStateMachine) exeToTraced
 									.get(o);
-							fsmTrace.States.StateMachine_unprocessedString_Value lastValue = traced
-									.getStateMachine_unprocessedString_Dimension().getValues()
-									.get(traced.getStateMachine_unprocessedString_Dimension().getValues().size() - 1);
+							fsmTrace.States.StateMachine_currentState_Value lastValue = traced
+									.getStateMachine_currentState_Dimension().getValues()
+									.get(traced.getStateMachine_currentState_Dimension().getValues().size() - 1);
 							newState.getValues().remove(lastValue);
 
 							// And we create a proper new value
-							fsmTrace.States.StateMachine_unprocessedString_Value newValue = fsmTrace.States.StatesFactory.eINSTANCE
-									.createStateMachine_unprocessedString_Value();
+							fsmTrace.States.StateMachine_currentState_Value newValue = fsmTrace.States.StatesFactory.eINSTANCE
+									.createStateMachine_currentState_Value();
 
-							java.lang.String value = o_cast.getUnprocessedString();
+							fsmTrace.States.fsm.TracedState value = null;
+							if (o_cast.getCurrentState() != null) {
+								addNewObjectToState(o_cast.getCurrentState(), newState);
+								value = ((fsmTrace.States.fsm.TracedState) exeToTraced.get(o_cast.getCurrentState()));
+							}
 
-							newValue.setUnprocessedString((java.lang.String) value);
+							newValue.setCurrentState((fsmTrace.States.fsm.TracedState) value);
 
-							traced.getStateMachine_unprocessedString_Dimension().getValues().add(newValue);
+							traced.getStateMachine_currentState_Dimension().getValues().add(newValue);
 							newState.getValues().add(newValue);
 						} else
 
