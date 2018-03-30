@@ -110,10 +110,10 @@ public class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test exte
 	}
 	
 	@Test
-	def void test02_CreateSequentialLanguageProject() {
+	def void test02_CreateSequentialMelangeLanguageProject() {
 		
 		IResourcesSetupUtil::reallyWaitForAutoBuild
-		bot.menu("File").menu("New").menu("GEMOC Sequential xDSML Project").click();
+		bot.menu("File").menu("New").menu("GEMOC Melange Project for Sequential xDSML").click();
 		bot.text().setText(PROJECT_NAME);
 		bot.button("Next >").click();
 		
