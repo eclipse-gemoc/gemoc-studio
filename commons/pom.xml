@@ -35,6 +35,9 @@
         <module>releng/org.eclipse.gemoc.commons.3rdparty.feature</module>
         <module>releng/org.eclipse.gemoc.gexpressions.feature</module>
         <module>releng/org.eclipse.gemoc.commons.repository</module>
+        
+        <!-- tests -->
+        <module>tests/org.eclipse.gemoc.dsl.tests</module>
     </modules>
 	<properties>
 		<xtend.version>2.9.1</xtend.version>

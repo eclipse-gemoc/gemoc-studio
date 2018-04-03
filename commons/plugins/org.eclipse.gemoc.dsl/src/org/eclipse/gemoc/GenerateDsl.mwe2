@@ -12,9 +12,17 @@ Workflow {
 			project = StandardProjectConfig {
 				baseName = "org.eclipse.gemoc.dsl"
 				rootPath = rootPath
+				runtimeTest = {
+					root = "../../tests/org.eclipse.gemoc.dsl.tests"
+					enabled = true
+				}
 				eclipsePlugin = {
 					enabled = true
 				}
+				/* eclipsePluginTest = {
+					root = "../../tests/org.eclipse.gemoc.dsl.ui.tests"
+					enabled = true
+				} */
 				createEclipseMetaData = true
 			}
 			code = {
