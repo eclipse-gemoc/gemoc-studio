@@ -68,22 +68,13 @@ public interface DslPackage extends EPackage
   int DSL = 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DSL__NAME = 0;
-
-  /**
    * The feature id for the '<em><b>Entries</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DSL__ENTRIES = 1;
+  int DSL__ENTRIES = 0;
 
   /**
    * The number of structural features of the '<em>Dsl</em>' class.
@@ -92,7 +83,7 @@ public interface DslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DSL_FEATURE_COUNT = 2;
+  int DSL_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.eclipse.gemoc.dsl.impl.EntryImpl <em>Entry</em>}' class.
@@ -114,7 +105,7 @@ public interface DslPackage extends EPackage
   int ENTRY__KEY = 0;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -131,6 +122,34 @@ public interface DslPackage extends EPackage
    */
   int ENTRY_FEATURE_COUNT = 2;
 
+  /**
+   * The meta object id for the '{@link org.eclipse.gemoc.dsl.impl.EntryValueImpl <em>Entry Value</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.eclipse.gemoc.dsl.impl.EntryValueImpl
+   * @see org.eclipse.gemoc.dsl.impl.DslPackageImpl#getEntryValue()
+   * @generated
+   */
+  int ENTRY_VALUE = 2;
+
+  /**
+   * The feature id for the '<em><b>Entry Lines</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTRY_VALUE__ENTRY_LINES = 0;
+
+  /**
+   * The number of structural features of the '<em>Entry Value</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTRY_VALUE_FEATURE_COUNT = 1;
+
 
   /**
    * Returns the meta object for class '{@link org.eclipse.gemoc.dsl.Dsl <em>Dsl</em>}'.
@@ -141,17 +160,6 @@ public interface DslPackage extends EPackage
    * @generated
    */
   EClass getDsl();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipse.gemoc.dsl.Dsl#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.eclipse.gemoc.dsl.Dsl#getName()
-   * @see #getDsl()
-   * @generated
-   */
-  EAttribute getDsl_Name();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.eclipse.gemoc.dsl.Dsl#getEntries <em>Entries</em>}'.
@@ -186,15 +194,36 @@ public interface DslPackage extends EPackage
   EAttribute getEntry_Key();
 
   /**
-   * Returns the meta object for the attribute '{@link org.eclipse.gemoc.dsl.Entry#getValue <em>Value</em>}'.
+   * Returns the meta object for the containment reference '{@link org.eclipse.gemoc.dsl.Entry#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value</em>'.
+   * @return the meta object for the containment reference '<em>Value</em>'.
    * @see org.eclipse.gemoc.dsl.Entry#getValue()
    * @see #getEntry()
    * @generated
    */
-  EAttribute getEntry_Value();
+  EReference getEntry_Value();
+
+  /**
+   * Returns the meta object for class '{@link org.eclipse.gemoc.dsl.EntryValue <em>Entry Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Entry Value</em>'.
+   * @see org.eclipse.gemoc.dsl.EntryValue
+   * @generated
+   */
+  EClass getEntryValue();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.eclipse.gemoc.dsl.EntryValue#getEntryLines <em>Entry Lines</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Entry Lines</em>'.
+   * @see org.eclipse.gemoc.dsl.EntryValue#getEntryLines()
+   * @see #getEntryValue()
+   * @generated
+   */
+  EAttribute getEntryValue_EntryLines();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -230,14 +259,6 @@ public interface DslPackage extends EPackage
     EClass DSL = eINSTANCE.getDsl();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute DSL__NAME = eINSTANCE.getDsl_Name();
-
-    /**
      * The meta object literal for the '<em><b>Entries</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -264,12 +285,30 @@ public interface DslPackage extends EPackage
     EAttribute ENTRY__KEY = eINSTANCE.getEntry_Key();
 
     /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ENTRY__VALUE = eINSTANCE.getEntry_Value();
+    EReference ENTRY__VALUE = eINSTANCE.getEntry_Value();
+
+    /**
+     * The meta object literal for the '{@link org.eclipse.gemoc.dsl.impl.EntryValueImpl <em>Entry Value</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipse.gemoc.dsl.impl.EntryValueImpl
+     * @see org.eclipse.gemoc.dsl.impl.DslPackageImpl#getEntryValue()
+     * @generated
+     */
+    EClass ENTRY_VALUE = eINSTANCE.getEntryValue();
+
+    /**
+     * The meta object literal for the '<em><b>Entry Lines</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ENTRY_VALUE__ENTRY_LINES = eINSTANCE.getEntryValue_EntryLines();
 
   }
 

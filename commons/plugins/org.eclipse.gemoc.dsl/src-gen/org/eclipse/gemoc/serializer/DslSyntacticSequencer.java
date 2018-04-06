@@ -11,6 +11,8 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
@@ -20,39 +22,63 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected DslGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_Dsl_LineFeedKeyword_7_q;
-	protected AbstractElementAlias match_Dsl_SPACETerminalRuleCall_0_a;
-	protected AbstractElementAlias match_Dsl_SPACETerminalRuleCall_2_a;
-	protected AbstractElementAlias match_Dsl_SPACETerminalRuleCall_4_a;
-	protected AbstractElementAlias match_Dsl_SPACETerminalRuleCall_6_a;
-	protected AbstractElementAlias match_Entry_LineFeedKeyword_7_q;
-	protected AbstractElementAlias match_Entry_SPACETerminalRuleCall_0_a;
-	protected AbstractElementAlias match_Entry_SPACETerminalRuleCall_2_a;
-	protected AbstractElementAlias match_Entry_SPACETerminalRuleCall_4_a;
-	protected AbstractElementAlias match_Entry_SPACETerminalRuleCall_6_a;
+	protected AbstractElementAlias match_Dsl_____EMPTY_LINEParserRuleCall_1_0_1_or_SL_COMMENTTerminalRuleCall_1_0_2_____CarriageReturnKeyword_1_1_0_q_LineFeedKeyword_1_1_1__a__a;
+	protected AbstractElementAlias match_Dsl_____EMPTY_LINEParserRuleCall_1_0_1_or_SL_COMMENTTerminalRuleCall_1_0_2__q___CarriageReturnKeyword_1_1_0_q_LineFeedKeyword_1_1_1__q__p;
+	protected AbstractElementAlias match_EntryValue_WSTerminalRuleCall_2_0_a;
+	protected AbstractElementAlias match_EntryValue_WSTerminalRuleCall_2_1_0_0_0_1_a;
+	protected AbstractElementAlias match_EntryValue_WSTerminalRuleCall_2_1_2_1_a;
+	protected AbstractElementAlias match_Entry_WSTerminalRuleCall_0_a;
+	protected AbstractElementAlias match_Entry_WSTerminalRuleCall_2_a;
+	protected AbstractElementAlias match_Entry_WSTerminalRuleCall_4_a;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (DslGrammarAccess) access;
-		match_Dsl_LineFeedKeyword_7_q = new TokenAlias(false, true, grammarAccess.getDslAccess().getLineFeedKeyword_7());
-		match_Dsl_SPACETerminalRuleCall_0_a = new TokenAlias(true, true, grammarAccess.getDslAccess().getSPACETerminalRuleCall_0());
-		match_Dsl_SPACETerminalRuleCall_2_a = new TokenAlias(true, true, grammarAccess.getDslAccess().getSPACETerminalRuleCall_2());
-		match_Dsl_SPACETerminalRuleCall_4_a = new TokenAlias(true, true, grammarAccess.getDslAccess().getSPACETerminalRuleCall_4());
-		match_Dsl_SPACETerminalRuleCall_6_a = new TokenAlias(true, true, grammarAccess.getDslAccess().getSPACETerminalRuleCall_6());
-		match_Entry_LineFeedKeyword_7_q = new TokenAlias(false, true, grammarAccess.getEntryAccess().getLineFeedKeyword_7());
-		match_Entry_SPACETerminalRuleCall_0_a = new TokenAlias(true, true, grammarAccess.getEntryAccess().getSPACETerminalRuleCall_0());
-		match_Entry_SPACETerminalRuleCall_2_a = new TokenAlias(true, true, grammarAccess.getEntryAccess().getSPACETerminalRuleCall_2());
-		match_Entry_SPACETerminalRuleCall_4_a = new TokenAlias(true, true, grammarAccess.getEntryAccess().getSPACETerminalRuleCall_4());
-		match_Entry_SPACETerminalRuleCall_6_a = new TokenAlias(true, true, grammarAccess.getEntryAccess().getSPACETerminalRuleCall_6());
+		match_Dsl_____EMPTY_LINEParserRuleCall_1_0_1_or_SL_COMMENTTerminalRuleCall_1_0_2_____CarriageReturnKeyword_1_1_0_q_LineFeedKeyword_1_1_1__a__a = new GroupAlias(true, true, new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getDslAccess().getEMPTY_LINEParserRuleCall_1_0_1()), new TokenAlias(false, false, grammarAccess.getDslAccess().getSL_COMMENTTerminalRuleCall_1_0_2())), new GroupAlias(true, true, new TokenAlias(false, true, grammarAccess.getDslAccess().getCarriageReturnKeyword_1_1_0()), new TokenAlias(false, false, grammarAccess.getDslAccess().getLineFeedKeyword_1_1_1())));
+		match_Dsl_____EMPTY_LINEParserRuleCall_1_0_1_or_SL_COMMENTTerminalRuleCall_1_0_2__q___CarriageReturnKeyword_1_1_0_q_LineFeedKeyword_1_1_1__q__p = new GroupAlias(true, false, new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getDslAccess().getEMPTY_LINEParserRuleCall_1_0_1()), new TokenAlias(false, false, grammarAccess.getDslAccess().getSL_COMMENTTerminalRuleCall_1_0_2())), new GroupAlias(false, true, new TokenAlias(false, true, grammarAccess.getDslAccess().getCarriageReturnKeyword_1_1_0()), new TokenAlias(false, false, grammarAccess.getDslAccess().getLineFeedKeyword_1_1_1())));
+		match_EntryValue_WSTerminalRuleCall_2_0_a = new TokenAlias(true, true, grammarAccess.getEntryValueAccess().getWSTerminalRuleCall_2_0());
+		match_EntryValue_WSTerminalRuleCall_2_1_0_0_0_1_a = new TokenAlias(true, true, grammarAccess.getEntryValueAccess().getWSTerminalRuleCall_2_1_0_0_0_1());
+		match_EntryValue_WSTerminalRuleCall_2_1_2_1_a = new TokenAlias(true, true, grammarAccess.getEntryValueAccess().getWSTerminalRuleCall_2_1_2_1());
+		match_Entry_WSTerminalRuleCall_0_a = new TokenAlias(true, true, grammarAccess.getEntryAccess().getWSTerminalRuleCall_0());
+		match_Entry_WSTerminalRuleCall_2_a = new TokenAlias(true, true, grammarAccess.getEntryAccess().getWSTerminalRuleCall_2());
+		match_Entry_WSTerminalRuleCall_4_a = new TokenAlias(true, true, grammarAccess.getEntryAccess().getWSTerminalRuleCall_4());
 	}
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (ruleCall.getRule() == grammarAccess.getSEPARATORRule())
+		if (ruleCall.getRule() == grammarAccess.getEMPTY_LINERule())
+			return getEMPTY_LINEToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getLINE_STARTRule())
+			return getLINE_STARTToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getSEPARATORRule())
 			return getSEPARATORToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getSPACERule())
-			return getSPACEToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getSL_COMMENTRule())
+			return getSL_COMMENTToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getWSRule())
+			return getWSToken(semanticObject, ruleCall, node);
 		return "";
+	}
+	
+	/**
+	 * EMPTY_LINE:
+	 * 	LINE_START 
+	 * ;
+	 */
+	protected String getEMPTY_LINEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "\n";
+	}
+	
+	/**
+	 * terminal LINE_START:
+	 * 	'\r'? '\n' WS*
+	 * ;
+	 */
+	protected String getLINE_STARTToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "\n";
 	}
 	
 	/**
@@ -67,12 +93,22 @@ public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
-	 * terminal SPACE:
-	 * 	' '|'\t'
-	 * 	
+	 * terminal SL_COMMENT :
+	 * 	('!' | '#') !('\n'|'\r')* 
 	 * ;
 	 */
-	protected String getSPACEToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+	protected String getSL_COMMENTToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "!";
+	}
+	
+	/**
+	 * terminal WS:
+	 * 	' '|'\t'
+	 * ;
+	 */
+	protected String getWSToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
 		return " ";
@@ -84,159 +120,131 @@ public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_Dsl_LineFeedKeyword_7_q.equals(syntax))
-				emit_Dsl_LineFeedKeyword_7_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Dsl_SPACETerminalRuleCall_0_a.equals(syntax))
-				emit_Dsl_SPACETerminalRuleCall_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Dsl_SPACETerminalRuleCall_2_a.equals(syntax))
-				emit_Dsl_SPACETerminalRuleCall_2_a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Dsl_SPACETerminalRuleCall_4_a.equals(syntax))
-				emit_Dsl_SPACETerminalRuleCall_4_a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Dsl_SPACETerminalRuleCall_6_a.equals(syntax))
-				emit_Dsl_SPACETerminalRuleCall_6_a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Entry_LineFeedKeyword_7_q.equals(syntax))
-				emit_Entry_LineFeedKeyword_7_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Entry_SPACETerminalRuleCall_0_a.equals(syntax))
-				emit_Entry_SPACETerminalRuleCall_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Entry_SPACETerminalRuleCall_2_a.equals(syntax))
-				emit_Entry_SPACETerminalRuleCall_2_a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Entry_SPACETerminalRuleCall_4_a.equals(syntax))
-				emit_Entry_SPACETerminalRuleCall_4_a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Entry_SPACETerminalRuleCall_6_a.equals(syntax))
-				emit_Entry_SPACETerminalRuleCall_6_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			if (match_Dsl_____EMPTY_LINEParserRuleCall_1_0_1_or_SL_COMMENTTerminalRuleCall_1_0_2_____CarriageReturnKeyword_1_1_0_q_LineFeedKeyword_1_1_1__a__a.equals(syntax))
+				emit_Dsl_____EMPTY_LINEParserRuleCall_1_0_1_or_SL_COMMENTTerminalRuleCall_1_0_2_____CarriageReturnKeyword_1_1_0_q_LineFeedKeyword_1_1_1__a__a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Dsl_____EMPTY_LINEParserRuleCall_1_0_1_or_SL_COMMENTTerminalRuleCall_1_0_2__q___CarriageReturnKeyword_1_1_0_q_LineFeedKeyword_1_1_1__q__p.equals(syntax))
+				emit_Dsl_____EMPTY_LINEParserRuleCall_1_0_1_or_SL_COMMENTTerminalRuleCall_1_0_2__q___CarriageReturnKeyword_1_1_0_q_LineFeedKeyword_1_1_1__q__p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_EntryValue_WSTerminalRuleCall_2_0_a.equals(syntax))
+				emit_EntryValue_WSTerminalRuleCall_2_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_EntryValue_WSTerminalRuleCall_2_1_0_0_0_1_a.equals(syntax))
+				emit_EntryValue_WSTerminalRuleCall_2_1_0_0_0_1_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_EntryValue_WSTerminalRuleCall_2_1_2_1_a.equals(syntax))
+				emit_EntryValue_WSTerminalRuleCall_2_1_2_1_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Entry_WSTerminalRuleCall_0_a.equals(syntax))
+				emit_Entry_WSTerminalRuleCall_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Entry_WSTerminalRuleCall_2_a.equals(syntax))
+				emit_Entry_WSTerminalRuleCall_2_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Entry_WSTerminalRuleCall_4_a.equals(syntax))
+				emit_Entry_WSTerminalRuleCall_4_a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
 	/**
 	 * Ambiguous syntax:
-	 *     '
-	  *     '?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     name=MULTILINE SPACE* (ambiguity) (rule end)
-	 *     name=MULTILINE SPACE* (ambiguity) entries+=Entry
-	 */
-	protected void emit_Dsl_LineFeedKeyword_7_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     SPACE*
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) 'name' SPACE* SEPARATOR SPACE* name=MULTILINE
-	 */
-	protected void emit_Dsl_SPACETerminalRuleCall_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     SPACE*
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) SPACE* 'name' (ambiguity) SEPARATOR SPACE* name=MULTILINE
-	 */
-	protected void emit_Dsl_SPACETerminalRuleCall_2_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     SPACE*
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) SPACE* 'name' SPACE* SEPARATOR (ambiguity) name=MULTILINE
-	 */
-	protected void emit_Dsl_SPACETerminalRuleCall_4_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     SPACE*
-	 *
-	 * This ambiguous syntax occurs at:
 	 *     (
-	 *         name=MULTILINE 
-	 *         (ambiguity) 
-	 *         '
-	 *         '? 
-	 *         (rule end)
-	 *     )
+	  *         (EMPTY_LINE | SL_COMMENT) 
+	  *         (
+	  *             '
+	 '? 
+	  *             '
+	  *             '
+	  *         )*
+	  *     )*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) (rule start)
+	 *     (rule start) (ambiguity) entries+=Entry
+	 */
+	protected void emit_Dsl_____EMPTY_LINEParserRuleCall_1_0_1_or_SL_COMMENTTerminalRuleCall_1_0_2_____CarriageReturnKeyword_1_1_0_q_LineFeedKeyword_1_1_1__a__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
 	 *     (
-	 *         name=MULTILINE 
-	 *         (ambiguity) 
-	 *         '
-	 *         '? 
-	 *         entries+=Entry
-	 *     )
+	  *         (EMPTY_LINE | SL_COMMENT)? 
+	  *         (
+	  *             '
+	 '? 
+	  *             '
+	  *             '
+	  *         )?
+	  *     )+
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     entries+=Entry (ambiguity) (rule end)
+	 *     entries+=Entry (ambiguity) entries+=Entry
 	 */
-	protected void emit_Dsl_SPACETerminalRuleCall_6_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Dsl_____EMPTY_LINEParserRuleCall_1_0_1_or_SL_COMMENTTerminalRuleCall_1_0_2__q___CarriageReturnKeyword_1_1_0_q_LineFeedKeyword_1_1_1__q__p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Ambiguous syntax:
-	 *     '
-	  *     '?
+	 *     WS*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     value=MULTILINE SPACE* (ambiguity) (rule end)
+	 *     entryLines+=ENTRYVALUE_LINE (ambiguity) ',' WS* '\' LINE_START entryLines+=ENTRYVALUE_LINE
+	 *     entryLines+=ENTRYVALUE_LINE (ambiguity) ',' WS* entryLines+=ENTRYVALUE_LINE
+	 *     entryLines+=ENTRYVALUE_LINE (ambiguity) '\' LINE_START entryLines+=ENTRYVALUE_LINE
 	 */
-	protected void emit_Entry_LineFeedKeyword_7_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_EntryValue_WSTerminalRuleCall_2_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Ambiguous syntax:
-	 *     SPACE*
+	 *     WS*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) key=WORD
+	 *     entryLines+=ENTRYVALUE_LINE WS* ',' (ambiguity) '\' LINE_START entryLines+=ENTRYVALUE_LINE
 	 */
-	protected void emit_Entry_SPACETerminalRuleCall_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_EntryValue_WSTerminalRuleCall_2_1_0_0_0_1_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Ambiguous syntax:
-	 *     SPACE*
+	 *     WS*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     key=WORD (ambiguity) SEPARATOR SPACE* value=MULTILINE
+	 *     entryLines+=ENTRYVALUE_LINE WS* ',' (ambiguity) entryLines+=ENTRYVALUE_LINE
 	 */
-	protected void emit_Entry_SPACETerminalRuleCall_2_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_EntryValue_WSTerminalRuleCall_2_1_2_1_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Ambiguous syntax:
-	 *     SPACE*
+	 *     WS*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     key=WORD SPACE* SEPARATOR (ambiguity) value=MULTILINE
+	 *     (rule start) (ambiguity) key=ENTRYKEY
 	 */
-	protected void emit_Entry_SPACETerminalRuleCall_4_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Entry_WSTerminalRuleCall_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
 	/**
 	 * Ambiguous syntax:
-	 *     SPACE*
+	 *     WS*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (
-	 *         value=MULTILINE 
-	 *         (ambiguity) 
-	 *         '
-	 *         '? 
-	 *         (rule end)
-	 *     )
+	 *     key=ENTRYKEY (ambiguity) SEPARATOR WS* value=EntryValue
 	 */
-	protected void emit_Entry_SPACETerminalRuleCall_6_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Entry_WSTerminalRuleCall_2_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     WS*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     key=ENTRYKEY WS* SEPARATOR (ambiguity) value=EntryValue
+	 */
+	protected void emit_Entry_WSTerminalRuleCall_4_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

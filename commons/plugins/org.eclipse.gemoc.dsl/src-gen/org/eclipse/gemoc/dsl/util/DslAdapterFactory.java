@@ -86,6 +86,11 @@ public class DslAdapterFactory extends AdapterFactoryImpl
         return createEntryAdapter();
       }
       @Override
+      public Adapter caseEntryValue(EntryValue object)
+      {
+        return createEntryValueAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -133,6 +138,21 @@ public class DslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createEntryAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipse.gemoc.dsl.EntryValue <em>Entry Value</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipse.gemoc.dsl.EntryValue
+   * @generated
+   */
+  public Adapter createEntryValueAdapter()
   {
     return null;
   }

@@ -14,7 +14,7 @@ Workflow {
 				rootPath = rootPath
 				runtimeTest = {
 					root = "../../tests/org.eclipse.gemoc.dsl.tests"
-					enabled = true
+					enabled = false
 				}
 				eclipsePlugin = {
 					enabled = true

@@ -5,53 +5,48 @@ package org.eclipse.gemoc.dsl.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 
-import org.eclipse.gemoc.dsl.Dsl;
 import org.eclipse.gemoc.dsl.DslPackage;
-import org.eclipse.gemoc.dsl.Entry;
+import org.eclipse.gemoc.dsl.EntryValue;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Dsl</b></em>'.
+ * An implementation of the model object '<em><b>Entry Value</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.eclipse.gemoc.dsl.impl.DslImpl#getEntries <em>Entries</em>}</li>
+ *   <li>{@link org.eclipse.gemoc.dsl.impl.EntryValueImpl#getEntryLines <em>Entry Lines</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DslImpl extends MinimalEObjectImpl.Container implements Dsl
+public class EntryValueImpl extends MinimalEObjectImpl.Container implements EntryValue
 {
   /**
-   * The cached value of the '{@link #getEntries() <em>Entries</em>}' containment reference list.
+   * The cached value of the '{@link #getEntryLines() <em>Entry Lines</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getEntries()
+   * @see #getEntryLines()
    * @generated
    * @ordered
    */
-  protected EList<Entry> entries;
+  protected EList<String> entryLines;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected DslImpl()
+  protected EntryValueImpl()
   {
     super();
   }
@@ -64,7 +59,7 @@ public class DslImpl extends MinimalEObjectImpl.Container implements Dsl
   @Override
   protected EClass eStaticClass()
   {
-    return DslPackage.Literals.DSL;
+    return DslPackage.Literals.ENTRY_VALUE;
   }
 
   /**
@@ -72,29 +67,13 @@ public class DslImpl extends MinimalEObjectImpl.Container implements Dsl
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Entry> getEntries()
+  public EList<String> getEntryLines()
   {
-    if (entries == null)
+    if (entryLines == null)
     {
-      entries = new EObjectContainmentEList<Entry>(Entry.class, this, DslPackage.DSL__ENTRIES);
+      entryLines = new EDataTypeEList<String>(String.class, this, DslPackage.ENTRY_VALUE__ENTRY_LINES);
     }
-    return entries;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case DslPackage.DSL__ENTRIES:
-        return ((InternalEList<?>)getEntries()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+    return entryLines;
   }
 
   /**
@@ -107,8 +86,8 @@ public class DslImpl extends MinimalEObjectImpl.Container implements Dsl
   {
     switch (featureID)
     {
-      case DslPackage.DSL__ENTRIES:
-        return getEntries();
+      case DslPackage.ENTRY_VALUE__ENTRY_LINES:
+        return getEntryLines();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -124,9 +103,9 @@ public class DslImpl extends MinimalEObjectImpl.Container implements Dsl
   {
     switch (featureID)
     {
-      case DslPackage.DSL__ENTRIES:
-        getEntries().clear();
-        getEntries().addAll((Collection<? extends Entry>)newValue);
+      case DslPackage.ENTRY_VALUE__ENTRY_LINES:
+        getEntryLines().clear();
+        getEntryLines().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -142,8 +121,8 @@ public class DslImpl extends MinimalEObjectImpl.Container implements Dsl
   {
     switch (featureID)
     {
-      case DslPackage.DSL__ENTRIES:
-        getEntries().clear();
+      case DslPackage.ENTRY_VALUE__ENTRY_LINES:
+        getEntryLines().clear();
         return;
     }
     super.eUnset(featureID);
@@ -159,10 +138,27 @@ public class DslImpl extends MinimalEObjectImpl.Container implements Dsl
   {
     switch (featureID)
     {
-      case DslPackage.DSL__ENTRIES:
-        return entries != null && !entries.isEmpty();
+      case DslPackage.ENTRY_VALUE__ENTRY_LINES:
+        return entryLines != null && !entryLines.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //DslImpl
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (entryLines: ");
+    result.append(entryLines);
+    result.append(')');
+    return result.toString();
+  }
+
+} //EntryValueImpl

@@ -77,80 +77,62 @@ ruleDsl returns [EObject current=null]
 }:
 	(
 		(
-			this_SPACE_0=RULE_SPACE
 			{
-				newLeafNode(this_SPACE_0, grammarAccess.getDslAccess().getSPACETerminalRuleCall_0());
+				$current = forceCreateModelElement(
+					grammarAccess.getDslAccess().getDslAction_0(),
+					$current);
 			}
-		)*
-		otherlv_1='name'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getDslAccess().getNameKeyword_1());
-		}
-		(
-			this_SPACE_2=RULE_SPACE
-			{
-				newLeafNode(this_SPACE_2, grammarAccess.getDslAccess().getSPACETerminalRuleCall_2());
-			}
-		)*
-		this_SEPARATOR_3=RULE_SEPARATOR
-		{
-			newLeafNode(this_SEPARATOR_3, grammarAccess.getDslAccess().getSEPARATORTerminalRuleCall_3());
-		}
-		(
-			this_SPACE_4=RULE_SPACE
-			{
-				newLeafNode(this_SPACE_4, grammarAccess.getDslAccess().getSPACETerminalRuleCall_4());
-			}
-		)*
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getDslAccess().getNameMULTILINEParserRuleCall_5_0());
-				}
-				lv_name_5_0=ruleMULTILINE
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDslRule());
-					}
-					set(
-						$current,
-						"name",
-						lv_name_5_0,
-						"org.eclipse.gemoc.Dsl.MULTILINE");
-					afterParserOrEnumRuleCall();
-				}
-			)
 		)
 		(
-			this_SPACE_6=RULE_SPACE
-			{
-				newLeafNode(this_SPACE_6, grammarAccess.getDslAccess().getSPACETerminalRuleCall_6());
-			}
-		)*
-		(
-			otherlv_7='\n'
-			{
-				newLeafNode(otherlv_7, grammarAccess.getDslAccess().getLineFeedKeyword_7());
-			}
-		)?
-		(
 			(
-				{
-					newCompositeNode(grammarAccess.getDslAccess().getEntriesEntryParserRuleCall_8_0());
-				}
-				lv_entries_8_0=ruleEntry
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDslRule());
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getDslAccess().getEntriesEntryParserRuleCall_1_0_0_0());
+						}
+						lv_entries_1_0=ruleEntry
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getDslRule());
+							}
+							add(
+								$current,
+								"entries",
+								lv_entries_1_0,
+								"org.eclipse.gemoc.Dsl.Entry");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+				    |
+				(
+					(ruleEMPTY_LINE)=>
+					{
+						newCompositeNode(grammarAccess.getDslAccess().getEMPTY_LINEParserRuleCall_1_0_1());
 					}
-					add(
-						$current,
-						"entries",
-						lv_entries_8_0,
-						"org.eclipse.gemoc.Dsl.Entry");
-					afterParserOrEnumRuleCall();
+					ruleEMPTY_LINE
+					{
+						afterParserOrEnumRuleCall();
+					}
+				)
+				    |
+				this_SL_COMMENT_3=RULE_SL_COMMENT
+				{
+					newLeafNode(this_SL_COMMENT_3, grammarAccess.getDslAccess().getSL_COMMENTTerminalRuleCall_1_0_2());
 				}
 			)
+			(
+				(
+					otherlv_4='\r'
+					{
+						newLeafNode(otherlv_4, grammarAccess.getDslAccess().getCarriageReturnKeyword_1_1_0());
+					}
+				)?
+				otherlv_5='\n'
+				{
+					newLeafNode(otherlv_5, grammarAccess.getDslAccess().getLineFeedKeyword_1_1_1());
+				}
+			)*
 		)*
 	)
 ;
@@ -172,34 +154,33 @@ ruleEntry returns [EObject current=null]
 }:
 	(
 		(
-			this_SPACE_0=RULE_SPACE
+			this_WS_0=RULE_WS
 			{
-				newLeafNode(this_SPACE_0, grammarAccess.getEntryAccess().getSPACETerminalRuleCall_0());
+				newLeafNode(this_WS_0, grammarAccess.getEntryAccess().getWSTerminalRuleCall_0());
 			}
 		)*
 		(
 			(
+				lv_key_1_0=RULE_ENTRYKEY
 				{
-					newCompositeNode(grammarAccess.getEntryAccess().getKeyWORDParserRuleCall_1_0());
+					newLeafNode(lv_key_1_0, grammarAccess.getEntryAccess().getKeyENTRYKEYTerminalRuleCall_1_0());
 				}
-				lv_key_1_0=ruleWORD
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getEntryRule());
+						$current = createModelElement(grammarAccess.getEntryRule());
 					}
-					set(
+					setWithLastConsumed(
 						$current,
 						"key",
 						lv_key_1_0,
-						"org.eclipse.gemoc.Dsl.WORD");
-					afterParserOrEnumRuleCall();
+						"org.eclipse.gemoc.Dsl.ENTRYKEY");
 				}
 			)
 		)
 		(
-			this_SPACE_2=RULE_SPACE
+			this_WS_2=RULE_WS
 			{
-				newLeafNode(this_SPACE_2, grammarAccess.getEntryAccess().getSPACETerminalRuleCall_2());
+				newLeafNode(this_WS_2, grammarAccess.getEntryAccess().getWSTerminalRuleCall_2());
 			}
 		)*
 		this_SEPARATOR_3=RULE_SEPARATOR
@@ -207,17 +188,17 @@ ruleEntry returns [EObject current=null]
 			newLeafNode(this_SEPARATOR_3, grammarAccess.getEntryAccess().getSEPARATORTerminalRuleCall_3());
 		}
 		(
-			this_SPACE_4=RULE_SPACE
+			this_WS_4=RULE_WS
 			{
-				newLeafNode(this_SPACE_4, grammarAccess.getEntryAccess().getSPACETerminalRuleCall_4());
+				newLeafNode(this_WS_4, grammarAccess.getEntryAccess().getWSTerminalRuleCall_4());
 			}
 		)*
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getEntryAccess().getValueMULTILINEParserRuleCall_5_0());
+					newCompositeNode(grammarAccess.getEntryAccess().getValueEntryValueParserRuleCall_5_0());
 				}
-				lv_value_5_0=ruleMULTILINE
+				lv_value_5_0=ruleEntryValue
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getEntryRule());
@@ -226,225 +207,260 @@ ruleEntry returns [EObject current=null]
 						$current,
 						"value",
 						lv_value_5_0,
-						"org.eclipse.gemoc.Dsl.MULTILINE");
+						"org.eclipse.gemoc.Dsl.EntryValue");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleEntryValue
+entryRuleEntryValue returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getEntryValueRule()); }
+	iv_ruleEntryValue=ruleEntryValue
+	{ $current=$iv_ruleEntryValue.current; }
+	EOF;
+
+// Rule EntryValue
+ruleEntryValue returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				$current = forceCreateModelElement(
+					grammarAccess.getEntryValueAccess().getEntryValueAction_0(),
+					$current);
+			}
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getEntryValueAccess().getEntryLinesENTRYVALUE_LINEParserRuleCall_1_0());
+				}
+				lv_entryLines_1_0=ruleENTRYVALUE_LINE
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getEntryValueRule());
+					}
+					add(
+						$current,
+						"entryLines",
+						lv_entryLines_1_0,
+						"org.eclipse.gemoc.Dsl.ENTRYVALUE_LINE");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
 		(
-			this_SPACE_6=RULE_SPACE
-			{
-				newLeafNode(this_SPACE_6, grammarAccess.getEntryAccess().getSPACETerminalRuleCall_6());
-			}
-		)*
-		(
-			otherlv_7='\n'
-			{
-				newLeafNode(otherlv_7, grammarAccess.getEntryAccess().getLineFeedKeyword_7());
-			}
-		)?
-	)
-;
-
-// Entry rule entryRuleWORD
-entryRuleWORD returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getWORDRule()); }
-	iv_ruleWORD=ruleWORD
-	{ $current=$iv_ruleWORD.current.getText(); }
-	EOF;
-
-// Rule WORD
-ruleWORD returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		this_LETTER_0=RULE_LETTER
-		{
-			$current.merge(this_LETTER_0);
-		}
-		{
-			newLeafNode(this_LETTER_0, grammarAccess.getWORDAccess().getLETTERTerminalRuleCall_0());
-		}
-		(
 			(
-				this_LETTER_1=RULE_LETTER
+				this_WS_2=RULE_WS
 				{
-					$current.merge(this_LETTER_1);
-				}
-				{
-					newLeafNode(this_LETTER_1, grammarAccess.getWORDAccess().getLETTERTerminalRuleCall_1_0_0());
-				}
-				    |
-				this_SPACE_2=RULE_SPACE
-				{
-					$current.merge(this_SPACE_2);
-				}
-				{
-					newLeafNode(this_SPACE_2, grammarAccess.getWORDAccess().getSPACETerminalRuleCall_1_0_1());
+					newLeafNode(this_WS_2, grammarAccess.getEntryValueAccess().getWSTerminalRuleCall_2_0());
 				}
 			)*
-			(
-				(RULE_LETTER)=>
-				this_LETTER_3=RULE_LETTER
-				{
-					$current.merge(this_LETTER_3);
-				}
-				{
-					newLeafNode(this_LETTER_3, grammarAccess.getWORDAccess().getLETTERTerminalRuleCall_1_1());
-				}
-			)
-		)?
-	)
-;
-
-// Entry rule entryRuleVALUE_WORD
-entryRuleVALUE_WORD returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getVALUE_WORDRule()); }
-	iv_ruleVALUE_WORD=ruleVALUE_WORD
-	{ $current=$iv_ruleVALUE_WORD.current.getText(); }
-	EOF;
-
-// Rule VALUE_WORD
-ruleVALUE_WORD returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			this_LETTER_0=RULE_LETTER
-			{
-				$current.merge(this_LETTER_0);
-			}
-			{
-				newLeafNode(this_LETTER_0, grammarAccess.getVALUE_WORDAccess().getLETTERTerminalRuleCall_0_0());
-			}
-			    |
-			this_SEPARATOR_1=RULE_SEPARATOR
-			{
-				$current.merge(this_SEPARATOR_1);
-			}
-			{
-				newLeafNode(this_SEPARATOR_1, grammarAccess.getVALUE_WORDAccess().getSEPARATORTerminalRuleCall_0_1());
-			}
-		)
-		(
 			(
 				(
-					this_LETTER_2=RULE_LETTER
-					{
-						$current.merge(this_LETTER_2);
-					}
-					{
-						newLeafNode(this_LETTER_2, grammarAccess.getVALUE_WORDAccess().getLETTERTerminalRuleCall_1_0_0_0());
-					}
-					    |
-					this_SEPARATOR_3=RULE_SEPARATOR
-					{
-						$current.merge(this_SEPARATOR_3);
-					}
-					{
-						newLeafNode(this_SEPARATOR_3, grammarAccess.getVALUE_WORDAccess().getSEPARATORTerminalRuleCall_1_0_0_1());
-					}
+					(
+						((
+							','
+							(
+								RULE_WS
+							)*
+							'\\'
+							RULE_LINE_START
+						)
+						)=>
+						(
+							otherlv_3=','
+							{
+								newLeafNode(otherlv_3, grammarAccess.getEntryValueAccess().getCommaKeyword_2_1_0_0_0_0());
+							}
+							(
+								this_WS_4=RULE_WS
+								{
+									newLeafNode(this_WS_4, grammarAccess.getEntryValueAccess().getWSTerminalRuleCall_2_1_0_0_0_1());
+								}
+							)*
+							otherlv_5='\\'
+							{
+								newLeafNode(otherlv_5, grammarAccess.getEntryValueAccess().getBackslashKeyword_2_1_0_0_0_2());
+							}
+							this_LINE_START_6=RULE_LINE_START
+							{
+								newLeafNode(this_LINE_START_6, grammarAccess.getEntryValueAccess().getLINE_STARTTerminalRuleCall_2_1_0_0_0_3());
+							}
+						)
+					)
+					(
+						(
+							{
+								newCompositeNode(grammarAccess.getEntryValueAccess().getEntryLinesENTRYVALUE_LINEParserRuleCall_2_1_0_1_0());
+							}
+							lv_entryLines_7_0=ruleENTRYVALUE_LINE
+							{
+								if ($current==null) {
+									$current = createModelElementForParent(grammarAccess.getEntryValueRule());
+								}
+								add(
+									$current,
+									"entryLines",
+									lv_entryLines_7_0,
+									"org.eclipse.gemoc.Dsl.ENTRYVALUE_LINE");
+								afterParserOrEnumRuleCall();
+							}
+						)
+					)
 				)
 				    |
-				this_SPACE_4=RULE_SPACE
-				{
-					$current.merge(this_SPACE_4);
-				}
-				{
-					newLeafNode(this_SPACE_4, grammarAccess.getVALUE_WORDAccess().getSPACETerminalRuleCall_1_0_1());
-				}
-			)*
-			(
-				(RULE_LETTER | RULE_SEPARATOR)=>
 				(
-					this_LETTER_5=RULE_LETTER
+					(
+						((
+							'\\'
+							RULE_LINE_START
+						)
+						)=>
+						(
+							otherlv_8='\\'
+							{
+								newLeafNode(otherlv_8, grammarAccess.getEntryValueAccess().getBackslashKeyword_2_1_1_0_0_0());
+							}
+							this_LINE_START_9=RULE_LINE_START
+							{
+								newLeafNode(this_LINE_START_9, grammarAccess.getEntryValueAccess().getLINE_STARTTerminalRuleCall_2_1_1_0_0_1());
+							}
+						)
+					)
+					(
+						(
+							{
+								newCompositeNode(grammarAccess.getEntryValueAccess().getEntryLinesENTRYVALUE_LINEParserRuleCall_2_1_1_1_0());
+							}
+							lv_entryLines_10_0=ruleENTRYVALUE_LINE
+							{
+								if ($current==null) {
+									$current = createModelElementForParent(grammarAccess.getEntryValueRule());
+								}
+								add(
+									$current,
+									"entryLines",
+									lv_entryLines_10_0,
+									"org.eclipse.gemoc.Dsl.ENTRYVALUE_LINE");
+								afterParserOrEnumRuleCall();
+							}
+						)
+					)
+				)
+				    |
+				(
+					otherlv_11=','
 					{
-						$current.merge(this_LETTER_5);
+						newLeafNode(otherlv_11, grammarAccess.getEntryValueAccess().getCommaKeyword_2_1_2_0());
 					}
-					{
-						newLeafNode(this_LETTER_5, grammarAccess.getVALUE_WORDAccess().getLETTERTerminalRuleCall_1_1_0_0());
-					}
-					    |
-					this_SEPARATOR_6=RULE_SEPARATOR
-					{
-						$current.merge(this_SEPARATOR_6);
-					}
-					{
-						newLeafNode(this_SEPARATOR_6, grammarAccess.getVALUE_WORDAccess().getSEPARATORTerminalRuleCall_1_1_0_1());
-					}
+					(
+						this_WS_12=RULE_WS
+						{
+							newLeafNode(this_WS_12, grammarAccess.getEntryValueAccess().getWSTerminalRuleCall_2_1_2_1());
+						}
+					)*
+					(
+						(
+							{
+								newCompositeNode(grammarAccess.getEntryValueAccess().getEntryLinesENTRYVALUE_LINEParserRuleCall_2_1_2_2_0());
+							}
+							lv_entryLines_13_0=ruleENTRYVALUE_LINE
+							{
+								if ($current==null) {
+									$current = createModelElementForParent(grammarAccess.getEntryValueRule());
+								}
+								add(
+									$current,
+									"entryLines",
+									lv_entryLines_13_0,
+									"org.eclipse.gemoc.Dsl.ENTRYVALUE_LINE");
+								afterParserOrEnumRuleCall();
+							}
+						)
+					)
 				)
 			)
-		)?
-	)
-;
-
-// Entry rule entryRuleMULTILINE
-entryRuleMULTILINE returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getMULTILINERule()); }
-	iv_ruleMULTILINE=ruleMULTILINE
-	{ $current=$iv_ruleMULTILINE.current.getText(); }
-	EOF;
-
-// Rule MULTILINE
-ruleMULTILINE returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		{
-			newCompositeNode(grammarAccess.getMULTILINEAccess().getVALUE_WORDParserRuleCall_0());
-		}
-		this_VALUE_WORD_0=ruleVALUE_WORD
-		{
-			$current.merge(this_VALUE_WORD_0);
-		}
-		{
-			afterParserOrEnumRuleCall();
-		}
-		(
-			kw='\\\n'
-			{
-				$current.merge(kw);
-				newLeafNode(kw, grammarAccess.getMULTILINEAccess().getReverseSolidusControl000aKeyword_1_0());
-			}
-			(
-				this_SPACE_2=RULE_SPACE
-				{
-					$current.merge(this_SPACE_2);
-				}
-				{
-					newLeafNode(this_SPACE_2, grammarAccess.getMULTILINEAccess().getSPACETerminalRuleCall_1_1());
-				}
-			)*
-			{
-				newCompositeNode(grammarAccess.getMULTILINEAccess().getVALUE_WORDParserRuleCall_1_2());
-			}
-			this_VALUE_WORD_3=ruleVALUE_WORD
-			{
-				$current.merge(this_VALUE_WORD_3);
-			}
-			{
-				afterParserOrEnumRuleCall();
-			}
 		)*
 	)
 ;
+
+// Entry rule entryRuleENTRYVALUE_LINE
+entryRuleENTRYVALUE_LINE returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getENTRYVALUE_LINERule()); }
+	iv_ruleENTRYVALUE_LINE=ruleENTRYVALUE_LINE
+	{ $current=$iv_ruleENTRYVALUE_LINE.current.getText(); }
+	EOF;
+
+// Rule ENTRYVALUE_LINE
+ruleENTRYVALUE_LINE returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		this_ENTRYKEY_0=RULE_ENTRYKEY
+		{
+			$current.merge(this_ENTRYKEY_0);
+		}
+		{
+			newLeafNode(this_ENTRYKEY_0, grammarAccess.getENTRYVALUE_LINEAccess().getENTRYKEYTerminalRuleCall_0());
+		}
+		    |
+		this_STRING_1=RULE_STRING
+		{
+			$current.merge(this_STRING_1);
+		}
+		{
+			newLeafNode(this_STRING_1, grammarAccess.getENTRYVALUE_LINEAccess().getSTRINGTerminalRuleCall_1());
+		}
+	)
+;
+
+// Entry rule entryRuleEMPTY_LINE
+entryRuleEMPTY_LINE returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getEMPTY_LINERule()); }
+	iv_ruleEMPTY_LINE=ruleEMPTY_LINE
+	{ $current=$iv_ruleEMPTY_LINE.current.getText(); }
+	EOF;
+
+// Rule EMPTY_LINE
+ruleEMPTY_LINE returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	this_LINE_START_0=RULE_LINE_START
+	{
+		$current.merge(this_LINE_START_0);
+	}
+	{
+		newLeafNode(this_LINE_START_0, grammarAccess.getEMPTY_LINEAccess().getLINE_STARTTerminalRuleCall());
+	}
+;
+
+RULE_ENTRYKEY : ('a'..'z'|'A'..'Z'|'_'|'.'|'0'..'9') ('a'..'z'|'A'..'Z'|'_'|'.'|'0'..'9')*;
+
+RULE_STRING : '"' ('\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|'\''|'\\'|'\r'|'\n')|~(('\\'|'"'|'\r'|'\n')))* '"';
+
+RULE_LINE_START : '\r'? '\n' RULE_WS*;
 
 RULE_SEPARATOR : ('='|':');
 
-RULE_SL_COMMENT : ('!'|'#') ~(('\n'|'\r'))* ('\r'? '\n')?;
+RULE_SL_COMMENT : ('!'|'#') ~(('\n'|'\r'))*;
 
-RULE_LETTER : (~((RULE_SEPARATOR|RULE_SPACE|'\\\n'|'\r'|'\n'))|'\\='|'\\:'|'\\#'|'\\!');
+RULE_WS : (' '|'\t');
 
-RULE_SPACE : (' '|'\t');
+RULE_ANY_OTHER : .;

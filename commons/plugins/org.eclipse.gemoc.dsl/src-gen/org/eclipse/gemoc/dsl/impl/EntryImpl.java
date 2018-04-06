@@ -4,14 +4,17 @@
 package org.eclipse.gemoc.dsl.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.gemoc.dsl.DslPackage;
 import org.eclipse.gemoc.dsl.Entry;
+import org.eclipse.gemoc.dsl.EntryValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,24 +53,14 @@ public class EntryImpl extends MinimalEObjectImpl.Container implements Entry
   protected String key = KEY_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getValue()
    * @generated
    * @ordered
    */
-  protected static final String VALUE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValue()
-   * @generated
-   * @ordered
-   */
-  protected String value = VALUE_EDEFAULT;
+  protected EntryValue value;
 
   /**
    * <!-- begin-user-doc -->
@@ -118,7 +111,7 @@ public class EntryImpl extends MinimalEObjectImpl.Container implements Entry
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getValue()
+  public EntryValue getValue()
   {
     return value;
   }
@@ -128,12 +121,53 @@ public class EntryImpl extends MinimalEObjectImpl.Container implements Entry
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setValue(String newValue)
+  public NotificationChain basicSetValue(EntryValue newValue, NotificationChain msgs)
   {
-    String oldValue = value;
+    EntryValue oldValue = value;
     value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.ENTRY__VALUE, oldValue, value));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DslPackage.ENTRY__VALUE, oldValue, newValue);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setValue(EntryValue newValue)
+  {
+    if (newValue != value)
+    {
+      NotificationChain msgs = null;
+      if (value != null)
+        msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DslPackage.ENTRY__VALUE, null, msgs);
+      if (newValue != null)
+        msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DslPackage.ENTRY__VALUE, null, msgs);
+      msgs = basicSetValue(newValue, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.ENTRY__VALUE, newValue, newValue));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case DslPackage.ENTRY__VALUE:
+        return basicSetValue(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -168,7 +202,7 @@ public class EntryImpl extends MinimalEObjectImpl.Container implements Entry
         setKey((String)newValue);
         return;
       case DslPackage.ENTRY__VALUE:
-        setValue((String)newValue);
+        setValue((EntryValue)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -188,7 +222,7 @@ public class EntryImpl extends MinimalEObjectImpl.Container implements Entry
         setKey(KEY_EDEFAULT);
         return;
       case DslPackage.ENTRY__VALUE:
-        setValue(VALUE_EDEFAULT);
+        setValue((EntryValue)null);
         return;
     }
     super.eUnset(featureID);
@@ -207,7 +241,7 @@ public class EntryImpl extends MinimalEObjectImpl.Container implements Entry
       case DslPackage.ENTRY__KEY:
         return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals(key);
       case DslPackage.ENTRY__VALUE:
-        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+        return value != null;
     }
     return super.eIsSet(featureID);
   }
@@ -225,8 +259,6 @@ public class EntryImpl extends MinimalEObjectImpl.Container implements Entry
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (key: ");
     result.append(key);
-    result.append(", value: ");
-    result.append(value);
     result.append(')');
     return result.toString();
   }

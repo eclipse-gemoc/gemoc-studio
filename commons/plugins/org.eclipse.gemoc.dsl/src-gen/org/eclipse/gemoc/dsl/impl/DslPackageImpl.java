@@ -14,6 +14,7 @@ import org.eclipse.gemoc.dsl.Dsl;
 import org.eclipse.gemoc.dsl.DslFactory;
 import org.eclipse.gemoc.dsl.DslPackage;
 import org.eclipse.gemoc.dsl.Entry;
+import org.eclipse.gemoc.dsl.EntryValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,6 +37,13 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   private EClass entryEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass entryValueEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -115,19 +123,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDsl_Name()
-  {
-    return (EAttribute)dslEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getDsl_Entries()
   {
-    return (EReference)dslEClass.getEStructuralFeatures().get(1);
+    return (EReference)dslEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -155,9 +153,29 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getEntry_Value()
+  public EReference getEntry_Value()
   {
-    return (EAttribute)entryEClass.getEStructuralFeatures().get(1);
+    return (EReference)entryEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getEntryValue()
+  {
+    return entryValueEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getEntryValue_EntryLines()
+  {
+    return (EAttribute)entryValueEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -191,12 +209,14 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
 
     // Create classes and their features
     dslEClass = createEClass(DSL);
-    createEAttribute(dslEClass, DSL__NAME);
     createEReference(dslEClass, DSL__ENTRIES);
 
     entryEClass = createEClass(ENTRY);
     createEAttribute(entryEClass, ENTRY__KEY);
-    createEAttribute(entryEClass, ENTRY__VALUE);
+    createEReference(entryEClass, ENTRY__VALUE);
+
+    entryValueEClass = createEClass(ENTRY_VALUE);
+    createEAttribute(entryValueEClass, ENTRY_VALUE__ENTRY_LINES);
   }
 
   /**
@@ -231,12 +251,14 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
 
     // Initialize classes and features; add operations and parameters
     initEClass(dslEClass, Dsl.class, "Dsl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getDsl_Name(), ecorePackage.getEString(), "name", null, 0, 1, Dsl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDsl_Entries(), this.getEntry(), null, "entries", null, 0, -1, Dsl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(entryEClass, Entry.class, "Entry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEntry_Key(), ecorePackage.getEString(), "key", null, 0, 1, Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getEntry_Value(), ecorePackage.getEString(), "value", null, 0, 1, Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEntry_Value(), this.getEntryValue(), null, "value", null, 0, 1, Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(entryValueEClass, EntryValue.class, "EntryValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getEntryValue_EntryLines(), ecorePackage.getEString(), "entryLines", null, 0, -1, EntryValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

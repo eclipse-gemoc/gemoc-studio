@@ -16,29 +16,47 @@ import org.eclipse.gemoc.tests.DslInjectorProvider
 
 @RunWith(XtextRunner)
 @InjectWith(DslInjectorProvider)
-class DslParsingSingleLineTest {
+class DslParsingEmptyLineTest {
 	@Inject
 	ParseHelper<Dsl> parseHelper
 
 	@Test
-	def void minimal_no_quote() {
+	def void minimal_empty_ending_line() {
 		val result = parseHelper.parse('''
 			name = my.language
+			
 		''')
 		assertNotNull(result)
 		assertTrue(
 			"eResource.errors not Empty " + result.eResource.errors,
 			result.eResource.errors.isEmpty
 		)
-		//assertEquals("my.language", result.name)
+		// assertEquals("my.language", result.name)
 		assertTrue("no key named \"name\"", result.entries.exists[e|e.key == "name"])
 		assertEquals("my.language", result.entries.findFirst[e|e.key == "name"].value.entryLines.get(0))
 	}
 
 	@Test
-	def void minimal_key_value() {
+	def void minimal_empty_ending_line_with_WS() {
 		val result = parseHelper.parse('''
 			name = my.language
+			   
+		''')
+		assertNotNull(result)
+		assertTrue(
+			"eResource.errors not Empty " + result.eResource.errors,
+			result.eResource.errors.isEmpty
+		)
+		// assertEquals("my.language", result.name)
+		assertTrue("no key named \"name\"", result.entries.exists[e|e.key == "name"])
+		assertEquals("my.language", result.entries.findFirst[e|e.key == "name"].value.entryLines.get(0))
+	}
+
+	@Test
+	def void minimal_empty_line() {
+		val result = parseHelper.parse('''
+			name = my.language
+			
 			mykey = myvalue
 		''')
 		assertNotNull(result)
@@ -46,103 +64,65 @@ class DslParsingSingleLineTest {
 			"eResource.errors not Empty " + result.eResource.errors,
 			result.eResource.errors.isEmpty
 		)
-		//assertEquals("my.language", result.name)
+		// assertEquals("my.language", result.name)
 		assertTrue("no key named \"name\"", result.entries.exists[e|e.key == "name"])
 		assertEquals("my.language", result.entries.findFirst[e|e.key == "name"].value.entryLines.get(0))
-		assertTrue("no key named \"mykey\"", result.entries.exists[e|e.key == "mykey"])
-		assertEquals("myvalue", result.entries.findFirst[e|e.key == "mykey"].value.entryLines.get(0))
 	}
 
 	@Test
-	def void minimal_key_value_and_comment() {
+	def void minimal_empty_line_with_WS() {
 		val result = parseHelper.parse('''
-			# some comment
 			name = my.language
-			# some more comment
+			   
 			mykey = myvalue
-			# again some more comment
 		''')
 		assertNotNull(result)
 		assertTrue(
 			"eResource.errors not Empty " + result.eResource.errors,
 			result.eResource.errors.isEmpty
 		)
-		//assertEquals("my.language", result.name)
+		// assertEquals("my.language", result.name)
 		assertTrue("no key named \"name\"", result.entries.exists[e|e.key == "name"])
 		assertEquals("my.language", result.entries.findFirst[e|e.key == "name"].value.entryLines.get(0))
-		assertTrue("no key named \"mykey\"", result.entries.exists[e|e.key == "mykey"])
-		assertEquals("myvalue", result.entries.findFirst[e|e.key == "mykey"].value.entryLines.get(0))
-	}
-
-	@Test
-	def void minimal_name_keyword_in_value_01() {
-		val result = parseHelper.parse('''
-			name = my.language
-			mykey = name
-		''')
-		assertNotNull(result)
-		assertTrue(
-			"eResource.errors not Empty " + result.eResource.errors,
-			result.eResource.errors.isEmpty
-		)
-		//assertEquals("my.language", result.name)
-		assertTrue("no key named \"name\"", result.entries.exists[e|e.key == "name"])
-		assertEquals("my.language", result.entries.findFirst[e|e.key == "name"].value.entryLines.get(0))
-		assertTrue("no key named \"mykey\"", result.entries.exists[e|e.key == "mykey"])
-		assertEquals("name", result.entries.findFirst[e|e.key == "mykey"].value.entryLines.get(0))
-	}
-
-	@Test
-	def void minimal_name_keyword_in_value_02() {
-		val result = parseHelper.parse('''
-			name = my.language
-			mykey = myval_with_name_in_val
-		''')
-		assertNotNull(result)
-		assertTrue(
-			"eResource.errors not Empty " + result.eResource.errors,
-			result.eResource.errors.isEmpty
-		)
-		//assertEquals("my.language", result.name)
-		assertTrue("no key named \"name\"", result.entries.exists[e|e.key == "name"])
-		assertEquals("my.language", result.entries.findFirst[e|e.key == "name"].value.entryLines.get(0))
-		assertTrue("no key named \"mykey\"", result.entries.exists[e|e.key == "mykey"])
-		assertEquals("myval_with_name_in_val", result.entries.findFirst[e|e.key == "mykey"].value.entryLines.get(0))
-	}
-
-	@Test
-	def void minimal_na_keyword_in_value() {
-		val result = parseHelper.parse('''
-			name = my.language
-			mykey = final
-		''')
-		assertNotNull(result)
-		assertTrue(
-			"eResource.errors not Empty " + result.eResource.errors,
-			result.eResource.errors.isEmpty
-		)
-		//assertEquals("my.language", result.name)
-		assertTrue("no key named \"name\"", result.entries.exists[e|e.key == "name"])
-		assertEquals("my.language", result.entries.findFirst[e|e.key == "name"].value.entryLines.get(0))
-		assertTrue("no key named \"mykey\"", result.entries.exists[e|e.key == "mykey"])
-		assertEquals("final", result.entries.findFirst[e|e.key == "mykey"].value.entryLines.get(0))
 	}
 	
-		@Test
-	def void minimal_equal_sign_in_value() {
+	@Test
+	def void multiple_empty_lines() {
 		val result = parseHelper.parse('''
 			name = my.language
-			mykey = "bla=bli"
+			
+			
+			mykey = myvalue
+			
+			
 		''')
 		assertNotNull(result)
 		assertTrue(
 			"eResource.errors not Empty " + result.eResource.errors,
 			result.eResource.errors.isEmpty
 		)
-		//assertEquals("my.language", result.name)
+		// assertEquals("my.language", result.name)
 		assertTrue("no key named \"name\"", result.entries.exists[e|e.key == "name"])
 		assertEquals("my.language", result.entries.findFirst[e|e.key == "name"].value.entryLines.get(0))
-		assertTrue("no key named \"mykey\"", result.entries.exists[e|e.key == "mykey"])
-		assertEquals("\"bla=bli\"", result.entries.findFirst[e|e.key == "mykey"].value.entryLines.get(0))
+	}
+
+	@Test
+	def void multiple_empty_lines_with_WS() {
+		val result = parseHelper.parse('''
+			name = my.language
+			   
+			   
+			mykey = myvalue
+			   
+			   
+		''')
+		assertNotNull(result)
+		assertTrue(
+			"eResource.errors not Empty " + result.eResource.errors,
+			result.eResource.errors.isEmpty
+		)
+		// assertEquals("my.language", result.name)
+		assertTrue("no key named \"name\"", result.entries.exists[e|e.key == "name"])
+		assertEquals("my.language", result.entries.findFirst[e|e.key == "name"].value.entryLines.get(0))
 	}
 }

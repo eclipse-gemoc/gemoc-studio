@@ -16,51 +16,55 @@ import org.eclipse.gemoc.tests.DslInjectorProvider
 
 @RunWith(XtextRunner)
 @InjectWith(DslInjectorProvider)
-class DslParsingMultiLineTest {
+class DslParsingCommentTest {
 	@Inject
 	ParseHelper<Dsl> parseHelper
-	
 
-	
+
 	@Test
-	def void simple_key_2lines_value() {
+	def void minimal_comment() {
 		val result = parseHelper.parse('''
+			# some comment
 			name = my.language
-			mykey = myvalue, \
-				mysecondvalue
+			# some more comment
+			mykey = myvalue
+			# again some more comment
 		''')
 		assertNotNull(result)
-		assertTrue("eResource.errors not Empty "+result.eResource.errors, 
+		assertTrue(
+			"eResource.errors not Empty " + result.eResource.errors,
 			result.eResource.errors.isEmpty
 		)
-		//assertEquals("my.language",result.name)
+		//assertEquals("my.language", result.name)
 		assertTrue("no key named \"name\"", result.entries.exists[e|e.key == "name"])
 		assertEquals("my.language", result.entries.findFirst[e|e.key == "name"].value.entryLines.get(0))
-		assertTrue("no key named \"mykey\"", result.entries.exists[e | e.key == "mykey"])
-		assertEquals("myvalue", result.entries.findFirst[e | e.key == "mykey"].value.entryLines.get(0))
-		assertEquals("mysecondvalue", result.entries.findFirst[e | e.key == "mykey"].value.entryLines.get(1))
+		assertTrue("no key named \"mykey\"", result.entries.exists[e|e.key == "mykey"])
+		assertEquals("myvalue", result.entries.findFirst[e|e.key == "mykey"].value.entryLines.get(0))
 	}
 	
 	@Test
-	def void simple_key_3lines_value() {
+	def void minimal_multi_comment() {
 		val result = parseHelper.parse('''
+			# some comment
+			# some comment
 			name = my.language
-			mykey = myvalue, \
-				mysecondvalue, \
-				thirdValue
+			# some more comment
+			# some more comment
+			mykey = myvalue
+			# again some more comment
+			# again some more comment
+			# again some more comment
 		''')
 		assertNotNull(result)
-		assertTrue("eResource.errors not Empty "+result.eResource.errors, 
+		assertTrue(
+			"eResource.errors not Empty " + result.eResource.errors,
 			result.eResource.errors.isEmpty
 		)
-		///assertEquals("my.language",result.name)
+		//assertEquals("my.language", result.name)
 		assertTrue("no key named \"name\"", result.entries.exists[e|e.key == "name"])
 		assertEquals("my.language", result.entries.findFirst[e|e.key == "name"].value.entryLines.get(0))
-		assertTrue("no key named \"mykey\"", result.entries.exists[e | e.key == "mykey"])
-		assertEquals("myvalue", result.entries.findFirst[e | e.key == "mykey"].value.entryLines.get(0))
-		assertEquals("mysecondvalue", result.entries.findFirst[e | e.key == "mykey"].value.entryLines.get(1))
-		assertEquals("thirdValue", result.entries.findFirst[e | e.key == "mykey"].value.entryLines.get(2))
+		assertTrue("no key named \"mykey\"", result.entries.exists[e|e.key == "mykey"])
+		assertEquals("myvalue", result.entries.findFirst[e|e.key == "mykey"].value.entryLines.get(0))
 	}
-	
-	
+
 }

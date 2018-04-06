@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.gemoc.dsl.Dsl;
 import org.eclipse.gemoc.dsl.DslPackage;
 import org.eclipse.gemoc.dsl.Entry;
+import org.eclipse.gemoc.dsl.EntryValue;
 import org.eclipse.gemoc.services.DslGrammarAccess;
 import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Parameter;
@@ -39,6 +40,9 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case DslPackage.ENTRY:
 				sequence_Entry(context, (Entry) semanticObject); 
 				return; 
+			case DslPackage.ENTRY_VALUE:
+				sequence_EntryValue(context, (EntryValue) semanticObject); 
+				return; 
 			}
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
@@ -49,9 +53,21 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Dsl returns Dsl
 	 *
 	 * Constraint:
-	 *     (name=MULTILINE entries+=Entry*)
+	 *     entries+=Entry*
 	 */
 	protected void sequence_Dsl(ISerializationContext context, Dsl semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     EntryValue returns EntryValue
+	 *
+	 * Constraint:
+	 *     (entryLines+=ENTRYVALUE_LINE (entryLines+=ENTRYVALUE_LINE | entryLines+=ENTRYVALUE_LINE | entryLines+=ENTRYVALUE_LINE)*)
+	 */
+	protected void sequence_EntryValue(ISerializationContext context, EntryValue semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -61,7 +77,7 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Entry returns Entry
 	 *
 	 * Constraint:
-	 *     (key=WORD value=MULTILINE)
+	 *     (key=ENTRYKEY value=EntryValue)
 	 */
 	protected void sequence_Entry(ISerializationContext context, Entry semanticObject) {
 		if (errorAcceptor != null) {
@@ -71,8 +87,8 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.ENTRY__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getEntryAccess().getKeyWORDParserRuleCall_1_0(), semanticObject.getKey());
-		feeder.accept(grammarAccess.getEntryAccess().getValueMULTILINEParserRuleCall_5_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getEntryAccess().getKeyENTRYKEYTerminalRuleCall_1_0(), semanticObject.getKey());
+		feeder.accept(grammarAccess.getEntryAccess().getValueEntryValueParserRuleCall_5_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	

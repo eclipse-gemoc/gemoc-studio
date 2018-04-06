@@ -67,6 +67,7 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
     {
       case DslPackage.DSL: return createDsl();
       case DslPackage.ENTRY: return createEntry();
+      case DslPackage.ENTRY_VALUE: return createEntryValue();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -92,6 +93,17 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
   {
     EntryImpl entry = new EntryImpl();
     return entry;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EntryValue createEntryValue()
+  {
+    EntryValueImpl entryValue = new EntryValueImpl();
+    return entryValue;
   }
 
   /**

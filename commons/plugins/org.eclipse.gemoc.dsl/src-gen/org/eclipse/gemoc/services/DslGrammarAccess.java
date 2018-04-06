@@ -6,6 +6,7 @@ package org.eclipse.gemoc.services;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.List;
+import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.Grammar;
@@ -24,257 +25,265 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	public class DslElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.gemoc.Dsl.Dsl");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cSPACETerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Keyword cNameKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final RuleCall cSPACETerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
-		private final RuleCall cSEPARATORTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
-		private final RuleCall cSPACETerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
-		private final Assignment cNameAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cNameMULTILINEParserRuleCall_5_0 = (RuleCall)cNameAssignment_5.eContents().get(0);
-		private final RuleCall cSPACETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
-		private final Keyword cLineFeedKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Assignment cEntriesAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cEntriesEntryParserRuleCall_8_0 = (RuleCall)cEntriesAssignment_8.eContents().get(0);
+		private final Action cDslAction_0 = (Action)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Alternatives cAlternatives_1_0 = (Alternatives)cGroup_1.eContents().get(0);
+		private final Assignment cEntriesAssignment_1_0_0 = (Assignment)cAlternatives_1_0.eContents().get(0);
+		private final RuleCall cEntriesEntryParserRuleCall_1_0_0_0 = (RuleCall)cEntriesAssignment_1_0_0.eContents().get(0);
+		private final RuleCall cEMPTY_LINEParserRuleCall_1_0_1 = (RuleCall)cAlternatives_1_0.eContents().get(1);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_1_0_2 = (RuleCall)cAlternatives_1_0.eContents().get(2);
+		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
+		private final Keyword cCarriageReturnKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
+		private final Keyword cLineFeedKeyword_1_1_1 = (Keyword)cGroup_1_1.eContents().get(1);
 		
 		//Dsl:
-		//	SPACE* 'name' SPACE* SEPARATOR SPACE* name=MULTILINE SPACE* '\n'?
-		//	entries+=Entry*;
+		//	{Dsl} ((entries+=Entry |
+		//	=> EMPTY_LINE | SL_COMMENT) ('\r'? '\n')*)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//SPACE* 'name' SPACE* SEPARATOR SPACE* name=MULTILINE SPACE* '\n'? entries+=Entry*
+		//{Dsl} ((entries+=Entry | => EMPTY_LINE | SL_COMMENT) ('\r'? '\n')*)*
 		public Group getGroup() { return cGroup; }
 		
-		//SPACE*
-		public RuleCall getSPACETerminalRuleCall_0() { return cSPACETerminalRuleCall_0; }
+		//{Dsl}
+		public Action getDslAction_0() { return cDslAction_0; }
 		
-		//'name'
-		public Keyword getNameKeyword_1() { return cNameKeyword_1; }
+		//((entries+=Entry | => EMPTY_LINE | SL_COMMENT) ('\r'? '\n')*)*
+		public Group getGroup_1() { return cGroup_1; }
 		
-		//SPACE*
-		public RuleCall getSPACETerminalRuleCall_2() { return cSPACETerminalRuleCall_2; }
+		//entries+=Entry | => EMPTY_LINE | SL_COMMENT
+		public Alternatives getAlternatives_1_0() { return cAlternatives_1_0; }
 		
-		//SEPARATOR
-		public RuleCall getSEPARATORTerminalRuleCall_3() { return cSEPARATORTerminalRuleCall_3; }
-		
-		//SPACE*
-		public RuleCall getSPACETerminalRuleCall_4() { return cSPACETerminalRuleCall_4; }
-		
-		//name=MULTILINE
-		public Assignment getNameAssignment_5() { return cNameAssignment_5; }
-		
-		//MULTILINE
-		public RuleCall getNameMULTILINEParserRuleCall_5_0() { return cNameMULTILINEParserRuleCall_5_0; }
-		
-		//SPACE*
-		public RuleCall getSPACETerminalRuleCall_6() { return cSPACETerminalRuleCall_6; }
-		
-		//'\n'?
-		public Keyword getLineFeedKeyword_7() { return cLineFeedKeyword_7; }
-		
-		//entries+=Entry*
-		public Assignment getEntriesAssignment_8() { return cEntriesAssignment_8; }
+		//entries+=Entry
+		public Assignment getEntriesAssignment_1_0_0() { return cEntriesAssignment_1_0_0; }
 		
 		//Entry
-		public RuleCall getEntriesEntryParserRuleCall_8_0() { return cEntriesEntryParserRuleCall_8_0; }
+		public RuleCall getEntriesEntryParserRuleCall_1_0_0_0() { return cEntriesEntryParserRuleCall_1_0_0_0; }
+		
+		//=> EMPTY_LINE
+		public RuleCall getEMPTY_LINEParserRuleCall_1_0_1() { return cEMPTY_LINEParserRuleCall_1_0_1; }
+		
+		//SL_COMMENT
+		public RuleCall getSL_COMMENTTerminalRuleCall_1_0_2() { return cSL_COMMENTTerminalRuleCall_1_0_2; }
+		
+		//('\r'? '\n')*
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//'\r'?
+		public Keyword getCarriageReturnKeyword_1_1_0() { return cCarriageReturnKeyword_1_1_0; }
+		
+		//'\n'
+		public Keyword getLineFeedKeyword_1_1_1() { return cLineFeedKeyword_1_1_1; }
 	}
 	public class EntryElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.gemoc.Dsl.Entry");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cSPACETerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Assignment cKeyAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cKeyWORDParserRuleCall_1_0 = (RuleCall)cKeyAssignment_1.eContents().get(0);
-		private final RuleCall cSPACETerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final RuleCall cKeyENTRYKEYTerminalRuleCall_1_0 = (RuleCall)cKeyAssignment_1.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		private final RuleCall cSEPARATORTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
-		private final RuleCall cSPACETerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
 		private final Assignment cValueAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cValueMULTILINEParserRuleCall_5_0 = (RuleCall)cValueAssignment_5.eContents().get(0);
-		private final RuleCall cSPACETerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
-		private final Keyword cLineFeedKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final RuleCall cValueEntryValueParserRuleCall_5_0 = (RuleCall)cValueAssignment_5.eContents().get(0);
 		
 		//Entry:
-		//	SPACE* key=WORD SPACE* SEPARATOR SPACE* value=MULTILINE SPACE* '\n'?;
+		//	WS* key=ENTRYKEY WS* SEPARATOR WS* value=EntryValue;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//SPACE* key=WORD SPACE* SEPARATOR SPACE* value=MULTILINE SPACE* '\n'?
+		//WS* key=ENTRYKEY WS* SEPARATOR WS* value=EntryValue
 		public Group getGroup() { return cGroup; }
 		
-		//SPACE*
-		public RuleCall getSPACETerminalRuleCall_0() { return cSPACETerminalRuleCall_0; }
+		//WS*
+		public RuleCall getWSTerminalRuleCall_0() { return cWSTerminalRuleCall_0; }
 		
-		//key=WORD
+		//key=ENTRYKEY
 		public Assignment getKeyAssignment_1() { return cKeyAssignment_1; }
 		
-		//WORD
-		public RuleCall getKeyWORDParserRuleCall_1_0() { return cKeyWORDParserRuleCall_1_0; }
+		//ENTRYKEY
+		public RuleCall getKeyENTRYKEYTerminalRuleCall_1_0() { return cKeyENTRYKEYTerminalRuleCall_1_0; }
 		
-		//SPACE*
-		public RuleCall getSPACETerminalRuleCall_2() { return cSPACETerminalRuleCall_2; }
+		//WS*
+		public RuleCall getWSTerminalRuleCall_2() { return cWSTerminalRuleCall_2; }
 		
 		//SEPARATOR
 		public RuleCall getSEPARATORTerminalRuleCall_3() { return cSEPARATORTerminalRuleCall_3; }
 		
-		//SPACE*
-		public RuleCall getSPACETerminalRuleCall_4() { return cSPACETerminalRuleCall_4; }
+		//WS*
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
 		
-		//value=MULTILINE
+		//value=EntryValue
 		public Assignment getValueAssignment_5() { return cValueAssignment_5; }
 		
-		//MULTILINE
-		public RuleCall getValueMULTILINEParserRuleCall_5_0() { return cValueMULTILINEParserRuleCall_5_0; }
-		
-		//SPACE*
-		public RuleCall getSPACETerminalRuleCall_6() { return cSPACETerminalRuleCall_6; }
-		
-		//'\n'?
-		public Keyword getLineFeedKeyword_7() { return cLineFeedKeyword_7; }
+		//EntryValue
+		public RuleCall getValueEntryValueParserRuleCall_5_0() { return cValueEntryValueParserRuleCall_5_0; }
 	}
-	public class WORDElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.gemoc.Dsl.WORD");
+	public class EntryValueElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.gemoc.Dsl.EntryValue");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cLETTERTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Alternatives cAlternatives_1_0 = (Alternatives)cGroup_1.eContents().get(0);
-		private final RuleCall cLETTERTerminalRuleCall_1_0_0 = (RuleCall)cAlternatives_1_0.eContents().get(0);
-		private final RuleCall cSPACETerminalRuleCall_1_0_1 = (RuleCall)cAlternatives_1_0.eContents().get(1);
-		private final RuleCall cLETTERTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		private final Action cEntryValueAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cEntryLinesAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cEntryLinesENTRYVALUE_LINEParserRuleCall_1_0 = (RuleCall)cEntryLinesAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final RuleCall cWSTerminalRuleCall_2_0 = (RuleCall)cGroup_2.eContents().get(0);
+		private final Alternatives cAlternatives_2_1 = (Alternatives)cGroup_2.eContents().get(1);
+		private final Group cGroup_2_1_0 = (Group)cAlternatives_2_1.eContents().get(0);
+		private final Group cGroup_2_1_0_0 = (Group)cGroup_2_1_0.eContents().get(0);
+		private final Group cGroup_2_1_0_0_0 = (Group)cGroup_2_1_0_0.eContents().get(0);
+		private final Keyword cCommaKeyword_2_1_0_0_0_0 = (Keyword)cGroup_2_1_0_0_0.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2_1_0_0_0_1 = (RuleCall)cGroup_2_1_0_0_0.eContents().get(1);
+		private final Keyword cBackslashKeyword_2_1_0_0_0_2 = (Keyword)cGroup_2_1_0_0_0.eContents().get(2);
+		private final RuleCall cLINE_STARTTerminalRuleCall_2_1_0_0_0_3 = (RuleCall)cGroup_2_1_0_0_0.eContents().get(3);
+		private final Assignment cEntryLinesAssignment_2_1_0_1 = (Assignment)cGroup_2_1_0.eContents().get(1);
+		private final RuleCall cEntryLinesENTRYVALUE_LINEParserRuleCall_2_1_0_1_0 = (RuleCall)cEntryLinesAssignment_2_1_0_1.eContents().get(0);
+		private final Group cGroup_2_1_1 = (Group)cAlternatives_2_1.eContents().get(1);
+		private final Group cGroup_2_1_1_0 = (Group)cGroup_2_1_1.eContents().get(0);
+		private final Group cGroup_2_1_1_0_0 = (Group)cGroup_2_1_1_0.eContents().get(0);
+		private final Keyword cBackslashKeyword_2_1_1_0_0_0 = (Keyword)cGroup_2_1_1_0_0.eContents().get(0);
+		private final RuleCall cLINE_STARTTerminalRuleCall_2_1_1_0_0_1 = (RuleCall)cGroup_2_1_1_0_0.eContents().get(1);
+		private final Assignment cEntryLinesAssignment_2_1_1_1 = (Assignment)cGroup_2_1_1.eContents().get(1);
+		private final RuleCall cEntryLinesENTRYVALUE_LINEParserRuleCall_2_1_1_1_0 = (RuleCall)cEntryLinesAssignment_2_1_1_1.eContents().get(0);
+		private final Group cGroup_2_1_2 = (Group)cAlternatives_2_1.eContents().get(2);
+		private final Keyword cCommaKeyword_2_1_2_0 = (Keyword)cGroup_2_1_2.eContents().get(0);
+		private final RuleCall cWSTerminalRuleCall_2_1_2_1 = (RuleCall)cGroup_2_1_2.eContents().get(1);
+		private final Assignment cEntryLinesAssignment_2_1_2_2 = (Assignment)cGroup_2_1_2.eContents().get(2);
+		private final RuleCall cEntryLinesENTRYVALUE_LINEParserRuleCall_2_1_2_2_0 = (RuleCall)cEntryLinesAssignment_2_1_2_2.eContents().get(0);
 		
-		///*
-		// * Start and finish with a letter. Can contain spaces.  
-		// */ WORD:
-		//	LETTER ((LETTER | SPACE)* -> LETTER)?;
+		//EntryValue:
+		//	{EntryValue} entryLines+=ENTRYVALUE_LINE (WS* (=> (',' WS* '\\' LINE_START) entryLines+=ENTRYVALUE_LINE | => ('\\'
+		//	LINE_START) entryLines+=ENTRYVALUE_LINE | ',' WS* entryLines+=ENTRYVALUE_LINE))*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//LETTER ((LETTER | SPACE)* -> LETTER)?
+		//{EntryValue} entryLines+=ENTRYVALUE_LINE (WS* (=> (',' WS* '\\' LINE_START) entryLines+=ENTRYVALUE_LINE | => ('\\'
+		//LINE_START) entryLines+=ENTRYVALUE_LINE | ',' WS* entryLines+=ENTRYVALUE_LINE))*
 		public Group getGroup() { return cGroup; }
 		
-		//LETTER
-		public RuleCall getLETTERTerminalRuleCall_0() { return cLETTERTerminalRuleCall_0; }
+		//{EntryValue}
+		public Action getEntryValueAction_0() { return cEntryValueAction_0; }
 		
-		//((LETTER | SPACE)* -> LETTER)?
-		public Group getGroup_1() { return cGroup_1; }
+		//entryLines+=ENTRYVALUE_LINE
+		public Assignment getEntryLinesAssignment_1() { return cEntryLinesAssignment_1; }
 		
-		//(LETTER | SPACE)*
-		public Alternatives getAlternatives_1_0() { return cAlternatives_1_0; }
+		//ENTRYVALUE_LINE
+		public RuleCall getEntryLinesENTRYVALUE_LINEParserRuleCall_1_0() { return cEntryLinesENTRYVALUE_LINEParserRuleCall_1_0; }
 		
-		//LETTER
-		public RuleCall getLETTERTerminalRuleCall_1_0_0() { return cLETTERTerminalRuleCall_1_0_0; }
+		//(WS* (=> (',' WS* '\\' LINE_START) entryLines+=ENTRYVALUE_LINE | => ('\\' LINE_START) entryLines+=ENTRYVALUE_LINE | ','
+		//WS* entryLines+=ENTRYVALUE_LINE))*
+		public Group getGroup_2() { return cGroup_2; }
 		
-		//SPACE
-		public RuleCall getSPACETerminalRuleCall_1_0_1() { return cSPACETerminalRuleCall_1_0_1; }
+		//WS*
+		public RuleCall getWSTerminalRuleCall_2_0() { return cWSTerminalRuleCall_2_0; }
 		
-		//-> LETTER
-		public RuleCall getLETTERTerminalRuleCall_1_1() { return cLETTERTerminalRuleCall_1_1; }
+		//=> (',' WS* '\\' LINE_START) entryLines+=ENTRYVALUE_LINE | => ('\\' LINE_START) entryLines+=ENTRYVALUE_LINE | ',' WS*
+		//entryLines+=ENTRYVALUE_LINE
+		public Alternatives getAlternatives_2_1() { return cAlternatives_2_1; }
+		
+		//=> (',' WS* '\\' LINE_START) entryLines+=ENTRYVALUE_LINE
+		public Group getGroup_2_1_0() { return cGroup_2_1_0; }
+		
+		//=> (',' WS* '\\' LINE_START)
+		public Group getGroup_2_1_0_0() { return cGroup_2_1_0_0; }
+		
+		//',' WS* '\\' LINE_START
+		public Group getGroup_2_1_0_0_0() { return cGroup_2_1_0_0_0; }
+		
+		//','
+		public Keyword getCommaKeyword_2_1_0_0_0_0() { return cCommaKeyword_2_1_0_0_0_0; }
+		
+		//WS*
+		public RuleCall getWSTerminalRuleCall_2_1_0_0_0_1() { return cWSTerminalRuleCall_2_1_0_0_0_1; }
+		
+		//'\\'
+		public Keyword getBackslashKeyword_2_1_0_0_0_2() { return cBackslashKeyword_2_1_0_0_0_2; }
+		
+		//LINE_START
+		public RuleCall getLINE_STARTTerminalRuleCall_2_1_0_0_0_3() { return cLINE_STARTTerminalRuleCall_2_1_0_0_0_3; }
+		
+		//entryLines+=ENTRYVALUE_LINE
+		public Assignment getEntryLinesAssignment_2_1_0_1() { return cEntryLinesAssignment_2_1_0_1; }
+		
+		//ENTRYVALUE_LINE
+		public RuleCall getEntryLinesENTRYVALUE_LINEParserRuleCall_2_1_0_1_0() { return cEntryLinesENTRYVALUE_LINEParserRuleCall_2_1_0_1_0; }
+		
+		//=> ('\\' LINE_START) entryLines+=ENTRYVALUE_LINE
+		public Group getGroup_2_1_1() { return cGroup_2_1_1; }
+		
+		//=> ('\\' LINE_START)
+		public Group getGroup_2_1_1_0() { return cGroup_2_1_1_0; }
+		
+		//'\\' LINE_START
+		public Group getGroup_2_1_1_0_0() { return cGroup_2_1_1_0_0; }
+		
+		//'\\'
+		public Keyword getBackslashKeyword_2_1_1_0_0_0() { return cBackslashKeyword_2_1_1_0_0_0; }
+		
+		//LINE_START
+		public RuleCall getLINE_STARTTerminalRuleCall_2_1_1_0_0_1() { return cLINE_STARTTerminalRuleCall_2_1_1_0_0_1; }
+		
+		//entryLines+=ENTRYVALUE_LINE
+		public Assignment getEntryLinesAssignment_2_1_1_1() { return cEntryLinesAssignment_2_1_1_1; }
+		
+		//ENTRYVALUE_LINE
+		public RuleCall getEntryLinesENTRYVALUE_LINEParserRuleCall_2_1_1_1_0() { return cEntryLinesENTRYVALUE_LINEParserRuleCall_2_1_1_1_0; }
+		
+		//',' WS* entryLines+=ENTRYVALUE_LINE
+		public Group getGroup_2_1_2() { return cGroup_2_1_2; }
+		
+		//','
+		public Keyword getCommaKeyword_2_1_2_0() { return cCommaKeyword_2_1_2_0; }
+		
+		//WS*
+		public RuleCall getWSTerminalRuleCall_2_1_2_1() { return cWSTerminalRuleCall_2_1_2_1; }
+		
+		//entryLines+=ENTRYVALUE_LINE
+		public Assignment getEntryLinesAssignment_2_1_2_2() { return cEntryLinesAssignment_2_1_2_2; }
+		
+		//ENTRYVALUE_LINE
+		public RuleCall getEntryLinesENTRYVALUE_LINEParserRuleCall_2_1_2_2_0() { return cEntryLinesENTRYVALUE_LINEParserRuleCall_2_1_2_2_0; }
 	}
-	public class VALUE_WORDElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.gemoc.Dsl.VALUE_WORD");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
-		private final RuleCall cLETTERTerminalRuleCall_0_0 = (RuleCall)cAlternatives_0.eContents().get(0);
-		private final RuleCall cSEPARATORTerminalRuleCall_0_1 = (RuleCall)cAlternatives_0.eContents().get(1);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Alternatives cAlternatives_1_0 = (Alternatives)cGroup_1.eContents().get(0);
-		private final Alternatives cAlternatives_1_0_0 = (Alternatives)cAlternatives_1_0.eContents().get(0);
-		private final RuleCall cLETTERTerminalRuleCall_1_0_0_0 = (RuleCall)cAlternatives_1_0_0.eContents().get(0);
-		private final RuleCall cSEPARATORTerminalRuleCall_1_0_0_1 = (RuleCall)cAlternatives_1_0_0.eContents().get(1);
-		private final RuleCall cSPACETerminalRuleCall_1_0_1 = (RuleCall)cAlternatives_1_0.eContents().get(1);
-		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
-		private final Alternatives cAlternatives_1_1_0 = (Alternatives)cGroup_1_1.eContents().get(0);
-		private final RuleCall cLETTERTerminalRuleCall_1_1_0_0 = (RuleCall)cAlternatives_1_1_0.eContents().get(0);
-		private final RuleCall cSEPARATORTerminalRuleCall_1_1_0_1 = (RuleCall)cAlternatives_1_1_0.eContents().get(1);
+	public class ENTRYVALUE_LINEElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.gemoc.Dsl.ENTRYVALUE_LINE");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cENTRYKEYTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cSTRINGTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		///*
-		// * A WORD that may contain ':' and '='
-		// */ VALUE_WORD:
-		//	(LETTER | SEPARATOR) (((LETTER | SEPARATOR) | SPACE)* -> (LETTER | SEPARATOR))?;
+		//ENTRYVALUE_LINE:
+		//	ENTRYKEY | STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(LETTER | SEPARATOR) (((LETTER | SEPARATOR) | SPACE)* -> (LETTER | SEPARATOR))?
-		public Group getGroup() { return cGroup; }
+		//ENTRYKEY | STRING
+		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//LETTER | SEPARATOR
-		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		//ENTRYKEY
+		public RuleCall getENTRYKEYTerminalRuleCall_0() { return cENTRYKEYTerminalRuleCall_0; }
 		
-		//LETTER
-		public RuleCall getLETTERTerminalRuleCall_0_0() { return cLETTERTerminalRuleCall_0_0; }
-		
-		//SEPARATOR
-		public RuleCall getSEPARATORTerminalRuleCall_0_1() { return cSEPARATORTerminalRuleCall_0_1; }
-		
-		//(((LETTER | SEPARATOR) | SPACE)* -> (LETTER | SEPARATOR))?
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//((LETTER | SEPARATOR) | SPACE)*
-		public Alternatives getAlternatives_1_0() { return cAlternatives_1_0; }
-		
-		//(LETTER | SEPARATOR)
-		public Alternatives getAlternatives_1_0_0() { return cAlternatives_1_0_0; }
-		
-		//LETTER
-		public RuleCall getLETTERTerminalRuleCall_1_0_0_0() { return cLETTERTerminalRuleCall_1_0_0_0; }
-		
-		//SEPARATOR
-		public RuleCall getSEPARATORTerminalRuleCall_1_0_0_1() { return cSEPARATORTerminalRuleCall_1_0_0_1; }
-		
-		//SPACE
-		public RuleCall getSPACETerminalRuleCall_1_0_1() { return cSPACETerminalRuleCall_1_0_1; }
-		
-		//-> (LETTER | SEPARATOR)
-		public Group getGroup_1_1() { return cGroup_1_1; }
-		
-		//LETTER | SEPARATOR
-		public Alternatives getAlternatives_1_1_0() { return cAlternatives_1_1_0; }
-		
-		//LETTER
-		public RuleCall getLETTERTerminalRuleCall_1_1_0_0() { return cLETTERTerminalRuleCall_1_1_0_0; }
-		
-		//SEPARATOR
-		public RuleCall getSEPARATORTerminalRuleCall_1_1_0_1() { return cSEPARATORTerminalRuleCall_1_1_0_1; }
+		//STRING
+		public RuleCall getSTRINGTerminalRuleCall_1() { return cSTRINGTerminalRuleCall_1; }
 	}
-	public class MULTILINEElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.gemoc.Dsl.MULTILINE");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cVALUE_WORDParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cReverseSolidusControl000aKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final RuleCall cSPACETerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
-		private final RuleCall cVALUE_WORDParserRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
+	public class EMPTY_LINEElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.gemoc.Dsl.EMPTY_LINE");
+		private final RuleCall cLINE_STARTTerminalRuleCall = (RuleCall)rule.eContents().get(1);
 		
-		///*
-		// * VALUE_WORD splited on severals lines.
-		// * Starting spaces are ignored for each new lines (see DslValueConverter)
-		// */ MULTILINE:
-		//	VALUE_WORD ('\\\n' SPACE* VALUE_WORD)*;
+		//EMPTY_LINE:
+		//	LINE_START;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//VALUE_WORD ('\\\n' SPACE* VALUE_WORD)*
-		public Group getGroup() { return cGroup; }
-		
-		//VALUE_WORD
-		public RuleCall getVALUE_WORDParserRuleCall_0() { return cVALUE_WORDParserRuleCall_0; }
-		
-		//('\\\n' SPACE* VALUE_WORD)*
-		public Group getGroup_1() { return cGroup_1; }
-		
-		//'\\\n'
-		public Keyword getReverseSolidusControl000aKeyword_1_0() { return cReverseSolidusControl000aKeyword_1_0; }
-		
-		//SPACE*
-		public RuleCall getSPACETerminalRuleCall_1_1() { return cSPACETerminalRuleCall_1_1; }
-		
-		//VALUE_WORD
-		public RuleCall getVALUE_WORDParserRuleCall_1_2() { return cVALUE_WORDParserRuleCall_1_2; }
+		//LINE_START
+		public RuleCall getLINE_STARTTerminalRuleCall() { return cLINE_STARTTerminalRuleCall; }
 	}
 	
 	
 	private final DslElements pDsl;
 	private final EntryElements pEntry;
-	private final WORDElements pWORD;
-	private final VALUE_WORDElements pVALUE_WORD;
+	private final EntryValueElements pEntryValue;
+	private final ENTRYVALUE_LINEElements pENTRYVALUE_LINE;
+	private final EMPTY_LINEElements pEMPTY_LINE;
+	private final TerminalRule tENTRYKEY;
+	private final TerminalRule tSTRING;
+	private final TerminalRule tLINE_START;
 	private final TerminalRule tSEPARATOR;
 	private final TerminalRule tSL_COMMENT;
-	private final TerminalRule tLETTER;
-	private final MULTILINEElements pMULTILINE;
-	private final TerminalRule tSPACE;
+	private final TerminalRule tWS;
+	private final TerminalRule tANY_OTHER;
 	
 	private final Grammar grammar;
 
@@ -283,13 +292,16 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.pDsl = new DslElements();
 		this.pEntry = new EntryElements();
-		this.pWORD = new WORDElements();
-		this.pVALUE_WORD = new VALUE_WORDElements();
+		this.pEntryValue = new EntryValueElements();
+		this.pENTRYVALUE_LINE = new ENTRYVALUE_LINEElements();
+		this.pEMPTY_LINE = new EMPTY_LINEElements();
+		this.tENTRYKEY = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.gemoc.Dsl.ENTRYKEY");
+		this.tSTRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.gemoc.Dsl.STRING");
+		this.tLINE_START = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.gemoc.Dsl.LINE_START");
 		this.tSEPARATOR = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.gemoc.Dsl.SEPARATOR");
 		this.tSL_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.gemoc.Dsl.SL_COMMENT");
-		this.tLETTER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.gemoc.Dsl.LETTER");
-		this.pMULTILINE = new MULTILINEElements();
-		this.tSPACE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.gemoc.Dsl.SPACE");
+		this.tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.gemoc.Dsl.WS");
+		this.tANY_OTHER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.gemoc.Dsl.ANY_OTHER");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -316,8 +328,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Dsl:
-	//	SPACE* 'name' SPACE* SEPARATOR SPACE* name=MULTILINE SPACE* '\n'?
-	//	entries+=Entry*;
+	//	{Dsl} ((entries+=Entry |
+	//	=> EMPTY_LINE | SL_COMMENT) ('\r'? '\n')*)*;
 	public DslElements getDslAccess() {
 		return pDsl;
 	}
@@ -327,7 +339,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Entry:
-	//	SPACE* key=WORD SPACE* SEPARATOR SPACE* value=MULTILINE SPACE* '\n'?;
+	//	WS* key=ENTRYKEY WS* SEPARATOR WS* value=EntryValue;
 	public EntryElements getEntryAccess() {
 		return pEntry;
 	}
@@ -336,28 +348,53 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		return getEntryAccess().getRule();
 	}
 	
-	///*
-	// * Start and finish with a letter. Can contain spaces.  
-	// */ WORD:
-	//	LETTER ((LETTER | SPACE)* -> LETTER)?;
-	public WORDElements getWORDAccess() {
-		return pWORD;
+	//EntryValue:
+	//	{EntryValue} entryLines+=ENTRYVALUE_LINE (WS* (=> (',' WS* '\\' LINE_START) entryLines+=ENTRYVALUE_LINE | => ('\\'
+	//	LINE_START) entryLines+=ENTRYVALUE_LINE | ',' WS* entryLines+=ENTRYVALUE_LINE))*;
+	public EntryValueElements getEntryValueAccess() {
+		return pEntryValue;
 	}
 	
-	public ParserRule getWORDRule() {
-		return getWORDAccess().getRule();
+	public ParserRule getEntryValueRule() {
+		return getEntryValueAccess().getRule();
 	}
 	
-	///*
-	// * A WORD that may contain ':' and '='
-	// */ VALUE_WORD:
-	//	(LETTER | SEPARATOR) (((LETTER | SEPARATOR) | SPACE)* -> (LETTER | SEPARATOR))?;
-	public VALUE_WORDElements getVALUE_WORDAccess() {
-		return pVALUE_WORD;
+	//ENTRYVALUE_LINE:
+	//	ENTRYKEY | STRING;
+	public ENTRYVALUE_LINEElements getENTRYVALUE_LINEAccess() {
+		return pENTRYVALUE_LINE;
 	}
 	
-	public ParserRule getVALUE_WORDRule() {
-		return getVALUE_WORDAccess().getRule();
+	public ParserRule getENTRYVALUE_LINERule() {
+		return getENTRYVALUE_LINEAccess().getRule();
+	}
+	
+	//EMPTY_LINE:
+	//	LINE_START;
+	public EMPTY_LINEElements getEMPTY_LINEAccess() {
+		return pEMPTY_LINE;
+	}
+	
+	public ParserRule getEMPTY_LINERule() {
+		return getEMPTY_LINEAccess().getRule();
+	}
+	
+	//terminal ENTRYKEY:
+	//	('a'..'z' | 'A'..'Z' | '_' | '.' | '0'..'9') ('a'..'z' | 'A'..'Z' | '_' | '.' | '0'..'9')*;
+	public TerminalRule getENTRYKEYRule() {
+		return tENTRYKEY;
+	}
+	
+	//terminal STRING: // '"' ( '\\'('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|'"') )* '"';
+	//	'"' ('\\' ('b' | 't' | 'n' | 'f' | 'r' | 'u' | '"' | "'" | '\\' | '\r' | '\n') | !('\\' | '"' | '\r' | '\n'))* '"';
+	public TerminalRule getSTRINGRule() {
+		return tSTRING;
+	}
+	
+	//terminal LINE_START:
+	//	'\r'? '\n' WS*;
+	public TerminalRule getLINE_STARTRule() {
+		return tLINE_START;
 	}
 	
 	//terminal SEPARATOR:
@@ -367,33 +404,20 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal SL_COMMENT:
-	//	('!' | '#') !('\n' | '\r')* ('\r'? '\n')?;
+	//	('!' | '#') !('\n' | '\r')*;
 	public TerminalRule getSL_COMMENTRule() {
 		return tSL_COMMENT;
 	}
 	
-	//terminal LETTER:
-	//	!(SEPARATOR | SPACE | '\\\n' | '\r' | '\n') | '\\=' | '\\:' | '\\#' | '\\!';
-	public TerminalRule getLETTERRule() {
-		return tLETTER;
-	}
-	
-	///*
-	// * VALUE_WORD splited on severals lines.
-	// * Starting spaces are ignored for each new lines (see DslValueConverter)
-	// */ MULTILINE:
-	//	VALUE_WORD ('\\\n' SPACE* VALUE_WORD)*;
-	public MULTILINEElements getMULTILINEAccess() {
-		return pMULTILINE;
-	}
-	
-	public ParserRule getMULTILINERule() {
-		return getMULTILINEAccess().getRule();
-	}
-	
-	//terminal SPACE:
+	//terminal WS:
 	//	' ' | '\t';
-	public TerminalRule getSPACERule() {
-		return tSPACE;
+	public TerminalRule getWSRule() {
+		return tWS;
+	}
+	
+	//terminal ANY_OTHER:
+	//	.;
+	public TerminalRule getANY_OTHERRule() {
+		return tANY_OTHER;
 	}
 }

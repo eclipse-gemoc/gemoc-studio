@@ -42,6 +42,15 @@ public interface DslFactory extends EFactory
   Entry createEntry();
 
   /**
+   * Returns a new object of class '<em>Entry Value</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Entry Value</em>'.
+   * @generated
+   */
+  EntryValue createEntryValue();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
