@@ -5,6 +5,7 @@ package org.eclipse.gemoc.dsl.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -12,6 +13,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -29,6 +31,7 @@ import org.eclipse.gemoc.dsl.Entry;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.eclipse.gemoc.dsl.impl.DslImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipse.gemoc.dsl.impl.DslImpl#getEntries <em>Entries</em>}</li>
  * </ul>
  *
@@ -36,6 +39,26 @@ import org.eclipse.gemoc.dsl.Entry;
  */
 public class DslImpl extends MinimalEObjectImpl.Container implements Dsl
 {
+  /**
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getEntries() <em>Entries</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -65,6 +88,29 @@ public class DslImpl extends MinimalEObjectImpl.Container implements Dsl
   protected EClass eStaticClass()
   {
     return DslPackage.Literals.DSL;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getName()
+  {
+    return name;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(String newName)
+  {
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, DslPackage.DSL__NAME, oldName, name));
   }
 
   /**
@@ -107,6 +153,8 @@ public class DslImpl extends MinimalEObjectImpl.Container implements Dsl
   {
     switch (featureID)
     {
+      case DslPackage.DSL__NAME:
+        return getName();
       case DslPackage.DSL__ENTRIES:
         return getEntries();
     }
@@ -124,6 +172,9 @@ public class DslImpl extends MinimalEObjectImpl.Container implements Dsl
   {
     switch (featureID)
     {
+      case DslPackage.DSL__NAME:
+        setName((String)newValue);
+        return;
       case DslPackage.DSL__ENTRIES:
         getEntries().clear();
         getEntries().addAll((Collection<? extends Entry>)newValue);
@@ -142,6 +193,9 @@ public class DslImpl extends MinimalEObjectImpl.Container implements Dsl
   {
     switch (featureID)
     {
+      case DslPackage.DSL__NAME:
+        setName(NAME_EDEFAULT);
+        return;
       case DslPackage.DSL__ENTRIES:
         getEntries().clear();
         return;
@@ -159,10 +213,29 @@ public class DslImpl extends MinimalEObjectImpl.Container implements Dsl
   {
     switch (featureID)
     {
+      case DslPackage.DSL__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case DslPackage.DSL__ENTRIES:
         return entries != null && !entries.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
   }
 
 } //DslImpl

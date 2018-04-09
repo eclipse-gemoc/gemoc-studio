@@ -30,9 +30,8 @@ class DslParsingSingleLineTest {
 			"eResource.errors not Empty " + result.eResource.errors,
 			result.eResource.errors.isEmpty
 		)
-		//assertEquals("my.language", result.name)
-		assertTrue("no key named \"name\"", result.entries.exists[e|e.key == "name"])
-		assertEquals("my.language", result.entries.findFirst[e|e.key == "name"].value.entryLines.get(0))
+		assertEquals("my.language", result.name)
+		
 	}
 
 	@Test
@@ -46,9 +45,7 @@ class DslParsingSingleLineTest {
 			"eResource.errors not Empty " + result.eResource.errors,
 			result.eResource.errors.isEmpty
 		)
-		//assertEquals("my.language", result.name)
-		assertTrue("no key named \"name\"", result.entries.exists[e|e.key == "name"])
-		assertEquals("my.language", result.entries.findFirst[e|e.key == "name"].value.entryLines.get(0))
+		assertEquals("my.language", result.name)
 		assertTrue("no key named \"mykey\"", result.entries.exists[e|e.key == "mykey"])
 		assertEquals("myvalue", result.entries.findFirst[e|e.key == "mykey"].value.entryLines.get(0))
 	}
@@ -67,9 +64,7 @@ class DslParsingSingleLineTest {
 			"eResource.errors not Empty " + result.eResource.errors,
 			result.eResource.errors.isEmpty
 		)
-		//assertEquals("my.language", result.name)
-		assertTrue("no key named \"name\"", result.entries.exists[e|e.key == "name"])
-		assertEquals("my.language", result.entries.findFirst[e|e.key == "name"].value.entryLines.get(0))
+		assertEquals("my.language", result.name)
 		assertTrue("no key named \"mykey\"", result.entries.exists[e|e.key == "mykey"])
 		assertEquals("myvalue", result.entries.findFirst[e|e.key == "mykey"].value.entryLines.get(0))
 	}
@@ -78,18 +73,16 @@ class DslParsingSingleLineTest {
 	def void minimal_name_keyword_in_value_01() {
 		val result = parseHelper.parse('''
 			name = my.language
-			mykey = name
+			mykey = "name"
 		''')
 		assertNotNull(result)
 		assertTrue(
 			"eResource.errors not Empty " + result.eResource.errors,
 			result.eResource.errors.isEmpty
 		)
-		//assertEquals("my.language", result.name)
-		assertTrue("no key named \"name\"", result.entries.exists[e|e.key == "name"])
-		assertEquals("my.language", result.entries.findFirst[e|e.key == "name"].value.entryLines.get(0))
+		assertEquals("my.language", result.name)
 		assertTrue("no key named \"mykey\"", result.entries.exists[e|e.key == "mykey"])
-		assertEquals("name", result.entries.findFirst[e|e.key == "mykey"].value.entryLines.get(0))
+		assertEquals("\"name\"", result.entries.findFirst[e|e.key == "mykey"].value.entryLines.get(0))
 	}
 
 	@Test
@@ -103,9 +96,7 @@ class DslParsingSingleLineTest {
 			"eResource.errors not Empty " + result.eResource.errors,
 			result.eResource.errors.isEmpty
 		)
-		//assertEquals("my.language", result.name)
-		assertTrue("no key named \"name\"", result.entries.exists[e|e.key == "name"])
-		assertEquals("my.language", result.entries.findFirst[e|e.key == "name"].value.entryLines.get(0))
+		assertEquals("my.language", result.name)
 		assertTrue("no key named \"mykey\"", result.entries.exists[e|e.key == "mykey"])
 		assertEquals("myval_with_name_in_val", result.entries.findFirst[e|e.key == "mykey"].value.entryLines.get(0))
 	}
@@ -121,8 +112,7 @@ class DslParsingSingleLineTest {
 			"eResource.errors not Empty " + result.eResource.errors,
 			result.eResource.errors.isEmpty
 		)
-		assertTrue("no key named \"name\"", result.entries.exists[e|e.key == "name"])
-		assertEquals("my.language", result.entries.findFirst[e|e.key == "name"].value.entryLines.get(0))
+		assertEquals("my.language", result.name)
 		assertTrue("no key named \"mykey\"", result.entries.exists[e|e.key == "mykey"])
 		assertEquals("final", result.entries.findFirst[e|e.key == "mykey"].value.entryLines.get(0))
 	}
@@ -138,8 +128,7 @@ class DslParsingSingleLineTest {
 			"eResource.errors not Empty " + result.eResource.errors,
 			result.eResource.errors.isEmpty
 		)
-		assertTrue("no key named \"name\"", result.entries.exists[e|e.key == "name"])
-		assertEquals("my.language", result.entries.findFirst[e|e.key == "name"].value.entryLines.get(0))
+		assertEquals("my.language", result.name)
 		assertTrue("no key named \"mykey\"", result.entries.exists[e|e.key == "mykey"])
 		assertEquals("\"bla=bli\"", result.entries.findFirst[e|e.key == "mykey"].value.entryLines.get(0))
 	}
@@ -155,8 +144,7 @@ class DslParsingSingleLineTest {
 			"eResource.errors not Empty " + result.eResource.errors,
 			result.eResource.errors.isEmpty
 		)
-		assertTrue("no key named \"name\"", result.entries.exists[e|e.key == "name"])
-		assertEquals("my.language", result.entries.findFirst[e|e.key == "name"].value.entryLines.get(0))
+		assertEquals("my.language", result.name)
 		assertTrue("no key named \"mykey1\"", result.entries.exists[e|e.key == "mykey1"])
 		assertEquals("\"blabli\";\"3.0.1\"", result.entries.findFirst[e|e.key == "mykey1"].value.entryLines.get(0))
 		assertEquals("\"foobar\" ; \"4.0.7\"", result.entries.findFirst[e|e.key == "mykey1"].value.entryLines.get(1))
@@ -173,8 +161,7 @@ class DslParsingSingleLineTest {
 			"eResource.errors not Empty " + result.eResource.errors,
 			result.eResource.errors.isEmpty
 		)
-		assertTrue("no key named \"name\"", result.entries.exists[e|e.key == "name"])
-		assertEquals("my.language", result.entries.findFirst[e|e.key == "name"].value.entryLines.get(0))
+		assertEquals("my.language", result.name)
 		assertTrue("no key named \"mykey1\"", result.entries.exists[e|e.key == "mykey1"])
 		assertEquals("\"blabli\";\"3.0.1\"", result.entries.findFirst[e|e.key == "mykey1"].value.entryLines.get(0))
 		assertEquals("\"foobar\" ; [\"4.0.7\"..[", result.entries.findFirst[e|e.key == "mykey1"].value.entryLines.get(1))

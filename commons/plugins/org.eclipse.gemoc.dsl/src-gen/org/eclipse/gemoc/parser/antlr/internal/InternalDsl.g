@@ -85,12 +85,122 @@ ruleDsl returns [EObject current=null]
 		)
 		(
 			(
+				otherlv_1='\r'
+				{
+					newLeafNode(otherlv_1, grammarAccess.getDslAccess().getCarriageReturnKeyword_1_0());
+				}
+			)?
+			otherlv_2='\n'
+			{
+				newLeafNode(otherlv_2, grammarAccess.getDslAccess().getLineFeedKeyword_1_1());
+			}
+		)*
+		(
+			(
+				(
+					(ruleEMPTY_LINE)=>
+					{
+						newCompositeNode(grammarAccess.getDslAccess().getEMPTY_LINEParserRuleCall_2_0_0());
+					}
+					ruleEMPTY_LINE
+					{
+						afterParserOrEnumRuleCall();
+					}
+				)
+				    |
+				this_SL_COMMENT_4=RULE_SL_COMMENT
+				{
+					newLeafNode(this_SL_COMMENT_4, grammarAccess.getDslAccess().getSL_COMMENTTerminalRuleCall_2_0_1());
+				}
+			)
+			(
+				(
+					otherlv_5='\r'
+					{
+						newLeafNode(otherlv_5, grammarAccess.getDslAccess().getCarriageReturnKeyword_2_1_0());
+					}
+				)?
+				otherlv_6='\n'
+				{
+					newLeafNode(otherlv_6, grammarAccess.getDslAccess().getLineFeedKeyword_2_1_1());
+				}
+			)*
+		)*
+		otherlv_7='name'
+		{
+			newLeafNode(otherlv_7, grammarAccess.getDslAccess().getNameKeyword_3());
+		}
+		(
+			this_WS_8=RULE_WS
+			{
+				newLeafNode(this_WS_8, grammarAccess.getDslAccess().getWSTerminalRuleCall_4());
+			}
+		)*
+		this_SEPARATOR_9=RULE_SEPARATOR
+		{
+			newLeafNode(this_SEPARATOR_9, grammarAccess.getDslAccess().getSEPARATORTerminalRuleCall_5());
+		}
+		(
+			this_WS_10=RULE_WS
+			{
+				newLeafNode(this_WS_10, grammarAccess.getDslAccess().getWSTerminalRuleCall_6());
+			}
+		)*
+		(
+			(
+				(
+					lv_name_11_1=RULE_ENTRYKEY
+					{
+						newLeafNode(lv_name_11_1, grammarAccess.getDslAccess().getNameENTRYKEYTerminalRuleCall_7_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getDslRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"name",
+							lv_name_11_1,
+							"org.eclipse.gemoc.Dsl.ENTRYKEY");
+					}
+					    |
+					lv_name_11_2=RULE_STRING
+					{
+						newLeafNode(lv_name_11_2, grammarAccess.getDslAccess().getNameSTRINGTerminalRuleCall_7_0_1());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getDslRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"name",
+							lv_name_11_2,
+							"org.eclipse.gemoc.Dsl.STRING");
+					}
+				)
+			)
+		)
+		(
+			(
+				otherlv_12='\r'
+				{
+					newLeafNode(otherlv_12, grammarAccess.getDslAccess().getCarriageReturnKeyword_8_0());
+				}
+			)?
+			otherlv_13='\n'
+			{
+				newLeafNode(otherlv_13, grammarAccess.getDslAccess().getLineFeedKeyword_8_1());
+			}
+		)*
+		(
+			(
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getDslAccess().getEntriesEntryParserRuleCall_1_0_0_0());
+							newCompositeNode(grammarAccess.getDslAccess().getEntriesEntryParserRuleCall_9_0_0_0());
 						}
-						lv_entries_1_0=ruleEntry
+						lv_entries_14_0=ruleEntry
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getDslRule());
@@ -98,7 +208,7 @@ ruleDsl returns [EObject current=null]
 							add(
 								$current,
 								"entries",
-								lv_entries_1_0,
+								lv_entries_14_0,
 								"org.eclipse.gemoc.Dsl.Entry");
 							afterParserOrEnumRuleCall();
 						}
@@ -108,7 +218,7 @@ ruleDsl returns [EObject current=null]
 				(
 					(ruleEMPTY_LINE)=>
 					{
-						newCompositeNode(grammarAccess.getDslAccess().getEMPTY_LINEParserRuleCall_1_0_1());
+						newCompositeNode(grammarAccess.getDslAccess().getEMPTY_LINEParserRuleCall_9_0_1());
 					}
 					ruleEMPTY_LINE
 					{
@@ -116,21 +226,21 @@ ruleDsl returns [EObject current=null]
 					}
 				)
 				    |
-				this_SL_COMMENT_3=RULE_SL_COMMENT
+				this_SL_COMMENT_16=RULE_SL_COMMENT
 				{
-					newLeafNode(this_SL_COMMENT_3, grammarAccess.getDslAccess().getSL_COMMENTTerminalRuleCall_1_0_2());
+					newLeafNode(this_SL_COMMENT_16, grammarAccess.getDslAccess().getSL_COMMENTTerminalRuleCall_9_0_2());
 				}
 			)
 			(
 				(
-					otherlv_4='\r'
+					otherlv_17='\r'
 					{
-						newLeafNode(otherlv_4, grammarAccess.getDslAccess().getCarriageReturnKeyword_1_1_0());
+						newLeafNode(otherlv_17, grammarAccess.getDslAccess().getCarriageReturnKeyword_9_1_0());
 					}
 				)?
-				otherlv_5='\n'
+				otherlv_18='\n'
 				{
-					newLeafNode(otherlv_5, grammarAccess.getDslAccess().getLineFeedKeyword_1_1_1());
+					newLeafNode(otherlv_18, grammarAccess.getDslAccess().getLineFeedKeyword_9_1_1());
 				}
 			)*
 		)*

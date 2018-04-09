@@ -123,9 +123,19 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getDsl_Name()
+  {
+    return (EAttribute)dslEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getDsl_Entries()
   {
-    return (EReference)dslEClass.getEStructuralFeatures().get(0);
+    return (EReference)dslEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -209,6 +219,7 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
 
     // Create classes and their features
     dslEClass = createEClass(DSL);
+    createEAttribute(dslEClass, DSL__NAME);
     createEReference(dslEClass, DSL__ENTRIES);
 
     entryEClass = createEClass(ENTRY);
@@ -251,6 +262,7 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
 
     // Initialize classes and features; add operations and parameters
     initEClass(dslEClass, Dsl.class, "Dsl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDsl_Name(), ecorePackage.getEString(), "name", null, 0, 1, Dsl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDsl_Entries(), this.getEntry(), null, "entries", null, 0, -1, Dsl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(entryEClass, Entry.class, "Entry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

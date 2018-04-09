@@ -31,9 +31,8 @@ class DslParsingEmptyLineTest {
 			"eResource.errors not Empty " + result.eResource.errors,
 			result.eResource.errors.isEmpty
 		)
-		// assertEquals("my.language", result.name)
-		assertTrue("no key named \"name\"", result.entries.exists[e|e.key == "name"])
-		assertEquals("my.language", result.entries.findFirst[e|e.key == "name"].value.entryLines.get(0))
+		assertEquals("my.language", result.name)
+		
 	}
 
 	@Test
@@ -47,11 +46,57 @@ class DslParsingEmptyLineTest {
 			"eResource.errors not Empty " + result.eResource.errors,
 			result.eResource.errors.isEmpty
 		)
-		// assertEquals("my.language", result.name)
-		assertTrue("no key named \"name\"", result.entries.exists[e|e.key == "name"])
-		assertEquals("my.language", result.entries.findFirst[e|e.key == "name"].value.entryLines.get(0))
+		assertEquals("my.language", result.name)
+		
+	}
+	
+	@Test
+	def void minimal_empty_start_line() {
+		val result = parseHelper.parse("\nname = my.language")
+		assertNotNull(result)
+		assertTrue(
+			"eResource.errors not Empty " + result.eResource.errors,
+			result.eResource.errors.isEmpty
+		)
+		assertEquals("my.language", result.name)
+		
 	}
 
+	@Test
+	def void minimal_empty_start_line_with_WS() {
+		val result = parseHelper.parse("\n   name = my.language")
+		assertNotNull(result)
+		assertTrue(
+			"eResource.errors not Empty " + result.eResource.errors,
+			result.eResource.errors.isEmpty
+		)
+		assertEquals("my.language", result.name)
+		
+	}
+	
+	@Test
+	def void multiple_empty_start_lines() {
+		val result = parseHelper.parse("\n\nname = my.language")
+		assertNotNull(result)
+		assertTrue(
+			"eResource.errors not Empty " + result.eResource.errors,
+			result.eResource.errors.isEmpty
+		)
+		assertEquals("my.language", result.name)
+		
+	}
+
+	@Test
+	def void multiple_empty_start_line_with_WS() {
+		val result = parseHelper.parse("\n   \n   name = my.language")
+		assertNotNull(result)
+		assertTrue(
+			"eResource.errors not Empty " + result.eResource.errors,
+			result.eResource.errors.isEmpty
+		)
+		assertEquals("my.language", result.name)
+		
+	}
 	@Test
 	def void minimal_empty_line() {
 		val result = parseHelper.parse('''
@@ -64,9 +109,8 @@ class DslParsingEmptyLineTest {
 			"eResource.errors not Empty " + result.eResource.errors,
 			result.eResource.errors.isEmpty
 		)
-		// assertEquals("my.language", result.name)
-		assertTrue("no key named \"name\"", result.entries.exists[e|e.key == "name"])
-		assertEquals("my.language", result.entries.findFirst[e|e.key == "name"].value.entryLines.get(0))
+		assertEquals("my.language", result.name)
+		
 	}
 
 	@Test
@@ -81,9 +125,8 @@ class DslParsingEmptyLineTest {
 			"eResource.errors not Empty " + result.eResource.errors,
 			result.eResource.errors.isEmpty
 		)
-		// assertEquals("my.language", result.name)
-		assertTrue("no key named \"name\"", result.entries.exists[e|e.key == "name"])
-		assertEquals("my.language", result.entries.findFirst[e|e.key == "name"].value.entryLines.get(0))
+		assertEquals("my.language", result.name)
+		
 	}
 	
 	@Test
@@ -101,9 +144,8 @@ class DslParsingEmptyLineTest {
 			"eResource.errors not Empty " + result.eResource.errors,
 			result.eResource.errors.isEmpty
 		)
-		// assertEquals("my.language", result.name)
-		assertTrue("no key named \"name\"", result.entries.exists[e|e.key == "name"])
-		assertEquals("my.language", result.entries.findFirst[e|e.key == "name"].value.entryLines.get(0))
+		assertEquals("my.language", result.name)
+		
 	}
 
 	@Test
@@ -121,8 +163,7 @@ class DslParsingEmptyLineTest {
 			"eResource.errors not Empty " + result.eResource.errors,
 			result.eResource.errors.isEmpty
 		)
-		// assertEquals("my.language", result.name)
-		assertTrue("no key named \"name\"", result.entries.exists[e|e.key == "name"])
-		assertEquals("my.language", result.entries.findFirst[e|e.key == "name"].value.entryLines.get(0))
+		assertEquals("my.language", result.name)
+		
 	}
 }

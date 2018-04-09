@@ -27,52 +27,138 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cDslAction_0 = (Action)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Alternatives cAlternatives_1_0 = (Alternatives)cGroup_1.eContents().get(0);
-		private final Assignment cEntriesAssignment_1_0_0 = (Assignment)cAlternatives_1_0.eContents().get(0);
-		private final RuleCall cEntriesEntryParserRuleCall_1_0_0_0 = (RuleCall)cEntriesAssignment_1_0_0.eContents().get(0);
-		private final RuleCall cEMPTY_LINEParserRuleCall_1_0_1 = (RuleCall)cAlternatives_1_0.eContents().get(1);
-		private final RuleCall cSL_COMMENTTerminalRuleCall_1_0_2 = (RuleCall)cAlternatives_1_0.eContents().get(2);
-		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
-		private final Keyword cCarriageReturnKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
-		private final Keyword cLineFeedKeyword_1_1_1 = (Keyword)cGroup_1_1.eContents().get(1);
+		private final Keyword cCarriageReturnKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Keyword cLineFeedKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Alternatives cAlternatives_2_0 = (Alternatives)cGroup_2.eContents().get(0);
+		private final RuleCall cEMPTY_LINEParserRuleCall_2_0_0 = (RuleCall)cAlternatives_2_0.eContents().get(0);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_2_0_1 = (RuleCall)cAlternatives_2_0.eContents().get(1);
+		private final Group cGroup_2_1 = (Group)cGroup_2.eContents().get(1);
+		private final Keyword cCarriageReturnKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
+		private final Keyword cLineFeedKeyword_2_1_1 = (Keyword)cGroup_2_1.eContents().get(1);
+		private final Keyword cNameKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final RuleCall cWSTerminalRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cSEPARATORTerminalRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final RuleCall cWSTerminalRuleCall_6 = (RuleCall)cGroup.eContents().get(6);
+		private final Assignment cNameAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final Alternatives cNameAlternatives_7_0 = (Alternatives)cNameAssignment_7.eContents().get(0);
+		private final RuleCall cNameENTRYKEYTerminalRuleCall_7_0_0 = (RuleCall)cNameAlternatives_7_0.eContents().get(0);
+		private final RuleCall cNameSTRINGTerminalRuleCall_7_0_1 = (RuleCall)cNameAlternatives_7_0.eContents().get(1);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cCarriageReturnKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Keyword cLineFeedKeyword_8_1 = (Keyword)cGroup_8.eContents().get(1);
+		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
+		private final Alternatives cAlternatives_9_0 = (Alternatives)cGroup_9.eContents().get(0);
+		private final Assignment cEntriesAssignment_9_0_0 = (Assignment)cAlternatives_9_0.eContents().get(0);
+		private final RuleCall cEntriesEntryParserRuleCall_9_0_0_0 = (RuleCall)cEntriesAssignment_9_0_0.eContents().get(0);
+		private final RuleCall cEMPTY_LINEParserRuleCall_9_0_1 = (RuleCall)cAlternatives_9_0.eContents().get(1);
+		private final RuleCall cSL_COMMENTTerminalRuleCall_9_0_2 = (RuleCall)cAlternatives_9_0.eContents().get(2);
+		private final Group cGroup_9_1 = (Group)cGroup_9.eContents().get(1);
+		private final Keyword cCarriageReturnKeyword_9_1_0 = (Keyword)cGroup_9_1.eContents().get(0);
+		private final Keyword cLineFeedKeyword_9_1_1 = (Keyword)cGroup_9_1.eContents().get(1);
 		
 		//Dsl:
-		//	{Dsl} ((entries+=Entry |
+		//	{Dsl} ('\r'? '\n')* ((=> EMPTY_LINE | SL_COMMENT) ('\r'? '\n')*)*
+		//	'name' WS* SEPARATOR WS* name=(ENTRYKEY | STRING) ('\r'? '\n')* ((entries+=Entry |
 		//	=> EMPTY_LINE | SL_COMMENT) ('\r'? '\n')*)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{Dsl} ((entries+=Entry | => EMPTY_LINE | SL_COMMENT) ('\r'? '\n')*)*
+		//{Dsl} ('\r'? '\n')* ((=> EMPTY_LINE | SL_COMMENT) ('\r'? '\n')*)* 'name' WS* SEPARATOR WS* name=(ENTRYKEY | STRING)
+		//('\r'? '\n')* ((entries+=Entry | => EMPTY_LINE | SL_COMMENT) ('\r'? '\n')*)*
 		public Group getGroup() { return cGroup; }
 		
 		//{Dsl}
 		public Action getDslAction_0() { return cDslAction_0; }
 		
-		//((entries+=Entry | => EMPTY_LINE | SL_COMMENT) ('\r'? '\n')*)*
+		//('\r'? '\n')*
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//entries+=Entry | => EMPTY_LINE | SL_COMMENT
-		public Alternatives getAlternatives_1_0() { return cAlternatives_1_0; }
-		
-		//entries+=Entry
-		public Assignment getEntriesAssignment_1_0_0() { return cEntriesAssignment_1_0_0; }
-		
-		//Entry
-		public RuleCall getEntriesEntryParserRuleCall_1_0_0_0() { return cEntriesEntryParserRuleCall_1_0_0_0; }
-		
-		//=> EMPTY_LINE
-		public RuleCall getEMPTY_LINEParserRuleCall_1_0_1() { return cEMPTY_LINEParserRuleCall_1_0_1; }
-		
-		//SL_COMMENT
-		public RuleCall getSL_COMMENTTerminalRuleCall_1_0_2() { return cSL_COMMENTTerminalRuleCall_1_0_2; }
-		
-		//('\r'? '\n')*
-		public Group getGroup_1_1() { return cGroup_1_1; }
-		
 		//'\r'?
-		public Keyword getCarriageReturnKeyword_1_1_0() { return cCarriageReturnKeyword_1_1_0; }
+		public Keyword getCarriageReturnKeyword_1_0() { return cCarriageReturnKeyword_1_0; }
 		
 		//'\n'
-		public Keyword getLineFeedKeyword_1_1_1() { return cLineFeedKeyword_1_1_1; }
+		public Keyword getLineFeedKeyword_1_1() { return cLineFeedKeyword_1_1; }
+		
+		//((=> EMPTY_LINE | SL_COMMENT) ('\r'? '\n')*)*
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//=> EMPTY_LINE | SL_COMMENT
+		public Alternatives getAlternatives_2_0() { return cAlternatives_2_0; }
+		
+		//=> EMPTY_LINE
+		public RuleCall getEMPTY_LINEParserRuleCall_2_0_0() { return cEMPTY_LINEParserRuleCall_2_0_0; }
+		
+		//SL_COMMENT
+		public RuleCall getSL_COMMENTTerminalRuleCall_2_0_1() { return cSL_COMMENTTerminalRuleCall_2_0_1; }
+		
+		//('\r'? '\n')*
+		public Group getGroup_2_1() { return cGroup_2_1; }
+		
+		//'\r'?
+		public Keyword getCarriageReturnKeyword_2_1_0() { return cCarriageReturnKeyword_2_1_0; }
+		
+		//'\n'
+		public Keyword getLineFeedKeyword_2_1_1() { return cLineFeedKeyword_2_1_1; }
+		
+		//'name'
+		public Keyword getNameKeyword_3() { return cNameKeyword_3; }
+		
+		//WS*
+		public RuleCall getWSTerminalRuleCall_4() { return cWSTerminalRuleCall_4; }
+		
+		//SEPARATOR
+		public RuleCall getSEPARATORTerminalRuleCall_5() { return cSEPARATORTerminalRuleCall_5; }
+		
+		//WS*
+		public RuleCall getWSTerminalRuleCall_6() { return cWSTerminalRuleCall_6; }
+		
+		//name=(ENTRYKEY | STRING)
+		public Assignment getNameAssignment_7() { return cNameAssignment_7; }
+		
+		//(ENTRYKEY | STRING)
+		public Alternatives getNameAlternatives_7_0() { return cNameAlternatives_7_0; }
+		
+		//ENTRYKEY
+		public RuleCall getNameENTRYKEYTerminalRuleCall_7_0_0() { return cNameENTRYKEYTerminalRuleCall_7_0_0; }
+		
+		//STRING
+		public RuleCall getNameSTRINGTerminalRuleCall_7_0_1() { return cNameSTRINGTerminalRuleCall_7_0_1; }
+		
+		//('\r'? '\n')*
+		public Group getGroup_8() { return cGroup_8; }
+		
+		//'\r'?
+		public Keyword getCarriageReturnKeyword_8_0() { return cCarriageReturnKeyword_8_0; }
+		
+		//'\n'
+		public Keyword getLineFeedKeyword_8_1() { return cLineFeedKeyword_8_1; }
+		
+		//((entries+=Entry | => EMPTY_LINE | SL_COMMENT) ('\r'? '\n')*)*
+		public Group getGroup_9() { return cGroup_9; }
+		
+		//entries+=Entry | => EMPTY_LINE | SL_COMMENT
+		public Alternatives getAlternatives_9_0() { return cAlternatives_9_0; }
+		
+		//entries+=Entry
+		public Assignment getEntriesAssignment_9_0_0() { return cEntriesAssignment_9_0_0; }
+		
+		//Entry
+		public RuleCall getEntriesEntryParserRuleCall_9_0_0_0() { return cEntriesEntryParserRuleCall_9_0_0_0; }
+		
+		//=> EMPTY_LINE
+		public RuleCall getEMPTY_LINEParserRuleCall_9_0_1() { return cEMPTY_LINEParserRuleCall_9_0_1; }
+		
+		//SL_COMMENT
+		public RuleCall getSL_COMMENTTerminalRuleCall_9_0_2() { return cSL_COMMENTTerminalRuleCall_9_0_2; }
+		
+		//('\r'? '\n')*
+		public Group getGroup_9_1() { return cGroup_9_1; }
+		
+		//'\r'?
+		public Keyword getCarriageReturnKeyword_9_1_0() { return cCarriageReturnKeyword_9_1_0; }
+		
+		//'\n'
+		public Keyword getLineFeedKeyword_9_1_1() { return cLineFeedKeyword_9_1_1; }
 	}
 	public class EntryElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.eclipse.gemoc.Dsl.Entry");
@@ -387,7 +473,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Dsl:
-	//	{Dsl} ((entries+=Entry |
+	//	{Dsl} ('\r'? '\n')* ((=> EMPTY_LINE | SL_COMMENT) ('\r'? '\n')*)*
+	//	'name' WS* SEPARATOR WS* name=(ENTRYKEY | STRING) ('\r'? '\n')* ((entries+=Entry |
 	//	=> EMPTY_LINE | SL_COMMENT) ('\r'? '\n')*)*;
 	public DslElements getDslAccess() {
 		return pDsl;

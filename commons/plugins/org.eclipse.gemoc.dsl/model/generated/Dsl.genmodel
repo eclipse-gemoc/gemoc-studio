@@ -7,6 +7,7 @@
   <genPackages prefix="Dsl" basePackage="org.eclipse.gemoc" disposableProviderFactory="true"
       fileExtensions="dsl" ecorePackage="Dsl.ecore#/">
     <genClasses ecoreClass="Dsl.ecore#//Dsl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Dsl/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Dsl/entries"/>
     </genClasses>
     <genClasses ecoreClass="Dsl.ecore#//Entry">

@@ -35,9 +35,7 @@ class DslParsingCommentTest {
 			"eResource.errors not Empty " + result.eResource.errors,
 			result.eResource.errors.isEmpty
 		)
-		//assertEquals("my.language", result.name)
-		assertTrue("no key named \"name\"", result.entries.exists[e|e.key == "name"])
-		assertEquals("my.language", result.entries.findFirst[e|e.key == "name"].value.entryLines.get(0))
+		assertEquals("my.language", result.name)
 		assertTrue("no key named \"mykey\"", result.entries.exists[e|e.key == "mykey"])
 		assertEquals("myvalue", result.entries.findFirst[e|e.key == "mykey"].value.entryLines.get(0))
 	}
@@ -60,9 +58,7 @@ class DslParsingCommentTest {
 			"eResource.errors not Empty " + result.eResource.errors,
 			result.eResource.errors.isEmpty
 		)
-		//assertEquals("my.language", result.name)
-		assertTrue("no key named \"name\"", result.entries.exists[e|e.key == "name"])
-		assertEquals("my.language", result.entries.findFirst[e|e.key == "name"].value.entryLines.get(0))
+		assertEquals("my.language", result.name)
 		assertTrue("no key named \"mykey\"", result.entries.exists[e|e.key == "mykey"])
 		assertEquals("myvalue", result.entries.findFirst[e|e.key == "mykey"].value.entryLines.get(0))
 	}

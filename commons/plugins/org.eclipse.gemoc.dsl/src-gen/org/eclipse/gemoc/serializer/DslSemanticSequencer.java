@@ -53,7 +53,7 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Dsl returns Dsl
 	 *
 	 * Constraint:
-	 *     entries+=Entry*
+	 *     ((name=ENTRYKEY | name=STRING) entries+=Entry*)
 	 */
 	protected void sequence_Dsl(ISerializationContext context, Dsl semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
