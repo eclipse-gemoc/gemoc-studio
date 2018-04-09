@@ -16,7 +16,7 @@ Dsl :
 ;
 
 Entry:
-	WS* key=ENTRYKEY WS* SEPARATOR WS* value=EntryValue 
+	WS* key=ENTRYKEY WS* SEPARATOR WS* value=EntryValue
 ;
 
 EntryValue:
@@ -26,18 +26,35 @@ EntryValue:
 		WS*
 		(
 			(=> (',' WS* '\\' LINE_START) entryLines+=ENTRYVALUE_LINE) |
-			(=> ('\\' LINE_START) entryLines+=ENTRYVALUE_LINE) |
+			//(=> ('\\' LINE_START) entryLines+=ENTRYVALUE_LINE) |
 			(',' WS* entryLines+=ENTRYVALUE_LINE)
 		) 
 	)* 
 ;
 ENTRYVALUE_LINE:
-	(ENTRYKEY | STRING) 
+	(
+		(SPECIAL_CHAR)+ (
+			(WS+ (SPECIAL_CHAR)+) |
+			WS*
+		)
+	)? 
+	(ENTRYKEY | STRING)
+	( 
+		(WS|SPECIAL_CHAR)*
+		(ENTRYKEY | STRING)
+	)*
+   ( 
+		WS* (SPECIAL_CHAR)+ ( WS+ (SPECIAL_CHAR)+)*
+	) ?
 ;
 
 EMPTY_LINE:
 	LINE_START 
 ;
+
+
+// --- lexer tokens ---
+// the order is important
 
 terminal ENTRYKEY:
 	('a'..'z'|'A'..'Z'|'_'|'.'|'0'..'9')('a'..'z'|'A'..'Z'|'_'|'.'|'0'..'9')*
@@ -54,8 +71,10 @@ terminal LINE_START:
 ;    
 
 terminal SEPARATOR:
-	'=' | ':'
+	'=' 
 ;
+
+
 
 /*
  * Line starting with '!' or '#'
@@ -67,6 +86,13 @@ terminal SL_COMMENT :
 
 terminal WS:
 	' '|'\t'
+;
+
+/*
+ * Special characters used in values
+ */
+terminal SPECIAL_CHAR:
+	('#'..'+')|('-'..'/') | (':'..'<')| ('>'..'@') | ('['..'^') | ('{'..'~')
 ;
 
 

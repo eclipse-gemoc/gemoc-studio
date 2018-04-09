@@ -319,27 +319,20 @@ ruleEntryValue returns [EObject current=null]
 				)
 				    |
 				(
+					otherlv_8=','
+					{
+						newLeafNode(otherlv_8, grammarAccess.getEntryValueAccess().getCommaKeyword_2_1_1_0());
+					}
 					(
-						((
-							'\\'
-							RULE_LINE_START
-						)
-						)=>
-						(
-							otherlv_8='\\'
-							{
-								newLeafNode(otherlv_8, grammarAccess.getEntryValueAccess().getBackslashKeyword_2_1_1_0_0_0());
-							}
-							this_LINE_START_9=RULE_LINE_START
-							{
-								newLeafNode(this_LINE_START_9, grammarAccess.getEntryValueAccess().getLINE_STARTTerminalRuleCall_2_1_1_0_0_1());
-							}
-						)
-					)
+						this_WS_9=RULE_WS
+						{
+							newLeafNode(this_WS_9, grammarAccess.getEntryValueAccess().getWSTerminalRuleCall_2_1_1_1());
+						}
+					)*
 					(
 						(
 							{
-								newCompositeNode(grammarAccess.getEntryValueAccess().getEntryLinesENTRYVALUE_LINEParserRuleCall_2_1_1_1_0());
+								newCompositeNode(grammarAccess.getEntryValueAccess().getEntryLinesENTRYVALUE_LINEParserRuleCall_2_1_1_2_0());
 							}
 							lv_entryLines_10_0=ruleENTRYVALUE_LINE
 							{
@@ -350,38 +343,6 @@ ruleEntryValue returns [EObject current=null]
 									$current,
 									"entryLines",
 									lv_entryLines_10_0,
-									"org.eclipse.gemoc.Dsl.ENTRYVALUE_LINE");
-								afterParserOrEnumRuleCall();
-							}
-						)
-					)
-				)
-				    |
-				(
-					otherlv_11=','
-					{
-						newLeafNode(otherlv_11, grammarAccess.getEntryValueAccess().getCommaKeyword_2_1_2_0());
-					}
-					(
-						this_WS_12=RULE_WS
-						{
-							newLeafNode(this_WS_12, grammarAccess.getEntryValueAccess().getWSTerminalRuleCall_2_1_2_1());
-						}
-					)*
-					(
-						(
-							{
-								newCompositeNode(grammarAccess.getEntryValueAccess().getEntryLinesENTRYVALUE_LINEParserRuleCall_2_1_2_2_0());
-							}
-							lv_entryLines_13_0=ruleENTRYVALUE_LINE
-							{
-								if ($current==null) {
-									$current = createModelElementForParent(grammarAccess.getEntryValueRule());
-								}
-								add(
-									$current,
-									"entryLines",
-									lv_entryLines_13_0,
 									"org.eclipse.gemoc.Dsl.ENTRYVALUE_LINE");
 								afterParserOrEnumRuleCall();
 							}
@@ -409,21 +370,142 @@ ruleENTRYVALUE_LINE returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRul
 	leaveRule();
 }:
 	(
-		this_ENTRYKEY_0=RULE_ENTRYKEY
-		{
-			$current.merge(this_ENTRYKEY_0);
-		}
-		{
-			newLeafNode(this_ENTRYKEY_0, grammarAccess.getENTRYVALUE_LINEAccess().getENTRYKEYTerminalRuleCall_0());
-		}
-		    |
-		this_STRING_1=RULE_STRING
-		{
-			$current.merge(this_STRING_1);
-		}
-		{
-			newLeafNode(this_STRING_1, grammarAccess.getENTRYVALUE_LINEAccess().getSTRINGTerminalRuleCall_1());
-		}
+		(
+			(
+				this_SPECIAL_CHAR_0=RULE_SPECIAL_CHAR
+				{
+					$current.merge(this_SPECIAL_CHAR_0);
+				}
+				{
+					newLeafNode(this_SPECIAL_CHAR_0, grammarAccess.getENTRYVALUE_LINEAccess().getSPECIAL_CHARTerminalRuleCall_0_0());
+				}
+			)+
+			(
+				(
+					(
+						this_WS_1=RULE_WS
+						{
+							$current.merge(this_WS_1);
+						}
+						{
+							newLeafNode(this_WS_1, grammarAccess.getENTRYVALUE_LINEAccess().getWSTerminalRuleCall_0_1_0_0());
+						}
+					)+
+					(
+						this_SPECIAL_CHAR_2=RULE_SPECIAL_CHAR
+						{
+							$current.merge(this_SPECIAL_CHAR_2);
+						}
+						{
+							newLeafNode(this_SPECIAL_CHAR_2, grammarAccess.getENTRYVALUE_LINEAccess().getSPECIAL_CHARTerminalRuleCall_0_1_0_1());
+						}
+					)+
+				)
+				    |
+				(
+					this_WS_3=RULE_WS
+					{
+						$current.merge(this_WS_3);
+					}
+					{
+						newLeafNode(this_WS_3, grammarAccess.getENTRYVALUE_LINEAccess().getWSTerminalRuleCall_0_1_1());
+					}
+				)*
+			)
+		)?
+		(
+			this_ENTRYKEY_4=RULE_ENTRYKEY
+			{
+				$current.merge(this_ENTRYKEY_4);
+			}
+			{
+				newLeafNode(this_ENTRYKEY_4, grammarAccess.getENTRYVALUE_LINEAccess().getENTRYKEYTerminalRuleCall_1_0());
+			}
+			    |
+			this_STRING_5=RULE_STRING
+			{
+				$current.merge(this_STRING_5);
+			}
+			{
+				newLeafNode(this_STRING_5, grammarAccess.getENTRYVALUE_LINEAccess().getSTRINGTerminalRuleCall_1_1());
+			}
+		)
+		(
+			(
+				this_WS_6=RULE_WS
+				{
+					$current.merge(this_WS_6);
+				}
+				{
+					newLeafNode(this_WS_6, grammarAccess.getENTRYVALUE_LINEAccess().getWSTerminalRuleCall_2_0_0());
+				}
+				    |
+				this_SPECIAL_CHAR_7=RULE_SPECIAL_CHAR
+				{
+					$current.merge(this_SPECIAL_CHAR_7);
+				}
+				{
+					newLeafNode(this_SPECIAL_CHAR_7, grammarAccess.getENTRYVALUE_LINEAccess().getSPECIAL_CHARTerminalRuleCall_2_0_1());
+				}
+			)*
+			(
+				this_ENTRYKEY_8=RULE_ENTRYKEY
+				{
+					$current.merge(this_ENTRYKEY_8);
+				}
+				{
+					newLeafNode(this_ENTRYKEY_8, grammarAccess.getENTRYVALUE_LINEAccess().getENTRYKEYTerminalRuleCall_2_1_0());
+				}
+				    |
+				this_STRING_9=RULE_STRING
+				{
+					$current.merge(this_STRING_9);
+				}
+				{
+					newLeafNode(this_STRING_9, grammarAccess.getENTRYVALUE_LINEAccess().getSTRINGTerminalRuleCall_2_1_1());
+				}
+			)
+		)*
+		(
+			(
+				this_WS_10=RULE_WS
+				{
+					$current.merge(this_WS_10);
+				}
+				{
+					newLeafNode(this_WS_10, grammarAccess.getENTRYVALUE_LINEAccess().getWSTerminalRuleCall_3_0());
+				}
+			)*
+			(
+				this_SPECIAL_CHAR_11=RULE_SPECIAL_CHAR
+				{
+					$current.merge(this_SPECIAL_CHAR_11);
+				}
+				{
+					newLeafNode(this_SPECIAL_CHAR_11, grammarAccess.getENTRYVALUE_LINEAccess().getSPECIAL_CHARTerminalRuleCall_3_1());
+				}
+			)+
+			(
+				(
+					this_WS_12=RULE_WS
+					{
+						$current.merge(this_WS_12);
+					}
+					{
+						newLeafNode(this_WS_12, grammarAccess.getENTRYVALUE_LINEAccess().getWSTerminalRuleCall_3_2_0());
+					}
+				)+
+				(
+					this_SPECIAL_CHAR_13=RULE_SPECIAL_CHAR
+					{
+						$current.merge(this_SPECIAL_CHAR_13);
+					}
+					{
+						newLeafNode(this_SPECIAL_CHAR_13, grammarAccess.getENTRYVALUE_LINEAccess().getSPECIAL_CHARTerminalRuleCall_3_2_1());
+					}
+				)+
+			)*
+		)?
 	)
 ;
 
@@ -457,10 +539,12 @@ RULE_STRING : '"' ('\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|'\''|'\\'|'\r'|'\n')|~(('\\
 
 RULE_LINE_START : '\r'? '\n' RULE_WS*;
 
-RULE_SEPARATOR : ('='|':');
+RULE_SEPARATOR : '=';
 
 RULE_SL_COMMENT : ('!'|'#') ~(('\n'|'\r'))*;
 
 RULE_WS : (' '|'\t');
+
+RULE_SPECIAL_CHAR : ('#'..'+'|'-'..'/'|':'..'<'|'>'..'@'|'['..'^'|'{'..'~');
 
 RULE_ANY_OTHER : .;

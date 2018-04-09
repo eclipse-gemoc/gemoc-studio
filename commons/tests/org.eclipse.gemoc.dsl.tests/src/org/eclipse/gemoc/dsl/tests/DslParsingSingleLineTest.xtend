@@ -121,14 +121,13 @@ class DslParsingSingleLineTest {
 			"eResource.errors not Empty " + result.eResource.errors,
 			result.eResource.errors.isEmpty
 		)
-		//assertEquals("my.language", result.name)
 		assertTrue("no key named \"name\"", result.entries.exists[e|e.key == "name"])
 		assertEquals("my.language", result.entries.findFirst[e|e.key == "name"].value.entryLines.get(0))
 		assertTrue("no key named \"mykey\"", result.entries.exists[e|e.key == "mykey"])
 		assertEquals("final", result.entries.findFirst[e|e.key == "mykey"].value.entryLines.get(0))
 	}
 	
-		@Test
+	@Test
 	def void minimal_equal_sign_in_value() {
 		val result = parseHelper.parse('''
 			name = my.language
@@ -139,10 +138,46 @@ class DslParsingSingleLineTest {
 			"eResource.errors not Empty " + result.eResource.errors,
 			result.eResource.errors.isEmpty
 		)
-		//assertEquals("my.language", result.name)
 		assertTrue("no key named \"name\"", result.entries.exists[e|e.key == "name"])
 		assertEquals("my.language", result.entries.findFirst[e|e.key == "name"].value.entryLines.get(0))
 		assertTrue("no key named \"mykey\"", result.entries.exists[e|e.key == "mykey"])
 		assertEquals("\"bla=bli\"", result.entries.findFirst[e|e.key == "mykey"].value.entryLines.get(0))
 	}
+	
+	@Test
+	def void complex_values() {
+		val result = parseHelper.parse('''
+			name = my.language
+			mykey1 = "blabli";"3.0.1", "foobar" ; "4.0.7"
+		''')
+		assertNotNull(result)
+		assertTrue(
+			"eResource.errors not Empty " + result.eResource.errors,
+			result.eResource.errors.isEmpty
+		)
+		assertTrue("no key named \"name\"", result.entries.exists[e|e.key == "name"])
+		assertEquals("my.language", result.entries.findFirst[e|e.key == "name"].value.entryLines.get(0))
+		assertTrue("no key named \"mykey1\"", result.entries.exists[e|e.key == "mykey1"])
+		assertEquals("\"blabli\";\"3.0.1\"", result.entries.findFirst[e|e.key == "mykey1"].value.entryLines.get(0))
+		assertEquals("\"foobar\" ; \"4.0.7\"", result.entries.findFirst[e|e.key == "mykey1"].value.entryLines.get(1))
+	}
+	
+	@Test
+	def void complex_values_and_special_char() {
+		val result = parseHelper.parse('''
+			name = my.language
+			mykey1 = "blabli";"3.0.1", "foobar" ; ["4.0.7"..[
+		''')
+		assertNotNull(result)
+		assertTrue(
+			"eResource.errors not Empty " + result.eResource.errors,
+			result.eResource.errors.isEmpty
+		)
+		assertTrue("no key named \"name\"", result.entries.exists[e|e.key == "name"])
+		assertEquals("my.language", result.entries.findFirst[e|e.key == "name"].value.entryLines.get(0))
+		assertTrue("no key named \"mykey1\"", result.entries.exists[e|e.key == "mykey1"])
+		assertEquals("\"blabli\";\"3.0.1\"", result.entries.findFirst[e|e.key == "mykey1"].value.entryLines.get(0))
+		assertEquals("\"foobar\" ; [\"4.0.7\"..[", result.entries.findFirst[e|e.key == "mykey1"].value.entryLines.get(1))
+	}
+	
 }

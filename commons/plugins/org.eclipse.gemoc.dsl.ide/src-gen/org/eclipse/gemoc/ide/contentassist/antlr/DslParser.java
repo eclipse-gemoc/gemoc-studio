@@ -33,7 +33,10 @@ public class DslParser extends AbstractContentAssistParser {
 				{
 					put(grammarAccess.getDslAccess().getAlternatives_1_0(), "rule__Dsl__Alternatives_1_0");
 					put(grammarAccess.getEntryValueAccess().getAlternatives_2_1(), "rule__EntryValue__Alternatives_2_1");
-					put(grammarAccess.getENTRYVALUE_LINEAccess().getAlternatives(), "rule__ENTRYVALUE_LINE__Alternatives");
+					put(grammarAccess.getENTRYVALUE_LINEAccess().getAlternatives_0_1(), "rule__ENTRYVALUE_LINE__Alternatives_0_1");
+					put(grammarAccess.getENTRYVALUE_LINEAccess().getAlternatives_1(), "rule__ENTRYVALUE_LINE__Alternatives_1");
+					put(grammarAccess.getENTRYVALUE_LINEAccess().getAlternatives_2_0(), "rule__ENTRYVALUE_LINE__Alternatives_2_0");
+					put(grammarAccess.getENTRYVALUE_LINEAccess().getAlternatives_2_1(), "rule__ENTRYVALUE_LINE__Alternatives_2_1");
 					put(grammarAccess.getDslAccess().getGroup(), "rule__Dsl__Group__0");
 					put(grammarAccess.getDslAccess().getGroup_1(), "rule__Dsl__Group_1__0");
 					put(grammarAccess.getDslAccess().getGroup_1_1(), "rule__Dsl__Group_1_1__0");
@@ -44,16 +47,18 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getEntryValueAccess().getGroup_2_1_0_0(), "rule__EntryValue__Group_2_1_0_0__0");
 					put(grammarAccess.getEntryValueAccess().getGroup_2_1_0_0_0(), "rule__EntryValue__Group_2_1_0_0_0__0");
 					put(grammarAccess.getEntryValueAccess().getGroup_2_1_1(), "rule__EntryValue__Group_2_1_1__0");
-					put(grammarAccess.getEntryValueAccess().getGroup_2_1_1_0(), "rule__EntryValue__Group_2_1_1_0__0");
-					put(grammarAccess.getEntryValueAccess().getGroup_2_1_1_0_0(), "rule__EntryValue__Group_2_1_1_0_0__0");
-					put(grammarAccess.getEntryValueAccess().getGroup_2_1_2(), "rule__EntryValue__Group_2_1_2__0");
+					put(grammarAccess.getENTRYVALUE_LINEAccess().getGroup(), "rule__ENTRYVALUE_LINE__Group__0");
+					put(grammarAccess.getENTRYVALUE_LINEAccess().getGroup_0(), "rule__ENTRYVALUE_LINE__Group_0__0");
+					put(grammarAccess.getENTRYVALUE_LINEAccess().getGroup_0_1_0(), "rule__ENTRYVALUE_LINE__Group_0_1_0__0");
+					put(grammarAccess.getENTRYVALUE_LINEAccess().getGroup_2(), "rule__ENTRYVALUE_LINE__Group_2__0");
+					put(grammarAccess.getENTRYVALUE_LINEAccess().getGroup_3(), "rule__ENTRYVALUE_LINE__Group_3__0");
+					put(grammarAccess.getENTRYVALUE_LINEAccess().getGroup_3_2(), "rule__ENTRYVALUE_LINE__Group_3_2__0");
 					put(grammarAccess.getDslAccess().getEntriesAssignment_1_0_0(), "rule__Dsl__EntriesAssignment_1_0_0");
 					put(grammarAccess.getEntryAccess().getKeyAssignment_1(), "rule__Entry__KeyAssignment_1");
 					put(grammarAccess.getEntryAccess().getValueAssignment_5(), "rule__Entry__ValueAssignment_5");
 					put(grammarAccess.getEntryValueAccess().getEntryLinesAssignment_1(), "rule__EntryValue__EntryLinesAssignment_1");
 					put(grammarAccess.getEntryValueAccess().getEntryLinesAssignment_2_1_0_1(), "rule__EntryValue__EntryLinesAssignment_2_1_0_1");
-					put(grammarAccess.getEntryValueAccess().getEntryLinesAssignment_2_1_1_1(), "rule__EntryValue__EntryLinesAssignment_2_1_1_1");
-					put(grammarAccess.getEntryValueAccess().getEntryLinesAssignment_2_1_2_2(), "rule__EntryValue__EntryLinesAssignment_2_1_2_2");
+					put(grammarAccess.getEntryValueAccess().getEntryLinesAssignment_2_1_1_2(), "rule__EntryValue__EntryLinesAssignment_2_1_1_2");
 				}
 			};
 		}

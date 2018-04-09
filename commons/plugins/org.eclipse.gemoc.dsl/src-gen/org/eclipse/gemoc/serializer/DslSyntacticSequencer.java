@@ -26,7 +26,7 @@ public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AbstractElementAlias match_Dsl_____EMPTY_LINEParserRuleCall_1_0_1_or_SL_COMMENTTerminalRuleCall_1_0_2__q___CarriageReturnKeyword_1_1_0_q_LineFeedKeyword_1_1_1__q__p;
 	protected AbstractElementAlias match_EntryValue_WSTerminalRuleCall_2_0_a;
 	protected AbstractElementAlias match_EntryValue_WSTerminalRuleCall_2_1_0_0_0_1_a;
-	protected AbstractElementAlias match_EntryValue_WSTerminalRuleCall_2_1_2_1_a;
+	protected AbstractElementAlias match_EntryValue_WSTerminalRuleCall_2_1_1_1_a;
 	protected AbstractElementAlias match_Entry_WSTerminalRuleCall_0_a;
 	protected AbstractElementAlias match_Entry_WSTerminalRuleCall_2_a;
 	protected AbstractElementAlias match_Entry_WSTerminalRuleCall_4_a;
@@ -38,7 +38,7 @@ public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 		match_Dsl_____EMPTY_LINEParserRuleCall_1_0_1_or_SL_COMMENTTerminalRuleCall_1_0_2__q___CarriageReturnKeyword_1_1_0_q_LineFeedKeyword_1_1_1__q__p = new GroupAlias(true, false, new AlternativeAlias(false, true, new TokenAlias(false, false, grammarAccess.getDslAccess().getEMPTY_LINEParserRuleCall_1_0_1()), new TokenAlias(false, false, grammarAccess.getDslAccess().getSL_COMMENTTerminalRuleCall_1_0_2())), new GroupAlias(false, true, new TokenAlias(false, true, grammarAccess.getDslAccess().getCarriageReturnKeyword_1_1_0()), new TokenAlias(false, false, grammarAccess.getDslAccess().getLineFeedKeyword_1_1_1())));
 		match_EntryValue_WSTerminalRuleCall_2_0_a = new TokenAlias(true, true, grammarAccess.getEntryValueAccess().getWSTerminalRuleCall_2_0());
 		match_EntryValue_WSTerminalRuleCall_2_1_0_0_0_1_a = new TokenAlias(true, true, grammarAccess.getEntryValueAccess().getWSTerminalRuleCall_2_1_0_0_0_1());
-		match_EntryValue_WSTerminalRuleCall_2_1_2_1_a = new TokenAlias(true, true, grammarAccess.getEntryValueAccess().getWSTerminalRuleCall_2_1_2_1());
+		match_EntryValue_WSTerminalRuleCall_2_1_1_1_a = new TokenAlias(true, true, grammarAccess.getEntryValueAccess().getWSTerminalRuleCall_2_1_1_1());
 		match_Entry_WSTerminalRuleCall_0_a = new TokenAlias(true, true, grammarAccess.getEntryAccess().getWSTerminalRuleCall_0());
 		match_Entry_WSTerminalRuleCall_2_a = new TokenAlias(true, true, grammarAccess.getEntryAccess().getWSTerminalRuleCall_2());
 		match_Entry_WSTerminalRuleCall_4_a = new TokenAlias(true, true, grammarAccess.getEntryAccess().getWSTerminalRuleCall_4());
@@ -83,7 +83,7 @@ public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * terminal SEPARATOR:
-	 * 	'=' | ':'
+	 * 	'=' 
 	 * ;
 	 */
 	protected String getSEPARATORToken(EObject semanticObject, RuleCall ruleCall, INode node) {
@@ -128,8 +128,8 @@ public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_EntryValue_WSTerminalRuleCall_2_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_EntryValue_WSTerminalRuleCall_2_1_0_0_0_1_a.equals(syntax))
 				emit_EntryValue_WSTerminalRuleCall_2_1_0_0_0_1_a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_EntryValue_WSTerminalRuleCall_2_1_2_1_a.equals(syntax))
-				emit_EntryValue_WSTerminalRuleCall_2_1_2_1_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_EntryValue_WSTerminalRuleCall_2_1_1_1_a.equals(syntax))
+				emit_EntryValue_WSTerminalRuleCall_2_1_1_1_a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Entry_WSTerminalRuleCall_0_a.equals(syntax))
 				emit_Entry_WSTerminalRuleCall_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Entry_WSTerminalRuleCall_2_a.equals(syntax))
@@ -187,7 +187,6 @@ public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * This ambiguous syntax occurs at:
 	 *     entryLines+=ENTRYVALUE_LINE (ambiguity) ',' WS* '\' LINE_START entryLines+=ENTRYVALUE_LINE
 	 *     entryLines+=ENTRYVALUE_LINE (ambiguity) ',' WS* entryLines+=ENTRYVALUE_LINE
-	 *     entryLines+=ENTRYVALUE_LINE (ambiguity) '\' LINE_START entryLines+=ENTRYVALUE_LINE
 	 */
 	protected void emit_EntryValue_WSTerminalRuleCall_2_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -211,7 +210,7 @@ public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * This ambiguous syntax occurs at:
 	 *     entryLines+=ENTRYVALUE_LINE WS* ',' (ambiguity) entryLines+=ENTRYVALUE_LINE
 	 */
-	protected void emit_EntryValue_WSTerminalRuleCall_2_1_2_1_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_EntryValue_WSTerminalRuleCall_2_1_1_1_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

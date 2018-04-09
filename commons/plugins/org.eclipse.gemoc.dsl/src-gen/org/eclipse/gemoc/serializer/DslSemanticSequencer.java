@@ -65,7 +65,7 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     EntryValue returns EntryValue
 	 *
 	 * Constraint:
-	 *     (entryLines+=ENTRYVALUE_LINE (entryLines+=ENTRYVALUE_LINE | entryLines+=ENTRYVALUE_LINE | entryLines+=ENTRYVALUE_LINE)*)
+	 *     (entryLines+=ENTRYVALUE_LINE (entryLines+=ENTRYVALUE_LINE | entryLines+=ENTRYVALUE_LINE)*)
 	 */
 	protected void sequence_EntryValue(ISerializationContext context, EntryValue semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
