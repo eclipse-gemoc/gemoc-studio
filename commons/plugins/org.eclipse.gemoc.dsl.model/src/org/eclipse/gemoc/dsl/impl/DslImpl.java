@@ -94,7 +94,7 @@ public class DslImpl extends MinimalEObjectImpl.Container implements Dsl {
 	 * @generated NOT
 	 */
 	public String getName() {
-		Optional<Entry> nameEntry = entries.stream().filter(e -> e.getKey().equals("name")).findFirst();
+		Optional<Entry> nameEntry = getEntries().stream().filter(e -> e.getKey().equals("name")).findFirst();
 		if(nameEntry.isPresent()) return nameEntry.get().getValue();
 		else return "";
 	}
@@ -105,7 +105,7 @@ public class DslImpl extends MinimalEObjectImpl.Container implements Dsl {
 	 * @generated NOT
 	 */
 	public void setName(String newName) {
-		Optional<Entry> nameEntry = entries.stream().filter(e -> e.getKey().equals("name")).findFirst();
+		Optional<Entry> nameEntry = getEntries().stream().filter(e -> e.getKey().equals("name")).findFirst();
 		if(nameEntry.isPresent()) {
 			nameEntry.get().setValue(newName);
 		}
@@ -123,7 +123,7 @@ public class DslImpl extends MinimalEObjectImpl.Container implements Dsl {
 	 * @generated NOT
 	 */
 	public Entry getEntry(String key) {
-		Optional<Entry> nameEntry = entries.stream().filter(e -> e.getKey().equals("name")).findFirst();
+		Optional<Entry> nameEntry = getEntries().stream().filter(e -> e.getKey().equals("name")).findFirst();
 		if(nameEntry.isPresent()) {
 			return nameEntry.get();
 		}
