@@ -26,6 +26,7 @@
         <module>plugins/gexpressions/org.eclipse.gemoc.gexpressions.editor</module>
         <module>plugins/gexpressions/org.eclipse.gemoc.gexpressions.xtext</module>
         <module>plugins/gexpressions/org.eclipse.gemoc.gexpressions.xtext.ui</module>
+        <module>plugins/org.eclipse.gemoc.dsl.model</module>
         <module>plugins/org.eclipse.gemoc.dsl</module>
         <module>plugins/org.eclipse.gemoc.dsl.ide</module>
         <module>plugins/org.eclipse.gemoc.dsl.ui</module>

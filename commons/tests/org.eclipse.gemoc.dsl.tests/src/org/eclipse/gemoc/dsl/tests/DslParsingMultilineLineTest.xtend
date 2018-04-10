@@ -35,8 +35,7 @@ class DslParsingMultiLineTest {
 		)
 		assertEquals("my.language", result.name)
 		assertTrue("no key named \"mykey\"", result.entries.exists[e | e.key == "mykey"])
-		assertEquals("myvalue", result.entries.findFirst[e | e.key == "mykey"].value.entryLines.get(0))
-		assertEquals("mysecondvalue", result.entries.findFirst[e | e.key == "mykey"].value.entryLines.get(1))
+		assertEquals("myvalue, mysecondvalue", result.entries.findFirst[e | e.key == "mykey"].value)
 	}
 	
 	@Test
@@ -53,9 +52,7 @@ class DslParsingMultiLineTest {
 		)
 		assertEquals("my.language", result.name)
 		assertTrue("no key named \"mykey\"", result.entries.exists[e | e.key == "mykey"])
-		assertEquals("myvalue", result.entries.findFirst[e | e.key == "mykey"].value.entryLines.get(0))
-		assertEquals("mysecondvalue", result.entries.findFirst[e | e.key == "mykey"].value.entryLines.get(1))
-		assertEquals("thirdValue", result.entries.findFirst[e | e.key == "mykey"].value.entryLines.get(2))
+		assertEquals("myvalue, mysecondvalue, thirdValue", result.entries.findFirst[e | e.key == "mykey"].value)
 	}
 	
 	

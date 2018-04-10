@@ -37,7 +37,7 @@ class DslParsingCommentTest {
 		)
 		assertEquals("my.language", result.name)
 		assertTrue("no key named \"mykey\"", result.entries.exists[e|e.key == "mykey"])
-		assertEquals("myvalue", result.entries.findFirst[e|e.key == "mykey"].value.entryLines.get(0))
+		assertEquals("myvalue", result.entries.findFirst[e|e.key == "mykey"].value)
 	}
 	
 	@Test
@@ -60,7 +60,7 @@ class DslParsingCommentTest {
 		)
 		assertEquals("my.language", result.name)
 		assertTrue("no key named \"mykey\"", result.entries.exists[e|e.key == "mykey"])
-		assertEquals("myvalue", result.entries.findFirst[e|e.key == "mykey"].value.entryLines.get(0))
+		assertEquals("myvalue", result.entries.findFirst[e|e.key == "mykey"].value)
 	}
 
 }

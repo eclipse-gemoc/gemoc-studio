@@ -33,7 +33,8 @@ Workflow {
 		language = StandardLanguage {
 			name = "org.eclipse.gemoc.Dsl"
 			fileExtensions = "dsl"
-
+		    referencedResource = "platform:/resource/org.eclipse.gemoc.dsl.model/model/Dsl.genmodel"
+		    
 			serializer = {
 				generateStub = false
 			}

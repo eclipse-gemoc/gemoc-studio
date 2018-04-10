@@ -1,110 +1,77 @@
-grammar org.eclipse.gemoc.Dsl hidden() 
+grammar org.eclipse.gemoc.Dsl hidden(SL_COMMENT) 
 
-generate dsl "http://www.eclipse.org/gemoc/Dsl" 
+//generate dsl "http://www.eclipse.org/gemoc/Dsl" 
+import "http://www.eclipse.org/gemoc/Dsl" as dsl
 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
-Dsl :
-	{Dsl}
-	('\r'? '\n') *
-	(
-		(  => EMPTY_LINE | 
-			SL_COMMENT 
-		) ('\r'? '\n')*
-	)*
-	'name' WS* SEPARATOR WS* name=(ENTRYKEY | STRING) ('\r'? '\n')*
-	
-	(
+Dsl returns dsl::Dsl:
+	{dsl::Dsl}
+	 ((SPACE+ '\r'? '\n') |('\r'? '\n'))*
+	(SL_COMMENT ('\r'? '\n')+)*
+	/*
+	'name' SPACE* SEPARATOR SPACE* name=WORD */ 
+	/*( ('\r'? '\n')*
+	  ((SPACE+ '\r'? '\n') ((SPACE+ '\r'? '\n') |('\r'? '\n'))*)?
+		|
+	  ('\r'? '\n')+ */
+	  //((SPACE+ '\r'? '\n') ((SPACE+ '\r'? '\n') |('\r'? '\n'))*)?
+	  SPACE* entries+=Entry (('\r'? '\n')+ (SPACE+ '\r'? '\n')* entries+=Entry)* 
+	  ('\r'? '\n' ((SPACE+ '\r'? '\n') |('\r'? '\n'))*)?
 		
-		(
-			entries+=Entry |
-			=> EMPTY_LINE | 
-			SL_COMMENT 
-		) ('\r'? '\n')*
-	)*
+	/*)*/
 ;
 
-Entry:
-	WS* key=ENTRYKEY WS* SEPARATOR WS* value=EntryValue
+Entry returns dsl::Entry:
+	{dsl::Entry}
+	key=WORD SPACE* (=> SEPARATOR SPACE* value=MULTILINE) 
 ;
 
-EntryValue:
-	{EntryValue}
-	entryLines+=ENTRYVALUE_LINE 
-	(
-		WS*
-		(
-			(=> (',' WS* '\\' LINE_START) entryLines+=ENTRYVALUE_LINE) |
-			//(=> ('\\' LINE_START) entryLines+=ENTRYVALUE_LINE) |
-			(',' WS* entryLines+=ENTRYVALUE_LINE)
-		) 
-	)* 
-;
-ENTRYVALUE_LINE:
-	(
-		(SPECIAL_CHAR)+ (
-			(WS+ (SPECIAL_CHAR)+) |
-			WS*
-		)
-	)? 
-	(ENTRYKEY | STRING)
-	( 
-		(WS|SPECIAL_CHAR)*
-		(ENTRYKEY | STRING)
-	)*
-   ( 
-		WS* (SPECIAL_CHAR)+ ( WS+ (SPECIAL_CHAR)+)*
-	) ?
+/*
+ * A WORD that may contain ':' and '='
+ */
+VALUE_WORD:
+	(LETTER|SEPARATOR)+ (SPACE (SPACE | (LETTER|SEPARATOR) )* (LETTER|SEPARATOR))?
 ;
 
-EMPTY_LINE:
-	LINE_START 
+/*
+ * VALUE_WORD splited on severals lines.
+ * Starting spaces are ignored for each new lines (see DslValueConverter)
+ */
+MULTILINE:
+	VALUE_WORD  (SPACE* '\\' '\r'? '\n' SPACE* VALUE_WORD)*	
 ;
 
-
-// --- lexer tokens ---
-// the order is important
-
-terminal ENTRYKEY:
-	('a'..'z'|'A'..'Z'|'_'|'.'|'0'..'9')('a'..'z'|'A'..'Z'|'_'|'.'|'0'..'9')*
+/*
+ * Start and finish with a letter. Can contain spaces.  
+ */
+WORD:
+	LETTER+ (SPACE (SPACE | LETTER )* LETTER)?
 ;
-
-//terminal END: EOF;
-
-terminal STRING: 
-   // '"' ( '\\'('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|'"') )* '"';
-    '"' ( '\\'('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\'|'\r'|'\n') | !('\\'|'"'|'\r'|'\n') )* '"';
-    
-terminal LINE_START:
-	'\r'? '\n' WS*
-;    
-
-terminal SEPARATOR:
-	'=' 
-;
-
-
 
 /*
  * Line starting with '!' or '#'
  */
 terminal SL_COMMENT :
-	('!' | '#') !('\n'|'\r')* 
+	('!' | '#') !('\n'|'\r')* ('\r'? '\n')?
 ;
 
 
-terminal WS:
-	' '|'\t'
-;
 
 /*
- * Special characters used in values
+ * Everything that is not ':', '=', space or ending line.
+ * Escaped separators are LETTER
  */
-terminal SPECIAL_CHAR:
-	('#'..'+')|('-'..'/') | (':'..'<')| ('>'..'@') | ('['..'^') | ('{'..'~')
+terminal LETTER:
+	!( SEPARATOR | SPACE | '\\\n' | '\r' | '\n' ) //| '\\=' | '\\:' | '\\#' | '\\!' 
+;
+
+terminal SEPARATOR:
+	'=' | ':'
 ;
 
 
-terminal ANY_OTHER:
-    .;
+terminal SPACE:
+	' '|'\t'
+;
 

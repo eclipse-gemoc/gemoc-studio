@@ -16,7 +16,7 @@ public class DslParser extends AbstractAntlrParser {
 
 	@Override
 	protected void setInitialHiddenTokens(XtextTokenStream tokenStream) {
-		tokenStream.setInitialHiddenTokens();
+		tokenStream.setInitialHiddenTokens("RULE_SL_COMMENT");
 	}
 	
 

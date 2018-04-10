@@ -31,41 +31,36 @@ public class DslParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getDslAccess().getAlternatives_2_0(), "rule__Dsl__Alternatives_2_0");
-					put(grammarAccess.getDslAccess().getNameAlternatives_7_0(), "rule__Dsl__NameAlternatives_7_0");
-					put(grammarAccess.getDslAccess().getAlternatives_9_0(), "rule__Dsl__Alternatives_9_0");
-					put(grammarAccess.getEntryValueAccess().getAlternatives_2_1(), "rule__EntryValue__Alternatives_2_1");
-					put(grammarAccess.getENTRYVALUE_LINEAccess().getAlternatives_0_1(), "rule__ENTRYVALUE_LINE__Alternatives_0_1");
-					put(grammarAccess.getENTRYVALUE_LINEAccess().getAlternatives_1(), "rule__ENTRYVALUE_LINE__Alternatives_1");
-					put(grammarAccess.getENTRYVALUE_LINEAccess().getAlternatives_2_0(), "rule__ENTRYVALUE_LINE__Alternatives_2_0");
-					put(grammarAccess.getENTRYVALUE_LINEAccess().getAlternatives_2_1(), "rule__ENTRYVALUE_LINE__Alternatives_2_1");
+					put(grammarAccess.getDslAccess().getAlternatives_1(), "rule__Dsl__Alternatives_1");
+					put(grammarAccess.getDslAccess().getAlternatives_6_2(), "rule__Dsl__Alternatives_6_2");
+					put(grammarAccess.getVALUE_WORDAccess().getAlternatives_0(), "rule__VALUE_WORD__Alternatives_0");
+					put(grammarAccess.getVALUE_WORDAccess().getAlternatives_1_1(), "rule__VALUE_WORD__Alternatives_1_1");
+					put(grammarAccess.getVALUE_WORDAccess().getAlternatives_1_1_1(), "rule__VALUE_WORD__Alternatives_1_1_1");
+					put(grammarAccess.getVALUE_WORDAccess().getAlternatives_1_2(), "rule__VALUE_WORD__Alternatives_1_2");
+					put(grammarAccess.getWORDAccess().getAlternatives_1_1(), "rule__WORD__Alternatives_1_1");
 					put(grammarAccess.getDslAccess().getGroup(), "rule__Dsl__Group__0");
-					put(grammarAccess.getDslAccess().getGroup_1(), "rule__Dsl__Group_1__0");
+					put(grammarAccess.getDslAccess().getGroup_1_0(), "rule__Dsl__Group_1_0__0");
+					put(grammarAccess.getDslAccess().getGroup_1_1(), "rule__Dsl__Group_1_1__0");
 					put(grammarAccess.getDslAccess().getGroup_2(), "rule__Dsl__Group_2__0");
 					put(grammarAccess.getDslAccess().getGroup_2_1(), "rule__Dsl__Group_2_1__0");
-					put(grammarAccess.getDslAccess().getGroup_8(), "rule__Dsl__Group_8__0");
-					put(grammarAccess.getDslAccess().getGroup_9(), "rule__Dsl__Group_9__0");
-					put(grammarAccess.getDslAccess().getGroup_9_1(), "rule__Dsl__Group_9_1__0");
+					put(grammarAccess.getDslAccess().getGroup_5(), "rule__Dsl__Group_5__0");
+					put(grammarAccess.getDslAccess().getGroup_5_0(), "rule__Dsl__Group_5_0__0");
+					put(grammarAccess.getDslAccess().getGroup_5_1(), "rule__Dsl__Group_5_1__0");
+					put(grammarAccess.getDslAccess().getGroup_6(), "rule__Dsl__Group_6__0");
+					put(grammarAccess.getDslAccess().getGroup_6_2_0(), "rule__Dsl__Group_6_2_0__0");
+					put(grammarAccess.getDslAccess().getGroup_6_2_1(), "rule__Dsl__Group_6_2_1__0");
 					put(grammarAccess.getEntryAccess().getGroup(), "rule__Entry__Group__0");
-					put(grammarAccess.getEntryValueAccess().getGroup(), "rule__EntryValue__Group__0");
-					put(grammarAccess.getEntryValueAccess().getGroup_2(), "rule__EntryValue__Group_2__0");
-					put(grammarAccess.getEntryValueAccess().getGroup_2_1_0(), "rule__EntryValue__Group_2_1_0__0");
-					put(grammarAccess.getEntryValueAccess().getGroup_2_1_0_0(), "rule__EntryValue__Group_2_1_0_0__0");
-					put(grammarAccess.getEntryValueAccess().getGroup_2_1_0_0_0(), "rule__EntryValue__Group_2_1_0_0_0__0");
-					put(grammarAccess.getEntryValueAccess().getGroup_2_1_1(), "rule__EntryValue__Group_2_1_1__0");
-					put(grammarAccess.getENTRYVALUE_LINEAccess().getGroup(), "rule__ENTRYVALUE_LINE__Group__0");
-					put(grammarAccess.getENTRYVALUE_LINEAccess().getGroup_0(), "rule__ENTRYVALUE_LINE__Group_0__0");
-					put(grammarAccess.getENTRYVALUE_LINEAccess().getGroup_0_1_0(), "rule__ENTRYVALUE_LINE__Group_0_1_0__0");
-					put(grammarAccess.getENTRYVALUE_LINEAccess().getGroup_2(), "rule__ENTRYVALUE_LINE__Group_2__0");
-					put(grammarAccess.getENTRYVALUE_LINEAccess().getGroup_3(), "rule__ENTRYVALUE_LINE__Group_3__0");
-					put(grammarAccess.getENTRYVALUE_LINEAccess().getGroup_3_2(), "rule__ENTRYVALUE_LINE__Group_3_2__0");
-					put(grammarAccess.getDslAccess().getNameAssignment_7(), "rule__Dsl__NameAssignment_7");
-					put(grammarAccess.getDslAccess().getEntriesAssignment_9_0_0(), "rule__Dsl__EntriesAssignment_9_0_0");
+					put(grammarAccess.getEntryAccess().getGroup_3(), "rule__Entry__Group_3__0");
+					put(grammarAccess.getVALUE_WORDAccess().getGroup(), "rule__VALUE_WORD__Group__0");
+					put(grammarAccess.getVALUE_WORDAccess().getGroup_1(), "rule__VALUE_WORD__Group_1__0");
+					put(grammarAccess.getMULTILINEAccess().getGroup(), "rule__MULTILINE__Group__0");
+					put(grammarAccess.getMULTILINEAccess().getGroup_1(), "rule__MULTILINE__Group_1__0");
+					put(grammarAccess.getWORDAccess().getGroup(), "rule__WORD__Group__0");
+					put(grammarAccess.getWORDAccess().getGroup_1(), "rule__WORD__Group_1__0");
+					put(grammarAccess.getDslAccess().getEntriesAssignment_4(), "rule__Dsl__EntriesAssignment_4");
+					put(grammarAccess.getDslAccess().getEntriesAssignment_5_2(), "rule__Dsl__EntriesAssignment_5_2");
 					put(grammarAccess.getEntryAccess().getKeyAssignment_1(), "rule__Entry__KeyAssignment_1");
-					put(grammarAccess.getEntryAccess().getValueAssignment_5(), "rule__Entry__ValueAssignment_5");
-					put(grammarAccess.getEntryValueAccess().getEntryLinesAssignment_1(), "rule__EntryValue__EntryLinesAssignment_1");
-					put(grammarAccess.getEntryValueAccess().getEntryLinesAssignment_2_1_0_1(), "rule__EntryValue__EntryLinesAssignment_2_1_0_1");
-					put(grammarAccess.getEntryValueAccess().getEntryLinesAssignment_2_1_1_2(), "rule__EntryValue__EntryLinesAssignment_2_1_1_2");
+					put(grammarAccess.getEntryAccess().getValueAssignment_3_2(), "rule__Entry__ValueAssignment_3_2");
 				}
 			};
 		}
@@ -74,7 +69,7 @@ public class DslParser extends AbstractContentAssistParser {
 			
 	@Override
 	protected String[] getInitialHiddenTokens() {
-		return new String[] {  };
+		return new String[] { "RULE_SL_COMMENT" };
 	}
 
 	public DslGrammarAccess getGrammarAccess() {

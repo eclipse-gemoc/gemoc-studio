@@ -47,7 +47,7 @@ class DslParsingSingleLineTest {
 		)
 		assertEquals("my.language", result.name)
 		assertTrue("no key named \"mykey\"", result.entries.exists[e|e.key == "mykey"])
-		assertEquals("myvalue", result.entries.findFirst[e|e.key == "mykey"].value.entryLines.get(0))
+		assertEquals("myvalue", result.entries.findFirst[e|e.key == "mykey"].value)
 	}
 
 	@Test
@@ -66,7 +66,7 @@ class DslParsingSingleLineTest {
 		)
 		assertEquals("my.language", result.name)
 		assertTrue("no key named \"mykey\"", result.entries.exists[e|e.key == "mykey"])
-		assertEquals("myvalue", result.entries.findFirst[e|e.key == "mykey"].value.entryLines.get(0))
+		assertEquals("myvalue", result.entries.findFirst[e|e.key == "mykey"].value)
 	}
 
 	@Test
@@ -82,7 +82,7 @@ class DslParsingSingleLineTest {
 		)
 		assertEquals("my.language", result.name)
 		assertTrue("no key named \"mykey\"", result.entries.exists[e|e.key == "mykey"])
-		assertEquals("\"name\"", result.entries.findFirst[e|e.key == "mykey"].value.entryLines.get(0))
+		assertEquals("\"name\"", result.entries.findFirst[e|e.key == "mykey"].value)
 	}
 
 	@Test
@@ -98,7 +98,7 @@ class DslParsingSingleLineTest {
 		)
 		assertEquals("my.language", result.name)
 		assertTrue("no key named \"mykey\"", result.entries.exists[e|e.key == "mykey"])
-		assertEquals("myval_with_name_in_val", result.entries.findFirst[e|e.key == "mykey"].value.entryLines.get(0))
+		assertEquals("myval_with_name_in_val", result.entries.findFirst[e|e.key == "mykey"].value)
 	}
 
 	@Test
@@ -114,7 +114,7 @@ class DslParsingSingleLineTest {
 		)
 		assertEquals("my.language", result.name)
 		assertTrue("no key named \"mykey\"", result.entries.exists[e|e.key == "mykey"])
-		assertEquals("final", result.entries.findFirst[e|e.key == "mykey"].value.entryLines.get(0))
+		assertEquals("final", result.entries.findFirst[e|e.key == "mykey"].value)
 	}
 	
 	@Test
@@ -130,7 +130,7 @@ class DslParsingSingleLineTest {
 		)
 		assertEquals("my.language", result.name)
 		assertTrue("no key named \"mykey\"", result.entries.exists[e|e.key == "mykey"])
-		assertEquals("\"bla=bli\"", result.entries.findFirst[e|e.key == "mykey"].value.entryLines.get(0))
+		assertEquals("\"bla=bli\"", result.entries.findFirst[e|e.key == "mykey"].value)
 	}
 	
 	@Test
@@ -146,8 +146,7 @@ class DslParsingSingleLineTest {
 		)
 		assertEquals("my.language", result.name)
 		assertTrue("no key named \"mykey1\"", result.entries.exists[e|e.key == "mykey1"])
-		assertEquals("\"blabli\";\"3.0.1\"", result.entries.findFirst[e|e.key == "mykey1"].value.entryLines.get(0))
-		assertEquals("\"foobar\" ; \"4.0.7\"", result.entries.findFirst[e|e.key == "mykey1"].value.entryLines.get(1))
+		assertEquals("\"blabli\";\"3.0.1\", \"foobar\" ; \"4.0.7\"", result.entries.findFirst[e|e.key == "mykey1"].value)
 	}
 	
 	@Test
@@ -163,8 +162,7 @@ class DslParsingSingleLineTest {
 		)
 		assertEquals("my.language", result.name)
 		assertTrue("no key named \"mykey1\"", result.entries.exists[e|e.key == "mykey1"])
-		assertEquals("\"blabli\";\"3.0.1\"", result.entries.findFirst[e|e.key == "mykey1"].value.entryLines.get(0))
-		assertEquals("\"foobar\" ; [\"4.0.7\"..[", result.entries.findFirst[e|e.key == "mykey1"].value.entryLines.get(1))
+		assertEquals("\"blabli\";\"3.0.1\", \"foobar\" ; [\"4.0.7\"..[", result.entries.findFirst[e|e.key == "mykey1"].value)
 	}
 	
 }
