@@ -4,6 +4,7 @@ package org.eclipse.gemoc.dsl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -19,6 +20,10 @@ import org.eclipse.emf.ecore.EReference;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
+ * <!-- begin-model-doc -->
+ * Get the entry with the given key.
+ * Returns null if no entry exist with this key.
+ * <!-- end-model-doc -->
  * @see org.eclipse.gemoc.dsl.DslFactory
  * @model kind="package"
  * @generated
@@ -94,13 +99,22 @@ public interface DslPackage extends EPackage {
 	int DSL_FEATURE_COUNT = 2;
 
 	/**
+	 * The operation id for the '<em>Get Entry</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DSL___GET_ENTRY__STRING = 0;
+
+	/**
 	 * The number of operations of the '<em>Dsl</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DSL_OPERATION_COUNT = 0;
+	int DSL_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.gemoc.dsl.impl.EntryImpl <em>Entry</em>}' class.
@@ -182,6 +196,16 @@ public interface DslPackage extends EPackage {
 	EAttribute getDsl_Name();
 
 	/**
+	 * Returns the meta object for the '{@link org.eclipse.gemoc.dsl.Dsl#getEntry(java.lang.String) <em>Get Entry</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Entry</em>' operation.
+	 * @see org.eclipse.gemoc.dsl.Dsl#getEntry(java.lang.String)
+	 * @generated
+	 */
+	EOperation getDsl__GetEntry__String();
+
+	/**
 	 * Returns the meta object for class '{@link org.eclipse.gemoc.dsl.Entry <em>Entry</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -261,6 +285,14 @@ public interface DslPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DSL__NAME = eINSTANCE.getDsl_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Entry</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DSL___GET_ENTRY__STRING = eINSTANCE.getDsl__GetEntry__String();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.gemoc.dsl.impl.EntryImpl <em>Entry</em>}' class.

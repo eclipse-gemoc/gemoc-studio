@@ -66,4 +66,15 @@ public interface Dsl extends EObject {
 	 */
 	void setName(String value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * returns the entry with the given key if it exists, null if not found
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	Entry getEntry(String key);
+
 } // Dsl

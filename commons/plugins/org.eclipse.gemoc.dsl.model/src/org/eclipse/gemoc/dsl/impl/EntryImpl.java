@@ -3,7 +3,8 @@
 package org.eclipse.gemoc.dsl.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -214,4 +215,73 @@ public class EntryImpl extends MinimalEObjectImpl.Container implements Entry {
 		return result.toString();
 	}
 
+	/**
+	   * Parse the value String to an EList of Strings while treating quoted values as single
+	   * element.
+	   * 
+	   * @param strDel -
+	   *          String deliminer
+	   * @param bAllowSingleQuote -
+	   *          single quotes such as ' can be used to group value
+	   * @param bAllowDoubleQuote -
+	   *          double quote such as " can be used to group value
+	   * @return String[] - parsed list
+	   * @throws OSSInvalidDataException -
+	   *           error during parsing
+	   */
+	  public EList<String> getQuotedStringValueAsStringEList(String strDel,
+	      boolean bAllowSingleQuote, boolean bAllowDoubleQuote) throws Exception {
+		  EList<String> lstElements = new BasicEList<String>();
+	    String strParse = this.value;
+	    if (strParse != null) {
+	      int iCurrentIndex = 0;
+	      int iNextIndex;
+	      int iDelLength = strDel.length();
+	      int iParseLength = strParse.length();
+
+	      while (iCurrentIndex < iParseLength) {
+	        if ((bAllowSingleQuote) && (strParse.charAt(iCurrentIndex) == '\'')) {
+	          // Find next single quote and treat the things in the middle as
+	          // single element
+	          iNextIndex = strParse.indexOf('\'', iCurrentIndex + 1);
+	          if (iNextIndex == -1) {
+	            throw new Exception("Incorrect input. " + strParse
+	                + " No single quote following the one" + " at location " + iCurrentIndex);
+	          }
+	          lstElements.add(strParse.substring(iCurrentIndex + 1, iNextIndex));
+	          iCurrentIndex = iNextIndex + 1;
+	          if (strParse.substring(iCurrentIndex).startsWith(strDel)) {
+	            iCurrentIndex += iDelLength;
+	          }
+	        } else if ((bAllowDoubleQuote) && (strParse.charAt(iCurrentIndex) == '"')) {
+	          // Find next double quote and treat the things in the middle as
+	          // single element
+	          iNextIndex = strParse.indexOf('"', iCurrentIndex + 1);
+	          if (iNextIndex == -1) {
+	            throw new Exception("Incorrect input. " + strParse
+	                + " No double quote following the one" + " at location " + iCurrentIndex);
+	          }
+	          lstElements.add(strParse.substring(iCurrentIndex + 1, iNextIndex));
+	          iCurrentIndex = iNextIndex + 1;
+	          if (strParse.substring(iCurrentIndex).startsWith(strDel)) {
+	            iCurrentIndex += iDelLength;
+	          }
+	        } else {
+	          // Find next separator and treat the things in the middle as
+	          // single element
+	          iNextIndex = strParse.indexOf(strDel, iCurrentIndex);
+	          if (iNextIndex == -1) {
+	            // No other delimiter found so take the rest of the string
+	            lstElements.add(strParse.substring(iCurrentIndex));
+	            iCurrentIndex = iParseLength;
+	          } else {
+	            lstElements.add(strParse.substring(iCurrentIndex, iNextIndex));
+	            iCurrentIndex = iNextIndex + iDelLength;
+	          }
+	        }
+	      }
+	    }
+
+	    return lstElements;
+	  }
 } //EntryImpl

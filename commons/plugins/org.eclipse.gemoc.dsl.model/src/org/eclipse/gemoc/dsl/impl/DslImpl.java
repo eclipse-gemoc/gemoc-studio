@@ -2,6 +2,7 @@
  */
 package org.eclipse.gemoc.dsl.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.Optional;
 
@@ -119,6 +120,21 @@ public class DslImpl extends MinimalEObjectImpl.Container implements Dsl {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Entry getEntry(String key) {
+		Optional<Entry> nameEntry = entries.stream().filter(e -> e.getKey().equals("name")).findFirst();
+		if(nameEntry.isPresent()) {
+			return nameEntry.get();
+		}
+		else {
+			return null;
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -198,6 +214,20 @@ public class DslImpl extends MinimalEObjectImpl.Container implements Dsl {
 				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case DslPackage.DSL___GET_ENTRY__STRING:
+				return getEntry((String)arguments.get(0));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //DslImpl

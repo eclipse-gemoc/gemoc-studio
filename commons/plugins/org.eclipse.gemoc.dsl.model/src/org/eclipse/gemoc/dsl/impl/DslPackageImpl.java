@@ -4,6 +4,7 @@ package org.eclipse.gemoc.dsl.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -128,6 +129,15 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getDsl__GetEntry__String() {
+		return dslEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getEntry() {
 		return entryEClass;
 	}
@@ -181,6 +191,7 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage {
 		dslEClass = createEClass(DSL);
 		createEReference(dslEClass, DSL__ENTRIES);
 		createEAttribute(dslEClass, DSL__NAME);
+		createEOperation(dslEClass, DSL___GET_ENTRY__STRING);
 
 		entryEClass = createEClass(ENTRY);
 		createEAttribute(entryEClass, ENTRY__KEY);
@@ -220,6 +231,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage {
 		initEClass(dslEClass, Dsl.class, "Dsl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDsl_Entries(), this.getEntry(), null, "entries", null, 0, -1, Dsl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDsl_Name(), ecorePackage.getEString(), "name", null, 0, 1, Dsl.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		EOperation op = initEOperation(getDsl__GetEntry__String(), this.getEntry(), "getEntry", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "key", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(entryEClass, Entry.class, "Entry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEntry_Key(), ecorePackage.getEString(), "key", null, 0, 1, Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
