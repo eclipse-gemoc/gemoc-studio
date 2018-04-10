@@ -15,7 +15,7 @@ Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtend.lib,
  org.eclipse.emf.common,
  ch.qos.logback.classic;bundle-version="1.0.7",
- org.eclipse.gemoc.dsl.model;bundle-version="1.0.0"
+ org.eclipse.gemoc.dsl.model;bundle-version="1.0.0";visibility:=reexport
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.eclipse.gemoc.serializer,
  org.eclipse.gemoc.scoping,
@@ -27,3 +27,4 @@ Export-Package: org.eclipse.gemoc.serializer,
  org.eclipse.gemoc.generator,
  org.eclipse.gemoc.formatting2
 Import-Package: org.apache.log4j
+Automatic-Module-Name: org.eclipse.gemoc.dsl

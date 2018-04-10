@@ -7,19 +7,11 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 Dsl returns dsl::Dsl:
 	{dsl::Dsl}
-	 ((SPACE+ '\r'? '\n') |('\r'? '\n'))*
+	((SPACE+ '\r'? '\n') |('\r'? '\n'))*
 	(SL_COMMENT ('\r'? '\n')+)*
-	/*
-	'name' SPACE* SEPARATOR SPACE* name=WORD */ 
-	/*( ('\r'? '\n')*
-	  ((SPACE+ '\r'? '\n') ((SPACE+ '\r'? '\n') |('\r'? '\n'))*)?
-		|
-	  ('\r'? '\n')+ */
-	  //((SPACE+ '\r'? '\n') ((SPACE+ '\r'? '\n') |('\r'? '\n'))*)?
-	  SPACE* entries+=Entry (('\r'? '\n')+ (SPACE+ '\r'? '\n')* entries+=Entry)* 
-	  ('\r'? '\n' ((SPACE+ '\r'? '\n') |('\r'? '\n'))*)?
-		
-	/*)*/
+	SPACE* entries+=Entry (('\r'? '\n')+ (SPACE+ '\r'? '\n')* entries+=Entry)* 
+	('\r'? '\n' ((SPACE+ '\r'? '\n') |('\r'? '\n'))*)?
+	
 ;
 
 Entry returns dsl::Entry:
