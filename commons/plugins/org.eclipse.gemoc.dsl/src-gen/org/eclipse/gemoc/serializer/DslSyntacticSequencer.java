@@ -22,6 +22,7 @@ public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected DslGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_Dsl_SPACETerminalRuleCall_3_a;
+	protected AbstractElementAlias match_Dsl_SPACETerminalRuleCall_5_2_a;
 	protected AbstractElementAlias match_Dsl___CarriageReturnKeyword_5_0_0_q_LineFeedKeyword_5_0_1__p;
 	protected AbstractElementAlias match_Dsl___CarriageReturnKeyword_6_0_q_LineFeedKeyword_6_1_____CarriageReturnKeyword_6_2_1_0_q_LineFeedKeyword_6_2_1_1__q___SPACETerminalRuleCall_6_2_0_0_p_CarriageReturnKeyword_6_2_0_1_q_LineFeedKeyword_6_2_0_2__q__p__q;
 	protected AbstractElementAlias match_Dsl___SL_COMMENTTerminalRuleCall_2_0___CarriageReturnKeyword_2_1_0_q_LineFeedKeyword_2_1_1__p__a;
@@ -34,6 +35,7 @@ public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (DslGrammarAccess) access;
 		match_Dsl_SPACETerminalRuleCall_3_a = new TokenAlias(true, true, grammarAccess.getDslAccess().getSPACETerminalRuleCall_3());
+		match_Dsl_SPACETerminalRuleCall_5_2_a = new TokenAlias(true, true, grammarAccess.getDslAccess().getSPACETerminalRuleCall_5_2());
 		match_Dsl___CarriageReturnKeyword_5_0_0_q_LineFeedKeyword_5_0_1__p = new GroupAlias(true, false, new TokenAlias(false, true, grammarAccess.getDslAccess().getCarriageReturnKeyword_5_0_0()), new TokenAlias(false, false, grammarAccess.getDslAccess().getLineFeedKeyword_5_0_1()));
 		match_Dsl___CarriageReturnKeyword_6_0_q_LineFeedKeyword_6_1_____CarriageReturnKeyword_6_2_1_0_q_LineFeedKeyword_6_2_1_1__q___SPACETerminalRuleCall_6_2_0_0_p_CarriageReturnKeyword_6_2_0_1_q_LineFeedKeyword_6_2_0_2__q__p__q = new GroupAlias(false, true, new TokenAlias(false, true, grammarAccess.getDslAccess().getCarriageReturnKeyword_6_0()), new TokenAlias(false, false, grammarAccess.getDslAccess().getLineFeedKeyword_6_1()), new GroupAlias(true, false, new GroupAlias(false, true, new TokenAlias(false, true, grammarAccess.getDslAccess().getCarriageReturnKeyword_6_2_1_0()), new TokenAlias(false, false, grammarAccess.getDslAccess().getLineFeedKeyword_6_2_1_1())), new GroupAlias(false, true, new TokenAlias(true, false, grammarAccess.getDslAccess().getSPACETerminalRuleCall_6_2_0_0()), new TokenAlias(false, true, grammarAccess.getDslAccess().getCarriageReturnKeyword_6_2_0_1()), new TokenAlias(false, false, grammarAccess.getDslAccess().getLineFeedKeyword_6_2_0_2()))));
 		match_Dsl___SL_COMMENTTerminalRuleCall_2_0___CarriageReturnKeyword_2_1_0_q_LineFeedKeyword_2_1_1__p__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getDslAccess().getSL_COMMENTTerminalRuleCall_2_0()), new GroupAlias(true, false, new TokenAlias(false, true, grammarAccess.getDslAccess().getCarriageReturnKeyword_2_1_0()), new TokenAlias(false, false, grammarAccess.getDslAccess().getLineFeedKeyword_2_1_1())));
@@ -95,6 +97,8 @@ public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
 			if (match_Dsl_SPACETerminalRuleCall_3_a.equals(syntax))
 				emit_Dsl_SPACETerminalRuleCall_3_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Dsl_SPACETerminalRuleCall_5_2_a.equals(syntax))
+				emit_Dsl_SPACETerminalRuleCall_5_2_a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Dsl___CarriageReturnKeyword_5_0_0_q_LineFeedKeyword_5_0_1__p.equals(syntax))
 				emit_Dsl___CarriageReturnKeyword_5_0_0_q_LineFeedKeyword_5_0_1__p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Dsl___CarriageReturnKeyword_6_0_q_LineFeedKeyword_6_1_____CarriageReturnKeyword_6_2_1_0_q_LineFeedKeyword_6_2_1_1__q___SPACETerminalRuleCall_6_2_0_0_p_CarriageReturnKeyword_6_2_0_1_q_LineFeedKeyword_6_2_0_2__q__p__q.equals(syntax))
@@ -154,6 +158,34 @@ public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 	
 	/**
 	 * Ambiguous syntax:
+	 *     SPACE*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (
+	 *         entries+=Entry 
+	 *         (
+	 *             '
+	 '? 
+	 *             '
+	 *             '
+	 *         )+ 
+	 *         (
+	 *             SPACE+ 
+	 *             '
+	 '? 
+	 *             '
+	 *             '
+	 *         )* 
+	 *         (ambiguity) 
+	 *         entries+=Entry
+	 *     )
+	 */
+	protected void emit_Dsl_SPACETerminalRuleCall_5_2_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
 	 *     (
 	  *         '
 	 '? 
@@ -172,6 +204,7 @@ public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *             '
 	 *             '
 	 *         )* 
+	 *         SPACE* 
 	 *         entries+=Entry
 	 *     )
 	 */
@@ -269,6 +302,7 @@ public class DslSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *             '
 	 *         )+ 
 	 *         (ambiguity) 
+	 *         SPACE* 
 	 *         entries+=Entry
 	 *     )
 	 */

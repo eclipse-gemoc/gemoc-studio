@@ -9,7 +9,7 @@ Dsl returns dsl::Dsl:
 	{dsl::Dsl}
 	((SPACE+ '\r'? '\n') |('\r'? '\n'))*
 	(SL_COMMENT ('\r'? '\n')+)*
-	SPACE* entries+=Entry (('\r'? '\n')+ (SPACE+ '\r'? '\n')* entries+=Entry)* 
+	SPACE* entries+=Entry (('\r'? '\n')+ (SPACE+ '\r'? '\n')* SPACE* entries+=Entry)* 
 	('\r'? '\n' ((SPACE+ '\r'? '\n') |('\r'? '\n'))*)?
 	
 ;

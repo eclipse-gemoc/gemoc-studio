@@ -166,4 +166,37 @@ class DslParsingEmptyLineTest {
 		assertEquals("my.language", result.name)
 		
 	}
+	
+	@Test
+	def void melange_generated_empty_lines() {
+		val result = parseHelper.parse("name = org.eclipse.XSFSM\n\n ecore = platform:/resource/org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm/model/XSFSM.ecore\n\n k3 = org.eclipse.gemoc.StateMachineAspect,org.eclipse.gemoc.TransitionAspect\n")
+			assertNotNull(result)
+			assertTrue(
+				"eResource.errors not Empty " + result.eResource.errors,
+				result.eResource.errors.isEmpty
+			)
+			assertEquals("org.eclipse.XSFSM", result.name)
+			assertTrue("no key named \"ecore\"", result.entries.exists[e|e.key == "ecore"])
+			assertTrue("no key named \"k3\"", result.entries.exists[e|e.key == "k3"])
+		}
+	
+	@Test
+	def void melange_generated_empty_lines2() {
+		val result = parseHelper.parse('''name = org.eclipse.gemoc.sample.legacyfsm.xsfsm.XSFSM
+		
+		 ecore = platform:/resource/org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm/model/XSFSM.ecore
+		
+		 k3 = org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.aspects.StateAspect,org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.aspects.StateMachineAspect,org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.aspects.TransitionAspect
+		
+'''
+		)
+			assertNotNull(result)
+			assertTrue(
+				"eResource.errors not Empty " + result.eResource.errors,
+				result.eResource.errors.isEmpty
+			)
+			assertEquals("org.eclipse.gemoc.sample.legacyfsm.xsfsm.XSFSM", result.name)
+			assertTrue("no key named \"ecore\"", result.entries.exists[e|e.key == "ecore"])
+			assertTrue("no key named \"k3\"", result.entries.exists[e|e.key == "k3"])
+		}
 }

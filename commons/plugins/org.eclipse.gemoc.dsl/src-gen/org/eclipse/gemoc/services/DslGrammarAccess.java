@@ -50,8 +50,9 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSPACETerminalRuleCall_5_1_0 = (RuleCall)cGroup_5_1.eContents().get(0);
 		private final Keyword cCarriageReturnKeyword_5_1_1 = (Keyword)cGroup_5_1.eContents().get(1);
 		private final Keyword cLineFeedKeyword_5_1_2 = (Keyword)cGroup_5_1.eContents().get(2);
-		private final Assignment cEntriesAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
-		private final RuleCall cEntriesEntryParserRuleCall_5_2_0 = (RuleCall)cEntriesAssignment_5_2.eContents().get(0);
+		private final RuleCall cSPACETerminalRuleCall_5_2 = (RuleCall)cGroup_5.eContents().get(2);
+		private final Assignment cEntriesAssignment_5_3 = (Assignment)cGroup_5.eContents().get(3);
+		private final RuleCall cEntriesEntryParserRuleCall_5_3_0 = (RuleCall)cEntriesAssignment_5_3.eContents().get(0);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cCarriageReturnKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Keyword cLineFeedKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
@@ -66,25 +67,12 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Dsl dsl::Dsl:
 		//	{dsl::Dsl} (SPACE+ '\r'? '\n' | '\r'? '\n')* (SL_COMMENT ('\r'? '\n')+)*
-		//	/*
-		//	'name' SPACE* SEPARATOR SPACE* name=WORD */
-		///*( ('\r'? '\n')*
-		//	  ((SPACE+ '\r'? '\n') ((SPACE+ '\r'? '\n') |('\r'? '\n'))*)?
-		//		|
-		//	  ('\r'? '\n')+ */
-		////((SPACE+ '\r'? '\n') ((SPACE+ '\r'? '\n') |('\r'? '\n'))*)?
-		//	SPACE* entries+=Entry (('\r'? '\n')+ (SPACE+ '\r'? '\n')* entries+=Entry)* ('\r'? '\n' (SPACE+ '\r'? '\n' | '\r'?
-		//	'\n')*)?
-		//	/*)*/;
+		//	SPACE* entries+=Entry (('\r'? '\n')+ (SPACE+ '\r'? '\n')* SPACE* entries+=Entry)* ('\r'? '\n' (SPACE+ '\r'? '\n' |
+		//	'\r'? '\n')*)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{dsl::Dsl} (SPACE+ '\r'? '\n' | '\r'? '\n')* (SL_COMMENT ('\r'? '\n')+)* /*
-		//	'name' SPACE* SEPARATOR SPACE* name=WORD */ /*( ('\r'? '\n')*
-		//	  ((SPACE+ '\r'? '\n') ((SPACE+ '\r'? '\n') |('\r'? '\n'))*)?
-		//		|
-		//	  ('\r'? '\n')+ */ //((SPACE+ '\r'? '\n') ((SPACE+ '\r'? '\n') |('\r'? '\n'))*)?
-		//SPACE* entries+=Entry (('\r'? '\n')+ (SPACE+ '\r'? '\n')* entries+=Entry)* ('\r'? '\n' (SPACE+ '\r'? '\n' | '\r'?
-		//'\n')*)?
+		//{dsl::Dsl} (SPACE+ '\r'? '\n' | '\r'? '\n')* (SL_COMMENT ('\r'? '\n')+)* SPACE* entries+=Entry (('\r'? '\n')+ (SPACE+
+		//'\r'? '\n')* SPACE* entries+=Entry)* ('\r'? '\n' (SPACE+ '\r'? '\n' | '\r'? '\n')*)?
 		public Group getGroup() { return cGroup; }
 		
 		//{dsl::Dsl}
@@ -129,11 +117,6 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//'\n'
 		public Keyword getLineFeedKeyword_2_1_1() { return cLineFeedKeyword_2_1_1; }
 		
-		///*
-		//	'name' SPACE* SEPARATOR SPACE* name=WORD */ /*( ('\r'? '\n')*
-		//	  ((SPACE+ '\r'? '\n') ((SPACE+ '\r'? '\n') |('\r'? '\n'))*)?
-		//		|
-		//	  ('\r'? '\n')+ */ //((SPACE+ '\r'? '\n') ((SPACE+ '\r'? '\n') |('\r'? '\n'))*)?
 		//SPACE*
 		public RuleCall getSPACETerminalRuleCall_3() { return cSPACETerminalRuleCall_3; }
 		
@@ -143,7 +126,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//Entry
 		public RuleCall getEntriesEntryParserRuleCall_4_0() { return cEntriesEntryParserRuleCall_4_0; }
 		
-		//(('\r'? '\n')+ (SPACE+ '\r'? '\n')* entries+=Entry)*
+		//(('\r'? '\n')+ (SPACE+ '\r'? '\n')* SPACE* entries+=Entry)*
 		public Group getGroup_5() { return cGroup_5; }
 		
 		//('\r'? '\n')+
@@ -167,11 +150,14 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//'\n'
 		public Keyword getLineFeedKeyword_5_1_2() { return cLineFeedKeyword_5_1_2; }
 		
+		//SPACE*
+		public RuleCall getSPACETerminalRuleCall_5_2() { return cSPACETerminalRuleCall_5_2; }
+		
 		//entries+=Entry
-		public Assignment getEntriesAssignment_5_2() { return cEntriesAssignment_5_2; }
+		public Assignment getEntriesAssignment_5_3() { return cEntriesAssignment_5_3; }
 		
 		//Entry
-		public RuleCall getEntriesEntryParserRuleCall_5_2_0() { return cEntriesEntryParserRuleCall_5_2_0; }
+		public RuleCall getEntriesEntryParserRuleCall_5_3_0() { return cEntriesEntryParserRuleCall_5_3_0; }
 		
 		//('\r'? '\n' (SPACE+ '\r'? '\n' | '\r'? '\n')*)?
 		public Group getGroup_6() { return cGroup_6; }
@@ -458,16 +444,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Dsl dsl::Dsl:
 	//	{dsl::Dsl} (SPACE+ '\r'? '\n' | '\r'? '\n')* (SL_COMMENT ('\r'? '\n')+)*
-	//	/*
-	//	'name' SPACE* SEPARATOR SPACE* name=WORD */
-	///*( ('\r'? '\n')*
-	//	  ((SPACE+ '\r'? '\n') ((SPACE+ '\r'? '\n') |('\r'? '\n'))*)?
-	//		|
-	//	  ('\r'? '\n')+ */
-	////((SPACE+ '\r'? '\n') ((SPACE+ '\r'? '\n') |('\r'? '\n'))*)?
-	//	SPACE* entries+=Entry (('\r'? '\n')+ (SPACE+ '\r'? '\n')* entries+=Entry)* ('\r'? '\n' (SPACE+ '\r'? '\n' | '\r'?
-	//	'\n')*)?
-	//	/*)*/;
+	//	SPACE* entries+=Entry (('\r'? '\n')+ (SPACE+ '\r'? '\n')* SPACE* entries+=Entry)* ('\r'? '\n' (SPACE+ '\r'? '\n' |
+	//	'\r'? '\n')*)?;
 	public DslElements getDslAccess() {
 		return pDsl;
 	}

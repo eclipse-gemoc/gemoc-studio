@@ -51,7 +51,7 @@ public interface Dsl extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.eclipse.gemoc.dsl.DslPackage#getDsl_Name()
-	 * @model volatile="true" derived="true"
+	 * @model transient="true" volatile="true" derived="true"
 	 * @generated
 	 */
 	String getName();

@@ -165,4 +165,5 @@ class DslParsingSingleLineTest {
 		assertEquals("\"blabli\";\"3.0.1\", \"foobar\" ; [\"4.0.7\"..[", result.entries.findFirst[e|e.key == "mykey1"].value)
 	}
 	
+
 }

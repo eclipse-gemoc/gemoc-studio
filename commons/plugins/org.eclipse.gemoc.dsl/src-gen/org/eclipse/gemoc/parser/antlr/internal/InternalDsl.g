@@ -191,11 +191,17 @@ ruleDsl returns [EObject current=null]
 				}
 			)*
 			(
+				this_SPACE_16=RULE_SPACE
+				{
+					newLeafNode(this_SPACE_16, grammarAccess.getDslAccess().getSPACETerminalRuleCall_5_2());
+				}
+			)*
+			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDslAccess().getEntriesEntryParserRuleCall_5_2_0());
+						newCompositeNode(grammarAccess.getDslAccess().getEntriesEntryParserRuleCall_5_3_0());
 					}
-					lv_entries_16_0=ruleEntry
+					lv_entries_17_0=ruleEntry
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDslRule());
@@ -203,7 +209,7 @@ ruleDsl returns [EObject current=null]
 						add(
 							$current,
 							"entries",
-							lv_entries_16_0,
+							lv_entries_17_0,
 							"org.eclipse.gemoc.Dsl.Entry");
 						afterParserOrEnumRuleCall();
 					}
@@ -212,45 +218,45 @@ ruleDsl returns [EObject current=null]
 		)*
 		(
 			(
-				otherlv_17='\r'
+				otherlv_18='\r'
 				{
-					newLeafNode(otherlv_17, grammarAccess.getDslAccess().getCarriageReturnKeyword_6_0());
+					newLeafNode(otherlv_18, grammarAccess.getDslAccess().getCarriageReturnKeyword_6_0());
 				}
 			)?
-			otherlv_18='\n'
+			otherlv_19='\n'
 			{
-				newLeafNode(otherlv_18, grammarAccess.getDslAccess().getLineFeedKeyword_6_1());
+				newLeafNode(otherlv_19, grammarAccess.getDslAccess().getLineFeedKeyword_6_1());
 			}
 			(
 				(
 					(
-						this_SPACE_19=RULE_SPACE
+						this_SPACE_20=RULE_SPACE
 						{
-							newLeafNode(this_SPACE_19, grammarAccess.getDslAccess().getSPACETerminalRuleCall_6_2_0_0());
+							newLeafNode(this_SPACE_20, grammarAccess.getDslAccess().getSPACETerminalRuleCall_6_2_0_0());
 						}
 					)+
 					(
-						otherlv_20='\r'
+						otherlv_21='\r'
 						{
-							newLeafNode(otherlv_20, grammarAccess.getDslAccess().getCarriageReturnKeyword_6_2_0_1());
+							newLeafNode(otherlv_21, grammarAccess.getDslAccess().getCarriageReturnKeyword_6_2_0_1());
 						}
 					)?
-					otherlv_21='\n'
+					otherlv_22='\n'
 					{
-						newLeafNode(otherlv_21, grammarAccess.getDslAccess().getLineFeedKeyword_6_2_0_2());
+						newLeafNode(otherlv_22, grammarAccess.getDslAccess().getLineFeedKeyword_6_2_0_2());
 					}
 				)
 				    |
 				(
 					(
-						otherlv_22='\r'
+						otherlv_23='\r'
 						{
-							newLeafNode(otherlv_22, grammarAccess.getDslAccess().getCarriageReturnKeyword_6_2_1_0());
+							newLeafNode(otherlv_23, grammarAccess.getDslAccess().getCarriageReturnKeyword_6_2_1_0());
 						}
 					)?
-					otherlv_23='\n'
+					otherlv_24='\n'
 					{
-						newLeafNode(otherlv_23, grammarAccess.getDslAccess().getLineFeedKeyword_6_2_1_1());
+						newLeafNode(otherlv_24, grammarAccess.getDslAccess().getLineFeedKeyword_6_2_1_1());
 					}
 				)
 			)*
