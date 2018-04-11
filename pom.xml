@@ -31,7 +31,7 @@
         <repository>
             <id>melange</id>
             <layout>p2</layout>
-            <url>http://melange.inria.fr/updatesite/nightly/update_2018-01-19/</url>
+            <url>http://melange.inria.fr/updatesite/nightly/update_2018-04-11/</url>
         </repository>
         <repository>
             <id>Sirius</id>
