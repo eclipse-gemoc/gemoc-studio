@@ -49,7 +49,7 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Dsl returns Dsl
 	 *
 	 * Constraint:
-	 *     (name=MULTILINE entries+=Entry*)
+	 *     (entries+=Entry entries+=Entry*)
 	 */
 	protected void sequence_Dsl(ISerializationContext context, Dsl semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -72,7 +72,7 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getEntryAccess().getKeyWORDParserRuleCall_1_0(), semanticObject.getKey());
-		feeder.accept(grammarAccess.getEntryAccess().getValueMULTILINEParserRuleCall_5_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getEntryAccess().getValueMULTILINEParserRuleCall_3_2_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	

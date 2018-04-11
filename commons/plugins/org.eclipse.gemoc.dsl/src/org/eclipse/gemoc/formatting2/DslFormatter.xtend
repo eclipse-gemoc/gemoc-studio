@@ -18,7 +18,7 @@ class DslFormatter extends AbstractFormatter2 {
 	def dispatch void format(Dsl dsl, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
 		
-		dsl.regionFor.feature(DslPackage.eINSTANCE.getDsl_Name()).append[newLine]
+		//dsl.regionFor.feature(DslPackage.eINSTANCE.getDsl_Name()).append[newLine]
 		
 		for (Entry entry : dsl.getEntries()) {
 			entry.format;

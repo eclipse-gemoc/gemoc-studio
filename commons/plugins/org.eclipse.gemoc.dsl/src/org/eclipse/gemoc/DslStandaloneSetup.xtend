@@ -3,6 +3,8 @@
  */
 package org.eclipse.gemoc
 
+import com.google.inject.Injector
+import org.eclipse.emf.ecore.EPackage
 
 /**
  * Initialization support for running Xtext languages without Equinox extension registry.
@@ -12,4 +14,13 @@ class DslStandaloneSetup extends DslStandaloneSetupGenerated {
 	def static void doSetup() {
 		new DslStandaloneSetup().createInjectorAndDoEMFRegistration()
 	}
+	
+	
+	
+    override void register(Injector injector) {
+        if (!EPackage.Registry.INSTANCE.containsKey("http://www.eclipse.org/gemoc/Dsl")) {
+            EPackage.Registry.INSTANCE.put("http://www.eclipse.org/gemoc/Dsl", org.eclipse.gemoc.dsl.DslPackage.eINSTANCE)
+        }
+        super.register(injector);
+    }
 }
