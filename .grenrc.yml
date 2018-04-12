@@ -1,0 +1,23 @@
+---
+  dataSource: "prs"
+  prefix: "v"
+  ignoreLabels: 
+    - "duplicate"
+    - "invalid"
+    - "question"
+    - "to do"
+    - "wontfix"
+  ignoreIssuesWith: 
+    - "duplicate"
+    - "invalid"
+    - "question"
+    - "wontfix"
+  "groupBy": {
+        "Enhancements:": ["enhancement"],
+        "Bug Fixes:": ["bug"],
+        "Refactorings": ["refactoring"],
+        "Version upgrades": ["bump"],
+        "Release Engineering": ["releng"]
+  }
+  onlyMilestones: false
+  changelogFilename: "CHANGELOG.md"
