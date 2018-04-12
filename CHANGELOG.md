@@ -1,13 +1,6 @@
 # Changelog
 
 ## v3.0.0-rc2 (11/04/2018)
-Release Candidate 2 of the GEMOC Studio 3.0.0.
-
-Corresponding artifacts: 
-- Update site is available: http://download.eclipse.org/gemoc/updates/milestones/3.0.0rc2
-- Eclipse packages: http://download.eclipse.org/gemoc/packages/milestones/3.0.0rc2?d (click on *show directory content*)
-
-It contains the following important changes on this repository (to have a complete view, please also look to the companion release tag on gemoc-studio-modeldebugging https://github.com/eclipse/gemoc-studio-modeldebugging/releases/tag/3.0.0-rc2):
 
 #### Enhancements:
 
@@ -29,27 +22,42 @@ It contains the following important changes on this repository (to have a comple
 
 ---
 
-## v3.0.0rc2 (11/04/2018)
-*No changelog for this release.*
+## v3.0.0-rc1 (07/12/2017)
+
+#### Enhancements:
+
+- [**enhancement**] Improve messagingsystem usability [#38](https://github.com/eclipse/gemoc-studio/pull/38)
+- [**enhancement**] Improve xdsml test suites [#35](https://github.com/eclipse/gemoc-studio/pull/35)
+- [**enhancement**] Add grammar and editor for DSL file [#13](https://github.com/eclipse/gemoc-studio/pull/13)
+- [**enhancement**] Improve option management of GEMOC project wizard templates [#9](https://github.com/eclipse/gemoc-studio/pull/9)
+
+#### Bug Fixes:
+
+- [**bug**] Fix predefined update sites [#29](https://github.com/eclipse/gemoc-studio/pull/29)
+- [**bug**] Remove last references to Eclipse Neon [#28](https://github.com/eclipse/gemoc-studio/pull/28)
+- [**bug**] Make more robust retry loop in MessagingSystemManager [#5](https://github.com/eclipse/gemoc-studio/pull/5)
+
+#### Refactorings
+
+- [**refactoring**] Change keyword 'semantic' to semantics' in dslfile [#39](https://github.com/eclipse/gemoc-studio/pull/39)
+- [**refactoring**] Mass rename org.gemoc -> org.eclipse.gemoc [#16](https://github.com/eclipse/gemoc-studio/pull/16)
+
+#### Version upgrades
+
+- [**bump**] Upgrade to latest k3 version [#33](https://github.com/eclipse/gemoc-studio/pull/33)
+- [**bump**] Upgrade to Eclipse Oxygen [#27](https://github.com/eclipse/gemoc-studio/pull/27)
+- [**bump**] Migrate to Eclipse oxygen [#23](https://github.com/eclipse/gemoc-studio/pull/23)
+- [**bump**] Upgrade version of the studio to 2.4.0 [#7](https://github.com/eclipse/gemoc-studio/pull/7)
+
+#### Release Engineering
+
+- [**releng**] Remove backlog tests from CI build [#36](https://github.com/eclipse/gemoc-studio/pull/36)
 
 ---
 
-## 3.0.0rc1 (07/12/2017)
-release candidate 1 of the Studio 3.0.0.
+## v2.4.0 (20/10/2017)
 
-Corresponding artifacts: 
-- Update site is available: http://download.eclipse.org/gemoc/updates/milestones/3.0.0rc1
-- Eclipse packages: http://download.eclipse.org/gemoc/packages/milestones/3.0.0rc1?d (click on *show directory content*)
+#### Release Engineering
 
-It contains the following important changes on this repository (to have a complete view, please also look to the companion release tag on gemoc-studio-modeldebugging https://github.com/eclipse/gemoc-studio-modeldebugging/releases/tag/3.0.0-rc1):
-- naming now follows eclipse conventions (org.eclipse.gemoc.xxx) (https://github.com/eclipse/gemoc-studio/pull/16)
-- Studio is based on Eclipse Oxygen (https://github.com/eclipse/gemoc-studio/pull/23 https://github.com/eclipse/gemoc-studio/pull/27 https://github.com/eclipse/gemoc-studio/pull/28 https://github.com/eclipse/gemoc-studio/pull/29 )
-- improved test suites (https://github.com/eclipse/gemoc-studio/pull/35 https://github.com/eclipse/gemoc-studio/pull/36)
-- introduction of DSL file support ( https://github.com/eclipse/gemoc-studio/pull/13 https://github.com/eclipse/gemoc-studio/pull/39)
-- continous intregration on http://ci.eclipse.org/gemoc (https://github.com/eclipse/gemoc-studio/pull/1 https://github.com/eclipse/gemoc-studio/pull/2 https://github.com/eclipse/gemoc-studio/pull/3 https://github.com/eclipse/gemoc-studio/pull/5 https://github.com/eclipse/gemoc-studio/pull/6)
-- and some bug fixes (https://github.com/eclipse/gemoc-studio/pull/4 https://github.com/eclipse/gemoc-studio/pull/9)
-
----
-
-## 2.4.0 (20/10/2017)
-*No changelog for this release.*
+- [**releng**] Add Studio variant identification in splashscreen and about box [#6](https://github.com/eclipse/gemoc-studio/pull/6)
+- [**releng**] Add local full build support [#2](https://github.com/eclipse/gemoc-studio/pull/2)
