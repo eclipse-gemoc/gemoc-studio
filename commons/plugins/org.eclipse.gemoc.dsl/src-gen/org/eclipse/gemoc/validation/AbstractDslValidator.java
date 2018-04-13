@@ -13,7 +13,7 @@ public abstract class AbstractDslValidator extends AbstractDeclarativeValidator 
 	@Override
 	protected List<EPackage> getEPackages() {
 		List<EPackage> result = new ArrayList<EPackage>();
-		result.add(org.eclipse.gemoc.dsl.DslPackage.eINSTANCE);
+		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.eclipse.org/gemoc/Dsl"));
 		return result;
 	}
 	

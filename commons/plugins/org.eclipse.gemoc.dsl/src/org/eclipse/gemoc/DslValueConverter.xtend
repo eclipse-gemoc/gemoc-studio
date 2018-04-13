@@ -11,7 +11,7 @@ public class DslValueConverter implements IValueConverter {
 	}
 	
 	override toValue(String string, INode node) throws ValueConverterException {
-		if(string == null)
+		if(string === null)
 			return ""
 			
 		return string.replaceAll("\\\\\n[ \t]*","")

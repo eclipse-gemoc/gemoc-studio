@@ -13,7 +13,7 @@
 	</parent>
 
 	<properties>
-		<eclipse.version.name>Oxygen.2</eclipse.version.name>
+		<eclipse.version.name>Oxygen.3</eclipse.version.name>
 		<!-- override these values using -D option on the maven command line on the CI (see jenkinsfile for CI configuration)-->		
 		<studio.variant>Local build</studio.variant>
 		<branch.variant>Unknown</branch.variant>
