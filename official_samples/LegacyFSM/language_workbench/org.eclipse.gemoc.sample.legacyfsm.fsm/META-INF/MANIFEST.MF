@@ -1,4 +1,5 @@
 Manifest-Version: 1.0
+Automatic-Module-Name: org.eclipse.gemoc.sample.legacyfsm.fsm
 Bundle-SymbolicName: org.eclipse.gemoc.sample.legacyfsm.fsm;singleton:=true
 Export-Package: org.eclipse.gemoc.sample.legacyfsm.fsm
 Bundle-Name: org.eclipse.gemoc.sample.legacyfsm.fsm
@@ -21,4 +22,4 @@ Require-Bundle: org.eclipse.xtend.lib;bundle-version="2.7.0";visibility:="privat
  org.eclipse.gemoc.executionframework.extensions.sirius;bundle-version="0.0.0";visibility:=reexport,
  org.eclipse.gemoc.sample.legacyfsm.fsm.k3dsa;bundle-version="0.0.0";visibility:="reexport"
 Bundle-ManifestVersion: 2
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8

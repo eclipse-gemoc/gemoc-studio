@@ -14,4 +14,5 @@ Require-Bundle: fr.inria.diverse.k3.al.annotationprocessor.plugin;bundle-version
  org.eclipse.emf.common;bundle-version="2.8.0";visibility:=reexport,
  org.eclipse.gemoc.sample.legacyfsm.fsm.model;bundle-version="0.0.0";visibility:=private
 Bundle-ManifestVersion: 2
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Automatic-Module-Name: org.eclipse.gemoc.sample.legacyfsm.fsm.k3dsa

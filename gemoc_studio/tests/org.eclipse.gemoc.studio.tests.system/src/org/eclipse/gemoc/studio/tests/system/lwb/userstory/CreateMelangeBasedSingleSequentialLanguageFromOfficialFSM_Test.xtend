@@ -10,19 +10,14 @@
  *******************************************************************************/
 package org.eclipse.gemoc.studio.tests.system.lwb.userstory
 
-import org.eclipse.gemoc.execution.sequential.javaxdsml.ide.ui.templates.WizardTemplateMessages
 import org.eclipse.gemoc.xdsmlframework.ide.ui.XDSMLFrameworkUI
 import org.eclipse.gemoc.xdsmlframework.test.lib.MelangeUiInjectorProvider
-import org.eclipse.gemoc.xdsmlframework.test.lib.TailWorkspaceLogToStderrRule
 import org.eclipse.gemoc.xdsmlframework.test.lib.WorkspaceTestHelper
-import org.eclipse.swt.widgets.Display
-import org.eclipse.swt.widgets.Table
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner
 import org.eclipse.swtbot.swt.finder.keyboard.Keyboard
 import org.eclipse.swtbot.swt.finder.keyboard.KeyboardFactory
 import org.eclipse.swtbot.swt.finder.keyboard.Keystrokes
-import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem
 import org.eclipse.xtext.junit4.AbstractXtextTests
 import org.eclipse.xtext.junit4.InjectWith
@@ -31,13 +26,15 @@ import org.junit.After
 import org.junit.Before
 import org.junit.BeforeClass
 import org.junit.FixMethodOrder
-import org.junit.Ignore
-import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.MethodSorters
-
-import static org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences.*
+import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences
+import org.junit.Ignore
+import org.eclipse.swt.widgets.Display
+import org.eclipse.gemoc.execution.sequential.javaxdsml.ide.ui.templates.WizardTemplateMessages
+import org.eclipse.gemoc.xdsmlframework.test.lib.TailWorkspaceLogToStderrRule
+import org.junit.Rule
 
 /**
  * This class check a scenario where we reuse some of the base projects of the official sample : LegacyFSM
@@ -47,7 +44,7 @@ import static org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences.*
 @RunWith(SWTBotJunit4ClassRunner)
 @InjectWith(MelangeUiInjectorProvider)
 @FixMethodOrder(MethodSorters::NAME_ASCENDING)
-public class CreateSingleSequentialLanguageFromOfficialFSM_Test extends AbstractXtextTests
+public class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends AbstractXtextTests
 {
 	
 	static WorkspaceTestHelper helper = new WorkspaceTestHelper
@@ -65,7 +62,7 @@ public class CreateSingleSequentialLanguageFromOfficialFSM_Test extends Abstract
 		helper.init
 		bot = new SWTWorkbenchBot()
 		// Set the SWTBot timeout
-		SWTBotPreferences.TIMEOUT = WorkspaceTestHelper.SWTBotPreferencesTIMEOUT_4_GEMOC ;
+		SWTBotPreferences.TIMEOUT = WorkspaceTestHelper.SWTBotPreferencesTIMEOUT_4_GEMOC;
 		helper.setTargetPlatform
 		bot.resetWorkbench
 		IResourcesSetupUtil::cleanWorkspace
@@ -83,7 +80,7 @@ public class CreateSingleSequentialLanguageFromOfficialFSM_Test extends Abstract
 	
 	@Rule
     public TailWorkspaceLogToStderrRule workspaceLogRule = new TailWorkspaceLogToStderrRule();
-	
+    
 	@Before
 	override setUp() {
 		helper.setTargetPlatform
@@ -113,10 +110,10 @@ public class CreateSingleSequentialLanguageFromOfficialFSM_Test extends Abstract
 	}
 	
 	@Test
-	def void test02_CreateSequentialLanguageProject() {
+	def void test02_CreateSequentialMelangeLanguageProject() {
 		
 		IResourcesSetupUtil::reallyWaitForAutoBuild
-		bot.menu("File").menu("New").menu("GEMOC Sequential xDSML Project").click();
+		bot.menu("File").menu("New").menu("GEMOC Melange Project for Sequential xDSML").click();
 		bot.text().setText(PROJECT_NAME);
 		bot.button("Next >").click();
 		
@@ -128,7 +125,7 @@ public class CreateSingleSequentialLanguageFromOfficialFSM_Test extends Abstract
 		printFocusedWidget
 		bot.sleep(500)
 		val Keyboard key = KeyboardFactory.getSWTKeyboard();
-		(1..10).takeWhile[!( bot.focusedWidget instanceof Table)].forEach[i |
+		(1..10).takeWhile[!( bot.focusedWidget instanceof org.eclipse.swt.widgets.Table)].forEach[i |
 			key.pressShortcut(Keystrokes.TAB)
 			printFocusedWidget
 			bot.sleep(500)
@@ -136,25 +133,23 @@ public class CreateSingleSequentialLanguageFromOfficialFSM_Test extends Abstract
 		// normally, we are now on the table
 		Display.getDefault().syncExec(new Runnable() {
            override void run() {
-				val Table table = bot.focusedWidget as Table
-				table.items.forEach[i|println(i+" "+i.text)]
+				val org.eclipse.swt.widgets.Table table = bot.focusedWidget as org.eclipse.swt.widgets.Table
 				val index = table.items.indexOf(table.items.findFirst[item | 
-					item.text.contains(WizardTemplateMessages.SequentialSingleLanguageTemplate_title)
+					item.text.contains(WizardTemplateMessages.MelangeSequentialSingleLanguageTemplate_title)
 				])
 				// warning! the string actually comes from wizard name declared in the plugin.xml so make sure to have the same in the title !
-				println("index of "+WizardTemplateMessages.SequentialSingleLanguageTemplate_title+ " ="+index)
-				// TODO assert if not found
-				//table.select(index) // does not seem to work
-				//bot.table.select(index) // does not seem to work too :-(
+				println("index of "+WizardTemplateMessages.MelangeSequentialSingleLanguageTemplate_title+ " ="+index)
+				// TODO assert if not found (ie. index = -1)
+				//table.select(index) does not seem to work
+				//bot.table.select(index).
 				for (var i = 0 ; i < table.itemCount ; i++) {key.pressShortcut(Keystrokes.UP)}
 				for (var i = 0 ; i < index ; i++) {key.pressShortcut(Keystrokes.DOWN)}
 		}})
 		printFocusedWidget
 		bot.sleep(2000) 
-		
-		
-		//val TemplateListSelectionPage templatePage =   bot.widget(widgetOfType(TemplateListSelectionPage.class))
-		
+
+
+
 		bot.button("Next >").click();
 		bot.textWithLabel("&Package name(*)").setText(BASE_NAME);
 				
@@ -185,17 +180,60 @@ public class CreateSingleSequentialLanguageFromOfficialFSM_Test extends Abstract
 		
 	}
 	
+	/**
+	 * call melange to generate all
+	 * 
+	 * @result Runtime language project and other files will be created without any
+	 *         errors, workspace must not report any error after a full build
+	 * @throws Exception
+	 */
+	@Test
+	def void test03_GenerateAllMelangeArtifacts() throws Exception {
+		
+		val projExplorerBot = bot.viewByTitle("Project Explorer").bot
+		//bot.viewByTitle("Project Explorer").
+		projExplorerBot.tree().getTreeItem(PROJECT_NAME).expand();
+		projExplorerBot.tree().getTreeItem(PROJECT_NAME).getNode("src").expand();
+		projExplorerBot.tree().getTreeItem(PROJECT_NAME).getNode("src").getNode(BASE_NAME).expand();
+		val SWTBotTreeItem melangeFileItem = bot.tree().getTreeItem(PROJECT_NAME).getNode("src").getNode(BASE_NAME)
+				.getNode("Xfsm.melange").select();
+		melangeFileItem.contextMenu("Melange").menu("Generate All").click();
+
+		// Melange "Generate all is a bit special as it trigger several jobs one after the other
+		// retry in order to make sure they all have been done 
+		WorkspaceTestHelper::reallyWaitForJobs(50)
+		IResourcesSetupUtil::reallyWaitForAutoBuild
+		
+		// if the package name is correct all the files are created in the current project
+		// Language runtime classes
+		helper.waitFileExistOrAssert(PROJECT_NAME + "/src-model-gen/org/eclipse/gemoc/sample/legacyfsm/xfsm/fsm/FsmPackage.java", 10, 300)
+		// ModelType classes
+		helper.assertFileExists("org.eclipse.gemoc.sample.legacyfsm.xfsm/src-gen/org/eclipse/gemoc/sample/legacyfsm/Xfsm.java")
+		helper.assertFolderExists(PROJECT_NAME + "/src-gen")
+		helper.assertFileExists(PROJECT_NAME + "/src-gen/org/eclipse/gemoc/sample/legacyfsm/XfsmMT.java");
+		// k3 aspects
+		helper.assertFileExists(
+				PROJECT_NAME + "/src-gen/org/eclipse/gemoc/sample/legacyfsm/xfsm/aspects/StateMachineAspect.java");
+		// ecore files
+		helper.assertFileExists(PROJECT_NAME + "/model-gen/Xfsm.dsl");
+		helper.assertFileExists(PROJECT_NAME + "/model-gen/Xfsm.ecore");
+		helper.assertFileExists(PROJECT_NAME + "/model-gen/Xfsm.genmodel");
+		helper.assertFileExists(PROJECT_NAME + "/model-gen/XfsmMT.ecore");
+		
+		helper.assertNoMarkers();
+	}
+	
 	@Test
 	def void test04_CreateTraceAddon() throws Exception {
 		val projExplorerBot = bot.viewByTitle("Project Explorer").bot
 		val SWTBotTreeItem projectItem = projExplorerBot.tree().getTreeItem(PROJECT_NAME).select();
 		projectItem.contextMenu("GEMOC Language").menu("Generate Multidimensional Trace Addon project for language")
 				.click();
-		
 		bot.button("OK").click();
 
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 		WorkspaceTestHelper::waitForJobs
+
 		helper.assertProjectExists(PROJECT_NAME + ".trace");
 
 		helper.assertNoMarkers();
@@ -231,6 +269,5 @@ public class CreateSingleSequentialLanguageFromOfficialFSM_Test extends Abstract
            }
         });
 	}
-	
 }
 	

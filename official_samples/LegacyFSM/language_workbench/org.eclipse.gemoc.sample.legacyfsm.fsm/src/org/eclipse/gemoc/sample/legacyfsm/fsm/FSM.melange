@@ -1,5 +1,8 @@
 package org.eclipse.gemoc.sample.legacyfsm.fsm
 
+
+// import the dsl and consider it as a melange language 
+// import-dsl org.eclipse.gemoc.sample.legacyfsm.fsm.FSM
 external language FSM {
 	syntax "platform:/resource/org.eclipse.gemoc.sample.legacyfsm.fsm.model/model/fsm.ecore"
 

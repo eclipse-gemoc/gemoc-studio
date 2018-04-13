@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?eclipse version="3.4"?>
-<!--
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?eclipse version="3.4"?><!--
     Copyright (c) 2015, 2017  Inria  and others.
     All rights reserved. This program and the accompanying materials
     are made available under the terms of the Eclipse Public License v1.0
@@ -9,15 +8,15 @@
    
     Contributors:
         Inria - initial API and implementation
- -->
-<plugin>
+ --><plugin>
   <extension point="org.eclipse.gemoc.gemoc_language_workbench.sequential.xdsml">
-    <XDSML_Definition modelLoader_class="org.eclipse.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" name="org.eclipse.gemoc.sample.legacyfsm.fsm.FSM" xdsmlFilePath="/org.eclipse.gemoc.sample.legacyfsm.fsm/src/org/eclipse/gemoc/sample/legacyfsm/fsm/FSM.melange" />
+    <XDSML_Definition modelLoader_class="org.eclipse.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" name="org.eclipse.gemoc.sample.legacyfsm.fsm.FSM" xdsmlFilePath="platform:/plugin/org.eclipse.gemoc.sample.legacyfsm.fsm/src/org/eclipse/gemoc/sample/legacyfsm/fsm/FSM.dsl"/>
   </extension>
-  <extension point="fr.inria.diverse.melange.modeltype">
-    <modeltype id="org.eclipse.gemoc.sample.legacyfsm.fsm.FSMMT" uri="http://org.eclipse.gemoc.sample.legacyfsm.fsm.fsmmt/" />
+  
+<extension point="fr.inria.diverse.melange.modeltype">
+    <modeltype id="org.eclipse.gemoc.sample.legacyfsm.fsm.FSMMT" uri="http://org.eclipse.gemoc.sample.legacyfsm.fsm.fsmmt/"/>
   </extension>
   <extension point="fr.inria.diverse.melange.language">
-    <language aspects="" entryPoints="" exactType="org.eclipse.gemoc.sample.legacyfsm.fsm.FSMMT" id="org.eclipse.gemoc.sample.legacyfsm.fsm.FSM" uri="http://www.gemoc.org/legacyfsm/fsm" />
+    <language aspects="" entryPoints="" exactType="org.eclipse.gemoc.sample.legacyfsm.fsm.FSMMT" id="org.eclipse.gemoc.sample.legacyfsm.fsm.FSM" uri="http://www.gemoc.org/legacyfsm/fsm"/>
   </extension>
 </plugin>

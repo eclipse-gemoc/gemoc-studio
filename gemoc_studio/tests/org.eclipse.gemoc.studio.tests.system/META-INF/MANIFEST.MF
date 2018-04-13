@@ -28,3 +28,4 @@ Require-Bundle: org.eclipse.gemoc.execution.sequential.javaxdsml.ide.ui;bundle-v
  org.eclipse.swtbot.junit4_x,
  org.eclipse.gemoc.xdsmlframework.ide.ui,
  org.eclipse.swtbot.go;bundle-version="2.6.0"
+Automatic-Module-Name: org.eclipse.gemoc.studio.tests.system

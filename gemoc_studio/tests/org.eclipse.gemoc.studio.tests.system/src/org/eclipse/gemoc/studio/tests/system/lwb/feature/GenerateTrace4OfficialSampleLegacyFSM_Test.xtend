@@ -30,6 +30,8 @@ import org.eclipse.xtext.ui.testing.util.IResourcesSetupUtil
 import org.junit.BeforeClass
 import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot
+import org.eclipse.gemoc.xdsmlframework.test.lib.TailWorkspaceLogToStderrRule
+import org.junit.Rule
 
 /**
  * Checks that the provided official sample can compile without error 
@@ -48,8 +50,11 @@ public class GenerateTrace4OfficialSampleLegacyFSM_Test extends AbstractXtextTes
 	static final String BASE_PROJECT_NAME = "org.eclipse.gemoc.sample.legacyfsm"
 	static final String PROJECT_NAME = BASE_PROJECT_NAME+".fsm"
 	static final String MELANGE_FILE = PROJECT_NAME+"/src/org/eclipse/gemoc/sample/legacyfsm/fsm/FSM.melange"
+	static final String DSL_FILE = PROJECT_NAME+"/src/org/eclipse/gemoc/sample/legacyfsm/fsm/FSM.dsl"
 	static final String PROJECT_NAME2 = BASE_PROJECT_NAME+".xsfsm"
 	static final String MELANGE_FILE2 = PROJECT_NAME2+"/src/org/eclipse/gemoc/sample/legacyfsm/xsfsm/language/XSFSM.melange"
+	static final String RUNTIME_PROJECT_NAME2 = PROJECT_NAME2+".xsfsm"
+	static final String DSL_FILE2 = RUNTIME_PROJECT_NAME2+"/model/XSFSM.dsl"
 
 	@BeforeClass
 	def static void beforeClass() throws Exception {
@@ -60,6 +65,10 @@ public class GenerateTrace4OfficialSampleLegacyFSM_Test extends AbstractXtextTes
 		IResourcesSetupUtil::cleanWorkspace
 	}
 		
+	
+	@Rule
+    public TailWorkspaceLogToStderrRule workspaceLogRule = new TailWorkspaceLogToStderrRule();
+    
 	@Before
 	override setUp() {
 		helper.setTargetPlatform
@@ -80,6 +89,7 @@ public class GenerateTrace4OfficialSampleLegacyFSM_Test extends AbstractXtextTes
 		melangeProject2 = helper.deployProject(PROJECT_NAME2+".xsfsm",BASE_FOLDER_NAME+"/"+PROJECT_NAME2+".xsfsm.zip")
 		//helper.deployProject(PROJECT_NAME2+".design",BASE_FOLDER_NAME+"/"+PROJECT_NAME2+".design.zip")
 		
+		IResourcesSetupUtil::reallyWaitForAutoBuild
 		IResourcesSetupUtil::fullBuild
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 		WorkspaceTestHelper::reallyWaitForJobs(4)
@@ -98,7 +108,7 @@ public class GenerateTrace4OfficialSampleLegacyFSM_Test extends AbstractXtextTes
 		val ArrayList<Throwable> thrownException = newArrayList()
 		Display.^default.syncExec([
 			try{
-				melangeHelper.generateTrace(MELANGE_FILE2, "XSFSM", PROJECT_NAME2+".trace")
+				melangeHelper.generateTrace(DSL_FILE2, "XSFSM", RUNTIME_PROJECT_NAME2+".trace")
 			} catch (Exception e) {
 				thrownException.add(e)
 			}
@@ -111,7 +121,7 @@ public class GenerateTrace4OfficialSampleLegacyFSM_Test extends AbstractXtextTes
 		
 		helper.assertNoMarkers
 		
-		helper.assertProjectExists(PROJECT_NAME2+".trace")
+		helper.assertProjectExists(RUNTIME_PROJECT_NAME2+".trace")
 	}
 	
 	
