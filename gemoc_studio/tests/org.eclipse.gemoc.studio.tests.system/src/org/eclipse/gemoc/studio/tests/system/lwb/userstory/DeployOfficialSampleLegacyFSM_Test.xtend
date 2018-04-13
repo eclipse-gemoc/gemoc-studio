@@ -31,6 +31,8 @@ import org.junit.runner.RunWith
 import org.junit.runners.MethodSorters
 import org.eclipse.swt.widgets.Display
 import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences
+import org.eclipse.gemoc.xdsmlframework.test.lib.TailWorkspaceLogToStderrRule
+import org.junit.Rule
 
 /**
  * Verifies that we can use the wizard to install the official sample
@@ -60,6 +62,9 @@ public class DeployOfficialSampleLegacyFSM_Test extends AbstractXtextTests
 		WorkspaceTestHelper::reallyWaitForJobs(2)
 	}
 	
+	@Rule
+    public TailWorkspaceLogToStderrRule workspaceLogRule = new TailWorkspaceLogToStderrRule();
+    
 	@Before
 	override setUp() {
 		helper.setTargetPlatform
@@ -86,6 +91,8 @@ public class DeployOfficialSampleLegacyFSM_Test extends AbstractXtextTests
 		bot.tree().getTreeItem("GEMOC language workbench examples").getNode("GEMOC FSM Language (Sequential)").select();
 	  	bot.button("Finish").click();
 
+		IResourcesSetupUtil::reallyWaitForAutoBuild
+		WorkspaceTestHelper::reallyWaitForJobs(4)
 		IResourcesSetupUtil::fullBuild
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 		WorkspaceTestHelper::reallyWaitForJobs(4)
@@ -98,8 +105,8 @@ public class DeployOfficialSampleLegacyFSM_Test extends AbstractXtextTests
 		helper.assertProjectExists(BASE_NAME+".fsm.model.editor");
 		helper.assertProjectExists(BASE_NAME+".xsfsm");
 		helper.assertProjectExists(BASE_NAME+".xsfsm.design");
-		helper.assertProjectExists(BASE_NAME+".xsfsm.trace");
 		helper.assertProjectExists(BASE_NAME+".xsfsm.xsfsm");
+		helper.assertProjectExists(BASE_NAME+".xsfsm.xsfsm.trace");
 
 		helper.assertNoMarkers();		
 	}

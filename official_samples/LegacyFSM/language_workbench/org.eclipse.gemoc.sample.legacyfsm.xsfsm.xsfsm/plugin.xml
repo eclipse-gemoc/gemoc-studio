@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.0"?>
-
 <plugin>
-
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated XSFSM -->
-      <package
-            uri="http://org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm/fsm/"
-            class="org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.FsmPackage"
-            genModel="model/XSFSM.genmodel"/>
-   </extension>
-
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <!-- @generated XSFSM -->
+    <package uri="http://org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm/fsm/" class="org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.FsmPackage" genModel="model/XSFSM.genmodel" />
+  </extension>
+  <extension point="org.eclipse.gemoc.gemoc_language_workbench.sequential.xdsml">
+    <XDSML_Definition name="org.eclipse.gemoc.sample.legacyfsm.xsfsm.XSFSM" xdsmlFilePath="platform:/plugin/org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm/model/XSFSM.dsl" modelLoader_class="org.eclipse.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" />
+  </extension>
 </plugin>

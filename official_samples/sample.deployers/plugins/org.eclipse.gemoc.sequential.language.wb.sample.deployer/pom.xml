@@ -71,11 +71,11 @@
 								<zip destfile="${basedir}/zips/org.eclipse.gemoc.sample.legacyfsm.xsfsm.design.zip">
 									<fileset dir="${legacyfsm_sample_language_root}/org.eclipse.gemoc.sample.legacyfsm.xsfsm.design/" />
 								</zip>
-								<zip destfile="${basedir}/zips/org.eclipse.gemoc.sample.legacyfsm.xsfsm.trace.zip">
-									<fileset dir="${legacyfsm_sample_language_root}/org.eclipse.gemoc.sample.legacyfsm.xsfsm.trace/" />
-								</zip>
 								<zip destfile="${basedir}/zips/org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.zip">
 									<fileset dir="${legacyfsm_sample_language_root}/org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm/" />
+								</zip>
+								<zip destfile="${basedir}/zips/org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.trace.zip">
+									<fileset dir="${legacyfsm_sample_language_root}/org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.trace/" />
 								</zip>
 
 								
