@@ -35,12 +35,37 @@ http://www.eclipse.org/legal/epl-v10.html
    <requires>
       <import feature="org.eclipse.egit" version="0.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.jgit" version="0.0.0" match="greaterOrEqual"/>
-      <import feature="org.eclipse.sdk" version="0.0.0" match="greaterOrEqual"/>
+      <!-- <import feature="org.eclipse.sdk" version="0.0.0" match="greaterOrEqual"/> -->
+      <!-- from feature="org.eclipse.sdk" but removing cvs related features -->
+      <import feature="org.eclipse.platform" version="4.7.3" match="greaterOrEqual"/>
+      <import feature="org.eclipse.platform.source" version="4.7.3" match="greaterOrEqual"/>
+      <import feature="org.eclipse.jdt" version="3.13.3" match="greaterOrEqual"/>
+      <import feature="org.eclipse.jdt.source" version="3.13.3" match="greaterOrEqual"/>
+      <import feature="org.eclipse.pde" version="2.2.103" match="greaterOrEqual"/>
+      <import feature="org.eclipse.pde.source" version="2.2.103" match="greaterOrEqual"/>
+      <import feature="org.eclipse.help" version="2.2.103" match="greaterOrEqual"/>
+      <import feature="org.eclipse.emf.common.source" version="2.7.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.emf.ecore.source" version="2.7.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.ecf.core.feature.source" version="1.4.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.ecf.core.ssl.feature.source" version="1.1.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.ecf.filetransfer.feature.source" version="3.13.7" match="greaterOrEqual"/>
+      <import feature="org.eclipse.ecf.filetransfer.httpclient4.feature.source" version="3.13.7" match="greaterOrEqual"/>
+      <import feature="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature.source" version="1.1.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.ecf.filetransfer.ssl.feature.source" version="1.1.0" match="greaterOrEqual"/>
+      <!-- end from feature="org.eclipse.sdk" -->
+      
       <import feature="org.eclipse.emf.query.sdk" version="0.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.emf.compare" version="2.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.emf.compare.source" version="2.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.emf.compare.ide.ui" version="2.0.0" match="greaterOrEqual"/>
-      <import feature="org.eclipse.emf.diffmerge.sdk.feature" version="0.0.0" match="greaterOrEqual"/>
+      
+      <!-- <import feature="org.eclipse.emf.diffmerge.sdk.feature" version="0.0.0" match="greaterOrEqual"/>-->
+      <!-- from org.eclipse.emf.diffmerge.sdk.feature but without svn related features -->
+      <import feature="org.eclipse.emf.diffmerge.feature" version="0.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.emf.diffmerge.gmf.feature" version="0.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.emf.diffmerge.sirius.feature" version="0.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.emf.diffmerge.egit.feature" version="0.0.0" match="greaterOrEqual"/>
+      
       <import feature="org.eclipse.m2e.feature" version="0.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.m2e.logback.feature" version="0.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.epp.mpc" version="1.2.1.v20140219-1000" match="greaterOrEqual"/>
