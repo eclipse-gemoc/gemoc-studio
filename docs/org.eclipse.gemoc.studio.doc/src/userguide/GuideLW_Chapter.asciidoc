@@ -53,27 +53,35 @@ include::GuideLW_Seq_DomainSpecificActionsProject_Section.asciidoc[]
 
 [[make-concurrent-language-executable-section]]
 === Make a concurrent executable language
+
+////////////////////////////////////////////////////////////////
 // Push titles down one level. in order to avoid a big rewriting 
-:leveloffset: 1
-include::GuideLW_DomainSpecificActionsProject_Section.asciidoc[]
+:leveloffset: +1
+////////////////////////////////////////////////////////////////
 
-include::GuideLW_ECLMoCCML_Section.asciidoc[]
 
-include::GuideLW_DomainSpecificEvents_Section.asciidoc[]
+include::GuideLW_DomainSpecificActionsProject_Section.asciidoc[leveloffset=+1]
 
-include::GuideLW_DefiningFeedbackSpecification_Section.asciidoc[]
+include::GuideLW_ECLMoCCML_Section.asciidoc[leveloffset=+1]
 
-include::GuideLW_ExhaustiveExploration_Section.asciidoc[]
+include::GuideLW_DomainSpecificEvents_Section.asciidoc[leveloffset=+1]
 
+include::GuideLW_DefiningFeedbackSpecification_Section.asciidoc[leveloffset=+1]
+
+include::GuideLW_ExhaustiveExploration_Section.asciidoc[leveloffset=+1]
+
+////////////////////////////////////////////////////////////////
 // Return to normal title levels.
-:leveloffset: 0
+:leveloffset: -1
+////////////////////////////////////////////////////////////////
+
 
 [[define-animator-chapter]]
 == Define an animator
 
 include::GuideLW_DefiningDebug_Section.asciidoc[]
 
-include::GuideLW_DefiningMultidimensionalTrace_Section.asciidoc[]
+include::GuideLW_DefiningMultidimensionalTrace_Section.asciidoc[leveloffset=+1]
 
 [[compose-languages-chapter]]
 == Compose languages
@@ -84,3 +92,4 @@ include::GuideLW_ComposingLanguages_Section.asciidoc[]
 == Deploy languages
 
 include::GuideLW_DeployLanguages_Section.asciidoc[]
+

@@ -55,6 +55,28 @@ img {
     margin:0 0;
 }
 
+/* Figure  */
+div.figure p.title {
+    margin-top: 0em;
+    text-align: center;
+}
+
+div.figure-contents {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div.figure-contents div.mediaobject {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div.figure-contents div.mediaobject img {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0em;
+}
+
 /* Needed for Safari */
 
 pre a span img, pre span img {
@@ -231,7 +253,7 @@ div.warning pre {
 
 div.note, div.tip, div.important, div.caution, div.warning {margin-top:.5em;}
 
-div.note {background-image:url(../images/community/docbook/note.png);}
+div.note {background-image:url(../images/community/docbook/note.png);} 
 div.tip {background-image:url(../images/community/docbook/tip.png);}
 div.important {background-image:url(../images/community/docbook/important.png);}
 div.caution {background-image:url(../images/community/docbook/caution.png);}

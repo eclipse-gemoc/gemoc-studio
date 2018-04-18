@@ -1,6 +1,6 @@
 
 [bibliography]
-== Bibliography
+= Bibliography
 
 The bibliography lists some useful external documents. For a more complete list, please refer to the publications section on http://gemoc.org site.
 
