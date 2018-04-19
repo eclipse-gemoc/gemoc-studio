@@ -120,7 +120,7 @@
 					<!-- *********************** -->
 			    	<!-- GENERATION OF THE GUIDE -->
 			    	<!-- *********************** -->
-				 	<execution>
+		<!-- 		 	<execution>
 						<id>manual-single-page-html</id>
 						<goals>
 							<goal>generate-html</goal>
@@ -149,11 +149,9 @@
 								</copy>
 							</preProcess>
 							<postProcess> 
-<!-- 								<move 	file="target/docbkx/html/Kermeta-Manual.docb.html"  -->
-<!-- 										tofile="target/docbkx/html/Kermeta-Manual.docb/Kermeta-Manual.docb.single.html"/> -->
 							</postProcess>
 						</configuration>
-					</execution>
+					</execution> -->
 					<execution>
 						<id>manual-webhelp-html</id>
 						<goals>
@@ -192,7 +190,7 @@
 							</postProcess>
 						</configuration>
 					</execution>
-				 	<execution>
+				<!--  	<execution>
 						<id>manual-multi-page-html</id>
 						<goals>
 							<goal>generate-html</goal>
@@ -221,7 +219,7 @@
 							</preProcess>
 						</configuration>
 						<phase>generate-resources</phase>
-					</execution>
+					</execution> -->
 					<execution>
 						<id>multi-page-eclipse</id>
 						<goals>
@@ -230,14 +228,15 @@
 						<configuration>
 							<chunkedOutput>true</chunkedOutput>
 							<highlightSource>true</highlightSource>
-							<highlightXslthlConfig>${basedir}/src/docbkx/custom/highlighters/xslthl-config.xml</highlightXslthlConfig> 
-							<htmlCustomization>${basedir}/src/docbkx/custom/xsl/customized.html-base-eclipse.xsl</htmlCustomization>
+							<highlightXslthlConfig>file://${basedir}/src/docbkx/custom/highlighters/xslthl-config.xml</highlightXslthlConfig> 
+							<eclipseCustomization>${basedir}/src/docbkx/custom/xsl/customized.html-base-eclipse.xsl</eclipseCustomization>
 							<xincludeSupported>true</xincludeSupported>
 							<base.dir></base.dir>
 							<sourceDirectory>${project.build.directory}/docbook/all_documents/</sourceDirectory>
 							<targetDirectory>${project.build.directory}/docbook/publish/guide/eclipse/</targetDirectory>
 							<includes>Guide.xml</includes>
 							<preProcess>
+							<echo>${basedir}/src/docbkx/custom/highlighters/xslthl-config.xml</echo>
 			 					<copy todir="${project.build.directory}/docbook/publish/guide/eclipse/images">
 									<fileset dir="${project.basedir}/images" >
 										<exclude name="**/*.svg"/>
@@ -314,7 +313,7 @@
            <artifactId>replacer</artifactId>
            <version>1.5.3</version>
            <executions>
-               <execution>
+         <!--       <execution>
                    <phase>prepare-package</phase>
 						 <id>replace_imagemap_gemoc_user_guide_html_single</id>
                    <goals>
@@ -366,7 +365,7 @@
 </map>]]></value>
 					<regex>no</regex>
            </configuration>                
-               </execution>
+               </execution> -->
                
                               <execution>
                    <phase>prepare-package</phase>

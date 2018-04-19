@@ -1,25 +1,10 @@
 @import url("documentation.css");
-/*@import url("docnav.css");
+@import url("docnav.css");
 @import url("reports.css");
 @import url("extensions.css");
-@import url("codehighlight.css"); */
+/*@import url("codehighlight.css"); */
 
-
-/* overide some values coming from positionning.css */
-/* header*/
-body.ui-layout-container #header {
-    background-image:url(../images/community/bkg_gradient.gif);
-    background-repeat:repeat-x;
-}
-
-body.ui-layout-container #header img {
-    margin-left: 0px;
-    margin-top: 0px;
-}
-
-
-/* main pane */
-body.ui-layout-container #content {
+body {
     background-image:url(../images/community/bkg_gradient.gif);
     background-repeat:repeat-x;
     margin:0 auto;
@@ -31,18 +16,6 @@ body.ui-layout-container #content {
     text-align:justify;
 }
 
-/* left navigation */
-body.ui-layout-container #leftnavigation {
-    background-image:url(../images/community/bkg_gradient.gif);
-    background-repeat:repeat-x;
-    background-color: transparent !important;
-}
-
-/* navheader */
-
-body.ui-layout-container #navheader {
-    background: transparent;
-}
 /* Links */
 
 a:link {color:#0066cc;}

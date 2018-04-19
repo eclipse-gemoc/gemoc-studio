@@ -113,6 +113,13 @@
 
 .navheader table {border-style:none}
 
+.navheader th {
+text-align: center;
+background-color: transparent;
+padding: .3em .5em;
+color: black;
+}
+
 .navheader a {
     text-decoration:none;
     font-weight:normal;
