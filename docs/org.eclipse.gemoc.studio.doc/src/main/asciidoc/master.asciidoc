@@ -37,14 +37,16 @@ image::images/introduction/GemocWorkbenchesGlobalPicture.png["Gemoc Workbenches 
 
 include::introduction_headContent.asciidoc[]
 
-[[gemoc-language-workbench]]
+[[userguide-gemoc-language-workbench]]
 = Language Workbench User Guide image:images/icons/IconeGemocLanguage_16.png[width=16, height=16, role=right]
 
+[[userguide-lw-language-workbench-overview]]
 == Language Workbench overview
 
 include::userguide/lw_overview_headContent.asciidoc[]
 
 
+[[userguide-lw-create-language-define-syntaxes]]
 == Create a language / Define syntaxes
 
 include::userguide/lw_CreateLanguage_headContent.asciidoc[]
@@ -64,6 +66,7 @@ include::userguide/lw_DefineDomainModelProject_headContent.asciidoc[]
 
 include::userguide/lw_DefineConcreteSyntax_headContent.asciidoc[]
 
+[[userguide-lw-make-language-executable]]
 == Make language executable
 
 include::userguide/lw_MakeLanguageExecutable_headContent.asciidoc[]
@@ -72,6 +75,7 @@ include::../../../../../../gemoc-studio-modeldebugging/java_execution/java_xdsml
 
 include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/ccsljavaxdsml/user_lw_MakeCCSLJavaConcurrentExecutableLanguage.asciidoc[]
 
+[[userguide-lw-provide-language-with-tools]]
 == Provide language with tools
 
 
@@ -91,26 +95,27 @@ include::../../../../../../gemoc-studio-modeldebugging/simulationmodelanimation/
 
 include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/clocksystem/user_lw_ExhaustiveExploration.asciidoc[]
 
-[[define-composition-of-languages-chapter]]
+[[userguide-lw-define-composition-of-languages]]
 == Define composition of languages
 
 include::userguide/lw_ComposingLanguages_headContent.asciidoc[]
 
 include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/bcool/user_lw_ComposeLanguages_bcool.asciidoc[]
 
-
+[[userguide-lw-deploy-language]]
 == Deploy language
 
 
 include::userguide/lw_DeployLanguages_headContent.asciidoc[]
 
-[[chapter-gemoc-modeling-workbench]]
+[[userguide-modeling-workbench]]
 = Modeling workbench  User Guide image:images/icons/IconeGemocModel_16.png[width=16, height=16, role=right]
 
+[[userguide-mw-modeling-workbench-overview]]
 == Modeling Workbench overview
 include::userguide/mw_overview_headContent.asciidoc[]
 
-[[section-edit-model]]
+[[userguide-mw-edit-models]]
 == Edit models
 include::userguide/mw_EditModels_headContent.asciidoc[]
 
@@ -118,7 +123,7 @@ include::../../../../../../gemoc-studio-modeldebugging/simulationmodelanimation/
 include::userguide/mw_EditModels_EMFTree.asciidoc[]
 include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/xtext/user_mw_EditModels_xtext.asciidoc[]
 
-[[modeling-workbench-executing-model-section]]
+[[userguide-mw-execute-animate-debug-models]]
 == Execute, animate and debug models
 
 include::userguide/mw_ExecuteAnimateDebug_headContent.asciidoc[]
@@ -131,7 +136,7 @@ include::../../../../../../gemoc-studio-modeldebugging/java_execution/java_engin
 
 include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/ccsljavaxdsml/user_mw_ExecuteConcurrentModel.asciidoc[]
 
-
+[[userguide-mw-coordinate-models]]
 == Coordinate models
 
 
@@ -139,7 +144,7 @@ include::userguide/mw_CoordinateModels_headContent.asciidoc[]
 
 include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/bcool/user_mw_CoordinateModels_bcool.asciidoc[+1]
 
-
+[[userguide-mw-other-tools]]
 == Other tools
 
 include::userguide/mw_OtherTools_headContent.asciidoc[]

@@ -26,7 +26,7 @@ In the GEMOC Studio, go to: _File > New > Project... > New GEMOC Language Projec
 ==== Editing the xDSML Project
 The .melange file is the main element of the xDSML Project.
 
-From the information contained in this file, the project generates additional code that is used by the Execution Engine during the execution of models conforming to the xDSML (see <<chapter-gemoc-modeling-workbench>>).
+From the information contained in this file, the project generates additional code that is used by the Execution Engine during the execution of models conforming to the xDSML (see <<userguide-modeling-workbench>>).
 
 ==== xDSML perspective
 The GEMOC Language Workbench provides an *xDSML* perspective.
