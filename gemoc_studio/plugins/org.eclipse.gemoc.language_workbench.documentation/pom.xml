@@ -20,8 +20,8 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.eclipse.gemoc.documentation</groupId>
-			<artifactId>gemoc-studio-guide</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<artifactId>gemoc-studio-documentation</artifactId>
+			<version>3.0.0-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 
