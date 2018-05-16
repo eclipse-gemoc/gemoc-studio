@@ -1,0 +1,23 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+== User Guide
+
+=== GEMOC Modeling workbench image:images/icons/IconeGemocModel_16.png[width=16, height=16, role=right]
+
+==== Modeling workbench overview
+endif::[]
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/userguide/mw_overview_headContent.asciidoc.]
+
+The GEMOC Modeling Workbench, intended to be used by domain designers: it allows creating and executing models conformant to executable DSMLs.
+
+[[figure-glw-screenshot-of-modeling_workbench]]
+.Screenshot of GEMOC Studio Modeling Workbench on the TFSM example (execution and animation).
+image::images/userguide/gemoc_modeling_workbench_TFSM_animation_screenshot.png["Screenshot of GEMOC Studio Modeling Workbench on the TFSM example (execution and animation)", 800]
+(((TFSM)))
+(((TFSM,Modeling workbench)))
+
+'''
+

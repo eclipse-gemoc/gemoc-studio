@@ -1,0 +1,16 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+== User Guide
+=== GEMOC Modeling workbench
+==== Other tools
+endif::[]
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/userguide/mw_OtherTools_headContent.asciidoc.]
+
+Using GEMOC Framework infrastructure allows to build many other tools.
+
+Some of these tools are directly distributed as GEMOC features, some other can be downloaded separately either using the GEMOC discovery service or using the Eclipse Market place.    
+
+For example, assigning an execution semantics onto a language allows the use of modelchecking and exhaustive exploration tools such as clocksystem.

@@ -1,0 +1,15 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+= GEMOC Modeling Workbench User Guide
+== Edit models
+endif::[]
+
+[[defining-an-xtext-debug-representation-section]]
+=== Editing model with XText
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/xtext/user_mw_EditModels_xtext.asciidoc.asciidoc.]
+
+If your language has a concrete syntax specified using XText, you can use it to edit your model.
+
+Additionally, when running a model, the debugger will take care to focus on the correct line in the xtext editor for the current active model element when the execution is paused on a step.

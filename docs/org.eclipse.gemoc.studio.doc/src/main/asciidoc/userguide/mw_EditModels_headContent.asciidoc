@@ -1,0 +1,13 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+== User Guide
+=== GEMOC Modeling workbench
+==== Edit models
+endif::[]
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/userguide/mw_EditModels_headContent.asciidoc.]
+
+As seen in Section <<defining-a-concrete-syntax-section>>, an xDSML can provide different concrete syntaxes. 
+

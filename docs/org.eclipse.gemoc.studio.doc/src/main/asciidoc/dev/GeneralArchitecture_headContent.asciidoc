@@ -1,0 +1,15 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+
+= Developer Guide
+== General architecture
+
+endif::[]
+
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/dev/GeneralArchitecture_headContent.asciidoc.]
+
+TODO get picture inspired from http://gemoc.irisa.fr/ins-pub/m30/gemoc-anr-d4.2.1-v2.0.pdf (figure 2.1) or http://gemoc.irisa.fr/ins-pub/m6/gemoc-anr-d4.1.1-v1.1.pdf
+

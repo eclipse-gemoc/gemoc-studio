@@ -1,0 +1,14 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+= GEMOC Language Workbench User Guide
+== Define composition of languages
+endif::[]
+
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/userguide/lw_ComposingLanguages_headContent.asciidoc.]
+
+Depending on the technology used to define the behavior of your languages, they may be run simultaneously in a larger simulation using several models.
+
+GEMOC offers some mechanisms to define how the simulation must collaborate and synchronize their execution. 

@@ -86,11 +86,10 @@
 						<configuration>
 							<tasks>
 								<mkdir dir="eclipse_help" />
-
-								<mkdir dir="eclipse_help/guide" />
-								<copy todir="eclipse_help/guide/eclipse">
+								<mkdir dir="eclipse_help/master" />
+								<copy todir="eclipse_help/master">
 									<fileset
-										dir="${project.basedir}/../../../docs/org.eclipse.gemoc.studio.doc/src/userguide/target/docbook/publish/guide/eclipse" />
+										dir="${project.basedir}/../../../docs/org.eclipse.gemoc.studio.doc/target/publish/eclipse" />
 								</copy>
 							</tasks>
 						</configuration>
