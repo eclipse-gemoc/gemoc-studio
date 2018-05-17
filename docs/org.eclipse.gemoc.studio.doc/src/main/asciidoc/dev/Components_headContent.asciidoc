@@ -11,9 +11,13 @@ endif::[]
 
 footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/dev/Components_headContent.asciidoc.]
 
+The code of GEMOC studio is gathered in several main groups.
+
+The organization of these groups is driven by feature but also try to minimize dependencies.
+
 [[img-ComponentsOverview-devguide]]
 .Components overview
-image::images/dev/ComponentsOverview.png["Components overview", 800]
+image::images/dev/ComponentsOverview.png["Components overview", 1024]
 
 
 
