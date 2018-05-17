@@ -44,12 +44,12 @@
 							<goal>replace</goal>
 						</goals>
 						<configuration>
-							<file>eclipse_help/guide/eclipse/toc.xml</file>
+							<file>eclipse_help/master/toc.xml</file>
 							<regex>false</regex>
 							<replacements>
 								<replacement>
 									<token>href="</token>
-									<value>href="eclipse_help/guide/eclipse/</value>
+									<value>href="eclipse_help/master/</value>
 								</replacement>
 							</replacements>
 						</configuration>
