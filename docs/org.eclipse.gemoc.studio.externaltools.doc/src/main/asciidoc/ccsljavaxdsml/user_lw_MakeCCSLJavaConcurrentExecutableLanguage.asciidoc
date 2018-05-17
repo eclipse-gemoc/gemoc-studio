@@ -1,0 +1,21 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+= GEMOC Language Workbench User Guide
+== Make Language Executable
+endif::[]
+
+
+[[make-concurrent-language-executable-section]]
+=== Make a concurrent executable language
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/ccsljavaxdsml/user_lw_MakeCCSLJavaConcurrentExecutableLanguage.asciidoc.]
+
+include::GuideLW_DomainSpecificActionsProject_Section.asciidoc[leveloffset=+1]
+
+include::GuideLW_ECLMoCCML_Section.asciidoc[leveloffset=+1]
+
+include::GuideLW_DomainSpecificEvents_Section.asciidoc[leveloffset=+2]
+
+include::GuideLW_DefiningFeedbackSpecification_Section.asciidoc[leveloffset=+2]

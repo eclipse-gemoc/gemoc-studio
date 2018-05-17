@@ -1,0 +1,26 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+
+= Developer Guide
+== General architecture
+
+endif::[]
+
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/dev/GeneralArchitecture_headContent.asciidoc.]
+
+As shown in <<img-GEMOCStudioGeneralArchitecture-MainFeatures-devguide>>, the GEMOC Studio offers several main features for the Modeling workbench and the Language Workbench. Both share features coming from the execution platform.
+
+Each component presented in this figure is actually refined depending on the technology used when implementing a given language. For example, if for a language, the Domain Specific Action (DSA) is expressed using K3, the _Engine_ will use the code produced by the _K3 DSA Compiler_. if for another language, the DSA is expressed using ALE, then the Engine will use an _ALE DSA Interpreter_.
+
+[NOTE]
+====
+The components shown in the _Concurrent_ boxes are specific to the concurrent approach. This approach is not yet officially included in the Studio but is already available in the Discovery service. 
+====
+
+[[img-GEMOCStudioGeneralArchitecture-MainFeatures-devguide]]
+.GEMOC Studio General Architecture - Main Features
+image::images/dev/GEMOCStudioGeneralArchitecture-MainFeatures.png["GEMOC Studio General Architecture - Main Features"]
+

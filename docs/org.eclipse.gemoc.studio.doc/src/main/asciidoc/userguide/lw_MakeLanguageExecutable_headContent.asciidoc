@@ -1,0 +1,26 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+== Language Workbench User Guide
+=== Make Language Executable
+endif::[]
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/userguide/lw_MakeLaguageExecutable_headContent.asciidoc.]
+
+Let's focus on the language semantics. Ie. what each models of the language means.
+
+
+The GEMOC Studio currently supports two major ways to make a language executable :
+
+* one will target a sequential engine 
+* the second will target a concurrent engine
+
+[NOTE]
+====
+The underlying executionframework used by the GEMOC Studio can be extended to support other methodologies or engines. 
+However, this isn't the scope of this document to explain how to use this framework and build an alternate or dedicated engine.
+==== 
+
+
+

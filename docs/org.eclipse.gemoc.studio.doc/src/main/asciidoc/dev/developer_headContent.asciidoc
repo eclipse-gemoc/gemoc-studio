@@ -1,0 +1,13 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+= Developer Guide
+endif::[]
+
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/dev/developer_headContent.asciidoc.]
+
+In this part, you'll find information for understanding the GEMOC Studio architecture and its components and how to contribute to the project.
+
+This includes information about how to contribute new engine AddOn for existing engines or new execution engines.

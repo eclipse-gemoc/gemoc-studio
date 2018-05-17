@@ -1,0 +1,39 @@
+@startuml
+!include SkinParam.iplantuml
+
+left to right direction
+
+node "Modeling Workbench" as MW {
+  	[Model Editor]
+  	[Model Animator]
+}
+ 
+node "Execution Platform" as EP {
+	node "Concurrent" #Beige {
+		[Composition Operator Applicator]
+  		[Event Solver]
+  		[MOCC/DSE Compiler]
+  	}
+  	[Engine]
+  	[DSA Interpreter]
+} 
+
+node "Language Workbench" as LW {
+	node "Concurrent" as LWConcurrent #Beige {
+		[Composition Operator Editor]
+		[DSE Editor]
+		[MOCC Editor]
+		[MOCC/DSE Compiler generator]
+	}
+	[DSA Editor]
+	[DSA Compiler]
+	[Concrete Syntax Configurator]
+	[AS Editor]
+	[AS Compiler]
+}
+
+ MW -->  EP
+ LW -->  EP
+
+
+@enduml

@@ -68,7 +68,7 @@ pipeline {
 		stage("Archive in Jenkins") {
 			steps {
 				echo "archive artifact"
-				archiveArtifacts '**/target/products/*.zip, **/gemoc-studio/gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.updatesite/target/repository/**'
+				archiveArtifacts '**/target/products/*.zip, **/gemoc-studio/gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.updatesite/target/repository/**, **/docs/org.eclipse.gemoc.studio.doc/target/publish/**'
 			}
 		}
 		stage('Web upload') {
@@ -88,6 +88,12 @@ pipeline {
 				sh 'mkdir -p ${DOWNLOAD_FOLDER}/updates/nightly'
 				sh 'cp -r    gemoc-studio/gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.product/target/repository/* ${DOWNLOAD_FOLDER}/updates/nightly'
 				sh 'zip -R   ${DOWNLOAD_FOLDER}/updates/nightly/repository.zip gemoc-studio/gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.product/target/repository/*'
+				
+				echo "Deploy documentation archive to download.eclipse.org"
+				sh 'rm -rf   ${DOWNLOAD_FOLDER}/docs/nightly'
+				sh 'mkdir -p ${DOWNLOAD_FOLDER}/docs/nightly'
+				// sh 'cp -r    gemoc-studio/gemoc_studio/docs/org.eclipse.gemoc.studio.doc/target/publish/webhelp/* ${DOWNLOAD_FOLDER}/updates/nightly'
+				sh 'zip -R   ${DOWNLOAD_FOLDER}/docs/nightly/studio-docs.zip gemoc-studio/gemoc_studio/docs/org.eclipse.gemoc.studio.doc/target/publish/webhelp/*'
 			}
 		}
 	}
