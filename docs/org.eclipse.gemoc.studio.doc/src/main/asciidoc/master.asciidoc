@@ -173,7 +173,9 @@ include::dev/developer_headContent.asciidoc[]
 
 include::dev/GeneralArchitecture_headContent.asciidoc[]
 
-== Component documentation
+== Components documentation
+
+include::dev/Components_headContent.asciidoc[]
 
 === Commons
 

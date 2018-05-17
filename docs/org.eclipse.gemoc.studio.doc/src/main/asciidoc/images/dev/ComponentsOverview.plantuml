@@ -1,0 +1,28 @@
+@startuml
+!include SkinParam.iplantuml
+
+node "Commons" {
+  [Ecipse Commons]
+  [GExpression]
+  [DSL]
+  [Timeline]
+}
+ 
+node "GEMOC Framework" {
+  [Execution Framework]
+  [Framework Commons]
+  [XDSML Framework]
+} 
+
+node  "Simulation and Model Animation Framework"{
+  [Simulation and Model Animation]
+}
+
+node  "Trace Framework"{
+  [Trace Commons]
+  [Trace Generator]
+  [Trace Manager]
+}
+
+
+@enduml

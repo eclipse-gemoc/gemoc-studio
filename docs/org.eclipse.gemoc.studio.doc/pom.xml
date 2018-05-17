@@ -90,12 +90,12 @@
 							        <excludes>
 							            <exclude>**/*.md</exclude>
 							        </excludes>
-							        <includes>
+							        <!-- <includes>
 							            <include>**/*.jpg</include>
 							            <include>**/*.gif</include>
 							            <include>**/*.png</include>
 							            <include>**/*.svg</include>
-							        </includes>
+							        </includes> -->
 							    </resource>
 							    <!-- Images and resources coming from external plugins/contributions -->
 							    <resource>
@@ -125,36 +125,37 @@
             
             
             <!-- generate the images from plantUMl -->
-            <!-- <plugin>
-		      <groupId>com.github.jeluard</groupId>
-		      <artifactId>plantuml-maven-plugin</artifactId>
-		      <version>7941</version>
-		      <executions>
-                    <execution>
-                        <id>output-plantuml</id>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                    </execution>
-              </executions>
-		      <configuration>
-		       <outputDirectory>${basedir}/target/plantuml</outputDirectory>
-		        <sourceFiles>
-		          <directory>${basedir}</directory>
-		          <includes>
-		            <include>t-images/*.plantuml</include>
-		          </includes>
-		        </sourceFiles>
-		      </configuration>
-		      <dependencies>
-		        <dependency>
-		          <groupId>net.sourceforge.plantuml</groupId>
-		          <artifactId>plantuml</artifactId>
-		          <version>7976</version>
-		        </dependency>
-		      </dependencies>
-		    </plugin>  -->
+			<plugin>
+				<groupId>com.github.jeluard</groupId>
+				<artifactId>plantuml-maven-plugin</artifactId>
+				<version>7941</version>
+				<executions>
+					<execution>
+						<id>output-plantuml</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<!-- <outputDirectory>${basedir}/target/plantuml</outputDirectory> -->
+					<outputInSourceDirectory>true</outputInSourceDirectory>
+					<sourceFiles>
+						<directory>${basedir}</directory>
+						<includes>
+							<include>target/generated-docbook/**/*.plantuml</include>
+						</includes>
+					</sourceFiles>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>net.sourceforge.plantuml</groupId>
+						<artifactId>plantuml</artifactId>
+						<version>7941</version>
+					</dependency>
+				</dependencies>
+			</plugin>  
 
 
 			<!-- docbook generation part -->
@@ -188,6 +189,7 @@
 			 				    <copy todir="${project.build.directory}/publish/webhelp">
 									<fileset dir="${project.build.directory}/generated-docbook/" >
 										<exclude name="**/*.xml"/>
+										<exclude name="**/*.plantuml"/>
 									</fileset>
 								</copy>	
 							</preProcess>
@@ -215,10 +217,11 @@
 							<targetDirectory>${project.build.directory}/publish/eclipse/</targetDirectory>
 							<includes>master.xml</includes>
 							<preProcess>
-								<!-- copy all resources in dest but docbook xml-->
+								<!-- copy all resources in dest but docbook xml and plantuml source files-->
 			 				    <copy todir="${project.build.directory}/publish/eclipse">
 									<fileset dir="${project.build.directory}/generated-docbook/" >
 										<exclude name="**/*.xml"/>
+										<exclude name="**/*.plantuml"/>
 									</fileset>
 								</copy>			 					
 							</preProcess> 
