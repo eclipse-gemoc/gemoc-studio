@@ -216,9 +216,6 @@ include::../../../../../../gemoc-studio-modeldebugging/trace/docs/dev/TraceManag
 
 include::../../../../../../gemoc-studio-modeldebugging/java_execution/docs/dev/JavaExecution.asciidoc[]
 
-include::../../../../../../gemoc-studio-modeldebugging/java_execution/docs/dev/JavaXdsml.asciidoc[]
-
-include::../../../../../../gemoc-studio-modeldebugging/java_execution/docs/dev/JavaEngine.asciidoc[]
 
 == Contributing new features
 
