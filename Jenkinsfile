@@ -92,8 +92,9 @@ pipeline {
 				echo "Deploy documentation archive to download.eclipse.org"
 				sh 'rm -rf   ${DOWNLOAD_FOLDER}/docs/nightly'
 				sh 'mkdir -p ${DOWNLOAD_FOLDER}/docs/nightly'
-				sh 'cp -r    gemoc-studio/docs/org.eclipse.gemoc.studio.doc/target/publish/webhelp/* ${DOWNLOAD_FOLDER}/updates/nightly'
-				sh 'zip -R   ${DOWNLOAD_FOLDER}/docs/nightly/studio-docs.zip gemoc-studio/docs/org.eclipse.gemoc.studio.doc/target/publish/webhelp/*'
+				sh 'cp -r    gemoc-studio/docs/org.eclipse.gemoc.studio.doc/target/publish/webhelp/* ${DOWNLOAD_FOLDER}/docs/nightly'				
+				sh 'mkdir -p ${DOWNLOAD_FOLDER}/docs/nightly/archive'
+				sh 'zip -R   ${DOWNLOAD_FOLDER}/docs/nightly/archive/studio-docs.zip gemoc-studio/docs/org.eclipse.gemoc.studio.doc/target/publish/webhelp/*'
 			}
 		}
 	}
