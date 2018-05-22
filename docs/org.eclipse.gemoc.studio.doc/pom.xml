@@ -114,6 +114,10 @@
 							        <directory>${basedir}/../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/clocksystem/images</directory>
 							        <targetPath>images</targetPath>
 							    </resource>
+							    <resource>
+							        <directory>${basedir}/../../official_samples/sample.deployers/plugins/org.eclipse.gemoc.sequential.language.wb.sample.deployer/docs//images</directory>
+							        <targetPath>images</targetPath>
+							    </resource>
 							</resources>
 		                </configuration>
                     </execution>
@@ -128,7 +132,7 @@
 			<plugin>
 				<groupId>com.github.jeluard</groupId>
 				<artifactId>plantuml-maven-plugin</artifactId>
-				<version>7941</version>
+				<version>1.2</version>
 				<executions>
 					<execution>
 						<id>output-plantuml</id>
@@ -141,6 +145,7 @@
 				<configuration>
 					<!-- <outputDirectory>${basedir}/target/plantuml</outputDirectory> -->
 					<outputInSourceDirectory>true</outputInSourceDirectory>
+					<verbose>true</verbose>
 					<sourceFiles>
 						<directory>${basedir}</directory>
 						<includes>
@@ -152,7 +157,7 @@
 					<dependency>
 						<groupId>net.sourceforge.plantuml</groupId>
 						<artifactId>plantuml</artifactId>
-						<version>7941</version>
+						<version>8054</version>
 					</dependency>
 				</dependencies>
 			</plugin>  

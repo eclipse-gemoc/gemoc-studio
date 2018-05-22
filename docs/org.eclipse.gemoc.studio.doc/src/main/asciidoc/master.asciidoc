@@ -158,11 +158,10 @@ include::tutorials_headContent.asciidoc[]
 
 = Examples
 
-== Example 1
-
 include::examples_headContent.asciidoc[]
 
 
+include::../../../../../official_samples/sample.deployers/plugins/org.eclipse.gemoc.sequential.language.wb.sample.deployer/docs/LegacyFSM_sequential.asciidoc[]
 
 = Developer Guide
 
