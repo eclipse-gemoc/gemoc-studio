@@ -217,7 +217,10 @@ include::../../../../../../gemoc-studio-modeldebugging/trace/docs/dev/TraceManag
 include::../../../../../../gemoc-studio-modeldebugging/java_execution/docs/dev/JavaExecution.asciidoc[]
 
 
-== Contributing new features
+== Contributing
+
+
+include::../../../../../../gemoc-studio/dev_support/full_compilation/README.asciidoc[]
 
 === Developing new features
 - New Engines
@@ -234,13 +237,15 @@ TODO add info about how to contribute to the documentation
 = Appendix
 
 
-include::../../userguide/GuideBibliography.asciidoc[leveloffset=+2]
+include::bibliography.asciidoc[]
 
-include::../../userguide/GuideGlossary.asciidoc[leveloffset=+2]
+include::glossary.asciidoc[]
 
+// duplicate index title so it appears in the table of content properly under appendix
+=== Index
 
 [index]
-== Index
+=== Index
 ////////////////////////////////////////////////////////////////
 The index is normally left completely empty, it's contents being
 generated automatically by the DocBook toolchain.

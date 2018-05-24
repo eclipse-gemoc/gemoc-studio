@@ -1,5 +1,16 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+= Appendix
+endif::[]
+
 [glossary]
-== Glossary
+=== Glossary
+
+
+// footnote used to ease documentation modification
+footnote:[asciidoc source of this page: https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/bibliography.asciidoc.]
 
 AS:: 
 Abstract Syntax.

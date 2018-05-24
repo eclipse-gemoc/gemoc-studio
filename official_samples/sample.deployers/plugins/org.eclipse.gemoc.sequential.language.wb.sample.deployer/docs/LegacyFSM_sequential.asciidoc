@@ -13,7 +13,7 @@ footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio
 
 
 
-=== Overview
+=== Presentation
 
 This example features an executable language using GEMOC Sequential Engine.   
 
@@ -29,7 +29,7 @@ This allows to use the model polymorphism. Ie. it is possible to edit FSM models
 
 More information and the sources of these projects are available online on https://github.com/eclipse/gemoc-studio/tree/master/official_samples/LegacyFSM[Github].   
 
-=== Getting started
+=== Intallation
 
 Install the projects of this language:
 
@@ -57,3 +57,8 @@ image::images/LegacyFSM_language_figure.png["Language relations, packages and cl
 
 		
 Please note that for simplification of the diagram, the associations that doesn't represent a containment, have been represented as attribute rather than links.
+
+
+=== DIY
+
+ TODO step to reproduce this exemple from "almost" scratch
