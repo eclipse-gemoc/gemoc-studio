@@ -33,8 +33,10 @@ node  "Java Execution" as java_execution {
 }
 
 commons <- simulation_model_animation
+commons <- trace
 simulation_model_animation <- gemoc_framework
 trace <- gemoc_framework
-gemoc_framework <- java_execution  
+[XDSML Framework] <|.. [Java XDSML] 
+[Execution Framework] <|.. [Java Engine]
 
 @enduml
