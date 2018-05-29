@@ -1,0 +1,63 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+
+= Developer Guide
+== Contributing
+=== Developing new features
+endif::[]
+
+==== Developing new Addons
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/dev/DevelopingNewAddons.asciidoc.]
+
+GEMOC addons mecanism is the simpliest way to contribute new features to GEMOC. Most of the features in GEMOC have been developed using it.
+
+Basically, it uses Eclipse plugin extension point in order to provide additional feature to an existing engine.
+
+The main extension point is `org.eclipse.gemoc.gemoc_language_workbench.engine_addon` which allows to declare a new class that implements the `IEngineAddon` interface.
+
+
+
+Minimal steps to get an addons:
+
+- Create a plugin project (or contribute to an existing one)
+- In the MANIFEST.MF or plugin.xml editor, open the _extensions_ tab, Add, uncheck "Show only extension from the required plugins", search for "gemoc" and select the `org.eclipse.gemoc.gemoc_language_workbench.engine_addon` extension point, accept to add the dependency to the plugin. (see <<img-New_Extension_4_Engine_Addon_screenshot-devguide>>)
+- add an _addon_ entry in the extension point (see <<img-EngineAddon_extension_point_details_screenshot-devguide>>) provide a name and a description that will help the end user to know if she wish to enable the addon or not in the launch tab when configuring her model execution.
+- Create the class implementing _org.eclipse.gemoc.xdsmlframework.api.engine_addon.IEngineAddon_ (a click on Class*: in the extension editor allows to open a wizard that simplify this task)
+- you can now override any of the default methods of the interface (cf. <<img-FrameworkCommons-overview-CD-devguide>>). If the user select the addon in the launch tab, these methods will be called by the engine.
+
+
+
+[[img-New_Extension_4_Engine_Addon_screenshot-devguide]]
+.New Extension forEngine Addon screenshot
+image::images/dev/New_Extension_4_Engine_Addon_screenshot.png["New Extension forEngine Addon screenshot"]
+
+[[img-EngineAddon_extension_point_details_screenshot-devguide]]
+.EngineAddon extension point details screenshot
+image::images/dev/EngineAddon_extension_point_details_screenshot.png["EngineAddon extension point details screenshot"]
+
+[NOTE]
+====
+The calls from the engine to the methods of IEngineAddons block the model execution. Thus, except if this is the expected behavior, the addons  should avoid to do complex/long running/blocking task directly in the  
+====   
+
+
+[NOTE]
+====
+For a given notification to IEngineAddon (for example aboutToExecuteStep), the order of calls to all registered addons is currently not ensured. 
+
+Help is welcome in order to implement a way to specify partial order between addons as it might be useful when several collaborating addons must react on the same notification. 
+====  
+
+
+[TIP]
+====
+In the extension declaration, setting _Default_ to _true_ will activate the addon by default when creating a new launch configuration. The user is still able to disable the addon manually.
+==== 
+
+[TIP]
+====
+See <<devguide-gemoc-frameworks>> for more details about the extension point and other supported features.
+==== 
