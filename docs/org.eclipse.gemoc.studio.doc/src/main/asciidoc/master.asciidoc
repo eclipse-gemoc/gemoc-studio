@@ -186,6 +186,8 @@ include::../../../../../../gemoc-studio/commons/docs/dev/GemocGExpressions.ascii
 
 include::../../../../../../gemoc-studio/commons/docs/dev/GemocDsl.asciidoc[]
 
+
+[[devguide-gemoc-frameworks]]
 === GEMOC Framework
 
 
@@ -224,8 +226,10 @@ include::../../../../../../gemoc-studio-modeldebugging/java_execution/docs/dev/J
 include::../../../../../../gemoc-studio/dev_support/full_compilation/README.asciidoc[]
 
 === Developing new features
-- New Engines
-- new addons
+
+include::dev/DevelopingNewAddons.asciidoc[]
+
+include::dev/DevelopingNewEngines.asciidoc[]
 
 === Distributing new features
  
