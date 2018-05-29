@@ -233,10 +233,9 @@ include::dev/DevelopingNewEngines.asciidoc[]
 
 === Distributing new features
  
+TODO add info about how to distribute contribution and new features
 
-== Documentation
-
-TODO add info about how to contribute to the documentation
+include::dev/ContributingDocumentation.asciidoc[]
 
 [appendix]
 = Appendix
