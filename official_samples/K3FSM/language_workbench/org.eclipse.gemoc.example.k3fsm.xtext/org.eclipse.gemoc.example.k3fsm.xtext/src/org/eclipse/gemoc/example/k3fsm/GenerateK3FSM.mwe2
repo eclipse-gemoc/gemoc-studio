@@ -31,8 +31,8 @@ Workflow {
 		}
 		language = StandardLanguage {
 			name = "org.eclipse.gemoc.example.k3fsm.K3FSM"
-			fileExtensions = "fsm"
-			referencedResource = "platform:/resource/gemoc-studio_root/official_samples/K3FSM/language_workbench/org.eclipse.gemoc.example.k3fsm/model/k3fsm.genmodel"
+			fileExtensions = "k3fsm"
+			referencedResource = "platform:/resource/org.eclipse.gemoc.example.k3fsm/model/k3fsm.genmodel"
 			
 			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}
 
