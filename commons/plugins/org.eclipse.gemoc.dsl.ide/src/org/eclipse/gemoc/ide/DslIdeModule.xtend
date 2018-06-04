@@ -3,7 +3,6 @@
  */
 package org.eclipse.gemoc.ide
 
-import highlighting.DslHighlightingCalculator
 import org.eclipse.xtext.ide.editor.syntaxcoloring.ISemanticHighlightingCalculator
 
 /**
@@ -11,8 +10,5 @@ import org.eclipse.xtext.ide.editor.syntaxcoloring.ISemanticHighlightingCalculat
  */
 class DslIdeModule extends AbstractDslIdeModule {
 
-	// TODO also bind style...? unclear
-	def Class<? extends ISemanticHighlightingCalculator> bindSemanticHighlightingCalculator() {
-		DslHighlightingCalculator
-	}
+
 }
