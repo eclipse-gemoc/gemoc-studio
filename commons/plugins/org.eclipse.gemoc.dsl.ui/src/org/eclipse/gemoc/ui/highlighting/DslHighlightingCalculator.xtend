@@ -3,6 +3,7 @@ package org.eclipse.gemoc.ui.highlighting
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.AbstractRule
 import org.eclipse.xtext.Assignment
+import org.eclipse.xtext.Keyword
 import org.eclipse.xtext.ParserRule
 import org.eclipse.xtext.RuleCall
 import org.eclipse.xtext.ide.editor.syntaxcoloring.DefaultSemanticHighlightingCalculator
@@ -18,39 +19,44 @@ public class DslHighlightingCalculator extends DefaultSemanticHighlightingCalcul
 		val INode root = resource.getParseResult().getRootNode();
 		for (INode node : root.getAsTreeIterable()) {
 			val EObject grammarElement = node.getGrammarElement();
+
+			// Node defined by a grammar rule
 			if (grammarElement instanceof RuleCall) {
 				var RuleCall rc = grammarElement as RuleCall;
 				var AbstractRule r = rc.getRule();
 				val EObject c = grammarElement.eContainer();
 				val EObject ccc = c.eContainer().eContainer();
 
-				// If it is a "WORD"
+				// Keys
 				if (r.getName().equals("WORD")) {
 					if (c instanceof Assignment) {
 
-						// assigned to a feature called "key"
+						// If the WORD is assigned to a feature called "key"
 						if (c.feature == "key") {
 							acceptor.addPosition(node.getOffset(), node.getLength(),
 								DslHighlightingConfiguration.KEY_ID);
 						}
-
 					}
-				} // If it is a "MULTILINE", ie. a value
-				else if (r.name == "MULTILINE") {
+				} // Values
+				else if (r.name == "VALUE_WORD") {
 					acceptor.addPosition(node.getOffset(), node.getLength(), DslHighlightingConfiguration.VALUE_ID);
-				} // If it is a "SEPARATOR"
+				} // Separators between keys and values
 				else if (r.name == "SEPARATOR") {
 					if (ccc instanceof ParserRule) {
-
-						// that is not part of a "VALUE_WORD" container, ie. that separates keys and values 
-						if (ccc.name == "VALUE_WORD") {
+						if (ccc.name != "VALUE_WORD") {
 							acceptor.addPosition(node.getOffset(), node.getLength(),
 								DslHighlightingConfiguration.SEPARATOR_ID);
 						}
 					}
 				}
+
+			} // Node defined by a single keyword
+			else if (grammarElement instanceof Keyword) {
+				if (grammarElement.value == "\\") {
+					acceptor.addPosition(node.getOffset(), node.getLength(),
+						org.eclipse.gemoc.ui.highlighting.DslHighlightingConfiguration.LINESEPARATOR_ID);
+				}
 			}
 		}
-
 	}
 }

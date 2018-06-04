@@ -10,12 +10,14 @@ class DslHighlightingConfiguration extends DefaultHighlightingConfiguration {
 	public static final String KEY_ID = "dsl_key"
 	public static final String VALUE_ID = "dsl_value"
 	public static final String SEPARATOR_ID = "dsl_separator"
+	public static final String LINESEPARATOR_ID = "dsl_lineseparator"
 
 	override configure(IHighlightingConfigurationAcceptor acceptor) {
 		super.configure(acceptor)
 		acceptor.acceptDefaultHighlighting(KEY_ID, "Entry key", keyTextStyle());
 		acceptor.acceptDefaultHighlighting(VALUE_ID, "Entry value", valueTextStyle());
 		acceptor.acceptDefaultHighlighting(SEPARATOR_ID, "Entry separator", separatorTextStyle());
+		acceptor.acceptDefaultHighlighting(LINESEPARATOR_ID, "Line separator", lineSeparatorTextStyle());
 	}
 
 	def TextStyle keyTextStyle() {
@@ -33,7 +35,12 @@ class DslHighlightingConfiguration extends DefaultHighlightingConfiguration {
 
 	def TextStyle separatorTextStyle() {
 		val TextStyle textStyle = defaultTextStyle().copy();
-		textStyle.setStyle(SWT.BOLD);
+		return textStyle;
+	}
+
+	def TextStyle lineSeparatorTextStyle() {
+		val TextStyle textStyle = numberTextStyle().copy();
+		textStyle.setStyle(SWT.NORMAL);
 		return textStyle;
 	}
 }
