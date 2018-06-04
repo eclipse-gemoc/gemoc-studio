@@ -160,6 +160,7 @@ include::tutorials_headContent.asciidoc[]
 
 include::examples_headContent.asciidoc[]
 
+include::../../../../../official_samples/K3FSM/docs/K3FSM.asciidoc[]
 
 include::../../../../../official_samples/sample.deployers/plugins/org.eclipse.gemoc.sequential.language.wb.sample.deployer/docs/LegacyFSM_sequential.asciidoc[]
 
