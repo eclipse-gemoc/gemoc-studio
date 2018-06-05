@@ -19,9 +19,12 @@ class FSMAspect {
 	@InitializeModel									// <1>
 	def public void initializeModel(EList<String> args){
 		_self.currentState = _self.initialState;
-		_self.unprocessedString = args.get(0)
+		_self.unprocessedString = args.get(0)	
 		_self.consummedString = ""
 		_self.producedString = ""
+		if(_self.unprocessedString.isEmpty) {
+			println("nothing to process, did you forgot to pass parameters to the launch configuration ?")
+		}
 	}
 		
 	@Main												// <2>

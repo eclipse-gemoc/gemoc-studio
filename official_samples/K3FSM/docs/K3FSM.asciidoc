@@ -130,21 +130,24 @@ include::../language_workbench/org.eclipse.gemoc.example.k3fsm.k3dsa/src/org/ecl
 <3> a method with the _@Step_ annotation that will be observable (ie. the debugger can do a pause when a object instance of this class call this method).
 <4>  another method with the _@Step_ annotation that will be observable
     
+-
 
     ** Verify that the project _org.eclipse.gemoc.example.k3fsm.xdsml_ has a dependency to the project that contains the K3 aspects ( _org.eclipse.gemoc.example.k3fsm.k3dsa_)
-
-* Create a project for the graphical editor: File -> New -> Viewpoint Specification Project 
-* Create a representation for edition
+    
+    * Create a project for the graphical editor: File -> New -> Viewpoint Specification Project 
+    
+    * Create a representation for edition
     ** Change viewpoint name to "K3FSMViewPoint", label "K3FSM"
     ** New Diagram representation; set the ID to "FSM", add the k3fsm.ecore to the list of metamodels; set the domain class to the FSM class. In Advanced, set the title expression to "feature:name"
     ** in the Default layer; _New Diagram Element_ -> _Container_; ID = "StateContainer"; Domain class = "State"; Semantic candidate expression = `[self.ownedStates/]`
     *** on the _StateContainer_; _New Style_ -> _Gradient_ 
-    *** on the _StateContainer_; _New Contitional style_;  Predicate expression = `[self.eContainer().oclAsType(StateMachine).initialState = self/]`; create another gradient in it and set a border size to 4.
+    *** on the _StateContainer_; _New Contitional style_;  Predicate expression = `[self.eContainer().oclAsType(FSM).initialState = self/]`; create another gradient in it and set a border size to 4.
     ** in the Default layer; _New Diagram Element_ -> _Element Based Edge_; ID = "TranditionEdge"; Domain class = "Transition"; Source mapping = "StateContainer"; source finder expression = `[self.source/]`; target Mapping = "StateContainer"; Target Finder Expression = `[self.target/]`
     *** On _TranditionEdge_/ Edge Style solid, verify the decorators, No decoration for source arrow, and InputArrow for Target Arrow
     *** On _TranditionEdge_/ _Edge Style solid_ / _Center Label Style 8_; Label Expression = `aql:self.getLabel()`
     ** Open the file _org.eclipse.gemoc.example.k3fsm.design.Services_; add a method: (use Eclipse quick fix to add the import to 
 `import org.eclipse.gemoc.example.k3fsm.Transition;` )
+
 
 [source,java]
 ------
