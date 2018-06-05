@@ -1,4 +1,5 @@
 Manifest-Version: 1.0
+Automatic-Module-Name: org.eclipse.gemoc.example.k3fsm.k3dsa
 Bundle-SymbolicName: org.eclipse.gemoc.example.k3fsm.k3dsa; singleton:=true
 Export-Package: org.eclipse.gemoc.example.k3fsm.k3dsa
 Bundle-Name: org.eclipse.gemoc.example.k3fsm.k3dsa
@@ -14,4 +15,3 @@ Require-Bundle: fr.inria.diverse.k3.al.annotationprocessor.plugin;bundle-version
  org.eclipse.gemoc.example.k3fsm;bundle-version="0.0.0";visibility:=private
 Bundle-ManifestVersion: 2
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Automatic-Module-Name: org.eclipse.gemoc.example.k3fsm.k3dsa

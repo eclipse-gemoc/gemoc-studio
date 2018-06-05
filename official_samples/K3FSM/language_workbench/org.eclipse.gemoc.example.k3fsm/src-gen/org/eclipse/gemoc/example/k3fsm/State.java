@@ -116,12 +116,4 @@ public interface State extends EObject {
 	 */
 	void setOwningFSM(FSM value);
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void step();
-
 } // State

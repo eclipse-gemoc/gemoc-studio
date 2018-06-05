@@ -4,7 +4,6 @@ package org.eclipse.gemoc.example.k3fsm;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -149,22 +148,13 @@ public interface K3fsmPackage extends EPackage {
 	int FSM_FEATURE_COUNT = 8;
 
 	/**
-	 * The operation id for the '<em>Run</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FSM___RUN = 0;
-
-	/**
 	 * The number of operations of the '<em>FSM</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FSM_OPERATION_COUNT = 1;
+	int FSM_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.gemoc.example.k3fsm.impl.StateImpl <em>State</em>}' class.
@@ -222,22 +212,13 @@ public interface K3fsmPackage extends EPackage {
 	int STATE_FEATURE_COUNT = 4;
 
 	/**
-	 * The operation id for the '<em>Step</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STATE___STEP = 0;
-
-	/**
 	 * The number of operations of the '<em>State</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STATE_OPERATION_COUNT = 1;
+	int STATE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.eclipse.gemoc.example.k3fsm.impl.TransitionImpl <em>Transition</em>}' class.
@@ -304,22 +285,13 @@ public interface K3fsmPackage extends EPackage {
 	int TRANSITION_FEATURE_COUNT = 5;
 
 	/**
-	 * The operation id for the '<em>Fire</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRANSITION___FIRE = 0;
-
-	/**
 	 * The number of operations of the '<em>Transition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRANSITION_OPERATION_COUNT = 1;
+	int TRANSITION_OPERATION_COUNT = 0;
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.gemoc.example.k3fsm.FSM <em>FSM</em>}'.
@@ -420,16 +392,6 @@ public interface K3fsmPackage extends EPackage {
 	EAttribute getFSM_ProducedString();
 
 	/**
-	 * Returns the meta object for the '{@link org.eclipse.gemoc.example.k3fsm.FSM#run() <em>Run</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Run</em>' operation.
-	 * @see org.eclipse.gemoc.example.k3fsm.FSM#run()
-	 * @generated
-	 */
-	EOperation getFSM__Run();
-
-	/**
 	 * Returns the meta object for class '{@link org.eclipse.gemoc.example.k3fsm.State <em>State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -482,16 +444,6 @@ public interface K3fsmPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getState_OwningFSM();
-
-	/**
-	 * Returns the meta object for the '{@link org.eclipse.gemoc.example.k3fsm.State#step() <em>Step</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Step</em>' operation.
-	 * @see org.eclipse.gemoc.example.k3fsm.State#step()
-	 * @generated
-	 */
-	EOperation getState__Step();
 
 	/**
 	 * Returns the meta object for class '{@link org.eclipse.gemoc.example.k3fsm.Transition <em>Transition</em>}'.
@@ -557,16 +509,6 @@ public interface K3fsmPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTransition_Source();
-
-	/**
-	 * Returns the meta object for the '{@link org.eclipse.gemoc.example.k3fsm.Transition#fire() <em>Fire</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Fire</em>' operation.
-	 * @see org.eclipse.gemoc.example.k3fsm.Transition#fire()
-	 * @generated
-	 */
-	EOperation getTransition__Fire();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -666,14 +608,6 @@ public interface K3fsmPackage extends EPackage {
 		EAttribute FSM__PRODUCED_STRING = eINSTANCE.getFSM_ProducedString();
 
 		/**
-		 * The meta object literal for the '<em><b>Run</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation FSM___RUN = eINSTANCE.getFSM__Run();
-
-		/**
 		 * The meta object literal for the '{@link org.eclipse.gemoc.example.k3fsm.impl.StateImpl <em>State</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -714,14 +648,6 @@ public interface K3fsmPackage extends EPackage {
 		 * @generated
 		 */
 		EReference STATE__OWNING_FSM = eINSTANCE.getState_OwningFSM();
-
-		/**
-		 * The meta object literal for the '<em><b>Step</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation STATE___STEP = eINSTANCE.getState__Step();
 
 		/**
 		 * The meta object literal for the '{@link org.eclipse.gemoc.example.k3fsm.impl.TransitionImpl <em>Transition</em>}' class.
@@ -772,14 +698,6 @@ public interface K3fsmPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TRANSITION__SOURCE = eINSTANCE.getTransition_Source();
-
-		/**
-		 * The meta object literal for the '<em><b>Fire</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation TRANSITION___FIRE = eINSTANCE.getTransition__Fire();
 
 	}
 

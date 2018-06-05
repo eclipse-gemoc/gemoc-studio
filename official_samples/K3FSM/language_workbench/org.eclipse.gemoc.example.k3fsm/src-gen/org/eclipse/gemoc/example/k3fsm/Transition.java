@@ -159,12 +159,4 @@ public interface Transition extends EObject {
 	 */
 	void setSource(State value);
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void fire();
-
 } // Transition

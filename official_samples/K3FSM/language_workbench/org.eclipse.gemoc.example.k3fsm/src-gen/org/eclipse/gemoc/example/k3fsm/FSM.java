@@ -230,12 +230,4 @@ public interface FSM extends EObject {
 	 */
 	void setProducedString(String value);
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void run();
-
 } // FSM

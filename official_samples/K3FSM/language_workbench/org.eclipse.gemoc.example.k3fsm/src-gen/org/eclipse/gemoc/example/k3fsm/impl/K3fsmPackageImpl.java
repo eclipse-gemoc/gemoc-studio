@@ -4,7 +4,6 @@ package org.eclipse.gemoc.example.k3fsm.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -192,15 +191,6 @@ public class K3fsmPackageImpl extends EPackageImpl implements K3fsmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getFSM__Run() {
-		return fsmEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getState() {
 		return stateEClass;
 	}
@@ -239,15 +229,6 @@ public class K3fsmPackageImpl extends EPackageImpl implements K3fsmPackage {
 	 */
 	public EReference getState_OwningFSM() {
 		return (EReference) stateEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getState__Step() {
-		return stateEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -309,15 +290,6 @@ public class K3fsmPackageImpl extends EPackageImpl implements K3fsmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getTransition__Fire() {
-		return transitionEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public K3fsmFactory getK3fsmFactory() {
 		return (K3fsmFactory) getEFactoryInstance();
 	}
@@ -351,14 +323,12 @@ public class K3fsmPackageImpl extends EPackageImpl implements K3fsmPackage {
 		createEAttribute(fsmEClass, FSM__UNPROCESSED_STRING);
 		createEAttribute(fsmEClass, FSM__CONSUMMED_STRING);
 		createEAttribute(fsmEClass, FSM__PRODUCED_STRING);
-		createEOperation(fsmEClass, FSM___RUN);
 
 		stateEClass = createEClass(STATE);
 		createEAttribute(stateEClass, STATE__NAME);
 		createEReference(stateEClass, STATE__OUTGOING_TRANSITIONS);
 		createEReference(stateEClass, STATE__INCOMING_TRANSITIONS);
 		createEReference(stateEClass, STATE__OWNING_FSM);
-		createEOperation(stateEClass, STATE___STEP);
 
 		transitionEClass = createEClass(TRANSITION);
 		createEAttribute(transitionEClass, TRANSITION__INPUT);
@@ -366,7 +336,6 @@ public class K3fsmPackageImpl extends EPackageImpl implements K3fsmPackage {
 		createEAttribute(transitionEClass, TRANSITION__NAME);
 		createEAttribute(transitionEClass, TRANSITION__OUTPUT);
 		createEReference(transitionEClass, TRANSITION__SOURCE);
-		createEOperation(transitionEClass, TRANSITION___FIRE);
 	}
 
 	/**
@@ -427,8 +396,6 @@ public class K3fsmPackageImpl extends EPackageImpl implements K3fsmPackage {
 				org.eclipse.gemoc.example.k3fsm.FSM.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
 				!IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getFSM__Run(), null, "run", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getState_Name(), ecorePackage.getEString(), "name", null, 0, 1, State.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -441,8 +408,6 @@ public class K3fsmPackageImpl extends EPackageImpl implements K3fsmPackage {
 		initEReference(getState_OwningFSM(), this.getFSM(), this.getFSM_OwnedStates(), "owningFSM", null, 1, 1,
 				State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEOperation(getState__Step(), null, "step", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(transitionEClass, Transition.class, "Transition", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -458,8 +423,6 @@ public class K3fsmPackageImpl extends EPackageImpl implements K3fsmPackage {
 		initEReference(getTransition_Source(), this.getState(), this.getState_OutgoingTransitions(), "source", null, 1,
 				1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEOperation(getTransition__Fire(), null, "fire", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
