@@ -3,11 +3,23 @@
  */
 package org.eclipse.gemoc.ui
 
+import org.eclipse.gemoc.ui.highlighting.DslHighlightingCalculator
+import org.eclipse.gemoc.ui.highlighting.DslHighlightingConfiguration
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor
+import org.eclipse.xtext.ide.editor.syntaxcoloring.ISemanticHighlightingCalculator
+import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration
 
 /**
  * Use this class to register components to be used within the Eclipse IDE.
  */
 @FinalFieldsConstructor
 class DslUiModule extends AbstractDslUiModule {
+
+	def Class<? extends ISemanticHighlightingCalculator> bindSemanticHighlightingCalculator() {
+		DslHighlightingCalculator
+	}
+
+	def Class<? extends IHighlightingConfiguration> bindHighlightingConfiguration() {
+		DslHighlightingConfiguration
+	}
 }
