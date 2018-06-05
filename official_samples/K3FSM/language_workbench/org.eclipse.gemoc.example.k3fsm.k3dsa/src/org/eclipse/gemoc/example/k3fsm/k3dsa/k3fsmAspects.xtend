@@ -8,10 +8,10 @@ import org.eclipse.gemoc.example.k3fsm.FSM
 import org.eclipse.gemoc.example.k3fsm.State
 import org.eclipse.gemoc.example.k3fsm.Transition
 import org.eclipse.emf.common.util.EList
-
+	
+import static extension org.eclipse.gemoc.example.k3fsm.k3dsa.TransitionAspect.*
 import static extension org.eclipse.gemoc.example.k3fsm.k3dsa.FSMAspect.*			
 import static extension org.eclipse.gemoc.example.k3fsm.k3dsa.StateAspect.*			
-import static extension org.eclipse.gemoc.example.k3fsm.k3dsa.TransitionAspect.*	
 
 @Aspect(className=FSM)
 class FSMAspect {
@@ -30,7 +30,7 @@ class FSMAspect {
     		while (!_self.unprocessedString.isEmpty) {
     			_self.currentState.step(_self.unprocessedString)
     		}    		
-		} catch (Exception nt){
+		} catch (FSMRuntimeException nt){
 			println("Stopped due to "+nt.message)
 		}
 		println("unprocessed string: "+_self.unprocessedString)
@@ -46,21 +46,20 @@ class StateAspect {
 		// Get the valid transitions	
 		val validTransitions =  _self.outgoingTransitions.filter[t | inputString.startsWith(t.input)]
 		if(validTransitions.empty) {
-			//throw new NoTransition()
-			throw new Exception("No Transition")
+			throw new FSMRuntimeException("No Transition")
 		}
 		if(validTransitions.size > 1) {
-			//throw new NonDeterminism()
-			throw new Exception("Non Determinism")
+			throw new FSMRuntimeException("Non Determinism")
 			
 		}
-		// Fire transition
-		validTransitions.get(0).fire
+		// Fire transition		
+		validTransitions.get(0).fire()
 	}
 }
 
 @Aspect(className=Transition)
 class TransitionAspect {
+	
 	@Step												// <4>
 	def public void fire() {
 		println("Firing " + _self.name + " and entering " + _self.target.name)
@@ -72,8 +71,10 @@ class TransitionAspect {
 	}
 }
 
-class NoTransition extends Exception {					
+class FSMRuntimeException extends Exception {
+	new(String message) {
+		super(message)
+	}				
 }
-class NonDeterminism extends Exception {	
-}
+
 
