@@ -13,13 +13,13 @@ Workflow {
 				baseName = "org.eclipse.gemoc.example.k3fsm.xtext"
 				rootPath = rootPath
 				runtimeTest = {
-					enabled = true
+					enabled = false
 				}
 				eclipsePlugin = {
 					enabled = true
 				}
 				eclipsePluginTest = {
-					enabled = true
+					enabled = false
 				}
 				createEclipseMetaData = true
 			}
