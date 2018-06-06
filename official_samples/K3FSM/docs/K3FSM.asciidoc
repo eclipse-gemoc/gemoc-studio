@@ -27,7 +27,7 @@ The example focuses on the tooling of a single language (FSM) with the following
 
 [NOTE]
 ====
-In this example, the semantic domain is built as an extension of the syntaxic domain.
+In this example, the semantic domain is built as an extension of the syntaxic domain and is merged in a single ecore file.
 
 This might not be the case for all languages where the semantic domain may be structurally different from the semantic domain. 
 ==== 
