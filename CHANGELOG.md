@@ -1,5 +1,32 @@
 # Changelog
 
+## v3.0.0-rc3 (07/06/2018)
+
+#### Enhancements:
+
+- [**enhancement**] Add new K3FSM official example [#81](https://github.com/eclipse/gemoc-studio/pull/81)
+- [**enhancement**] Add syntax highlighting to DSL files [#78](https://github.com/eclipse/gemoc-studio/pull/78)
+- [**enhancement**] Add dockerfile and instructions for building documentation via docker [#76](https://github.com/eclipse/gemoc-studio/pull/76)
+- [**enhancement**] Improve documentation [#74](https://github.com/eclipse/gemoc-studio/pull/74)
+- [**enhancement**][**refactoring**][**releng**] Improve web documentation [#72](https://github.com/eclipse/gemoc-studio/pull/72)
+- [**enhancement**][**releng**] Remove old scm connectors SVN and CVS from studio [#71](https://github.com/eclipse/gemoc-studio/pull/71)
+- [**enhancement**] Replace Melange by DSL files in the role of entry point for the studio [#70](https://github.com/eclipse/gemoc-studio/pull/70)
+- [**enhancement**] Improve dslfile grammar [#63](https://github.com/eclipse/gemoc-studio/pull/63)
+
+#### Bug Fixes:
+
+- [**bug**] [tests] Workaround to discard webkitgtk error message [#61](https://github.com/eclipse/gemoc-studio/pull/61)
+
+#### Version upgrades
+
+- [**bump**] Upgrade Melange to version 2018-04-11 [#65](https://github.com/eclipse/gemoc-studio/pull/65)
+
+#### Release Engineering
+
+- [**releng**] Use Gren for release note management [#66](https://github.com/eclipse/gemoc-studio/pull/66)
+
+---
+
 ## v3.0.0-rc2 (11/04/2018)
 
 #### Enhancements:
