@@ -34,6 +34,23 @@
           <styles xmi:type="notation:ShapeStyle" xmi:id="_Ne20UWjaEeiU559ojQA1Ug" fontName="Ubuntu" fontHeight="8"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ne20UmjaEeiU559ojQA1Ug" x="95" y="50"/>
         </children>
+        <children xmi:type="notation:Node" xmi:id="_vjH94GotEeiy--JGkK3msQ" type="2003" element="_dslIMGovEeiS-LmF0kYejA">
+          <children xmi:type="notation:Node" xmi:id="_vjNdcGotEeiy--JGkK3msQ" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_vjOEgGotEeiy--JGkK3msQ" type="7004">
+            <children xmi:type="notation:Node" xmi:id="_dwjpQGovEeiS-LmF0kYejA" type="3010" element="_ds8UkGovEeiS-LmF0kYejA">
+              <styles xmi:type="notation:FontStyle" xmi:id="_dwjpQWovEeiS-LmF0kYejA" fontName="Ubuntu" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_dwjpQmovEeiS-LmF0kYejA"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_dwmFgGovEeiS-LmF0kYejA" type="3010" element="_ds9isGovEeiS-LmF0kYejA">
+              <styles xmi:type="notation:FontStyle" xmi:id="_dwmFgWovEeiS-LmF0kYejA" fontName="Ubuntu" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_dwmFgmovEeiS-LmF0kYejA"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_vjOEgWotEeiy--JGkK3msQ"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_vjOEgmotEeiy--JGkK3msQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_vjH94WotEeiy--JGkK3msQ" fontName="Ubuntu" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vjH94motEeiy--JGkK3msQ" x="-120" y="-50"/>
+        </children>
         <styles xmi:type="notation:DiagramStyle" xmi:id="_NeNUEmjaEeiU559ojQA1Ug"/>
         <edges xmi:type="notation:Edge" xmi:id="_NfOnwGjaEeiU559ojQA1Ug" type="4001" element="_NdpTZ2jaEeiU559ojQA1Ug" source="_NeiEMGjaEeiU559ojQA1Ug" target="_Ne20UGjaEeiU559ojQA1Ug">
           <children xmi:type="notation:Node" xmi:id="_NfQc8GjaEeiU559ojQA1Ug" type="6001">
@@ -75,8 +92,8 @@
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_NdpTZGjaEeiU559ojQA1Ug" borderSize="1" borderSizeComputationExpression="1">
-        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign#//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='StateContainer']/@style"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_ulQAYGotEeiy--JGkK3msQ" borderSize="4" borderSizeComputationExpression="4">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign#//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='StateContainer']/@conditionnalStyles.0/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign#//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='StateContainer']"/>
     </ownedDiagramElements>
@@ -109,9 +126,35 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign#//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='TransitionEdge']"/>
     </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_dslIMGovEeiS-LmF0kYejA" name="TwoStateUpcast processing status">
+      <target xmi:type="k3fsm:FSM" href="TwoStatesUpcast.k3fsm#/"/>
+      <semanticElements xmi:type="k3fsm:FSM" href="TwoStatesUpcast.k3fsm#/"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_dszKoGovEeiS-LmF0kYejA" borderSize="1" borderSizeComputationExpression="1">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign#//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@additionalLayers[name='Animation']/@containerMappings[name='FSMRuntimeDataContainer']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign#//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@additionalLayers[name='Animation']/@containerMappings[name='FSMRuntimeDataContainer']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_ds8UkGovEeiS-LmF0kYejA" name=" string to process: ">
+        <target xmi:type="k3fsm:FSM" href="TwoStatesUpcast.k3fsm#/"/>
+        <semanticElements xmi:type="k3fsm:FSM" href="TwoStatesUpcast.k3fsm#/"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_ds87oGovEeiS-LmF0kYejA" labelPosition="node">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign#//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@additionalLayers[name='Animation']/@containerMappings[name='FSMRuntimeDataContainer']/@subNodeMappings[name='StringToProcess']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign#//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@additionalLayers[name='Animation']/@containerMappings[name='FSMRuntimeDataContainer']/@subNodeMappings[name='StringToProcess']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_ds9isGovEeiS-LmF0kYejA" name=" produced string: ">
+        <target xmi:type="k3fsm:FSM" href="TwoStatesUpcast.k3fsm#/"/>
+        <semanticElements xmi:type="k3fsm:FSM" href="TwoStatesUpcast.k3fsm#/"/>
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_ds-JwGovEeiS-LmF0kYejA" labelPosition="node">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign#//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@additionalLayers[name='Animation']/@containerMappings[name='FSMRuntimeDataContainer']/@subNodeMappings[name='ProducedString']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign#//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@additionalLayers[name='Animation']/@containerMappings[name='FSMRuntimeDataContainer']/@subNodeMappings[name='ProducedString']"/>
+      </ownedElements>
+    </ownedDiagramElements>
     <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign#//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']"/>
     <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_NdpTbWjaEeiU559ojQA1Ug"/>
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign#//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign#//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@additionalLayers[name='Debug']"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign#//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@additionalLayers[name='Animation']"/>
     <target xmi:type="k3fsm:FSM" href="TwoStatesUpcast.k3fsm#/"/>
   </diagram:DSemanticDiagram>
 </xmi:XMI>

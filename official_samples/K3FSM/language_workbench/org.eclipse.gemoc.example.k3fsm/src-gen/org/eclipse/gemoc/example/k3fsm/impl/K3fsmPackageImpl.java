@@ -441,6 +441,9 @@ public class K3fsmPackageImpl extends EPackageImpl implements K3fsmPackage {
 	protected void createAspectAnnotations() {
 		String source = "aspect";
 		addAnnotation(getFSM_CurrentState(), source, new String[] {});
+		addAnnotation(getFSM_UnprocessedString(), source, new String[] {});
+		addAnnotation(getFSM_ConsummedString(), source, new String[] {});
+		addAnnotation(getFSM_ProducedString(), source, new String[] {});
 	}
 
 } //K3fsmPackageImpl

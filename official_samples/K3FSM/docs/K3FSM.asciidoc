@@ -21,9 +21,11 @@ The example focuses on the tooling of a single language (FSM) with the following
 
 * Tree editor,
 * Xtext Editor,
-* Graphical Sirius Editor,
+* Graphical Sirius Editor and Animator,
 * GEMOC Java Engine (Ie. using a Sequential approach)
 * Model execution with debugging and animation capabilities
+
+The FSM use as example here is a simple State Machine which is able to read a string and read it as tokens and produce another string.
 
 [NOTE]
 ====
@@ -43,27 +45,36 @@ The sources of these projects are also available online on https://github.com/ec
 
 Install the projects of this language:
 
--         File > new  > Examples... > GEMOC K3 FSM Language example (Sequential)
+- File -> new  -> Examples... -> GEMOC K3 FSM Language example (Sequential)
 
 Create and start an eclipse runtime:
 
--         Run  >  Run Configurations... > Eclipse application > new
+- Run  ->  Run Configurations... -> Eclipse application > new
+
+In the second Eclipse instance.
 
 Install sample models for the language:
 
--         File > new  > Examples... > GEMOC model example for K3 FSM  (Sequential)
+- File -> new  -> Examples... -> GEMOC model example for K3 FSM  (Sequential)
+
+Run (actually debug ;-) ) one of the provided model using the predefined launch configurations:
+
+- Run  ->  Debug Configurations... -> Gemoc Sequential eXecutable Model -> one of the K3FSM launch conf such as _K3FSM - TwostatesUpcast(abababa)_.
+
+You can change the string passed to the model in the launch configuration (in the _Model initialization argutments_ field).
+
 
 === Language structure overview
 The following figure presents :
 
-* the base language _fsm_ content;
-* how the aspects extends the base classes;
+* the metamodel _k3fsm_ content;
+* how the aspects in _k3fsm.k3dsa_ extends the base classes to add operations;
 
 
 
-[[img-K3FSM_syntaxic_domain_and_semantic_domain]]
-.FSM Metamodel, including syntax and semantic.
-image::images/K3FSM/DIY/K3FSM_syntaxic_domain_and_semantic_domain.png["FSM Metamodel, including syntax and semantic."]
+[[img-K3FSM_classes]]
+.K3FSM Metamodel classes and K3 aspects classes.
+image::images/K3FSM/K3FSM_classes.png["K3FSM Metamodel classes and K3 aspects classes."]
 
 		
 [NOTE]
@@ -71,7 +82,7 @@ image::images/K3FSM/DIY/K3FSM_syntaxic_domain_and_semantic_domain.png["FSM Metam
 For simplification of the diagrams, the associations that doesn't represent a containment, are represented as attributes rather than links.
 ====
 
-The elements with a green bullet in <<img-K3FSM_syntaxic_domain_and_semantic_domain>> are par of the semantic domain. This is the part of the model that will change  during the execution of a FSM model. Note that not all attribute are require for correct execution but provide nice feedback in the animation. (for example _consummedString_)
+The elements with a green bullet in <<img-K3FSM_classes>> are par of the semantic domain. This is the part of the model that will change  during the execution of a FSM model. Note that some attributes (such as _consummedString_) may not be  mandatory for correct execution but provide nice user feedback in the animation. 
 
 
 [[K3FSM-example-DIY]]
@@ -79,8 +90,15 @@ The elements with a green bullet in <<img-K3FSM_syntaxic_domain_and_semantic_dom
 
 By following these instructions, you'll be able to reproduce this example from scratch.
 
+NOTE: You may apply some of these steps in a different order. This is only an example of a valid scenario. 
+
+==== Create the Language project
+
 * Open the xDSML perspective
 * Create a GEMOC Sequential xDSML Project named "org.eclipse.gemoc.example.k3fsm.xdsml"( Menu _File -> New -> GEMOC Sequential xDSML Project_) then _Next_ and select _Simple Sequential K3 language project_ -> Finish
+
+==== Create the Domain concepts
+
 * Right click on the project; _GEMOC Language_ ->  _Create Domain Model Project for Language_. Name this new project "org.eclipse.gemoc.example.k3fsm". Optionally adapt the nsUri.
     ** in the .dsl file, fix the _ecore_ entry by removing `platform:/resource/ecoreFilePath,` from the value.
 * Edit the ecore file and add the concepts corresponding to the syntaxic domain (ie. reproduce concepts of <<img-K3FSM_syntaxic_domain_figure>>).
@@ -100,10 +118,15 @@ Variant: You create the ecore project before creating the xDSML project
 Menu _File -> New -> Ecore Modeling Project then in the template wizard of the xdsml project creation, browse and select the ecore file in the project.
 ====
 
-* Edit the ecore, to add the concepts for the semantic domain. Ie. the reference _currentState_, and teh attributes _unprocessedString_, _consummedString_, and _producedString_ as presented in <<img-K3FSM_syntaxic_domain_and_semantic_domain>>.
+==== Add Semantics data and Tree Editor
+
+* Edit the ecore, to add the concepts for the semantic domain. Ie. the reference _currentState_, and the attributes _unprocessedString_, _consummedString_, and _producedString_ as presented in <<img-K3FSM_classes>>.
 * Add an EAnnotation _aspect_ on the data that will change during the execution. In the FSM, add the EAnnotation on the reference _currentState_, and the attributes _unprocessedString_, _consummedString_ and, _producedString_ (aspect is the source of the EAnnotation)
 
 * Reload the genmodel and generate the model, edit and editors.
+
+
+==== Add Textual Editor
 
 * Rigth clik on the xdsml project; _GEMOC Language_ ->  _Create XText Editor Project for Language_. Add the genmodel to the list of EPackages; Name this new project "org.eclipse.gemoc.example.k3fsm.xtext"; use "org.eclipse.gemoc.example.k3fsm.K3FSM" as name for the language, and "k3fsm" as extensions.
    ** in the xtext editor:
@@ -113,6 +136,8 @@ Menu _File -> New -> Ecore Modeling Project then in the template wizard of the x
    *** in the _GenerateK3FSM.mwe2_ file, verify that then genmodel is referenced with a correct uri; someting like this `referencedResource = "platform:/resource/org.eclipse.gemoc.example.k3fsm/model/k3fsm.genmodel"`
    *** right click; _Run As_ -> _MWE2 Workflow_
    
+
+==== Add Semantics operations
 
 * Rigth clik on the xdsml project; _GEMOC Language_ ->  _Create DSA Project for Language_. Next -> Select "User Ecore Basic Aspect"; Set "Aspet file name" to "K3FSMAspects".
 
@@ -133,6 +158,9 @@ include::../language_workbench/org.eclipse.gemoc.example.k3fsm.k3dsa/src/org/ecl
 -
 
     ** Verify that the project _org.eclipse.gemoc.example.k3fsm.xdsml_ has a dependency to the project that contains the K3 aspects ( _org.eclipse.gemoc.example.k3fsm.k3dsa_)
+    
+    
+==== Add Graphical Editor
     
     * Create a project for the graphical editor: File -> New -> Viewpoint Specification Project 
     
@@ -164,10 +192,42 @@ public String getLabel(Transition transition) {
 }
 ------
     
+==== Add Animation and Debug capabilities to the graphical editor
+
+Debug capabilities (breakpoint support, basic highlighting, ...)
+
+    * Add debug capabilities to the graphical editor: Rigth clik on the xdsml project; _GEMOC Language_ ->  _Create Animator Project for Language_. Select _Add a debug layer to an existing diagram description_ -> Next -> Select your diagram (_FSM_) -> Next -> Finish
     
+Domain specific animation
+    
+    * in the _k3fsm.odesign_ file; on the diagram _FSM_ -> _New Diagram element_ -> _Additional layer_ ; ID = "Animation";
+    ** on the animation layer; _New Diagram element_ -> _Decorations_; then _New_ -> _Mapping based decoration_; Name = "Current State"; Mapping =StateContainer; Image Expression = "/org.eclipse.gemoc.example.k3fsm.design/icons/cursor-3-24.png"; Precondition Expression = `service:self.isCurrenState`;
+    ** add an image named _cursor-3-24.png_ in the icons folder of the design project.
+    *** in the plugin.xmlfile editor, add the icons folder to the binary build (ie. in the _bin.includes_ section of build.properties file) .
+    * in the _k3fsm.odesign_ file; in FSM Palette; add a _User fixed color_; name = _hasBeenAnimated_; select a color (pink for example)
+    ** in the _Animation_ layer; _New Customization_ -> _Style Customizations_; then _New Customization_ -> _Style Customization_; Predicate expression = `service:self.hasBeenActivated`
+    ** in this Customization; _New Customization_ -> _Property customization by selection_; applied on = "TransitionEdge > Edge Style solid"; Property Name = `strokeColor`, Value Selection = `hasBeenAnimated`
+    ** in this Customization; _New Customization_ -> _Property customization by selection_; applied on = (all Gradient stuff related to StateContainer) ; Property Name = `borderColor`, Value Selection = `hasBeenAnimated`
+    
+    * in K3FSMViewPoint; _New Extension_ -> _Java Extension_; Qualified Class Name = `org.eclipse.gemoc.example.k3fsm.design.services.FsmAnimatorServices`
+    
+    * add a new class _org.eclipse.gemoc.example.k3fsm.design.services.FsmAnimatorServices_ that extends _org.eclipse.gemoc.executionframework.extensions.sirius.services.AbstractGemocAnimatorServices_ with th following content:
+    
+[source,java]
+-------------------------------------------
+include::../language_workbench/org.eclipse.gemoc.example.k3fsm.design/src/org/eclipse/gemoc/example/k3fsm/design/services/FsmAnimatorServices.java[tags=FsmAnimatorServicesClass]
+-------------------------------------------
 
-
-
+Also add the line `res.add(new StringCouple("FSM", "Animation"));` in the getRepresentationRefreshList() method of  FsmDebugServices.java
+    
+    ** in the _Animation_ layer; _New Diagram Element_  -> _Container_; ID = "FSMRuntimeDataContainer"; Domain Class = FSM; Semantic Candidate Expression = `[self/]`; Children Representation = List;
+    *** on _FSMRuntimeDataContainer_; _New Style_ -> _Gradient_; with label/Label expression = `aql:self.name+ ' processing status'`
+    *** on _FSMRuntimeDataContainer_; _New Diagram Element_ -> _Sub Node_; with Id = _StringToProcess_; Domain class = FSM; Semantic Candidate Expression = `[self/]`
+    **** on _StringToProcess_; _New Style_ -> _Basic shape_; with Label/LabelExpression = `aql:' string to process: '+self.unprocessedString`; uncheck "show icon"; Label Alignment = left;
+    
+Repeat the above steps about "_StringtoProcess_/unprocessedString" and adapt to "_ProducedString_/producedString" to create another element in the list for tthis other data
+    
+    
 
  
 
