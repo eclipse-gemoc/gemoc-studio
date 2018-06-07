@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated k3fsm -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.eclipse.gemoc.example.k3fsm.presentation.K3fsmModelWizardID"
+            name="%_UI_K3fsmModelWizard_label"
+            class="org.eclipse.gemoc.example.k3fsm.presentation.K3fsmModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/K3fsmModelFile.gif">
+         <description>%_UI_K3fsmModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated k3fsm -->
+      <editor
+            id="org.eclipse.gemoc.example.k3fsm.presentation.K3fsmEditorID"
+            name="%_UI_K3fsmEditor_label"
+            icon="icons/full/obj16/K3fsmModelFile.gif"
+            extensions="k3fsm"
+            class="org.eclipse.gemoc.example.k3fsm.presentation.K3fsmEditor"
+            contributorClass="org.eclipse.gemoc.example.k3fsm.presentation.K3fsmActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

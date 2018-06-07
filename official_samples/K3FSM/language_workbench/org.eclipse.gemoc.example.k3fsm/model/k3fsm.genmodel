@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ASCII"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.gemoc.example.k3fsm/src-gen" creationIcons="false" editDirectory="/org.eclipse.gemoc.example.k3fsm.edit/src-gen" editorDirectory="/org.eclipse.gemoc.example.k3fsm.editor/src-gen" modelPluginID="org.eclipse.gemoc.example.k3fsm" modelName="K3fsm" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>k3fsm.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="K3fsm" basePackage="org.eclipse.gemoc.example" disposableProviderFactory="true">
+    <ecorePackage href="k3fsm.ecore#/"/>
+    <genClasses>
+      <ecoreClass href="k3fsm.ecore#//FSM"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="k3fsm.ecore#//FSM/name"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="k3fsm.ecore#//FSM/ownedStates"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="k3fsm.ecore#//FSM/initialState"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="k3fsm.ecore#//FSM/finalState"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="k3fsm.ecore#//FSM/currentState"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="k3fsm.ecore#//FSM/unprocessedString"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="k3fsm.ecore#//FSM/consummedString"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="k3fsm.ecore#//FSM/producedString"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="k3fsm.ecore#//State"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="k3fsm.ecore#//State/name"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="k3fsm.ecore#//State/outgoingTransitions"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="k3fsm.ecore#//State/incomingTransitions"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="k3fsm.ecore#//State/owningFSM"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="k3fsm.ecore#//Transition"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="k3fsm.ecore#//Transition/input"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="k3fsm.ecore#//Transition/target"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="k3fsm.ecore#//Transition/name"/>
+      </genFeatures>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="k3fsm.ecore#//Transition/output"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="k3fsm.ecore#//Transition/source"/>
+      </genFeatures>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

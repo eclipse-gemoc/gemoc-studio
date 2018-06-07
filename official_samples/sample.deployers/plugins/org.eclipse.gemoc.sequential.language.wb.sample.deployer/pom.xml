@@ -17,8 +17,7 @@
         <sample_root>${basedir}/../../sample</sample_root>
         <tfsm_sample_language_root>${basedir}/../../../TFSM/language_workbench</tfsm_sample_language_root>
         <legacyfsm_sample_language_root>${basedir}/../../../LegacyFSM/language_workbench</legacyfsm_sample_language_root>
-        <sigpml_sample_language_root>${basedir}/../../../SigPML/language_workbench</sigpml_sample_language_root>
-        <tfsmandsigpml_sample_language_root>${basedir}/../../../bcool_TFSMAndSigPML/language_workbench</tfsmandsigpml_sample_language_root>
+        <k3fsm_example_language_root>${basedir}/../../../K3FSM/language_workbench</k3fsm_example_language_root>
     </properties>
     
 	<parent>
@@ -78,7 +77,34 @@
 									<fileset dir="${legacyfsm_sample_language_root}/org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.trace/" />
 								</zip>
 
-								
+								<!-- K3FSM -->
+								<zip destfile="${basedir}/zips/org.eclipse.gemoc.example.k3fsm.zip">
+									<fileset dir="${k3fsm_example_language_root}/org.eclipse.gemoc.example.k3fsm/" />
+								</zip>
+								<zip destfile="${basedir}/zips/org.eclipse.gemoc.example.k3fsm.design.zip">
+									<fileset dir="${k3fsm_example_language_root}/org.eclipse.gemoc.example.k3fsm.design/" />
+								</zip>
+								<zip destfile="${basedir}/zips/org.eclipse.gemoc.example.k3fsm.edit.zip">
+									<fileset dir="${k3fsm_example_language_root}/org.eclipse.gemoc.example.k3fsm.edit/" />
+								</zip>
+								<zip destfile="${basedir}/zips/org.eclipse.gemoc.example.k3fsm.editor.zip">
+									<fileset dir="${k3fsm_example_language_root}/org.eclipse.gemoc.example.k3fsm.editor/" />
+								</zip>
+								<zip destfile="${basedir}/zips/org.eclipse.gemoc.example.k3fsm.k3dsa.zip">
+									<fileset dir="${k3fsm_example_language_root}/org.eclipse.gemoc.example.k3fsm.k3dsa/" />
+								</zip>
+								<zip destfile="${basedir}/zips/org.eclipse.gemoc.example.k3fsm.xdsml.zip">
+									<fileset dir="${k3fsm_example_language_root}/org.eclipse.gemoc.example.k3fsm.xdsml/" />
+								</zip>
+								<zip destfile="${basedir}/zips/org.eclipse.gemoc.example.k3fsm.xtext.zip">
+									<fileset dir="${k3fsm_example_language_root}/org.eclipse.gemoc.example.k3fsm.xtext/" />
+								</zip>
+								<zip destfile="${basedir}/zips/org.eclipse.gemoc.example.k3fsm.xtext.ide.zip">
+									<fileset dir="${k3fsm_example_language_root}/org.eclipse.gemoc.example.k3fsm.xtext.ide/" />
+								</zip>
+								<zip destfile="${basedir}/zips/org.eclipse.gemoc.example.k3fsm.xtext.ui.zip">
+									<fileset dir="${k3fsm_example_language_root}/org.eclipse.gemoc.example.k3fsm.xtext.ui/" />
+								</zip>
 							</tasks>
 						</configuration>
 					</execution>

@@ -27,8 +27,8 @@
 	<xsl:param name="toc.section.depth">4</xsl:param>      
 	<xsl:param name="make.graphic.viewport" select="0"/>
 	<xsl:param name="callout.graphics" select="1" />
-	<xsl:param name="callout.graphics.path">gfx/callouts/</xsl:param>
-	<xsl:param name="callout.graphics.extension">.gif</xsl:param>
+	<xsl:param name="callout.graphics.path">images/community/docbook/callouts/</xsl:param>
+	<xsl:param name="callout.graphics.extension">.svg</xsl:param>
 	<xsl:param name="admon.graphics" select="1"/>
 	<!-- <xsl:param name="admon.graphics.path">gfx/admonitions/</xsl:param>-->
 	<xsl:param name="admon.graphics.path">
