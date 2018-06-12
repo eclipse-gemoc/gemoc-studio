@@ -43,3 +43,10 @@ The document is organized as follow:
 ====
 In order to ease modifications, every files must start with a footnote allowing to retrieve the source file in the git repositories. 
 ====
+
+
+[TIP]
+====
+To edit the documentation we recommand the use of http://plantuml.com/eclipse,eclipse[plantuml eclipse plugin]   and https://github.com/de-jcup/eclipse-asciidoctor-editor[eclipse asciidoc editor] .
+You can install them in an Eclipse using either the market place or the following update site: https://ascii-uml.github.io/eclipse/
+====
