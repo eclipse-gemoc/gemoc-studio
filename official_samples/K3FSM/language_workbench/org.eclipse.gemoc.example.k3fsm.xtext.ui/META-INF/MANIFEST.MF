@@ -24,3 +24,4 @@ Export-Package: org.eclipse.gemoc.example.k3fsm.xtext.ui.internal,
  org.eclipse.gemoc.example.k3fsm.ui.quickfix,
  org.eclipse.gemoc.example.k3fsm.ui.contentassist
 Bundle-Activator: org.eclipse.gemoc.example.k3fsm.xtext.ui.internal.XtextActivator
+Automatic-Module-Name: org.eclipse.gemoc.example.k3fsm.xtext.ui
