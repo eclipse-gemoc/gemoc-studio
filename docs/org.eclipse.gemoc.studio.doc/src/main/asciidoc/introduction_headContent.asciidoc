@@ -25,12 +25,12 @@ image::images/introduction/GemocWorkbenchesGlobalPicture.png["Gemoc Workbenches 
 
 In this document:
 
- * items or roles relative to the Language Workbench are identified with the following icon : image:images/icons/IconeGemocLanguage_32.png[width=48, height=48]
- * items or roles relative to the Modeling Workbench are identified with the following icon : image:images/icons/IconeGemocModel_32.png[width=48, height=48]
+ * items or roles relative to the Language Workbench are identified with the following icon : image:images/icons/IconeGemocLanguage_32.png[width=32, height=32]
+ * items or roles relative to the Modeling Workbench are identified with the following icon : image:images/icons/IconeGemocModel_32.png[width=32, height=32]
 
 [NOTE]
 ====
-The latest version of this document is available online from http://gemoc.github.io/gemoc-studio/
+The latest version of this document is available online from http://gemoc.org/studio_documentations.html
 ====
 
 === Language Workbench overview image:images/icons/IconeGemocLanguage_16.png[width=16, height=16, role=right]
