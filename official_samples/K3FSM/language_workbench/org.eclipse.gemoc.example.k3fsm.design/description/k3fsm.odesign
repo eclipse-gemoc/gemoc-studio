@@ -74,7 +74,7 @@
             </style>
           </subNodeMappings>
           <subNodeMappings name="ProducedString" semanticCandidatesExpression="[self/]" domainClass="FSM">
-            <style xsi:type="style:BundledImageDescription" showIcon="false" labelExpression="aql:' produced string: '+self.procudedString" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+            <style xsi:type="style:BundledImageDescription" showIcon="false" labelExpression="aql:' produced string: '+self.producedString" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -88,7 +88,7 @@
           </style>
         </containerMappings>
         <decorationDescriptionsSet>
-          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="Current State" preconditionExpression="service:self.isCurrentState" imageExpression="/org.eclipse.gemoc.example.k3fsm.design/icons/cursor-3-24.png" mappings="//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='StateContainer']"/>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="Current State" position="SOUTH_EAST" preconditionExpression="service:self.isCurrentState" imageExpression="/org.eclipse.gemoc.example.k3fsm.design/icons/cursor-3-24.png" mappings="//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='StateContainer']"/>
         </decorationDescriptionsSet>
         <customization>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="service:self.hasBeenActivated">
@@ -103,7 +103,7 @@
     <ownedJavaExtensions qualifiedClassName="org.eclipse.gemoc.example.k3fsm.design.services.FsmAnimatorServices"/>
   </ownedViewpoints>
   <userColorsPalettes name="FSM Palette">
-    <entries xsi:type="description:UserFixedColor" red="255" green="255" blue="0" name="current instruction"/>
+    <entries xsi:type="description:UserFixedColor" red="227" green="227" blue="27" name="current instruction"/>
     <entries xsi:type="description:UserFixedColor" red="255" green="192" blue="203" name="hasBeenAnimated"/>
   </userColorsPalettes>
 </description:Group>
