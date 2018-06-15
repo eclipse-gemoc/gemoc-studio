@@ -24,3 +24,4 @@ Export-Package: org.eclipse.gemoc.example.k3fsm.formatting2,
  org.eclipse.gemoc.example.k3fsm.serializer,
  org.eclipse.gemoc.example.k3fsm.validation
 Import-Package: org.apache.log4j
+Automatic-Module-Name: org.eclipse.gemoc.example.k3fsm.xtext
