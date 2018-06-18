@@ -39,7 +39,7 @@ pipeline {
 				}
 			    echo 'Content of the workspace'
 				sh "ls"
-				sh "chmod 777 show-jenkins-checkout-branches-summary.sh"
+				sh "chmod 777 ./gemoc-studio/dev_support/jenkins/show-jenkins-checkout-branches-summary.sh"
 	      		sh "./gemoc-studio/dev_support/jenkins/showGitBranches.sh ."
 			}
 		}
