@@ -1,0 +1,52 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+
+= Developer Guide
+== Contributing
+
+endif::[]
+
+=== Documentation
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/dev/ContributingDocumentation.asciidoc.]
+
+The GEMOC documentation (this document) structure is designed to:
+
+- allow both online and eclipse help output,
+- display an outline that helps organizing contributions,
+- maintain the documentation sources as close as possible of the documented element in order to associate documentation commits to the code commits, 
+- use a rich but human readable syntax,
+- ease modification.
+
+As it supports include directives, we chose *Asciidoc* syntax with the appropriate tool chain.
+
+Some of the diagrams are generated using _plantuml_.
+
+
+The document is organized as follow:
+
+* one *master.asciidoc* document that contains the main outline and use `include` directive in order to embed all the chapters and sections. (https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/master.asciidoc)
+* included sections are spread across the repositories according to their content
+
+	** files named  `* headContent.asciidoc` are headers of a chapter/section defined in master.asciidoc, the other files  are contributions to a chapter/section.
+	** sections related a specific user interface are located in a _docs_ folder directly in the corresponding plugin. (ex: description of a wizard to be included in the user guide)
+	** sections related to a component are stored in a _docs_ folder next to the _plugins_, _tests_ and, _releng_ folders (ex: sections for the Developer Guide)
+	** general sections are located in folders in https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/
+* one *pom.xml* which allows to build the whole document. (https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/pom.xml).
+ 	
+	** It also takes care to generate the png images from the plantuml sources. To achieve this, it first copies all images folders from included sections.
+
+	
+[TIP]
+====
+In order to ease modifications, every files must start with a footnote allowing to retrieve the source file in the git repositories. 
+====
+
+
+[TIP]
+====
+To edit the documentation we recommand the use of http://plantuml.com/eclipse,eclipse[plantuml eclipse plugin]   and https://github.com/de-jcup/eclipse-asciidoctor-editor[eclipse asciidoc editor] .
+You can install them in an Eclipse using either the market place or the following update site: https://ascii-uml.github.io/eclipse/
+====

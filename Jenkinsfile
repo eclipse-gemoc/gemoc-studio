@@ -27,18 +27,20 @@ pipeline {
 				dir('gemoc-studio') {
     					//	checkout resolveScm(source: git('https://github.com/eclipse/gemoc-studio.git'), targets: [BRANCH_NAME,'master'])
 			    		script {
-	         				def gemocstudioScm = resolveScm source: [$class: 'GitSCMSource', credentialsId: '', id: '_', remote: 'https://github.com/eclipse/gemoc-studio.git', traits: [[$class: 'BranchDiscoveryTrait']]], targets: [BRANCH_NAME, 'master']
+	         				def gemocstudioScm = resolveScm source: [$class: 'GitSCMSource', credentialsId: '', id: '_', remote: 'https://github.com/eclipse/gemoc-studio.git', traits: [[$class: 'BranchDiscoveryTrait'], [$class: 'LocalBranchTrait']]], targets: [BRANCH_NAME, 'master']
 	         				checkout gemocstudioScm
 	         			}
 			    	}
 				dir('gemoc-studio-modeldebugging') {
     					script {
-	         				def gemocstudiomodeldebuggingScm = resolveScm source: [$class: 'GitSCMSource', credentialsId: '', id: '_', remote: 'https://github.com/eclipse/gemoc-studio-modeldebugging.git', traits: [[$class: 'BranchDiscoveryTrait']]], targets: [BRANCH_NAME, 'master']
+	         				def gemocstudiomodeldebuggingScm = resolveScm source: [$class: 'GitSCMSource', credentialsId: '', id: '_', remote: 'https://github.com/eclipse/gemoc-studio-modeldebugging.git', traits: [[$class: 'BranchDiscoveryTrait'], [$class: 'LocalBranchTrait']]], targets: [BRANCH_NAME, 'master']
 	         				checkout gemocstudiomodeldebuggingScm
 	         			}
 				}
 			    echo 'Content of the workspace'
 				sh "ls"
+				sh "chmod 777 ./gemoc-studio/dev_support/jenkins/showGitBranches.sh"
+	      		sh "./gemoc-studio/dev_support/jenkins/showGitBranches.sh ."
 			}
 		}
 		stage('Build and verify') {
@@ -68,7 +70,7 @@ pipeline {
 		stage("Archive in Jenkins") {
 			steps {
 				echo "archive artifact"
-				archiveArtifacts '**/target/products/*.zip, **/gemoc-studio/gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.updatesite/target/repository/**'
+				archiveArtifacts '**/target/products/*.zip, **/gemoc-studio/gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.updatesite/target/repository/**, **/docs/org.eclipse.gemoc.studio.doc/target/publish/**'
 			}
 		}
 		stage('Web upload') {
@@ -88,6 +90,13 @@ pipeline {
 				sh 'mkdir -p ${DOWNLOAD_FOLDER}/updates/nightly'
 				sh 'cp -r    gemoc-studio/gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.product/target/repository/* ${DOWNLOAD_FOLDER}/updates/nightly'
 				sh 'zip -R   ${DOWNLOAD_FOLDER}/updates/nightly/repository.zip gemoc-studio/gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.product/target/repository/*'
+				
+				echo "Deploy documentation archive to download.eclipse.org"
+				sh 'rm -rf   ${DOWNLOAD_FOLDER}/docs/nightly'
+				sh 'mkdir -p ${DOWNLOAD_FOLDER}/docs/nightly'
+				sh 'cp -r    gemoc-studio/docs/org.eclipse.gemoc.studio.doc/target/publish/webhelp/* ${DOWNLOAD_FOLDER}/docs/nightly'				
+				sh 'mkdir -p ${DOWNLOAD_FOLDER}/docs/nightly/archive'
+				sh 'zip -R   ${DOWNLOAD_FOLDER}/docs/nightly/archive/studio-docs.zip gemoc-studio/docs/org.eclipse.gemoc.studio.doc/target/publish/webhelp/*'
 			}
 		}
 	}

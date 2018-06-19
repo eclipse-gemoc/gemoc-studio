@@ -1,0 +1,64 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+= Examples
+endif::[]
+
+[[LegacyFSM-Sequential-example]]
+== LegacyFSM Sequential example
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/official_samples/sample.deployers/plugins/org.eclipse.gemoc.sequential.language.wb.sample.deployer/docs/LegacyFSM_sequential.asciidoc.]
+
+
+
+
+=== Presentation
+
+This example features an executable language using GEMOC Sequential Engine.   
+
+It illustrates the GEMOC animation framework on a Finite State Machine language.   
+
+The example focuses on the separation of the base language: FSM and the executable sequential language: XSFSM.     
+
+The tree editor and graphic editor are defined on top of the FSM language. They are considered as if they were pre-existing (Ie. legacy).     
+
+Then, Melange is used to built the XSFSM executable language by inheriting from FSM. The animation layer is also built as an extensions of the graphical editor. 
+
+This allows to use the model polymorphism. Ie. it is possible to edit FSM models and then run them as XSFSM with the appropriate animation extensions. 
+
+More information and the sources of these projects are available online on https://github.com/eclipse/gemoc-studio/tree/master/official_samples/LegacyFSM[Github].   
+
+=== Intallation
+
+Install the projects of this language:
+
+-         File > new  > Examples... > GEMOC Legacy FSM Language example (Sequential)
+
+Create and start an eclipse runtime:
+
+-         Run  >  Run Configurations... > Eclipse application > new
+
+Install sample models for the language:
+
+-         File > new  > Examples... > GEMOC model example for Legacy FSM  (Sequential)
+
+=== Language structure overview
+The following figure presents :
+
+* the base language _fsm_ content;
+* how the aspects extends the base classes;
+* how the _xsfsm_ language is built by inheriting from the _fsm_ language and using the aspects.
+
+
+[[img-LegacyFSM_language_figure]]
+.Language relations, packages and classes view.
+image::images/LegacyFSM_language_figure.png["Language relations, packages and classes view."]
+
+		
+Please note that for simplification of the diagram, the associations that doesn't represent a containment, have been represented as attribute rather than links.
+
+
+=== DIY
+
+ TODO step to reproduce this exemple from "almost" scratch

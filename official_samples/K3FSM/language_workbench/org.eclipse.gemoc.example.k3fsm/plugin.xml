@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated k3fsm -->
+      <package
+            uri="http://www.eclipse.org/gemoc/example/k3fsm"
+            class="org.eclipse.gemoc.example.k3fsm.K3fsmPackage"
+            genModel="model/k3fsm.genmodel"/>
+   </extension>
+
+</plugin>

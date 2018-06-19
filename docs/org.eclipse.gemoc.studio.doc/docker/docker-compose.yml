@@ -1,0 +1,9 @@
+version: '3'
+services:
+  mvncompile:
+    image: "gemoc-doc-compilation:latest"
+    build: "."
+    volumes:
+      - "./cache-m2:/root/.m2"
+      - "../../../..:/root/src"
+      

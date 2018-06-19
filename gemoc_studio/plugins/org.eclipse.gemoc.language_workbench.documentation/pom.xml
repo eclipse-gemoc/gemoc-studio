@@ -20,8 +20,8 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.eclipse.gemoc.documentation</groupId>
-			<artifactId>gemoc-studio-guide</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<artifactId>gemoc-studio-documentation</artifactId>
+			<version>3.0.0-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 
@@ -44,12 +44,12 @@
 							<goal>replace</goal>
 						</goals>
 						<configuration>
-							<file>eclipse_help/guide/eclipse/toc.xml</file>
+							<file>eclipse_help/master/toc.xml</file>
 							<regex>false</regex>
 							<replacements>
 								<replacement>
 									<token>href="</token>
-									<value>href="eclipse_help/guide/eclipse/</value>
+									<value>href="eclipse_help/master/</value>
 								</replacement>
 							</replacements>
 						</configuration>
@@ -86,11 +86,10 @@
 						<configuration>
 							<tasks>
 								<mkdir dir="eclipse_help" />
-
-								<mkdir dir="eclipse_help/guide" />
-								<copy todir="eclipse_help/guide/eclipse">
+								<mkdir dir="eclipse_help/master" />
+								<copy todir="eclipse_help/master">
 									<fileset
-										dir="${project.basedir}/../../../docs/org.eclipse.gemoc.studio.doc/src/userguide/target/docbook/publish/guide/eclipse" />
+										dir="${project.basedir}/../../../docs/org.eclipse.gemoc.studio.doc/target/publish/eclipse" />
 								</copy>
 							</tasks>
 						</configuration>

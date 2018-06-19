@@ -1,0 +1,17 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+== Language Workbench User Guide
+=== Provide language with tools
+endif::[]
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/userguide/lw_ProvideLanguageWithTools_headContent.asciidoc.]
+
+Let's focus on adding execution specific features to the language.
+
+This includes enabling animation and representing the dynamic part of the language. 
+Ie. the data  and relevant information that change during the model execution.
+
+Some feature may be generic and available for any languages, 
+some may be domain specific and require some customization dedicated to the language. 

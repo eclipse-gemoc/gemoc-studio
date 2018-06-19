@@ -1,0 +1,261 @@
+= GEMOC Studio Documentation
+:doctype: book
+:toc:
+:numbered:
+
+// included document can test in order to have conditionnal macros
+:includedInMaster: true
+
+////////////////////////////////////////////////////////////////
+//	master.asciidoc is mainly an outline of all included files
+//	no real content should go there 
+////////////////////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////////////////
+//	use dedication to place image before the TOC
+////////////////////////////////////////////////////////////////
+
+[dedication]
+== Navigation Overview
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/master.asciidoc.]
+
+Shortcut to main activities in the user guide sections:
+
+image::images/introduction/GemocWorkbenchesGlobalPicture.png["Gemoc Workbenches Global Picture", 800,  link="http://www.gemoc.org"]
+
+
+////////////////////////////////////////////////////////////////
+// Inclusion of the content of main sections
+// these sections file should usually not start with a title with the level <= to the host level 
+// (or you must use leveloffset directive in order to fix the level) 
+////////////////////////////////////////////////////////////////
+
+[preface]
+== Introduction
+
+include::introduction_headContent.asciidoc[]
+
+[[userguide-gemoc-language-workbench]]
+= Language Workbench User Guide image:images/icons/IconeGemocLanguage_16.png[width=16, height=16, role=right]
+
+[[userguide-lw-language-workbench-overview]]
+== Language Workbench overview
+
+include::userguide/lw_overview_headContent.asciidoc[]
+
+
+[[userguide-lw-create-language-define-syntaxes]]
+== Create a language / Define syntaxes
+
+include::userguide/lw_CreateLanguage_headContent.asciidoc[]
+
+[[section-gemoc-language-project]]
+=== xDSML Project (TODO rename GEMOC Project)
+
+include::userguide/lw_CreateGEMOCProject_headContent.asciidoc[]
+
+[[section-define-AS-project]]
+=== Define a Domain Model Project
+
+include::userguide/lw_DefineDomainModelProject_headContent.asciidoc[]
+
+[[defining-a-concrete-syntax-section]]
+=== Define a Concrete Syntax
+
+include::userguide/lw_DefineConcreteSyntax_headContent.asciidoc[]
+
+[[userguide-lw-make-language-executable]]
+== Make language executable
+
+include::userguide/lw_MakeLanguageExecutable_headContent.asciidoc[]
+
+include::../../../../../../gemoc-studio-modeldebugging/java_execution/java_xdsml/plugins/org.eclipse.gemoc.execution.sequential.javaxdsml.ide.ui/docs/asciidoc/user_lw_MakeK3SequentialExecutableLanguage.asciidoc[]
+
+include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/ccsljavaxdsml/user_lw_MakeCCSLJavaConcurrentExecutableLanguage.asciidoc[]
+
+[[userguide-lw-provide-language-with-tools]]
+== Provide language with tools
+
+
+include::userguide/lw_ProvideLanguageWithTools_headContent.asciidoc[]
+
+=== Define Model Debug information
+
+.TODO
+*****
+some text about steps and dynamic data (@aspect, etc.)
+*****
+
+include::../../../../../../gemoc-studio-modeldebugging/trace/generator/plugins/org.eclipse.gemoc.trace.gemoc.ui/docs/asciidoc/user_lw_GenerateTraceMetamodel.asciidoc[]
+
+include::../../../../../../gemoc-studio-modeldebugging/simulationmodelanimation/plugins/org.eclipse.gemoc.dsl.debug.ide.sirius.ui/docs/asciidoc/user_lw_DefineSiriusDebug.asciidoc[]
+
+
+include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/clocksystem/user_lw_ExhaustiveExploration.asciidoc[]
+
+[[userguide-lw-define-composition-of-languages]]
+== Define composition of languages
+
+include::userguide/lw_ComposingLanguages_headContent.asciidoc[]
+
+include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/bcool/user_lw_ComposeLanguages_bcool.asciidoc[]
+
+[[userguide-lw-deploy-language]]
+== Deploy language
+
+
+include::userguide/lw_DeployLanguages_headContent.asciidoc[]
+
+[[userguide-modeling-workbench]]
+= Modeling workbench  User Guide image:images/icons/IconeGemocModel_16.png[width=16, height=16, role=right]
+
+[[userguide-mw-modeling-workbench-overview]]
+== Modeling Workbench overview
+include::userguide/mw_overview_headContent.asciidoc[]
+
+[[userguide-mw-edit-models]]
+== Edit models
+include::userguide/mw_EditModels_headContent.asciidoc[]
+
+include::../../../../../../gemoc-studio-modeldebugging/simulationmodelanimation/plugins/org.eclipse.gemoc.dsl.debug.ide.sirius.ui/docs/asciidoc/user_mw_EditModels_Sirius.asciidoc[]
+include::userguide/mw_EditModels_EMFTree.asciidoc[]
+include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/xtext/user_mw_EditModels_xtext.asciidoc[]
+
+[[userguide-mw-execute-animate-debug-models]]
+== Execute, animate and debug models
+
+include::userguide/mw_ExecuteAnimateDebug_headContent.asciidoc[]
+
+=== Execute a model
+
+// include::userguide/mw_Execute_headContent.asciidoc[]
+
+include::../../../../../../gemoc-studio-modeldebugging/java_execution/java_engine/plugins/org.eclipse.gemoc.execution.sequential.javaengine.ui/docs/asciidoc/user_mw_ExecuteSequentialModel.asciidoc[]
+
+include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/ccsljavaxdsml/user_mw_ExecuteConcurrentModel.asciidoc[]
+
+[[userguide-mw-coordinate-models]]
+== Coordinate models
+
+
+include::userguide/mw_CoordinateModels_headContent.asciidoc[]
+
+include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/bcool/user_mw_CoordinateModels_bcool.asciidoc[+1]
+
+[[userguide-mw-other-tools]]
+== Other tools
+
+include::userguide/mw_OtherTools_headContent.asciidoc[]
+
+include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/clocksystem/user_mw_ExhaustiveExploration.asciidoc[]
+
+= Tutorials
+
+== Tuto 1
+include::tutorials_headContent.asciidoc[]
+
+= Examples
+
+include::examples_headContent.asciidoc[]
+
+include::../../../../../official_samples/K3FSM/docs/K3FSM.asciidoc[]
+
+include::../../../../../official_samples/sample.deployers/plugins/org.eclipse.gemoc.sequential.language.wb.sample.deployer/docs/LegacyFSM_sequential.asciidoc[]
+
+= Developer Guide
+
+include::dev/developer_headContent.asciidoc[]
+
+
+== General architecture
+
+include::dev/GeneralArchitecture_headContent.asciidoc[]
+
+== Components documentation
+
+include::dev/Components_headContent.asciidoc[]
+
+=== Commons
+
+include::../../../../../../gemoc-studio/commons/docs/dev/Commons_headContent.asciidoc[]
+
+include::../../../../../../gemoc-studio/commons/docs/dev/GemocCommons.asciidoc[]
+
+include::../../../../../../gemoc-studio/commons/docs/dev/GemocGExpressions.asciidoc[]
+
+include::../../../../../../gemoc-studio/commons/docs/dev/GemocDsl.asciidoc[]
+
+
+[[devguide-gemoc-frameworks]]
+=== GEMOC Framework
+
+
+include::../../../../../../gemoc-studio-modeldebugging/framework/execution_framework/docs/dev/ExecutionFramework.asciidoc[]
+
+include::../../../../../../gemoc-studio-modeldebugging/framework/framework_commons/docs/dev/FrameworkCommons.asciidoc[]
+
+include::../../../../../../gemoc-studio-modeldebugging/framework/xdsml_framework/docs/dev/XdsmlFramework.asciidoc[]
+
+
+=== Simulation Model Animation Framework
+
+include::../../../../../../gemoc-studio-modeldebugging/simulationmodelanimation/docs/dev/SimulationModelAnimation.asciidoc[]
+
+
+=== Trace Framework
+
+include::../../../../../../gemoc-studio-modeldebugging/trace/docs/dev/Trace.asciidoc[]
+
+include::../../../../../../gemoc-studio-modeldebugging/trace/docs/dev/TraceCommons.asciidoc[]
+
+include::../../../../../../gemoc-studio-modeldebugging/trace/docs/dev/TraceGenerator.asciidoc[]
+
+include::../../../../../../gemoc-studio-modeldebugging/trace/docs/dev/TraceManager.asciidoc[]
+
+
+=== Execution Engines
+
+
+include::../../../../../../gemoc-studio-modeldebugging/java_execution/docs/dev/JavaExecution.asciidoc[]
+
+
+== Contributing
+
+
+include::../../../../../../gemoc-studio/dev_support/full_compilation/README.asciidoc[]
+
+=== Developing new features
+
+include::dev/DevelopingNewAddons.asciidoc[]
+
+include::dev/DevelopingNewEngines.asciidoc[]
+
+=== Distributing new features
+ 
+TODO add info about how to distribute contribution and new features
+
+include::dev/ContributingDocumentation.asciidoc[]
+
+[appendix]
+= Appendix
+
+
+include::bibliography.asciidoc[]
+
+include::glossary.asciidoc[]
+
+// duplicate index title so it appears in the table of content properly under appendix
+=== Index
+
+[index]
+=== Index
+////////////////////////////////////////////////////////////////
+The index is normally left completely empty, it's contents being
+generated automatically by the DocBook toolchain.
+////////////////////////////////////////////////////////////////
+
+
+
+

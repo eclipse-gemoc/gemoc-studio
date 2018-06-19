@@ -1,0 +1,42 @@
+@startuml
+!include SkinParam.iplantuml
+
+scale max 1024 width
+scale max 800 height
+
+node "Commons" as commons {
+  [Ecipse Commons]
+  [GExpression]
+  [DSL]
+  [Timeline]
+}
+
+node  "Simulation and Model Animation Framework" as simulation_model_animation{
+  [Simulation and Model Animation]
+}
+ 
+node "GEMOC Framework" as gemoc_framework{
+  [Execution Framework]
+  [Framework Commons]
+  [XDSML Framework]
+} 
+
+node  "Trace Framework" as trace {
+  [Trace Commons]
+  [Trace Generator]
+  [Trace Manager]
+}
+
+node  "Java Execution" as java_execution {
+  [Java XDSML]
+  [Java Engine]
+}
+
+commons <- simulation_model_animation
+commons <- trace
+simulation_model_animation <- gemoc_framework
+trace <- gemoc_framework
+[XDSML Framework] <|.. [Java XDSML] 
+[Execution Framework] <|.. [Java Engine]
+
+@enduml

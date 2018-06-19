@@ -1,0 +1,373 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.eclipse.gemoc.documentation</groupId>
+    <artifactId>gemoc-studio-documentation</artifactId>
+    <version>3.0.0-SNAPSHOT</version>
+    <!-- <packaging>jdocbook</packaging>--> 
+    <packaging>jar</packaging>
+   
+    <name>GEMOC Studio Documentation</name>
+
+    <properties>
+        <!-- Distribution URLs -->
+        <jboss.releases.repo.url>https://repository.jboss.org/nexus/service/local/staging/deploy/maven2/</jboss.releases.repo.url>
+        <jboss.snapshots.repo.url>https://repository.jboss.org/nexus/content/repositories/snapshots/</jboss.snapshots.repo.url>
+    </properties>
+
+    <scm>
+        <connection>scm:git://github.com/gemoc/gemoc-studio.wiki.git</connection>
+        <developerConnection>scm:git@github.com:gemoc/gemoc-studio.wiki.git</developerConnection>
+        <url>https://github.com/gemoc/gemoc-studio/wiki/_access</url>
+    </scm>
+
+    <repositories>
+        <repository>
+            <id>jboss</id>
+            <url>http://repository.jboss.org/nexus/content/groups/public/</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>jboss</id>
+            <url>http://repository.jboss.org/nexus/content/groups/public/</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <distributionManagement>
+        <repository>
+            <id>jboss-releases-repository</id>
+            <name>JBoss Releases Repository</name>
+            <url>${jboss.releases.repo.url}</url>
+        </repository>
+        <snapshotRepository>
+            <id>jboss-snapshots-repository</id>
+            <name>JBoss Snapshots Repository</name>
+            <url>${jboss.snapshots.repo.url}</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <build>
+        <plugins>
+        
+            <!-- Generate a docbook xml file from the asciidoc files -->
+             <plugin>
+                <groupId>org.asciidoctor</groupId>
+                <artifactId>asciidoctor-maven-plugin</artifactId>
+                <version>1.5.6</version>
+                <executions>
+                    <execution>
+                        <id>output-docbook</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>process-asciidoc</goal>
+                        </goals>
+                        <configuration>
+		                    <sourceDirectory>${basedir}/src/main/asciidoc</sourceDirectory>
+		                    <sourceDocumentName>master.asciidoc</sourceDocumentName>
+		                    <imagesDir>.</imagesDir>  <!-- AsciiDoc 1.5.0 presuppose that images are in a subfolder "images", but the files already have this info in the source files  -->
+		                     <outputDirectory>${project.build.directory}/generated-docbook</outputDirectory>
+		                    <backend>docbook</backend>
+		                    <doctype>book</doctype>
+							<resources>
+								<!-- Gather resources from their original locations -->
+								<!-- css and images from docbkx/resources -->
+							    <resource>
+							        <!-- (Mandatory) Directory to copy from. Paths are relative to maven's ${baseDir} -->
+							        <directory>${basedir}/docbkx/resources</directory>
+							        <excludes>
+							            <exclude>**/*.md</exclude>
+							        </excludes>
+							    </resource>
+								<!-- images from src/main/asciidoc folder -->
+							    <resource>
+							        <!-- (Mandatory) Directory to copy from. Paths are relative to maven's ${baseDir} -->
+							        <directory>${basedir}/src/main/asciidoc/images</directory>
+							        <!-- (Optional) Directory to copy to. By default uses the option `outputDirectory` -->
+							        <targetPath>images</targetPath>
+							        <excludes>
+							            <exclude>**/*.md</exclude>
+							        </excludes>
+							        <!-- <includes>
+							            <include>**/*.jpg</include>
+							            <include>**/*.gif</include>
+							            <include>**/*.png</include>
+							            <include>**/*.svg</include>
+							        </includes> -->
+							    </resource>
+							    <!-- Images and resources coming from external plugins/contributions -->
+							    <resource>
+							        <directory>${basedir}/../../../gemoc-studio-modeldebugging/simulationmodelanimation/plugins/org.eclipse.gemoc.dsl.debug.ide.sirius.ui/docs/asciidoc//images</directory>
+							        <targetPath>images</targetPath>
+							    </resource>
+							    <resource>
+							        <directory>${basedir}/../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/ccsljavaxdsml/images</directory>
+							        <targetPath>images</targetPath>
+							    </resource>
+							    <resource>
+							        <directory>${basedir}/../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/bcool/images</directory>
+							        <targetPath>images</targetPath>
+							    </resource>
+							    <resource>
+							        <directory>${basedir}/../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/clocksystem/images</directory>
+							        <targetPath>images</targetPath>
+							    </resource>
+							    <resource>
+							        <directory>${basedir}/../../official_samples/K3FSM/docs/images</directory>
+							        <targetPath>images</targetPath>
+							    </resource>	
+							    <resource>
+							        <directory>${basedir}/../../official_samples/sample.deployers/plugins/org.eclipse.gemoc.sequential.language.wb.sample.deployer/docs/images</directory>
+							        <targetPath>images</targetPath>
+							    </resource>							    
+							    <resource>
+							        <directory>${basedir}/../../../gemoc-studio-modeldebugging/framework/execution_framework/docs/dev/images</directory>
+							        <targetPath>images</targetPath>
+							    </resource>			    
+							    <resource>
+							        <directory>${basedir}/../../../gemoc-studio-modeldebugging/framework/framework_commons/docs/dev/images</directory>
+							        <targetPath>images</targetPath>
+							    </resource>					    
+							    <resource>
+							        <directory>${basedir}/../../../gemoc-studio-modeldebugging/framework/xdsml_framework/docs/dev/images</directory>
+							        <targetPath>images</targetPath>
+							    </resource>
+							    <resource>
+							        <directory>${basedir}/../../../gemoc-studio-modeldebugging/java_execution/docs/dev/images</directory>
+							        <targetPath>images</targetPath>
+							    </resource>
+							</resources>
+		                </configuration>
+                    </execution>
+                 </executions>
+            </plugin>
+            
+            <!-- collect images from included document parts -->
+            <!--  TODO -->
+            
+            
+            <!-- generate the images from plantUMl -->
+			<plugin>
+				<groupId>com.github.jeluard</groupId>
+				<artifactId>plantuml-maven-plugin</artifactId>
+				<version>1.2</version>
+				<executions>
+					<execution>
+						<id>output-plantuml</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<!-- <outputDirectory>${basedir}/target/plantuml</outputDirectory> -->
+					<outputInSourceDirectory>true</outputInSourceDirectory>
+					<verbose>true</verbose>
+					<sourceFiles>
+						<directory>${basedir}</directory>
+						<includes>
+							<include>target/generated-docbook/**/*.plantuml</include>
+						</includes>
+					</sourceFiles>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>net.sourceforge.plantuml</groupId>
+						<artifactId>plantuml</artifactId>
+						<version>8054</version>
+					</dependency>
+				</dependencies>
+			</plugin>  
+
+
+			<!-- docbook generation part -->
+			<plugin>				
+				<groupId>com.agilejava.docbkx</groupId>
+				<artifactId>docbkx-maven-plugin</artifactId>
+				<version>2.0.17</version>
+				<executions>
+					<!-- *********************** -->
+			    	<!-- GENERATION OF THE DOCUMENTATION -->
+			    	<!-- *********************** -->
+					<execution>
+						<id>manual-webhelp-html</id>
+						<goals>
+							<goal>generate-webhelp</goal>
+						</goals>
+						<phase>generate-resources</phase>
+						<configuration>
+							<chunkedOutput>false</chunkedOutput>
+							<highlightSource>true</highlightSource>
+							<highlightXslthlConfig>${basedir}/docbkx/custom/highlighters/xslthl-config.xml</highlightXslthlConfig> 
+                 			<webhelpCustomization>${basedir}/docbkx/custom/xsl/customized.webhelp.xsl</webhelpCustomization>
+          					<webhelpIndexerLanguage>en</webhelpIndexerLanguage>
+          					<webhelpIncludeSearchTab>1</webhelpIncludeSearchTab>
+							<base.dir></base.dir>
+							<sourceDirectory>${project.build.directory}/generated-docbook/</sourceDirectory>
+							<targetDirectory>${project.build.directory}/publish/webhelp/</targetDirectory>
+							<includes>master.xml</includes>
+							<preProcess>
+								<!-- copy all resources in dest but docbook xml-->
+			 				    <copy todir="${project.build.directory}/publish/webhelp">
+									<fileset dir="${project.build.directory}/generated-docbook/" >
+										<exclude name="**/*.xml"/>
+										<exclude name="**/*.plantuml"/>
+									</fileset>
+								</copy>	
+							</preProcess>
+							<postProcess>
+								<!-- override the positionning.css with our own version -->
+								<copy todir="${project.build.directory}/publish/webhelp/" overwrite="true">
+									<fileset dir="${project.basedir}/docbkx/custom/webhelp/" />
+								</copy>
+							</postProcess>
+						</configuration>
+					</execution>
+					<execution>
+						<id>multi-page-eclipse</id>
+						<goals>
+							<goal>generate-eclipse</goal>
+						</goals>
+						<configuration>
+							<chunkedOutput>true</chunkedOutput>
+							<highlightSource>true</highlightSource>
+							<highlightXslthlConfig>file://${basedir}/docbkx/custom/highlighters/xslthl-config.xml</highlightXslthlConfig> 
+							<eclipseCustomization>${basedir}/docbkx/custom/xsl/customized.html-base-eclipse.xsl</eclipseCustomization>
+							<xincludeSupported>true</xincludeSupported>
+							<base.dir></base.dir>
+							<sourceDirectory>${project.build.directory}/generated-docbook/</sourceDirectory>
+							<targetDirectory>${project.build.directory}/publish/eclipse/</targetDirectory>
+							<includes>master.xml</includes>
+							<preProcess>
+								<!-- copy all resources in dest but docbook xml and plantuml source files-->
+			 				    <copy todir="${project.build.directory}/publish/eclipse">
+									<fileset dir="${project.build.directory}/generated-docbook/" >
+										<exclude name="**/*.xml"/>
+										<exclude name="**/*.plantuml"/>
+									</fileset>
+								</copy>			 					
+							</preProcess> 
+						</configuration>
+						<phase>generate-resources</phase>
+					</execution> 
+				</executions>
+				<configuration> <!-- global configuration for all executions -->
+          			<highlightSource>1</highlightSource>
+          			<xincludeSupported>true</xincludeSupported>
+	          		<entities>
+			            <entity>
+			            	<name>version</name> <!-- replace occurence of &version; -->
+			            	<value>${project.version}</value>
+			        	</entity>
+			        	<entity>
+			            	<name>buildNumber</name> <!-- replace occurence of &build_time; -->
+			            	<value>${buildNumber}</value>
+			        	</entity>
+			    	</entities>
+       			</configuration>
+				<dependencies>
+					<dependency>
+					  <groupId>net.sf.docbook</groupId>
+					  <artifactId>docbook-xml</artifactId>
+					  <version>5.0-all</version>
+					  <type>zip</type>
+					  <classifier>resources</classifier>
+					</dependency>
+					<dependency>
+						<groupId>org.docbook</groupId>
+						<artifactId>docbook-xml</artifactId>
+						<version>4.4</version>
+						<scope>runtime</scope>
+					</dependency>
+					<dependency>
+						<groupId>org.apache.xmlgraphics</groupId>
+						<artifactId>fop</artifactId>
+						<version>1.0</version>
+					</dependency>
+					<dependency>
+						<groupId>net.sf.saxon</groupId>
+						<artifactId>saxon</artifactId>
+						<version>8.7</version>
+					</dependency>
+					<dependency>
+					  <groupId>net.sf.docbook</groupId>
+					  <artifactId>docbook-xsl</artifactId>
+					  <version>1.79.1</version>
+					  <type>zip</type>
+					  <classifier>ns-resources</classifier>
+					</dependency>
+					<dependency>
+			           <groupId>net.sf.xslthl</groupId>
+			           <artifactId>xslthl</artifactId>
+			           <version>2.1.0</version>
+			           <scope>runtime</scope>
+			        </dependency>
+				</dependencies>
+			</plugin>
+			<plugin>
+           <groupId>com.google.code.maven-replacer-plugin</groupId>
+           <artifactId>replacer</artifactId>
+           <version>1.5.3</version>
+           <executions>
+                <execution>
+                   <phase>prepare-package</phase>
+						 <id>replace_imagemap_gemoc_user_guide_eclipse_help</id>
+                   <goals>
+                       <goal>replace</goal>
+                   </goals>   
+           <configuration>
+               <file>${project.basedir}/target/publish/eclipse/master.html</file>
+               <token><![CDATA[<img src="./images/introduction/GemocWorkbenchesGlobalPicture.png" width="800" alt="Gemoc Workbenches Global Picture" >]]></token>
+					<value><![CDATA[<img src="./images/introduction/GemocWorkbenchesGlobalPicture.png" width="960" height="720" border="0" usemap="#map" />
+
+<map name="map">
+<area shape="rect" coords="142,145,337,182" href="ch02.html" />
+<area shape="rect" coords="149,208,335,270" href="ch03.html" />
+<area shape="rect" coords="187,287,299,353" href="ch04.html" />
+<area shape="rect" coords="175,481,331,519" href="ch07.html" />
+<area shape="rect" coords="164,560,340,625" href="ch08.html" />
+<area shape="rect" coords="438,141,567,290" href="pt01.html" />
+<area shape="rect" coords="440,466,567,638" href="pt02.html" />
+<area shape="rect" coords="651,152,777,228" href="ch05.html" />
+<area shape="rect" coords="515,339,648,430" href="ch06.html" />
+<area shape="rect" coords="650,482,780,547" href="ch10.html" />
+</map>]]></value>
+					<regex>no</regex>
+           </configuration>                
+               </execution>
+               <execution>
+                   <phase>prepare-package</phase>
+						 <id>replace_imagemap_gemoc_user_guide_webhelp</id>
+                   <goals>
+                       <goal>replace</goal>
+                   </goals>   
+           <configuration>
+               <filesToInclude>${project.basedir}/target/publish/webhelp/index.html, ${project.basedir}/target/publish/webhelp/_introduction.html</filesToInclude>
+               <token><![CDATA[<img src="./images/introduction/GemocWorkbenchesGlobalPicture.png" width="800" alt="Gemoc Workbenches Global Picture" />]]></token>
+					<value><![CDATA[<img src="./images/introduction/GemocWorkbenchesGlobalPicture.png" width="960" height="720" border="0" usemap="#map" />
+
+<map name="map">
+<area shape="rect" coords="142,145,337,182" href="userguide-lw-create-language-define-syntaxes.html" />
+<area shape="rect" coords="149,208,335,270" href="userguide-lw-make-language-executable.html" />
+<area shape="rect" coords="187,287,299,353" href="userguide-lw-provide-language-with-tools.html" />
+<area shape="rect" coords="175,481,331,519" href="userguide-mw-edit-models.htm" />
+<area shape="rect" coords="164,560,340,625" href="userguide-mw-execute-animate-debug-models.html" />
+<area shape="rect" coords="438,141,567,290" href="userguide-lw-language-workbench-overview.html" />
+<area shape="rect" coords="440,466,567,638" href="userguide-mw-modeling-workbench-overview.html" />
+<area shape="rect" coords="651,152,777,228" href="userguide-lw-define-composition-of-languages.html" />
+<area shape="rect" coords="515,339,648,430" href="userguide-lw-deploy-language.html" />
+<area shape="rect" coords="650,482,780,547" href="userguide-mw-coordinate-models.html" />
+</map>]]></value>
+					<regex>no</regex>
+           </configuration>                
+               </execution>
+           </executions>
+
+       </plugin>
+
+        </plugins>
+    </build>
+</project>

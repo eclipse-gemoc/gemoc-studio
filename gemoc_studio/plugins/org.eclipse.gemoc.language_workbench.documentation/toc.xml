@@ -12,15 +12,13 @@
         Inria - initial API and implementation
  -->
 
-<toc label="GEMOC Studio Documentation" topic="eclipse_help/html/toc.html">
- <topic href="eclipse_help/guide/eclipse/Guide.html" label="GEMOC Studio User Guide">
-    <link toc="eclipse_help/guide/eclipse/toc.xml"/>
- </topic>
- <topic label="GEMOC Studio Tutorials &amp; Examples">
-    <topic label="GEMOC Tutorials">
+<toc label="GEMOC Studio Documentation" topic="eclipse_help/master/master.html">
+   <link toc="eclipse_help/master/toc.xml"/>
+ <topic label="GEMOC Studio Extra Tutorials &amp; Examples">
+    <topic label="GEMOC Extra Tutorials">
        <anchor id="GEMOC.tutorials"/>
     </topic>
-    <topic label="GEMOC Examples">
+    <topic label="GEMOC Extra Examples">
        <anchor id="GEMOC.examples"/>
     </topic>
  </topic>

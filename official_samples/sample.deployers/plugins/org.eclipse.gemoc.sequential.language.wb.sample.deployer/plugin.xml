@@ -33,16 +33,24 @@
             preferredPerspectives="org.eclipse.gemoc.xdsmlframework.ide.ui.xdsml.perspective">
          <description>
             T⁮his set of projects features a simple Finite State Machine language which is extended and made executable using GEMOC.
-It illustrates the building of an executable sequential language (xsfsm) on top of an existing language environment and editor (fsm).
+It illustrates the building of an executable sequential language (xsfsm) on top of an existing language environment and editor (fsm) thanks to Melange.
          </description>
-      </wizard>      
+      </wizard> 
+      <wizard
+            canFinishEarly="true"
+            category="org.eclipse.ui.Examples/org.eclipse.gemoc.gemoc_language_workbench.samples.category"
+            class="org.eclipse.gemoc.sequential.language.wb.sample.deployer.wizards.K3FSMExampleWizard"
+            finalPerspective="org.eclipse.gemoc.xdsmlframework.ide.ui.xdsml.perspective"
+            hasPages="false"
+            icon="icons/IconeGemocLanguage-16.png"
+            id="org.eclipse.gemoc.sequential.language.wb.sample.deployer.k3fsm.wizard"
+            name="GEMOC K3FSM Language (Sequential)"
+            preferredPerspectives="org.eclipse.gemoc.xdsmlframework.ide.ui.xdsml.perspective">
+         <description>
+            This example features a simple executable language using GEMOC Java Engine (ie. based on Xtend/K3).
+			It illustrates the GEMOC animation framework on a Finite State Machine language where the concepts of both the syntax and semantic domains are in a single ecore file. 
+         </description>
+      </wizard>     
             
-   </extension>
-   <extension
-       point="org.eclipse.help.toc">
-    <toc
-          file="toc.xml"
-          primary="false">
-    </toc>
    </extension>
 </plugin>

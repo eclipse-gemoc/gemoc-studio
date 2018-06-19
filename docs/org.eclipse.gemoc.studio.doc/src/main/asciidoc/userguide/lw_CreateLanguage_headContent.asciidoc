@@ -1,0 +1,18 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+== User Guide
+=== GEMOC Language Workbench
+==== Create a language
+endif::[]
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/userguide/lw_CreateLanguage.asciidoc.]
+
+Let's focus on the language syntax. Ie. how the models will appears.
+
+This is done by defining an abstract syntax and one or several concrete syntaxes.
+
+Even if some tool may hide either the concrete syntax or abstract syntax details, in GEMOC we consider the general case where syntaxes are distinct entities.
+
+The GEMOC project will be used to  drive the creation and assemble the language artefacts/projects.
