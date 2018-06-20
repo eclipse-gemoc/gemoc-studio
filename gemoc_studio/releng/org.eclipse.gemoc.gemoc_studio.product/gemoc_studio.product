@@ -14,15 +14,19 @@
    </configIni>
 
    <launcherArgs>
-      <programArgs>--launcher.XXMaxPermSize
-256m
+      <programArgs>-product
+org.eclipse.gemoc.gemoc_studio.branding.gemoc_studio
+--launcher.defaultAction
+openFile
       </programArgs>
-      <programArgsLin>--launcher.GTK_version
-2
-      </programArgsLin>
-      <vmArgs>-Xms256m
+      <vmArgs>-Dosgi.requiredJavaVersion=1.8
+-XX:+UseG1GC
+-XX:+UseStringDeduplication
+--add-modules=ALL-SYSTEM
+-Dosgi.requiredJavaVersion=1.8
+-Xms256m
 -Xmx1024m
--XX:MaxPermSize=256m
+--add-modules=ALL-SYSTEM
       </vmArgs>
       <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
       </vmArgsMac>
@@ -73,6 +77,20 @@
    </configurations>
 
    <repositories>
+      <repository location="http://timesquare.inria.fr/ecl/update_site/neon" enabled="false" />
+      <repository location="http://timesquare.inria.fr/update_site/neon" enabled="false" />
+      <repository location="http://melange-lang.org/updatesite/" enabled="true" />
+      <repository location="http://archive.eclipse.org/nebula/Q22016/incubation" enabled="true" />
+      <repository location="http://download.eclipse.org/releases/oxygen" enabled="true" />
+      <repository location="http://www.kermeta.org/k3/update/" enabled="true" />
+      <repository location="http://ci.eclipse.org/gemoc/job/gemoc-studio/job/master/lastSuccessfulBuild/artifact/gemoc-studio/gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.updatesite/target/repository/" enabled="true" />
+      <repository location="http://timesquare.inria.fr/ecl/update_site/neon" enabled="false" />
+      <repository location="http://timesquare.inria.fr/update_site/neon" enabled="false" />
+      <repository location="http://melange-lang.org/updatesite/" enabled="true" />
+      <repository location="http://archive.eclipse.org/nebula/Q22016/incubation" enabled="true" />
+      <repository location="http://download.eclipse.org/releases/oxygen" enabled="true" />
+      <repository location="http://www.kermeta.org/k3/update/" enabled="true" />
+      <repository location="http://ci.eclipse.org/gemoc/job/gemoc-studio/job/master/lastSuccessfulBuild/artifact/gemoc-studio/gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.updatesite/target/repository/" enabled="true" />
       <repository location="http://timesquare.inria.fr/ecl/update_site/neon" enabled="false" />
       <repository location="http://timesquare.inria.fr/update_site/neon" enabled="false" />
       <repository location="http://melange-lang.org/updatesite/" enabled="true" />
