@@ -3,11 +3,11 @@ Gemoc Studio
 
 This repository contains the code for assembling the [GEMOC Studio](http://gemoc.org/studio.html) hosted in the Eclipse foundation (see [GEMOC project @ Eclipse](http://www.eclipse.org/gemoc)).
 
-It can be downloaded from [download.eclipse.org/gemoc](https://projects.eclipse.org/projects/modeling.gemoc/downloads). Older builds are available on [gemoc.org](http://gemoc.org/download.html).
+It can be downloaded from [gemoc.org/download.html](http://gemoc.org/download.html). (Older builds are available).
 
 Getting help
 ============
-The [contact page](https://projects.eclipse.org/projects/modeling.gemoc/contact) lists all the various ways to interact in the context of the GEMOC Studio. As a user of the GEMOC Studio you'll probably be interested by the [Mattermost GEMOC Users](https://mattermost.eclipse.org/eclipse/channels/gemoc) channel, the GEMOC User mailing list (to be created soon, in the meantime, you can post questions in the gemoc-dev mailing list) and the Github trackers (see next section: reporting issue for identifying the best tracker).
+The [contact page](https://projects.eclipse.org/projects/modeling.gemoc/contact) lists all the various ways to interact in the context of the GEMOC Studio. As a user of the GEMOC Studio you'll probably be interested by the [Mattermost GEMOC Users](https://mattermost.eclipse.org/eclipse/channels/gemoc) channel, the GEMOC User mailing list (to be created soon, in the meantime, you can post questions in the [gemoc-dev](https://dev.eclipse.org/mailman/listinfo/gemoc-dev) mailing list) and the Github trackers (see next section: reporting issue for identifying the best tracker).
 
 Reporting issues
 ============
