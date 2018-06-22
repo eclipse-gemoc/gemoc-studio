@@ -1,5 +1,18 @@
 # Changelog
 
+## v3.0.0-rc4 (22/06/2018)
+
+#### Bug Fixes:
+
+- [**bug**] Fixes K3FSM example [#89](https://github.com/eclipse/gemoc-studio/pull/89)
+- [**bug**] Change start option for java9 and gtk3 support [#69](https://github.com/eclipse/gemoc-studio/pull/69)
+
+#### Release Engineering
+
+- [**releng**] Show summary of checked out branches in multibranch pipeline [#92](https://github.com/eclipse/gemoc-studio/pull/92)
+
+---
+
 ## v3.0.0-rc3 (07/06/2018)
 
 #### Enhancements:
