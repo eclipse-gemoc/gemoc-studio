@@ -1,5 +1,10 @@
 # Changelog
 
+## v3.0.0 (17/07/2018)
+No changes since 3.0.0-rc4
+
+---
+
 ## v3.0.0-rc4 (22/06/2018)
 
 #### Bug Fixes:
