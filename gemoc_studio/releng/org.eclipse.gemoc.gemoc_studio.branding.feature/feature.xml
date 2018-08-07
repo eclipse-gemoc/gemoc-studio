@@ -9,11 +9,10 @@
     Contributors:
         Inria - initial API and implementation
  -->
-
 <feature
       id="org.eclipse.gemoc.gemoc_studio.branding.feature"
       label="GEMOC Studio Main Features"
-      version="3.0.0.qualifier"
+      version="3.1.0.qualifier"
       provider-name="%providerName"
       plugin="org.eclipse.gemoc.gemoc_studio.branding"
       image="gemocstudio32.png">
@@ -39,16 +38,11 @@ http://www.eclipse.org/legal/epl-v10.html
       <import feature="org.eclipse.xtend.sdk" version="2.5.4" match="greaterOrEqual"/>
       <import feature="org.eclipse.ocl.all.sdk" version="0.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.emf.ecoretools.sdk" version="2.0.0.0" match="greaterOrEqual"/>
-
       <import feature="org.eclipse.gemoc.modeldebugging.feature" version="0.0.0" match="greaterOrEqual"/>
-
       <import feature="fr.inria.diverse.k3.feature" version="0.0.0" match="greaterOrEqual"/>
-
-      <import feature="org.eclipse.sirius.specifier" version="5.0.0.0" match="greaterOrEqual"/>  
-      
+      <import feature="org.eclipse.sirius.specifier" version="5.0.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.e4.rcp" version="0.0.0" match="greaterOrEqual"/>
       <import feature="fr.inria.diverse.melange.sdk" version="0.0.0" match="greaterOrEqual"/>
-
    </requires>
 
    <plugin

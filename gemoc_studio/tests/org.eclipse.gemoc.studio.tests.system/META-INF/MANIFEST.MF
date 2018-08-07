@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: GEMOC Studio Test System
 Bundle-SymbolicName: org.eclipse.gemoc.studio.tests.system
-Bundle-Version: 3.0.0.qualifier
+Bundle-Version: 3.1.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.eclipse.gemoc.execution.sequential.javaxdsml.ide.ui;bundle-version="2.4.0",
  org.junit;bundle-version="4.12.0",
