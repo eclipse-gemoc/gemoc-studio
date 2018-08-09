@@ -26,7 +26,7 @@
 		<repository>
             <id>kermeta-3</id>
             <layout>p2</layout>
-            <url>http://www.kermeta.org/k3/update_2017-10-23</url>
+            <url>http://www.kermeta.org/k3/update_2018-08-09</url>
         </repository>
         <repository>
             <id>melange</id>
