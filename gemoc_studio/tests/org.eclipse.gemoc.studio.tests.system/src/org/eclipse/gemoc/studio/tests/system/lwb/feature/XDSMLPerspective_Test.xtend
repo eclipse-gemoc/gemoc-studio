@@ -64,6 +64,7 @@ public class XDSMLPerspective_Test extends AbstractXtextTests {
 
 	@After
 	override tearDown() {
+		bot.sleep(500);
 		// Nothing to do
 	}
 
@@ -103,6 +104,7 @@ public class XDSMLPerspective_Test extends AbstractXtextTests {
 	@Test
 	def void test03_toolbarContent() throws Exception {
 		bot.toolbarButtonWithTooltip("Install GEMOC Components").click
+		bot.sleep(3000);
 		bot.button("Cancel").click
 	}
 
