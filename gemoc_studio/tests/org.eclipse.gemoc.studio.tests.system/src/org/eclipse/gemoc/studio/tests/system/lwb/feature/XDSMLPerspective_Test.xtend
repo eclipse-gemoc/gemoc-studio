@@ -104,7 +104,8 @@ public class XDSMLPerspective_Test extends AbstractXtextTests {
 	@Test
 	def void test03_toolbarContent() throws Exception {
 		bot.toolbarButtonWithTooltip("Install GEMOC Components").click
-		bot.sleep(3000);
+		bot.sleep(8000);
+		bot.shell("GEMOC Components Discovery").setFocus
 		bot.button("Cancel").click
 	}
 
