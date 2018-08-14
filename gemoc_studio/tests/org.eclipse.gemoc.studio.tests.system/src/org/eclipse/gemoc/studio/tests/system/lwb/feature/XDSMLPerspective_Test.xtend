@@ -45,6 +45,7 @@ public class XDSMLPerspective_Test extends AbstractXtextTests {
 	def static void beforeClass() throws Exception {
 		bot = new SWTWorkbenchBot()
 		SWTBotPreferences.TIMEOUT = WorkspaceTestHelper.SWTBotPreferencesTIMEOUT_4_GEMOC;
+		SWTBotPreferences.PLAYBACK_DELAY = WorkspaceTestHelper.SWTBotPreferencesPLAYBACK_DELAY_4_GEMOC;
 		IResourcesSetupUtil::cleanWorkspace
 		helper.init
 
@@ -84,7 +85,7 @@ public class XDSMLPerspective_Test extends AbstractXtextTests {
 
 		newMenu.menuItem("GEMOC Sequential xDSML Project").click
 		bot.button("Cancel").click
-
+		
 		newMenu.menuItem("Ecore Modeling Project").click
 
 		// Workaround to discard the error message that pops when webkitgtk is not installed on the system
