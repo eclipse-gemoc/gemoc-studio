@@ -11,7 +11,7 @@
     <properties>
 		<tycho-version>1.0.0</tycho-version>
 		<project.build.sourceEncoding>UTF8</project.build.sourceEncoding>
-    	<xtend.version>2.10.0</xtend.version>
+    	<xtend.version>2.12.0</xtend.version>
 	</properties>
 	
   	<repositories>
