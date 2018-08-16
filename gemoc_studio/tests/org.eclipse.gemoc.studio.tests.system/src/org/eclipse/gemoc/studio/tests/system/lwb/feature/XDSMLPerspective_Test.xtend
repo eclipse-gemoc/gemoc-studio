@@ -28,6 +28,8 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences
 import org.eclipse.swtbot.swt.finder.exceptions.WidgetNotFoundException
+import org.junit.Rule
+import org.eclipse.gemoc.xdsmlframework.test.lib.TailWorkspaceLogToStderrRule
 
 /**
  * This class check the content of the XDSML Perspective
@@ -62,6 +64,9 @@ public class XDSMLPerspective_Test extends AbstractXtextTests {
 	// val projExplorerBot = bot.viewByTitle("Project Explorer").bot
 	}
 
+	@Rule
+    public TailWorkspaceLogToStderrRule workspaceLogRule = new TailWorkspaceLogToStderrRule();
+    
 	@After
 	override tearDown() {
 		bot.sleep(500);
