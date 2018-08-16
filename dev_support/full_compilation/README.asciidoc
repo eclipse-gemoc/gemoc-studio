@@ -62,7 +62,7 @@ The build also assemble complementary results:
 
 ==== Advanced usage using docker
 
-If you have trouble to reproduce a bug in the CI or want to make sure that the CI wiil pass, you can run the maven build in a docker that mimic the CI environment.
+If you have trouble to reproduce a bug in the CI or want to make sure that the CI will pass, you can run the maven build in a docker that mimic the CI environment.
 
 To do a full build using docker: go to the docker folder (*/gemoc-studio/dev_support/full_compilation/docker*), then call the command
 
@@ -70,6 +70,14 @@ To do a full build using docker: go to the docker folder (*/gemoc-studio/dev_sup
 ----
 docker-compose down && docker-compose up
 ----
+
+
+Once the full compilation has been done at least once (ie. and filled the m2 cache), you can run the system test only using the command
+[source,bourne]
+----
+docker-compose run gemoc_full_compilation system_test_only
+----
+
 
 ===== Description of the docker env
 
