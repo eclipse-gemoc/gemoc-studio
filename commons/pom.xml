@@ -41,7 +41,7 @@
         <module>tests/org.eclipse.gemoc.dsl.tests</module>
     </modules>
 	<properties>
-		<xtend.version>2.12.0</xtend.version>
+		<xtend.version>2.9.1</xtend.version>
 	</properties>
 	<build>
 		<plugins>
