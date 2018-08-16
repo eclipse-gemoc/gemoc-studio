@@ -28,6 +28,8 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences
 import org.eclipse.swtbot.swt.finder.exceptions.WidgetNotFoundException
+import org.junit.Rule
+import org.eclipse.gemoc.xdsmlframework.test.lib.TailWorkspaceLogToStderrRule
 
 /**
  * This class check the content of the XDSML Perspective
@@ -45,6 +47,7 @@ public class XDSMLPerspective_Test extends AbstractXtextTests {
 	def static void beforeClass() throws Exception {
 		bot = new SWTWorkbenchBot()
 		SWTBotPreferences.TIMEOUT = WorkspaceTestHelper.SWTBotPreferencesTIMEOUT_4_GEMOC;
+		SWTBotPreferences.PLAYBACK_DELAY = WorkspaceTestHelper.SWTBotPreferencesPLAYBACK_DELAY_4_GEMOC;
 		IResourcesSetupUtil::cleanWorkspace
 		helper.init
 
@@ -61,8 +64,12 @@ public class XDSMLPerspective_Test extends AbstractXtextTests {
 	// val projExplorerBot = bot.viewByTitle("Project Explorer").bot
 	}
 
+	@Rule
+    public TailWorkspaceLogToStderrRule workspaceLogRule = new TailWorkspaceLogToStderrRule();
+    
 	@After
 	override tearDown() {
+		bot.sleep(500);
 		// Nothing to do
 	}
 
@@ -84,7 +91,7 @@ public class XDSMLPerspective_Test extends AbstractXtextTests {
 
 		newMenu.menuItem("GEMOC Sequential xDSML Project").click
 		bot.button("Cancel").click
-
+		
 		newMenu.menuItem("Ecore Modeling Project").click
 
 		// Workaround to discard the error message that pops when webkitgtk is not installed on the system
@@ -102,6 +109,8 @@ public class XDSMLPerspective_Test extends AbstractXtextTests {
 	@Test
 	def void test03_toolbarContent() throws Exception {
 		bot.toolbarButtonWithTooltip("Install GEMOC Components").click
+		bot.sleep(8000);
+		bot.shell("GEMOC Components Discovery").setFocus
 		bot.button("Cancel").click
 	}
 
