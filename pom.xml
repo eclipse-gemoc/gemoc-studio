@@ -26,12 +26,12 @@
 		<repository>
             <id>kermeta-3</id>
             <layout>p2</layout>
-            <url>http://www.kermeta.org/k3/update_2017-10-23</url>
+            <url>http://www.kermeta.org/k3/update_2018-08-14</url>
         </repository>
         <repository>
             <id>melange</id>
             <layout>p2</layout>
-            <url>http://melange.inria.fr/updatesite/nightly/update_2018-06-04/</url>
+            <url>http://melange.inria.fr/updatesite/nightly/update_2018-08-14/</url>
         </repository>
         <repository>
             <id>Sirius</id>
