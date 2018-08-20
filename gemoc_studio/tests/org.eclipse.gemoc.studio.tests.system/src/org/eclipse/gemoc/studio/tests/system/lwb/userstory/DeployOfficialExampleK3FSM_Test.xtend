@@ -11,7 +11,6 @@
 package org.eclipse.gemoc.studio.tests.system.lwb.userstory
 
 import org.eclipse.gemoc.xdsmlframework.ide.ui.XDSMLFrameworkUI
-import org.eclipse.gemoc.xdsmlframework.test.lib.MelangeUiInjectorProvider
 import org.eclipse.gemoc.xdsmlframework.test.lib.WorkspaceTestHelper
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner
@@ -19,7 +18,6 @@ import org.eclipse.swtbot.swt.finder.keyboard.Keyboard
 import org.eclipse.swtbot.swt.finder.keyboard.KeyboardFactory
 import org.eclipse.swtbot.swt.finder.keyboard.Keystrokes
 import org.eclipse.xtext.junit4.AbstractXtextTests
-import org.eclipse.xtext.junit4.InjectWith
 import org.eclipse.xtext.ui.testing.util.IResourcesSetupUtil
 import org.junit.After
 import org.junit.Before
@@ -37,7 +35,6 @@ import org.junit.Rule
  * The resulting projects should not have any errors (no user action required except a Project>Clean...)
  */
 @RunWith(SWTBotJunit4ClassRunner)
-@InjectWith(MelangeUiInjectorProvider)
 @FixMethodOrder(MethodSorters::NAME_ASCENDING)
 public class DeployOfficialExampleK3FSM_Test extends AbstractXtextTests
 {
