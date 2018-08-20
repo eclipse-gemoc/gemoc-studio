@@ -20,7 +20,7 @@
 		<version>3.1.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>org.eclipse.gemoc.studio.tests.system</artifactId>
+	<artifactId>org.eclipse.gemoc.studio.tests.system.lwb</artifactId>
 	<packaging>eclipse-test-plugin</packaging>
 
 	
@@ -31,6 +31,8 @@
 		<tests-inputs-gen.path>${basedir}/tests-inputs-gen</tests-inputs-gen.path>
         <sequentialFSM.language.root>${gemoc-studio.repository}/official_samples/LegacyFSM/language_workbench</sequentialFSM.language.root>
         <sequentialFSM.tests-inputs-gen.path>${tests-inputs-gen.path}/SequentialFSM</sequentialFSM.tests-inputs-gen.path>
+        <k3FSM.language.root>${gemoc-studio.repository}/official_samples/K3FSM/language_workbench</k3FSM.language.root>
+        <k3FSM.tests-inputs-gen.path>${tests-inputs-gen.path}/K3FSM</k3FSM.tests-inputs-gen.path>
     </properties>
 	
 	<build>
@@ -98,6 +100,37 @@
 								<zip destfile="${sequentialFSM.tests-inputs-gen.path}/org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.trace.zip">
 									<fileset dir="${sequentialFSM.language.root}/org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.trace/" />
 								</zip>
+								
+								<!-- K3FSM -->
+								<mkdir dir="${k3FSM.tests-inputs-gen.path}" />
+								
+								<zip destfile="${k3FSM.tests-inputs-gen.path}/org.eclipse.gemoc.example.k3fsm.zip">
+									<fileset dir="${k3FSM.language.root}/org.eclipse.gemoc.example.k3fsm/" />
+								</zip>
+								<zip destfile="${k3FSM.tests-inputs-gen.path}/org.eclipse.gemoc.example.k3fsm.design.zip">
+									<fileset dir="${k3FSM.language.root}/org.eclipse.gemoc.example.k3fsm.design/" />
+								</zip>
+								<zip destfile="${k3FSM.tests-inputs-gen.path}/org.eclipse.gemoc.example.k3fsm.edit.zip">
+									<fileset dir="${k3FSM.language.root}/org.eclipse.gemoc.example.k3fsm.edit/" />
+								</zip>
+								<zip destfile="${k3FSM.tests-inputs-gen.path}/org.eclipse.gemoc.example.k3fsm.editor.zip">
+									<fileset dir="${k3FSM.language.root}/org.eclipse.gemoc.example.k3fsm.editor/" />
+								</zip>
+								<zip destfile="${k3FSM.tests-inputs-gen.path}/org.eclipse.gemoc.example.k3fsm.k3dsa.zip">
+									<fileset dir="${k3FSM.language.root}/org.eclipse.gemoc.example.k3fsm.k3dsa/" />
+								</zip>
+								<zip destfile="${k3FSM.tests-inputs-gen.path}/org.eclipse.gemoc.example.k3fsm.xdsml.zip">
+									<fileset dir="${k3FSM.language.root}/org.eclipse.gemoc.example.k3fsm.xdsml/" />
+								</zip>
+								<zip destfile="${k3FSM.tests-inputs-gen.path}/org.eclipse.gemoc.example.k3fsm.xtext.zip">
+									<fileset dir="${k3FSM.language.root}/org.eclipse.gemoc.example.k3fsm.xtext/" />
+								</zip>
+								<zip destfile="${k3FSM.tests-inputs-gen.path}/org.eclipse.gemoc.example.k3fsm.xtext.ide.zip">
+									<fileset dir="${k3FSM.language.root}/org.eclipse.gemoc.example.k3fsm.xtext.ide/" />
+								</zip>
+								<zip destfile="${k3FSM.tests-inputs-gen.path}/org.eclipse.gemoc.example.k3fsm.xtext.ui.zip">
+									<fileset dir="${k3FSM.language.root}/org.eclipse.gemoc.example.k3fsm.xtext.ui/" />
+								</zip>
 
 							</target>
 						</configuration>
@@ -126,17 +159,17 @@
 			            <requirement>
 			               <type>eclipse-feature</type>
 			               <id>org.eclipse.gemoc.modeldebugging.feature</id>
-			               <versionRange>1.0.0</versionRange>
+			               <versionRange>3.1.0</versionRange>
 			            </requirement>
 			            <requirement>
 			               <type>eclipse-feature</type>
 			               <id>org.eclipse.gemoc.gemoc_studio.branding.feature</id>
-			               <versionRange>1.0.0</versionRange>
+			               <versionRange>3.1.0</versionRange>
 			            </requirement>
 			            <requirement>
 			               <type>eclipse-feature</type>
 			               <id>org.eclipse.gemoc.gemoc_studio.additions.feature</id>
-			               <versionRange>1.0.0</versionRange>
+			               <versionRange>3.1.0</versionRange>
 			            </requirement>
 			            <!-- SWTBot features -->
 			            <requirement>
