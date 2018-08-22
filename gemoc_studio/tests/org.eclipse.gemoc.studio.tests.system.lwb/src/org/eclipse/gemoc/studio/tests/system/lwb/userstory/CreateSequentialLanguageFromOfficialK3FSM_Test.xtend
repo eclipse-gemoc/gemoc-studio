@@ -10,6 +10,9 @@
  *******************************************************************************/
 package org.eclipse.gemoc.studio.tests.system.lwb.userstory
 
+import org.eclipse.core.resources.ResourcesPlugin
+import org.eclipse.core.runtime.NullProgressMonitor
+import org.eclipse.gemoc.commons.eclipse.core.resources.IFileUtils
 import org.eclipse.gemoc.execution.sequential.javaxdsml.ide.ui.templates.WizardTemplateMessages
 import org.eclipse.gemoc.xdsmlframework.ide.ui.XDSMLFrameworkUI
 import org.eclipse.gemoc.xdsmlframework.test.lib.TailWorkspaceLogToStderrRule
@@ -219,6 +222,17 @@ public class CreateSequentialLanguageFromOfficialK3FSM_Test extends AbstractXtex
 		bot.button("Finish").click();
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 		WorkspaceTestHelper::reallyWaitForJobs(4)
+		
+		// workaround for https://github.com/eclipse/gemoc-studio/issues/14 we currently need to manually replace the nsUri by a platform uri
+		val xtexFile = ResourcesPlugin::workspace.root.getProject(XTEXT_PROJECT_NAME).getFile("src/org/eclipse/gemoc/example/k3fsm/K3FSM.xtext")
+		assertTrue(xtexFile.exists)
+		IFileUtils.writeInFileIfDifferent(xtexFile,
+			IFileUtils.getStringContent(xtexFile).replaceFirst(
+				'import "http://www.eclipse.org/gemoc/example/k3fsm"', 
+				'import "platform:/resource/org.eclipse.gemoc.example.k3fsm/model/k3fsm.ecore"'),
+			new NullProgressMonitor)
+		
+		
 		helper.assertProjectExists(XTEXT_PROJECT_NAME);
 		helper.assertProjectExists(XTEXT_PROJECT_NAME + ".ide");
 		helper.assertProjectExists(XTEXT_PROJECT_NAME + ".ui");
