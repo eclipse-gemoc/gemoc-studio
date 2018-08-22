@@ -11,24 +11,35 @@
 package org.eclipse.gemoc.studio.tests.system.mwb.userstory
 
 import org.eclipse.gemoc.xdsmlframework.ide.ui.XDSMLFrameworkUI
+import org.eclipse.gemoc.xdsmlframework.test.lib.TailWorkspaceLogToStderrRule
 import org.eclipse.gemoc.xdsmlframework.test.lib.WorkspaceTestHelper
+import org.eclipse.swt.SWT
+import org.eclipse.swt.widgets.ToolItem
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot
+import org.eclipse.swtbot.swt.finder.exceptions.WidgetNotFoundException
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner
 import org.eclipse.swtbot.swt.finder.keyboard.Keyboard
 import org.eclipse.swtbot.swt.finder.keyboard.KeyboardFactory
 import org.eclipse.swtbot.swt.finder.keyboard.Keystrokes
+import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences
+import org.eclipse.swtbot.swt.finder.widgets.SWTBotToolbarPushButton
 import org.eclipse.xtext.junit4.AbstractXtextTests
 import org.eclipse.xtext.ui.testing.util.IResourcesSetupUtil
 import org.junit.After
 import org.junit.Before
 import org.junit.BeforeClass
 import org.junit.FixMethodOrder
+import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.MethodSorters
-import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences
-import org.eclipse.gemoc.xdsmlframework.test.lib.TailWorkspaceLogToStderrRule
-import org.junit.Rule
+
+import static org.eclipse.swtbot.swt.finder.matchers.WidgetMatcherFactory.allOf
+import static org.eclipse.swtbot.swt.finder.matchers.WidgetMatcherFactory.anyOf
+import static org.eclipse.swtbot.swt.finder.matchers.WidgetMatcherFactory.widgetOfType
+import static org.eclipse.swtbot.swt.finder.matchers.WidgetMatcherFactory.withStyle
+import static org.eclipse.swtbot.swt.finder.matchers.WidgetMatcherFactory.withTooltip
+import static org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences.*
 
 /**
  * Verifies that we can use the wizard to install the official sample models
@@ -49,7 +60,7 @@ public class DeployOfficialExampleK3FSM_Test extends AbstractXtextTests
 	def static void beforeClass() throws Exception {
 		helper.init
 		bot = new SWTWorkbenchBot()
-		SWTBotPreferences.TIMEOUT = WorkspaceTestHelper.SWTBotPreferencesTIMEOUT_4_GEMOC;
+		SWTBotPreferences.TIMEOUT = WorkspaceTestHelper.SWTBotPreferencesTIMEOUT_4_GEMOC ;
 		bot.resetWorkbench
 		IResourcesSetupUtil::cleanWorkspace
 		IResourcesSetupUtil::reallyWaitForAutoBuild
@@ -99,10 +110,9 @@ public class DeployOfficialExampleK3FSM_Test extends AbstractXtextTests
 		@Test
 	def void test02_DebugPredefinedK3Fsm_TwoStatesUpCast_Model() throws Exception {
 		//val activeShell = bot.activeShell // the focus is lost after click on "Browse..."
-		
+		// open the Debug configuration
 		bot.tree().getTreeItem("org.eclipse.gemoc.example.k3fsm.model_examples").select();
 		bot.tree().getTreeItem("org.eclipse.gemoc.example.k3fsm.model_examples").expand();
-		bot.tree().getTreeItem("org.eclipse.gemoc.example.k3fsm.model_examples").getNode("TwoStatesUpcast.aird").select();
 		val item = bot.tree().getTreeItem("org.eclipse.gemoc.example.k3fsm.model_examples").getNode("TwoStatesUpcast.k3fsm").select();
 		item.contextMenu("Debug As").menu("Debug Configurations...").click();
 		bot.tree().getTreeItem("Gemoc Sequential eXecutable Model").expand();
@@ -113,14 +123,15 @@ public class DeployOfficialExampleK3FSM_Test extends AbstractXtextTests
 		bot.editorByTitle("TwoStateUpcast").show();
 		bot.viewByTitle("").show();
 		bot.button("Yes").click();
-		bot.editorByTitle("TwoStateUpcast").show();
-		bot.button("Yes").click();
-		bot.editorByTitle("TwoStatesUpcast.k3fsm").show();
-		bot.toolbarButtonWithTooltip("Step &Into (F5)").click();
-		bot.viewByTitle("Debug").show();
-		bot.toolbarButtonWithTooltip("Step &Into (F5)").click();
-		bot.toolbarButtonWithTooltip("Step &Into (F5)").click();
-		bot.toolbarButtonWithTooltip("Step &Into (F5)").click();
+		
+		clickOnStepInto()
+		clickOnStepInto()
+		clickOnStepInto()
+		clickOnStepInto()
+		
+		try {
+			bot.shell("Configure Xtext").bot.button("Yes").click
+		} catch (WidgetNotFoundException wnfe){}
 		
 		// stop engine
 		bot.viewByTitle("Debug").show();
@@ -129,9 +140,23 @@ public class DeployOfficialExampleK3FSM_Test extends AbstractXtextTests
 		bot.viewByTitle("Debug").show();
 		bot.viewByTitle("Gemoc Engines Status").show();
 		bot.toolbarButtonWithTooltip("Dispose all stopped engines").click();
-		helper.assertNoMarkers();		
+		helper.assertNoMarkers();	
+		
 	}
 
+	/**
+	 * for some reason, the step into tooltip may change
+	 * so, here is a method that handle both tooltips
+	 * similar to bot.toolbarButtonWithTooltip("Step &Into (F5)").click();
+	 */
+	def void clickOnStepInto(){
+		val matcher = allOf(widgetOfType(typeof(ToolItem)), 
+			anyOf(withTooltip("Step &Into (F5)"), withTooltip("Step &Into")), 
+			withStyle(SWT.PUSH, "SWT.PUSH")
+		)
+		val btn = new SWTBotToolbarPushButton( bot.widget(matcher, 0) as ToolItem, matcher);
+		btn.click
+	}
 	
 }
 	
