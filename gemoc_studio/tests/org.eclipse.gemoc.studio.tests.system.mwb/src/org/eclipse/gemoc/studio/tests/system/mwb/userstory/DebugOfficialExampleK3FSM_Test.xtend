@@ -43,6 +43,7 @@ import static org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences.*
 import org.eclipse.gemoc.example.k3fsm.FSM
 import org.eclipse.gemoc.trace.commons.model.trace.Step
 import java.util.Deque
+import org.junit.Ignore
 
 /**
  * Verifies that we can execute a debug session 
@@ -111,28 +112,9 @@ public class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 	
 	private def void TwoStatesUpCast_Model_some_steps_stop_and_clear() {
 		val runningEnginesRegistry = org.eclipse.gemoc.executionframework.engine.Activator.getDefault().gemocRunningEngineRegistry;
-		assertTrue("runningEngineRegistry not empty " +runningEnginesRegistry.runningEngines,  runningEnginesRegistry.runningEngines.size == 0)
 		
-		bot.tree().getTreeItem("org.eclipse.gemoc.example.k3fsm.model_examples").select();
-		bot.tree().getTreeItem("org.eclipse.gemoc.example.k3fsm.model_examples").expand();
-		val item = bot.tree().getTreeItem("org.eclipse.gemoc.example.k3fsm.model_examples").getNode("TwoStatesUpcast.k3fsm").select();
-		item.contextMenu("Debug As").menu("Debug Configurations...").click();
-		bot.tree().getTreeItem("Gemoc Sequential eXecutable Model").expand();
-		bot.tree().getTreeItem("Gemoc Sequential eXecutable Model").getNode("K3FSM - TwoStatesUpcast(abababa)").select();
-		bot.button("Debug").click();
+		startDebugwoStatesUpCast_Model
 		
-		// accept switch to debug perspective (this also makes sure that the engines has started)		
-		//bot.perspectiveByLabel("Debug").activate
-		bot.shell("Confirm Perspective Switch").bot.button("Yes").click
-		
-		// select stack in Debug view (this opens the xtext editor and enables the F5 buttons)
-		bot.viewByTitle("Debug").show();
-		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Gemoc Sequential eXecutable Model]").getNode("Gemoc debug target").getNode("Model debugging").expand();
-		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Gemoc Sequential eXecutable Model]").getNode("Gemoc debug target").getNode("Model debugging").getNode("[FSM] TwoStateUpcast -> initializeModel()").select();
-		
-		
-		closeXtextProjectConversionPopup
-		assertTrue("engine not found in runningEngineRegistry" +runningEnginesRegistry.runningEngines,  runningEnginesRegistry.runningEngines.size == 1)
 		val engine = runningEnginesRegistry.runningEngines.entrySet.get(0).value		
 		assertEquals("GEMOC Kermeta Sequential Engine platform:/resource/org.eclipse.gemoc.example.k3fsm.model_examples/TwoStatesUpcast.k3fsm", engine.name)
 		assertEquals(0,engine.engineStatus.nbLogicalStepRun)
@@ -165,15 +147,80 @@ public class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 		assertEquals(5,engine.engineStatus.nbLogicalStepRun)
 		assertEquals("S1",fsm.currentState.name)
 		
+		closeAndClearEngine
+		
+		helper.assertNoMarkers();	
+	}
+
+	/**
+	 * verifies that the end of the execution looks correct
+	 * see bug https://github.com/eclipse/gemoc-studio-modeldebugging/issues/66
+	 */
+	@Ignore // this test actually implies to fix https://github.com/eclipse/gemoc-studio-modeldebugging/issues/66
+	@Test
+	def void test03_TwoStatesUpCast_Model_run_to_end() throws Exception {
+		startDebugwoStatesUpCast_Model
+		
+		val matcher = allOf(widgetOfType(typeof(ToolItem)), 
+			anyOf(withTooltip("Resu&me (F8)"), withTooltip("Resu&me")), 
+			withStyle(SWT.PUSH, "SWT.PUSH")
+		)
+		val btn = new SWTBotToolbarPushButton( bot.widget(matcher, 0) as ToolItem, matcher);
+		btn.click
+		// we currently don't have a way to know if we've reached the end
+		// so just sleep a little bit
+		Thread.sleep(2000)
+		
+		val runningEnginesRegistry = org.eclipse.gemoc.executionframework.engine.Activator.getDefault().gemocRunningEngineRegistry;		
+		val engine = runningEnginesRegistry.runningEngines.entrySet.get(0).value		
+		assertEquals("GEMOC Kermeta Sequential Engine platform:/resource/org.eclipse.gemoc.example.k3fsm.model_examples/TwoStatesUpcast.k3fsm", engine.name)
+		assertEquals(15,engine.engineStatus.nbLogicalStepRun)
+		val fsm = engine.executionContext.resourceModel.contents.get(0) as FSM
+		
+		assertEquals("abababa",fsm.consummedString)
+		assertEquals("ABABABA",fsm.producedString)
+		assertEquals("",fsm.unprocessedString)
+		
+		closeAndClearEngine
+	}
+	
+	// some reusabe test part
+	public def void startDebugwoStatesUpCast_Model() {
+		val runningEnginesRegistry = org.eclipse.gemoc.executionframework.engine.Activator.getDefault().gemocRunningEngineRegistry;
+		assertTrue("runningEngineRegistry not empty " +runningEnginesRegistry.runningEngines,  runningEnginesRegistry.runningEngines.size == 0)
+		
+		bot.tree().getTreeItem("org.eclipse.gemoc.example.k3fsm.model_examples").select();
+		bot.tree().getTreeItem("org.eclipse.gemoc.example.k3fsm.model_examples").expand();
+		val item = bot.tree().getTreeItem("org.eclipse.gemoc.example.k3fsm.model_examples").getNode("TwoStatesUpcast.k3fsm").select();
+		item.contextMenu("Debug As").menu("Debug Configurations...").click();
+		bot.tree().getTreeItem("Gemoc Sequential eXecutable Model").expand();
+		bot.tree().getTreeItem("Gemoc Sequential eXecutable Model").getNode("K3FSM - TwoStatesUpcast(abababa)").select();
+		bot.button("Debug").click();
+		
+		// accept switch to debug perspective (this also makes sure that the engines has started)		
+		//bot.perspectiveByLabel("Debug").activate
+		bot.shell("Confirm Perspective Switch").bot.button("Yes").click
+		
+		// select stack in Debug view (this opens the xtext editor and enables the F5 buttons)
+		bot.viewByTitle("Debug").show();
+		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Gemoc Sequential eXecutable Model]").getNode("Gemoc debug target").getNode("Model debugging").expand();
+		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Gemoc Sequential eXecutable Model]").getNode("Gemoc debug target").getNode("Model debugging").getNode("[FSM] TwoStateUpcast -> initializeModel()").select();
+		
+		
+		closeXtextProjectConversionPopup
+		assertTrue("engine not found in runningEngineRegistry" +runningEnginesRegistry.runningEngines,  runningEnginesRegistry.runningEngines.size == 1)
+		
+	}
+	public def void closeAndClearEngine() {
+		val runningEnginesRegistry = org.eclipse.gemoc.executionframework.engine.Activator.getDefault().gemocRunningEngineRegistry;
+		
 		// stop engine and clear using the engine status view
 		bot.viewByTitle("Gemoc Engines Status").show();
 		bot.toolbarButtonWithTooltip("Stop selected engines").click();
 		bot.toolbarButtonWithTooltip("Dispose all stopped engines").click();
 		
 		assertTrue("runningEngineRegistry not empty " +runningEnginesRegistry.runningEngines,  runningEnginesRegistry.runningEngines.size == 0)
-		helper.assertNoMarkers();	
 	}
-
 
 	/**
 	 * for some reason, the step into tooltip may change
