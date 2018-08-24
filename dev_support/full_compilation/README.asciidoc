@@ -59,3 +59,28 @@ The build also assemble complementary results:
  
 - an update site, available in `gemoc_studio/gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.product/target/repository/`
 - an archivable version of the web help; available in `gemoc-studio/docs/org.eclipse.gemoc.studio.doc/target/publish/webhelp/`
+
+==== Advanced usage using docker
+
+If you have trouble to reproduce a bug in the CI or want to make sure that the CI will pass, you can run the maven build in a docker that mimic the CI environment.
+
+To do a full build using docker: go to the docker folder (*/gemoc-studio/dev_support/full_compilation/docker*), then call the command
+
+[source,bourne]
+----
+docker-compose down && docker-compose up
+----
+
+
+Once the full compilation has been done at least once (ie. and filled the m2 cache), you can run the system test only using the command
+[source,bourne]
+----
+docker-compose run gemoc_full_compilation system_test_only
+----
+
+
+===== Description of the docker env
+
+The _Dockerfile_ defines a docker image based on ubuntu 16.04 with maven, oracle java8, xvfb, and graphviz. It embeds an *entrypoint.sh* script that calls the maven command.
+The _docker-compose.yml_ will mount the folder containing all gemoc repositories (ie. the place where you've done `git clone`) 
+It also mounts a *cache-m2* folder in order to speed up the compilation.  

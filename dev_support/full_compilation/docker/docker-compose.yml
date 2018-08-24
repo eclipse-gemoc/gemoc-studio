@@ -1,0 +1,9 @@
+version: '3'
+services:
+  gemoc_full_compilation:
+    image: "gemoc-full-compilation:latest"
+    build: "."
+    volumes:
+      - "./cache-m2:/root/.m2"
+      - "../../../..:/root/src"
+      

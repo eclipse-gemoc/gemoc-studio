@@ -40,9 +40,6 @@
         <!-- tests -->
         <module>tests/org.eclipse.gemoc.dsl.tests</module>
     </modules>
-	<properties>
-		<xtend.version>2.9.1</xtend.version>
-	</properties>
 	<build>
 		<plugins>
 			<plugin>

@@ -31,9 +31,6 @@
         <module>releng/org.eclipse.gemoc.samples.deployers.repository</module>
     </modules>
 
-	<properties>
-		<xtend.version>2.8.2</xtend.version>
-	</properties>
     <build>
 		<plugins>
 			<plugin>

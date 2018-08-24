@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (c) 2017 Inria and others.
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the Eclipse Public License v1.0
+    which accompanies this distribution, and is available at
+    http://www.eclipse.org/legal/epl-v10.html
+   
+    Contributors:
+        Inria - initial API and implementation
+ -->
+
+<project>
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<relativePath>../..</relativePath>
+		<groupId>org.eclipse.gemoc.gemoc_studio</groupId>
+		<artifactId>org.eclipse.gemoc.gemoc_studio.parent</artifactId>
+		<version>3.1.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>org.eclipse.gemoc.studio.tests.system.lwb</artifactId>
+	<packaging>eclipse-test-plugin</packaging>
+
+	
+	<properties>
+		<!-- override this property using the command line in order to adapt to your work environment -->
+        <gemoc-studio.repository>${basedir}/../../../../gemoc-studio</gemoc-studio.repository> 
+	
+		<tests-inputs-gen.path>${basedir}/tests-inputs-gen</tests-inputs-gen.path>
+        <sequentialFSM.language.root>${gemoc-studio.repository}/official_samples/LegacyFSM/language_workbench</sequentialFSM.language.root>
+        <sequentialFSM.tests-inputs-gen.path>${tests-inputs-gen.path}/SequentialFSM</sequentialFSM.tests-inputs-gen.path>
+        <k3FSM.language.root>${gemoc-studio.repository}/official_samples/K3FSM/language_workbench</k3FSM.language.root>
+        <k3FSM.tests-inputs-gen.path>${tests-inputs-gen.path}/K3FSM</k3FSM.tests-inputs-gen.path>
+    </properties>
+	
+	<build>
+    	<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-surefire-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<argLine>-Xmx2048m</argLine>
+					<useUIHarness>true</useUIHarness>
+					<useUIThread>false</useUIThread>
+					<product>org.eclipse.sdk.ide</product>
+              		<application>org.eclipse.ui.ide.workbench</application>
+              		<testFailureIgnore>true</testFailureIgnore> <!-- failed tests here must fail the build-->
+				</configuration>
+			</plugin>
+		
+		<!-- generates the tests-inputs zip used by the tests  -->
+		<!-- the origin of the sources used for these zips can -->
+		<!-- be locally overwritten by setting the appropriate system property on the command line -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>initialize</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<target>
+								<mkdir dir="${tests-inputs-gen.path}" />
+
+								<!-- LegacyFSM -->
+								<mkdir dir="${sequentialFSM.tests-inputs-gen.path}" />
+								
+								<zip destfile="${sequentialFSM.tests-inputs-gen.path}/org.eclipse.gemoc.sample.legacyfsm.fsm.zip">
+									<fileset dir="${sequentialFSM.language.root}/org.eclipse.gemoc.sample.legacyfsm.fsm/" />
+								</zip>
+								<zip destfile="${sequentialFSM.tests-inputs-gen.path}/org.eclipse.gemoc.sample.legacyfsm.fsm.design.zip">
+									<fileset dir="${sequentialFSM.language.root}/org.eclipse.gemoc.sample.legacyfsm.fsm.design/" />
+								</zip>
+								<zip destfile="${sequentialFSM.tests-inputs-gen.path}/org.eclipse.gemoc.sample.legacyfsm.fsm.k3dsa.zip">
+									<fileset dir="${sequentialFSM.language.root}/org.eclipse.gemoc.sample.legacyfsm.fsm.k3dsa/" />
+								</zip>
+								<zip destfile="${sequentialFSM.tests-inputs-gen.path}/org.eclipse.gemoc.sample.legacyfsm.fsm.model.zip">
+									<fileset dir="${sequentialFSM.language.root}/org.eclipse.gemoc.sample.legacyfsm.fsm.model/" />
+								</zip>
+								<zip destfile="${sequentialFSM.tests-inputs-gen.path}/org.eclipse.gemoc.sample.legacyfsm.fsm.model.edit.zip">
+									<fileset dir="${sequentialFSM.language.root}/org.eclipse.gemoc.sample.legacyfsm.fsm.model.edit/" />
+								</zip>
+								<zip destfile="${sequentialFSM.tests-inputs-gen.path}/org.eclipse.gemoc.sample.legacyfsm.fsm.model.editor.zip">
+									<fileset dir="${sequentialFSM.language.root}/org.eclipse.gemoc.sample.legacyfsm.fsm.model.editor/" />
+								</zip>
+								<zip destfile="${sequentialFSM.tests-inputs-gen.path}/org.eclipse.gemoc.sample.legacyfsm.xsfsm.zip">
+									<fileset dir="${sequentialFSM.language.root}/org.eclipse.gemoc.sample.legacyfsm.xsfsm/" />
+								</zip>
+								<zip destfile="${sequentialFSM.tests-inputs-gen.path}/org.eclipse.gemoc.sample.legacyfsm.xsfsm.design.zip">
+									<fileset dir="${sequentialFSM.language.root}/org.eclipse.gemoc.sample.legacyfsm.xsfsm.design/" />
+								</zip>
+								<zip destfile="${sequentialFSM.tests-inputs-gen.path}/org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.zip">
+									<fileset dir="${sequentialFSM.language.root}/org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm/" />
+								</zip>
+								<zip destfile="${sequentialFSM.tests-inputs-gen.path}/org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.trace.zip">
+									<fileset dir="${sequentialFSM.language.root}/org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.trace/" />
+								</zip>
+								
+								<!-- K3FSM -->
+								<mkdir dir="${k3FSM.tests-inputs-gen.path}" />
+								
+								<zip destfile="${k3FSM.tests-inputs-gen.path}/org.eclipse.gemoc.example.k3fsm.zip">
+									<fileset dir="${k3FSM.language.root}/org.eclipse.gemoc.example.k3fsm/" />
+								</zip>
+								<zip destfile="${k3FSM.tests-inputs-gen.path}/org.eclipse.gemoc.example.k3fsm.design.zip">
+									<fileset dir="${k3FSM.language.root}/org.eclipse.gemoc.example.k3fsm.design/" />
+								</zip>
+								<zip destfile="${k3FSM.tests-inputs-gen.path}/org.eclipse.gemoc.example.k3fsm.edit.zip">
+									<fileset dir="${k3FSM.language.root}/org.eclipse.gemoc.example.k3fsm.edit/" />
+								</zip>
+								<zip destfile="${k3FSM.tests-inputs-gen.path}/org.eclipse.gemoc.example.k3fsm.editor.zip">
+									<fileset dir="${k3FSM.language.root}/org.eclipse.gemoc.example.k3fsm.editor/" />
+								</zip>
+								<zip destfile="${k3FSM.tests-inputs-gen.path}/org.eclipse.gemoc.example.k3fsm.k3dsa.zip">
+									<fileset dir="${k3FSM.language.root}/org.eclipse.gemoc.example.k3fsm.k3dsa/" />
+								</zip>
+								<zip destfile="${k3FSM.tests-inputs-gen.path}/org.eclipse.gemoc.example.k3fsm.xdsml.zip">
+									<fileset dir="${k3FSM.language.root}/org.eclipse.gemoc.example.k3fsm.xdsml/" />
+								</zip>
+								<zip destfile="${k3FSM.tests-inputs-gen.path}/org.eclipse.gemoc.example.k3fsm.xtext.zip">
+									<fileset dir="${k3FSM.language.root}/org.eclipse.gemoc.example.k3fsm.xtext/" />
+								</zip>
+								<zip destfile="${k3FSM.tests-inputs-gen.path}/org.eclipse.gemoc.example.k3fsm.xtext.ide.zip">
+									<fileset dir="${k3FSM.language.root}/org.eclipse.gemoc.example.k3fsm.xtext.ide/" />
+								</zip>
+								<zip destfile="${k3FSM.tests-inputs-gen.path}/org.eclipse.gemoc.example.k3fsm.xtext.ui.zip">
+									<fileset dir="${k3FSM.language.root}/org.eclipse.gemoc.example.k3fsm.xtext.ui/" />
+								</zip>
+
+							</target>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+			   <groupId>org.eclipse.tycho</groupId>
+			   <artifactId>target-platform-configuration</artifactId>
+			   <version>${tycho-version}</version>
+			   <configuration>
+			      <dependency-resolution>
+			         <extraRequirements>
+			         	<!-- Eclipse platform -->
+			            <requirement>
+			               <type>eclipse-feature</type>
+			               <id>org.eclipse.e4.rcp</id>
+			               <versionRange>1.0.0</versionRange>
+			            </requirement>
+			            <requirement>
+			               <type>eclipse-feature</type>
+			               <id>org.eclipse.sdk</id>
+			               <versionRange>1.0.0</versionRange>
+			            </requirement>
+			            <!-- GEMOC components -->
+			            <requirement>
+			               <type>eclipse-feature</type>
+			               <id>org.eclipse.gemoc.modeldebugging.feature</id>
+			               <versionRange>3.1.0</versionRange>
+			            </requirement>
+			            <requirement>
+			               <type>eclipse-feature</type>
+			               <id>org.eclipse.gemoc.gemoc_studio.branding.feature</id>
+			               <versionRange>3.1.0</versionRange>
+			            </requirement>
+			            <requirement>
+			               <type>eclipse-feature</type>
+			               <id>org.eclipse.gemoc.gemoc_studio.additions.feature</id>
+			               <versionRange>3.1.0</versionRange>
+			            </requirement>
+			            <!-- SWTBot features -->
+			            <requirement>
+			               <type>eclipse-feature</type>
+			               <id>org.eclipse.swtbot</id>
+			               <versionRange>1.0.0</versionRange>
+			            </requirement>
+			            <requirement>
+			               <type>eclipse-feature</type>
+			               <id>org.eclipse.swtbot.eclipse</id>
+			               <versionRange>1.0.0</versionRange>
+			            </requirement>
+			            <requirement>
+			               <type>eclipse-feature</type>
+			               <id>org.eclipse.swtbot.ide</id>
+			               <versionRange>1.0.0</versionRange>
+			            </requirement>
+			         </extraRequirements>
+			        
+			      </dependency-resolution>
+			   </configuration>
+			</plugin>
+			<plugin>
+    			<artifactId>maven-clean-plugin</artifactId>
+    			<configuration>
+	      			<filesets>
+		        		<fileset>
+		          			<directory>${tests-inputs-gen.path}</directory>         
+		          			<excludes>
+		            			<exclude>**/.gitignore</exclude>
+		            			<exclude>**/readme.md</exclude>
+		          			</excludes>		          
+		        		</fileset>
+	      			</filesets>
+    			</configuration>
+  			</plugin>
+		</plugins>
+	</build>
+
+</project>
+

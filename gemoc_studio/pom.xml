@@ -35,8 +35,12 @@
         <module>releng/org.eclipse.gemoc.modeldebugging.feature</module>
         <module>releng/org.eclipse.gemoc.gemoc_studio.updatesite</module>
         
+        <!-- modules required by modeling workbench tests platform -->
+        <module>../official_samples/K3FSM/language_workbench</module>
+        
         <!-- Tests -->
-        <module>tests/org.eclipse.gemoc.studio.tests.system</module>
+        <module>tests/org.eclipse.gemoc.studio.tests.system.lwb</module>
+        <module>tests/org.eclipse.gemoc.studio.tests.system.mwb</module>
         <!-- backlog tests are not part of the main CI build
         <module>tests/org.eclipse.gemoc.studio.tests.system.backlog</module>
         -->
