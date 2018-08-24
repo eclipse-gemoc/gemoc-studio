@@ -120,13 +120,16 @@ public class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 		bot.tree().getTreeItem("Gemoc Sequential eXecutable Model").expand();
 		bot.tree().getTreeItem("Gemoc Sequential eXecutable Model").getNode("K3FSM - TwoStatesUpcast(abababa)").select();
 		bot.button("Debug").click();
-		//bot.viewByTitle("Gemoc Engines Status").show();
-		//bot.viewByTitle("Console (Model Debugger console)").show();
-		//bot.editorByTitle("TwoStateUpcast").show();
 		
-		// accept switch to debug perspective
-		bot.viewByTitle("").show();
-		bot.button("Yes").click();
+		// accept switch to debug perspective (this also makes sure that the engines has started)		
+		//bot.perspectiveByLabel("Debug").activate
+		bot.shell("Confirm Perspective Switch").bot.button("Yes").click
+		
+		// select stack in Debug view (this opens the xtext editor and enables the F5 buttons)
+		bot.viewByTitle("Debug").show();
+		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Gemoc Sequential eXecutable Model]").getNode("Gemoc debug target").getNode("Model debugging").expand();
+		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Gemoc Sequential eXecutable Model]").getNode("Gemoc debug target").getNode("Model debugging").getNode("[FSM] TwoStateUpcast -> initializeModel()").select();
+		
 		
 		closeXtextProjectConversionPopup
 		assertTrue("engine not found in runningEngineRegistry" +runningEnginesRegistry.runningEngines,  runningEnginesRegistry.runningEngines.size == 1)
@@ -137,9 +140,10 @@ public class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 		fsm.currentState.assertNull
 		assertEquals("MSE_FSMImpl_initializeModel",stackToString(engine.currentStack))
 		// proceeds for some steps
-		// verify some point in the engine
+		// verify some basic points in the engine status, in the model resource and in the UI
+		
+		bot.viewByTitle("Debug").show();
 		clickOnStepInto() // initializeModel, no increment of steps		
-		closeXtextProjectConversionPopup
 		assertEquals(1,engine.engineStatus.nbLogicalStepRun)
 		assertEquals("S1",fsm.currentState.name)
 		assertEquals("MSE_StateImpl_step",stackToString(engine.currentStack))
@@ -162,11 +166,8 @@ public class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 		assertEquals("S1",fsm.currentState.name)
 		
 		// stop engine and clear using the engine status view
-		bot.viewByTitle("Debug").show();
 		bot.viewByTitle("Gemoc Engines Status").show();
 		bot.toolbarButtonWithTooltip("Stop selected engines").click();
-		bot.viewByTitle("Debug").show();
-		bot.viewByTitle("Gemoc Engines Status").show();
 		bot.toolbarButtonWithTooltip("Dispose all stopped engines").click();
 		
 		assertTrue("runningEngineRegistry not empty " +runningEnginesRegistry.runningEngines,  runningEnginesRegistry.runningEngines.size == 0)
@@ -191,7 +192,7 @@ public class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 	
 	def void closeXtextProjectConversionPopup(){
 		// at some point, xtext may  wish to convert the project containing the models, accept is silently
-		// however, it seems to be in another thread and do not block the execution 
+		// however, it seems to be in another thread and do not block the execution
 		try {
 			bot.shell("Configure Xtext").bot.button("Yes").click
 		} catch (WidgetNotFoundException wnfe){}

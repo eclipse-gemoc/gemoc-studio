@@ -125,19 +125,20 @@ public class DeployOfficialExampleK3FSM_Test extends AbstractXtextTests
 		bot.tree().getTreeItem("Gemoc Sequential eXecutable Model").expand();
 		bot.tree().getTreeItem("Gemoc Sequential eXecutable Model").getNode("K3FSM - TwoStatesUpcast(abababa)").select();
 		bot.button("Debug").click();
-		bot.viewByTitle("Gemoc Engines Status").show();
-		bot.viewByTitle("Console (Model Debugger console)").show();
-		bot.editorByTitle("TwoStateUpcast").show();
+				
+		// accept switch to debug perspective (this also makes sure that the engines has started)		
+		//bot.perspectiveByLabel("Debug").activate
+		bot.shell("Confirm Perspective Switch").bot.button("Yes").click
+				
 		
-		// accept switch to debug perspective
-		bot.viewByTitle("").show();
-		bot.button("Yes").click();
-		
-		// proceeds for some steps
+		bot.viewByTitle("Debug").show();
+		// proceeds for some steps and then run up to the end
 		clickOnStepInto()
 		clickOnStepInto()
 		clickOnStepInto()
 		clickOnStepInto()
+		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Gemoc Sequential eXecutable Model]").getNode("Gemoc debug target").select();
+		bot.toolbarButtonWithTooltip("Resu&me (F8)").click();
 		
 		// at some point, xtext may  wish to convert the project containing the models, accept is silently
 		// however, it seems to be in another thread and do not block the execution 
@@ -146,11 +147,8 @@ public class DeployOfficialExampleK3FSM_Test extends AbstractXtextTests
 		} catch (WidgetNotFoundException wnfe){}
 		
 		// stop engine and clear using the engine status view
-		bot.viewByTitle("Debug").show();
 		bot.viewByTitle("Gemoc Engines Status").show();
 		bot.toolbarButtonWithTooltip("Stop selected engines").click();
-		bot.viewByTitle("Debug").show();
-		bot.viewByTitle("Gemoc Engines Status").show();
 		bot.toolbarButtonWithTooltip("Dispose all stopped engines").click();
 		helper.assertNoMarkers();	
 		
