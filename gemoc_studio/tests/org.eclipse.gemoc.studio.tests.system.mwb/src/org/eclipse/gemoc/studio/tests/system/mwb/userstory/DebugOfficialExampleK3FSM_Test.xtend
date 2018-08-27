@@ -44,6 +44,8 @@ import org.eclipse.gemoc.example.k3fsm.FSM
 import org.eclipse.gemoc.trace.commons.model.trace.Step
 import java.util.Deque
 import org.junit.Ignore
+import org.eclipse.debug.core.DebugPlugin
+import org.eclipse.debug.internal.core.LaunchManager
 
 /**
  * Verifies that we can execute a debug session 
@@ -126,24 +128,29 @@ public class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 		
 		bot.viewByTitle("Debug").show();
 		clickOnStepInto() // initializeModel, no increment of steps		
+		waitThreadSuspended
 		assertEquals(1,engine.engineStatus.nbLogicalStepRun)
 		assertEquals("S1",fsm.currentState.name)
 		assertEquals("MSE_StateImpl_step",stackToString(engine.currentStack))
 		
 		clickOnStepInto() 
+		waitThreadSuspended
 		assertEquals("S1",fsm.currentState.name)
 		assertEquals(1,engine.engineStatus.nbLogicalStepRun) // this is a small step (no increment)
 		assertEquals("MSE_TransitionImpl_fire|MSE_StateImpl_step",stackToString(engine.currentStack))
 		
 		clickOnStepInto()
+		waitThreadSuspended
 		assertEquals(3,engine.engineStatus.nbLogicalStepRun) // increment only here because the BigStep finishes here 
 		assertEquals("S2",fsm.currentState.name)
 		assertEquals("MSE_StateImpl_step",stackToString(engine.currentStack))
 		
 		clickOnStepInto()
+		waitThreadSuspended
 		assertEquals("S2",fsm.currentState.name)
 		
 		clickOnStepInto()
+		waitThreadSuspended
 		assertEquals(5,engine.engineStatus.nbLogicalStepRun)
 		assertEquals("S1",fsm.currentState.name)
 		
@@ -234,15 +241,40 @@ public class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 		)
 		val btn = new SWTBotToolbarPushButton( bot.widget(matcher, 0) as ToolItem, matcher);
 		btn.click
-		Thread.sleep(50)
 	}
+	
+	/**
+	 * supposes that there is one and only one debug target in the debug view
+	 * or timeout exception
+	 */
+	def void waitThreadSuspended(){		
+		val launchManager = DebugPlugin.getDefault().getLaunchManager() as LaunchManager
+		val targets = launchManager.debugTargets
+		val target = targets.get(0)
+		assertTrue(target.name == "Gemoc debug target")
+		assertTrue(target.launch.launchConfiguration.name == "K3FSM - TwoStatesUpcast(abababa)")
+		
+		// wait that the target suspends or timeout exception
+		var timeout = 80
+		while(!	target.suspended || timeout < 0) {
+			Thread.sleep(100)
+			timeout--
+		} 
+		assertTrue("Timeout: K3FSM - TwoStatesUpcast(abababa) did not suspend",timeout > 0)
+	}
+	
+	var xtextProjectConversionPopupclosed = false
 	
 	def void closeXtextProjectConversionPopup(){
 		// at some point, xtext may  wish to convert the project containing the models, accept is silently
 		// however, it seems to be in another thread and do not block the execution
-		try {
-			bot.shell("Configure Xtext").bot.button("Yes").click
-		} catch (WidgetNotFoundException wnfe){}
+		// close it only once per testsuite (this saves the timeout)
+		if(!xtextProjectConversionPopupclosed) {
+			try {
+				bot.shell("Configure Xtext").bot.button("Yes").click
+			} catch (WidgetNotFoundException wnfe){}
+			xtextProjectConversionPopupclosed= true
+		}
 	}
 	
 	/** simple helper method to get a string representation of the stack*/

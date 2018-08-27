@@ -40,6 +40,8 @@ import static org.eclipse.swtbot.swt.finder.matchers.WidgetMatcherFactory.widget
 import static org.eclipse.swtbot.swt.finder.matchers.WidgetMatcherFactory.withStyle
 import static org.eclipse.swtbot.swt.finder.matchers.WidgetMatcherFactory.withTooltip
 import static org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences.*
+import org.eclipse.debug.core.DebugPlugin
+import org.eclipse.debug.internal.core.LaunchManager
 
 /**
  * Verifies that we can use the wizard to install the official sample models 
@@ -134,9 +136,13 @@ public class DeployOfficialExampleK3FSM_Test extends AbstractXtextTests
 		bot.viewByTitle("Debug").show();
 		// proceeds for some steps and then run up to the end
 		clickOnStepInto()
+		waitThreadSuspended
 		clickOnStepInto()
+		waitThreadSuspended
 		clickOnStepInto()
+		waitThreadSuspended
 		clickOnStepInto()
+		waitThreadSuspended
 		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Gemoc Sequential eXecutable Model]").getNode("Gemoc debug target").select();
 		bot.toolbarButtonWithTooltip("Resu&me (F8)").click();
 		
@@ -166,6 +172,26 @@ public class DeployOfficialExampleK3FSM_Test extends AbstractXtextTests
 		)
 		val btn = new SWTBotToolbarPushButton( bot.widget(matcher, 0) as ToolItem, matcher);
 		btn.click
+	}
+	
+	/**
+	 * This is very basic, it supposes that there is one and only one debug target in the debug view
+	 * or timeout exception
+	 */
+	def void waitThreadSuspended(){		
+		val launchManager = DebugPlugin.getDefault().getLaunchManager() as LaunchManager
+		val targets = launchManager.debugTargets
+		val target = targets.get(0)
+		assertTrue(target.name == "Gemoc debug target")
+		assertTrue(target.launch.launchConfiguration.name == "K3FSM - TwoStatesUpcast(abababa)")
+		
+		// wait that the target suspends or timeout exception
+		var timeout = 80
+		while(!	target.suspended || timeout < 0) {
+			Thread.sleep(100)
+			timeout--
+		} 
+		assertTrue("Timeout: K3FSM - TwoStatesUpcast(abababa) did not suspend",timeout > 0)
 	}
 	
 }
