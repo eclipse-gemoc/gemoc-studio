@@ -1,0 +1,3 @@
+    <language aspects="" entryPoints="" exactType="org.eclipse.gemoc.sample.fsmmodeladaptation.xsfsm.FSMMT" id="org.eclipse.gemoc.sample.fsmmodeladaptation.xsfsm.FSM" uri="http://org.eclipse.gemoc.sample.fsmmodeladaptation.xsfsm.fsm/fsm/">
+      <adapter class="org.eclipse.gemoc.sample.fsmmodeladaptation.xsfsm.fsm.adapters.fsmmt.FSMAdapter" modeltypeId="org.eclipse.gemoc.sample.fsmmodeladaptation.xsfsm.FSMMT"/>
+    </language>
