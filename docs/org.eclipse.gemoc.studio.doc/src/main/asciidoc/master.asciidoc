@@ -128,9 +128,60 @@ include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciido
 
 include::userguide/mw_ExecuteAnimateDebug_headContent.asciidoc[]
 
+[[userguide-mw-execute-a-model]]
 === Execute a model
+include::userguide/mw_ExecuteModel_headContent.asciidoc[]
 
-// include::userguide/mw_Execute_headContent.asciidoc[]
+[[userguide-mw-launch-a-model-execution]]
+==== Launch a model execution
+// include::userguide/mw_LaunchModelExecution_headContent.asciidoc[]
+
+include::../../../../../../gemoc-studio-modeldebugging/java_execution/java_engine/plugins/org.eclipse.gemoc.execution.sequential.javaengine.ui/docs/asciidoc/user_mw_LaunchSequentialModelExecution.asciidoc[]
+
+include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/ccsljavaxdsml/user_mw_LaunchConcurrentModelExecution.asciidoc[]
+
+include::userguide/mw_ConfigureEngineAddons.asciidoc[]
+
+
+[[userguide-mw-control-engine-execution]]
+==== Control engine execution
+
+===== Engine view
+
+===== Logical Steps View
+
+===== Stimuli Manager View
+
+
+[[userguide-mw-animate-a-model]]
+=== Animate a model
+
+NOTE: if enabled, animation must occurs in both Run and Debug modes.
+NOTE: TODO how to enable/disable animation
+
+[[userguide-mw-debug-a-model]]
+=== Debug a model
+
+==== Debug view
+
+==== Variable view
+
+==== Breakpoint view
+
+==== Debug commands
+
+==== Timelines
+
+===== Multibranch View
+
+===== Multidimentionnal View
+
+==== Editor Debug Integration
+ 
+ie. show line in Xtext, show current element in sirius
+
+
+
 
 include::../../../../../../gemoc-studio-modeldebugging/java_execution/java_engine/plugins/org.eclipse.gemoc.execution.sequential.javaengine.ui/docs/asciidoc/user_mw_ExecuteSequentialModel.asciidoc[]
 
@@ -145,7 +196,7 @@ include::userguide/mw_CoordinateModels_headContent.asciidoc[]
 include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/bcool/user_mw_CoordinateModels_bcool.asciidoc[+1]
 
 [[userguide-mw-other-tools]]
-== Other tools
+== V&V and other tools
 
 include::userguide/mw_OtherTools_headContent.asciidoc[]
 
