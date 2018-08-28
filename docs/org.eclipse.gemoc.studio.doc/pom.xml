@@ -99,7 +99,11 @@
 							    </resource>
 							    <!-- Images and resources coming from external plugins/contributions -->
 							    <resource>
-							        <directory>${basedir}/../../../gemoc-studio-modeldebugging/simulationmodelanimation/plugins/org.eclipse.gemoc.dsl.debug.ide.sirius.ui/docs/asciidoc//images</directory>
+							        <directory>${basedir}/../../../gemoc-studio-modeldebugging/simulationmodelanimation/plugins/org.eclipse.gemoc.dsl.debug.ide.sirius.ui/docs/asciidoc/images</directory>
+							        <targetPath>images</targetPath>
+							    </resource>
+							    <resource>
+							        <directory>${basedir}/../../../gemoc-studio-modeldebugging/java_execution/java_engine/plugins/org.eclipse.gemoc.execution.sequential.javaengine.ui/docs/asciidoc/images</directory>
 							        <targetPath>images</targetPath>
 							    </resource>
 							    <resource>
