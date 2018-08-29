@@ -33,7 +33,12 @@ image::images/userguide/workbench/modeling/engine_addons_configuration.png["Sele
 
 When selected, an addon (and its optional associated views) will be activated in both run and debug mode.
 
-For example in <<img-engine_addons_configuration-userguide>>, selecting the _Generic MultiDimentional Trace_ addon will enable the storing of the execution trace and thus allow to use the MultiDimentionnal timeline view.
+For example in <<img-engine_addons_configuration-userguide>>, selecting the a 
+_MultiDimentional Trace_ addon will enable the storing of the execution trace 
+and thus allow to use the MultiDimentionnal timeline view. 
+In this example, the user has the choice between the _Generic MultiDimentional Trace_ 
+addon and the language specific _k3fsm MultiDimentional Trace_ addon (more efficient) 
+generated thanks to the trace addon generator (see <<defining-multidimensional-trace-project-section>>). 
 
 
 NOTE: If most addons can be used for every languages, some addons may be developed for a single language or for a single engine. 

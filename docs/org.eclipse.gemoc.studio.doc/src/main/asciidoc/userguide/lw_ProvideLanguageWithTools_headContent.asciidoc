@@ -11,7 +11,7 @@ footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio
 Let's focus on adding execution specific features to the language.
 
 This includes enabling animation and representing the dynamic part of the language. 
-Ie. the data  and relevant information that change during the model execution.
+Ie. the RunTime Data (RTD)  and relevant information that change during the model execution.
 
 Some feature may be generic and available for any languages, 
 some may be domain specific and require some customization dedicated to the language. 
