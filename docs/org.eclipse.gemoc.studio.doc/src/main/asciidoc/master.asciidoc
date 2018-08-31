@@ -105,7 +105,7 @@ include::../../../../../../gemoc-studio-modeldebugging/framework/xdsml_framework
 
 include::userguide/lw_DefineModelAnimation_using_engine_addon.asciidoc[]
 
-include::userguide/lw_DefineModelAnimation_inSemantics.asciidoc[]
+include::userguide/lw_DefineModelAnimation_using_in_semantics_calls.asciidoc[]
 
 // Other tools added to a language that does not fit in one of the above group
 // must be at level 3 ie. ===

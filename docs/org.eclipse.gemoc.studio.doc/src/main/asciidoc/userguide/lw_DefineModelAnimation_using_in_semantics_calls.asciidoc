@@ -1,0 +1,32 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+= Language workbench user guide
+
+== Provide language with tools
+
+=== Define model animation
+endif::[]
+
+
+[[define-animation-representation-using-in_semantics-section]]
+==== Define an animation representation using calls in the semantics
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/userguide/lw_DefineModelAnimation_using_in_semantics_calls.asciidoc.]
+
+A designer of the DSA code (see <<userguide-lw-make-language-executable>>) can also 
+call a dedicated GUI (for example opening an AWT, Swing, SWT window) and then populate 
+it during the execution.
+In order to not freeze the general UI of the engine, the GUI must start in another thread. 
+This thread can be initialized during the model initialization method of the engine (The initialization
+may differ depending on the engine see <<lw-sequential-defining-initialization>> or <<lw-concurrent-defining-initialization>>).   
+
+NOTE: Using this approach do work and can be convenient for simple representations. 
+However this creates a strong link from the semantics to the UI. As much as possible, 
+this is not the recommended approach.
+
+.TODO
+******
+* further develop the section
+* provide or link to an example
+******

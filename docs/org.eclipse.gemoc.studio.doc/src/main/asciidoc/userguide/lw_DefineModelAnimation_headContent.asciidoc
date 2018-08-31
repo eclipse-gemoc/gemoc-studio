@@ -1,0 +1,23 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+== Language Workbench User Guide
+=== Provide language with tools
+=== Define model animation
+endif::[]
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/userguide/lw_DefineModelAnimaton_headContent.asciidoc.]
+
+
+Providing model animation mainly consist in offering representations (textual, graphical, tabular, or 
+even specialized views) for the data that changes during model execution (ie. RunTime Data).
+
+As opposed to Debug representation (see <<defining-a-debug-representation-section>>), Animation is supposed to be available in all execution modes 
+(both *Run mode* and *Debug mode*). 
+
+
+As for concrete syntaxes, GEMOC supports several technologies, including graphical editor extension, in semantic direct call or engine addons.
+
+ 
+ 
