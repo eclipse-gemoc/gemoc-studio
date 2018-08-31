@@ -191,25 +191,8 @@ include::userguide/mw_AnimateModel_using_in_semantics_calls.asciidoc[]
 include::../../../../../../gemoc-studio-modeldebugging/framework/execution_framework/plugins/org.eclipse.gemoc.executionframework.debugger.ui/docs/acsiidoc/user_mw_DebugModel_DebugView.asciidoc[]
 include::../../../../../../gemoc-studio-modeldebugging/framework/execution_framework/plugins/org.eclipse.gemoc.executionframework.debugger.ui/docs/acsiidoc/user_mw_DebugModel_VariablesView.asciidoc[]
 include::../../../../../../gemoc-studio-modeldebugging/framework/execution_framework/plugins/org.eclipse.gemoc.executionframework.debugger.ui/docs/acsiidoc/user_mw_DebugModel_BreakpointsView.asciidoc[]
+include::../../../../../../gemoc-studio-modeldebugging/framework/execution_framework/plugins/org.eclipse.gemoc.executionframework.debugger.ui/docs/acsiidoc/user_mw_DebugModel_DebugCommands.asciidoc[]
 
-
-[[userguide-mw-debug-view]]
-==== Debug view
-
-[[userguide-mw-variables-view]]
-==== Variables view
-
-[[userguide-mw-breakpoints-view]]
-==== Breakpoints view
-
-[[userguide-mw-debug-commands-view]]
-==== Debug commands
-
-
-.TODO
-*****
-write section 
-*****
 
 [[userguide-mw-timelines-view]]
 ==== Timelines
