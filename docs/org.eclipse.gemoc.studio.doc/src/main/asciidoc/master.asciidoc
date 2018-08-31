@@ -176,8 +176,12 @@ include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciido
 
 
 include::userguide/mw_AnimateModel_headContent.asciidoc[]
-NOTE: if enabled, animation must occurs in both Run and Debug modes.
-NOTE: TODO how to enable/disable animation
+
+include::../../../../../../gemoc-studio-modeldebugging/framework/xdsml_framework/plugins/org.eclipse.gemoc.xdsmlframework.extensions.sirius/docs/asciidoc//user_mw_AnimateModel_using_sirius.asciidoc[]
+
+include::userguide/mw_AnimateModel_using_engine_addon.asciidoc[]
+
+include::userguide/mw_AnimateModel_using_in_semantics_calls.asciidoc[]
 
 [[userguide-mw-debug-a-model]]
 === Debug a model

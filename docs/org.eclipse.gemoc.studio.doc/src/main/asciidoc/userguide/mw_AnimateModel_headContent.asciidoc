@@ -18,6 +18,8 @@ IMPORTANT: Animation must not be confused with debug step highlighting that simp
 step that has the focus when the execution is suspended. (In debug, the focus typically depends on the user who selects a 
 step/frame in the Debug view).   
 
-NOTE: if enabled, animation is supposed to occurs in both Run and Debug modes.
+NOTE: if enabled, animation is supposed to be available in both Run and Debug modes.
 
-NOTE: The method for enabling/disabling animation may depend on the technology used
+As seen in <<userguide-lw-define-model-animation>>, the animation may be provided by several means. 
+The precise procedure to enable/disable it may vary.
+

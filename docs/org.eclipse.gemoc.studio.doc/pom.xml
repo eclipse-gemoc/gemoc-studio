@@ -103,6 +103,16 @@
 							        <targetPath>images</targetPath>
 							    </resource>
 							    <resource>
+							        <directory>${basedir}/../../../gemoc-studio-modeldebugging/framework/execution_framework/plugins/org.eclipse.gemoc.executionframework.ui/docs/asciidoc/images</directory>
+							        <targetPath>images</targetPath>
+							    </resource>
+							    
+							    <resource>
+							        <directory>${basedir}/../../../gemoc-studio-modeldebugging/framework/xdsml_framework/plugins/org.eclipse.gemoc.xdsmlframework.extensions.sirius/docs/asciidoc//images</directory>
+							        <targetPath>images</targetPath>
+							    </resource>
+							    
+							    <resource>
 							        <directory>${basedir}/../../../gemoc-studio-modeldebugging/java_execution/java_engine/plugins/org.eclipse.gemoc.execution.sequential.javaengine.ui/docs/asciidoc/images</directory>
 							        <targetPath>images</targetPath>
 							    </resource>
