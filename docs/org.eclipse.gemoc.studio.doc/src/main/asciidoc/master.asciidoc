@@ -163,13 +163,13 @@ include::userguide/mw_ConfigureEngineAddons.asciidoc[]
 [[userguide-mw-control-engine-execution]]
 ==== Control engine execution
 
-[[userguide-mw-control-engine-execution-engine-view]]
-===== Engine view
+include::../../../../../../gemoc-studio-modeldebugging/framework/execution_framework/plugins/org.eclipse.gemoc.executionframework.ui/docs/asciidoc/user_mw_EngineView.asciidoc[]
 
-===== Logical steps view
+include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/ccsljavaxdsml/user_mw_EngineView_ccsljava_addition.asciidoc[]
 
-===== Stimuli manager view
+include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/ccsljavaxdsml/user_mw_ControlModelExecution_LogicalStepView.asciidoc[]
 
+include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/ccsljavaxdsml/user_mw_ControlModelExecution_StimuliManagerView.asciidoc[]
 
 [[userguide-mw-animate-a-model]]
 === Animate a model
