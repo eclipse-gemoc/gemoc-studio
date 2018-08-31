@@ -85,9 +85,11 @@ include::userguide/lw_ProvideLanguageWithTools_headContent.asciidoc[]
 === Define model debug support
 include::userguide/lw_DefineModelDebugSupport_headContent.asciidoc[]
 
+[[userguide-lw-define-debug-step-information]]
 ==== Define model debug step information
 include::userguide/lw_DefineModelDebugSupport_debug_step_information_headContent.asciidoc[]
 
+[[userguide-lw-define-debug-rtd-information]]
 ==== Define model debug RTD information
 include::userguide/lw_DefineModelDebugSupport_debug_RTD_information_headContent.asciidoc[]
 
@@ -186,6 +188,11 @@ include::userguide/mw_AnimateModel_using_in_semantics_calls.asciidoc[]
 [[userguide-mw-debug-a-model]]
 === Debug a model
 
+include::../../../../../../gemoc-studio-modeldebugging/framework/execution_framework/plugins/org.eclipse.gemoc.executionframework.debugger.ui/docs/acsiidoc/user_mw_DebugModel_DebugView.asciidoc[]
+include::../../../../../../gemoc-studio-modeldebugging/framework/execution_framework/plugins/org.eclipse.gemoc.executionframework.debugger.ui/docs/acsiidoc/user_mw_DebugModel_VariablesView.asciidoc[]
+include::../../../../../../gemoc-studio-modeldebugging/framework/execution_framework/plugins/org.eclipse.gemoc.executionframework.debugger.ui/docs/acsiidoc/user_mw_DebugModel_BreakpointsView.asciidoc[]
+
+
 [[userguide-mw-debug-view]]
 ==== Debug view
 
@@ -198,8 +205,20 @@ include::userguide/mw_AnimateModel_using_in_semantics_calls.asciidoc[]
 [[userguide-mw-debug-commands-view]]
 ==== Debug commands
 
+
+.TODO
+*****
+write section 
+*****
+
 [[userguide-mw-timelines-view]]
 ==== Timelines
+
+
+.TODO
+*****
+write section 
+*****
 
 [[userguide-mw-multibranch-timeline-view]]
 ===== Multibranch timeline view
@@ -207,10 +226,14 @@ include::userguide/mw_AnimateModel_using_in_semantics_calls.asciidoc[]
 [[userguide-mw-multidimentional-timeline-view]]
 ===== Multidimentional timeline view
 
+[[userguide-mw-editor-debug-integration]]
 ==== Editor debug integration
- 
-ie. show line in Xtext, show current element in sirius
 
+.TODO
+*****
+write section 
+ie. show line in Xtext, show current element in sirius
+*****
 
 
 
