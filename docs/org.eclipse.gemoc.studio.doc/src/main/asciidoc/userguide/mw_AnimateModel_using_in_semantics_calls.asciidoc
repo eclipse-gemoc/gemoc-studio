@@ -11,7 +11,7 @@ ifndef::includedInMaster[]
 endif::[]
 
 
-[[mw-animate-model-using-engine-addon-section]]
+[[mw-animate-model-using-semantics-calls-section]]
 ==== Animate a model using representation provided by semantics calls
 footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/userguide/mw_AnimateModel_using_engine_addon.asciidoc.]
 

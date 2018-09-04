@@ -207,11 +207,10 @@ include::../../../../../../gemoc-studio-modeldebugging/trace/manager/plugins/org
 [[userguide-mw-editor-debug-integration]]
 ==== Editor debug integration
 
-.TODO
-*****
-write section 
-ie. show line in Xtext, show current element in sirius
-*****
+
+include::../../../../../../gemoc-studio-modeldebugging/simulationmodelanimation/plugins/org.eclipse.gemoc.dsl.debug.ide.sirius.ui/docs/asciidoc/user_mw_EditorDebugIntegration_Sirius.asciidoc[]
+
+include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/xtext/user_mw_EditorDebugIntegration_xtext.asciidoc[]
 
 
 [[userguide-mw-coordinate-models]]

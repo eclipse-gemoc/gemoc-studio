@@ -1,0 +1,27 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+= GEMOC modeling workbench user guide
+== Execute, animate and debug models
+=== Debug a model
+==== Editor debug integration
+
+endif::[]
+
+
+[[modeling-workbench-editor-integration-xtext-section]]
+===== Xtext specific debug integration
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/xtext/user_mw_EditorDebugIntegration_xtext.asciidoc]
+
+If your language has a concrete syntax specified using XText,  when running a model, 
+the debugger will take care to highlight the correct line in the xtext editor corresponding to
+the target model element of the selected call in the call stack.
+
+In the following example, (<<img-xtext_debug_stack_highlighting.png>>) the selected 
+element in the Debug stack (top left) is highlighted with an arrow in Xtext (bottom right). 
+
+[[img-xtext_debug_stack_highlighting.png]]
+.Xtext debug stack highlighting
+image::images/workbench/modeling/xtext_debug_stack_highlighting.png[xtext_debug_stack_highlighting]  

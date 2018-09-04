@@ -70,7 +70,7 @@ language specific. In that case, you should prefer to add its code in the projec
 containing the dsl file of the language and declare it in the plugin.xml.
 
 
-This way, the addon will be availble only for this specific language.
+This way, the addon will be available only for this specific language.
 
 [[img-add_engine_addons_on_dsl]]
 .Add language specific Engine Addon on DSL 
