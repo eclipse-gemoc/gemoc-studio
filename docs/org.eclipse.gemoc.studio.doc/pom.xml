@@ -120,6 +120,10 @@
 							        <targetPath>images</targetPath>
 							    </resource>
 							    <resource>
+							        <directory>${basedir}/../../../gemoc-studio-modeldebugging//trace/manager/plugins/org.eclipse.gemoc.addon.multidimensional.timeline/docs/asciidoc/images</directory>
+							        <targetPath>images</targetPath>
+							    </resource>
+							    <resource>
 							        <directory>${basedir}/../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/ccsljavaxdsml/images</directory>
 							        <targetPath>images</targetPath>
 							    </resource>

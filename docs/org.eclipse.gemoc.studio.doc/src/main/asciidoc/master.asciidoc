@@ -176,13 +176,10 @@ include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciido
 [[userguide-mw-animate-a-model]]
 === Animate a model
 
-
 include::userguide/mw_AnimateModel_headContent.asciidoc[]
 
 include::../../../../../../gemoc-studio-modeldebugging/framework/xdsml_framework/plugins/org.eclipse.gemoc.xdsmlframework.extensions.sirius/docs/asciidoc//user_mw_AnimateModel_using_sirius.asciidoc[]
-
 include::userguide/mw_AnimateModel_using_engine_addon.asciidoc[]
-
 include::userguide/mw_AnimateModel_using_in_semantics_calls.asciidoc[]
 
 [[userguide-mw-debug-a-model]]
@@ -193,21 +190,19 @@ include::../../../../../../gemoc-studio-modeldebugging/framework/execution_frame
 include::../../../../../../gemoc-studio-modeldebugging/framework/execution_framework/plugins/org.eclipse.gemoc.executionframework.debugger.ui/docs/acsiidoc/user_mw_DebugModel_BreakpointsView.asciidoc[]
 include::../../../../../../gemoc-studio-modeldebugging/framework/execution_framework/plugins/org.eclipse.gemoc.executionframework.debugger.ui/docs/acsiidoc/user_mw_DebugModel_DebugCommands.asciidoc[]
 
-
 [[userguide-mw-timelines-view]]
 ==== Timelines
 
+include::userguide/mw_DebugModel_Timelines_headContent.asciidoc[]
 
-.TODO
-*****
-write section 
-*****
+include::../../../../../../gemoc-studio-modeldebugging/trace/manager/plugins/org.eclipse.gemoc.addon.multidimensional.timeline/docs/asciidoc/user_mw_DebugModel_MultiDimentionalTimeline.asciidoc[]
+include::../../../../../../gemoc-studio-modeldebugging/java_execution/java_engine/plugins/org.eclipse.gemoc.execution.sequential.javaengine.ui/docs/asciidoc/user_mw_DebugModel_MultiDimentionalTimeline_javaengine.asciidoc[]
 
-[[userguide-mw-multibranch-timeline-view]]
-===== Multibranch timeline view
+include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/ccsljavaxdsml/user_mw_DebugModel_MultiBranchTimeline.asciidoc[]
+include::../../../../../../gemoc-studio-modeldebugging/java_execution/java_engine/plugins/org.eclipse.gemoc.execution.sequential.javaengine.ui/docs/asciidoc/user_mw_DebugModel_MultiBranchTimeline_javaengine.asciidoc[]
 
-[[userguide-mw-multidimentional-timeline-view]]
-===== Multidimentional timeline view
+include::../../../../../../gemoc-studio-modeldebugging/trace/manager/plugins/org.eclipse.gemoc.addon.diffviewer/docs/asciidoc/user_mw_DebugModel_Timeline_diff_view.asciidoc[]
+include::../../../../../../gemoc-studio-modeldebugging/trace/manager/plugins/org.eclipse.gemoc.addon.stategraph/docs/asciidoc/user_mw_DebugModel_Timeline_state_graph_view.asciidoc[]
 
 [[userguide-mw-editor-debug-integration]]
 ==== Editor debug integration
@@ -219,14 +214,8 @@ ie. show line in Xtext, show current element in sirius
 *****
 
 
-
-include::../../../../../../gemoc-studio-modeldebugging/java_execution/java_engine/plugins/org.eclipse.gemoc.execution.sequential.javaengine.ui/docs/asciidoc/user_mw_ExecuteSequentialModel.asciidoc[]
-
-include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/ccsljavaxdsml/user_mw_ExecuteConcurrentModel.asciidoc[]
-
 [[userguide-mw-coordinate-models]]
 == Coordinate models
-
 
 include::userguide/mw_CoordinateModels_headContent.asciidoc[]
 

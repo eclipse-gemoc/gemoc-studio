@@ -1,0 +1,53 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+= GEMOC Modeling workbench User guide
+
+== Execute, animate and debug models
+
+=== Debug a model
+
+==== Timelines
+endif::[]
+
+[[userguide-mw-multibranch-timeline-view]]
+===== Multibranch timeline view
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/ccsljavaxdsml/user_mw_DebugModel_MultiBranchTimeline.asciidoc.]
+
+
+Formerly known as _Event Scheduling Timeline view_, this view represents the lines of the model's execution with a 
+focus for concurrent behavior and LogicalSteps events. It displays:
+
+* the different logical steps proposed by the solver in the past in blue color,
+* the selected logical steps at each execution step in green color,
+* and the possible future logical steps in yellow color,
+* the model specific events for each logical step.
+
+[NOTE]
+====
+This view can be enabled/disabled in the launch configuration by checking "Execution tracing" in the Engine Addons tab.
+====
+
+[NOTE]
+====
+The possible future logical steps are shown under the condition that the model is executing.
+====
+
+image:images/workbench/modeling/timeline.png[Timeline, 800]
+
+In addition to displaying information, it also provides interaction with the user. During execution, it is possible to come back into the past by double-clicking on any of the blue logical steps. It does three things:
+
+. it resets the solver's state to the selected execution step,
+. and it resets the model's state to the selected execution step,
+. it also forks the current timeline and create a new branch of execution.
+
+image:images/workbench/modeling/timeline/timeline_branch.png[Timeline branch, 200]
+
+It is also possible to select a logical step and use the contextual menu to show its caller in the Sirius editor:
+
+image:images/workbench/modeling/timeline/show_caller_timeline.png[Show caller]
+
+image:images/workbench/modeling/timeline/show_caller_editor.png[Show caller]
+

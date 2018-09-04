@@ -1,0 +1,25 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+= GEMOC Modeling workbench User guide
+
+== Execute, animate and debug models
+
+=== Debug a model
+
+==== Timelines
+endif::[]
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/userguide/mw_DebugModel_Timelines_headContent.asciidoc.]
+
+The GEMOC Studio features several timeline views that are connected to the trace support. 
+They provide an interactive representation of the execution trace being captured.
+
+This trace support may be either generic or DSL specific (see  <<defining-multidimensional-trace-project-section>>)
+
+Enabling the trace support (and thus the ability to use the timelines) is done in the 
+<<modeling-workbench-configure-engine-addons-section, _Engine addons_ tab>> of the launch configuration.
+
+Each timeline has its own focus (for example, RunTime Data for the multidimentionnal, or concurrency option decisions for the multibranch)
+and may have specific limitations on some engines.  
