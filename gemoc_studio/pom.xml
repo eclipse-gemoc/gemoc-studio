@@ -22,8 +22,6 @@
 		<relativePath>..</relativePath>
 	</parent>
     <properties>
-        <tycho-version>1.0.0</tycho-version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <modules>
@@ -56,17 +54,12 @@
             <id>elk</id>
             <layout>p2</layout>
             <url>http://download.eclipse.org/elk/updates/releases/0.1.0/</url>
-        </repository>        
-        <repository>
-            <id>Sirius</id>
-            <layout>p2</layout>
-            <url>http://download.eclipse.org/sirius/updates/releases/5.0.2/oxygen/</url>
-        </repository>
+        </repository> 
 
         <repository>
             <id>AspectJ</id>
             <layout>p2</layout>
-            <url>http://download.eclipse.org/tools/ajdt/47/dev/update</url>
+            <url>http://download.eclipse.org/tools/ajdt/48/dev/update</url>
         </repository>
         <repository> <!-- this repo is used to provide jdom and jaxen plugins -->
             <id>app4mc</id>
