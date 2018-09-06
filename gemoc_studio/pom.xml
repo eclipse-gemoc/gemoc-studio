@@ -53,7 +53,7 @@
         <repository>
             <id>elk</id>
             <layout>p2</layout>
-            <url>http://download.eclipse.org/elk/updates/releases/0.1.0/</url>
+            <url>http://download.eclipse.org/elk/updates/releases/0.4.1/</url>
         </repository> 
 
         <repository>
