@@ -35,4 +35,5 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.gemoc.timeline,
  org.eclipse.gemoc.trace.commons
 Bundle-ActivationPolicy: lazy
+Automatic-Module-Name: org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.trace
 

@@ -12,4 +12,5 @@ Require-Bundle: org.eclipse.gemoc.dsl,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.eclipse.gemoc.ide.contentassist.antlr.internal,
  org.eclipse.gemoc.ide.contentassist.antlr
+Automatic-Module-Name: org.eclipse.gemoc.dsl.ide
 

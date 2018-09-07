@@ -122,3 +122,4 @@ Export-Package: groovy.beans,
  org.codehaus.groovy.vmplugin.v5,
  org.codehaus.groovy.vmplugin.v6,
  org.codehaus.groovy.vmplugin.v7
+Automatic-Module-Name: org.eclipse.gemoc.groovy

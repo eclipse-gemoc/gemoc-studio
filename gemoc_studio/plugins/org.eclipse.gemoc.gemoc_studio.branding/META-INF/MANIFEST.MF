@@ -21,3 +21,5 @@ Bundle-Activator: org.eclipse.gemoc.gemoc_studio.branding.Activator
 Bundle-ActivationPolicy: lazy
 Export-Package: org.eclipse.gemoc.gemoc_studio.branding,
  org.eclipse.gemoc.gemoc_studio.branding.handlers
+Automatic-Module-Name: org.eclipse.gemoc.gemoc_studio.branding
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
