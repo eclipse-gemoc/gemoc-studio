@@ -130,7 +130,7 @@ class DeployOfficialExampleK3FSM_Test extends AbstractXtextTests
 				
 		// accept switch to debug perspective (this also makes sure that the engines has started)		
 		//bot.perspectiveByLabel("Debug").activate
-		bot.shell("Confirm Perspective Switch").bot.button("Yes").click
+		bot.shell("Confirm Perspective Switch").bot.button("Switch").click
 				
 		
 		bot.viewByTitle("Debug").show();

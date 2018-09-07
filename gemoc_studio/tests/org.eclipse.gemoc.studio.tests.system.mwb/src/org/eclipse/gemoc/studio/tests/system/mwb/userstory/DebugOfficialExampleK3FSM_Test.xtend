@@ -206,7 +206,7 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 		
 		// accept switch to debug perspective (this also makes sure that the engines has started)		
 		//bot.perspectiveByLabel("Debug").activate
-		bot.shell("Confirm Perspective Switch").bot.button("Yes").click
+		bot.shell("Confirm Perspective Switch").bot.button("Switch").click
 		
 		// select stack in Debug view (this opens the xtext editor and enables the F5 buttons)
 		bot.viewByTitle("Debug").show();
