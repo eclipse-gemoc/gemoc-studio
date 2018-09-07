@@ -1,0 +1,22 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+= GEMOC Modeling workbench User guide
+
+== Execute, animate and debug models
+
+=== Animate a model
+
+endif::[]
+
+
+[[mw-animate-model-using-engine-addon-section]]
+==== Animate a model using representation provided an engine addon
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/userguide/mw_AnimateModel_using_engine_addon.asciidoc.]
+
+If the language provides some animation view provided by an Engine addon (see <<define-animation-representation-using-engine-addon-section>>). The corresponding addon 
+must first be enabled in the launch configuration (see <<modeling-workbench-configure-engine-addons-section>>).
+
+Then, the activation of the language specific representation may vary depending on the addon 
+implementation. Some may provide an Eclipse view that the user has to open, some may popup a new windows.  

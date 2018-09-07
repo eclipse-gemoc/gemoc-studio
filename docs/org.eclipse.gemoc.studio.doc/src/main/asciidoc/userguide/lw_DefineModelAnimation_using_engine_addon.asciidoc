@@ -1,0 +1,46 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+= Language workbench user guide
+
+== Provide language with tools
+
+=== Define model animation
+endif::[]
+
+
+[[define-animation-representation-using-engine-addon-section]]
+==== Define an animation representation using an engine addon
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/userguide/lw_DefineModelAnimation_using_engine_addon.asciidoc.]
+
+GEMOC offers an API to develop Engine Addons. These addons have access to the engine 
+execution context, the model and its runtime data. As they are refreshed during the 
+execution, they are convenient to provide many services including animated UI for 
+representing the model. 
+
+For example, they will easily connect to a dedicated Eclipse view.
+
+[TIP]
+====
+An Engine addon may be generic and apply to any language, but it can also be 
+language specific. In that case, you should prefer to add its code in the project 
+containing the dsl file of the language and declare it in the plugin.xml.
+
+
+This way, the addon will be available only for this specific language.
+
+[[img-add_engine_addons_on_dsl-lwb-userguide]]
+.Add language specific Engine Addon on DSL 
+image::images/dev/New_Extension_4_Engine_Addon_in_dsl_screenshot.png["Add language specific Engine Addon on DSL", 700]
+
+====
+
+
+See <<dev-new-addons>> for technical detail about addon implementation.
+
+
+.TODO
+******
+* provide or link to example
+******

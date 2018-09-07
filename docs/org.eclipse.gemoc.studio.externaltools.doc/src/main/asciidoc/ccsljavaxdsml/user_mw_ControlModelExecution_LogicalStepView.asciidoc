@@ -1,0 +1,30 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+= GEMOC Modeling workbench User guide
+
+== Execute, animate and debug models
+
+=== Execute a model
+
+==== Control engine execution
+
+endif::[]
+
+
+[[mw-executing-concurrent-model-logical-steps-view-section]]
+===== Logical step view
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/ccsljavaxdsml/user_mw_ControlModelExecution_LogicalStepView.asciidoc.]
+
+The Logical Step View is provided by the CCSLJava Engine.
+
+The logical steps view displays the list of possible future executions. This list is provided by the solver. This view is organized around a tree. For each logical step, its underlying events can be seen and possibly for each event the associated operation is visible. 
+
+[NOTE]
+====
+This view displays nothing when execution runs in "run mode", per say this view is only of use when running in "debug mode".
+====
+
+image:images/workbench/modeling/logical_steps.png[Logical Steps]

@@ -8,8 +8,12 @@ The Domain-Specific Actions define the runtime state (*Execution Data*) of the m
 
 ==== Creating the DSA Project
 In the GEMOC Studio, the DSA are implemented using https://github.com/diverse-project/k3/wiki[Kermeta 3].
-To create a new DSA Project, in the main menu of the GEMOC Studio, go to: _File > New > Project... > K3 Project_. In the wizard, create it as a Plug-in with EMF using the template of your choice.
+
+To create a new DSA Project, in the main menu of the GEMOC Studio, go to: _File > New > Project... > K3 Project_. 
+
+In the wizard, create it as a Plug-in with EMF using the template of your choice.
 Then, connect the xDSML Project to the DSA by referencing them in the _.melange_ file thanks to the keyword *with*.
+
 See <<section-melange-editor>> for more informations about Melange keywords and the content assist.
 
 ==== Editing the DSA Project
@@ -26,6 +30,14 @@ For now, Execution Functions are considered as *atomic, instantaneous and blocki
 
 [WARNING]
 For technical reasons, the Domain Model (Ecore metamodel) must specify the signature of the Execution Functions as EOperations.
+
+[[lw-concurrent-defining-initialization]]
+==== Defining the initialization function
+Optionally, in the DSA, one of the method can be tagged with the *@InitializeModel* annotation. (see 
+http://diverse-project.github.io/k3/publish/user_documentation/html_single/user_documentation.html#_project_specific_annotations[K3 documentation])
+This method will be called before the engine starts and is typically used to fill the 
+RunTime Data initial values using information provided by the user in the <<userguide-mw-launch-a-model-execution,launch configuration>>. 
+
 
 ==== Testing the Domain-Specific Actions
 It is possible to test the DSA (in particular the Execution Functions) by simply writing a simple program with a _main_ function (using Java or Xtend/Kermeta3). Create or load a model conform to your Domain Model and call the Execution Functions in the right order to verify there are no runtime exceptions or domain issues.
