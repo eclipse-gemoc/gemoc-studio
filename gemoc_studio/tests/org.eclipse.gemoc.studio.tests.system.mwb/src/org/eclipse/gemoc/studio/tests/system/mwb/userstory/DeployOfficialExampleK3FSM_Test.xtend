@@ -50,14 +50,14 @@ import org.eclipse.debug.internal.core.LaunchManager
  */
 @RunWith(SWTBotJunit4ClassRunner)
 @FixMethodOrder(MethodSorters::NAME_ASCENDING)
-public class DeployOfficialExampleK3FSM_Test extends AbstractXtextTests
+class DeployOfficialExampleK3FSM_Test extends AbstractXtextTests
 {
 	
 	static WorkspaceTestHelper helper = new WorkspaceTestHelper
 
 	static final String BASE_NAME = "org.eclipse.gemoc.example.k3fsm"
 	
-	private static SWTWorkbenchBot	bot;
+	static SWTWorkbenchBot	bot;
  
 	@BeforeClass
 	def static void beforeClass() throws Exception {
