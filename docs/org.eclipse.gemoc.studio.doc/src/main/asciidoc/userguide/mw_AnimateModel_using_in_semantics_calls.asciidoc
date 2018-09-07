@@ -1,0 +1,24 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+= GEMOC Modeling workbench User guide
+
+== Execute, animate and debug models
+
+=== Animate a model
+
+endif::[]
+
+
+[[mw-animate-model-using-semantics-calls-section]]
+==== Animate a model using representation provided by semantics calls
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/userguide/mw_AnimateModel_using_engine_addon.asciidoc.]
+
+If the language provides some animation view via semantics calls (see <<define-animation-representation-using-in_semantics-section>>),
+then the activation of the language specific representation is implementation specific. 
+
+Some may simply popup a window, or some may provide an Eclipse view that the user has to open.
+
+They may also require to use a custom parameter passed to 
+the _modelInitialization_ method in the launch configuration.  

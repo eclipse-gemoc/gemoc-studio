@@ -1,6 +1,8 @@
 [[section-exhaustive-exploration-mw]]
 === Exhaustive Exploration and Verification at Model Design Time
 
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/clocksystem/user_mw_ExhaustiveExploration.asciidoc.]
+
 One benefit of assigning an execution semantics onto a DSL is to pave the way for exhaustive exploration. Exhaustive exploration is a technique used in complex and safety system design to ensure the correct adequacy between the system requirements and the real behavior of the system. This is made possible by exploring and verifying properties on an exhaustive finite state space of the system representing the whole set of relevant configurations your system may reach. 
 
 Gemoc provides the first step towards exploration and verification by building the graph of all the possible schedules of a system model constrained with *((MoCCML))*. It can then be used in a model-checking tool to verify behavioral properties of the *((MoCCML))* models. Thanks to Gemoc approach the execution model is explicited and can be manipulated to for instance:

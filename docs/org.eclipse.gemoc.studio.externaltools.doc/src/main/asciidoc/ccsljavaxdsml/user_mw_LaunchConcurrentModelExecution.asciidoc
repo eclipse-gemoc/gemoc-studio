@@ -1,0 +1,61 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+= GEMOC Modeling workbench User guide
+
+== Execute, animate and debug models
+
+=== Execute a model
+
+==== Launch a model execution
+endif::[]
+
+[[userguide-concurrent-launch-conf]]
+===== Concurrent Launch configuration
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/ccsljavaxdsml/user_mw_LaunchConcurrentModelExecution.asciidoc.]
+
+====== Concurrent General options
+Run and debug are configured using the launch configuration. An example of configuration:
+
+image:images/workbench/modeling/concurrent_launch_configuration.png[Concurrent launch configuration, 800]
+
+- Model to execute : this is the model that will be run
+- Melange languages : this field allows to select among the languages defined in Melange.
+- ((Decider)) : this field allows to select the solver strategy used by the engine when several ((Logical Step))s can be triggered. Possible choices are : 
+** Solver proposition : the solver internal strategy will be used to select a Logical Step
+** Random : will randomly select one of the available Logical Step (warning: execution cannot be reproduced when using this Decider)
+** Ask user : (available only in Debug mode), this option will use the <<modeling-workbench-executing-model-logical-step-view-section,Logical Step View>> or the <<mw-executing-concurrent-model-multibranch-timeline-view-section,MultiBranch Timeline View>> to present the available Logical Steps and pause if there are more than one Logical Step. The user will then need to click on one of the Logical Step to continue.
+** Ask user (Step by step) : (available only in Debug mode), this option is similar to the previous one. However, it will pause on every Logical Step, even if there is only one Logical Step that can be triggered. This is more or less equivalent as putting a breakpoint on every MSE of the language.
+
+More Deciders will be developed (for example for playing predefined scenario).
+
+====== Concurrent Run mode
+In run mode, it offers the faster way to run the model.
+It cannot be paused. However, you can stop it.
+It offers a limited set of views :
+
+- the <<mw-executing-concurrent-model-engine-view-section,((Engine)) View>> allows to stop a running model.
+- the <<mw-executing-concurrent-model-multibranch-timeline-view-section,((MultiBranch Timeline)) View>> is displayed at the end of the execution in order to control the resulting execution trace.
+
+If more feedback are required, please use one of the frontend or backend available for the xDSML, see <<modeling-workbench-backends-frontends-section,Backends and frontends>>. 
+
+====== Concurrent Debug mode
+In debug mode, the engine offers more control on the execution.
+It allows to pause, add breakpoint, and run in a step by step mode.
+
+It reuses the Eclipse Debug perspective and some of its views and add some GEMOC specific views.
+
+- the <<mw-executing-concurrent-model-engine-view-section,((Engine)) View>> allows to stop a running model.
+- the <<mw-executing-concurrent-model-multibranch-timeline-view-section,((MultiBranch Timeline)) View>> can be displayed during all the simulation.
+- the <<mw-executing-concurrent-model-logical-steps-view-section, Logical Steps View>> is available for concurrent execution.
+- the <<mw-executing-concurrent-model-stimuli-manager-view-section,((Stimuli Manager)) View>> is displayed during all the simulation.
+- the <<mw-executing-concurrent-model-animation-view-section,((Animation Manager)) View>> is displayed during all the simulation. It can display both an animation layer and a debug layer.
+- the <<mw-executing-concurrent-model-debug-view-section,Debug View>>. This view presents an interface for Step by Step execution at the Logical Step level or even at the DSA level.
+- the <<mw-executing-concurrent-model-variable-view-section,Variable View>>. This view presents the ((Runtime Data)) as a (EMF based) tree.
+
+When running a simulation in Debug mode, it is configured to activate automatically the Debug layer and the Animation layer in the Animation view.
+
+The _break at start_ tells to the debugger to add a virtual breakpoint on the first instruction that will run.
+

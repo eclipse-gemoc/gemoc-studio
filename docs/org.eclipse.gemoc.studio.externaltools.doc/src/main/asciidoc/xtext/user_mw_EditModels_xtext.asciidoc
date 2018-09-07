@@ -8,7 +8,7 @@ endif::[]
 
 [[defining-an-xtext-debug-representation-section]]
 === Editing model with XText
-footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/xtext/user_mw_EditModels_xtext.asciidoc.asciidoc.]
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/xtext/user_mw_EditModels_xtext.asciidoc]
 
 If your language has a concrete syntax specified using XText, you can use it to edit your model.
 

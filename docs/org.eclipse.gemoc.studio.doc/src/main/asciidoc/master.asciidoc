@@ -17,7 +17,7 @@
 ////////////////////////////////////////////////////////////////
 
 [dedication]
-== Navigation Overview
+== Navigation overview
 
 footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/master.asciidoc.]
 
@@ -38,10 +38,10 @@ image::images/introduction/GemocWorkbenchesGlobalPicture.png["Gemoc Workbenches 
 include::introduction_headContent.asciidoc[]
 
 [[userguide-gemoc-language-workbench]]
-= Language Workbench User Guide image:images/icons/IconeGemocLanguage_16.png[width=16, height=16, role=right]
+= Language workbench user guide image:images/icons/IconeGemocLanguage_16.png[width=16, height=16, role=right]
 
 [[userguide-lw-language-workbench-overview]]
-== Language Workbench overview
+== Language workbench overview
 
 include::userguide/lw_overview_headContent.asciidoc[]
 
@@ -52,17 +52,17 @@ include::userguide/lw_overview_headContent.asciidoc[]
 include::userguide/lw_CreateLanguage_headContent.asciidoc[]
 
 [[section-gemoc-language-project]]
-=== xDSML Project (TODO rename GEMOC Project)
+=== xDSML project (TODO rename GEMOC Project)
 
 include::userguide/lw_CreateGEMOCProject_headContent.asciidoc[]
 
 [[section-define-AS-project]]
-=== Define a Domain Model Project
+=== Define a domain model project
 
 include::userguide/lw_DefineDomainModelProject_headContent.asciidoc[]
 
 [[defining-a-concrete-syntax-section]]
-=== Define a Concrete Syntax
+=== Define a concrete syntax
 
 include::userguide/lw_DefineConcreteSyntax_headContent.asciidoc[]
 
@@ -81,17 +81,36 @@ include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciido
 
 include::userguide/lw_ProvideLanguageWithTools_headContent.asciidoc[]
 
-=== Define Model Debug information
+[[userguide-lw-define-model-debug-support]]
+=== Define model debug support
+include::userguide/lw_DefineModelDebugSupport_headContent.asciidoc[]
 
-.TODO
-*****
-some text about steps and dynamic data (@aspect, etc.)
-*****
+[[userguide-lw-define-debug-step-information]]
+==== Define model debug step information
+include::userguide/lw_DefineModelDebugSupport_debug_step_information_headContent.asciidoc[]
+
+[[userguide-lw-define-debug-rtd-information]]
+==== Define model debug RTD information
+include::userguide/lw_DefineModelDebugSupport_debug_RTD_information_headContent.asciidoc[]
 
 include::../../../../../../gemoc-studio-modeldebugging/trace/generator/plugins/org.eclipse.gemoc.trace.gemoc.ui/docs/asciidoc/user_lw_GenerateTraceMetamodel.asciidoc[]
 
+=== Define editor specific debug support
+
 include::../../../../../../gemoc-studio-modeldebugging/simulationmodelanimation/plugins/org.eclipse.gemoc.dsl.debug.ide.sirius.ui/docs/asciidoc/user_lw_DefineSiriusDebug.asciidoc[]
 
+[[userguide-lw-define-model-animation]]
+=== Define model animation
+include::userguide/lw_DefineModelAnimation_headContent.asciidoc[]
+
+include::../../../../../../gemoc-studio-modeldebugging/framework/xdsml_framework/plugins/org.eclipse.gemoc.xdsmlframework.extensions.sirius/docs/asciidoc/user_lw_DefineSiriusAnimation.asciidoc[]
+
+include::userguide/lw_DefineModelAnimation_using_engine_addon.asciidoc[]
+
+include::userguide/lw_DefineModelAnimation_using_in_semantics_calls.asciidoc[]
+
+// Other tools added to a language that does not fit in one of the above group
+// must be at level 3 ie. ===
 
 include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/clocksystem/user_lw_ExhaustiveExploration.asciidoc[]
 
@@ -112,7 +131,7 @@ include::userguide/lw_DeployLanguages_headContent.asciidoc[]
 = Modeling workbench  User Guide image:images/icons/IconeGemocModel_16.png[width=16, height=16, role=right]
 
 [[userguide-mw-modeling-workbench-overview]]
-== Modeling Workbench overview
+== Modeling workbench overview
 include::userguide/mw_overview_headContent.asciidoc[]
 
 [[userguide-mw-edit-models]]
@@ -128,24 +147,81 @@ include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciido
 
 include::userguide/mw_ExecuteAnimateDebug_headContent.asciidoc[]
 
+[[userguide-mw-execute-a-model]]
 === Execute a model
+include::userguide/mw_ExecuteModel_headContent.asciidoc[]
 
-// include::userguide/mw_Execute_headContent.asciidoc[]
+[[userguide-mw-launch-a-model-execution]]
+==== Launch a model execution
+// include::userguide/mw_LaunchModelExecution_headContent.asciidoc[]
 
-include::../../../../../../gemoc-studio-modeldebugging/java_execution/java_engine/plugins/org.eclipse.gemoc.execution.sequential.javaengine.ui/docs/asciidoc/user_mw_ExecuteSequentialModel.asciidoc[]
+include::../../../../../../gemoc-studio-modeldebugging/java_execution/java_engine/plugins/org.eclipse.gemoc.execution.sequential.javaengine.ui/docs/asciidoc/user_mw_LaunchSequentialModelExecution.asciidoc[]
 
-include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/ccsljavaxdsml/user_mw_ExecuteConcurrentModel.asciidoc[]
+include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/ccsljavaxdsml/user_mw_LaunchConcurrentModelExecution.asciidoc[]
+
+include::userguide/mw_ConfigureEngineAddons.asciidoc[]
+
+
+[[userguide-mw-control-engine-execution]]
+==== Control engine execution
+
+include::../../../../../../gemoc-studio-modeldebugging/framework/execution_framework/plugins/org.eclipse.gemoc.executionframework.ui/docs/asciidoc/user_mw_EngineView.asciidoc[]
+
+include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/ccsljavaxdsml/user_mw_EngineView_ccsljava_addition.asciidoc[]
+
+include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/ccsljavaxdsml/user_mw_ControlModelExecution_LogicalStepView.asciidoc[]
+
+include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/ccsljavaxdsml/user_mw_ControlModelExecution_StimuliManagerView.asciidoc[]
+
+[[userguide-mw-animate-a-model]]
+=== Animate a model
+
+include::userguide/mw_AnimateModel_headContent.asciidoc[]
+
+include::../../../../../../gemoc-studio-modeldebugging/framework/xdsml_framework/plugins/org.eclipse.gemoc.xdsmlframework.extensions.sirius/docs/asciidoc//user_mw_AnimateModel_using_sirius.asciidoc[]
+include::userguide/mw_AnimateModel_using_engine_addon.asciidoc[]
+include::userguide/mw_AnimateModel_using_in_semantics_calls.asciidoc[]
+
+[[userguide-mw-debug-a-model]]
+=== Debug a model
+
+include::../../../../../../gemoc-studio-modeldebugging/framework/execution_framework/plugins/org.eclipse.gemoc.executionframework.debugger.ui/docs/acsiidoc/user_mw_DebugModel_DebugView.asciidoc[]
+include::../../../../../../gemoc-studio-modeldebugging/framework/execution_framework/plugins/org.eclipse.gemoc.executionframework.debugger.ui/docs/acsiidoc/user_mw_DebugModel_VariablesView.asciidoc[]
+include::../../../../../../gemoc-studio-modeldebugging/framework/execution_framework/plugins/org.eclipse.gemoc.executionframework.debugger.ui/docs/acsiidoc/user_mw_DebugModel_BreakpointsView.asciidoc[]
+include::../../../../../../gemoc-studio-modeldebugging/framework/execution_framework/plugins/org.eclipse.gemoc.executionframework.debugger.ui/docs/acsiidoc/user_mw_DebugModel_DebugCommands.asciidoc[]
+
+[[userguide-mw-timelines-view]]
+==== Timelines
+
+include::userguide/mw_DebugModel_Timelines_headContent.asciidoc[]
+
+include::../../../../../../gemoc-studio-modeldebugging/trace/manager/plugins/org.eclipse.gemoc.addon.multidimensional.timeline/docs/asciidoc/user_mw_DebugModel_MultiDimentionalTimeline.asciidoc[]
+include::../../../../../../gemoc-studio-modeldebugging/java_execution/java_engine/plugins/org.eclipse.gemoc.execution.sequential.javaengine.ui/docs/asciidoc/user_mw_DebugModel_MultiDimentionalTimeline_javaengine.asciidoc[]
+
+include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/ccsljavaxdsml/user_mw_DebugModel_MultiBranchTimeline.asciidoc[]
+include::../../../../../../gemoc-studio-modeldebugging/java_execution/java_engine/plugins/org.eclipse.gemoc.execution.sequential.javaengine.ui/docs/asciidoc/user_mw_DebugModel_MultiBranchTimeline_javaengine.asciidoc[]
+
+include::../../../../../../gemoc-studio-modeldebugging/trace/manager/plugins/org.eclipse.gemoc.addon.diffviewer/docs/asciidoc/user_mw_DebugModel_Timeline_diff_view.asciidoc[]
+include::../../../../../../gemoc-studio-modeldebugging/trace/manager/plugins/org.eclipse.gemoc.addon.stategraph/docs/asciidoc/user_mw_DebugModel_Timeline_state_graph_view.asciidoc[]
+
+[[userguide-mw-editor-debug-integration]]
+==== Editor debug integration
+
+
+include::../../../../../../gemoc-studio-modeldebugging/simulationmodelanimation/plugins/org.eclipse.gemoc.dsl.debug.ide.sirius.ui/docs/asciidoc/user_mw_EditorDebugIntegration_Sirius.asciidoc[]
+
+include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/xtext/user_mw_EditorDebugIntegration_xtext.asciidoc[]
+
 
 [[userguide-mw-coordinate-models]]
 == Coordinate models
-
 
 include::userguide/mw_CoordinateModels_headContent.asciidoc[]
 
 include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/bcool/user_mw_CoordinateModels_bcool.asciidoc[+1]
 
 [[userguide-mw-other-tools]]
-== Other tools
+== V&V and other tools
 
 include::userguide/mw_OtherTools_headContent.asciidoc[]
 
@@ -189,7 +265,7 @@ include::../../../../../../gemoc-studio/commons/docs/dev/GemocDsl.asciidoc[]
 
 
 [[devguide-gemoc-frameworks]]
-=== GEMOC Framework
+=== GEMOC framework
 
 
 include::../../../../../../gemoc-studio-modeldebugging/framework/execution_framework/docs/dev/ExecutionFramework.asciidoc[]
@@ -199,12 +275,12 @@ include::../../../../../../gemoc-studio-modeldebugging/framework/framework_commo
 include::../../../../../../gemoc-studio-modeldebugging/framework/xdsml_framework/docs/dev/XdsmlFramework.asciidoc[]
 
 
-=== Simulation Model Animation Framework
+=== Simulation model animation framework
 
 include::../../../../../../gemoc-studio-modeldebugging/simulationmodelanimation/docs/dev/SimulationModelAnimation.asciidoc[]
 
 
-=== Trace Framework
+=== Trace framework
 
 include::../../../../../../gemoc-studio-modeldebugging/trace/docs/dev/Trace.asciidoc[]
 
@@ -215,7 +291,7 @@ include::../../../../../../gemoc-studio-modeldebugging/trace/docs/dev/TraceGener
 include::../../../../../../gemoc-studio-modeldebugging/trace/docs/dev/TraceManager.asciidoc[]
 
 
-=== Execution Engines
+=== Execution engines
 
 
 include::../../../../../../gemoc-studio-modeldebugging/java_execution/docs/dev/JavaExecution.asciidoc[]

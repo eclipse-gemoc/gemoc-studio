@@ -1,0 +1,25 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+= GEMOC Modeling workbench User guide
+
+== Execute, animate and debug models
+
+=== Animate a model
+
+endif::[]
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/userguide/mw_AnimateModel_headContent.asciidoc.]
+
+If defined for a given language, the animation offers some representations of the runtime data. GEMOC supports several ways to add animation to a language.
+
+IMPORTANT: Animation must not be confused with debug step highlighting that simply highlights the model elements implied in the 
+step that has the focus when the execution is suspended. (In debug, the focus typically depends on the user who selects a 
+step/frame in the Debug view).   
+
+NOTE: if enabled, animation is supposed to be available in both Run and Debug modes.
+
+As seen in <<userguide-lw-define-model-animation>>, the animation may be provided by several means. 
+The precise procedure to enable/disable it may vary.
+

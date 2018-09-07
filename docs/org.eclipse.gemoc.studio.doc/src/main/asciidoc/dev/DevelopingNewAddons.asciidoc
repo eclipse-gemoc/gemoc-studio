@@ -8,6 +8,7 @@ ifndef::includedInMaster[]
 === Developing new features
 endif::[]
 
+[[dev-new-addons]]
 ==== Developing new Addons
 
 footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/dev/DevelopingNewAddons.asciidoc.]
@@ -31,7 +32,7 @@ Minimal steps to get an addons:
 
 
 [[img-New_Extension_4_Engine_Addon_screenshot-devguide]]
-.New Extension forEngine Addon screenshot
+.New Extension for Engine Addon screenshot
 image::images/dev/New_Extension_4_Engine_Addon_screenshot.png["New Extension forEngine Addon screenshot"]
 
 [[img-EngineAddon_extension_point_details_screenshot-devguide]]
@@ -61,3 +62,20 @@ In the extension declaration, setting _Default_ to _true_ will activate the addo
 ====
 See <<devguide-gemoc-frameworks>> for more details about the extension point and other supported features.
 ==== 
+
+[TIP]
+====
+An Engine addon may be generic and apply to any language, but it can also be 
+language specific. In that case, you should prefer to add its code in the project 
+containing the dsl file of the language and declare it in the plugin.xml.
+
+
+This way, the addon will be available only for this specific language.
+
+[[img-add_engine_addons_on_dsl]]
+.Add language specific Engine Addon on DSL 
+image::images/dev/New_Extension_4_Engine_Addon_in_dsl_screenshot.png["Add language specific Engine Addon on DSL", 700]
+
+This can be useful in order to create language specific GUI (with input/output) 
+and complex model animation. (see <<define-animation-representation-using-engine-addon-section>>)
+====

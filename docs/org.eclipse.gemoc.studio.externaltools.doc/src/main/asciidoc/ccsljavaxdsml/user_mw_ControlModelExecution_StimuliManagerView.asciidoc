@@ -1,0 +1,40 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+= GEMOC Modeling workbench User guide
+
+== Execute, animate and debug models
+
+=== Execute a model
+
+==== Control engine execution
+
+endif::[]
+
+
+[[mw-executing-concurrent-model-stimuli-manager-view-section]]
+===== Stimuli manager view
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/ccsljavaxdsml/user_mw_ControlModelExecution_StimuliManagerView.asciidoc.]
+
+The Stimuli Manager View is provided by the CCSLJava Engine.
+
+The Stimuli Manager view display the list of MSE and has interactions with the Logical Steps view.
+
+image:images/workbench/modeling/stimuliManager_view.png[Stimuli manager view]
+
+When selecting an MSE you can constrain it by clicking on :
+
+* Green down arrow : no user constraint for this MSE in the next LogicalStep
+* Orange down arrow : forbid tick of this MSE in the next LogicalStep. The solver will propose only solutions where this MSE doesn't tick.
+* Orange up : force tick of this MSE in the next LogicalSteps. The solver will propose only solutions where this MSE ticks.
+
+Depending of your choice, the list of proposals will be changed in the Logical Steps view.
+
+Moreover selecting an element in the Logical Steps view will highlight the MSE involved in the Stimuli Manager view.
+
+[TIP]
+====
+This Stimuli Manager view can be used to manually simulate external events.
+====
