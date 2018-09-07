@@ -13,7 +13,7 @@
 
     <properties>
 		<tycho-version>1.2.0</tycho-version>
-		<project.build.sourceEncoding>UTF8</project.build.sourceEncoding>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     	<xtend.version>2.14.0</xtend.version>
 	</properties>
 	

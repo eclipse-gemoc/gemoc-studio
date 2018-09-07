@@ -36,7 +36,7 @@
         <module>releng/org.eclipse.gemoc.gemoc_studio.updatesite</module>
         
         <!-- modules required by modeling workbench tests platform -->
-        <module>../official_samples/K3FSM/language_workbench</module>
+        <module>../official_samples/K3FSM/language_workbench</module> 
         
         <!-- Tests -->
         <module>tests/org.eclipse.gemoc.studio.tests.system.lwb</module>
@@ -192,83 +192,6 @@
 		                            <os>linux</os>
 		                            <ws>gtk</ws>
 		                            <arch>x86_64</arch>
-		                        </environment>
-		                    </environments>
-		                </configuration>
-    				</plugin>
-    			</plugins>
-    		</build>
-    	</profile>
-    	<profile>
-	    	<!-- use this command line to activate this profile -->
-	    	<!-- mvn clean package -Denvironment=x86_only -->
-	    	<!-- or directly with the ID using the eclipse UI -->
-	    	<id>x86_only</id>
-	    	<activation>
-		      <property>
-		        <name>environment</name>
-		        <value>x86_only</value>
-		      </property>
-		    </activation>
-    		<build>
-    			<plugins>
-    				<plugin>
-		    			<groupId>org.eclipse.tycho</groupId>
-		                <artifactId>target-platform-configuration</artifactId>
-		                <version>${tycho-version}</version>
-		                <configuration>
-		                    <!-- environments that will be built in test mode -->
-		                    <environments>
-		                        <environment>
-		                            <os>linux</os>
-		                            <ws>gtk</ws>
-		                            <arch>x86</arch>
-		                        </environment>
-		                        <environment>
-		                            <os>win32</os>
-		                            <ws>win32</ws>
-		                            <arch>x86</arch>
-		                        </environment>
-		                    </environments>
-		                </configuration>
-    				</plugin>
-    			</plugins>
-    		</build>
-    	</profile>
-    	<profile>
-	    	<!-- use this command line to activate this profile -->
-	    	<!-- mvn clean package -Denvironment=x86_64_only -->
-	    	<!-- or directly with the ID using the eclipse UI -->
-	    	<id>x86_64_only</id>
-	    	<activation>
-		      <property>
-		        <name>environment</name>
-		        <value>x86_64_only</value>
-		      </property>
-		    </activation>
-    		<build>
-    			<plugins>
-    				<plugin>
-		    			<groupId>org.eclipse.tycho</groupId>
-		                <artifactId>target-platform-configuration</artifactId>
-		                <version>${tycho-version}</version>
-		                <configuration>
-		                    <!-- environments that will be built in test mode -->
-		                    <environments>
-		                       	<environment>
-		                            <os>linux</os>
-		                            <ws>gtk</ws>
-		                            <arch>x86_64</arch>
-		                        </environment>		                        
-		                        <environment>
-		                            <os>win32</os>
-		                            <ws>win32</ws>
-		                            <arch>x86_64</arch>
-		                        </environment>
-		                        <environment>
-		                            <os>macosx</os>  
-		                            <ws>cocoa</ws>  
-		                            <arch>x86_64</arch> 
 		                        </environment>
 		                    </environments>
 		                </configuration>
