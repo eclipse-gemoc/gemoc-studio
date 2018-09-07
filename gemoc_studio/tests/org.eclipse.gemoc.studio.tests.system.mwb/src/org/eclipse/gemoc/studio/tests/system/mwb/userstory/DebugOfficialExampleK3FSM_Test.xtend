@@ -210,7 +210,10 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 		
 		// select stack in Debug view (this opens the xtext editor and enables the F5 buttons)
 		bot.viewByTitle("Debug").show();
+		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Gemoc Sequential eXecutable Model]").select();
+		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Gemoc Sequential eXecutable Model]").getNode("Gemoc debug target").getNode("Model debugging").select();
 		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Gemoc Sequential eXecutable Model]").getNode("Gemoc debug target").getNode("Model debugging").expand();
+		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Gemoc Sequential eXecutable Model]").getNode("Gemoc debug target").getNode("Model debugging").getNode("Global context : FSM").select();
 		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Gemoc Sequential eXecutable Model]").getNode("Gemoc debug target").getNode("Model debugging").getNode("[FSM] TwoStateUpcast -> initializeModel()").select();
 		
 		
