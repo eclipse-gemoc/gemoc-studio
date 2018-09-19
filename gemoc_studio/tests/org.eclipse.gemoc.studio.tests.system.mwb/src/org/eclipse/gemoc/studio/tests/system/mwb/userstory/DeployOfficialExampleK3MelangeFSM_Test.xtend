@@ -36,14 +36,14 @@ import org.junit.Rule
  */
 @RunWith(SWTBotJunit4ClassRunner)
 @FixMethodOrder(MethodSorters::NAME_ASCENDING)
-public class DeployOfficialExampleK3MelangeFSM_Test extends AbstractXtextTests
+class DeployOfficialExampleK3MelangeFSM_Test extends AbstractXtextTests
 {
 	
 	static WorkspaceTestHelper helper = new WorkspaceTestHelper
 
 	static final String BASE_NAME = "org.eclipse.gemoc.sample.legacyfsm"
 	
-	private static SWTWorkbenchBot	bot;
+	static SWTWorkbenchBot	bot;
  
 	@BeforeClass
 	def static void beforeClass() throws Exception {

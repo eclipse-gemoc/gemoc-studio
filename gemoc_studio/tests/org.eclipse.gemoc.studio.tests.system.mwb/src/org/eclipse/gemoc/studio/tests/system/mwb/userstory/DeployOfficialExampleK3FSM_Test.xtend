@@ -50,14 +50,14 @@ import org.eclipse.debug.internal.core.LaunchManager
  */
 @RunWith(SWTBotJunit4ClassRunner)
 @FixMethodOrder(MethodSorters::NAME_ASCENDING)
-public class DeployOfficialExampleK3FSM_Test extends AbstractXtextTests
+class DeployOfficialExampleK3FSM_Test extends AbstractXtextTests
 {
 	
 	static WorkspaceTestHelper helper = new WorkspaceTestHelper
 
 	static final String BASE_NAME = "org.eclipse.gemoc.example.k3fsm"
 	
-	private static SWTWorkbenchBot	bot;
+	static SWTWorkbenchBot	bot;
  
 	@BeforeClass
 	def static void beforeClass() throws Exception {
@@ -130,7 +130,7 @@ public class DeployOfficialExampleK3FSM_Test extends AbstractXtextTests
 				
 		// accept switch to debug perspective (this also makes sure that the engines has started)		
 		//bot.perspectiveByLabel("Debug").activate
-		bot.shell("Confirm Perspective Switch").bot.button("Yes").click
+		bot.shell("Confirm Perspective Switch").bot.button("Switch").click
 				
 		
 		bot.viewByTitle("Debug").show();

@@ -21,3 +21,4 @@ Import-Package: org.apache.log4j,
  org.hamcrest.core
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.eclipse.gemoc.gexpressions.xtext
+Automatic-Module-Name: org.eclipse.gemoc.gexpressions.xtext.tests

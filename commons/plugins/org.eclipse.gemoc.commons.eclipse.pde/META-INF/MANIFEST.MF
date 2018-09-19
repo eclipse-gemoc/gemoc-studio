@@ -23,3 +23,4 @@ Export-Package: org.eclipse.gemoc.commons.eclipse.pde,
  org.eclipse.gemoc.commons.eclipse.pde.wizards.pages.pde.ui,
  org.eclipse.gemoc.commons.eclipse.pde.wizards.pages.pde.ui.templates
 Bundle-Vendor: INRIA
+Automatic-Module-Name: org.eclipse.gemoc.commons.eclipse.pde

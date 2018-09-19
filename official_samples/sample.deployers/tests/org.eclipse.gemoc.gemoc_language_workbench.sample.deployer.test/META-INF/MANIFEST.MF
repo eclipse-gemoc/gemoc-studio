@@ -12,3 +12,5 @@ Require-Bundle: org.eclipse.gemoc.sequential.language.wb.sample.deployer,
  org.eclipse.debug.core,
  org.eclipse.debug.ui
 Export-Package: fr.inria.diverse.sample.deployer.test
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Automatic-Module-Name: org.eclipse.gemoc.sequential.language.wb.sample.deployer.test

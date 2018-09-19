@@ -23,3 +23,4 @@ Export-Package: org.eclipse.gemoc.ui.contentassist,
  org.eclipse.gemoc.dsl.ui.internal,
  org.eclipse.gemoc.ui.quickfix
 Bundle-Activator: org.eclipse.gemoc.dsl.ui.internal.DslActivator
+Automatic-Module-Name: org.eclipse.gemoc.dsl.ui

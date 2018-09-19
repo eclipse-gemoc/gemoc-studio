@@ -17,3 +17,4 @@ Export-Package: org.eclipse.gemoc.commons.eclipse,
 Import-Package: org.eclipse.core.resources
 Bundle-Vendor: INRIA
 Bundle-Activator: org.eclipse.gemoc.commons.eclipse.Activator
+Automatic-Module-Name: org.eclipse.gemoc.commons.eclipse

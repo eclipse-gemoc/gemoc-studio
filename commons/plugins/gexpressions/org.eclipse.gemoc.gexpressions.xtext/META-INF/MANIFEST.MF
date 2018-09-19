@@ -29,3 +29,4 @@ Export-Package: org.eclipse.gemoc.gexpressions.xtext,
  org.eclipse.gemoc.gexpressions.xtext.serializer,
  org.eclipse.gemoc.gexpressions.xtext.services,
  org.eclipse.gemoc.gexpressions.xtext.validation
+Automatic-Module-Name: org.eclipse.gemoc.gexpressions.xtext

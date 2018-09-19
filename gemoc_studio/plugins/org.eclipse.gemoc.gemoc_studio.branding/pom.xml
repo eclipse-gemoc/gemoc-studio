@@ -13,7 +13,7 @@
 	</parent>
 
 	<properties>
-		<eclipse.version.name>Oxygen.3</eclipse.version.name>
+		<eclipse.version.name>Photon.1</eclipse.version.name>
 		<!-- override these values using -D option on the maven command line on the CI (see jenkinsfile for CI configuration)-->		
 		<studio.variant>Local build</studio.variant>
 		<branch.variant>Unknown</branch.variant>
@@ -97,7 +97,7 @@
 			                            <fontName>SansSerif</fontName>
 			                            <fontStyle>italic</fontStyle>
 			                            <fontSize>12</fontSize>
-			                            <position>right-25,bottom-105</position>
+			                            <position>right-5,bottom-102</position>
 			                        </drawText>
 			                        <!-- Studio variant -->
 	                            	<drawText>

@@ -9,11 +9,13 @@
     Contributors:
         Inria - initial API and implementation
  -->
-<project>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
     <name>GEMOC Studio root build</name>
     <groupId>org.eclipse.gemoc.gemoc_studio</groupId>
     <artifactId>org.eclipse.gemoc.gemoc_studio.parent</artifactId>
+    <version>3.1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 	<parent>
 		<groupId>org.eclipse.gemoc</groupId>
@@ -22,8 +24,6 @@
 		<relativePath>..</relativePath>
 	</parent>
     <properties>
-        <tycho-version>1.0.0</tycho-version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <modules>
@@ -36,7 +36,7 @@
         <module>releng/org.eclipse.gemoc.gemoc_studio.updatesite</module>
         
         <!-- modules required by modeling workbench tests platform -->
-        <module>../official_samples/K3FSM/language_workbench</module>
+        <module>../official_samples/K3FSM/language_workbench</module> 
         
         <!-- Tests -->
         <module>tests/org.eclipse.gemoc.studio.tests.system.lwb</module>
@@ -55,18 +55,13 @@
         <repository>
             <id>elk</id>
             <layout>p2</layout>
-            <url>http://download.eclipse.org/elk/updates/releases/0.1.0/</url>
-        </repository>        
-        <repository>
-            <id>Sirius</id>
-            <layout>p2</layout>
-            <url>http://download.eclipse.org/sirius/updates/releases/5.0.2/oxygen/</url>
-        </repository>
+            <url>http://download.eclipse.org/elk/updates/releases/0.4.1/</url>
+        </repository> 
 
         <repository>
             <id>AspectJ</id>
             <layout>p2</layout>
-            <url>http://download.eclipse.org/tools/ajdt/47/dev/update</url>
+            <url>http://download.eclipse.org/tools/ajdt/48/dev/update</url>
         </repository>
         <repository> <!-- this repo is used to provide jdom and jaxen plugins -->
             <id>app4mc</id>
@@ -131,12 +126,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.5</version>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-					<encoding>${project.build.sourceEncoding}</encoding>
-				</configuration>
 			</plugin>
         </plugins>
     </build>
@@ -210,83 +199,5 @@
     			</plugins>
     		</build>
     	</profile>
-    	<profile>
-	    	<!-- use this command line to activate this profile -->
-	    	<!-- mvn clean package -Denvironment=x86_only -->
-	    	<!-- or directly with the ID using the eclipse UI -->
-	    	<id>x86_only</id>
-	    	<activation>
-		      <property>
-		        <name>environment</name>
-		        <value>x86_only</value>
-		      </property>
-		    </activation>
-    		<build>
-    			<plugins>
-    				<plugin>
-		    			<groupId>org.eclipse.tycho</groupId>
-		                <artifactId>target-platform-configuration</artifactId>
-		                <version>${tycho-version}</version>
-		                <configuration>
-		                    <!-- environments that will be built in test mode -->
-		                    <environments>
-		                        <environment>
-		                            <os>linux</os>
-		                            <ws>gtk</ws>
-		                            <arch>x86</arch>
-		                        </environment>
-		                        <environment>
-		                            <os>win32</os>
-		                            <ws>win32</ws>
-		                            <arch>x86</arch>
-		                        </environment>
-		                    </environments>
-		                </configuration>
-    				</plugin>
-    			</plugins>
-    		</build>
-    	</profile>
-    	<profile>
-	    	<!-- use this command line to activate this profile -->
-	    	<!-- mvn clean package -Denvironment=x86_64_only -->
-	    	<!-- or directly with the ID using the eclipse UI -->
-	    	<id>x86_64_only</id>
-	    	<activation>
-		      <property>
-		        <name>environment</name>
-		        <value>x86_64_only</value>
-		      </property>
-		    </activation>
-    		<build>
-    			<plugins>
-    				<plugin>
-		    			<groupId>org.eclipse.tycho</groupId>
-		                <artifactId>target-platform-configuration</artifactId>
-		                <version>${tycho-version}</version>
-		                <configuration>
-		                    <!-- environments that will be built in test mode -->
-		                    <environments>
-		                       	<environment>
-		                            <os>linux</os>
-		                            <ws>gtk</ws>
-		                            <arch>x86_64</arch>
-		                        </environment>		                        
-		                        <environment>
-		                            <os>win32</os>
-		                            <ws>win32</ws>
-		                            <arch>x86_64</arch>
-		                        </environment>
-		                        <environment>
-		                            <os>macosx</os>  
-		                            <ws>cocoa</ws>  
-		                            <arch>x86_64</arch> 
-		                        </environment>
-		                    </environments>
-		                </configuration>
-    				</plugin>
-    			</plugins>
-    		</build>
-    	</profile>
     </profiles>
-    <version>3.1.0-SNAPSHOT</version>
 </project> 
