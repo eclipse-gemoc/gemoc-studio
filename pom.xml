@@ -46,6 +46,11 @@
             <layout>p2</layout>
             <url>http://download.eclipse.org/nebula/snapshot/</url>
         </repository>
+        <repository>
+            <id>diverse-commons</id>
+            <layout>p2</layout>
+            <url>http://www.kermeta.org/diverse-commons/updates/latest</url>
+        </repository>
     </repositories>
 
 

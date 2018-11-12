@@ -50,6 +50,7 @@ http://www.eclipse.org/legal/epl-v10.html
       <import feature="org.eclipse.ecf.filetransfer.httpclient4.feature.source" version="3.13.7" match="greaterOrEqual"/>
       <import feature="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature.source" version="1.1.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.ecf.filetransfer.ssl.feature.source" version="1.1.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.emf.ecoretools.registration.feature" version="3.3.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.emf.query.sdk" version="0.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.emf.compare" version="2.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.emf.compare.source" version="2.0.0" match="greaterOrEqual"/>
