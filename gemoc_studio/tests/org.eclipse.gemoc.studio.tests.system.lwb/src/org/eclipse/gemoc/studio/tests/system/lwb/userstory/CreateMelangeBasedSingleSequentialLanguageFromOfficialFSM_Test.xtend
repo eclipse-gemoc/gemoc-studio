@@ -215,7 +215,7 @@ public class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test exte
 		helper.assertFileExists(
 				PROJECT_NAME + "/src-gen/org/eclipse/gemoc/sample/legacyfsm/xfsm/aspects/StateMachineAspect.java");
 		// ecore files
-		helper.assertFileExists(PROJECT_NAME + "/model-gen/Xfsm.dsl");
+		helper.assertFileExists(PROJECT_NAME + "/Xfsm.dsl");
 		helper.assertFileExists(PROJECT_NAME + "/model-gen/Xfsm.ecore");
 		helper.assertFileExists(PROJECT_NAME + "/model-gen/Xfsm.genmodel");
 		helper.assertFileExists(PROJECT_NAME + "/model-gen/XfsmMT.ecore");
