@@ -295,6 +295,7 @@ include::../../../../../../gemoc-studio-modeldebugging/trace/docs/dev/TraceManag
 
 
 include::../../../../../../gemoc-studio-modeldebugging/java_execution/docs/dev/JavaExecution.asciidoc[]
+include::../../../../../../gemoc-studio-execution-ale/docs/dev/ALEExecution.asciidoc[]
 
 
 == Contributing

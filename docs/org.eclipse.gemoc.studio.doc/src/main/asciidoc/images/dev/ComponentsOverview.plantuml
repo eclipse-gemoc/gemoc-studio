@@ -1,5 +1,5 @@
 @startuml
-!include SkinParam.iplantuml
+skinparam ComponentBorderColor black
 
 scale max 1024 width
 scale max 800 height
@@ -32,11 +32,18 @@ node  "Java Execution" as java_execution {
   [Java Engine]
 }
 
+node  "ALE Execution" as ale_execution {
+  [ALE XDSML]<<not implemented yet>>
+  [ALE Engine]
+}
+
 commons <- simulation_model_animation
 commons <- trace
 simulation_model_animation <- gemoc_framework
 trace <- gemoc_framework
 [XDSML Framework] <|.. [Java XDSML] 
 [Execution Framework] <|.. [Java Engine]
+[XDSML Framework] <|.. [ALE XDSML] 
+[Execution Framework] <|.. [ALE Engine]
 
 @enduml
