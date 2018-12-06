@@ -80,7 +80,7 @@ public class FsmPackageImpl extends EPackageImpl implements FsmPackage {
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link FsmPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -94,7 +94,8 @@ public class FsmPackageImpl extends EPackageImpl implements FsmPackage {
 		if (isInited) return (FsmPackage)EPackage.Registry.INSTANCE.getEPackage(FsmPackage.eNS_URI);
 
 		// Obtain or create and register package
-		FsmPackageImpl theFsmPackage = (FsmPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof FsmPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new FsmPackageImpl());
+		Object registeredFsmPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		FsmPackageImpl theFsmPackage = registeredFsmPackage instanceof FsmPackageImpl ? (FsmPackageImpl)registeredFsmPackage : new FsmPackageImpl();
 
 		isInited = true;
 
@@ -107,7 +108,6 @@ public class FsmPackageImpl extends EPackageImpl implements FsmPackage {
 		// Mark meta-data to indicate it can't be changed
 		theFsmPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(FsmPackage.eNS_URI, theFsmPackage);
 		return theFsmPackage;
@@ -419,12 +419,12 @@ public class FsmPackageImpl extends EPackageImpl implements FsmPackage {
 	 * @generated
 	 */
 	protected void createImportAnnotations() {
-		String source = "http://www.eclipse.org/OCL/Import";	
+		String source = "http://www.eclipse.org/OCL/Import";
 		addAnnotation
-		  (this, 
-		   source, 
+		  (this,
+		   source,
 		   new String[] {
-			 "ecore", "http://www.eclipse.org/emf/2002/Ecore"
+			   "ecore", "http://www.eclipse.org/emf/2002/Ecore"
 		   });
 	}
 
@@ -435,45 +435,45 @@ public class FsmPackageImpl extends EPackageImpl implements FsmPackage {
 	 * @generated
 	 */
 	protected void createAspectAnnotations() {
-		String source = "aspect";	
+		String source = "aspect";
 		addAnnotation
-		  (stateMachineEClass.getEOperations().get(0), 
-		   source, 
+		  (stateMachineEClass.getEOperations().get(0),
+		   source,
 		   new String[] {
-		   });	
+		   });
 		addAnnotation
-		  (stateMachineEClass.getEOperations().get(1), 
-		   source, 
+		  (stateMachineEClass.getEOperations().get(1),
+		   source,
 		   new String[] {
-		   });	
+		   });
 		addAnnotation
-		  (getStateMachine_CurrentState(), 
-		   source, 
+		  (getStateMachine_CurrentState(),
+		   source,
 		   new String[] {
-		   });	
+		   });
 		addAnnotation
-		  (getStateMachine_UnprocessedString(), 
-		   source, 
+		  (getStateMachine_UnprocessedString(),
+		   source,
 		   new String[] {
-		   });	
+		   });
 		addAnnotation
-		  (getStateMachine_ConsummedString(), 
-		   source, 
+		  (getStateMachine_ConsummedString(),
+		   source,
 		   new String[] {
-		   });	
+		   });
 		addAnnotation
-		  (getStateMachine_ProducedString(), 
-		   source, 
+		  (getStateMachine_ProducedString(),
+		   source,
 		   new String[] {
-		   });	
+		   });
 		addAnnotation
-		  (stateEClass.getEOperations().get(0), 
-		   source, 
+		  (stateEClass.getEOperations().get(0),
+		   source,
 		   new String[] {
-		   });	
+		   });
 		addAnnotation
-		  (transitionEClass.getEOperations().get(0), 
-		   source, 
+		  (transitionEClass.getEOperations().get(0),
+		   source,
 		   new String[] {
 		   });
 	}

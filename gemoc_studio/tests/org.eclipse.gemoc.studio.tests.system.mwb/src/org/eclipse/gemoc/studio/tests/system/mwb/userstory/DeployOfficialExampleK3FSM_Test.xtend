@@ -97,11 +97,12 @@ class DeployOfficialExampleK3FSM_Test extends AbstractXtextTests
 	def void test01_InstallK3FsmModels() throws Exception {
 		//val activeShell = bot.activeShell // the focus is lost after click on "Browse..."
 		bot.menu("File").menu("New").menu("Example...").click();
-		bot.tree().getTreeItem("GEMOC modeling workbench examples").select();
-		bot.tree().getTreeItem("GEMOC modeling workbench examples").expand();
-		bot.tree().getTreeItem("GEMOC modeling workbench examples").getNode("GEMOC models for K3FSM Language (Sequential)").select();
-	  	bot.button("Finish").click();
-
+		val newExampleBot = bot.shell("New Example").bot
+		newExampleBot.tree().getTreeItem("GEMOC modeling workbench examples").select();
+		newExampleBot.tree().getTreeItem("GEMOC modeling workbench examples").expand();
+		newExampleBot.tree().getTreeItem("GEMOC modeling workbench examples").getNode("GEMOC models for K3FSM Language (Sequential)").select();
+	  	newExampleBot.button("Finish").click();
+	  
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 		WorkspaceTestHelper::reallyWaitForJobs(2)
 		IResourcesSetupUtil::fullBuild

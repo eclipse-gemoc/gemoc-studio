@@ -27,19 +27,22 @@ public class StateMachineAspect {
   @InitializeModel
   public static void initializeModel(final StateMachine _self, final EList<String> args) {
     final org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.aspects.StateMachineAspectStateMachineAspectProperties _self_ = org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.aspects.StateMachineAspectStateMachineAspectContext.getSelf(_self);
-    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
-    	@Override
-    	public void execute() {
-    		_privk3_initializeModel(_self_, _self,args);
+    // #DispatchPointCut_before# void initializeModel(EList<String>)
+    if (_self instanceof org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.StateMachine){
+    	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand command = new fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepCommand() {
+    		@Override
+    		public void execute() {
+    			org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.aspects.StateMachineAspect._privk3_initializeModel(_self_, (org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.fsm.StateMachine)_self,args);
+    		}
+    	};
+    	fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
+    	if (stepManager != null) {
+    		stepManager.executeStep(_self, new Object[] {args}, command, "StateMachine", "initializeModel");
+    	} else {
+    		command.execute();
     	}
+    	;
     };
-    fr.inria.diverse.k3.al.annotationprocessor.stepmanager.IStepManager stepManager = fr.inria.diverse.k3.al.annotationprocessor.stepmanager.StepManagerRegistry.getInstance().findStepManager(_self);
-    if (stepManager != null) {
-    	stepManager.executeStep(_self,command,"StateMachine","initializeModel");
-    } else {
-    	command.execute();
-    }
-    ;;
   }
   
   public static State currentState(final StateMachine _self) {
