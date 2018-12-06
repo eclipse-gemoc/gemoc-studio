@@ -418,7 +418,7 @@ public class TransitionImpl extends NamedElementImpl implements Transition {
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (input: ");
 		result.append(input);
 		result.append(", output: ");
