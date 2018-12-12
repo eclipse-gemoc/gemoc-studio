@@ -16,7 +16,7 @@
     <properties>
         <sample_root>${basedir}/../../sample</sample_root>
         <tfsm_sample_language_root>${basedir}/../../../TFSM/language_workbench</tfsm_sample_language_root>
-        <legacyfsm_sample_language_root>${basedir}/../../../LegacyFSM/language_workbench</legacyfsm_sample_language_root>
+        <melangek3fsm_sample_language_root>${basedir}/../../../MelangeK3FSM/language_workbench</melangek3fsm_sample_language_root>
         <k3fsm_example_language_root>${basedir}/../../../K3FSM/language_workbench</k3fsm_example_language_root>
     </properties>
     
@@ -45,36 +45,36 @@
 							<tasks>
 								<mkdir dir="${basedir}/zips" />
 
-								<!-- LegacyFSM -->
+								<!-- MelangeK3FSM -->
 								<zip destfile="${basedir}/zips/org.eclipse.gemoc.sample.legacyfsm.fsm.zip">
-									<fileset dir="${legacyfsm_sample_language_root}/org.eclipse.gemoc.sample.legacyfsm.fsm/" />
+									<fileset dir="${melangek3fsm_sample_language_root}/org.eclipse.gemoc.sample.legacyfsm.fsm/" />
 								</zip>
 								<zip destfile="${basedir}/zips/org.eclipse.gemoc.sample.legacyfsm.fsm.design.zip">
-									<fileset dir="${legacyfsm_sample_language_root}/org.eclipse.gemoc.sample.legacyfsm.fsm.design/" />
+									<fileset dir="${melangek3fsm_sample_language_root}/org.eclipse.gemoc.sample.legacyfsm.fsm.design/" />
 								</zip>
 								<zip destfile="${basedir}/zips/org.eclipse.gemoc.sample.legacyfsm.fsm.k3dsa.zip">
-									<fileset dir="${legacyfsm_sample_language_root}/org.eclipse.gemoc.sample.legacyfsm.fsm.k3dsa/" />
+									<fileset dir="${melangek3fsm_sample_language_root}/org.eclipse.gemoc.sample.legacyfsm.fsm.k3dsa/" />
 								</zip>
 								<zip destfile="${basedir}/zips/org.eclipse.gemoc.sample.legacyfsm.fsm.model.zip">
-									<fileset dir="${legacyfsm_sample_language_root}/org.eclipse.gemoc.sample.legacyfsm.fsm.model/" />
+									<fileset dir="${melangek3fsm_sample_language_root}/org.eclipse.gemoc.sample.legacyfsm.fsm.model/" />
 								</zip>
 								<zip destfile="${basedir}/zips/org.eclipse.gemoc.sample.legacyfsm.fsm.model.edit.zip">
-									<fileset dir="${legacyfsm_sample_language_root}/org.eclipse.gemoc.sample.legacyfsm.fsm.model.edit/" />
+									<fileset dir="${melangek3fsm_sample_language_root}/org.eclipse.gemoc.sample.legacyfsm.fsm.model.edit/" />
 								</zip>
 								<zip destfile="${basedir}/zips/org.eclipse.gemoc.sample.legacyfsm.fsm.model.editor.zip">
-									<fileset dir="${legacyfsm_sample_language_root}/org.eclipse.gemoc.sample.legacyfsm.fsm.model.editor/" />
+									<fileset dir="${melangek3fsm_sample_language_root}/org.eclipse.gemoc.sample.legacyfsm.fsm.model.editor/" />
 								</zip>
 								<zip destfile="${basedir}/zips/org.eclipse.gemoc.sample.legacyfsm.xsfsm.zip">
-									<fileset dir="${legacyfsm_sample_language_root}/org.eclipse.gemoc.sample.legacyfsm.xsfsm/" />
+									<fileset dir="${melangek3fsm_sample_language_root}/org.eclipse.gemoc.sample.legacyfsm.xsfsm/" />
 								</zip>
 								<zip destfile="${basedir}/zips/org.eclipse.gemoc.sample.legacyfsm.xsfsm.design.zip">
-									<fileset dir="${legacyfsm_sample_language_root}/org.eclipse.gemoc.sample.legacyfsm.xsfsm.design/" />
+									<fileset dir="${melangek3fsm_sample_language_root}/org.eclipse.gemoc.sample.legacyfsm.xsfsm.design/" />
 								</zip>
 								<zip destfile="${basedir}/zips/org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.zip">
-									<fileset dir="${legacyfsm_sample_language_root}/org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm/" />
+									<fileset dir="${melangek3fsm_sample_language_root}/org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm/" />
 								</zip>
 								<zip destfile="${basedir}/zips/org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.trace.zip">
-									<fileset dir="${legacyfsm_sample_language_root}/org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.trace/" />
+									<fileset dir="${melangek3fsm_sample_language_root}/org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.trace/" />
 								</zip>
 
 								<!-- K3FSM -->
