@@ -31,6 +31,11 @@
             <layout>p2</layout>
             <url>http://www.kermeta.org/k3/update_2018-09-05</url>
         </repository>
+		<repository>
+			<id>ale</id>
+			<url>http://www.kermeta.org/ale-lang/updates/2018-12-12</url>
+			<layout>p2</layout>
+		</repository>
         <repository>
             <id>melange</id>
             <layout>p2</layout>

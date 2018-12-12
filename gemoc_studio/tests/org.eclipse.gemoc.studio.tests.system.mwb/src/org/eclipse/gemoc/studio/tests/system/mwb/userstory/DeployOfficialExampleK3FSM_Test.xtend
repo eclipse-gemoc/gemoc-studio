@@ -125,8 +125,8 @@ class DeployOfficialExampleK3FSM_Test extends AbstractXtextTests
 		bot.tree().getTreeItem("org.eclipse.gemoc.example.k3fsm.model_examples").expand();
 		val item = bot.tree().getTreeItem("org.eclipse.gemoc.example.k3fsm.model_examples").getNode("TwoStatesUpcast.k3fsm").select();
 		item.contextMenu("Debug As").menu("Debug Configurations...").click();
-		bot.tree().getTreeItem("Gemoc Sequential eXecutable Model").expand();
-		bot.tree().getTreeItem("Gemoc Sequential eXecutable Model").getNode("K3FSM - TwoStatesUpcast(abababa)").select();
+		bot.tree().getTreeItem("Executable model with GEMOC Java engine").expand();
+		bot.tree().getTreeItem("Executable model with GEMOC Java engine").getNode("K3FSM - TwoStatesUpcast(abababa)").select();
 		bot.button("Debug").click();
 				
 		// accept switch to debug perspective (this also makes sure that the engines has started)		
@@ -144,7 +144,7 @@ class DeployOfficialExampleK3FSM_Test extends AbstractXtextTests
 		waitThreadSuspended
 		clickOnStepInto()
 		waitThreadSuspended
-		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Gemoc Sequential eXecutable Model]").getNode("Gemoc debug target").select();
+		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Executable model with GEMOC Java engine]").getNode("Gemoc debug target").select();
 		bot.toolbarButtonWithTooltip("Resu&me (F8)").click();
 		
 		// at some point, xtext may  wish to convert the project containing the models, accept is silently

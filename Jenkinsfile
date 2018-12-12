@@ -37,6 +37,12 @@ pipeline {
 	         				checkout gemocstudiomodeldebuggingScm
 	         			}
 				}
+				dir('gemoc-studio-execution-ale') {
+    					script {
+	         				def gemocstudiomodeldebuggingScm = resolveScm source: [$class: 'GitSCMSource', credentialsId: '', id: '_', remote: 'https://github.com/eclipse/gemoc-studio-execution-ale.git', traits: [[$class: 'BranchDiscoveryTrait'], [$class: 'LocalBranchTrait']]], targets: [BRANCH_NAME, 'master']
+	         				checkout gemocstudiomodeldebuggingScm
+	         			}
+				}
 			    echo 'Content of the workspace'
 				sh "ls"
 				sh "chmod 777 ./gemoc-studio/dev_support/jenkins/showGitBranches.sh"

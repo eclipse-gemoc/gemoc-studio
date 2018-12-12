@@ -26,6 +26,7 @@ Contributing
 ============
 If you wish to contribute to the project, you'll find some guidance and tip and tricks on the [project github wiki pages](https://github.com/eclipse/gemoc-studio/wiki).
 
-Building
+Development
 ============
-Instructions about how to build locally the studio are available in this readme page https://github.com/eclipse/gemoc-studio/tree/master/dev_support/full_compilation or in the [studio documentation](http://download.eclipse.org/gemoc/docs/nightly/_contributing.html#_compilation_of_the_complete_gemoc_studio).
+- Instructions about how to build locally the studio are available in this readme page https://github.com/eclipse/gemoc-studio/tree/master/dev_support/full_compilation or in the [studio documentation](http://download.eclipse.org/gemoc/docs/nightly/_contributing.html#_compilation_of_the_complete_gemoc_studio).
+- Continuous integration on [Eclipse CI](https://ci.eclipse.org/gemoc/job/gemoc-studio/)
