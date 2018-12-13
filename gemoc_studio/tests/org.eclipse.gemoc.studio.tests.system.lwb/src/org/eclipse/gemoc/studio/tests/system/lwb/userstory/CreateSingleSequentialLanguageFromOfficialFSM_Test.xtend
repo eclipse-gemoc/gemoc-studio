@@ -54,7 +54,7 @@ public class CreateSingleSequentialLanguageFromOfficialFSM_Test extends Abstract
 	
 
 	static final String BASE_FOLDER_NAME = "tests-inputs-gen/SequentialFSM"
-	static final String BASE_NAME = "org.eclipse.gemoc.sample.legacyfsm"
+	static final String BASE_NAME = "org.eclipse.gemoc.example.melangek3fsm"
 	static final String SOURCE_PROJECT_NAME = BASE_NAME + ".fsm"
 	static final String PROJECT_NAME = BASE_NAME + ".xfsm"
 	
@@ -209,7 +209,7 @@ public class CreateSingleSequentialLanguageFromOfficialFSM_Test extends Abstract
 	@Test
 	def void test05_CreateSiriusEditorForLanguage() throws Exception {
 				
-		val SWTBotTreeItem projectItem = bot.tree().getTreeItem("org.eclipse.gemoc.sample.legacyfsm.xfsm").select();
+		val SWTBotTreeItem projectItem = bot.tree().getTreeItem("org.eclipse.gemoc.example.melangek3fsm.xfsm").select();
 		projectItem.contextMenu("GEMOC Language").menu("Create Sirius Editor Project for language").click();
 		bot.button("OK").click();
 		

@@ -51,7 +51,7 @@ public class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test exte
 	
 
 	static final String BASE_FOLDER_NAME = "tests-inputs-gen/SequentialFSM"
-	static final String BASE_NAME = "org.eclipse.gemoc.sample.legacyfsm"
+	static final String BASE_NAME = "org.eclipse.gemoc.example.melangek3fsm"
 	static final String SOURCE_PROJECT_NAME = BASE_NAME + ".fsm"
 	static final String PROJECT_NAME = BASE_NAME + ".xfsm"
 	
@@ -208,7 +208,7 @@ public class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test exte
 		// Language runtime classes
 		helper.waitFileExistOrAssert(PROJECT_NAME + "/src-model-gen/org/eclipse/gemoc/sample/legacyfsm/xfsm/fsm/FsmPackage.java", 10, 300)
 		// ModelType classes
-		helper.assertFileExists("org.eclipse.gemoc.sample.legacyfsm.xfsm/src-gen/org/eclipse/gemoc/sample/legacyfsm/Xfsm.java")
+		helper.assertFileExists("org.eclipse.gemoc.example.melangek3fsm.xfsm/src-gen/org/eclipse/gemoc/sample/legacyfsm/Xfsm.java")
 		helper.assertFolderExists(PROJECT_NAME + "/src-gen")
 		helper.assertFileExists(PROJECT_NAME + "/src-gen/org/eclipse/gemoc/sample/legacyfsm/XfsmMT.java");
 		// k3 aspects
@@ -247,7 +247,7 @@ public class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test exte
 	@Test
 	def void test05_CreateSiriusEditorForLanguage() throws Exception {
 				
-		val SWTBotTreeItem projectItem = bot.tree().getTreeItem("org.eclipse.gemoc.sample.legacyfsm.xfsm").select();
+		val SWTBotTreeItem projectItem = bot.tree().getTreeItem("org.eclipse.gemoc.example.melangek3fsm.xfsm").select();
 		projectItem.contextMenu("GEMOC Language").menu("Create Sirius Editor Project for language").click();
 		bot.button("OK").click();
 		

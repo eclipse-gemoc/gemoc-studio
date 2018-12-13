@@ -41,7 +41,7 @@ class DeployOfficialExampleK3MelangeFSM_Test extends AbstractXtextTests
 	
 	static WorkspaceTestHelper helper = new WorkspaceTestHelper
 
-	static final String BASE_NAME = "org.eclipse.gemoc.sample.legacyfsm"
+	static final String BASE_NAME = "org.eclipse.gemoc.example.melangek3fsm"
 	
 	static SWTWorkbenchBot	bot;
  
