@@ -46,7 +46,7 @@ public class DeployOfficialSampleLegacyFSM_Test extends AbstractXtextTests
 	
 	static WorkspaceTestHelper helper = new WorkspaceTestHelper
 
-	static final String BASE_NAME = "org.eclipse.gemoc.sample.legacyfsm"
+	static final String BASE_NAME = "org.eclipse.gemoc.example.melangek3fsm"
 	static final String PROJECT_NAME = BASE_NAME + ".xsfsm"
 	
 	private static SWTWorkbenchBot	bot;

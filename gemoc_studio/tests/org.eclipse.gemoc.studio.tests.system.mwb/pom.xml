@@ -70,8 +70,8 @@
 								<!-- LegacyFSM -->
 								<mkdir dir="${sequentialFSM.tests-inputs-gen.path}" />
 								
-								<zip destfile="${sequentialFSM.tests-inputs-gen.path}/org.eclipse.gemoc.sample.legacyfsm.model_examples.zip">
-									<fileset dir="${sequentialFSM.modeling.root}/org.eclipse.gemoc.sample.legacyfsm.model_examples/" />
+								<zip destfile="${sequentialFSM.tests-inputs-gen.path}/org.eclipse.gemoc.example.melangek3fsm.model_examples.zip">
+									<fileset dir="${sequentialFSM.modeling.root}/org.eclipse.gemoc.example.melangek3fsm.model_examples/" />
 								</zip>
 								
 								
