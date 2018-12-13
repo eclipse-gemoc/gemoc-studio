@@ -152,7 +152,7 @@ public class StateMachine_consummedString_ValueImpl extends SpecificValueImpl im
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (consummedString: ");
 		result.append(consummedString);
 		result.append(')');
