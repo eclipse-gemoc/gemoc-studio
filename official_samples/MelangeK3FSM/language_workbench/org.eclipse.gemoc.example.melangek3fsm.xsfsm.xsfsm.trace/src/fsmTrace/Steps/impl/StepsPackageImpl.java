@@ -127,7 +127,7 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link StepsPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -141,7 +141,8 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 		if (isInited) return (StepsPackage)EPackage.Registry.INSTANCE.getEPackage(StepsPackage.eNS_URI);
 
 		// Obtain or create and register package
-		StepsPackageImpl theStepsPackage = (StepsPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof StepsPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new StepsPackageImpl());
+		Object registeredStepsPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		StepsPackageImpl theStepsPackage = registeredStepsPackage instanceof StepsPackageImpl ? (StepsPackageImpl)registeredStepsPackage : new StepsPackageImpl();
 
 		isInited = true;
 
@@ -152,9 +153,12 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 		LaunchconfigurationPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
-		FsmTracePackageImpl theFsmTracePackage = (FsmTracePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(FsmTracePackage.eNS_URI) instanceof FsmTracePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(FsmTracePackage.eNS_URI) : FsmTracePackage.eINSTANCE);
-		StatesPackageImpl theStatesPackage = (StatesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(StatesPackage.eNS_URI) instanceof StatesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(StatesPackage.eNS_URI) : StatesPackage.eINSTANCE);
-		FsmPackageImpl theFsmPackage_1 = (FsmPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(fsmTrace.States.fsm.FsmPackage.eNS_URI) instanceof FsmPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(fsmTrace.States.fsm.FsmPackage.eNS_URI) : fsmTrace.States.fsm.FsmPackage.eINSTANCE);
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(FsmTracePackage.eNS_URI);
+		FsmTracePackageImpl theFsmTracePackage = (FsmTracePackageImpl)(registeredPackage instanceof FsmTracePackageImpl ? registeredPackage : FsmTracePackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(StatesPackage.eNS_URI);
+		StatesPackageImpl theStatesPackage = (StatesPackageImpl)(registeredPackage instanceof StatesPackageImpl ? registeredPackage : StatesPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(fsmTrace.States.fsm.FsmPackage.eNS_URI);
+		FsmPackageImpl theFsmPackage_1 = (FsmPackageImpl)(registeredPackage instanceof FsmPackageImpl ? registeredPackage : fsmTrace.States.fsm.FsmPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theStepsPackage.createPackageContents();
@@ -171,7 +175,6 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 		// Mark meta-data to indicate it can't be changed
 		theStepsPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(StepsPackage.eNS_URI, theStepsPackage);
 		return theStepsPackage;
@@ -348,13 +351,13 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 		g2 = createEGenericType(theStatesPackage.getSpecificState());
 		g1.getETypeArguments().add(g2);
 		fsm_State_Step_ImplicitStepEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getFsm_State_Step_AbstractSubStep());
-		fsm_Transition_FireEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getSpecificStep());
 		fsm_Transition_FireEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(theTracePackage.getSmallStep());
 		g2 = createEGenericType(theStatesPackage.getSpecificState());
 		g1.getETypeArguments().add(g2);
+		fsm_Transition_FireEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getFsm_State_Step_AbstractSubStep());
 		fsm_Transition_FireEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(theTracePackage.getSmallStep());
 		g2 = createEGenericType(theStatesPackage.getSpecificState());

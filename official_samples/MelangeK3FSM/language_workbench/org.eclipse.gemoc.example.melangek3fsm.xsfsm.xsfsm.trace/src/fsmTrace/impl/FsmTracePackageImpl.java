@@ -72,7 +72,7 @@ public class FsmTracePackageImpl extends EPackageImpl implements FsmTracePackage
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link FsmTracePackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -86,7 +86,8 @@ public class FsmTracePackageImpl extends EPackageImpl implements FsmTracePackage
 		if (isInited) return (FsmTracePackage)EPackage.Registry.INSTANCE.getEPackage(FsmTracePackage.eNS_URI);
 
 		// Obtain or create and register package
-		FsmTracePackageImpl theFsmTracePackage = (FsmTracePackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof FsmTracePackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new FsmTracePackageImpl());
+		Object registeredFsmTracePackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		FsmTracePackageImpl theFsmTracePackage = registeredFsmTracePackage instanceof FsmTracePackageImpl ? (FsmTracePackageImpl)registeredFsmTracePackage : new FsmTracePackageImpl();
 
 		isInited = true;
 
@@ -97,9 +98,12 @@ public class FsmTracePackageImpl extends EPackageImpl implements FsmTracePackage
 		LaunchconfigurationPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
-		StepsPackageImpl theStepsPackage = (StepsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(StepsPackage.eNS_URI) instanceof StepsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(StepsPackage.eNS_URI) : StepsPackage.eINSTANCE);
-		StatesPackageImpl theStatesPackage = (StatesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(StatesPackage.eNS_URI) instanceof StatesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(StatesPackage.eNS_URI) : StatesPackage.eINSTANCE);
-		FsmPackageImpl theFsmPackage_1 = (FsmPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(fsmTrace.States.fsm.FsmPackage.eNS_URI) instanceof FsmPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(fsmTrace.States.fsm.FsmPackage.eNS_URI) : fsmTrace.States.fsm.FsmPackage.eINSTANCE);
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(StepsPackage.eNS_URI);
+		StepsPackageImpl theStepsPackage = (StepsPackageImpl)(registeredPackage instanceof StepsPackageImpl ? registeredPackage : StepsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(StatesPackage.eNS_URI);
+		StatesPackageImpl theStatesPackage = (StatesPackageImpl)(registeredPackage instanceof StatesPackageImpl ? registeredPackage : StatesPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(fsmTrace.States.fsm.FsmPackage.eNS_URI);
+		FsmPackageImpl theFsmPackage_1 = (FsmPackageImpl)(registeredPackage instanceof FsmPackageImpl ? registeredPackage : fsmTrace.States.fsm.FsmPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theFsmTracePackage.createPackageContents();
@@ -116,7 +120,6 @@ public class FsmTracePackageImpl extends EPackageImpl implements FsmTracePackage
 		// Mark meta-data to indicate it can't be changed
 		theFsmTracePackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(FsmTracePackage.eNS_URI, theFsmTracePackage);
 		return theFsmTracePackage;

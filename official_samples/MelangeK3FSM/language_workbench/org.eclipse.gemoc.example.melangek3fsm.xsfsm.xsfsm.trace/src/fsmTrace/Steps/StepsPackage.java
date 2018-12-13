@@ -311,7 +311,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FSM_TRANSITION_FIRE__MSEOCCURRENCE = FSM_STATE_STEP_ABSTRACT_SUB_STEP__MSEOCCURRENCE;
+	int FSM_TRANSITION_FIRE__MSEOCCURRENCE = SPECIFIC_STEP__MSEOCCURRENCE;
 
 	/**
 	 * The feature id for the '<em><b>Starting State</b></em>' reference.
@@ -320,7 +320,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FSM_TRANSITION_FIRE__STARTING_STATE = FSM_STATE_STEP_ABSTRACT_SUB_STEP__STARTING_STATE;
+	int FSM_TRANSITION_FIRE__STARTING_STATE = SPECIFIC_STEP__STARTING_STATE;
 
 	/**
 	 * The feature id for the '<em><b>Ending State</b></em>' reference.
@@ -329,7 +329,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FSM_TRANSITION_FIRE__ENDING_STATE = FSM_STATE_STEP_ABSTRACT_SUB_STEP__ENDING_STATE;
+	int FSM_TRANSITION_FIRE__ENDING_STATE = SPECIFIC_STEP__ENDING_STATE;
 
 	/**
 	 * The number of structural features of the '<em>Fsm Transition Fire</em>' class.
@@ -338,7 +338,7 @@ public interface StepsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FSM_TRANSITION_FIRE_FEATURE_COUNT = FSM_STATE_STEP_ABSTRACT_SUB_STEP_FEATURE_COUNT + 0;
+	int FSM_TRANSITION_FIRE_FEATURE_COUNT = SPECIFIC_STEP_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link fsmTrace.Steps.impl.RootImplicitStepImpl <em>Root Implicit Step</em>}' class.

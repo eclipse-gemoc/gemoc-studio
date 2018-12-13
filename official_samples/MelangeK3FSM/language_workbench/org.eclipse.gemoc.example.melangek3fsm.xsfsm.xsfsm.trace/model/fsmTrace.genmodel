@@ -167,5 +167,5 @@
     </nestedGenPackages>
   </genPackages>
   <usedGenPackages href="../../../plugin/org.eclipse.gemoc.trace.commons.model/model/GenericTrace.genmodel#//trace"/>
-  <usedGenPackages href="../../../plugin/org.eclipse.gemoc.example.melangek3fsm.xsfsm.xsfsm/model/XSFSM.genmodel#//fsm"/>
+  <usedGenPackages href="../../org.eclipse.gemoc.example.melangek3fsm.xsfsm.xsfsm/model/XSFSM.genmodel#//fsm"/>
 </genmodel:GenModel>

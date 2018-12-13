@@ -112,8 +112,8 @@ public class StepsSwitch<T> extends Switch<T> {
 			case StepsPackage.FSM_TRANSITION_FIRE: {
 				Fsm_Transition_Fire fsm_Transition_Fire = (Fsm_Transition_Fire)theEObject;
 				T result = caseFsm_Transition_Fire(fsm_Transition_Fire);
-				if (result == null) result = caseFsm_State_Step_AbstractSubStep(fsm_Transition_Fire);
 				if (result == null) result = caseSmallStep(fsm_Transition_Fire);
+				if (result == null) result = caseFsm_State_Step_AbstractSubStep(fsm_Transition_Fire);
 				if (result == null) result = caseSpecificStep(fsm_Transition_Fire);
 				if (result == null) result = caseStep(fsm_Transition_Fire);
 				if (result == null) result = defaultCase(theEObject);

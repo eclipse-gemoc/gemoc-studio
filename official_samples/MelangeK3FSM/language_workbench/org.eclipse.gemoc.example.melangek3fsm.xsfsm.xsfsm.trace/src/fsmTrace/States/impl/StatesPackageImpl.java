@@ -178,7 +178,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link StatesPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -192,7 +192,8 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 		if (isInited) return (StatesPackage)EPackage.Registry.INSTANCE.getEPackage(StatesPackage.eNS_URI);
 
 		// Obtain or create and register package
-		StatesPackageImpl theStatesPackage = (StatesPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof StatesPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new StatesPackageImpl());
+		Object registeredStatesPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		StatesPackageImpl theStatesPackage = registeredStatesPackage instanceof StatesPackageImpl ? (StatesPackageImpl)registeredStatesPackage : new StatesPackageImpl();
 
 		isInited = true;
 
@@ -203,9 +204,12 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 		LaunchconfigurationPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
-		FsmTracePackageImpl theFsmTracePackage = (FsmTracePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(FsmTracePackage.eNS_URI) instanceof FsmTracePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(FsmTracePackage.eNS_URI) : FsmTracePackage.eINSTANCE);
-		StepsPackageImpl theStepsPackage = (StepsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(StepsPackage.eNS_URI) instanceof StepsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(StepsPackage.eNS_URI) : StepsPackage.eINSTANCE);
-		FsmPackageImpl theFsmPackage_1 = (FsmPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(fsmTrace.States.fsm.FsmPackage.eNS_URI) instanceof FsmPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(fsmTrace.States.fsm.FsmPackage.eNS_URI) : fsmTrace.States.fsm.FsmPackage.eINSTANCE);
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(FsmTracePackage.eNS_URI);
+		FsmTracePackageImpl theFsmTracePackage = (FsmTracePackageImpl)(registeredPackage instanceof FsmTracePackageImpl ? registeredPackage : FsmTracePackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(StepsPackage.eNS_URI);
+		StepsPackageImpl theStepsPackage = (StepsPackageImpl)(registeredPackage instanceof StepsPackageImpl ? registeredPackage : StepsPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(fsmTrace.States.fsm.FsmPackage.eNS_URI);
+		FsmPackageImpl theFsmPackage_1 = (FsmPackageImpl)(registeredPackage instanceof FsmPackageImpl ? registeredPackage : fsmTrace.States.fsm.FsmPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theStatesPackage.createPackageContents();
@@ -222,7 +226,6 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 		// Mark meta-data to indicate it can't be changed
 		theStatesPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(StatesPackage.eNS_URI, theStatesPackage);
 		return theStatesPackage;
@@ -589,30 +592,30 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 	 * @generated
 	 */
 	protected void createXMOFAnnotations() {
-		String source = "http://www.modelexecution.org/trace/XMOF";	
+		String source = "http://www.modelexecution.org/trace/XMOF";
 		addAnnotation
-		  (stateMachine_consummedString_ValueEClass, 
-		   source, 
+		  (stateMachine_consummedString_ValueEClass,
+		   source,
 		   new String[] {
-			 "executionMetamodelElement", null
-		   });	
+			   "executionMetamodelElement", null
+		   });
 		addAnnotation
-		  (stateMachine_currentState_ValueEClass, 
-		   source, 
+		  (stateMachine_currentState_ValueEClass,
+		   source,
 		   new String[] {
-			 "executionMetamodelElement", null
-		   });	
+			   "executionMetamodelElement", null
+		   });
 		addAnnotation
-		  (stateMachine_producedString_ValueEClass, 
-		   source, 
+		  (stateMachine_producedString_ValueEClass,
+		   source,
 		   new String[] {
-			 "executionMetamodelElement", null
-		   });	
+			   "executionMetamodelElement", null
+		   });
 		addAnnotation
-		  (stateMachine_unprocessedString_ValueEClass, 
-		   source, 
+		  (stateMachine_unprocessedString_ValueEClass,
+		   source,
 		   new String[] {
-			 "executionMetamodelElement", null
+			   "executionMetamodelElement", null
 		   });
 	}
 
@@ -623,25 +626,25 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 	 * @generated
 	 */
 	protected void createAspectAnnotations() {
-		String source = "aspect";	
+		String source = "aspect";
 		addAnnotation
-		  (getStateMachine_consummedString_Value_ConsummedString(), 
-		   source, 
+		  (getStateMachine_consummedString_Value_ConsummedString(),
+		   source,
 		   new String[] {
-		   });	
+		   });
 		addAnnotation
-		  (getStateMachine_currentState_Value_CurrentState(), 
-		   source, 
+		  (getStateMachine_currentState_Value_CurrentState(),
+		   source,
 		   new String[] {
-		   });	
+		   });
 		addAnnotation
-		  (getStateMachine_producedString_Value_ProducedString(), 
-		   source, 
+		  (getStateMachine_producedString_Value_ProducedString(),
+		   source,
 		   new String[] {
-		   });	
+		   });
 		addAnnotation
-		  (getStateMachine_unprocessedString_Value_UnprocessedString(), 
-		   source, 
+		  (getStateMachine_unprocessedString_Value_UnprocessedString(),
+		   source,
 		   new String[] {
 		   });
 	}
