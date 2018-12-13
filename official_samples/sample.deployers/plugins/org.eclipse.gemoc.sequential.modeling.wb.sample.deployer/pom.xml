@@ -44,8 +44,8 @@
 							<tasks>
 								<mkdir dir="${basedir}/zips" />
 
-								<zip destfile="${basedir}/zips/org.eclipse.gemoc.sample.legacyfsm.model_examples.zip">
-									<fileset dir="${melangek3fsm_example_modeling_root}/org.eclipse.gemoc.sample.legacyfsm.model_examples/" />
+								<zip destfile="${basedir}/zips/org.eclipse.gemoc.example.melangek3fsm.model_examples.zip">
+									<fileset dir="${melangek3fsm_example_modeling_root}/org.eclipse.gemoc.example.melangek3fsm.model_examples/" />
 								</zip>
 								
 								<zip destfile="${basedir}/zips/org.eclipse.gemoc.example.k3fsm.model_examples.zip">
