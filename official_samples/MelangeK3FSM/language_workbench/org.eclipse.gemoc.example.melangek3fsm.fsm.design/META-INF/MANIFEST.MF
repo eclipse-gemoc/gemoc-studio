@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.eclipse.gemoc.example.melangek3fsm.fsm.design
+Bundle-SymbolicName: org.eclipse.gemoc.example.melangek3fsm.fsm.design;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: org.eclipse.gemoc.example.melangek3fsm.fsm.design.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.eclipse.sirius,
+ org.eclipse.sirius.common.acceleo.aql,
+ org.eclipse.gemoc.example.melangek3fsm.fsm.model
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.eclipse.gemoc.example.melangek3fsm.fsm.design.services
+Automatic-Module-Name: org.eclipse.gemoc.example.melangek3fsm.fsm.design

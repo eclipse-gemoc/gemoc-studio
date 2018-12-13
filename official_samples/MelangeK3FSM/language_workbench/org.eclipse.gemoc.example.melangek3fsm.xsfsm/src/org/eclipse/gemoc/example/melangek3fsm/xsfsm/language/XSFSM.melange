@@ -1,0 +1,9 @@
+package org.eclipse.gemoc.example.melangek3fsm.xsfsm
+	
+language XSFSM inherits org.eclipse.gemoc.example.melangek3fsm.fsm.FSM {
+	
+	with org.eclipse.gemoc.example.melangek3fsm.fsm.k3dsa.StateAspect
+	with org.eclipse.gemoc.example.melangek3fsm.fsm.k3dsa.StateMachineAspect
+	with org.eclipse.gemoc.example.melangek3fsm.fsm.k3dsa.TransitionAspect
+
+}

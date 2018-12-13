@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: Single_traffic_light_sample
-Bundle-SymbolicName: org.eclipse.gemoc.sample.fsm.sequential.single_traffic_light_sample
-Bundle-Version: 3.0.0.qualifier
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Bundle-ClassPath: src/
-Require-Bundle: org.eclipse.gemoc.sample.legacyfsm.xsfsm;bundle-version="1.0.0"
-
