@@ -29,7 +29,7 @@
         <gemoc-studio.repository>${basedir}/../../../../gemoc-studio</gemoc-studio.repository> 
 	
 		<tests-inputs-gen.path>${basedir}/tests-inputs-gen</tests-inputs-gen.path>
-        <sequentialFSM.modeling.root>${gemoc-studio.repository}/official_samples/LegacyFSM/modeling_workbench</sequentialFSM.modeling.root>
+        <sequentialFSM.modeling.root>${gemoc-studio.repository}/official_samples/MelangeK3FSM/modeling_workbench</sequentialFSM.modeling.root>
         <sequentialFSM.tests-inputs-gen.path>${tests-inputs-gen.path}/SequentialFSM</sequentialFSM.tests-inputs-gen.path>
         <k3FSM.modeling.root>${gemoc-studio.repository}/official_samples/K3FSM/modeling_workbench</k3FSM.modeling.root>
         <k3FSM.tests-inputs-gen.path>${tests-inputs-gen.path}/K3FSM</k3FSM.tests-inputs-gen.path>
@@ -67,7 +67,7 @@
 							<target>
 								<mkdir dir="${tests-inputs-gen.path}" />
 
-								<!-- LegacyFSM -->
+								<!-- MelangeK3FSM -->
 								<mkdir dir="${sequentialFSM.tests-inputs-gen.path}" />
 								
 								<zip destfile="${sequentialFSM.tests-inputs-gen.path}/org.eclipse.gemoc.example.melangek3fsm.model_examples.zip">

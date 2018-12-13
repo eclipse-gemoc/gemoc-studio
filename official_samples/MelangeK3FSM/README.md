@@ -5,7 +5,7 @@ This implementation focuses on illustrating the hierarchy of languages: a base F
 considered as a _legacy_ language (ie. as if it was developped by thirdparties)
 and an eXecutable Sequential FSM (XSFSM) with animation support built by extension of the FSM language.
 
-![Concepts of the languages.](https://github.com/eclipse/gemoc-studio/raw/master/official_samples/sample.deployers/plugins/org.eclipse.gemoc.gemoc_language_workbench.sample.deployer/figures-gen/src/main/plantuml/LegacyFSM_language_concepts_figure.png)
+![Concepts of the languages.](https://github.com/eclipse/gemoc-studio/raw/master/official_samples/sample.deployers/plugins/org.eclipse.gemoc.gemoc_language_workbench.sample.deployer/figures-gen/src/main/plantuml/MelangeK3FSM_language_concepts_figure.png)
 
 *General view: Concepts of the languages..*
 
@@ -19,7 +19,7 @@ and then import the sample models.
 for more details about the language deployment process)
 
 Alternatively, this language is part of the basic example of GEMOC and is directly available in the GEMOC Studio. 
-Simply, go to _File > New > Example..._ and use the wizards to install the LegacyFSM projects in the language workbench and modeling workbench. 
+Simply, go to _File > New > Example..._ and use the wizards to install the MelangeK3FSM projects in the language workbench and modeling workbench. 
 
 # Developper documentation (Language Designer) ![GEMOC Language Logo](http://gemoc.github.io/gemoc-studio/publish/guide/html_single/images/icons/IconeGemocLanguage_16.png)
 
@@ -43,7 +43,7 @@ The following figure presents an overview of the main artefacts in the projects:
 - the aspects in _fsm.k3dsa_ extends the base classes;
 - the _xsfsm.melange_ file defines the _xsfsm_ language. It inherits from _fsm_ and add the _fsm.k3dsa_ aspects. This will generate the java implementation classes for the resulting xsfsm language.
 
-![Ecore, melange, packages and classes view.](https://github.com/eclipse/gemoc-studio/raw/master/official_samples/sample.deployers/plugins/org.eclipse.gemoc.gemoc_language_workbench.sample.deployer/figures-gen/src/main/plantuml/LegacyFSM_language_figure.png)
+![Ecore, melange, packages and classes view.](https://github.com/eclipse/gemoc-studio/raw/master/official_samples/sample.deployers/plugins/org.eclipse.gemoc.gemoc_language_workbench.sample.deployer/figures-gen/src/main/plantuml/MelangeK3FSM_language_figure.png)
 *Main artefacts view: Ecore, melange, packages and runtime classes.*
 
 Please note that for simplification of the diagram, the associations that doesn't represent a containment, have been represented as attributes rather than links.

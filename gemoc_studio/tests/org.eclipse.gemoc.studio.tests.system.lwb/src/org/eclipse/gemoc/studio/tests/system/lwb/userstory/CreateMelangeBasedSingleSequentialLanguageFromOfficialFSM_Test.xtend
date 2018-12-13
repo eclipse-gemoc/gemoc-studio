@@ -37,7 +37,7 @@ import org.eclipse.gemoc.xdsmlframework.test.lib.TailWorkspaceLogToStderrRule
 import org.junit.Rule
 
 /**
- * This class check a scenario where we reuse some of the base projects of the official sample : LegacyFSM
+ * This class check a scenario where we reuse some of the base projects of the official sample : MelangeK3FSM
  * in order to create a new language.
  * The tests are ordered and a failure in the initial tests will most likely make fail the following ones.
  */

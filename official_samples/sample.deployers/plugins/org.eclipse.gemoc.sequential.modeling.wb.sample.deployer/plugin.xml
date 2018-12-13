@@ -24,7 +24,7 @@
       <wizard
             canFinishEarly="true"
             category="org.eclipse.ui.Examples/org.eclipse.gemoc.gemoc_modeling_workbench.samples.category"
-            class="org.eclipse.gemoc.sequential.modeling.wb.sample.deployer.wizards.LegacyFSMExampleWizard"
+            class="org.eclipse.gemoc.sequential.modeling.wb.sample.deployer.wizards.MelangeK3FSMExampleWizard"
             finalPerspective="org.eclipse.sirius.ui.tools.perspective.modeling"
             hasPages="false"
             icon="icons/IconeGemocModel-16.png"

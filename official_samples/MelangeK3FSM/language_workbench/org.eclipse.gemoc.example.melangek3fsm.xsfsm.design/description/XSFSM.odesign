@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" name="XSFSM" version="11.1.1.201610211630">
-  <ownedViewpoints name="LegacyFSM_XFSM_Viewpoint">
-    <ownedRepresentationExtensions xsi:type="description_1:DiagramExtensionDescription" name="LegacyFSM_XFSM" viewpointURI="viewpoint:/org.eclipse.gemoc.example.melangek3fsm.fsm.design/LegacyFSM_FSM_ViewPoint" representationName="FSM">
+  <ownedViewpoints name="MelangeK3FSM_XFSM_Viewpoint">
+    <ownedRepresentationExtensions xsi:type="description_1:DiagramExtensionDescription" name="MelangeK3FSM_XFSM" viewpointURI="viewpoint:/org.eclipse.gemoc.example.melangek3fsm.fsm.design/MelangeK3FSM_FSM_ViewPoint" representationName="FSM">
       <layers name="Debug" activeByDefault="true">
         <toolSections name="Debug">
           <ownedTools xsi:type="tool:PopupMenu" name="Gemoc">
@@ -69,29 +69,29 @@
         </containerMappings>
         <decorationDescriptionsSet>
           <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="Current State" position="SOUTH_EAST" decoratorPath="/org.eclipse.gemoc.example.melangek3fsm.xsfsm.design/icons/cursor-3-24.png" preconditionExpression="service:self.isCurrentState">
-            <mappings xsi:type="description_1:ContainerMapping" href="../../org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']"/>
+            <mappings xsi:type="description_1:ContainerMapping" href="../../org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']"/>
           </decorationDescriptions>
         </decorationDescriptionsSet>
         <customization>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="service:self.hasBeenActivated">
             <featureCustomizations xsi:type="description:EReferenceCustomization" referenceName="strokeColor" value="//@userColorsPalettes[name='XFSM%20Palette']/@entries[name='hasBeenAnimated']">
-              <appliedOn href="../../org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']/@style"/>
+              <appliedOn href="../../org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']/@style"/>
             </featureCustomizations>
             <featureCustomizations xsi:type="description:EReferenceCustomization" referenceName="borderColor" value="//@userColorsPalettes[name='XFSM%20Palette']/@entries[name='hasBeenAnimated']">
-              <appliedOn href="../../org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='TimedSystem']/@defaultLayer/@containerMappings[name='TimedSystem']/@style"/>
-              <appliedOn href="../../org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']/@style"/>
-              <appliedOn href="../../org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='TimedSystem']/@defaultLayer/@containerMappings[name='TimedSystem']/@subContainerMappings[name='FSM']/@style"/>
-              <appliedOn href="../../org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']/@conditionnalStyles.0/@style"/>
-              <appliedOn href="../../org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='TimedSystem']/@defaultLayer/@containerMappings[name='TimedSystem']/@subNodeMappings[name='GlobalClock']/@style"/>
-              <appliedOn href="../../org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@nodeMappings[name='Local%20Clock']/@style"/>
-              <appliedOn href="../../org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@nodeMappings[name='LocalEvents']/@style"/>
-              <appliedOn href="../../org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='TimedSystem']/@defaultLayer/@containerMappings[name='TimedSystem']/@subNodeMappings[name='Event']/@style"/>
+              <appliedOn href="../../org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='TimedSystem']/@defaultLayer/@containerMappings[name='TimedSystem']/@style"/>
+              <appliedOn href="../../org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']/@style"/>
+              <appliedOn href="../../org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='TimedSystem']/@defaultLayer/@containerMappings[name='TimedSystem']/@subContainerMappings[name='FSM']/@style"/>
+              <appliedOn href="../../org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']/@conditionnalStyles.0/@style"/>
+              <appliedOn href="../../org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='TimedSystem']/@defaultLayer/@containerMappings[name='TimedSystem']/@subNodeMappings[name='GlobalClock']/@style"/>
+              <appliedOn href="../../org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@nodeMappings[name='Local%20Clock']/@style"/>
+              <appliedOn href="../../org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@nodeMappings[name='LocalEvents']/@style"/>
+              <appliedOn href="../../org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='TimedSystem']/@defaultLayer/@containerMappings[name='TimedSystem']/@subNodeMappings[name='Event']/@style"/>
             </featureCustomizations>
           </vsmElementCustomizations>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization">
             <featureCustomizations xsi:type="description:EAttributeCustomization" attributeName="labelExpression" value="service:self.getClockLabel">
-              <appliedOn href="../../org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@nodeMappings[name='Local%20Clock']/@style"/>
-              <appliedOn href="../../org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='TimedSystem']/@defaultLayer/@containerMappings[name='TimedSystem']/@subNodeMappings[name='GlobalClock']/@style"/>
+              <appliedOn href="../../org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@nodeMappings[name='Local%20Clock']/@style"/>
+              <appliedOn href="../../org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='TimedSystem']/@defaultLayer/@containerMappings[name='TimedSystem']/@subNodeMappings[name='GlobalClock']/@style"/>
             </featureCustomizations>
           </vsmElementCustomizations>
         </customization>

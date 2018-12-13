@@ -17,7 +17,7 @@ import java.util.List;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.gemoc.sequential.language.wb.sample.deployer.Activator;
 
-public class LegacyFSMExampleWizard
+public class MelangeK3FSMExampleWizard
 	extends AbstractExampleWizard {
 	
 	protected Collection<ProjectDescriptor> getProjectDescriptors() {		

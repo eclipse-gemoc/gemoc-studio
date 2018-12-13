@@ -24,7 +24,7 @@
       <wizard
             canFinishEarly="true"
             category="org.eclipse.ui.Examples/org.eclipse.gemoc.gemoc_language_workbench.samples.category"
-            class="org.eclipse.gemoc.sequential.language.wb.sample.deployer.wizards.LegacyFSMExampleWizard"
+            class="org.eclipse.gemoc.sequential.language.wb.sample.deployer.wizards.MelangeK3FSMExampleWizard"
             finalPerspective="org.eclipse.gemoc.xdsmlframework.ide.ui.xdsml.perspective"
             hasPages="false"
             icon="icons/IconeGemocLanguage-16.png"

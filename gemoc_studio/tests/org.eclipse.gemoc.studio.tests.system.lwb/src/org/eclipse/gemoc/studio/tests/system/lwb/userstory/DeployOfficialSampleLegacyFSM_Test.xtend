@@ -41,7 +41,7 @@ import org.junit.Rule
 @RunWith(SWTBotJunit4ClassRunner)
 @InjectWith(MelangeUiInjectorProvider)
 @FixMethodOrder(MethodSorters::NAME_ASCENDING)
-public class DeployOfficialSampleLegacyFSM_Test extends AbstractXtextTests
+public class DeployOfficialSampleMelangeK3FSM_Test extends AbstractXtextTests
 {
 	
 	static WorkspaceTestHelper helper = new WorkspaceTestHelper

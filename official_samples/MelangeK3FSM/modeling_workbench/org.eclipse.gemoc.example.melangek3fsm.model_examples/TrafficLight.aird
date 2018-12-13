@@ -3,24 +3,24 @@
   <viewpoint:DAnalysis xmi:id="_DIdgoOe-EeaCQbLzOZdGAg" selectedViews="__W8p8OfVEeaYKp8RA1Pk2Q __Xp0kOfVEeaYKp8RA1Pk2Q" version="11.1.0.201608251200">
     <semanticResources>TrafficLight.fsm</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" xmi:id="_DmHF8Oe-EeaCQbLzOZdGAg">
-      <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']"/>
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_DmQ28Oe-EeaCQbLzOZdGAg" name="TrafficLight" representation="_DmQ28ee-EeaCQbLzOZdGAg">
-        <description xmi:type="description_1:DiagramDescription" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']"/>
+        <description xmi:type="description_1:DiagramDescription" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']"/>
         <target xmi:type="fsm:StateMachine" href="TrafficLight.fsm#/"/>
       </ownedRepresentationDescriptors>
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" xmi:id="_Dman8Oe-EeaCQbLzOZdGAg">
-      <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.xsfsm.design/description/XSFSM.odesign#//@ownedViewpoints[name='LegacyFSM_XFSM_Viewpoint']"/>
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.xsfsm.design/description/XSFSM.odesign#//@ownedViewpoints[name='MelangeK3FSM_XFSM_Viewpoint']"/>
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" xmi:id="__W8p8OfVEeaYKp8RA1Pk2Q">
-      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']"/>
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="__XYHwOfVEeaYKp8RA1Pk2Q" name="TrafficLight" representation="__XYHwefVEeaYKp8RA1Pk2Q">
-        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']"/>
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']"/>
         <target xmi:type="fsm:StateMachine" href="TrafficLight.fsm#/"/>
       </ownedRepresentationDescriptors>
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" xmi:id="__Xp0kOfVEeaYKp8RA1Pk2Q">
-      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.xsfsm.design/description/XSFSM.odesign#//@ownedViewpoints[name='LegacyFSM_XFSM_Viewpoint']"/>
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.xsfsm.design/description/XSFSM.odesign#//@ownedViewpoints[name='MelangeK3FSM_XFSM_Viewpoint']"/>
     </ownedViews>
   </viewpoint:DAnalysis>
   <diagram:DSemanticDiagram xmi:id="_DmQ28ee-EeaCQbLzOZdGAg" name="TrafficLight">
@@ -127,66 +127,66 @@
       <target xmi:type="fsm:State" href="TrafficLight.fsm#//@ownedStates.0"/>
       <semanticElements xmi:type="fsm:State" href="TrafficLight.fsm#//@ownedStates.0"/>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_DmQ29ee-EeaCQbLzOZdGAg" showIcon="false" borderSize="4" borderSizeComputationExpression="4" backgroundStyle="Liquid" foregroundColor="204,242,166">
-        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']/@conditionnalStyles.0/@style"/>
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']/@conditionnalStyles.0/@style"/>
       </ownedStyle>
-      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']"/>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_DmQ29ue-EeaCQbLzOZdGAg" name="Yellow" outgoingEdges="_MLAfMOe-EeaCQbLzOZdGAg" incomingEdges="_KBAFwOe-EeaCQbLzOZdGAg">
       <target xmi:type="fsm:State" href="TrafficLight.fsm#//@ownedStates.1"/>
       <semanticElements xmi:type="fsm:State" href="TrafficLight.fsm#//@ownedStates.1"/>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_DmQ29-e-EeaCQbLzOZdGAg" showIcon="false" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="204,242,166">
-        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']/@style"/>
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']/@style"/>
       </ownedStyle>
-      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']"/>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="_DmQ2-Oe-EeaCQbLzOZdGAg" name="Red" outgoingEdges="_OpkzYOe-EeaCQbLzOZdGAg" incomingEdges="_MLAfMOe-EeaCQbLzOZdGAg">
       <target xmi:type="fsm:State" href="TrafficLight.fsm#//@ownedStates.2"/>
       <semanticElements xmi:type="fsm:State" href="TrafficLight.fsm#//@ownedStates.2"/>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_DmQ2-ee-EeaCQbLzOZdGAg" showIcon="false" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="204,242,166">
-        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']/@style"/>
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']/@style"/>
       </ownedStyle>
-      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']"/>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_FnLl0Oe-EeaCQbLzOZdGAg" name="Green_to_Green&#xA;on t do Timer" sourceNode="_DmQ29Oe-EeaCQbLzOZdGAg" targetNode="_DmQ29Oe-EeaCQbLzOZdGAg">
       <target xmi:type="fsm:Transition" href="TrafficLight.fsm#//@ownedTransitions.0"/>
       <semanticElements xmi:type="fsm:Transition" href="TrafficLight.fsm#//@ownedTransitions.0"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_FnLl0ee-EeaCQbLzOZdGAg" size="2">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']/@style"/>
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']/@style"/>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_FnLl0ue-EeaCQbLzOZdGAg" showIcon="false"/>
       </ownedStyle>
-      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']"/>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_KBAFwOe-EeaCQbLzOZdGAg" name="Green_to_Yellow&#xA;on b do Button" sourceNode="_DmQ29Oe-EeaCQbLzOZdGAg" targetNode="_DmQ29ue-EeaCQbLzOZdGAg">
       <target xmi:type="fsm:Transition" href="TrafficLight.fsm#//@ownedTransitions.1"/>
       <semanticElements xmi:type="fsm:Transition" href="TrafficLight.fsm#//@ownedTransitions.1"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_KBAFwee-EeaCQbLzOZdGAg" size="2">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']/@style"/>
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']/@style"/>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_KBAFwue-EeaCQbLzOZdGAg" showIcon="false"/>
       </ownedStyle>
-      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']"/>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_MLAfMOe-EeaCQbLzOZdGAg" name="Yellow_to_Red&#xA;on t do Timer" sourceNode="_DmQ29ue-EeaCQbLzOZdGAg" targetNode="_DmQ2-Oe-EeaCQbLzOZdGAg">
       <target xmi:type="fsm:Transition" href="TrafficLight.fsm#//@ownedTransitions.2"/>
       <semanticElements xmi:type="fsm:Transition" href="TrafficLight.fsm#//@ownedTransitions.2"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_MLAfMee-EeaCQbLzOZdGAg" size="2">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']/@style"/>
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']/@style"/>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_MLAfMue-EeaCQbLzOZdGAg" showIcon="false"/>
       </ownedStyle>
-      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']"/>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_OpkzYOe-EeaCQbLzOZdGAg" name="Red_to_Green&#xA;on t do Timer" sourceNode="_DmQ2-Oe-EeaCQbLzOZdGAg" targetNode="_DmQ29Oe-EeaCQbLzOZdGAg">
       <target xmi:type="fsm:Transition" href="TrafficLight.fsm#//@ownedTransitions.3"/>
       <semanticElements xmi:type="fsm:Transition" href="TrafficLight.fsm#//@ownedTransitions.3"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_OpkzYee-EeaCQbLzOZdGAg" size="2">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']/@style"/>
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']/@style"/>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_OpkzYue-EeaCQbLzOZdGAg" showIcon="false"/>
       </ownedStyle>
-      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']"/>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']"/>
     </ownedDiagramElements>
-    <description xmi:type="description_1:DiagramDescription" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']"/>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']"/>
     <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_DmQ2-ue-EeaCQbLzOZdGAg"/>
-    <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer"/>
-    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.xsfsm.design/description/XSFSM.odesign#//@ownedViewpoints[name='LegacyFSM_XFSM_Viewpoint']/@ownedRepresentationExtensions[name='LegacyFSM_XFSM']/@layers[name='Debug']"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/resource/org.eclipse.gemoc.example.melangek3fsm.xsfsm.design/description/XSFSM.odesign#//@ownedViewpoints[name='MelangeK3FSM_XFSM_Viewpoint']/@ownedRepresentationExtensions[name='MelangeK3FSM_XFSM']/@layers[name='Debug']"/>
     <target xmi:type="fsm:StateMachine" href="TrafficLight.fsm#/"/>
   </diagram:DSemanticDiagram>
   <diagram:DSemanticDiagram xmi:id="__XYHwefVEeaYKp8RA1Pk2Q" name="TrafficLight">
@@ -313,9 +313,9 @@
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="__XYHxefVEeaYKp8RA1Pk2Q" showIcon="false" borderSize="4" borderSizeComputationExpression="4" backgroundStyle="Liquid" foregroundColor="204,242,166">
-        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']/@conditionnalStyles.0/@style"/>
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']/@conditionnalStyles.0/@style"/>
       </ownedStyle>
-      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']"/>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="__XYHxufVEeaYKp8RA1Pk2Q" name="Yellow" outgoingEdges="__XYH0OfVEeaYKp8RA1Pk2Q" incomingEdges="__XYHzefVEeaYKp8RA1Pk2Q">
       <target xmi:type="fsm:State" href="TrafficLight.fsm#//@ownedStates.1"/>
@@ -324,9 +324,9 @@
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="__XYHx-fVEeaYKp8RA1Pk2Q" showIcon="false" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="204,242,166">
-        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']/@style"/>
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']/@style"/>
       </ownedStyle>
-      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']"/>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeContainer" xmi:id="__XYHyOfVEeaYKp8RA1Pk2Q" name="Red" outgoingEdges="__XYH0-fVEeaYKp8RA1Pk2Q" incomingEdges="__XYH0OfVEeaYKp8RA1Pk2Q">
       <target xmi:type="fsm:State" href="TrafficLight.fsm#//@ownedStates.2"/>
@@ -335,45 +335,45 @@
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="__XYHyefVEeaYKp8RA1Pk2Q" showIcon="false" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="204,242,166">
-        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']/@style"/>
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']/@style"/>
       </ownedStyle>
-      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']"/>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='State']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="__XYHyufVEeaYKp8RA1Pk2Q" name="Green_to_Green&#xA;t / Timer" sourceNode="__XYHxOfVEeaYKp8RA1Pk2Q" targetNode="__XYHxOfVEeaYKp8RA1Pk2Q">
       <target xmi:type="fsm:Transition" href="TrafficLight.fsm#//@ownedTransitions.0"/>
       <semanticElements xmi:type="fsm:Transition" href="TrafficLight.fsm#//@ownedTransitions.0"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="__XYHy-fVEeaYKp8RA1Pk2Q" size="2">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']/@style"/>
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']/@style"/>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="__XYHzOfVEeaYKp8RA1Pk2Q" showIcon="false"/>
       </ownedStyle>
-      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']"/>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="__XYHzefVEeaYKp8RA1Pk2Q" name="Green_to_Yellow&#xA;b / Button" sourceNode="__XYHxOfVEeaYKp8RA1Pk2Q" targetNode="__XYHxufVEeaYKp8RA1Pk2Q">
       <target xmi:type="fsm:Transition" href="TrafficLight.fsm#//@ownedTransitions.1"/>
       <semanticElements xmi:type="fsm:Transition" href="TrafficLight.fsm#//@ownedTransitions.1"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="__XYHzufVEeaYKp8RA1Pk2Q" size="2">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']/@style"/>
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']/@style"/>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="__XYHz-fVEeaYKp8RA1Pk2Q" showIcon="false"/>
       </ownedStyle>
-      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']"/>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="__XYH0OfVEeaYKp8RA1Pk2Q" name="Yellow_to_Red&#xA;t / Timer" sourceNode="__XYHxufVEeaYKp8RA1Pk2Q" targetNode="__XYHyOfVEeaYKp8RA1Pk2Q">
       <target xmi:type="fsm:Transition" href="TrafficLight.fsm#//@ownedTransitions.2"/>
       <semanticElements xmi:type="fsm:Transition" href="TrafficLight.fsm#//@ownedTransitions.2"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="__XYH0efVEeaYKp8RA1Pk2Q" size="2">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']/@style"/>
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']/@style"/>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="__XYH0ufVEeaYKp8RA1Pk2Q" showIcon="false"/>
       </ownedStyle>
-      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']"/>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="__XYH0-fVEeaYKp8RA1Pk2Q" name="Red_to_Green&#xA;t / Timer" sourceNode="__XYHyOfVEeaYKp8RA1Pk2Q" targetNode="__XYHxOfVEeaYKp8RA1Pk2Q">
       <target xmi:type="fsm:Transition" href="TrafficLight.fsm#//@ownedTransitions.3"/>
       <semanticElements xmi:type="fsm:Transition" href="TrafficLight.fsm#//@ownedTransitions.3"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="__XYH1OfVEeaYKp8RA1Pk2Q" size="2">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']/@style"/>
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']/@style"/>
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="__XYH1efVEeaYKp8RA1Pk2Q" showIcon="false"/>
       </ownedStyle>
-      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']"/>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='EventTransition']"/>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_FRdgkOfWEeaYKp8RA1Pk2Q" name="TrafficLight processing status">
       <target xmi:type="fsm:StateMachine" href="TrafficLight.fsm#/"/>
@@ -382,31 +382,31 @@
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
       <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_FReHoOfWEeaYKp8RA1Pk2Q" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="GradientTopToBottom">
-        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.xsfsm.design/description/XSFSM.odesign#//@ownedViewpoints[name='LegacyFSM_XFSM_Viewpoint']/@ownedRepresentationExtensions[name='LegacyFSM_XFSM']/@layers[name='Animation']/@containerMappings[name='']/@style"/>
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.xsfsm.design/description/XSFSM.odesign#//@ownedViewpoints[name='MelangeK3FSM_XFSM_Viewpoint']/@ownedRepresentationExtensions[name='MelangeK3FSM_XFSM']/@layers[name='Animation']/@containerMappings[name='']/@style"/>
       </ownedStyle>
-      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.xsfsm.design/description/XSFSM.odesign#//@ownedViewpoints[name='LegacyFSM_XFSM_Viewpoint']/@ownedRepresentationExtensions[name='LegacyFSM_XFSM']/@layers[name='Animation']/@containerMappings[name='']"/>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.xsfsm.design/description/XSFSM.odesign#//@ownedViewpoints[name='MelangeK3FSM_XFSM_Viewpoint']/@ownedRepresentationExtensions[name='MelangeK3FSM_XFSM']/@layers[name='Animation']/@containerMappings[name='']"/>
       <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_FRhK8OfWEeaYKp8RA1Pk2Q" name=" string to process: ">
         <target xmi:type="fsm:StateMachine" href="TrafficLight.fsm#/"/>
         <semanticElements xmi:type="fsm:StateMachine" href="TrafficLight.fsm#/"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_FRhyAOfWEeaYKp8RA1Pk2Q" showIcon="false" labelAlignment="LEFT" labelPosition="node">
-          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.xsfsm.design/description/XSFSM.odesign#//@ownedViewpoints[name='LegacyFSM_XFSM_Viewpoint']/@ownedRepresentationExtensions[name='LegacyFSM_XFSM']/@layers[name='Animation']/@containerMappings[name='']/@subNodeMappings[name='StringToProcess']/@style"/>
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.xsfsm.design/description/XSFSM.odesign#//@ownedViewpoints[name='MelangeK3FSM_XFSM_Viewpoint']/@ownedRepresentationExtensions[name='MelangeK3FSM_XFSM']/@layers[name='Animation']/@containerMappings[name='']/@subNodeMappings[name='StringToProcess']/@style"/>
         </ownedStyle>
-        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.xsfsm.design/description/XSFSM.odesign#//@ownedViewpoints[name='LegacyFSM_XFSM_Viewpoint']/@ownedRepresentationExtensions[name='LegacyFSM_XFSM']/@layers[name='Animation']/@containerMappings[name='']/@subNodeMappings[name='StringToProcess']"/>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.xsfsm.design/description/XSFSM.odesign#//@ownedViewpoints[name='MelangeK3FSM_XFSM_Viewpoint']/@ownedRepresentationExtensions[name='MelangeK3FSM_XFSM']/@layers[name='Animation']/@containerMappings[name='']/@subNodeMappings[name='StringToProcess']"/>
       </ownedElements>
       <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_FRiZEOfWEeaYKp8RA1Pk2Q" name=" produced String: ">
         <target xmi:type="fsm:StateMachine" href="TrafficLight.fsm#/"/>
         <semanticElements xmi:type="fsm:StateMachine" href="TrafficLight.fsm#/"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_FRjAIOfWEeaYKp8RA1Pk2Q" showIcon="false" labelAlignment="LEFT" labelPosition="node">
-          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.xsfsm.design/description/XSFSM.odesign#//@ownedViewpoints[name='LegacyFSM_XFSM_Viewpoint']/@ownedRepresentationExtensions[name='LegacyFSM_XFSM']/@layers[name='Animation']/@containerMappings[name='']/@subNodeMappings[name='ProducedString']/@style"/>
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.xsfsm.design/description/XSFSM.odesign#//@ownedViewpoints[name='MelangeK3FSM_XFSM_Viewpoint']/@ownedRepresentationExtensions[name='MelangeK3FSM_XFSM']/@layers[name='Animation']/@containerMappings[name='']/@subNodeMappings[name='ProducedString']/@style"/>
         </ownedStyle>
-        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.xsfsm.design/description/XSFSM.odesign#//@ownedViewpoints[name='LegacyFSM_XFSM_Viewpoint']/@ownedRepresentationExtensions[name='LegacyFSM_XFSM']/@layers[name='Animation']/@containerMappings[name='']/@subNodeMappings[name='ProducedString']"/>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.xsfsm.design/description/XSFSM.odesign#//@ownedViewpoints[name='MelangeK3FSM_XFSM_Viewpoint']/@ownedRepresentationExtensions[name='MelangeK3FSM_XFSM']/@layers[name='Animation']/@containerMappings[name='']/@subNodeMappings[name='ProducedString']"/>
       </ownedElements>
     </ownedDiagramElements>
-    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']"/>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']"/>
     <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="__XYH1ufVEeaYKp8RA1Pk2Q"/>
-    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='LegacyFSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer"/>
-    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.xsfsm.design/description/XSFSM.odesign#//@ownedViewpoints[name='LegacyFSM_XFSM_Viewpoint']/@ownedRepresentationExtensions[name='LegacyFSM_XFSM']/@layers[name='Debug']"/>
-    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.xsfsm.design/description/XSFSM.odesign#//@ownedViewpoints[name='LegacyFSM_XFSM_Viewpoint']/@ownedRepresentationExtensions[name='LegacyFSM_XFSM']/@layers[name='Animation']"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.fsm.design/description/fsm.odesign#//@ownedViewpoints[name='MelangeK3FSM_FSM_ViewPoint']/@ownedRepresentations[name='FSM']/@defaultLayer"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.xsfsm.design/description/XSFSM.odesign#//@ownedViewpoints[name='MelangeK3FSM_XFSM_Viewpoint']/@ownedRepresentationExtensions[name='MelangeK3FSM_XFSM']/@layers[name='Debug']"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.gemoc.example.melangek3fsm.xsfsm.design/description/XSFSM.odesign#//@ownedViewpoints[name='MelangeK3FSM_XFSM_Viewpoint']/@ownedRepresentationExtensions[name='MelangeK3FSM_XFSM']/@layers[name='Animation']"/>
     <target xmi:type="fsm:StateMachine" href="TrafficLight.fsm#/"/>
   </diagram:DSemanticDiagram>
 </xmi:XMI>
