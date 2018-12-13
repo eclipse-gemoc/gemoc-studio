@@ -43,7 +43,7 @@ import org.junit.Rule
 //@RunWith(SWTBotJunit4ClassRunner)
 @InjectWith(MelangeUiInjectorProvider)
 @FixMethodOrder(MethodSorters::NAME_ASCENDING)
-public class GenerateLangRuntime4OfficialSampleLegacyFSM_Test extends AbstractXtextTests
+public class GenerateLangRuntime4OfficialSampleMelangeK3FSM_Test extends AbstractXtextTests
 {
 	
 	@Inject MelangeWorkspaceTestHelper melangeHelper
