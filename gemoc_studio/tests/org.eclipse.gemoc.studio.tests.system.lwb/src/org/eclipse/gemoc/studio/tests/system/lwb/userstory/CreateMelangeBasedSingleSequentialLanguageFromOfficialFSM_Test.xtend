@@ -206,14 +206,14 @@ public class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test exte
 		
 		// if the package name is correct all the files are created in the current project
 		// Language runtime classes
-		helper.waitFileExistOrAssert(PROJECT_NAME + "/src-model-gen/org/eclipse/gemoc/sample/legacyfsm/xfsm/fsm/FsmPackage.java", 10, 300)
+		helper.waitFileExistOrAssert(PROJECT_NAME + "/src-model-gen/org/eclipse/gemoc/example/melangek3fsm/xfsm/fsm/FsmPackage.java", 10, 300)
 		// ModelType classes
-		helper.assertFileExists("org.eclipse.gemoc.example.melangek3fsm.xfsm/src-gen/org/eclipse/gemoc/sample/legacyfsm/Xfsm.java")
+		helper.assertFileExists("org.eclipse.gemoc.example.melangek3fsm.xfsm/src-gen/org/eclipse/gemoc/example/melangek3fsm/Xfsm.java")
 		helper.assertFolderExists(PROJECT_NAME + "/src-gen")
-		helper.assertFileExists(PROJECT_NAME + "/src-gen/org/eclipse/gemoc/sample/legacyfsm/XfsmMT.java");
+		helper.assertFileExists(PROJECT_NAME + "/src-gen/org/eclipse/gemoc/example/melangek3fsm/XfsmMT.java");
 		// k3 aspects
 		helper.assertFileExists(
-				PROJECT_NAME + "/src-gen/org/eclipse/gemoc/sample/legacyfsm/xfsm/aspects/StateMachineAspect.java");
+				PROJECT_NAME + "/src-gen/org/eclipse/gemoc/example/melangek3fsm/xfsm/aspects/StateMachineAspect.java");
 		// ecore files
 		helper.assertFileExists(PROJECT_NAME + "/Xfsm.dsl");
 		helper.assertFileExists(PROJECT_NAME + "/model-gen/Xfsm.ecore");

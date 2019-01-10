@@ -83,7 +83,7 @@ public class DeployOfficialExampleMelangeK3FSM_Test extends AbstractXtextTests
 	}
 	
 	@Test
-	def void test01_InstallLegacyFsm() throws Exception {
+	def void test01_InstallMelangeK3Fsm() throws Exception {
 		//val activeShell = bot.activeShell // the focus is lost after click on "Browse..."
 		bot.menu("File").menu("New").menu("Example...").click();
 		bot.tree().getTreeItem("GEMOC language workbench examples").select();

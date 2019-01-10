@@ -49,10 +49,10 @@ public class GenerateTrace4OfficialExampleMelangeK3FSM_Test extends AbstractXtex
 	static final String BASE_FOLDER_NAME = "tests-inputs-gen/SequentialFSM"
 	static final String BASE_PROJECT_NAME = "org.eclipse.gemoc.example.melangek3fsm"
 	static final String PROJECT_NAME = BASE_PROJECT_NAME+".fsm"
-	static final String MELANGE_FILE = PROJECT_NAME+"/src/org/eclipse/gemoc/sample/legacyfsm/fsm/FSM.melange"
-	static final String DSL_FILE = PROJECT_NAME+"/src/org/eclipse/gemoc/sample/legacyfsm/fsm/FSM.dsl"
+	static final String MELANGE_FILE = PROJECT_NAME+"/src/org/eclipse/gemoc/example/melangek3fsm/fsm/FSM.melange"
+	static final String DSL_FILE = PROJECT_NAME+"/src/org/eclipse/gemoc/example/melangek3fsm/fsm/FSM.dsl"
 	static final String PROJECT_NAME2 = BASE_PROJECT_NAME+".xsfsm"
-	static final String MELANGE_FILE2 = PROJECT_NAME2+"/src/org/eclipse/gemoc/sample/legacyfsm/xsfsm/language/XSFSM.melange"
+	static final String MELANGE_FILE2 = PROJECT_NAME2+"/src/org/eclipse/gemoc/example/melangek3fsm/xsfsm/language/XSFSM.melange"
 	static final String RUNTIME_PROJECT_NAME2 = PROJECT_NAME2+".xsfsm"
 	static final String DSL_FILE2 = RUNTIME_PROJECT_NAME2+"/XSFSM.dsl"
 
