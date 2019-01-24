@@ -28,8 +28,8 @@
             finalPerspective="org.eclipse.gemoc.xdsmlframework.ide.ui.xdsml.perspective"
             hasPages="false"
             icon="icons/IconeGemocLanguage-16.png"
-            id="org.eclipse.gemoc.sequential.language.wb.sample.deployer.legacyfsm.wizard"
-            name="GEMOC FSM Language (Sequential)"
+            id="org.eclipse.gemoc.sequential.language.wb.sample.deployer.melangek3fsm.wizard"
+            name="GEMOC MelangeK3FSM Language (Sequential)"
             preferredPerspectives="org.eclipse.gemoc.xdsmlframework.ide.ui.xdsml.perspective">
          <description>
             T⁮his set of projects features a simple Finite State Machine language which is extended and made executable using GEMOC.
