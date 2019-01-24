@@ -33,7 +33,7 @@ More information and the sources of these projects are available online on https
 
 Install the projects of this language:
 
--         File > new  > Examples... > GEMOC Legacy FSM Language example (Sequential)
+-         File > new  > Examples... > GEMOC MelangeK3FSM Language example (Sequential)
 
 Create and start an eclipse runtime:
 
@@ -41,7 +41,7 @@ Create and start an eclipse runtime:
 
 Install sample models for the language:
 
--         File > new  > Examples... > GEMOC model example for Legacy FSM  (Sequential)
+-         File > new  > Examples... > GEMOC model example for MelangeK3FSM  (Sequential)
 
 === Language structure overview
 The following figure presents :
