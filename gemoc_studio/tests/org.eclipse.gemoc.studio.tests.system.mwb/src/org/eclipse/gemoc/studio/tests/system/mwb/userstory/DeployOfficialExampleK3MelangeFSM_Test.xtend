@@ -82,7 +82,7 @@ class DeployOfficialExampleK3MelangeFSM_Test extends AbstractXtextTests
 		bot.menu("File").menu("New").menu("Example...").click();
 		bot.tree().getTreeItem("GEMOC modeling workbench examples").select();
 		bot.tree().getTreeItem("GEMOC modeling workbench examples").expand();
-		bot.tree().getTreeItem("GEMOC modeling workbench examples").getNode("GEMOC models for FSM Language (Sequential)").select();
+		bot.tree().getTreeItem("GEMOC modeling workbench examples").getNode("GEMOC models for MelangeK3FSM Language (Sequential)").select();
 	  	bot.button("Finish").click();
 
 		IResourcesSetupUtil::reallyWaitForAutoBuild
