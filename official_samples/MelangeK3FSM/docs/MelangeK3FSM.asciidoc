@@ -29,7 +29,7 @@ This allows to use the model polymorphism. Ie. it is possible to edit FSM models
 
 More information and the sources of these projects are available online on https://github.com/eclipse/gemoc-studio/tree/master/official_samples/MelangeK3FSM[Github].   
 
-=== Intallation
+=== Installation
 
 Install the projects of this language:
 
