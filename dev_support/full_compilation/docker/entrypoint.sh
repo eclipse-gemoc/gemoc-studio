@@ -5,6 +5,8 @@ echo arguments seen: $1
 Xvfb :99 &
 export DISPLAY=:99
 
+cd /root/src/gemoc-studio
+
 if [ -z "$1" ]
 then
 	echo "---------- compile full gemoc studio -----------"
