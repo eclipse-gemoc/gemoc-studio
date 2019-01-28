@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: GEMOC Studio Headless
+Bundle-SymbolicName: org.eclipse.gemoc.gemoc_studio.headless;singleton:=true
+Bundle-Version: 3.1.0.qualifier
+Bundle-Vendor: Eclipse
+Automatic-Module-Name: org.eclipse.gemoc.headless
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.equinox.app,
+ org.eclipse.gemoc.executionframework.engine
+Bundle-ClassPath: libs/commons-cli.jar,
+ .
+Export-Package: org.eclipse.gemoc.gemoc_studio.headless.application
