@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="GEMOC Headless EngineRunner" uid="gemoc_studio headless engine runner" id="org.eclipse.gemoc.gemoc_studio.headless.GemocStudioHeadless" application="org.eclipse.help.base.indexTool" version="3.1.0.qualifier" useFeatures="false" includeLaunchers="true">
+<product name="GEMOC Headless EngineRunner" uid="gemoc_studio headless engine runner" id="org.eclipse.gemoc.gemoc_studio.headless.GemocStudioHeadless" application="org.eclipse.gemoc.gemoc_studio.headless.EngineRunner" version="3.1.0.qualifier" useFeatures="false" includeLaunchers="true">
 
    <aboutInfo>
       <text>
@@ -14,7 +14,7 @@
 
    <launcherArgs>
       <programArgs>-product
-org.eclipse.gemoc.headless.GemocStudioHeadless
+org.eclipse.gemoc.gemoc_studio.headless.GemocStudioHeadless
       </programArgs>
       <vmArgs>-Dosgi.requiredJavaVersion=1.8
 -XX:+UseG1GC
