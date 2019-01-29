@@ -1,0 +1,16 @@
+== Update procedure
+
+This list some steps you may have to follow in order 
+to update the packaging of GEMOC Headless Package.
+
+Open the _gemoc_studio_headless.product_ file. In the _Contents_ tab:
+
+* delete all the contents.
+* Add the plugins:
+** *org.eclipse.gemoc.gemoc_studio.headless*
+** *org.eclipse.equinox.p2.reconciler.dropins*
+* click on _Add Required Plug-ins_
+* force the version of the following plugins (you may have to adapt the version with a 
+similar version used by the GEMOC Studio IDE)
+** org.antlr.runtime  4.3.0.v201502022030
+
