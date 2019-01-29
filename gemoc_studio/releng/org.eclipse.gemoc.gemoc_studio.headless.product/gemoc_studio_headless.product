@@ -66,7 +66,7 @@ org.eclipse.gemoc.gemoc_studio.headless.GemocStudioHeadless
       <plugin id="javax.inject"/>
       <plugin id="javax.xml"/>
       <plugin id="lpg.runtime.java"/>
-      <plugin id="org.antlr.runtime"/>
+      <plugin id="org.antlr.runtime" version="4.3.0.v201502022030"/>
       <plugin id="org.apache.ant"/>
       <plugin id="org.apache.batik.constants"/>
       <plugin id="org.apache.batik.css"/>
@@ -149,6 +149,7 @@ org.eclipse.gemoc.gemoc_studio.headless.GemocStudioHeadless
       <plugin id="org.eclipse.equinox.p2.operations"/>
       <plugin id="org.eclipse.equinox.p2.publisher"/>
       <plugin id="org.eclipse.equinox.p2.publisher.eclipse"/>
+      <plugin id="org.eclipse.equinox.p2.reconciler.dropins"/>
       <plugin id="org.eclipse.equinox.p2.repository"/>
       <plugin id="org.eclipse.equinox.p2.repository.tools"/>
       <plugin id="org.eclipse.equinox.p2.touchpoint.eclipse"/>
@@ -274,9 +275,6 @@ org.eclipse.gemoc.gemoc_studio.headless.GemocStudioHeadless
       <plugin id="org.w3c.dom.smil"/>
       <plugin id="org.w3c.dom.svg"/>
    </plugins>
-
-   <features>
-   </features>
 
    <configurations>
       <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="2" />
