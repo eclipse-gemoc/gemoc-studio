@@ -30,6 +30,7 @@
         <module>plugins/org.eclipse.gemoc.gemoc_studio.branding</module>
         <module>plugins/org.eclipse.gemoc.gemoc_studio.headless</module>
         <module>plugins/org.eclipse.gemoc.language_workbench.documentation</module>
+        <module>releng/org.eclipse.gemoc.gemoc_studio.headless.feature</module>
         <module>releng/org.eclipse.gemoc.gemoc_studio.headless.product</module>
         <module>releng/org.eclipse.gemoc.gemoc_studio.product</module>
         <module>releng/org.eclipse.gemoc.gemoc_studio.branding.feature</module>			

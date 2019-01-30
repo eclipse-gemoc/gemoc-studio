@@ -33,6 +33,10 @@
 				<filtering>true</filtering>
 				<targetPath>${project.build.directory}/</targetPath>
 			</resource>
+			
+			<resource>
+				<directory>src/main/unfiltered-resources</directory>
+			</resource>
 		</resources>
 		<plugins>
 			<!-- create a timestamp for the filter -->
