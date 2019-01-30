@@ -1,0 +1,21 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+== User Guide
+
+=== Headless engine user image:images/icons/IconeGemocModel_16.png[width=16, height=16, role=right]
+
+==== Prepare language
+endif::[]
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/userguide/headless_prepare_language_headContent.asciidoc.]
+
+
+In order to run a model using the headless runner, the plugins that define the language must be prepared for distribution
+and then be placed in a location where the runner will be able to find them. 
+
+Roughly, this task is similar to <<userguide-lw-deploy-language>>.
+
+
+TODO more details about the various ways to create the jars (maven, eclipse GUI)

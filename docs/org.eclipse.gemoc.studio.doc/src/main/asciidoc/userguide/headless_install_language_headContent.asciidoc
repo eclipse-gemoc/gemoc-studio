@@ -1,0 +1,82 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+== User Guide
+
+=== Headless engine user image:images/icons/IconeGemocModel_16.png[width=16, height=16, role=right]
+
+==== Install language
+endif::[]
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/userguide/headless_install_language_headContent.asciidoc.]
+
+
+In order to run a model using the headless runner, the plugins that define the language must be 
+placed in a location where the runner will be able to find them. 
+
+
+===== Installing jars in _dropins_ folder
+
+The easiest way to install a language is to copy the jars in the _dropins_ folder of the studio (headless or IDE).
+Eclipse will automatically find them and add them.
+
+
+[WARNING]
+====
+Using the _dropins_ folder is handy but in case of trouble (typically dependency or java version issue),
+the jars will be silently ignored by default. Have a look in 
+<<userguide-headless-debug-deployment-issues>> in order to get tips about how to detect and solve them.
+====
+
+ 
+ 
+===== Installing jars using the p2 director
+
+If the jars have been packaged as an update site, you can use the p2 director 
+application to install them in an existing eclipse from the command line.
+
+See https://help.eclipse.org/2018-12/index.jsp?topic=%2Forg.eclipse.platform.doc.isv%2Fguide%2Fp2_director.html
+
+
+===== Installing jars using the `--installLanguage` option
+
+TO BE IMPLEMENTED
+
+[[userguide-headless-debug-deployment-issues]]
+===== Debugging language deployment issues
+
+Here are series of tips and thing you must verify in case of troubles.
+
+. check that your language correctly works in the Modeling Workbench launched in development (ie. starting a second eclipse
+from the language workbench as described in <<deploy-language-for-language-designer-section>>.)
+. Verify that the language is correctly detected using `--list-languages` option.
+. Verify that the plugins are correctly installed using OSGI console
+.. launch the studio using the following options: +
+   `./GemocStudioHeadless -console -noExit -debug --list-languages`  
+... the `-debug` option associated to the `.options` file in the root of the studio installation
+    will increase the number of messages related to the management of jars in the _dropins_ folder.
+    (Unfortunatly, these messages are still unclear and you should try the next tip)
+.... content of the `.options` file +
+    `org.eclipse.equinox.p2.core/debug=true` +
+    `org.eclipse.equinox.p2.core/reconciler=true`
+... the `-console -noExit` options allow to start the OSGI console and query the installation about its status.
+  Once you get the `+<OSGI>+` prompt you can try the following commands: (Note: the stdio of several threads 
+  are mixed up, so you may need to type _Enter_ to get the prompt). (Note2: in OSGI, Bundle means Eclipse plugin)
+.... `help` gets help about all OSGI commands
+.... `ss` and `ss <partOfYourPluginsName>` lists the installed bundles (ie. plugins) and their status.
+.... `install file:<pathToYourJar>` or `install reference:file:<pathToYourJar>` manually installs a missing jar (useful when dropins reconciler ignored 
+  a given jar due to dependency issue). (Note: relative path is accepted)
+.... `diag <BundleID>` check a given plugin for dependency issue
+.... `start <BundleId>` start the plugin. this is useful since some plugin may not declare any dependecy issue but crash on start. 
+ . Verify that the jar content of the plugins is correct. +
+   Ie. in development mode, Eclipse uses the folder containing the source 
+   as input for the second workbench, however when creating the jar (which is actually a zip archive)
+   it may not copy everything (for example, it doesn't contain java files but only class files...).
+   Additional resources may be missing if not correctly specified. Typical missing resources are: +
+   plugin.xml, `xxx.dsl` file, `model/xxx.ecore` file, `model/xxx.genmodel` file, libs, images, ... +
+   Specifying jar content is done via the _MANIFEST.MF/Build.properties_ editor in the _Build_ tab.
+   
+
+
+
