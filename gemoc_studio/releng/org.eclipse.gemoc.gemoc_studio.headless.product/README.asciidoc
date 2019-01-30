@@ -7,8 +7,13 @@ Open the _gemoc_studio_headless.product_ file. In the _Contents_ tab:
 
 * delete all the contents.
 * Add the plugins:
-** *org.eclipse.gemoc.gemoc_studio.headless*
-** *org.eclipse.equinox.p2.reconciler.dropins*
+** *org.apache.felix.gogo.command* (required for better help support in osgi console)
+** *org.eclipse.gemoc.gemoc_studio.headless* (Main entry point for the application)
+** *org.eclipse.equinox.console* (required for OSGI console)
+** *org.eclipse.equinox.p2.console* (required for OSGI console)
+** *org.eclipse.equinox.p2.directory.watcher* (TODO verify if really needed)
+** *org.eclipse.equinox.p2.reconciler.dropins* (required for dropins fodler support)
+
 * click on _Add Required Plug-ins_
 * force the version of the following plugins (you may have to adapt the version with a 
 similar version used by the GEMOC Studio IDE)
