@@ -7,6 +7,7 @@ Open the _gemoc_studio_headless.product_ file. In the _Contents_ tab:
 
 * delete all the contents.
 * Add the plugins:
+** *fr.inria.diverse.melange* (required for Melange based languages)
 ** *org.apache.felix.gogo.command* (required for better help support in osgi console)
 ** *org.eclipse.gemoc.gemoc_studio.headless* (Main entry point for the application)
 ** *org.eclipse.equinox.console* (required for OSGI console)

@@ -62,6 +62,11 @@ org.eclipse.gemoc.gemoc_studio.headless.GemocStudioHeadless
       <plugin id="com.google.inject"/>
       <plugin id="com.ibm.icu"/>
       <plugin id="fr.inria.diverse.k3.al.annotationprocessor.plugin"/>
+      <plugin id="fr.inria.diverse.melange"/>
+      <plugin id="fr.inria.diverse.melange.adapters"/>
+      <plugin id="fr.inria.diverse.melange.lib"/>
+      <plugin id="fr.inria.diverse.melange.metamodel"/>
+      <plugin id="fr.inria.diverse.melange.resource"/>
       <plugin id="javax.annotation"/>
       <plugin id="javax.inject"/>
       <plugin id="javax.xml"/>
@@ -127,6 +132,8 @@ org.eclipse.gemoc.gemoc_studio.headless.GemocStudioHeadless
       <plugin id="org.eclipse.e4.ui.workbench.renderers.swt"/>
       <plugin id="org.eclipse.e4.ui.workbench.swt"/>
       <plugin id="org.eclipse.e4.ui.workbench3"/>
+      <plugin id="org.eclipse.emf.codegen"/>
+      <plugin id="org.eclipse.emf.codegen.ecore"/>
       <plugin id="org.eclipse.emf.common"/>
       <plugin id="org.eclipse.emf.ecore"/>
       <plugin id="org.eclipse.emf.ecore.change"/>
