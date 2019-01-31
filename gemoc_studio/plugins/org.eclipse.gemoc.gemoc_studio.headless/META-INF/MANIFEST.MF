@@ -7,7 +7,11 @@ Bundle-Vendor: Eclipse
 Automatic-Module-Name: org.eclipse.gemoc.headless
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.eclipse.equinox.app,
- org.eclipse.gemoc.executionframework.engine
+ org.eclipse.gemoc.executionframework.engine,
+ org.eclipse.gemoc.execution.sequential.javaengine,
+ org.eclipse.gemoc.ale.interpreted.engine,
+ org.eclipse.gemoc.xdsmlframework.api,
+ org.eclipse.equinox.registry
 Bundle-ClassPath: libs/commons-cli.jar,
  .
 Export-Package: org.eclipse.gemoc.gemoc_studio.headless.application
