@@ -10,7 +10,7 @@
             thread="main"
             visible="true">
          <run
-               class="org.eclipse.gemoc.gemoc_studio.headless.application.EngineRunner">
+               class="org.eclipse.gemoc.gemoc_studio.headless.application.EngineRunnerApp">
          </run>
       </application>
    </extension>
