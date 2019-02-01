@@ -32,6 +32,9 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -43,6 +46,44 @@ public class IFileUtils {
 	
 	static String lineSeparator = System.getProperty("line.separator");
 	
+	
+	/**
+	 * get an IFile from a path even if this path is in not in the workspace.
+	 * Will try first to resolve suing the workspace, then fall back by creating a link in a project "External Files" to the physical file system
+	 * The link will be created only if the file exist
+	 * 
+	 * If an existing link exists but points to a non existing file, it is removed
+	 * uses technique from https://wiki.eclipse.org/FAQ_How_do_I_open_an_editor_on_a_file_outside_the_workspace%3F
+	 * @return an IFile
+	 * @throws CoreException 
+	 */
+	public static IFile getIFileFromWorkspaceOrFileSystem(Path path) throws CoreException {
+		IFile resultingIFile = ResourcesPlugin.getWorkspace().getRoot()
+				.getFile(path);
+		
+		if(!resultingIFile.exists()) {
+			IWorkspace ws = ResourcesPlugin.getWorkspace();
+			IProject project = ws.getRoot().getProject("External Files");
+			if (!project.exists())
+			    project.create(null);
+			if (!project.isOpen())
+			    project.open(null);
+			if(path.segmentCount() == 1) {
+				resultingIFile = project.getFile(path.lastSegment());
+			} else {
+				IFolder folder = IProjectUtils.createFolder(project, path.removeLastSegments(1), null);
+				resultingIFile = folder.getFile(path.lastSegment());
+			}
+			 // create link only if not already there
+			if(!resultingIFile.isLinked()) {
+				resultingIFile.createLink(path, IResource.NONE, null);
+			}
+		}
+		return resultingIFile;
+	}
+	public static IFile getIFileFromWorkspaceOrFileSystem(String path) throws CoreException {
+		return getIFileFromWorkspaceOrFileSystem(new Path(path));
+	}
 	
 	public static void writeInFileIfDifferent(IFile file, String contents, IProgressMonitor monitor) throws CoreException, IOException{		
 		InputStream stream =  new ByteArrayInputStream(contents.getBytes(("UTF-8")));
