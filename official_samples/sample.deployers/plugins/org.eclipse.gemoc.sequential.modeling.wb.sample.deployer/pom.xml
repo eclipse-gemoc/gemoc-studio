@@ -16,7 +16,7 @@
     <properties>
         <sample_root>${basedir}/../../sample</sample_root>
         <k3fsm_example_modeling_root>${basedir}/../../../K3FSM/modeling_workbench</k3fsm_example_modeling_root>
-        <legacyfsm_example_modeling_root>${basedir}/../../../LegacyFSM/modeling_workbench</legacyfsm_example_modeling_root>
+        <melangek3fsm_example_modeling_root>${basedir}/../../../MelangeK3FSM/modeling_workbench</melangek3fsm_example_modeling_root>
     </properties>
     
 	<parent>
@@ -44,8 +44,8 @@
 							<tasks>
 								<mkdir dir="${basedir}/zips" />
 
-								<zip destfile="${basedir}/zips/org.eclipse.gemoc.sample.legacyfsm.model_examples.zip">
-									<fileset dir="${legacyfsm_example_modeling_root}/org.eclipse.gemoc.sample.legacyfsm.model_examples/" />
+								<zip destfile="${basedir}/zips/org.eclipse.gemoc.example.melangek3fsm.model_examples.zip">
+									<fileset dir="${melangek3fsm_example_modeling_root}/org.eclipse.gemoc.example.melangek3fsm.model_examples/" />
 								</zip>
 								
 								<zip destfile="${basedir}/zips/org.eclipse.gemoc.example.k3fsm.model_examples.zip">

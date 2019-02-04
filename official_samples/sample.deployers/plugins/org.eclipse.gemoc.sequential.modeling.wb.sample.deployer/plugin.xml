@@ -24,15 +24,15 @@
       <wizard
             canFinishEarly="true"
             category="org.eclipse.ui.Examples/org.eclipse.gemoc.gemoc_modeling_workbench.samples.category"
-            class="org.eclipse.gemoc.sequential.modeling.wb.sample.deployer.wizards.LegacyFSMExampleWizard"
+            class="org.eclipse.gemoc.sequential.modeling.wb.sample.deployer.wizards.MelangeK3FSMExampleWizard"
             finalPerspective="org.eclipse.sirius.ui.tools.perspective.modeling"
             hasPages="false"
             icon="icons/IconeGemocModel-16.png"
-            id="org.eclipse.gemoc.sequential.modeling.wb.sample.deployer.tfsm_plaink3.model.wizard"
-            name="GEMOC models for FSM Language (Sequential)"
+            id="org.eclipse.gemoc.sequential.modeling.wb.sample.deployer.melangek3fsm.model.wizard"
+            name="GEMOC models for MelangeK3FSM Language (Sequential)"
             preferredPerspectives="org.eclipse.sirius.ui.tools.perspective.modeling">
          <description>
-            T⁮his project contains some FSM models that can be executed if you have installed the FSM language.
+            T⁮his project contains some FSM models that can be executed if you have installed the MelangeK3FSM language.
          </description>
       </wizard>  
       <wizard
