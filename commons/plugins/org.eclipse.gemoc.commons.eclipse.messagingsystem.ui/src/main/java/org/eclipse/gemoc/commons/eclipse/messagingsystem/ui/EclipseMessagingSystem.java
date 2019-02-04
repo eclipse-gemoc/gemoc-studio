@@ -34,7 +34,9 @@ import org.eclipse.gemoc.commons.eclipse.messagingsystem.ui.internal.console.mes
 import org.eclipse.gemoc.commons.eclipse.messagingsystem.ui.internal.console.message.ImportantMessage;
 import org.eclipse.gemoc.commons.eclipse.messagingsystem.ui.internal.console.message.InfoMessage;
 import org.eclipse.gemoc.commons.eclipse.messagingsystem.ui.internal.console.message.WarningMessage;
+import org.eclipse.gemoc.commons.messagingsystem.api.impl.StdioSimpleMessagingSystem;
 import org.eclipse.gemoc.commons.messagingsystem.api.reference.Reference;
+import org.eclipse.ui.PlatformUI;
 
 
 public class EclipseMessagingSystem extends MessagingSystem {
@@ -222,7 +224,7 @@ public class EclipseMessagingSystem extends MessagingSystem {
 	/**
 	 * This method dispatches the messages between the console and error log view
 	 * DevError and DevWarning go in both
-	 * UserError and UserWarning go only in the colsole
+	 * UserError and UserWarning go only in the console
 	 */
 	@Override
 	public void log(Kind msgKind, String message, String messageGroup) {
@@ -242,7 +244,12 @@ public class EclipseMessagingSystem extends MessagingSystem {
 		}
 		
 		if(ConsoleLogLevel.isLevelEnoughToLog(ConsoleLogLevel.kind2Level(msgKind), getConsoleLogLevel())){
-			getConsoleIO().print(getConsoleMessageFor(msgKind,message));
+			if(PlatformUI.isWorkbenchRunning()) {
+				getConsoleIO().print(getConsoleMessageFor(msgKind,message));
+			} else {
+				// no Workbench running, use fall back MessagingSystem
+				getFallbackMessagingSystem().log(msgKind, message, messageGroup);
+			}
 		}
 	}
 
@@ -276,7 +283,12 @@ public class EclipseMessagingSystem extends MessagingSystem {
 				throwable.printStackTrace(new PrintWriter(sw));
 				stackTrace = "\n"+sw.toString();
 			}
-			getConsoleIO().print(getConsoleMessageFor(msgKind,message+stackTrace));
+			if(PlatformUI.isWorkbenchRunning()) {
+				getConsoleIO().print(getConsoleMessageFor(msgKind,message+stackTrace));
+			} else {
+				// no Workbench running, use fall back MessagingSystem
+				getFallbackMessagingSystem().log(msgKind, message+stackTrace, messageGroup);
+			}	
 		}
 	}
 
@@ -433,5 +445,14 @@ public class EclipseMessagingSystem extends MessagingSystem {
 	@Override
 	public void focus(){
 		showConsole();
+	}
+	
+	protected StdioSimpleMessagingSystem fallbackMessagingSystem = null;
+	
+	protected MessagingSystem getFallbackMessagingSystem() {
+		if(fallbackMessagingSystem == null) {
+			fallbackMessagingSystem = new StdioSimpleMessagingSystem();
+		}
+		return fallbackMessagingSystem;
 	}
 }
