@@ -121,6 +121,8 @@ public class StdioSimpleMessagingSystem extends MessagingSystem {
 			return "WARNING";
 		case DevERROR :
 			return "ERROR";
+		case DevDEBUG :
+			return "DEBUG";
 		default:
 			break;
 		}
@@ -138,8 +140,9 @@ public class StdioSimpleMessagingSystem extends MessagingSystem {
 		// return first caller which isn't getCallerString or log
 		for(StackTraceElement stackTraceElement : stackTraceElements){
 			if(! (	stackTraceElement.getMethodName().contains("log") || 
-					stackTraceElement.getClassName().contains("org.eclipse.gemoc.commons.eclipse.messagingsystem.api"))){
-				
+					stackTraceElement.getClassName().contains("org.eclipse.gemoc.commons.eclipse.messagingsystem") || 
+					stackTraceElement.getClassName().contains("org.eclipse.gemoc.commons.messagingsystem"))){
+
 				return stackTraceElement.toString();
 			}
 		}
