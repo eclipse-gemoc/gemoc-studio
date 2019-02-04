@@ -22,23 +22,15 @@ import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.jobs.Job;
-import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
 import org.eclipse.gemoc.ale.interpreted.engine.AleEngine;
 import org.eclipse.gemoc.commons.eclipse.core.resources.IFileUtils;
-import org.eclipse.gemoc.execution.sequential.javaengine.IK3RunConfiguration;
-import org.eclipse.gemoc.execution.sequential.javaengine.K3RunConfiguration;
 import org.eclipse.gemoc.execution.sequential.javaengine.PlainK3ExecutionEngine;
-import org.eclipse.gemoc.execution.sequential.javaengine.SequentialModelExecutionContext;
 import org.eclipse.gemoc.executionframework.engine.commons.DslHelper;
 import org.eclipse.gemoc.gemoc_studio.headless.Activator;
-import org.eclipse.gemoc.gemoc_studio.headless.runner.PlainK3SequentialLaunchConfigurationBuilder;
-import org.eclipse.gemoc.xdsmlframework.api.core.ExecutionMode;
+import org.eclipse.gemoc.gemoc_studio.headless.runner.ALEInterpretedSequentialRunner;
+import org.eclipse.gemoc.gemoc_studio.headless.runner.PlainK3SequentialRunner;
 
 public class EngineRunnerApp implements IApplication {
 
@@ -158,47 +150,28 @@ public class EngineRunnerApp implements IApplication {
 				
 				
 				Activator.getDefault().getMessaggingSystem().debug("Initializing a PlainK3ExecutionEngine...", LoggerID);
-								
+				PlainK3SequentialRunner runner = new PlainK3SequentialRunner();
 				// create a standard launch configuration with these data
 				// cf. org.eclipse.gemoc.dsl.debug.ide.sirius.ui.launch.AbstractDSLLaunchConfigurationDelegateUI for an example
-				ILaunchConfiguration configuration = PlainK3SequentialLaunchConfigurationBuilder.build(modelFile,
+				runner.buildLaunchConfiguration(modelFile,
+						selectedLanguageName,
+						modelentryPoint,
+						methodentryPoint,
+						initializationMethod,
+						initializationMethodArgs);				
+				runner.run();
+			} else if (selectedEngineName.equals(new AleEngine().engineKindName().replaceAll(" ", ""))) {
+				
+				Activator.getDefault().getMessaggingSystem().debug("Initializing an ALEInterpretedSequentialExecutionEngine...", LoggerID);
+				ALEInterpretedSequentialRunner runner = new ALEInterpretedSequentialRunner();
+				runner.buildLaunchConfiguration(modelFile,
 						selectedLanguageName,
 						modelentryPoint,
 						methodentryPoint,
 						initializationMethod,
 						initializationMethodArgs);
 				
-				
-				IK3RunConfiguration runConfiguration = new K3RunConfiguration(configuration);
-				
-				PlainK3ExecutionEngine executionEngine = new PlainK3ExecutionEngine();
-				
-				
-				
-				SequentialModelExecutionContext<IK3RunConfiguration> executioncontext = new SequentialModelExecutionContext<IK3RunConfiguration>(
-						runConfiguration, ExecutionMode.Run);
-				executioncontext.initializeResourceModel();
-				executionEngine.initialize(executioncontext);
-				
-				
-				Job job = new Job("") {
-					@Override
-					protected IStatus run(IProgressMonitor monitor) {
-						Activator.getDefault().getMessaggingSystem().debug("Starting engine",LoggerID);		
-						executionEngine.start();
-						return new Status(IStatus.OK, Activator.PLUGIN_ID, "executionStartedMessage");
-					}
-				};
-				job.schedule();
-				job.join();
-				Activator.getDefault().getMessaggingSystem().debug("Engine Started",LoggerID);
-				// wait for the end of the execution of the model
-				executionEngine.joinThread();
-				Activator.getDefault().getMessaggingSystem().debug("Engine Stopped", LoggerID);
-				//runner.initContext();
-				//runner.run();
-			} else if (selectedEngineName.equals(new AleEngine().engineKindName().replaceAll(" ", ""))) {
-				// TODO
+				runner.run();
 			} 
 		}
 		return IApplication.EXIT_OK;

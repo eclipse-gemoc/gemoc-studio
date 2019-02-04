@@ -22,7 +22,6 @@ public class Activator implements BundleActivator {
 	// The plug-in ID
 		public static final String PLUGIN_ID = "org.eclipse.gemoc.gemoc_studio.headless"; //$NON-NLS-1$
 		
-		
 		// The shared instance
 		private static Activator plugin;
 		
