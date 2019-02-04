@@ -15,8 +15,8 @@ The following table tries to list the features, which test implement it and wher
 | Create Empty Sequential Language  						|   				| 	 					|
 | Create Sequential Language from ecore model				|   				| 	 					|
 | Create Sequential Language from ecore model and k3		|   				| 	 					|
-| Generate language runtime for official sample languages	|  GenerateLangRuntime4OfficialSampleLegacyFSM_Test.xtend 				| 	 					|
-| Generate traceability for official sample languages		|  GenerateTrace4OfficialSampleLegacyFSM_Test.xtend  				| 	 					|
+| Generate language runtime for official sample languages	|  GenerateLangRuntime4OfficialSampleMelangeK3FSM_Test.xtend 				| 	 					|
+| Generate traceability for official sample languages		|  GenerateTrace4OfficialSampleMelangeK3FSM_Test.xtend  				| 	 					|
 | xDSML Perspective shortcuts  								|  XDSMLPerspective_Test.xtend 				| 	 					|
 | Create domain model for language 							|   				| 	 					|
 | Create behavior for sequential language (k3)				|   				| 	 					|

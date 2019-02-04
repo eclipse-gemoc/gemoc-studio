@@ -37,7 +37,7 @@ import org.eclipse.gemoc.xdsmlframework.test.lib.TailWorkspaceLogToStderrRule
 import org.junit.Rule
 
 /**
- * This class check a scenario where we reuse some of the base projects of the official sample : LegacyFSM
+ * This class check a scenario where we reuse some of the base projects of the official sample : MelangeK3FSM
  * in order to create a new language.
  * The tests are ordered and a failure in the initial tests will most likely make fail the following ones.
  */
@@ -51,7 +51,7 @@ public class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test exte
 	
 
 	static final String BASE_FOLDER_NAME = "tests-inputs-gen/SequentialFSM"
-	static final String BASE_NAME = "org.eclipse.gemoc.sample.legacyfsm"
+	static final String BASE_NAME = "org.eclipse.gemoc.example.melangek3fsm"
 	static final String SOURCE_PROJECT_NAME = BASE_NAME + ".fsm"
 	static final String PROJECT_NAME = BASE_NAME + ".xfsm"
 	
@@ -206,14 +206,14 @@ public class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test exte
 		
 		// if the package name is correct all the files are created in the current project
 		// Language runtime classes
-		helper.waitFileExistOrAssert(PROJECT_NAME + "/src-model-gen/org/eclipse/gemoc/sample/legacyfsm/xfsm/fsm/FsmPackage.java", 10, 300)
+		helper.waitFileExistOrAssert(PROJECT_NAME + "/src-model-gen/org/eclipse/gemoc/example/melangek3fsm/xfsm/fsm/FsmPackage.java", 10, 300)
 		// ModelType classes
-		helper.assertFileExists("org.eclipse.gemoc.sample.legacyfsm.xfsm/src-gen/org/eclipse/gemoc/sample/legacyfsm/Xfsm.java")
+		helper.assertFileExists("org.eclipse.gemoc.example.melangek3fsm.xfsm/src-gen/org/eclipse/gemoc/example/melangek3fsm/Xfsm.java")
 		helper.assertFolderExists(PROJECT_NAME + "/src-gen")
-		helper.assertFileExists(PROJECT_NAME + "/src-gen/org/eclipse/gemoc/sample/legacyfsm/XfsmMT.java");
+		helper.assertFileExists(PROJECT_NAME + "/src-gen/org/eclipse/gemoc/example/melangek3fsm/XfsmMT.java");
 		// k3 aspects
 		helper.assertFileExists(
-				PROJECT_NAME + "/src-gen/org/eclipse/gemoc/sample/legacyfsm/xfsm/aspects/StateMachineAspect.java");
+				PROJECT_NAME + "/src-gen/org/eclipse/gemoc/example/melangek3fsm/xfsm/aspects/StateMachineAspect.java");
 		// ecore files
 		helper.assertFileExists(PROJECT_NAME + "/Xfsm.dsl");
 		helper.assertFileExists(PROJECT_NAME + "/model-gen/Xfsm.ecore");
@@ -247,7 +247,7 @@ public class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test exte
 	@Test
 	def void test05_CreateSiriusEditorForLanguage() throws Exception {
 				
-		val SWTBotTreeItem projectItem = bot.tree().getTreeItem("org.eclipse.gemoc.sample.legacyfsm.xfsm").select();
+		val SWTBotTreeItem projectItem = bot.tree().getTreeItem("org.eclipse.gemoc.example.melangek3fsm.xfsm").select();
 		projectItem.contextMenu("GEMOC Language").menu("Create Sirius Editor Project for language").click();
 		bot.button("OK").click();
 		

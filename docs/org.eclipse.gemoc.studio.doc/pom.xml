@@ -136,9 +136,13 @@
 							        <targetPath>images</targetPath>
 							    </resource>
 							    <resource>
-							        <directory>${basedir}/../../official_samples/K3FSM/docs/images</directory>
+							        <directory>${basedir}/../../official_samples/MelangeK3FSM/docs/images</directory>
 							        <targetPath>images</targetPath>
 							    </resource>	
+							    <resource>
+							        <directory>${basedir}/../../official_samples/K3FSM/docs/images</directory>
+							        <targetPath>images</targetPath>
+							    </resource>
 							    <resource>
 							        <directory>${basedir}/../../official_samples/sample.deployers/plugins/org.eclipse.gemoc.sequential.language.wb.sample.deployer/docs/images</directory>
 							        <targetPath>images</targetPath>

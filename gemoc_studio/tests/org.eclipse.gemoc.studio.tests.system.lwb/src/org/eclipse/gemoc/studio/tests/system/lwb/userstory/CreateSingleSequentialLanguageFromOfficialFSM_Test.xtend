@@ -40,7 +40,7 @@ import org.junit.runners.MethodSorters
 import static org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences.*
 
 /**
- * This class check a scenario where we reuse some of the base projects of the official sample : LegacyFSM
+ * This class check a scenario where we reuse some of the base projects of the official sample : MelangeK3FSM
  * in order to create a new language.
  * The tests are ordered and a failure in the initial tests will most likely make fail the following ones.
  */
@@ -54,7 +54,7 @@ public class CreateSingleSequentialLanguageFromOfficialFSM_Test extends Abstract
 	
 
 	static final String BASE_FOLDER_NAME = "tests-inputs-gen/SequentialFSM"
-	static final String BASE_NAME = "org.eclipse.gemoc.sample.legacyfsm"
+	static final String BASE_NAME = "org.eclipse.gemoc.example.melangek3fsm"
 	static final String SOURCE_PROJECT_NAME = BASE_NAME + ".fsm"
 	static final String PROJECT_NAME = BASE_NAME + ".xfsm"
 	
@@ -209,7 +209,7 @@ public class CreateSingleSequentialLanguageFromOfficialFSM_Test extends Abstract
 	@Test
 	def void test05_CreateSiriusEditorForLanguage() throws Exception {
 				
-		val SWTBotTreeItem projectItem = bot.tree().getTreeItem("org.eclipse.gemoc.sample.legacyfsm.xfsm").select();
+		val SWTBotTreeItem projectItem = bot.tree().getTreeItem("org.eclipse.gemoc.example.melangek3fsm.xfsm").select();
 		projectItem.contextMenu("GEMOC Language").menu("Create Sirius Editor Project for language").click();
 		bot.button("OK").click();
 		
