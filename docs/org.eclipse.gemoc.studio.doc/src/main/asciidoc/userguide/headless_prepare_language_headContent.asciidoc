@@ -17,5 +17,29 @@ and then be placed in a location where the runner will be able to find them.
 
 Roughly, this task is similar to <<userguide-lw-deploy-language>>.
 
+Actually this consist in creating deployable jars of the plugins. These jars can be generated in several ways:
 
-TODO more details about the various ways to create the jars (maven, eclipse GUI)
+===== Create deployable jars using Eclipse UI
+
+In the Language Workbench where you have developped the language.
+
+* Select the projects, _File -> Exports..._, _Plug-in development -> Deployabe plug-ins and fragments -> Next_
+* Select the destination Directory
+
+The directory will typically be the _dropins_ folder of the headless studio.
+
+===== Create deployable jars using Maven
+
+You can automate the production of the deployable jars using maven and https://www.eclipse.org/tycho/documentation.php[tycho].
+
+Good tutorial can be found on the web. For example, http://www.vogella.com/tutorials/EclipseTycho/article.html
+
+[TIP]
+====
+For simple project, you can even use a very limited number of pom.xml files by using 
+the tycho POM-less structure. See http://blog.vogella.com/2015/12/15/pom-less-tycho-builds-for-structured-environments/
+====
+ 
+ 
+ 
+
