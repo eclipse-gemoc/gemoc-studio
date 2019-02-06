@@ -146,7 +146,11 @@
 							    <resource>
 							        <directory>${basedir}/../../official_samples/sample.deployers/plugins/org.eclipse.gemoc.sequential.language.wb.sample.deployer/docs/images</directory>
 							        <targetPath>images</targetPath>
-							    </resource>							    
+							    </resource>				    
+							    <resource>
+							        <directory>${basedir}/../../../gemoc-studio-modeldebugging/simulationmodelanimation/docs/dev/images/dev/images</directory>
+							        <targetPath>images</targetPath>
+							    </resource>						    
 							    <resource>
 							        <directory>${basedir}/../../../gemoc-studio-modeldebugging/framework/execution_framework/docs/dev/images</directory>
 							        <targetPath>images</targetPath>
