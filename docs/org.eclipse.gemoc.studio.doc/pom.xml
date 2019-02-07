@@ -148,7 +148,7 @@
 							        <targetPath>images</targetPath>
 							    </resource>				    
 							    <resource>
-							        <directory>${basedir}/../../../gemoc-studio-modeldebugging/simulationmodelanimation/docs/dev/images/dev/images</directory>
+							        <directory>${basedir}/../../../gemoc-studio-modeldebugging/simulationmodelanimation/docs/dev/images</directory>
 							        <targetPath>images</targetPath>
 							    </resource>						    
 							    <resource>

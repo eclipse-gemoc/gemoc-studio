@@ -264,6 +264,7 @@ include::../../../../../../gemoc-studio/commons/docs/dev/GemocGExpressions.ascii
 include::../../../../../../gemoc-studio/commons/docs/dev/GemocDsl.asciidoc[]
 
 
+[[devguide-simulationmodelanimation-framework]]
 === Simulation model animation framework
 
 include::../../../../../../gemoc-studio-modeldebugging/simulationmodelanimation/docs/dev/SimulationModelAnimation.asciidoc[]
