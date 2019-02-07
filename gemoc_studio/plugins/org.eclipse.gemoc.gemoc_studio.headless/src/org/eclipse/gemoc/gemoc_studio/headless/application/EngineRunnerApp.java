@@ -97,7 +97,7 @@ public class EngineRunnerApp implements IApplication {
 		String selectedLanguageName = null; // remains null if language not found
 		if(cmd.hasOption(LANGUAGE_OPTION)) {
 			String proposedLanguage = cmd.getOptionValue(LANGUAGE_OPTION, getDefaultLanguageName());
-			if(getAllEngines().contains(proposedLanguage)) {
+			if(DslHelper.getAllLanguages().contains(proposedLanguage)) {
 				selectedLanguageName = proposedLanguage;
 			} else {
 				Activator.getDefault().getMessaggingSystem().error("Language \""+proposedLanguage+"\" not available in this Studio", "");
