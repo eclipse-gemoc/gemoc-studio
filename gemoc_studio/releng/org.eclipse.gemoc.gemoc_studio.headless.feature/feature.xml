@@ -33,10 +33,70 @@ http://www.eclipse.org/legal/epl-v10.html
    </license>
 
    <requires>
-      <import plugin="org.eclipse.equinox.app"/>
-      <import plugin="org.eclipse.gemoc.executionframework.engine"/>
-      <import plugin="org.eclipse.equinox.common" version="3.3.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.gemoc.execution.sequential.javaengine"/>
+      <import plugin="org.eclipse.gemoc.ale.interpreted.engine"/>
+      <import plugin="org.eclipse.equinox.registry"/>
+      <import plugin="fr.inria.diverse.k3.al.annotationprocessor.plugin"/>
+      <import plugin="org.eclipse.debug.core"/>
+      <import plugin="org.eclipse.gemoc.dsl.debug.ide"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.gemoc.commons.eclipse"/>
+      <import plugin="org.eclipse.core.jobs"/>
+      <import plugin="org.eclipse.gemoc.commons.eclipse.messagingsystem.api"/>
+      <import plugin="org.eclipse.gemoc.xdsmlframework.api"/>
+      <import plugin="org.eclipse.sirius.common" version="6.0.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.gemoc.execution.sequential.javaengine.ui"/>
+      <import plugin="org.eclipse.equinox.common"/>
+      <import plugin="org.eclipse.equinox.p2.touchpoint.eclipse"/>
+      <import plugin="org.eclipse.equinox.p2.metadata"/>
+      <import plugin="org.eclipse.xtext"/>
+      <import plugin="org.eclipse.xtext.util"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipse.emf.common"/>
+      <import plugin="org.antlr.runtime"/>
+      <import plugin="org.eclipse.xtext.common.types"/>
+      <import plugin="org.eclipse.xtext.xbase.lib"/>
+      <import plugin="fr.inria.diverse.melange.lib"/>
+      <import plugin="fr.inria.diverse.melange.metamodel"/>
+      <import plugin="org.eclipse.jdt.core"/>
+      <import plugin="org.eclipse.jdt.launching"/>
+      <import plugin="org.eclipse.swt"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.pde.core"/>
+      <import plugin="fr.inria.diverse.melange.adapters"/>
+      <import plugin="org.eclipse.text"/>
+      <import plugin="fr.inria.diverse.melange.resource"/>
+      <import plugin="org.eclipse.emf.transaction"/>
+      <import plugin="org.eclipse.gemoc.commons.eclipse.pde"/>
+      <import plugin="org.apache.felix.gogo.runtime"/>
+      <import plugin="org.apache.felix.gogo.shell"/>
+      <import plugin="org.eclipse.gemoc.executionframework.engine.ui"/>
+      <import plugin="org.eclipse.gemoc.executionframework.debugger"/>
+      <import plugin="org.eclipse.equinox.common"/>
       <import plugin="org.eclipse.osgi"/>
+      <import plugin="org.eclipse.xtext.xbase"/>
+      <import plugin="org.eclipse.equinox.common"/>
+      <import plugin="org.eclipse.xtend.lib"/>
+      <import plugin="ch.qos.logback.classic" version="1.0.7" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.gemoc.dsl.model" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.ide"/>
+      <import plugin="org.eclipse.xtext.xbase.ide"/>
+      <import plugin="org.eclipse.xtext.ui"/>
+      <import plugin="org.eclipse.xtext.ui.shared"/>
+      <import plugin="org.eclipse.xtext.ui.codetemplates.ui"/>
+      <import plugin="org.eclipse.ui.editors"/>
+      <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="org.eclipse.compare"/>
+      <import plugin="org.eclipse.xtext.builder"/>
+      <import plugin="org.eclipse.equinox.registry"/>
+      <import plugin="org.eclipse.equinox.common"/>
+      <import plugin="org.eclipse.gemoc.executionframework.reflectivetrace.model"/>
+      <import plugin="org.eclipse.emf.transaction"/>
+      <import plugin="org.eclipse.gemoc.trace.gemoc.api"/>
+      <import plugin="org.eclipse.gemoc.trace.commons.model"/>
+      <import plugin="org.eclipse.gemoc.executionframework.event.model"/>
+      <import plugin="org.eclipse.gemoc.executionframework.event.manager"/>
    </requires>
 
    <plugin
@@ -108,6 +168,55 @@ http://www.eclipse.org/legal/epl-v10.html
          install-size="0"
          version="0.0.0"
          fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.gemoc.dsl"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.gemoc.dsl.ide"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.gemoc.dsl.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.app"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.equinox.common"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.osgi"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.gemoc.executionframework.engine"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
          unpack="false"/>
 
 </feature>
