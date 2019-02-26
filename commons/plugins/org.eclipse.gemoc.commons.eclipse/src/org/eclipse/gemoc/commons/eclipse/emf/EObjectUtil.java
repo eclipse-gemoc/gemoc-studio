@@ -39,7 +39,7 @@ public class EObjectUtil {
 	 * compute a readable name from the resource and path in the resource of the provided object
 	 * returns null if the object is not contained in a resource
 	 * @param obj
-	 * @param useFullResourcePath if true will use the ful path of the resource, otherwise only the last segment will be used
+	 * @param useFullResourcePath if true will use the full path of the resource, otherwise only the last segment will be used
 	 * @return
 	 */
 	public static String getResourceBasedName(EObject obj, boolean useFullResourcePath) {
@@ -48,9 +48,21 @@ public class EObjectUtil {
 			return null;
 		}
 		if(useFullResourcePath) {
-			return res.getURI().toPlatformString(true) + "#"+	res.getURIFragment(obj);
+			return res.getURI().toPlatformString(true) + res.getURIFragment(obj);
 		} else {
-			return res.getURI().lastSegment() + res.getURIFragment(obj);	
+			return getUniqueResourceString(res) + res.getURIFragment(obj);	
+		}
+	}
+	/**
+	 * return the shortest unique name for the resource in its resource set 
+	 * @param res
+	 */
+	public static String getUniqueResourceString(Resource res) {
+		final String shortName = res.getURI().lastSegment();
+		if(res.getResourceSet().getResources().stream().filter(r -> r != res).anyMatch(r -> shortName.equals(r.getURI().lastSegment()))) {
+			return res.getURI().toPlatformString(true);
+		} else {
+			return shortName;
 		}
 	}
 
