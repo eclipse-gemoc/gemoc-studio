@@ -128,7 +128,7 @@ include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciido
 include::userguide/lw_DeployLanguages_headContent.asciidoc[]
 
 [[userguide-modeling-workbench]]
-= Modeling workbench  User Guide image:images/icons/IconeGemocModel_16.png[width=16, height=16, role=right]
+= Modeling workbench  user guide image:images/icons/IconeGemocModel_16.png[width=16, height=16, role=right]
 
 [[userguide-mw-modeling-workbench-overview]]
 == Modeling workbench overview
@@ -226,6 +226,26 @@ include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciido
 include::userguide/mw_OtherTools_headContent.asciidoc[]
 
 include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/clocksystem/user_mw_ExhaustiveExploration.asciidoc[]
+
+[[userguide-headless-engine]]
+= Headless engine user guide image:images/icons/IconeGemocModel_16.png[width=16, height=16, role=right]
+
+[[userguide-headless-engine-overview]]
+== Headless engine overview
+include::userguide/headless_overview_headContent.asciidoc[]
+
+[[userguide-headless-prepare-language]]
+== Prepare language
+include::userguide/headless_prepare_language_headContent.asciidoc[]
+
+[[userguide-headless-install-language]]
+== Install language
+include::userguide/headless_install_language_headContent.asciidoc[]
+
+[[userguide-headless-run_model]]
+== Run model
+include::userguide/headless_run_model_headContent.asciidoc[]
+
 
 = Tutorials
 

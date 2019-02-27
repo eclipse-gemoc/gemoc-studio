@@ -16,9 +16,12 @@ else
 	"full") 
 		echo "-------- compile full gemoc studio --------"
 		mvn -f /root/src/gemoc-studio/dev_support/full_compilation/pom.xml clean install --errors ;;
+	"linux") 
+		echo "-------- compile gemoc studio for linux only in offline --------"
+		mvn -P test_linux -f /root/src/gemoc-studio/dev_support/full_compilation/pom.xml clean install --errors ;;
 	"linux_offline") 
 		echo "-------- compile gemoc studio for linux only in offline --------"
-		mvn -o -P lest_linux -f /root/src/gemoc-studio/dev_support/full_compilation/pom.xml clean install --errors ;;
+		mvn -o -P test_linux -f /root/src/gemoc-studio/dev_support/full_compilation/pom.xml clean install --errors ;;
 	"system_test_only") 
 		echo "-------- running system tests only ------------"
 		mvn -f /root/src/gemoc-studio/gemoc_studio/tests/org.eclipse.gemoc.studio.tests.system/ clean verify --errors ;;

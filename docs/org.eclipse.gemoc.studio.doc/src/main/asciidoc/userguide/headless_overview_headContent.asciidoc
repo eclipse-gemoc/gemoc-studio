@@ -1,0 +1,64 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+== User Guide
+
+=== Headless engine user image:images/icons/IconeGemocModel_16.png[width=16, height=16, role=right]
+
+==== Headless engine overview
+endif::[]
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/userguide/headless_overview_headContent.asciidoc.]
+
+
+GEMOC can also run without graphical user interface. It offers a command line 
+interface allowing to automate some task.
+
+Additionally, a specific package is available in order to decrease the size on disk (and hopefully in memory too).
+This specific package can be downloaded at ???
+
+IMPORTANT: TODO add final link
+
+[TIP]
+====
+All commands works on both packages (Full IDE or Headless). 
+When running on the full IDE you must precise 
+that you do not want to launch the UI and want to launch the EngineRunner application using the `+-noSplash+` and `+-application+` options.
+  
+[source,bourne]
+----
+./GemocStudio -noSplash -application org.eclipse.gemoc.gemoc_studio.headless.EngineRunner <engineRunner parameters>
+----
+
+====
+
+The commands take the following form:
+[source,bourne]
+----
+./GemocStudioHeadless [<EclipseSpecificOptions>] <EngineRunner options> [<additionnal arguments to be passed to the model execution>]
+----
+
+===== Eclipse specific options overview
+We have selected the use of the following eclipse specific options:
+
+* `-clean` Any cached data used by the OSGi framework and eclipse runtime will be wiped clean. 
+This will clean the caches used to store bundle dependency resolution and eclipse extension registry data. Using this option will force eclipse to reinitialize these caches.
+* `-clearPersistedState` Removes any cached state of the user interface and reloads the model
+* `-console` The OSGi console is enabled. This is handy for investigating the state of the system and analyze deployment issues.
+* `-debug`   The platform is put in debug mode. If the value is a string it is interpreted as 
+the location of the .options file. This file indicates what debug points are available for a plug-in and whether or not they are enabled. If a location is not specified, 
+the platform searches for the .options file under the install directory.
+* `-noExit` The OSGi Framework will not be shut down after the Eclipse application has ended. 
+This is useful for examining the OSGi Framework (using `-console`) after the Eclipse application has ended. 
+
+(A complete list of eclipse specific options is available at 
+ https://help.eclipse.org/2018-12/index.jsp?topic=%2Forg.eclipse.platform.doc.isv%2Freference%2Fmisc%2Fruntime-options.html ).
+
+==== GemocStudioHeadless options overview
+
+The EngineRunner currently accepts the following options:
+
+* `-h`,`--help`             Print help message
+* `-l`,`--list-languages`   Print the list of installed GEMOC languages
+

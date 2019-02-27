@@ -39,7 +39,7 @@ public class Activator implements BundleActivator {
                 e));
 	}
 	public static void error(String msg, Throwable e){
-		Platform.getLog(Platform.getBundle(PLUGIN_ID)).log(new Status(Status.WARNING, PLUGIN_ID,
+		Platform.getLog(Platform.getBundle(PLUGIN_ID)).log(new Status(Status.ERROR, PLUGIN_ID,
                 Status.OK, 
                 msg, 
                 e));

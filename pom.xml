@@ -33,13 +33,13 @@
         </repository>
 		<repository>
 			<id>ale</id>
-			<url>http://www.kermeta.org/ale-lang/updates/2018-12-12</url>
+			<url>http://www.kermeta.org/ale-lang/updates/2019-02-06</url>
 			<layout>p2</layout>
 		</repository>
         <repository>
             <id>melange</id>
             <layout>p2</layout>
-            <url>http://melange.inria.fr/updatesite/nightly/update_2018-12-03/</url>
+            <url>http://melange.inria.fr/updatesite/nightly/update_2019-01-25/</url>
         </repository>
         <repository>
             <id>Sirius</id>

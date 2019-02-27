@@ -178,7 +178,7 @@
             
             
             <!-- generate the images from plantUMl -->
-			<plugin>
+		<!-- 	<plugin>
 				<groupId>com.github.jeluard</groupId>
 				<artifactId>plantuml-maven-plugin</artifactId>
 				<version>1.2</version>
@@ -192,7 +192,6 @@
 					</execution>
 				</executions>
 				<configuration>
-					<!-- <outputDirectory>${basedir}/target/plantuml</outputDirectory> -->
 					<outputInSourceDirectory>true</outputInSourceDirectory>
 					<verbose>true</verbose>
 					<sourceFiles>
@@ -210,7 +209,7 @@
 					</dependency>
 				</dependencies>
 			</plugin>  
-
+-->
 
 			<!-- docbook generation part -->
 			<plugin>				

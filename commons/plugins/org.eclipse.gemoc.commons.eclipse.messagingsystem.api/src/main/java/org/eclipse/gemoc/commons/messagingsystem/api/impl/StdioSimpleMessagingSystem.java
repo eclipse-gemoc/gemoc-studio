@@ -39,7 +39,12 @@ public class StdioSimpleMessagingSystem extends MessagingSystem {
 			System.out.println(message);
 		}
 		else{
-			System.out.println(getKindString(msgKind) + " [" +messageGroup + "] " + message +" "+getCallerString());
+			System.out.println(String.format("%7s [%s] %s %s", 
+					getKindString(msgKind),
+					shortenMessageGroup(messageGroup),
+					message,
+					getCallerString()
+					));
 		}
 	}
 
@@ -57,7 +62,13 @@ public class StdioSimpleMessagingSystem extends MessagingSystem {
 			System.out.println(message+ stackTrace);
 		}
 		else{
-			System.out.println(getKindString(msgKind)+" [" +messageGroup + "] " + message + " "+getCallerString()+"\n"+ stackTrace);
+			System.out.println(String.format("%7s [%s] %s %s\n%s", 
+					getKindString(msgKind),
+					shortenMessageGroup(messageGroup),
+					message,
+					getCallerString(),
+					stackTrace
+					));
 		}
 		
 	}
@@ -121,6 +132,8 @@ public class StdioSimpleMessagingSystem extends MessagingSystem {
 			return "WARNING";
 		case DevERROR :
 			return "ERROR";
+		case DevDEBUG :
+			return "DEBUG";
 		default:
 			break;
 		}
@@ -137,9 +150,14 @@ public class StdioSimpleMessagingSystem extends MessagingSystem {
 		
 		// return first caller which isn't getCallerString or log
 		for(StackTraceElement stackTraceElement : stackTraceElements){
-			if(! (	stackTraceElement.getMethodName().contains("log") || 
-					stackTraceElement.getClassName().contains("org.eclipse.gemoc.commons.eclipse.messagingsystem.api"))){
-				
+			if(! (	stackTraceElement.getMethodName().equals("log") || 
+					stackTraceElement.getMethodName().equals("info") ||
+					stackTraceElement.getMethodName().equals("debug") ||
+					stackTraceElement.getMethodName().equals("warn") ||
+					stackTraceElement.getMethodName().equals("error") ||
+					stackTraceElement.getClassName().contains("org.eclipse.gemoc.commons.eclipse.messagingsystem") || 
+					stackTraceElement.getClassName().contains("org.eclipse.gemoc.commons.messagingsystem"))){
+
 				return stackTraceElement.toString();
 			}
 		}
@@ -188,6 +206,32 @@ public class StdioSimpleMessagingSystem extends MessagingSystem {
 			reader = new BufferedReader( new InputStreamReader(System.in));
 		}
 		return reader;
+	}
+	
+	/**
+	 * provide a shorter version of the message group for printing
+	 * will use the . in the pattern to shorten  first part of the group while keeping the last two elements
+	 * @param messageGroup
+	 * @return
+	 */
+	public static String shortenMessageGroup(String messageGroup) {
+		//return messageGroup.replaceAll("\\B\\w+(\\.[a-z])","$1");  // nice for java classes but does not keep the last 2 part of the plugin name (all lowercase)
+		StringBuilder sb = new StringBuilder();
+		String[] f = messageGroup.split("\\.");
+		int idx = 0;
+		final int limit = f.length -2;
+		for (String string : f) {
+			if(idx < limit && !string.isEmpty()) {
+				sb.append(string.charAt(0));
+			} else {
+				sb.append(string);
+			}
+			if(idx < f.length-1) {
+				sb.append(".");
+			}
+			idx++;
+		}
+		return sb.toString();
 	}
 	
 }
