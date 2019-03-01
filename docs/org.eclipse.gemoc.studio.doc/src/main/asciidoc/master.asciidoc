@@ -1,10 +1,10 @@
-= GEMOC Studio Documentation
 :doctype: book
 :toc:
 :numbered:
 
 // included document can test in order to have conditionnal macros
 :includedInMaster: true
+= GEMOC Studio Documentation
 
 ////////////////////////////////////////////////////////////////
 //	master.asciidoc is mainly an outline of all included files
