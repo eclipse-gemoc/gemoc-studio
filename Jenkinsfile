@@ -4,7 +4,7 @@ pipeline {
 	agent any
 	options {
 		skipDefaultCheckout(true) // avoid default checkout implied by declarative pipeline (we do it in the prepare stage)
-		buildDiscarder( logRotator(numToKeepStr:'5'))
+		buildDiscarder( logRotator(numToKeepStr:'10', artifactNumToKeepStr: '1'))
 		disableConcurrentBuilds()
 	}
 	tools {
