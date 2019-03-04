@@ -78,6 +78,16 @@ Once the full compilation has been done at least once (ie. and filled the m2 cac
 docker-compose run gemoc_full_compilation system_test_only
 ----
 
+Or you can run a full build but including only the linux variant using:
+[source,bourne]
+----
+docker-compose run gemoc_full_compilation linux
+----
+or
+[source,bourne]
+----
+docker-compose run gemoc_full_compilation linux_offline
+----
 
 ===== Description of the docker env
 

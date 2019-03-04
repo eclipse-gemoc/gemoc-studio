@@ -1,0 +1,83 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+== User Guide
+
+=== Headless engine user image:images/icons/IconeGemocModel_16.png[width=16, height=16, role=right]
+
+==== Run model
+endif::[]
+
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/userguide/headless_run_model_headContent.asciidoc.]
+
+
+
+Before running a model, you should verify that the language and the engine able 
+to run it are correctly installed in your eclipse. This is done using the 
+`--list-languages` (`-ll`) option and the `--list-engines` (`-le`) options. 
+(see <<userguide-headless-install-language>> about how to install a language).
+ 
+
+Then, in order to run a given model, you have to:
+- select a language that is able to run your model using the `-l` option
+- select an engine that is able to run this language using the `-e` option
+- optionally pass engine specific argument
+- optionally pass language argument 
+
+This is done by using the appropriate options as defined in <<userguide-headless-engine-overview>>
+
+
+[TIP]
+====
+You may omit `-l` and/or `-e` option if the default language/engine correspond to you need. 
+This is usually the case if you have only one language installed.
+====
+
+==== Example: Install K3FSM language in GEMOC headless and run a sample model 
+As an example, in order to run a model from the official K3FSM example (see <<K3FSM-example>>), 
+one possible way would be to follow these steps:
+
+* Prepare K3FSM languages jars and install them in the headless studio:
+** in a classic GEMOC Studio, get the K3FSM example (via the _new example_ menu)
+** right click on the projects, _export..._ -> _Plug-in Development_ -> _Deployable plugins and fragments_
+** select _Archive file_ and browse to the _dropins_ folder of your GemocStudioHeadless. 
+
+
+In the modeling workbench, Write or get some _k3fsm_ model.
+
+
+On the command line, from the GemocStudioHeadless folder:
+
+`$>./GemocStudioHeadless -e GEMOCKermetaSequentialEngine 
+-l org.eclipse.gemoc.example.k3fsm.K3fsm 
+-initMethod org.eclipse.gemoc.example.k3fsm.k3dsa.FSMAspect.initializeModel
+-mainMethod "public static void org.eclipse.gemoc.example.k3fsm.k3dsa.FSMAspect.main(org.eclipse.gemoc.example.k3fsm.FSM)"
+-modelEntryPoint \
+-m $HOME/mysuperfsmmodels/TwoStatesUpcast.k3fsm
+-- abababa`
+
+This will run the model _TwoStatesUpcast.k3fsm_ and using the string _"abababa"_ as parameter for the K3fsm language. 
+
+[TIP]
+====
+In order to get the correct parameters, especially for `initMethod`, `mainMethod` or `modelEntryPoint` of a given 
+language you can create and save a launch configuration in the Modeling workbench. 
+This is done in the tab _common_ by setting a _save as_ and a location. You can then open the _.launch_ file 
+which is actually an xml file. 
+==== 
+
+[TIP]
+====
+GemocStudioHeadless is able to use model files from any location on your disk. However, it tries to link the file to its workspace.
+By default the workspace folder is located in the same folder as the GemocStudioHeadless executable.
+
+If your model file is actually in a workspace (for example the workspace used by the classic GEMOC Studio), 
+You can avoid to create the link to the file by telling to the GemocStudioHeadless where the workspace is by
+using the option `-data` <path to workspace>.
+
+
+
+This might be useful if the model has some cross references to other files and use workspace relative references.   
+====

@@ -4,7 +4,7 @@ pipeline {
 	agent any
 	options {
 		skipDefaultCheckout(true) // avoid default checkout implied by declarative pipeline (we do it in the prepare stage)
-		buildDiscarder( logRotator(numToKeepStr:'5'))
+		buildDiscarder( logRotator(numToKeepStr:'60', artifactNumToKeepStr: '1'))
 		disableConcurrentBuilds()
 	}
 	tools {
@@ -89,6 +89,7 @@ pipeline {
 				sh 'rm -rf ${DOWNLOAD_FOLDER}/packages/nightly'
 				sh 'mkdir -p ${DOWNLOAD_FOLDER}/packages/nightly'
 				sh 'cp gemoc-studio/gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.product/target/products/*.zip ${DOWNLOAD_FOLDER}/packages/nightly'
+		        sh 'cp gemoc-studio/gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.headless.product/target/products/*.zip ${DOWNLOAD_FOLDER}/packages/nightly'
 		        sh 'cp gemoc-studio/gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.product/target/products/index.html ${DOWNLOAD_FOLDER}/packages/nightly'
 		        
 		        echo "Deploy updatesite to download.eclipse.org"
