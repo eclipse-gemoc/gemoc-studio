@@ -214,7 +214,7 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Executable model with GEMOC Java engine]").getNode("Gemoc debug target").getNode("Model debugging").select();
 		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Executable model with GEMOC Java engine]").getNode("Gemoc debug target").getNode("Model debugging").expand();
 		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Executable model with GEMOC Java engine]").getNode("Gemoc debug target").getNode("Model debugging").getNode("Engine : TwoStatesUpcast.k3fsm => TwoStateUpcast").select();
-		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Executable model with GEMOC Java engine]").getNode("Gemoc debug target").getNode("Model debugging").getNode("[FSM] TwoStateUpcast -> initializeModel()").select();
+		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Executable model with GEMOC Java engine]").getNode("Gemoc debug target").getNode("Model debugging").getNode("[FSM] TwoStateUpcast#initializeModel()").select();
 		
 		
 		closeXtextProjectConversionPopup
