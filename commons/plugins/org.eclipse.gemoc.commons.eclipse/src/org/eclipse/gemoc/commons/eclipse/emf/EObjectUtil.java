@@ -11,6 +11,7 @@
 package org.eclipse.gemoc.commons.eclipse.emf;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
 
 public class EObjectUtil {
 	
@@ -34,6 +35,36 @@ public class EObjectUtil {
 		return result;
 	}
 
+	/**
+	 * compute a readable name from the resource and path in the resource of the provided object
+	 * returns null if the object is not contained in a resource
+	 * @param obj
+	 * @param useFullResourcePath if true will use the full path of the resource, otherwise only the last segment will be used
+	 * @return
+	 */
+	public static String getResourceBasedName(EObject obj, boolean useFullResourcePath) {
+		Resource res = obj.eResource();
+		if( res == null) {
+			return null;
+		}
+		if(useFullResourcePath) {
+			return res.getURI().toPlatformString(true) + res.getURIFragment(obj);
+		} else {
+			return getUniqueResourceString(res) + res.getURIFragment(obj);	
+		}
+	}
+	/**
+	 * return the shortest unique name for the resource in its resource set 
+	 * @param res
+	 */
+	public static String getUniqueResourceString(Resource res) {
+		final String shortName = res.getURI().lastSegment();
+		if(res.getResourceSet().getResources().stream().filter(r -> r != res).anyMatch(r -> shortName.equals(r.getURI().lastSegment()))) {
+			return res.getURI().toPlatformString(true);
+		} else {
+			return shortName;
+		}
+	}
 
 
 }

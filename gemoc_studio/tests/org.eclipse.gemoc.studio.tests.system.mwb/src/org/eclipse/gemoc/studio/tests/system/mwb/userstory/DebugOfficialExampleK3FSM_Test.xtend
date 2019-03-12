@@ -131,19 +131,25 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 		waitThreadSuspended
 		assertEquals(1,engine.engineStatus.nbLogicalStepRun)
 		assertEquals("S1",fsm.currentState.name)
-		assertEquals("MSE_StateImpl_step",stackToString(engine.currentStack))
+		assertEquals("MSE_FSMImpl_main",stackToString(engine.currentStack))
+		
+		clickOnStepInto() // initializeModel, no increment of steps		
+		waitThreadSuspended
+		assertEquals("S1",fsm.currentState.name)
+		assertEquals(1,engine.engineStatus.nbLogicalStepRun) // this is a small step (no increment)
+		assertEquals("MSE_StateImpl_step|MSE_FSMImpl_main",stackToString(engine.currentStack))
 		
 		clickOnStepInto() 
 		waitThreadSuspended
 		assertEquals("S1",fsm.currentState.name)
 		assertEquals(1,engine.engineStatus.nbLogicalStepRun) // this is a small step (no increment)
-		assertEquals("MSE_TransitionImpl_fire|MSE_StateImpl_step",stackToString(engine.currentStack))
+		assertEquals("MSE_TransitionImpl_fire|MSE_StateImpl_step|MSE_FSMImpl_main",stackToString(engine.currentStack))
 		
 		clickOnStepInto()
 		waitThreadSuspended
 		assertEquals(3,engine.engineStatus.nbLogicalStepRun) // increment only here because the BigStep finishes here 
 		assertEquals("S2",fsm.currentState.name)
-		assertEquals("MSE_StateImpl_step",stackToString(engine.currentStack))
+		assertEquals("MSE_StateImpl_step|MSE_FSMImpl_main",stackToString(engine.currentStack))
 		
 		clickOnStepInto()
 		waitThreadSuspended
@@ -213,8 +219,8 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Executable model with GEMOC Java engine]").select();
 		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Executable model with GEMOC Java engine]").getNode("Gemoc debug target").getNode("Model debugging").select();
 		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Executable model with GEMOC Java engine]").getNode("Gemoc debug target").getNode("Model debugging").expand();
-		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Executable model with GEMOC Java engine]").getNode("Gemoc debug target").getNode("Model debugging").getNode("Global context : FSM").select();
-		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Executable model with GEMOC Java engine]").getNode("Gemoc debug target").getNode("Model debugging").getNode("[FSM] TwoStateUpcast -> initializeModel()").select();
+		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Executable model with GEMOC Java engine]").getNode("Gemoc debug target").getNode("Model debugging").getNode("Engine : TwoStatesUpcast.k3fsm => TwoStateUpcast").select();
+		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Executable model with GEMOC Java engine]").getNode("Gemoc debug target").getNode("Model debugging").getNode("[FSM] TwoStateUpcast#initializeModel()").select();
 		
 		
 		closeXtextProjectConversionPopup

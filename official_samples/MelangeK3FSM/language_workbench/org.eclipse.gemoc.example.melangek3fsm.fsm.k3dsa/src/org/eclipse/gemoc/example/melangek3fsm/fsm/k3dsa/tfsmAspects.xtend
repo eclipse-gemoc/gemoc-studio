@@ -23,9 +23,9 @@ class StateMachineAspect {
 	public String consummedString
 	public String producedString 
 	
-	
+	@Step
 	@Main
-    def public void main() {
+    def void main() {
     	try{
     		while (!_self.unprocessedString.isEmpty) {
     			_self.currentState.step(_self.unprocessedString)
@@ -45,7 +45,7 @@ class StateMachineAspect {
       
     @Step 
 	@InitializeModel
-	def public void initializeModel(EList<String> args){
+	def void initializeModel(EList<String> args){
 		_self.currentState = _self.initialState;
 		_self.unprocessedString = args.get(0)
 		_self.consummedString = ""
@@ -59,7 +59,7 @@ class StateMachineAspect {
 @Aspect(className=State)
 class StateAspect {
 	@Step
-	def public void step(String inputString) {
+	def void step(String inputString) {
 		// Get the valid transitions	
 		val validTransitions =  _self.outgoingTransitions.filter[t | inputString.startsWith(t.input)]
 		if(validTransitions.empty) {
@@ -79,7 +79,7 @@ class StateAspect {
 @Aspect(className=Transition)
 class TransitionAspect {
 	@Step
-	def public void fire() {
+	def void fire() {
 		println("Firing " + _self.name + " and entering " + _self.target.name)
 		val fsm = _self.source.owningFSM
 		fsm.currentState = _self.target

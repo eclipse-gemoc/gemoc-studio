@@ -10,14 +10,14 @@ import org.eclipse.gemoc.example.k3fsm.Transition
 import org.eclipse.emf.common.util.EList
 	
 import static extension org.eclipse.gemoc.example.k3fsm.k3dsa.TransitionAspect.*
-import static extension org.eclipse.gemoc.example.k3fsm.k3dsa.FSMAspect.*			
+//import static extension org.eclipse.gemoc.example.k3fsm.k3dsa.FSMAspect.*			
 import static extension org.eclipse.gemoc.example.k3fsm.k3dsa.StateAspect.*			
 
 @Aspect(className=FSM)
 class FSMAspect {
 	@Step 												
 	@InitializeModel									// <1>
-	def public void initializeModel(EList<String> args){
+	def void initializeModel(EList<String> args){
 		_self.currentState = _self.initialState;
 		_self.unprocessedString = args.get(0)	
 		_self.consummedString = ""
@@ -26,9 +26,9 @@ class FSMAspect {
 			println("nothing to process, did you forgot to pass parameters to the launch configuration ?")
 		}
 	}
-		
+	@Step	
 	@Main												// <2>
-	def public void main() {
+	def void main() {
     	try {
     		while (!_self.unprocessedString.isEmpty) {
     			_self.currentState.step(_self.unprocessedString)
@@ -45,7 +45,7 @@ class FSMAspect {
 @Aspect(className=State)
 class StateAspect {
 	@Step												// <3>
-	def public void step(String inputString) {
+	def void step(String inputString) {
 		// Get the valid transitions	
 		val validTransitions =  _self.outgoingTransitions.filter[t | inputString.startsWith(t.input)]
 		if(validTransitions.empty) {
@@ -64,7 +64,7 @@ class StateAspect {
 class TransitionAspect {
 	
 	@Step												// <4>
-	def public void fire() {
+	def void fire() {
 		println("Firing " + _self.name + " and entering " + _self.target.name)
 		val fsm = _self.source.owningFSM
 		fsm.currentState = _self.target
