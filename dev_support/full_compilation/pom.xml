@@ -17,7 +17,7 @@
 		<module>../../../gemoc-studio-modeldebugging</module>
 		<module>../../../gemoc-studio-execution-ale</module>
 		<module>../../../gemoc-studio-moccml</module>
-		<!-- <module>../../../gemoc-studio-execution-moccml</module>-->
+		<module>../../../gemoc-studio-execution-moccml</module>
 	</modules>
 
 </project>
