@@ -42,6 +42,12 @@
             <url>http://melange.inria.fr/updatesite/nightly/update_2019-01-25/</url>
         </repository>
         <repository>
+            <id>timesquare</id>
+            <layout>p2</layout>
+            <url>http://www.i3s.unice.fr/~deantoni/photon/</url>
+<!--             <url>http://timesquare.inria.fr/update_site/photon</url> -->
+        </repository>
+        <repository>
             <id>Sirius</id>
             <layout>p2</layout>
             <url>http://download.eclipse.org/sirius/updates/releases/6.0.1/photon</url>
