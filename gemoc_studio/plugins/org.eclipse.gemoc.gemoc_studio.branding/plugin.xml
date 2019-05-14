@@ -61,7 +61,7 @@
                id="org.eclipse.gemoc.gemoc_studio.toolbars.sampleToolbar">
             <command
                   commandId="org.eclipse.gemoc.gemoc_studio.commands.discoveryCommand"
-                  icon="images/icons/IconeGemocStudio/png/IconeGemocStudio_16x16x32.png"
+                  icon="images/icons/IconeGemocStudio/png/IconeGemoc-16.png"
                   id="org.eclipse.gemoc.gemoc_studio.toolbars.discoveryCommand"
                   tooltip="Install GEMOC Components">
             </command>
@@ -75,7 +75,7 @@
             locationURI="menu:help?after=org.eclipse.equinox.p2.ui.sdk.install">
             <command
                   commandId="org.eclipse.gemoc.gemoc_studio.commands.discoveryCommand"
-                  icon="images/icons/IconeGemocStudio/png/IconeGemocStudio_16x16x32.png"
+                  icon="images/icons/IconeGemocStudio/png/IconeGemoc-16.png"
                   id="org.eclipse.gemoc.gemoc_studio.toolbars.discoveryCommand"
                   tooltip="Install Additional Components">
             </command>
