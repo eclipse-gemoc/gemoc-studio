@@ -260,6 +260,10 @@ include::../../../../../official_samples/K3FSM/docs/K3FSM.asciidoc[]
 
 include::../../../../../official_samples/MelangeK3FSM/docs/MelangeK3FSM.asciidoc[]
 
+include::../../../../../official_samples/MelangeK3FSM/docs/MelangeK3FSM.asciidoc[]
+
+include::../../../../../../gemoc-studio-execution-moccml/examples/moccmlSigPML/docs/README.asciidoc[]
+
 = Developer Guide
 
 include::dev/developer_headContent.asciidoc[]
