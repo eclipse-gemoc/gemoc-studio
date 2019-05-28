@@ -44,7 +44,7 @@ import org.junit.Rule
 @RunWith(SWTBotJunit4ClassRunner)
 @InjectWith(MelangeUiInjectorProvider)
 @FixMethodOrder(MethodSorters::NAME_ASCENDING)
-public class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends AbstractXtextTests
+class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends AbstractXtextTests
 {
 	
 	static WorkspaceTestHelper helper = new WorkspaceTestHelper
@@ -55,7 +55,7 @@ public class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test exte
 	static final String SOURCE_PROJECT_NAME = BASE_NAME + ".fsm"
 	static final String PROJECT_NAME = BASE_NAME + ".xfsm"
 	
-	private static SWTWorkbenchBot	bot;
+	static SWTWorkbenchBot	bot;
  
 	@BeforeClass
 	def static void beforeClass() throws Exception {
@@ -243,18 +243,20 @@ public class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test exte
 	 * This test use the GEMOC menu to create a Sirius editor for a language
 	 * @throws Exception
 	 */
-	@Ignore  // temporarily disabled, waiting for a fix of test CreateSiriusEditor_Test.test01_CreateEditorProject_usingGemocMenuOnProject() in the backlog
 	@Test
-	def void test05_CreateSiriusEditorForLanguage() throws Exception {
+	def void test05_CreateSiriusEditorForBaseLanguage() throws Exception {
 				
-		val SWTBotTreeItem projectItem = bot.tree().getTreeItem("org.eclipse.gemoc.example.melangek3fsm.xfsm").select();
+		val SWTBotTreeItem projectItem = bot.tree().getTreeItem(PROJECT_NAME).select();
 		projectItem.contextMenu("GEMOC Language").menu("Create Sirius Editor Project for language").click();
-		bot.button("OK").click();
+		bot.button("Finish").click();
+		
+		IResourcesSetupUtil::reallyWaitForAutoBuild
+		WorkspaceTestHelper::waitForJobs
 		
 		helper.assertProjectExists(PROJECT_NAME + ".design");
 		
 		bot.editorByTitle("xfsm.odesign").show();
-		bot.tree().getTreeItem("platform:/resource/"+PROJECT_NAME+".design/description/xfsm.odesign").expand();
+		//bot.tree().getTreeItem("platform:/resource/"+PROJECT_NAME+".design/description/xfsm.odesign").expand();
 		// TODO recreate a basic representation in the default layer
 		
 
