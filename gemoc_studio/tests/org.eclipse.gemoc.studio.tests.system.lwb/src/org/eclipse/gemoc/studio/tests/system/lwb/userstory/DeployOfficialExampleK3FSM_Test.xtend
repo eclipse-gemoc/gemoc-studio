@@ -36,14 +36,14 @@ import org.junit.Rule
  */
 @RunWith(SWTBotJunit4ClassRunner)
 @FixMethodOrder(MethodSorters::NAME_ASCENDING)
-public class DeployOfficialExampleK3FSM_Test extends AbstractXtextTests
+class DeployOfficialExampleK3FSM_Test extends AbstractXtextTests
 {
 	
 	static WorkspaceTestHelper helper = new WorkspaceTestHelper
 
 	static final String BASE_NAME = "org.eclipse.gemoc.example.k3fsm"
 	
-	private static SWTWorkbenchBot	bot;
+	static SWTWorkbenchBot	bot;
  
 	@BeforeClass
 	def static void beforeClass() throws Exception {
@@ -86,10 +86,10 @@ public class DeployOfficialExampleK3FSM_Test extends AbstractXtextTests
 	  	bot.button("Finish").click();
 
 		IResourcesSetupUtil::reallyWaitForAutoBuild
-		WorkspaceTestHelper::reallyWaitForJobs(2)
+		WorkspaceTestHelper::reallyWaitForJobs(4)
 		IResourcesSetupUtil::fullBuild
 		IResourcesSetupUtil::reallyWaitForAutoBuild
-		WorkspaceTestHelper::reallyWaitForJobs(2)
+		WorkspaceTestHelper::reallyWaitForJobs(4)
 
 		helper.assertProjectExists(BASE_NAME);
 		helper.assertProjectExists(BASE_NAME+".design");

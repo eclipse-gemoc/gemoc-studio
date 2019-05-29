@@ -31,7 +31,6 @@ import org.junit.After
 import org.junit.Before
 import org.junit.BeforeClass
 import org.junit.FixMethodOrder
-import org.junit.Ignore
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -47,7 +46,7 @@ import static org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences.*
 @RunWith(SWTBotJunit4ClassRunner)
 @InjectWith(MelangeUiInjectorProvider)
 @FixMethodOrder(MethodSorters::NAME_ASCENDING)
-public class CreateSingleSequentialLanguageFromOfficialFSM_Test extends AbstractXtextTests
+class CreateSingleSequentialLanguageFromOfficialFSM_Test extends AbstractXtextTests
 {
 	
 	static WorkspaceTestHelper helper = new WorkspaceTestHelper
@@ -205,18 +204,20 @@ public class CreateSingleSequentialLanguageFromOfficialFSM_Test extends Abstract
 	 * This test use the GEMOC menu to create a Sirius editor for a language
 	 * @throws Exception
 	 */
-	@Ignore  // temporarily disabled, waiting for a fix of test CreateSiriusEditor_Test.test01_CreateEditorProject_usingGemocMenuOnProject() in the backlog
 	@Test
 	def void test05_CreateSiriusEditorForLanguage() throws Exception {
 				
-		val SWTBotTreeItem projectItem = bot.tree().getTreeItem("org.eclipse.gemoc.example.melangek3fsm.xfsm").select();
+		val SWTBotTreeItem projectItem = bot.tree().getTreeItem(PROJECT_NAME).select();
 		projectItem.contextMenu("GEMOC Language").menu("Create Sirius Editor Project for language").click();
-		bot.button("OK").click();
+		bot.button("Finish").click();
+		
+		IResourcesSetupUtil::reallyWaitForAutoBuild
+		WorkspaceTestHelper::waitForJobs
 		
 		helper.assertProjectExists(PROJECT_NAME + ".design");
 		
 		bot.editorByTitle("xfsm.odesign").show();
-		bot.tree().getTreeItem("platform:/resource/"+PROJECT_NAME+".design/description/xfsm.odesign").expand();
+		//bot.tree().getTreeItem("platform:/resource/"+PROJECT_NAME+".design/description/xfsm.odesign").expand();
 		// TODO recreate a basic representation in the default layer
 		
 
