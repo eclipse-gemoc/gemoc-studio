@@ -131,8 +131,19 @@ class DeployOfficialExampleK3FSM_Test extends AbstractXtextTests
 				
 		// accept switch to debug perspective (this also makes sure that the engines has started)		
 		//bot.perspectiveByLabel("Debug").activate
-		bot.shell("Confirm Perspective Switch").bot.button("Switch").click
-				
+		try {
+			bot.shell("Confirm Perspective Switch").bot.button("Switch").click
+		} catch (WidgetNotFoundException wnfe){
+			System.out.println(wnfe);
+			System.out.println("retry a second time");
+			try {
+				bot.shell("Confirm Perspective Switch").bot.button("Switch").click
+			} catch (WidgetNotFoundException wnfe2){
+				System.out.println(wnfe2);
+				System.out.println("retry a third time using main shell");
+				bot.button("Switch").click
+			}
+		}
 		
 		bot.viewByTitle("Debug").show();
 		// proceeds for some steps and then run up to the end
