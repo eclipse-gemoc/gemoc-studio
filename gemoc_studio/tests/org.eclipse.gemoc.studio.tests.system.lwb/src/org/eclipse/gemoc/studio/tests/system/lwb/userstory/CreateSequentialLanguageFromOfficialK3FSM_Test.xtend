@@ -254,46 +254,48 @@ public class CreateSequentialLanguageFromOfficialK3FSM_Test extends AbstractXtex
 	 * This test use the GEMOC menu to create a Sirius editor for a language
 	 * @throws Exception
 	 */
-	@Ignore // temporarily disabled, waiting for a fix of test CreateSiriusEditor_Test.test01_CreateEditorProject_usingGemocMenuOnProject() in the backlog
 	@Test
 	def void test05_CreateSiriusEditorForLanguage() throws Exception {
 
 		val SWTBotTreeItem projectItem = bot.tree().getTreeItem(XDSML_PROJECT_NAME).select();
 		projectItem.contextMenu("GEMOC Language").menu("Create Sirius Editor Project for language").click();
-		bot.button("OK").click();
+		bot.button("Finish").click();
 
+		IResourcesSetupUtil::reallyWaitForAutoBuild
+		WorkspaceTestHelper::reallyWaitForJobs(2)
 		helper.assertProjectExists(CreateSequentialLanguageFromOfficialK3FSM_Test.BASE_NAME + ".design");
 
-		bot.editorByTitle("xfsm.odesign").show();
-		bot.tree().getTreeItem(
+		bot.editorByTitle("k3fsm.odesign").show();
+		/*bot.tree().getTreeItem(
 			"platform:/resource/" + CreateSequentialLanguageFromOfficialK3FSM_Test.BASE_NAME +
 				".design/description/xfsm.odesign").expand();
+		*/
 				// TODO recreate a basic representation in the default layer
-				helper.assertNoMarkers();
+		helper.assertNoMarkers();
+	}
+
+	def printFocusedWidget() {
+
+		Display.getDefault().syncExec(new Runnable() {
+			override void run() {
+				System.out.println(
+					"Focused Widget = " + bot.focusedWidget.toString + " " + bot.focusedWidget.class)
 			}
+		});
+	}
 
-			def printFocusedWidget() {
+	def selectTabWidgetByKeyStroke() {
+		// Cant find a way to correctly select the table item, so let's workaround by using keystrokes
+		// this is ugly but seems to work ...
+		printFocusedWidget
+		bot.sleep(500)
+		val Keyboard key = KeyboardFactory.getSWTKeyboard();
+		(1 .. 10).takeWhile[!( bot.focusedWidget instanceof Table)].forEach [ i |
+			key.pressShortcut(Keystrokes.TAB)
+			printFocusedWidget
+			bot.sleep(500)
+		]
+	}
 
-				Display.getDefault().syncExec(new Runnable() {
-					override void run() {
-						System.out.println(
-							"Focused Widget = " + bot.focusedWidget.toString + " " + bot.focusedWidget.class)
-					}
-				});
-			}
-
-			def selectTabWidgetByKeyStroke() {
-				// Cant find a way to correctly select the table item, so let's workaround by using keystrokes
-				// this is ugly but seems to work ...
-				printFocusedWidget
-				bot.sleep(500)
-				val Keyboard key = KeyboardFactory.getSWTKeyboard();
-				(1 .. 10).takeWhile[!( bot.focusedWidget instanceof Table)].forEach [ i |
-					key.pressShortcut(Keystrokes.TAB)
-					printFocusedWidget
-					bot.sleep(500)
-				]
-			}
-
-		}
+}
 		
