@@ -46,6 +46,7 @@ import java.util.Deque
 import org.junit.Ignore
 import org.eclipse.debug.core.DebugPlugin
 import org.eclipse.debug.internal.core.LaunchManager
+import org.eclipse.gemoc.xdsmlframework.test.lib.SWTBotHelper
 
 /**
  * Verifies that we can execute a debug session 
@@ -216,6 +217,7 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 			bot.shell("Confirm Perspective Switch").bot.button("Switch").click
 		} catch (WidgetNotFoundException wnfe){
 			System.out.println(wnfe);
+			SWTBotHelper.printShellList(bot);
 			System.out.println("retry a second time");
 			try {
 				bot.shell("Confirm Perspective Switch").bot.button("Switch").click

@@ -42,6 +42,7 @@ import static org.eclipse.swtbot.swt.finder.matchers.WidgetMatcherFactory.withTo
 import static org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences.*
 import org.eclipse.debug.core.DebugPlugin
 import org.eclipse.debug.internal.core.LaunchManager
+import org.eclipse.gemoc.xdsmlframework.test.lib.SWTBotHelper
 
 /**
  * Verifies that we can use the wizard to install the official sample models 
@@ -135,6 +136,7 @@ class DeployOfficialExampleK3FSM_Test extends AbstractXtextTests
 			bot.shell("Confirm Perspective Switch").bot.button("Switch").click
 		} catch (WidgetNotFoundException wnfe){
 			System.out.println(wnfe);
+			SWTBotHelper.printShellList(bot);
 			System.out.println("retry a second time");
 			try {
 				bot.shell("Confirm Perspective Switch").bot.button("Switch").click
