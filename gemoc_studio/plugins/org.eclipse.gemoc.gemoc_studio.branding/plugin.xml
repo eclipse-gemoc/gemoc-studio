@@ -24,7 +24,7 @@
             name="%product.name">
          <property name="aboutText" value="%productBlurb"/>
          <property name="aboutImage" value="/images/GemocStudioAboutImage.png"/> 
-         <property name="appName" value="Gemoc Studio"/> 
+         <property name="appName" value="GEMOC Studio"/> 
          <property name="windowImages" value="images/icons/IconeGemocStudio/png/IconeGemocStudio_16x16x32.png,images/icons/IconeGemocStudio/png/IconeGemocStudio_32x32x32.png,images/icons/IconeGemocStudio-text/png/IconeGemocStudio-text_48x48x32.png,images/icons/IconeGemocStudio-text/png/IconeGemocStudio-text_64x64x32.png,images/icons/IconeGemocStudio-text/png/IconeGemocStudio-text_128x128x32.png,images/icons/IconeGemocStudio-text/png/IconeGemocStudio-text_256x256x32.png"/> 
           <property name="startupForegroundColor" value="F9F9F9"/>
 	      <property name="startupMessageRect" value="8,295,470,15"/>
@@ -38,7 +38,7 @@
          point="org.eclipse.ui.commands">
       <category
             id="org.eclipse.gemoc.gemoc_studio.commands.category"
-            name="Gemoc Studio">
+            name="GEMOC Studio">
       </category>
       <command
             categoryId="org.eclipse.gemoc.gemoc_studio.commands.category"
