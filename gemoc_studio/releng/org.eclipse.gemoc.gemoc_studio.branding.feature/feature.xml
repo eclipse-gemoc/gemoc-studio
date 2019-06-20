@@ -49,6 +49,8 @@ http://www.eclipse.org/legal/epl-v10.html
       <import feature="org.eclipse.gemoc.moccml.mapping.feature" version="0.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.gemoc.moccml.constraint.feature" version="0.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.feature" version="0.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.gemoc.commons.feature" version="3.0.0.qualifier"/>
+      <import feature="org.eclipse.gemoc.sequential.samples.deployers.feature" version="3.1.0.201906042043"/>
    </requires>
 
    <plugin
