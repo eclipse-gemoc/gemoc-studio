@@ -32,10 +32,7 @@
         <module>plugins/org.eclipse.gemoc.dsl.ui</module>
 
         <!-- feature and update site -->
-        <module>releng/org.eclipse.gemoc.commons.feature</module>
-        <module>releng/org.eclipse.gemoc.commons.3rdparty.feature</module>
-        <module>releng/org.eclipse.gemoc.gexpressions.feature</module>
-        <module>releng/org.eclipse.gemoc.commons.repository</module>
+        <module>releng</module>
         
         <!-- tests -->
         <module>tests/org.eclipse.gemoc.dsl.tests</module>
