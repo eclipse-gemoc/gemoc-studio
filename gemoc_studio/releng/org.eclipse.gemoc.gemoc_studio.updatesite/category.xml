@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.eclipse.gemoc.modeldebugging.feature_3.1.0.qualifier.jar" id="org.eclipse.gemoc.modeldebugging.feature" version="3.1.0.qualifier">
-      <category name="GEMOC_ModelDebugging_Components"/>
-   </feature>
    <feature url="features/org.eclipse.gemoc.commons.feature_3.0.0.qualifier.jar" id="org.eclipse.gemoc.commons.feature" version="3.0.0.qualifier">
       <category name="GEMOC_gemoc-studio_Components"/>
    </feature>
@@ -105,32 +102,58 @@
    <feature url="features/org.eclipse.gemoc.gemoc_studio.headless.feature_3.1.0.qualifier.jar" id="org.eclipse.gemoc.gemoc_studio.headless.feature" version="3.1.0.qualifier">
       <category name="GEMOC_AllInOne"/>
    </feature>
-   <category-def name="GEMOC_AllInOne" label="GEMOC all in one (Scenarios driven)">
+   <feature url="features/org.eclipse.gemoc.execution.moccml.feature_2.3.0.qualifier.jar" id="org.eclipse.gemoc.execution.moccml.feature" version="2.3.0.qualifier">
+      <category name="GEMOC_RootComponents"/>
+   </feature>
+   <feature url="features/org.eclipse.gemoc.execution.moccml.feature.source_2.3.0.qualifier.jar" id="org.eclipse.gemoc.execution.moccml.feature.source" version="2.3.0.qualifier">
+      <category name="GEMOC_RootComponents"/>
+   </feature>
+   <feature url="features/org.eclipse.gemoc.modeldebugging.feature_3.1.0.201906042043.jar" id="org.eclipse.gemoc.modeldebugging.feature" version="3.1.0.201906042043">
+      <category name="GEMOC_RootComponents"/>
+   </feature>
+   <feature url="features/org.eclipse.gemoc.modeldebugging.feature.source_3.1.0.201906042043.jar" id="org.eclipse.gemoc.modeldebugging.feature.source" version="3.1.0.201906042043">
+      <category name="GEMOC_RootComponents"/>
+   </feature>
+   <feature url="features/org.eclipse.gemoc.moccml.feature_2.3.0.qualifier.jar" id="org.eclipse.gemoc.moccml.feature" version="2.3.0.qualifier">
+      <category name="GEMOC_RootComponents"/>
+   </feature>
+   <feature url="features/org.eclipse.gemoc.moccml.feature.source_2.3.0.qualifier.jar" id="org.eclipse.gemoc.moccml.feature.source" version="2.3.0.qualifier">
+      <category name="GEMOC_RootComponents"/>
+   </feature>
+   <feature url="features/org.eclipse.gemoc.ale.interpreted.engine.feature_0.0.1.201906042043.jar" id="org.eclipse.gemoc.ale.interpreted.engine.feature" version="0.0.1.201906042043">
+      <category name="GEMOC_RootComponents"/>
+   </feature>
+   <category-def name="GEMOC_AllInOne" label="GEMOC all in one">
       <description>
-         All GEMOC components installed via simple features dedicated for the main scenarios.
+         All GEMOC components installed via simple features dedicated for the main scenarios (build an IDE or headless package).
       </description>
    </category-def>
-   <category-def name="GEMOC_gemoc-studio_Components" label="GEMOC_gemoc-studio_Components">
+   <category-def name="GEMOC_RootComponents" label="GEMOC Root Components (One feature per repository)">
+      <description>
+         GEMOC features that gather all the content of their respective repositories.
+      </description>
+   </category-def>
+   <category-def name="GEMOC_gemoc-studio_Components" label="GEMOC_gemoc-studio_detailled Components">
       <description>
          Individual components that are part of GEMOC and coming from https://github.com/eclipse/gemoc-studio/
       </description>
    </category-def>
-   <category-def name="GEMOC_ModelDebugging_Components" label="GEMOC ModelDebugging Components">
+   <category-def name="GEMOC_ModelDebugging_Components" label="GEMOC ModelDebugging_detailled Components">
       <description>
          Individual components that are part of GEMOC and coming from https://github.com/eclipse/gemoc-studio-modeldebugging/
       </description>
    </category-def>
-   <category-def name="GEMOC_Execution ALE_Components" label="GEMOC Execution ALE_Components">
+   <category-def name="GEMOC_Execution ALE_Components" label="GEMOC Execution ALE_detailled_Components">
       <description>
          Individual components that are part of GEMOC and coming from https://github.com/eclipse/gemoc-studio-execution-ale/
       </description>
    </category-def>
-   <category-def name="GEMOC_Execution MOCCML_Components" label="GEMOC_Execution MOCCML_Components">
+   <category-def name="GEMOC_Execution MOCCML_Components" label="GEMOC_Execution MOCCML_detailled_Components">
       <description>
          Individual components that are part of GEMOC and coming from https://github.com/eclipse/gemoc-studio-execution-moccml/
       </description>
    </category-def>
-   <category-def name="GEMOC_MOCCML_Components" label="GEMOC_MOCCML_Components">
+   <category-def name="GEMOC_MOCCML_Components" label="GEMOC_MOCCML_detailled_Components">
       <description>
          Individual components that are part of GEMOC and coming from https://github.com/eclipse/gemoc-studio-moccml/
       </description>
