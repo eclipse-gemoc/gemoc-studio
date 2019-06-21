@@ -108,10 +108,10 @@
    <feature url="features/org.eclipse.gemoc.execution.moccml.feature.source_2.3.0.qualifier.jar" id="org.eclipse.gemoc.execution.moccml.feature.source" version="2.3.0.qualifier">
       <category name="GEMOC_RootComponents"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.modeldebugging.feature_3.1.0.201906042043.jar" id="org.eclipse.gemoc.modeldebugging.feature" version="3.1.0.201906042043">
+   <feature url="features/org.eclipse.gemoc.modeldebugging.feature_3.1.0.qualifier.jar" id="org.eclipse.gemoc.modeldebugging.feature" version="3.1.0.qualifier">
       <category name="GEMOC_RootComponents"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.modeldebugging.feature.source_3.1.0.201906042043.jar" id="org.eclipse.gemoc.modeldebugging.feature.source" version="3.1.0.201906042043">
+   <feature url="features/org.eclipse.gemoc.modeldebugging.feature.source_3.1.0.qualifier.jar" id="org.eclipse.gemoc.modeldebugging.feature.source" version="3.1.0.qualifier">
       <category name="GEMOC_RootComponents"/>
    </feature>
    <feature url="features/org.eclipse.gemoc.moccml.feature_2.3.0.qualifier.jar" id="org.eclipse.gemoc.moccml.feature" version="2.3.0.qualifier">
@@ -120,7 +120,7 @@
    <feature url="features/org.eclipse.gemoc.moccml.feature.source_2.3.0.qualifier.jar" id="org.eclipse.gemoc.moccml.feature.source" version="2.3.0.qualifier">
       <category name="GEMOC_RootComponents"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.ale.interpreted.engine.feature_0.0.1.201906042043.jar" id="org.eclipse.gemoc.ale.interpreted.engine.feature" version="0.0.1.201906042043">
+   <feature url="features/org.eclipse.gemoc.ale.interpreted.engine.feature_0.0.1.qualifier.jar" id="org.eclipse.gemoc.ale.interpreted.engine.feature" version="0.0.1.qualifier">
       <category name="GEMOC_RootComponents"/>
    </feature>
    <category-def name="GEMOC_AllInOne" label="GEMOC all in one">
