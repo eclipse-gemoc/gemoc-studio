@@ -1,104 +1,170 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.eclipse.gemoc.modeldebugging.feature_3.1.0.qualifier.jar" id="org.eclipse.gemoc.modeldebugging.feature" version="3.1.0.qualifier">
-      <category name="GEMOC_AllInOne"/>
-   </feature>
    <feature url="features/org.eclipse.gemoc.commons.feature_3.0.0.qualifier.jar" id="org.eclipse.gemoc.commons.feature" version="3.0.0.qualifier">
-      <category name="GEMOC_ModelDebugging_Components"/>
+      <category name="GEMOC_3_gemoc-studio_Components"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.commons.feature.source_3.0.0.qualifier.jar" id="org.eclipse.gemoc.commons.feature.source" version="3.0.0.qualifier">
-      <category name="GEMOC_ModelDebugging_Components"/>
+   <feature url="features/org.eclipse.gemoc.ale.interpreted.engine.feature_0.0.1.qualifier.jar" id="org.eclipse.gemoc.ale.interpreted.engine.feature" version="0.0.1.qualifier">
+      <category name="GEMOC_5_Execution ALE_Components"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.commons.3rdparty.feature_3.0.0.qualifier.jar" id="org.eclipse.gemoc.commons.feature" version="3.0.0.qualifier">
-      <category name="GEMOC_ModelDebugging_Components"/>
+   <feature url="features/org.eclipse.gemoc.moccml.constraint.ccsl.solver.extension.automata.feature_0.1.1.qualifier.jar" id="org.eclipse.gemoc.moccml.constraint.ccsl.solver.extension.automata.feature" version="0.1.1.qualifier">
+      <category name="GEMOC_7_MOCCML_Components"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.commons.3rdparty.feature.source_3.0.0.qualifier.jar" id="org.eclipse.gemoc.commons.feature.source" version="3.0.0.qualifier">
-      <category name="GEMOC_ModelDebugging_Components"/>
+   <feature url="features/org.eclipse.gemoc.moccml.constraint.core.feature_0.1.1.qualifier.jar" id="org.eclipse.gemoc.moccml.constraint.core.feature" version="0.1.1.qualifier">
+      <category name="GEMOC_7_MOCCML_Components"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.commons.feature.source_3.0.0.qualifier.jar" id="org.eclipse.gemoc.commons.feature.source" version="3.0.0.qualifier">
-      <category name="GEMOC_ModelDebugging_Components"/>
+   <feature url="features/org.eclipse.gemoc.moccml.constraint.feature_0.1.1.qualifier.jar" id="org.eclipse.gemoc.moccml.constraint.feature" version="0.1.1.qualifier">
+      <category name="GEMOC_7_MOCCML_Components"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.execution.sequential.javaxdsml.feature_4.0.0.qualifier.jar" id="org.eclipse.gemoc.execution.sequential.javaxdsml.feature" version="4.0.0.qualifier">
-      <category name="GEMOC_ModelDebugging_Components"/>
+   <feature url="features/org.eclipse.gemoc.moccml.constraint.graphical.editors.feature_0.1.1.qualifier.jar" id="org.eclipse.gemoc.moccml.constraint.graphical.editors.feature" version="0.1.1.qualifier">
+      <category name="GEMOC_7_MOCCML_Components"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.execution.sequential.javaxdsml.feature.source_4.0.0.qualifier.jar" id="org.eclipse.gemoc.execution.sequential.javaxdsml.feature.source" version="4.0.0.qualifier">
-      <category name="GEMOC_ModelDebugging_Components"/>
+   <feature url="features/org.eclipse.gemoc.moccml.constraint.text.editors.feature_0.1.1.qualifier.jar" id="org.eclipse.gemoc.moccml.constraint.text.editors.feature" version="0.1.1.qualifier">
+      <category name="GEMOC_7_MOCCML_Components"/>
+   </feature>
+   <feature url="features/org.eclipse.gemoc.moccml.mapping.editor.feature_1.0.0.qualifier.jar" id="org.eclipse.gemoc.moccml.mapping.editor.feature" version="1.0.0.qualifier">
+      <category name="GEMOC_7_MOCCML_Components"/>
+   </feature>
+   <feature url="features/org.eclipse.gemoc.moccml.mapping.feature_1.0.0.qualifier.jar" id="org.eclipse.gemoc.moccml.mapping.feature" version="1.0.0.qualifier">
+      <category name="GEMOC_7_MOCCML_Components"/>
+   </feature>
+   <feature url="features/org.eclipse.gemoc.moccml.mapping.transfos.feature_1.0.0.qualifier.jar" id="org.eclipse.gemoc.moccml.mapping.transfos.feature" version="1.0.0.qualifier">
+      <category name="GEMOC_7_MOCCML_Components"/>
+   </feature>
+   <feature url="features/org.eclipse.gemoc.concurrent_addons.feature_2.3.0.qualifier.jar" id="org.eclipse.gemoc.concurrent_addons.feature" version="2.3.0.qualifier">
+      <category name="GEMOC_6_Execution MOCCML_Components"/>
+   </feature>
+   <feature url="features/org.eclipse.gemoc.concurrent_addons.feature_2.3.0.qualifier.jar" id="org.eclipse.gemoc.concurrent_addons.feature" version="2.3.0.qualifier">
+      <category name="GEMOC_6_Execution MOCCML_Components"/>
+   </feature>
+   <feature url="features/org.eclipse.gemoc.execution.concurrent.ccsljavaengine.feature_2.3.0.qualifier.jar" id="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.feature" version="2.3.0.qualifier">
+      <category name="GEMOC_6_Execution MOCCML_Components"/>
+   </feature>
+   <feature url="features/org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.feature_2.3.0.qualifier.jar" id="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.feature" version="2.3.0.qualifier">
+      <category name="GEMOC_6_Execution MOCCML_Components"/>
+   </feature>
+   <feature url="features/org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.feature_2.3.0.qualifier.jar" id="org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.feature" version="2.3.0.qualifier">
+      <category name="GEMOC_6_Execution MOCCML_Components"/>
    </feature>
    <feature url="features/org.eclipse.gemoc.executionframework.feature_4.0.0.qualifier.jar" id="org.eclipse.gemoc.executionframework.feature" version="4.0.0.qualifier">
-      <category name="GEMOC_ModelDebugging_Components"/>
+      <category name="GEMOC_4_ModelDebugging_Components"/>
    </feature>
    <feature url="features/org.eclipse.gemoc.executionframework.feature.source_4.0.0.qualifier.jar" id="org.eclipse.gemoc.executionframework.feature.source" version="4.0.0.qualifier">
-      <category name="GEMOC_ModelDebugging_Components"/>
+      <category name="GEMOC_4_ModelDebugging_Components"/>
    </feature>
    <feature url="features/org.eclipse.gemoc.modeldebugging.framework.commons.feature_4.0.0.qualifier.jar" id="org.eclipse.gemoc.modeldebugging.framework.commons.feature" version="4.0.0.qualifier">
-      <category name="GEMOC_ModelDebugging_Components"/>
+      <category name="GEMOC_4_ModelDebugging_Components"/>
    </feature>
    <feature url="features/org.eclipse.gemoc.modeldebugging.framework.commons.feature.source_4.0.0.qualifier.jar" id="org.eclipse.gemoc.modeldebugging.framework.commons.feature.source" version="4.0.0.qualifier">
-      <category name="GEMOC_ModelDebugging_Components"/>
-   </feature>
-   <feature url="features/org.eclipse.gemoc.trace.commons.feature_3.0.1.qualifier.jar" id="org.eclipse.gemoc.trace.commons.feature" version="3.0.1.qualifier">
-      <category name="GEMOC_ModelDebugging_Components"/>
-   </feature>
-   <feature url="features/org.eclipse.gemoc.trace.commons.feature.source_3.0.1.qualifier.jar" id="org.eclipse.gemoc.trace.commons.feature.source" version="3.0.1.qualifier">
-      <category name="GEMOC_ModelDebugging_Components"/>
-   </feature>
-   <feature url="features/org.eclipse.gemoc.trace.generator.feature_3.0.1.qualifier.jar" id="org.eclipse.gemoc.trace.generator.feature" version="3.0.1.qualifier">
-      <category name="GEMOC_ModelDebugging_Components"/>
-   </feature>
-   <feature url="features/org.eclipse.gemoc.trace.generator.feature.source_3.0.1.qualifier.jar" id="org.eclipse.gemoc.trace.generator.feature.source" version="3.0.1.qualifier">
-      <category name="GEMOC_ModelDebugging_Components"/>
-   </feature>
-   <feature url="features/org.eclipse.gemoc.trace.manager.feature_3.0.1.qualifier.jar" id="org.eclipse.gemoc.trace.manager.feature" version="3.0.1.qualifier">
-      <category name="GEMOC_ModelDebugging_Components"/>
-   </feature>
-   <feature url="features/org.eclipse.gemoc.trace.manager.feature.source_3.0.1.qualifier.jar" id="org.eclipse.gemoc.trace.manager.feature.source" version="3.0.1.qualifier">
-      <category name="GEMOC_ModelDebugging_Components"/>
+      <category name="GEMOC_4_ModelDebugging_Components"/>
    </feature>
    <feature url="features/org.eclipse.gemoc.xdsmlframework.feature_4.0.0.qualifier.jar" id="org.eclipse.gemoc.xdsmlframework.feature" version="4.0.0.qualifier">
-      <category name="GEMOC_ModelDebugging_Components"/>
+      <category name="GEMOC_4_ModelDebugging_Components"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.xdsmlframework.feature.source_4.0.0.qualifier.jar" id="org.eclipse.gemoc.xdsmlframework.feature.source" version="4.0.0.qualifier">
-      <category name="GEMOC_ModelDebugging_Components"/>
+   <feature url="features/org.eclipse.gemoc.execution.sequential.javaengine.feature_4.0.0.qualifier.jar" id="org.eclipse.gemoc.execution.sequential.javaengine.feature" version="4.0.0.qualifier">
+      <category name="GEMOC_4_ModelDebugging_Components"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.sequential.samples.deployers.feature_3.1.0.qualifier.jar" id="org.eclipse.gemoc.sequential.samples.deployers.feature" version="3.1.0.qualifier">
-      <category name="GEMOC_ModelDebugging_Components"/>
+   <feature url="features/org.eclipse.gemoc.execution.sequential.javaengine.ui.feature_4.0.0.qualifier.jar" id="org.eclipse.gemoc.execution.sequential.javaengine.ui.feature" version="4.0.0.qualifier">
+      <category name="GEMOC_4_ModelDebugging_Components"/>
+   </feature>
+   <feature url="features/org.eclipse.gemoc.execution.sequential.javaxdsml.feature_4.0.0.qualifier.jar" id="org.eclipse.gemoc.execution.sequential.javaxdsml.feature" version="4.0.0.qualifier">
+      <category name="GEMOC_4_ModelDebugging_Components"/>
    </feature>
    <feature url="features/org.eclipse.gemoc.dsl.debug.feature_3.0.1.qualifier.jar" id="org.eclipse.gemoc.dsl.debug.feature" version="3.0.1.qualifier">
-      <category name="GEMOC_ModelDebugging_Components"/>
-   </feature>
-   <feature url="features/org.eclipse.gemoc.dsl.debug.feature.source_3.0.1.qualifier.jar" id="org.eclipse.gemoc.dsl.debug.feature.source" version="3.0.1.qualifier">
-      <category name="GEMOC_ModelDebugging_Components"/>
-   </feature>
-   <feature url="features/org.eclipse.gemoc.dsl.debug.ui.feature_3.0.1.qualifier.jar" id="org.eclipse.gemoc.dsl.debug.ui.feature" version="3.0.1.qualifier">
-      <category name="GEMOC_ModelDebugging_Components"/>
-   </feature>
-   <feature url="features/org.eclipse.gemoc.dsl.debug.ui.feature.source_3.0.1.qualifier.jar" id="org.eclipse.gemoc.dsl.debug.ui.feature.source" version="3.0.1.qualifier">
-      <category name="GEMOC_ModelDebugging_Components"/>
+      <category name="GEMOC_4_ModelDebugging_Components"/>
    </feature>
    <feature url="features/org.eclipse.gemoc.dsl.debug.sirius.ui.feature_3.0.1.qualifier.jar" id="org.eclipse.gemoc.dsl.debug.sirius.ui.feature" version="3.0.1.qualifier">
-      <category name="GEMOC_ModelDebugging_Components"/>
+      <category name="GEMOC_4_ModelDebugging_Components"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.dsl.debug.sirius.ui.feature.source_3.0.1.qualifier.jar" id="org.eclipse.gemoc.dsl.debug.sirius.ui.feature.source" version="3.0.1.qualifier">
-      <category name="GEMOC_ModelDebugging_Components"/>
+   <feature url="features/org.eclipse.gemoc.dsl.debug.ui.feature_3.0.1.qualifier.jar" id="org.eclipse.gemoc.dsl.debug.ui.feature" version="3.0.1.qualifier">
+      <category name="GEMOC_4_ModelDebugging_Components"/>
    </feature>
-   <category-def name="GEMOC_AllInOne" label="GEMOC all in one">
+   <feature url="features/org.eclipse.gemoc.trace.commons.feature_3.0.1.qualifier.jar" id="org.eclipse.gemoc.trace.commons.feature" version="3.0.1.qualifier">
+      <category name="GEMOC_4_ModelDebugging_Components"/>
+   </feature>
+   <feature url="features/org.eclipse.gemoc.trace.generator.feature_3.0.1.qualifier.jar" id="org.eclipse.gemoc.trace.generator.feature" version="3.0.1.qualifier">
+      <category name="GEMOC_4_ModelDebugging_Components"/>
+   </feature>
+   <feature url="features/org.eclipse.gemoc.trace.manager.feature_3.0.1.qualifier.jar" id="org.eclipse.gemoc.trace.manager.feature" version="3.0.1.qualifier">
+      <category name="GEMOC_4_ModelDebugging_Components"/>
+   </feature>
+   <feature url="features/org.eclipse.gemoc.commons.3rdparty.feature_3.0.0.qualifier.jar" id="org.eclipse.gemoc.commons.3rdparty.feature" version="3.0.0.qualifier">
+      <category name="GEMOC_3_gemoc-studio_Components"/>
+   </feature>
+   <feature url="features/org.eclipse.gemoc.gexpressions.feature_3.0.0.qualifier.jar" id="org.eclipse.gemoc.gexpressions.feature" version="3.0.0.qualifier">
+      <category name="GEMOC_3_gemoc-studio_Components"/>
+   </feature>
+   <feature url="features/org.eclipse.gemoc.gemoc_studio.additions.feature_3.1.0.qualifier.jar" id="org.eclipse.gemoc.gemoc_studio.additions.feature" version="3.1.0.qualifier">
+      <category name="GEMOC_1_AllInOne"/>
+   </feature>
+   <feature url="features/org.eclipse.gemoc.gemoc_studio.branding.feature_3.1.0.qualifier.jar" id="org.eclipse.gemoc.gemoc_studio.branding.feature" version="3.1.0.qualifier">
+      <category name="GEMOC_1_AllInOne"/>
+   </feature>
+   <feature url="features/org.eclipse.gemoc.gemoc_studio.headless.feature_3.1.0.qualifier.jar" id="org.eclipse.gemoc.gemoc_studio.headless.feature" version="3.1.0.qualifier">
+      <category name="GEMOC_1_AllInOne"/>
+   </feature>
+   <feature url="features/org.eclipse.gemoc.execution.moccml.feature_2.3.0.qualifier.jar" id="org.eclipse.gemoc.execution.moccml.feature" version="2.3.0.qualifier">
+      <category name="GEMOC_2_RootComponents"/>
+   </feature>
+   <feature url="features/org.eclipse.gemoc.execution.moccml.feature.source_2.3.0.qualifier.jar" id="org.eclipse.gemoc.execution.moccml.feature.source" version="2.3.0.qualifier">
+      <category name="GEMOC_2_RootComponents"/>
+   </feature>
+   <feature url="features/org.eclipse.gemoc.modeldebugging.feature_3.1.0.qualifier.jar" id="org.eclipse.gemoc.modeldebugging.feature" version="3.1.0.qualifier">
+      <category name="GEMOC_2_RootComponents"/>
+   </feature>
+   <feature url="features/org.eclipse.gemoc.modeldebugging.feature.source_3.1.0.qualifier.jar" id="org.eclipse.gemoc.modeldebugging.feature.source" version="3.1.0.qualifier">
+      <category name="GEMOC_2_RootComponents"/>
+   </feature>
+   <feature url="features/org.eclipse.gemoc.moccml.feature_2.3.0.qualifier.jar" id="org.eclipse.gemoc.moccml.feature" version="2.3.0.qualifier">
+      <category name="GEMOC_2_RootComponents"/>
+   </feature>
+   <feature url="features/org.eclipse.gemoc.moccml.feature.source_2.3.0.qualifier.jar" id="org.eclipse.gemoc.moccml.feature.source" version="2.3.0.qualifier">
+      <category name="GEMOC_2_RootComponents"/>
+   </feature>
+   <feature url="features/org.eclipse.gemoc.ale.interpreted.engine.feature_0.0.1.qualifier.jar" id="org.eclipse.gemoc.ale.interpreted.engine.feature" version="0.0.1.qualifier">
+      <category name="GEMOC_2_RootComponents"/>
+   </feature>
+   <category-def name="GEMOC_1_AllInOne" label="GEMOC all in one">
       <description>
-         All GEMOC components installed via simple features dedicated for the main scenarios.
+         All GEMOC components installed via simple features dedicated for the main scenarios (build an IDE or headless package).
       </description>
    </category-def>
-   <category-def name="GEMOC_ModelDebugging_Components" label="GEMOC ModelDebugging Components (expert mode)">
+   <category-def name="GEMOC_2_RootComponents" label="GEMOC Root Components (One feature per repository)">
       <description>
-         Individual components that are part of GEMOC and dedicated to scenario related to ModelDebugging core and Sequential model execution.
+         GEMOC features that gather all the content of their respective git repositories.
       </description>
    </category-def>
-   <category-def name="GEMOC_Concurrency_Components" label="GEMOC Concurrency (expert mode)">
+   <category-def name="GEMOC_3_gemoc-studio_Components" label="GEMOC gemoc-studio (detailled components)">
       <description>
-         Individual components that are part of GEMOC and dedicated to scenario related to Concurrent model execution.
+         Individual components that are part of GEMOC and coming from https://github.com/eclipse/gemoc-studio/
       </description>
    </category-def>
-   <category-def name="GEMOC_Coordination_Components" label="GEMOC Coordination (expert mode)">
+   <category-def name="GEMOC_4_ModelDebugging_Components" label="GEMOC ModelDebugging (detailled components)">
       <description>
-         Individual components that are part of GEMOC and dedicated to scenario related to Coordination of model execution.
+         Individual components that are part of GEMOC and coming from https://github.com/eclipse/gemoc-studio-modeldebugging/
       </description>
    </category-def>
+   <category-def name="GEMOC_5_Execution ALE_Components" label="GEMOC Execution ALE (detailled components)">
+      <description>
+         Individual components that are part of GEMOC and coming from https://github.com/eclipse/gemoc-studio-execution-ale/
+      </description>
+   </category-def>
+   <category-def name="GEMOC_6_Execution MOCCML_Components" label="GEMOC Execution MOCCML (detailled components)">
+      <description>
+         Individual components that are part of GEMOC and coming from https://github.com/eclipse/gemoc-studio-execution-moccml/
+      </description>
+   </category-def>
+   <category-def name="GEMOC_7_MOCCML_Components" label="GEMOC MOCCML (detailled components)">
+      <description>
+         Individual components that are part of GEMOC and coming from https://github.com/eclipse/gemoc-studio-moccml/
+      </description>
+   </category-def>
+   <repository-reference location="http://download.eclipse.org/nebula/snapshot/" enabled="true" />
+   <repository-reference location="http://www.i3s.unice.fr/~deantoni/photon/" enabled="true" />
+   <repository-reference location="http://www.kermeta.org/k3/update_2018-09-05" enabled="true" />
+   <repository-reference location="http://www.kermeta.org/ale-lang/updates/2019-02-06" enabled="true" />
+   <repository-reference location="http://melange.inria.fr/updatesite/nightly/update_2019-01-25/" enabled="true" />
+   <repository-reference location="http://www.kermeta.org/diverse-commons/updates/latest" enabled="true" />
+   <repository-reference location="http://download.eclipse.org/elk/updates/releases/0.4.1/" enabled="true" />
+   <repository-reference location="http://download.eclipse.org/tools/ajdt/48/dev/update" enabled="true" />
+   <repository-reference location="http://download.eclipse.org/app4mc/updatesites/releases/0.8.1/" enabled="true" />
 </site>
