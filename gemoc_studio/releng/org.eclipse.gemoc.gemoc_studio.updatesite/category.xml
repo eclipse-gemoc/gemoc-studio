@@ -130,7 +130,7 @@
    </category-def>
    <category-def name="GEMOC_2_RootComponents" label="GEMOC Root Components (One feature per repository)">
       <description>
-         GEMOC features that gather all the content of their respective repositories.
+         GEMOC features that gather all the content of their respective git repositories.
       </description>
    </category-def>
    <category-def name="GEMOC_3_gemoc-studio_Components" label="GEMOC gemoc-studio (detailled components)">
