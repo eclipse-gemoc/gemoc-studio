@@ -1,7 +1,52 @@
 # Changelog
 
+## v3.1.0-glose (25/06/2019)
+
+#### Enhancements:
+
+- [**enhancement**] Improve messaging system startup [#157](https://github.com/eclipse/gemoc-studio/pull/157)
+- [**enhancement**] Increase swtbot test timeout [#158](https://github.com/eclipse/gemoc-studio/pull/158)
+- [**enhancement**] Improve Sirius wizard for Gemoc [#156](https://github.com/eclipse/gemoc-studio/pull/156)
+- [**enhancement**] Add concurrent engine to studio [#148](https://github.com/eclipse/gemoc-studio/pull/148)
+- [**enhancement**] Improve Variable and Debug views [#143](https://github.com/eclipse/gemoc-studio/pull/143)
+- [**enhancement**] Add command line Eclipse application to run GEMOC languages and headless product [#138](https://github.com/eclipse/gemoc-studio/pull/138)
+- [**enhancement**] Integrate ALE interpreted engine in GEMOC Studio build [#126](https://github.com/eclipse/gemoc-studio/pull/126)
+- [**enhancement**][**refactoring**] Move dsl default location to project root [#124](https://github.com/eclipse/gemoc-studio/pull/124)
+- [**enhancement**] Add pre-release version of ecoretools epackage registration [#118](https://github.com/eclipse/gemoc-studio/pull/118)
+
+#### Bug Fixes:
+
+- [**bug**] Add a base test for modeldebugging bug #66 [#106](https://github.com/eclipse/gemoc-studio/pull/106)
+- [**bug**] Fix error level in activator logger [#141](https://github.com/eclipse/gemoc-studio/pull/141)
+
+#### Refactorings
+
+- [**documentation**][**refactoring**] Rename LegacyFSM example to MelangeK3FSM [#136](https://github.com/eclipse/gemoc-studio/pull/136)
+
+#### Version upgrades
+
+- [**bump**] Bump to Eclipse Photon [#117](https://github.com/eclipse/gemoc-studio/pull/117)
+- [**bump**] Bump to latest k3/melange version [#102](https://github.com/eclipse/gemoc-studio/pull/102)
+- [**bump**] Bump components and studio versions [#101](https://github.com/eclipse/gemoc-studio/pull/101)
+
+#### Release Engineering
+
+- [**releng**] Added GEMOC model icon using official colors to artwork folder [#149](https://github.com/eclipse/gemoc-studio/pull/149)
+- [**releng**] Add gexpressions to studio/updatesite and restructure update site [#165](https://github.com/eclipse/gemoc-studio/pull/165)
+- [**releng**] Use url for discovery that is unique for gemoc 3.1.x [#162](https://github.com/eclipse/gemoc-studio/pull/162)
+- [**releng**] Update icons to official branding colors [#160](https://github.com/eclipse/gemoc-studio/pull/160)
+- [**releng**] Remove the jenkinsfile from the component repositories [#154](https://github.com/eclipse/gemoc-studio/pull/154)
+- [**documentation**][**releng**] Re-enable plantuml figures in documentation [#153](https://github.com/eclipse/gemoc-studio/pull/153)
+- [**releng**] Remove 32 bit versions of the studio [#145](https://github.com/eclipse/gemoc-studio/pull/145)
+- [**releng**] Fix docker file for pomless builds [#134](https://github.com/eclipse/gemoc-studio/pull/134)
+- [**releng**] Correct css for nightly build download index page [#129](https://github.com/eclipse/gemoc-studio/pull/129)
+- [**releng**] Fix xtend compilation issue 1373 [#132](https://github.com/eclipse/gemoc-studio/pull/132)
+- [**releng**] New system test suite based on official example K3FSM (language and modeling) [#104](https://github.com/eclipse/gemoc-studio/pull/104)
+
+---
+
 ## v3.0.0 (17/07/2018)
-No changes since 3.0.0-rc4
+Includes all changes from 3.0.0 release candidates.
 
 ---
 
