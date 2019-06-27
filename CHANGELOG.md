@@ -1,6 +1,6 @@
 # Changelog
 
-## v3.1.0-glose (25/06/2019)
+## v3.1.0-20190627 (27/06/2019)
 
 #### Enhancements:
 
@@ -25,6 +25,7 @@
 
 #### Version upgrades
 
+- [**bump**] Bump ALE version to 2019-06-24 [#166](https://github.com/eclipse/gemoc-studio/pull/166)
 - [**bump**] Bump to Eclipse Photon [#117](https://github.com/eclipse/gemoc-studio/pull/117)
 - [**bump**] Bump to latest k3/melange version [#102](https://github.com/eclipse/gemoc-studio/pull/102)
 - [**bump**] Bump components and studio versions [#101](https://github.com/eclipse/gemoc-studio/pull/101)
