@@ -58,7 +58,7 @@ org.eclipse.gemoc.gemoc_studio.headless.GemocStudioHeadless
    </plugins>
 
    <features>
-      <feature id="org.eclipse.gemoc.gemoc_studio.headless.feature" version="3.1.0.qualifier"/>
+      <feature id="org.eclipse.gemoc.gemoc_studio.headless.feature"/>
    </features>
 
    <configurations>
