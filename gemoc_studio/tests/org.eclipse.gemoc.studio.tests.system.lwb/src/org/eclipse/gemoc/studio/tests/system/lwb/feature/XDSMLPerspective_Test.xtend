@@ -111,6 +111,9 @@ public class XDSMLPerspective_Test extends AbstractXtextTests {
 		bot.toolbarButtonWithTooltip("Install GEMOC Components").click
 		bot.sleep(8000);
 		bot.shell("GEMOC Components Discovery").setFocus
+		try {
+			bot.toolbarButtonWithTooltip("Cancel Operation").click(); // the update site check may be very long -> do not wait
+		} catch (WidgetNotFoundException e) {}
 		bot.button("Cancel").click
 	}
 
