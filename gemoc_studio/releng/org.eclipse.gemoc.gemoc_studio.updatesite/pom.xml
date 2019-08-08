@@ -69,6 +69,20 @@
 						</goals>
 					</execution>
 				</executions>
+				<configuration>
+				<products>
+					<product>
+						<!-- select product with ID product.id; the archives get the classifiers 
+							"<os>.<ws>.<arch>" -->
+						<id>gemoc_studio</id>
+					</product>
+					<product>
+						<!-- select product with ID other.product.id for the classifiers "other-<os>.<ws>.<arch>" -->
+						<id>gemoc_studio_headless</id>
+						<!-- <attachId>other</attachId> -->
+					</product>
+				</products>
+			  </configuration>
 			</plugin>
 			<!-- patch for problem of "Error - 7 icon(s) not replaced in ... using 
 				..." see http://dev.eclipse.org/mhonarc/lists/tycho-user/msg00379.html -->
