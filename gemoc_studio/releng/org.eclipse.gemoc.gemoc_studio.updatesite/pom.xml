@@ -79,7 +79,7 @@
 					<product>
 						<!-- select product with ID other.product.id for the classifiers "other-<os>.<ws>.<arch>" -->
 						<id>gemoc_studio_headless</id>
-						<!-- <attachId>other</attachId> -->
+						<attachId>_headless</attachId>
 					</product>
 				</products>
 			  </configuration>
