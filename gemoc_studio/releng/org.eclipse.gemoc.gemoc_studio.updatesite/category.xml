@@ -93,13 +93,13 @@
    <feature url="features/org.eclipse.gemoc.gexpressions.feature_3.0.0.qualifier.jar" id="org.eclipse.gemoc.gexpressions.feature" version="3.0.0.qualifier">
       <category name="GEMOC_3_gemoc-studio_Components"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.gemoc_studio.additions.feature_3.1.0.qualifier.jar" id="org.eclipse.gemoc.gemoc_studio.additions.feature" version="3.1.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.gemoc_studio.additions.feature_3.2.0.qualifier.jar" id="org.eclipse.gemoc.gemoc_studio.additions.feature" version="3.2.0.qualifier">
       <category name="GEMOC_1_AllInOne"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.gemoc_studio.branding.feature_3.1.0.qualifier.jar" id="org.eclipse.gemoc.gemoc_studio.branding.feature" version="3.1.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.gemoc_studio.branding.feature_3.2.0.qualifier.jar" id="org.eclipse.gemoc.gemoc_studio.branding.feature" version="3.2.0.qualifier">
       <category name="GEMOC_1_AllInOne"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.gemoc_studio.headless.feature_3.1.0.qualifier.jar" id="org.eclipse.gemoc.gemoc_studio.headless.feature" version="3.1.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.gemoc_studio.headless.feature_3.2.0.qualifier.jar" id="org.eclipse.gemoc.gemoc_studio.headless.feature" version="3.2.0.qualifier">
       <category name="GEMOC_1_AllInOne"/>
    </feature>
    <feature url="features/org.eclipse.gemoc.execution.moccml.feature_2.3.0.qualifier.jar" id="org.eclipse.gemoc.execution.moccml.feature" version="2.3.0.qualifier">
