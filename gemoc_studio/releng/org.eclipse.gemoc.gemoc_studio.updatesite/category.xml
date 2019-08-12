@@ -3,7 +3,7 @@
    <feature url="features/org.eclipse.gemoc.commons.feature_3.0.0.qualifier.jar" id="org.eclipse.gemoc.commons.feature" version="3.0.0.qualifier">
       <category name="GEMOC_3_gemoc-studio_Components"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.ale.interpreted.engine.feature_0.0.1.qualifier.jar" id="org.eclipse.gemoc.ale.interpreted.engine.feature" version="0.0.1.qualifier">
+   <feature url="features/org.eclipse.gemoc.ale.interpreted.engine.feature_1.0.1.qualifier.jar" id="org.eclipse.gemoc.ale.interpreted.engine.feature" version="1.0.1.qualifier">
       <category name="GEMOC_5_Execution ALE_Components"/>
    </feature>
    <feature url="features/org.eclipse.gemoc.moccml.constraint.ccsl.solver.extension.automata.feature_0.1.1.qualifier.jar" id="org.eclipse.gemoc.moccml.constraint.ccsl.solver.extension.automata.feature" version="0.1.1.qualifier">
@@ -120,7 +120,7 @@
    <feature url="features/org.eclipse.gemoc.moccml.feature.source_2.3.0.qualifier.jar" id="org.eclipse.gemoc.moccml.feature.source" version="2.3.0.qualifier">
       <category name="GEMOC_2_RootComponents"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.ale.interpreted.engine.feature_0.0.1.qualifier.jar" id="org.eclipse.gemoc.ale.interpreted.engine.feature" version="0.0.1.qualifier">
+   <feature url="features/org.eclipse.gemoc.ale.interpreted.engine.feature_1.0.1.qualifier.jar" id="org.eclipse.gemoc.ale.interpreted.engine.feature" version="1.0.1.qualifier">
       <category name="GEMOC_2_RootComponents"/>
    </feature>
    <category-def name="GEMOC_1_AllInOne" label="GEMOC all in one">
