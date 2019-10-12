@@ -4,6 +4,7 @@ Bundle-SymbolicName: org.eclipse.gemoc.commons.eclipse.jdt.autosrcfolder;singlet
 Bundle-Version: 3.0.0.qualifier
 Require-Bundle: org.eclipse.core.runtime;bundle-version="3.14.0",
  org.eclipse.core.resources;bundle-version="3.13.0",
- org.eclipse.ui;bundle-version="3.109.100"
+ org.eclipse.ui;bundle-version="3.109.100",
+ org.eclipse.jdt.core;bundle-version="3.14.0"
 Automatic-Module-Name: org.eclipse.gemoc.srcfolderhelper
 Bundle-Name: AutoSrcFolder
