@@ -154,8 +154,8 @@ public class AutoSrcFolderCreator {
 		String expectedErrorMessage = MessageFormat.format(Messages.classpath_unboundSourceFolder, "UNKNOWN",
 				project.getName());
 
-		// Remove the part expected error message that should contain the path of the
-		// missing source folder (currently "UNKNOWN")
+		// Remove the second part of the expected error message related to the
+		// path of the missing source folder (currently "UNKNOWN")
 		String expectedErrorMessageFirstPart = expectedErrorMessage.split(":")[0];
 
 		// Check that the processed error is indeed a missing source folder error
