@@ -1,5 +1,7 @@
 package org.eclipse.gemoc.commons.eclipse.jdt.autosrcfolder;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.text.MessageFormat;
 
 import org.eclipse.core.resources.IFolder;
@@ -39,7 +41,7 @@ public class AutoSrcFolderCreator {
 	public static final IPreferenceStore preferenceStore = new ScopedPreferenceStore(InstanceScope.INSTANCE, PLUGINID);
 
 	private static final String JOBMESSAGE = "Creating missing source folders.";
-	private static final String ERRORMESSAGE = "An error occured while trying to create missing source folders (see stack trace in the console).";
+	private static final String ERRORMESSAGE = "An error occured while trying to create missing source folders:\n\n";
 
 	private IResourceChangeListener listener;
 
@@ -81,13 +83,14 @@ public class AutoSrcFolderCreator {
 				@Override
 				protected IStatus run(IProgressMonitor monitor) {
 					for (IProject p : ResourcesPlugin.getWorkspace().getRoot().getProjects()) {
-						try {
-							for (IMarker m : p.findMarkers(IJavaModelMarker.BUILDPATH_PROBLEM_MARKER, false, 0)) {
-								AutoSrcFolderCreator.handleMarker(m, monitor);
+						if (p.isOpen()) {
+							try {
+								for (IMarker m : p.findMarkers(IJavaModelMarker.BUILDPATH_PROBLEM_MARKER, false, 0)) {
+									AutoSrcFolderCreator.handleMarker(m, monitor);
+								}
+							} catch (CoreException e) {
+								return createError(e);
 							}
-						} catch (CoreException e) {
-							e.printStackTrace();
-							return new Status(Status.ERROR, PLUGINID, ERRORMESSAGE);
 						}
 					}
 					return Status.OK_STATUS;
@@ -109,8 +112,7 @@ public class AutoSrcFolderCreator {
 								try {
 									AutoSrcFolderCreator.handleMarkerDelta(m, monitor);
 								} catch (CoreException e) {
-									e.printStackTrace();
-									return new Status(Status.ERROR, PLUGINID, ERRORMESSAGE);
+									return createError(e);
 								}
 							}
 							return Status.OK_STATUS;
@@ -122,6 +124,14 @@ public class AutoSrcFolderCreator {
 			};
 			ResourcesPlugin.getWorkspace().addResourceChangeListener(listener);
 		}
+	}
+
+	private IStatus createError(Throwable t) {
+		t.printStackTrace();
+		StringWriter sw = new StringWriter();
+		PrintWriter pw = new PrintWriter(sw);
+		t.printStackTrace(pw);
+		return new Status(Status.ERROR, PLUGINID, ERRORMESSAGE + sw.toString());
 	}
 
 	private void stop() {
