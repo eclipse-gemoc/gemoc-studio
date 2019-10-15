@@ -18,6 +18,7 @@
         <module>plugins/org.eclipse.gemoc.commons.eclipse.messagingsystem.ui</module>
         <module>plugins/org.eclipse.gemoc.commons.eclipse.pde</module>
         <module>plugins/org.eclipse.gemoc.commons.eclipse.jdt</module>
+        <module>plugins/org.eclipse.gemoc.commons.eclipse.jdt.autosrcfolder</module>
         <module>plugins/org.eclipse.gemoc.commons.eclipse.ui</module>
         <module>plugins/org.eclipse.gemoc.groovy</module>
         <module>plugins/org.eclipse.gemoc.timeline</module>

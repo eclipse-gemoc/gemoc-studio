@@ -15,5 +15,8 @@
    <feature url="features/org.eclipse.gemoc.commons.3rdparty.feature_3.0.0.qualifier.jar" id="org.eclipse.gemoc.commons.3rdparty.feature" version="3.0.0.qualifier">
       <category name="gemoc_commons"/>
    </feature>
+   <feature url="features/org.eclipse.gemoc.commons.eclipse.jdt.autosrcfolder.feature_3.0.0.qualifier.jar" id="org.eclipse.gemoc.commons.eclipse.jdt.autosrcfolder.feature" version="3.0.0.qualifier">
+      <category name="gemoc_commons"/>
+   </feature>
    <category-def name="gemoc_commons" label="GEMOC Commons"/>
 </site>
