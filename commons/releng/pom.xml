@@ -12,14 +12,13 @@
 	</parent>
     <modules>
        
+        <module>org.eclipse.gemoc.commons.feature</module> <!-- This one contains all the other via feature inclusion -->
         <module>org.eclipse.gemoc.dsl.feature</module>
-        <module>org.eclipse.gemoc.commons.feature</module>
         <module>org.eclipse.gemoc.commons.3rdparty.feature</module>
         <module>org.eclipse.gemoc.commons.eclipse.feature</module>
         <module>org.eclipse.gemoc.commons.eclipse.jdt.autosrcfolder.feature</module>
         <module>org.eclipse.gemoc.gexpressions.feature</module>
 
-        <module>org.eclipse.gemoc.commons.repository</module>
         
     </modules>
 	
