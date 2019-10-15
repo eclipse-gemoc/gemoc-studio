@@ -28,7 +28,6 @@
 
         <!-- feature and update site -->
         <module>releng/org.eclipse.gemoc.sequential.samples.deployers.feature</module>
-        <module>releng/org.eclipse.gemoc.samples.deployers.repository</module>
     </modules>
 
     <build>
