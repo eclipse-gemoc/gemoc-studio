@@ -17,7 +17,8 @@
       image="gemocstudio32.png">
 
    <description url="http://gemoc.org/studio/">
-      List of plugins that are part of GEMOC core (API, exchanged metamodels, ....)
+      All Commons plugins used by GEMOC. Contains reusable utils, metamodel
+and helper libraries.
    </description>
 
    <copyright url="http://www.eclipse.org/legal/epl-v10.html">
@@ -46,6 +47,10 @@ http://www.eclipse.org/legal/epl-v10.html
 
    <includes
          id="org.eclipse.gemoc.commons.eclipse.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.gemoc.commons.eclipse.jdt.autosrcfolder.feature"
          version="0.0.0"/>
 
    <plugin

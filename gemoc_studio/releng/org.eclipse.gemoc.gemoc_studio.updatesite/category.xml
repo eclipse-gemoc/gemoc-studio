@@ -93,6 +93,9 @@
    <feature url="features/org.eclipse.gemoc.gexpressions.feature_3.0.0.qualifier.jar" id="org.eclipse.gemoc.gexpressions.feature" version="3.0.0.qualifier">
       <category name="GEMOC_3_gemoc-studio_Components"/>
    </feature>
+   <feature url="features/org.eclipse.gemoc.commons.eclipse.jdt.autosrcfolder.feature_3.0.0.qualifier.jar" id="org.eclipse.gemoc.commons.eclipse.jdt.autosrcfolder.feature" version="3.0.0.qualifier">
+      <category name="GEMOC_3_gemoc-studio_Components"/>
+   </feature>
    <feature url="features/org.eclipse.gemoc.gemoc_studio.additions.feature_3.2.0.qualifier.jar" id="org.eclipse.gemoc.gemoc_studio.additions.feature" version="3.2.0.qualifier">
       <category name="GEMOC_1_AllInOne"/>
    </feature>
