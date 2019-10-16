@@ -84,7 +84,8 @@ docker-compose down && docker-compose up
 docker build -t "gemoc/gemoc-full-compilation:latest" .
 ---- 
 
-Changes commited in master branch are automatically built and deployed on https://cloud.docker.com/u/dvojtise/repository/docker/dvojtise/gemoc-full-compilation
+Changes commited in master branch are automatically built and deployed on docker hub: https://hub.docker.com/r/gemoc/gemoc-full-compilation
+
 
 
 ===== Manual launch
