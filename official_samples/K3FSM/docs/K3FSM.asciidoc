@@ -1,0 +1,241 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+= Examples
+endif::[]
+
+[[K3FSM-example]]
+== K3FSM Example
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/official_samples/K3FM/docs/K3FSM_example.asciidoc.]
+
+
+=== Presentation
+
+This example features a simple executable language using GEMOC Java Engine.   
+
+It illustrates the GEMOC animation framework on a Finite State Machine language where the concepts of both the syntax and semantic domains are in a single ecore file.   
+
+The example focuses on the tooling of a single language (FSM) with the following tools:
+
+* Tree editor,
+* Xtext Editor,
+* Graphical Sirius Editor and Animator,
+* GEMOC Java Engine (Ie. using a Sequential approach)
+* Model execution with debugging and animation capabilities
+
+The FSM use as example here is a simple State Machine which is able to read a string and read it as tokens and produce another string.
+
+[NOTE]
+====
+In this example, the semantic domain is built as an extension of the syntaxic domain and is merged in a single ecore file.
+
+This might not be the case for all languages where the semantic domain may be structurally different from the semantic domain. 
+==== 
+
+You can either install and play with the example or reproduce it yourself from scratch by following the <<K3FSM-example-DIY>> instructions
+
+[TIP]
+====
+The sources of these projects are also available online on https://github.com/eclipse/gemoc-studio/tree/master/official_samples/K3FSM[Github].   
+====
+
+=== Installation
+
+Install the projects of this language:
+
+- File -> new  -> Examples... -> GEMOC K3 FSM Language example (Sequential)
+
+Create and start an eclipse runtime:
+
+- Run  ->  Run Configurations... -> Eclipse application > new
+
+In the second Eclipse instance.
+
+Install sample models for the language:
+
+- File -> new  -> Examples... -> GEMOC model example for K3 FSM  (Sequential)
+
+Run (actually debug ;-) ) one of the provided model using the predefined launch configurations:
+
+- Run  ->  Debug Configurations... -> Gemoc Sequential eXecutable Model -> one of the K3FSM launch conf such as _K3FSM - TwostatesUpcast(abababa)_.
+
+You can change the string passed to the model in the launch configuration (in the _Model initialization argutments_ field).
+
+
+=== Language structure overview
+The following figure presents :
+
+* the metamodel _k3fsm_ content;
+* how the aspects in _k3fsm.k3dsa_ extends the base classes to add operations;
+
+
+
+[[img-K3FSM_classes]]
+.K3FSM Metamodel classes and K3 aspects classes.
+image::images/K3FSM/K3FSM_classes.png["K3FSM Metamodel classes and K3 aspects classes."]
+
+		
+[NOTE]
+====
+For simplification of the diagrams, the associations that doesn't represent a containment, are represented as attributes rather than links.
+====
+
+The elements with a green bullet in <<img-K3FSM_classes>> are par of the semantic domain. This is the part of the model that will change  during the execution of a FSM model. Note that some attributes (such as _consummedString_) may not be  mandatory for correct execution but provide nice user feedback in the animation. 
+
+
+[[K3FSM-example-DIY]]
+=== DIY
+
+By following these instructions, you'll be able to reproduce this example from scratch.
+
+NOTE: You may apply some of these steps in a different order. This is only an example of a valid scenario. 
+
+==== Create the Language project
+
+* Open the xDSML perspective
+* Create a GEMOC Sequential xDSML Project named "org.eclipse.gemoc.example.k3fsm.xdsml"( Menu _File -> New -> GEMOC Sequential xDSML Project_) then _Next_ and select _Simple Sequential K3 language project_ -> Finish
+
+==== Create the Domain concepts
+
+* Right click on the project; _GEMOC Language_ ->  _Create Domain Model Project for Language_. Name this new project "org.eclipse.gemoc.example.k3fsm". Optionally adapt the nsUri.
+    ** in the .dsl file, fix the _ecore_ entry by removing `platform:/resource/ecoreFilePath,` from the value.
+* Edit the ecore file and add the concepts corresponding to the syntaxic domain (ie. reproduce concepts of <<img-K3FSM_syntaxic_domain_figure>>).
+
+[[img-K3FSM_syntaxic_domain_figure]]
+.FSM Syntaxic domain.
+image::images/K3FSM/DIY/K3FSM_syntaxic_domain.png["FSM Syntaxic domain."]
+
+* In the _org.eclipse.gemoc.example.k3fsm project_, open the *genmodel* file, 
+    ** change the File extensions for the model to `k3fsmxmi`  (on the package: K3fsm -> K3fsm -> section Model)    
+    ** Right click on the root element then _Generate model code_; _Generate edit code_; _Generate editor code_.
+
+[TIP]
+====
+Variant: You create the ecore project before creating the xDSML project
+
+Menu _File -> New -> Ecore Modeling Project then in the template wizard of the xdsml project creation, browse and select the ecore file in the project.
+====
+
+==== Add Semantics data and Tree Editor
+
+* Edit the ecore, to add the concepts for the semantic domain. Ie. the reference _currentState_, and the attributes _unprocessedString_, _consummedString_, and _producedString_ as presented in <<img-K3FSM_classes>>.
+* Add an EAnnotation _aspect_ on the data that will change during the execution. In the FSM, add the EAnnotation on the reference _currentState_, and the attributes _unprocessedString_, _consummedString_ and, _producedString_ (aspect is the source of the EAnnotation)
+
+* Reload the genmodel and generate the model, edit and editors.
+
+
+==== Add Textual Editor
+
+* Rigth clik on the xdsml project; _GEMOC Language_ ->  _Create XText Editor Project for Language_. Add the genmodel to the list of EPackages; Name this new project "org.eclipse.gemoc.example.k3fsm.xtext"; use "org.eclipse.gemoc.example.k3fsm.K3FSM" as name for the language, and "k3fsm" as extensions.
+   ** in the xtext editor:
+   *** change the import from "http://www.eclipse.org/gemoc/example/k3fsm" to
+"platform:/resource/org.eclipse.gemoc.example.k3fsm/model/k3fsm.ecore"
+   *** comment out the line about _incomingTransitions_ (useless as this is a bidirectionnal reference and as we use _target_ to store this information)
+   *** in the _GenerateK3FSM.mwe2_ file, verify that then genmodel is referenced with a correct uri; someting like this `referencedResource = "platform:/resource/org.eclipse.gemoc.example.k3fsm/model/k3fsm.genmodel"`
+   *** right click; _Run As_ -> _MWE2 Workflow_
+   
+   ** correct the launch configuration generated by xtext:
+   *** Run -> Run Configuration... 
+   **** find the configuration named "Launch Runtime Eclipse" and rename it in order to distinguish it from other xtext projects, (for example "Launch Runtime Eclipse for k3fsm")
+   **** change the "Run a product" from `org.eclipse.platform.ide` to `org.eclipse.gemoc.gemoc_studio.branding.gemoc_studio`
+
+==== Add Semantics operations
+
+* Rigth clik on the xdsml project; _GEMOC Language_ ->  _Create DSA Project for Language_. Next -> Select "User Ecore Basic Aspect"; Set "Aspet file name" to "K3FSMAspects".
+
+    ** in the .dsl file, fix the _k3_ entry by removing `qualified.class.name,` from the value.
+    ** edit the k3fsmAspect.xtend file and add the following methods in the aspects:
+    
+
+[source,k3,indent=0]
+-------------------------------------------
+include::../language_workbench/org.eclipse.gemoc.example.k3fsm.k3dsa/src/org/eclipse/gemoc/example/k3fsm/k3dsa/k3fsmAspects.xtend[]
+-------------------------------------------
+
+<1> a method with _@InitializeModel_ annotation in order to use the launch configuration parameters to set up the runtime data when the model execution starts.
+<2> a method with _@Main_ annotation that will be used to start the execution.
+<3> a method with the _@Step_ annotation that will be observable (ie. the debugger can do a pause when a object instance of this class call this method).
+<4>  another method with the _@Step_ annotation that will be observable
+    
+-
+
+    ** Verify that the project _org.eclipse.gemoc.example.k3fsm.xdsml_ has a dependency to the project that contains the K3 aspects ( _org.eclipse.gemoc.example.k3fsm.k3dsa_)
+    
+    
+==== Add Graphical Editor
+    
+    * Create a project for the graphical editor: File -> New -> Viewpoint Specification Project 
+    
+    * Create a representation for edition
+    ** Change viewpoint name to "K3FSMViewPoint", label "K3FSM"
+    ** New Diagram representation; set the ID to "FSM", add the k3fsm.ecore to the list of metamodels; set the domain class to the FSM class. In Advanced, set the title expression to "feature:name"
+    ** in the Default layer; _New Diagram Element_ -> _Container_; ID = "StateContainer"; Domain class = "State"; Semantic candidate expression = `[self.ownedStates/]`
+    *** on the _StateContainer_; _New Style_ -> _Gradient_ 
+    *** on the _StateContainer_; _New Contitional style_;  Predicate expression = `[self.eContainer().oclAsType(FSM).initialState = self/]`; create another gradient in it and set a border size to 4.
+    ** in the Default layer; _New Diagram Element_ -> _Element Based Edge_; ID = "TranditionEdge"; Domain class = "Transition"; Source mapping = "StateContainer"; source finder expression = `[self.source/]`; target Mapping = "StateContainer"; Target Finder Expression = `[self.target/]`
+    *** On _TranditionEdge_/ Edge Style solid, verify the decorators, No decoration for source arrow, and InputArrow for Target Arrow
+    *** On _TranditionEdge_/ _Edge Style solid_ / _Center Label Style 8_; Label Expression = `aql:self.getLabel()`
+    ** Open the file _org.eclipse.gemoc.example.k3fsm.design.Services_; add a method: (use Eclipse quick fix to add the import to 
+`import org.eclipse.gemoc.example.k3fsm.Transition;` )
+
+
+[source,java]
+------
+public String getLabel(Transition transition) {
+	final StringBuilder res = new StringBuilder();
+
+	res.append(transition.getName());
+	res.append("\n");	
+	res.append("");
+	res.append(transition.getInput());
+	res.append(" / ");
+	res.append(transition.getOutput());	
+	return res.toString();
+}
+------
+    
+==== Add Animation and Debug capabilities to the graphical editor
+
+Debug capabilities (breakpoint support, basic highlighting, ...)
+
+    * Add debug capabilities to the graphical editor: Rigth clik on the xdsml project; _GEMOC Language_ ->  _Create Animator Project for Language_. Select _Add a debug layer to an existing diagram description_ -> Next -> Select your diagram (_FSM_) -> Next -> Finish
+    
+Domain specific animation
+    
+    * in the _k3fsm.odesign_ file; on the diagram _FSM_ -> _New Diagram element_ -> _Additional layer_ ; ID = "Animation";
+    ** on the animation layer; _New Diagram element_ -> _Decorations_; then _New_ -> _Mapping based decoration_; Name = "Current State"; Mapping =StateContainer; Image Expression = "/org.eclipse.gemoc.example.k3fsm.design/icons/cursor-3-24.png"; Precondition Expression = `service:self.isCurrenState`;
+    ** add an image named _cursor-3-24.png_ in the icons folder of the design project.
+    *** in the plugin.xmlfile editor, add the icons folder to the binary build (ie. in the _bin.includes_ section of build.properties file) .
+    * in the _k3fsm.odesign_ file; in FSM Palette; add a _User fixed color_; name = _hasBeenAnimated_; select a color (pink for example)
+    ** in the _Animation_ layer; _New Customization_ -> _Style Customizations_; then _New Customization_ -> _Style Customization_; Predicate expression = `service:self.hasBeenActivated`
+    ** in this Customization; _New Customization_ -> _Property customization by selection_; applied on = "TransitionEdge > Edge Style solid"; Property Name = `strokeColor`, Value Selection = `hasBeenAnimated`
+    ** in this Customization; _New Customization_ -> _Property customization by selection_; applied on = (all Gradient stuff related to StateContainer) ; Property Name = `borderColor`, Value Selection = `hasBeenAnimated`
+    
+    * in K3FSMViewPoint; _New Extension_ -> _Java Extension_; Qualified Class Name = `org.eclipse.gemoc.example.k3fsm.design.services.FsmAnimatorServices`
+    
+    * add a new class _org.eclipse.gemoc.example.k3fsm.design.services.FsmAnimatorServices_ that extends _org.eclipse.gemoc.executionframework.extensions.sirius.services.AbstractGemocAnimatorServices_ with th following content:
+    
+[source,java]
+-------------------------------------------
+include::../language_workbench/org.eclipse.gemoc.example.k3fsm.design/src/org/eclipse/gemoc/example/k3fsm/design/services/FsmAnimatorServices.java[tags=FsmAnimatorServicesClass]
+-------------------------------------------
+<1> declaration of animations layers that must be automatically enabled when launching an execution 
+<2> addition of a service that is used in the odesign (see the mapping based decoration named "Current State" in the "Animation" layer)
+
+
+Also add the line `res.add(new StringCouple("FSM", "Animation"));` in the getRepresentationRefreshList() method of  FsmDebugServices.java
+    
+    ** in the _Animation_ layer; _New Diagram Element_  -> _Container_; ID = "FSMRuntimeDataContainer"; Domain Class = FSM; Semantic Candidate Expression = `[self/]`; Children Representation = List;
+    *** on _FSMRuntimeDataContainer_; _New Style_ -> _Gradient_; with label/Label expression = `aql:self.name+ ' processing status'`
+    *** on _FSMRuntimeDataContainer_; _New Diagram Element_ -> _Sub Node_; with Id = _StringToProcess_; Domain class = FSM; Semantic Candidate Expression = `[self/]`
+    **** on _StringToProcess_; _New Style_ -> _Basic shape_; with Label/LabelExpression = `aql:' string to process: '+self.unprocessedString`; uncheck "show icon"; Label Alignment = left;
+    
+Repeat the above steps about "_StringtoProcess_/unprocessedString" and adapt to "_ProducedString_/producedString" to create another element in the list for tthis other data
+    
+    
+
+ 
+
+ 

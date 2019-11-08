@@ -35,7 +35,7 @@ import org.eclipse.gemoc.gemoc_studio.branding.discovery.wizards.DiscoveryWizard
 
 public class GemocPackageDiscovery extends DiscoveryContentProvider {
 
-	private static final String CATALOG_URI = "http://gemoc.org/discovery/catalog.xmi";
+	private static final String CATALOG_URI = "http://gemoc.org/discovery/gemoc_3.1.x/catalog.xmi";
 
 	@Override
 	public DiscoveryDefinition load(final IProgressMonitor monitor)

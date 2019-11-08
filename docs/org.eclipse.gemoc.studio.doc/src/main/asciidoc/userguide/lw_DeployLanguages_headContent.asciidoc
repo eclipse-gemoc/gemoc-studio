@@ -9,9 +9,9 @@ endif::[]
 footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/userguide/lw_DeployLanguages_headContent.asciidoc.]
 
 
-Eclipse propose several way to deploy and distribute the language created using the GEMOc approach. The most appropriate method will depent on the main usage.
+Eclipse propose several way to deploy and distribute the language created using the GEMOc approach. The most appropriate method will depend on the main usage.
 
-Basicaly it consist in launching the plugins of the language using PDE (Plugin Development Environment) offerd by Eclipse. 
+Basically, it consists in launching the plugins of the language using PDE (Plugin Development Environment) offered by Eclipse. 
 
 Some Eclipse articles describe this process:
 

@@ -28,12 +28,8 @@
 
         <!-- feature and update site -->
         <module>releng/org.eclipse.gemoc.sequential.samples.deployers.feature</module>
-        <module>releng/org.eclipse.gemoc.samples.deployers.repository</module>
     </modules>
 
-	<properties>
-		<xtend.version>2.8.2</xtend.version>
-	</properties>
     <build>
 		<plugins>
 			<plugin>
@@ -54,4 +50,5 @@
 		</plugins>
 	</build>
  
+    <version>3.1.0-SNAPSHOT</version>
 </project>

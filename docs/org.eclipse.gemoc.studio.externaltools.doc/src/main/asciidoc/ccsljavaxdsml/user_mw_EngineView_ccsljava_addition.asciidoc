@@ -1,0 +1,47 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+= GEMOC Modeling workbench User guide
+
+== Execute, animate and debug models
+
+=== Execute a model
+
+==== Control engine execution
+
+===== Engine View
+endif::[]
+
+
+[[userguide-mw-control-engine-execution-engine-view-ccsljava-addition]]
+====== CCSLJava addition to Engine View 
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/ccsljavaxdsml/user_mw_EngineView_ccsljava_addition.asciidoc.]
+
+
+The CCSLJava engine adds some commands to the Engine view.
+
+[[img-engine-view-ccsljava-addition]]
+.CCSLJava addition to Engine View 
+image::images/workbench/modeling/engine_view_ccsljava_addition.png[CCSLJava addition to Engine View, 400]
+
+It adds a new button (represented as a shield on top right of <<img-engine-view-ccsljava-addition>>) that allows
+to change the current Logical Step decider used by the CCSLJava engine.
+
+[TIP]
+====
+When running a model, You can easily "pause" the engine running with a solver or random decider 
+by clicking on the change logical step decider (the shield button will be green when run in debug mode) 
+this will automatically switch to the "Step by step decider". To restart, simply select back an automatic 
+decider (solver or random) and select the next step in the <<mw-executing-concurrent-model-logical-steps-view-section, LogicalStep view>>.
+====
+
+[WARNING]
+====
+Even if they both pause the execution, choosing a "Step by step decider" is currently different 
+from the "suspend" of a breakpoint from the <<userguide-mw-debug-commands-view, Debug commands>>. The former ask the user for a decision about the logical step to execute and the later
+suspends the execution in order to analyze it. 
+
+Help is welcome to contribute a way to align them.
+====

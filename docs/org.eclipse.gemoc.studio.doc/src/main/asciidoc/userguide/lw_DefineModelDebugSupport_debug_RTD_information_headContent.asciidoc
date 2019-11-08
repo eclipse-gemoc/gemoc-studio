@@ -1,0 +1,43 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+== Language Workbench User Guide
+=== Provide language with tools
+=== Define model debug support
+==== Define model debug RTD information
+endif::[]
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/userguide/lw_DefineModelDebugSupport_debug_step_information_headContent.asciidoc.]
+
+Debug RunTime Data information used by the views in the Debug perspective 
+are driven by the declaration of which data in the model can change during the model execution
+with regard to the part of the model that do not change.
+
+Basically, this means that the elements in ecore of the language that can change during the execution
+ must be annotated with *aspect* annotation.
+
+The elements tagged with this will be treated as mutable and used by the various part of the studio
+ when deployed in the modeling workbench.
+This includes for example the <<userguide-mw-variables-view, Variables view>>, the 
+ <<userguide-mw-multidimentional-timeline-view, MultiDimentional timeline view>>, the trace, ...
+ 
+[[figure-model-debug-RTD-using-aspect-annotation]]
+.Model debug RTD using aspect annotation in k3fsm.ecore.
+image::images/userguide/workbench/language/model_debug_RTD_using_aspect_annotation_in_k3fsm_ecore.png[Model debug RTD using aspect annotation in k3fsm.ecore, 400] 
+
+
+
+<<figure-model-debug-RTD-using-aspect-annotation>> shows a basic usage of this annotation on the example <<K3FSM-example>>
+and its effect on the Variables view and Multidimentional Timeline view in <<figure-model-debug-RTD-using-aspect-annotation-effect-in-mwb>>.
+
+[[figure-model-debug-RTD-using-aspect-annotation-effect-in-mwb]]
+.Aspect annotation effect in Modeling workbench.
+image::images/userguide/workbench/modeling/model_debug_RTD_using_aspect_annotation_in_k3fsm_effect_in_mwb.png[aspect annotation effect in modeling workbench, 500] 
+
+  
+NOTE: Melange can help to set these annotations. If you are using Melange in order to generate the executable language from a non executable ecore then
+ this annotation is automatically added for you on every element added thanks to aspects. 
+ 
+ 
+ 

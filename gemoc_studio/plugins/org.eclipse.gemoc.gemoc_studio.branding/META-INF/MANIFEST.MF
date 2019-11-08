@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Gemoc Studio
+Bundle-Name: GEMOC Studio
 Bundle-SymbolicName: org.eclipse.gemoc.gemoc_studio.branding;singleton:=true
-Bundle-Version: 3.0.0.qualifier
+Bundle-Version: 3.2.0.qualifier
 Bundle-Vendor: GEMOC
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.core.runtime,
@@ -21,3 +21,5 @@ Bundle-Activator: org.eclipse.gemoc.gemoc_studio.branding.Activator
 Bundle-ActivationPolicy: lazy
 Export-Package: org.eclipse.gemoc.gemoc_studio.branding,
  org.eclipse.gemoc.gemoc_studio.branding.handlers
+Automatic-Module-Name: org.eclipse.gemoc.gemoc_studio.branding
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8

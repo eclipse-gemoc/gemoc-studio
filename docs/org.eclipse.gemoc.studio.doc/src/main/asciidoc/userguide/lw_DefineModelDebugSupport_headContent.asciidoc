@@ -1,0 +1,24 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+== Language Workbench User Guide
+=== Provide language with tools
+=== Define model debug support
+endif::[]
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/userguide/lw_DefineModelDebugSupport_headContent.asciidoc.]
+
+Providing debug support for a language mainly consist in offering 2 main features:
+
+* the possibility to suspend/resume/step in the model execution. This includes the possibility to have breakpoints 
+to indicates when a model execution should suspend.
+* and look at the model content when suspended. 
+
+This debug support is enabled only when the model is executed in *Debug mode*.
+
+NOTE: Visual effects and animations related to the debug must not be confused with animations 
+that are supposed to occurs even in *Run mode* (see <<userguide-lw-define-model-animation>>).
+
+ 
+ 

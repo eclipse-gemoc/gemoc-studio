@@ -13,7 +13,7 @@
 <feature
       id="org.eclipse.gemoc.sequential.samples.deployers.feature"
       label="GEMOC Official Samples"
-      version="3.0.0.qualifier"
+      version="3.1.0.qualifier"
       provider-name="%providerName"
       image="gemocstudio32.png">
 

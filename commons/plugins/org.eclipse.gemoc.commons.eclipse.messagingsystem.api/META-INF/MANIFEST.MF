@@ -13,4 +13,5 @@ Export-Package: org.eclipse.gemoc.commons.eclipse.messagingsystem.api,
  org.eclipse.gemoc.commons.messagingsystem.api.reference,
  org.eclipse.gemoc.commons.messagingsystem.api.result
 Bundle-Activator: org.eclipse.gemoc.commons.eclipse.messagingsystem.api.Activator
+Automatic-Module-Name: org.eclipse.gemoc.commons.eclipse.messagingsystem.api
 

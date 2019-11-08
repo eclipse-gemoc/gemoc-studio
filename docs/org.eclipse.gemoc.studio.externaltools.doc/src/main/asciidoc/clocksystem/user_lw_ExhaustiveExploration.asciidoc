@@ -9,7 +9,7 @@ endif::[]
 [[section-exhaustive-exploration-lw]]
 === Exhaustive Exploration and Verification at Language Design Time
 
-footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/ccsljavaxdsml/GuideLW_ExhaustiveExploration_Section.asciidoc.]
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/clocksystem/user_lw_ExhaustiveExploration.asciidoc.]
 
 One benefit of assigning an execution semantics onto a DSL is to pave the way for exhaustive exploration. Exhaustive exploration is a technique used in complex and safety system design to ensure the correct adequacy between the system requirements and the real behavior of the system. This is made possible by exploring and verifying properties on an exhaustive finite state space of the system representing the whole set of relevant configurations your system may reach. 
 

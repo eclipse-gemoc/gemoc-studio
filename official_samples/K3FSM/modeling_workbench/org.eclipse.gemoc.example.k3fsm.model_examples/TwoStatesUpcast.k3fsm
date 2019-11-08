@@ -1,0 +1,23 @@
+FSM TwoStateUpcast {
+ initialState S1
+ ownedStates {
+ 	State S1 {
+ 		outgoingTransitions {
+ 			Transition "S1_2" {
+ 				input "a"
+ 				output "A"
+ 				target S2
+ 			}
+ 		}
+ 	},
+ 	State S2 {
+ 		outgoingTransitions {
+ 			Transition S2_1 {
+ 				input "b"
+ 				output "B"
+ 				target S1
+ 			}
+ 		}
+ 	}
+ }
+}

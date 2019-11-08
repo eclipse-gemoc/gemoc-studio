@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" name="k3fsm" version="12.0.0.2017041100">
+  <ownedViewpoints name="K3FSMViewpoint" label="K3FSM">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="FSM" titleExpression="feature:name" initialisation="true" domainClass="k3fsm::FSM" enablePopupBars="true">
+      <metamodel href="../../org.eclipse.gemoc.example.k3fsm/model/k3fsm.ecore#/"/>
+      <defaultLayer name="Default">
+        <edgeMappings name="TransitionEdge" sourceMapping="//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='StateContainer']" targetMapping="//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='StateContainer']" targetFinderExpression="[self.target/]" sourceFinderExpression="[self.source/]" domainClass="k3fsm::Transition" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelExpression="aql:self.getLabel()">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="StateContainer" semanticCandidatesExpression="[self.ownedStates/]" domainClass="k3fsm::State">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+          <conditionnalStyles predicateExpression="[self.eContainer().oclAsType(FSM).initialState = self/]">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="4">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </conditionnalStyles>
+        </containerMappings>
+      </defaultLayer>
+      <additionalLayers name="Debug" activeByDefault="true">
+        <toolSections name="Debug">
+          <ownedTools xsi:type="tool:PopupMenu" name="Gemoc">
+            <menuItemDescription xsi:type="tool:OperationAction" name="Debug" icon="/org.eclipse.gemoc.executionframework.extensions.sirius/icons/debug_exc.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:ExternalJavaAction" name="Debug" icon="/org.eclipse.gemoc.executionframework.extensions.sirius/icons/debug_exc.gif" id="org.eclipse.gemoc.execution.sequential.javaengine.ui.debug.sirius.action.gemocDebugAs"/>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool:OperationAction" name="Toggle breakpoint" icon="/org.eclipse.gemoc.executionframework.extensions.sirius/icons/debug_exc.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:ExternalJavaAction" name="Toggle Gemoc breakpoint" icon="/org.eclipse.gemoc.executionframework.extensions.sirius/icons/breakpoint.gif" id="org.eclipse.gemoc.execution.sequential.javaengine.ui.debug.sirius.action.GemocSequentialToggleBreakpointAction"/>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool:OperationAction" name="Toggle conditional breakpoint" icon="/org.eclipse.gemoc.executionframework.extensions.sirius/icons/debug_exc.gif">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:ExternalJavaAction" name="Toggle Gemoc conditional breakpoint" icon="/org.eclipse.gemoc.executionframework.extensions.sirius/icons/breakpoint.gif" id="org.eclipse.gemoc.execution.sequential.javaengine.ui.debug.sirius.action.GemocSequentialToggleConditionalBreakpointAction"/>
+              </initialOperation>
+            </menuItemDescription>
+          </ownedTools>
+        </toolSections>
+        <decorationDescriptionsSet>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="Enabled breakpoint" position="WEST" preconditionExpression="service:self.hasEnabledBreakpoint" imageExpression="/org.eclipse.gemoc.executionframework.extensions.sirius/icons/breakpoint_enabled.gif" mappings="//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='TransitionEdge'] //@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='StateContainer']"/>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="Disabled breakpoint" position="WEST" preconditionExpression="service:self.hasDisabledBreakpoint" imageExpression="/org.eclipse.gemoc.executionframework.extensions.sirius/icons/breakpoint_disabled.gif" mappings="//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='TransitionEdge'] //@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='StateContainer']"/>
+        </decorationDescriptionsSet>
+        <customization>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="service:self.isCurrentInstruction">
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="borderColor" value="//@userColorsPalettes[name='FSM%20Palette']/@entries[name='current%20instruction']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="strokeColor" value="//@userColorsPalettes[name='FSM%20Palette']/@entries[name='current%20instruction']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" applyOnAll="true" referenceName="labelColor" value="//@userColorsPalettes[name='FSM%20Palette']/@entries[name='current%20instruction']"/>
+          </vsmElementCustomizations>
+        </customization>
+      </additionalLayers>
+      <additionalLayers name="Animation">
+        <containerMappings name="FSMRuntimeDataContainer" semanticCandidatesExpression="[self/]" domainClass="FSM" childrenPresentation="List">
+          <subNodeMappings name="StringToProcess" semanticCandidatesExpression="[self/]" domainClass="FSM">
+            <style xsi:type="style:BundledImageDescription" showIcon="false" labelExpression="aql:' string to process: '+self.unprocessedString" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="ProducedString" semanticCandidatesExpression="[self/]" domainClass="FSM">
+            <style xsi:type="style:BundledImageDescription" showIcon="false" labelExpression="aql:' produced string: '+self.producedString" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelExpression="aql:self.name+ ' processing status'">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+        <decorationDescriptionsSet>
+          <decorationDescriptions xsi:type="description_1:MappingBasedDecoration" name="Current State" position="SOUTH_EAST" preconditionExpression="service:self.isCurrentState" imageExpression="/org.eclipse.gemoc.example.k3fsm.design/icons/cursor-3-24.png" mappings="//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='StateContainer']"/>
+        </decorationDescriptionsSet>
+        <customization>
+          <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="service:self.hasBeenActivated">
+            <featureCustomizations xsi:type="description:EReferenceCustomization" appliedOn="//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='TransitionEdge']/@style" referenceName="strokeColor" value="//@userColorsPalettes[name='FSM%20Palette']/@entries[name='hasBeenAnimated']"/>
+            <featureCustomizations xsi:type="description:EReferenceCustomization" appliedOn="//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='StateContainer']/@conditionnalStyles.0/@style //@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='StateContainer']/@style" referenceName="borderColor" value="//@userColorsPalettes[name='FSM%20Palette']/@entries[name='hasBeenAnimated']"/>
+          </vsmElementCustomizations>
+        </customization>
+      </additionalLayers>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.gemoc.example.k3fsm.design.Services"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.gemoc.example.k3fsm.design.services.FsmDebugServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.gemoc.example.k3fsm.design.services.FsmAnimatorServices"/>
+  </ownedViewpoints>
+  <userColorsPalettes name="FSM Palette">
+    <entries xsi:type="description:UserFixedColor" red="227" green="227" blue="27" name="current instruction"/>
+    <entries xsi:type="description:UserFixedColor" red="255" green="192" blue="203" name="hasBeenAnimated"/>
+  </userColorsPalettes>
+</description:Group>

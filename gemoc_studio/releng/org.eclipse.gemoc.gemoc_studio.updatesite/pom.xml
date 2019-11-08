@@ -1,34 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-   Copyright (C) 2011, 2016 Obeo
-
-   Cedric Brun <cedric.brun@obeo.fr>
--->
+<!-- Copyright (C) 2011, 2016 Obeo Cedric Brun <cedric.brun@obeo.fr> -->
 
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>org.eclipse.gemoc.gemoc_studio</groupId>
-        <artifactId>org.eclipse.gemoc.gemoc_studio.parent</artifactId>
-        <version>3.0.0-SNAPSHOT</version>
-        <relativePath>../..</relativePath>
-    </parent>
+	<parent>
+		<groupId>org.eclipse.gemoc.gemoc_studio</groupId>
+		<artifactId>org.eclipse.gemoc.gemoc_studio.parent</artifactId>
+		<version>3.2.0-SNAPSHOT</version>
+		<relativePath>../..</relativePath>
+	</parent>
 
-    <artifactId>org.eclipse.gemoc.gemoc_studio.updatesite</artifactId>
-    <packaging>eclipse-repository</packaging>
+	<artifactId>org.eclipse.gemoc.gemoc_studio.updatesite</artifactId>
+	<packaging>eclipse-repository</packaging>
 	<build>
-	   <plugins>
-	      <plugin>
-	         <groupId>org.eclipse.tycho</groupId>
-	         <artifactId>tycho-p2-repository-plugin</artifactId>
-	         <version>${tycho-version}</version>
-	         <configuration>
-	            <includeAllDependencies>true</includeAllDependencies>
-	         </configuration>
-	      </plugin>
-	   </plugins>
+		<resources>
+			<resource>
+				<directory>src/main/filtered-resources</directory>
+				<filtering>true</filtering>
+				<targetPath>${project.build.directory}/</targetPath>
+			</resource>
+		</resources>
+		<plugins>
+			<!-- create a timestamp for the filter -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>buildnumber-maven-plugin</artifactId>
+				<version>1.4</version>
+				<executions>
+					<execution>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>create-timestamp</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<timestampFormat>yyyy-MM-dd HH:mm, z</timestampFormat>
+					<timestampPropertyName>timestamp</timestampPropertyName>
+					<timezone>UTC</timezone>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-repository-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<includeAllDependencies>true</includeAllDependencies>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-director-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<executions>
+					<execution>
+						<id>materialize-products</id>
+						<goals>
+							<goal>materialize-products</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>archive-products</id>
+						<goals>
+							<goal>archive-products</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+				<products>
+					<product>
+						<!-- select product with ID product.id; the archives get the classifiers 
+							"<os>.<ws>.<arch>" -->
+						<id>gemoc_studio</id>
+					</product>
+					<product>
+						<!-- select product with ID other.product.id for the classifiers "other-<os>.<ws>.<arch>" -->
+						<id>gemoc_studio_headless</id>
+						<attachId>_headless</attachId>
+					</product>
+				</products>
+			  </configuration>
+			</plugin>
+			<!-- patch for problem of "Error - 7 icon(s) not replaced in ... using 
+				..." see http://dev.eclipse.org/mhonarc/lists/tycho-user/msg00379.html -->
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.5</version>
+				<executions>
+					<execution>
+						<id>copy-resources</id>
+						<!-- here the phase you need -->
+						<phase>process-resources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/products/${project.artifactId}</outputDirectory>
+							<resources>
+								<resource>
+									<directory>images</directory>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
 	</build>
 </project>

@@ -51,7 +51,10 @@
 
     <build>
         <plugins>
-        
+        	<!-- warning the order is important see https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html section default lifecycle -->
+        	<!--  must be done in the following order: asciidoctor-maven-plugin, plantuml-maven-plugin, docbkx-maven-plugin, replacer -->
+        	<!--  becareful to the ones in the profiles -->
+        	<!-- you can use mvn fr.jcgay.maven.plugins:buildplan-maven-plugin:list-phase cf. https://stackoverflow.com/questions/41493359/visualize-all-maven-phases-goals-profiles-and-plugins to check the order -->
             <!-- Generate a docbook xml file from the asciidoc files -->
              <plugin>
                 <groupId>org.asciidoctor</groupId>
@@ -60,7 +63,7 @@
                 <executions>
                     <execution>
                         <id>output-docbook</id>
-                        <phase>generate-resources</phase>
+                        <phase>process-sources</phase>
                         <goals>
                             <goal>process-asciidoc</goal>
                         </goals>
@@ -99,7 +102,28 @@
 							    </resource>
 							    <!-- Images and resources coming from external plugins/contributions -->
 							    <resource>
-							        <directory>${basedir}/../../../gemoc-studio-modeldebugging/simulationmodelanimation/plugins/org.eclipse.gemoc.dsl.debug.ide.sirius.ui/docs/asciidoc//images</directory>
+							        <directory>${basedir}/../../../gemoc-studio-modeldebugging/simulationmodelanimation/plugins/org.eclipse.gemoc.dsl.debug.ide.sirius.ui/docs/asciidoc/images</directory>
+							        <targetPath>images</targetPath>
+							    </resource>
+							    <resource>
+							        <directory>${basedir}/../../../gemoc-studio-modeldebugging/framework/execution_framework/plugins/org.eclipse.gemoc.executionframework.ui/docs/asciidoc/images</directory>
+							        <targetPath>images</targetPath>
+							    </resource>
+							    <resource>
+							        <directory>${basedir}/../../../gemoc-studio-modeldebugging/framework/execution_framework/plugins/org.eclipse.gemoc.executionframework.debugger.ui/docs/acsiidoc/images</directory>
+							        <targetPath>images</targetPath>
+							    </resource>
+							    <resource>
+							        <directory>${basedir}/../../../gemoc-studio-modeldebugging/framework/xdsml_framework/plugins/org.eclipse.gemoc.xdsmlframework.extensions.sirius/docs/asciidoc//images</directory>
+							        <targetPath>images</targetPath>
+							    </resource>
+							    
+							    <resource>
+							        <directory>${basedir}/../../../gemoc-studio-modeldebugging/java_execution/java_engine/plugins/org.eclipse.gemoc.execution.sequential.javaengine.ui/docs/asciidoc/images</directory>
+							        <targetPath>images</targetPath>
+							    </resource>
+							    <resource>
+							        <directory>${basedir}/../../../gemoc-studio-modeldebugging//trace/manager/plugins/org.eclipse.gemoc.addon.multidimensional.timeline/docs/asciidoc/images</directory>
 							        <targetPath>images</targetPath>
 							    </resource>
 							    <resource>
@@ -115,9 +139,21 @@
 							        <targetPath>images</targetPath>
 							    </resource>
 							    <resource>
-							        <directory>${basedir}/../../official_samples/sample.deployers/plugins/org.eclipse.gemoc.sequential.language.wb.sample.deployer/docs//images</directory>
+							        <directory>${basedir}/../../official_samples/MelangeK3FSM/docs/images</directory>
 							        <targetPath>images</targetPath>
-							    </resource>							    
+							    </resource>	
+							    <resource>
+							        <directory>${basedir}/../../official_samples/K3FSM/docs/images</directory>
+							        <targetPath>images</targetPath>
+							    </resource>
+							    <resource>
+							        <directory>${basedir}/../../official_samples/sample.deployers/plugins/org.eclipse.gemoc.sequential.language.wb.sample.deployer/docs/images</directory>
+							        <targetPath>images</targetPath>
+							    </resource>				    
+							    <resource>
+							        <directory>${basedir}/../../../gemoc-studio-modeldebugging/simulationmodelanimation/docs/dev/images</directory>
+							        <targetPath>images</targetPath>
+							    </resource>						    
 							    <resource>
 							        <directory>${basedir}/../../../gemoc-studio-modeldebugging/framework/execution_framework/docs/dev/images</directory>
 							        <targetPath>images</targetPath>
@@ -134,51 +170,21 @@
 							        <directory>${basedir}/../../../gemoc-studio-modeldebugging/java_execution/docs/dev/images</directory>
 							        <targetPath>images</targetPath>
 							    </resource>
+							    <resource>
+							        <directory>${basedir}/../../../gemoc-studio-execution-ale/docs/dev/images</directory>
+							        <targetPath>images</targetPath>
+							    </resource>
+							    
+							    <resource>
+							        <directory>${basedir}/../../../gemoc-studio-execution-moccml/examples/moccmlSigPML/docs/images</directory>
+							        <targetPath>images</targetPath>
+							    </resource>
 							</resources>
 		                </configuration>
                     </execution>
                  </executions>
             </plugin>
             
-            <!-- collect images from included document parts -->
-            <!--  TODO -->
-            
-            
-            <!-- generate the images from plantUMl -->
-			<plugin>
-				<groupId>com.github.jeluard</groupId>
-				<artifactId>plantuml-maven-plugin</artifactId>
-				<version>1.2</version>
-				<executions>
-					<execution>
-						<id>output-plantuml</id>
-						<phase>generate-resources</phase>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<!-- <outputDirectory>${basedir}/target/plantuml</outputDirectory> -->
-					<outputInSourceDirectory>true</outputInSourceDirectory>
-					<verbose>true</verbose>
-					<sourceFiles>
-						<directory>${basedir}</directory>
-						<includes>
-							<include>target/generated-docbook/**/*.plantuml</include>
-						</includes>
-					</sourceFiles>
-				</configuration>
-				<dependencies>
-					<dependency>
-						<groupId>net.sourceforge.plantuml</groupId>
-						<artifactId>plantuml</artifactId>
-						<version>8054</version>
-					</dependency>
-				</dependencies>
-			</plugin>  
-
-
 			<!-- docbook generation part -->
 			<plugin>				
 				<groupId>com.agilejava.docbkx</groupId>
@@ -366,4 +372,88 @@
 
         </plugins>
     </build>
+    <profiles>
+    	<profile>
+    		<!-- if  the build is slow due to https://github.com/eclipse/gemoc-studio/issues/152 -->
+    		<!-- you can disable this profile in the launcher using the following "!plantuml"  or "-P !plantuml" --> 
+    		<!-- or you may run this maven using the docker environment -->
+    		<id>plantuml</id>
+    		<activation>
+    			<activeByDefault>true</activeByDefault>
+    		</activation>
+    		<build>
+    			<plugins>
+    				<plugin>
+					    <groupId>org.codehaus.gmaven</groupId>                       
+						    <artifactId>groovy-maven-plugin</artifactId>                 
+						    <version>2.0</version>                                       
+						    <executions>                                                 
+						        <execution>
+					            <phase>process-sources</phase>
+					            <goals>
+					                <goal>execute</goal>
+					            </goals>
+					            <configuration>                                      
+					                <source> 
+					                	def pbWithGraphviwVersionversion = false  
+					                	try { 
+					                		def proc = "dot -V".execute();
+					                		def outputStream = new StringBuffer();
+											proc.waitForProcessOutput(outputStream, outputStream);
+											if(outputStream.toString().contains("2.39") || outputStream.toString().contains("2.40")) {
+												pbWithGraphviwVersionversion = true
+												System.err.println(outputStream.toString());
+											} else {
+												println(outputStream.toString());
+											}
+										} catch(Exception e) {
+										}     
+										if(!pbWithGraphviwVersionversion){                                
+						                    log.info('Graphiz check: {}', 'if  the build is slow due to https://github.com/eclipse/gemoc-studio/issues/152')
+						                    log.info('Graphiz check: {}', 'you can disable the "plantuml" profile (using "-P !plantuml") or you may run this maven using the docker environment')
+						                } else {
+						                    log.warn('Graphiz check: {}', 'if  the build is slow due to https://github.com/eclipse/gemoc-studio/issues/152')
+						                    log.warn('Graphiz check: {}', 'you can disable the "plantuml" profile (using "-P !plantuml") or you may run this maven using the docker environment')
+						                }
+					                </source>                                        
+					            </configuration> 
+					        </execution>
+					    </executions>
+					</plugin>
+    				<!-- generate the images from plantUMl -->
+				 	<plugin>
+						<groupId>com.github.jeluard</groupId>
+						<artifactId>plantuml-maven-plugin</artifactId>
+						<version>1.2</version>
+						<executions>
+							<execution>
+								<id>output-plantuml</id>
+								<phase>process-sources</phase>
+								<goals>
+									<goal>generate</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<outputInSourceDirectory>true</outputInSourceDirectory>
+							<verbose>true</verbose>
+							<sourceFiles>
+								<directory>${basedir}</directory>
+								<includes>
+									<include>target/generated-docbook/**/*.plantuml</include>
+								</includes>
+							</sourceFiles>
+						</configuration>
+						<dependencies>
+							<dependency>
+								<groupId>net.sourceforge.plantuml</groupId>
+								<artifactId>plantuml</artifactId>
+								<version>8059</version>
+							</dependency>
+						</dependencies>
+					</plugin>
+    			</plugins>
+    		</build>
+    	</profile>
+    </profiles>
 </project>

@@ -169,7 +169,7 @@ class DslParsingEmptyLineTest {
 	
 	@Test
 	def void melange_generated_empty_lines() {
-		val result = parseHelper.parse("name = org.eclipse.XSFSM\n\n ecore = platform:/resource/org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm/model/XSFSM.ecore\n\n k3 = org.eclipse.gemoc.StateMachineAspect,org.eclipse.gemoc.TransitionAspect\n")
+		val result = parseHelper.parse("name = org.eclipse.XSFSM\n\n ecore = platform:/resource/org.eclipse.gemoc.example.melangek3fsm.xsfsm.xsfsm/model/XSFSM.ecore\n\n k3 = org.eclipse.gemoc.StateMachineAspect,org.eclipse.gemoc.TransitionAspect\n")
 			assertNotNull(result)
 			assertTrue(
 				"eResource.errors not Empty " + result.eResource.errors,
@@ -182,11 +182,11 @@ class DslParsingEmptyLineTest {
 	
 	@Test
 	def void melange_generated_empty_lines2() {
-		val result = parseHelper.parse('''name = org.eclipse.gemoc.sample.legacyfsm.xsfsm.XSFSM
+		val result = parseHelper.parse('''name = org.eclipse.gemoc.example.melangek3fsm.xsfsm.XSFSM
 		
-		 ecore = platform:/resource/org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm/model/XSFSM.ecore
+		 ecore = platform:/resource/org.eclipse.gemoc.example.melangek3fsm.xsfsm.xsfsm/model/XSFSM.ecore
 		
-		 k3 = org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.aspects.StateAspect,org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.aspects.StateMachineAspect,org.eclipse.gemoc.sample.legacyfsm.xsfsm.xsfsm.aspects.TransitionAspect
+		 k3 = org.eclipse.gemoc.example.melangek3fsm.xsfsm.xsfsm.aspects.StateAspect,org.eclipse.gemoc.example.melangek3fsm.xsfsm.xsfsm.aspects.StateMachineAspect,org.eclipse.gemoc.example.melangek3fsm.xsfsm.xsfsm.aspects.TransitionAspect
 		
 '''
 		)
@@ -195,7 +195,7 @@ class DslParsingEmptyLineTest {
 				"eResource.errors not Empty " + result.eResource.errors,
 				result.eResource.errors.isEmpty
 			)
-			assertEquals("org.eclipse.gemoc.sample.legacyfsm.xsfsm.XSFSM", result.name)
+			assertEquals("org.eclipse.gemoc.example.melangek3fsm.xsfsm.XSFSM", result.name)
 			assertTrue("no key named \"ecore\"", result.entries.exists[e|e.key == "ecore"])
 			assertTrue("no key named \"k3\"", result.entries.exists[e|e.key == "k3"])
 		}

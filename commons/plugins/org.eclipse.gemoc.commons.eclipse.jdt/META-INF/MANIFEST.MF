@@ -12,3 +12,4 @@ Bundle-ActivationPolicy: lazy
 Export-Package: org.eclipse.gemoc.commons.eclipse.jdt
 Import-Package: org.eclipse.core.resources
 Bundle-Vendor: INRIA
+Automatic-Module-Name: org.eclipse.gemoc.commons.eclipse.jdt

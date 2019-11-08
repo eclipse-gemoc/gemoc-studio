@@ -1,0 +1,70 @@
+@startuml
+hide stereotype  
+skinparam class {
+	BackgroundColor White
+	ArrowColor Black
+	BorderColor Black
+}
+skinparam package {
+	BackgroundColor #PaleGreen-white
+	roundCorner 30
+	style rectangle
+}
+
+package k3fsm   {
+
+	  class FSM {
+	    name : String
+	    initialState : State
+	    finalState : State
+	    +currentState : State
+	    +unprocessedString : String
+	    +consummedString : String
+	    +producedString : String
+	  }
+	  class State{
+	    name : String
+	    incommingTransitions : Transition
+	  }
+	  class Transition{
+	    name : String
+	    input : String
+	    target : State
+	    output : String
+	  }
+	  FSM *- State : ownedStates
+	  State *- Transition : outgoingTransitions
+
+
+note as N1
+Data structure: the syntaxic domain and 
+semantic domain concepts are merged in 
+the metamodel. Semantic domain concepts 
+are tagged with <b>aspect</b> annotation.
+(shown with a green bullet)
+end note
+	
+}
+
+
+
+package k3fsm.k3dsa   {
+    class FSMAspect << (@,#FF7700) Aspect >>{
+	    run()
+	}
+	class StateAspect << (@,#FF7700) Aspect >>{
+	    step()
+	}
+	class TransitionAspect << (@,#FF7700) Aspect >>{
+	    fire()
+	}
+note as N2
+Operations weaved with K3
+end note
+}
+
+FSM .. FSMAspect  : <
+State .. StateAspect  : <
+Transition .. TransitionAspect  : <
+
+@enduml

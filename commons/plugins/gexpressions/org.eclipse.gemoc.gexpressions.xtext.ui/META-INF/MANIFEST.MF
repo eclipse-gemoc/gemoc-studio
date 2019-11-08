@@ -27,3 +27,4 @@ Export-Package: org.eclipse.gemoc.gexpressions.xtext.ui,
  org.eclipse.gemoc.gexpressions.xtext.ui.outline,
  org.eclipse.gemoc.gexpressions.xtext.ui.quickfix
 Bundle-Activator: org.eclipse.gemoc.gexpressions.xtext.ui.internal.GExpressionsActivator
+Automatic-Module-Name: org.eclipse.gemoc.gexpressions.xtext.ui

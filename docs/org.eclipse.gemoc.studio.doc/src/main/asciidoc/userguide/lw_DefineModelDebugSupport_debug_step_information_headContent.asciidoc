@@ -1,0 +1,36 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+== Language Workbench User Guide
+
+=== Provide language with tools
+
+=== Define model debug support
+
+==== Define model debug step information
+endif::[]
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/userguide/lw_DefineModelDebugSupport_debug_step_information_headContent.asciidoc.]
+
+The debug step information is the information that indicates to the engine when
+it can suspend/resume/step/break in a model execution. 
+
+The information provided here will typically drive the <<userguide-mw-debug-view, Debug view>> (the stack of step frames)
+and the <<userguide-mw-timelines-vie, Timelines>>.
+
+Debug step information used by the views in the Debug perspective are 
+driven by the engine kind.
+
+If the language uses the Java engine (see <<make-sequential-language-executable-section>>), then
+this is the annotation *@Step* that drives the places where the execution can suspend and the stack of steps in the Debug view.
+
+If the language uses the CCSLJava engine (see <<make-concurrent-language-executable-section>>), then
+this is every call to a DSA (defined by event in the ECL file) that can suspend.
+
+NOTE: in the current implementation of the CCSLJava engine, the suspend due to a breakpoint/step on call to a DSA is not aligned with 
+the pause due to the Logical Step Decider which is specific to this engine. (see <<mw-executing-concurrent-model-logical-steps-view-section>>
+and Logical Step Decider button in <<userguide-mw-control-engine-execution-engine-view>>) 
+
+ 
+ 

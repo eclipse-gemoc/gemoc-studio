@@ -1,0 +1,44 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+= GEMOC Modeling workbench User guide
+
+== Execute, animate and debug models
+
+=== Execute a model
+
+endif::[]
+
+[[modeling-workbench-configure-engine-addons-section]]
+==== Configure engines addons (Frontend/backend)
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/userguide/mw_ConfigureEngineAddons.asciidoc.]
+
+GEMOC framework offer to language and/or engine developers the possibility to create Engine Addons (see <<dev-new-addons>>).
+An Engine addon will connect to the running engine and all its data (model, context, etc) in order to provide new features 
+to the end user who run a model (ie. model designer).
+
+These addons may work in the background (for example for recording traces) but can also provide a 
+graphical user interface.
+
+These GUI can then provide dedicated backends or frontends views that respectively display informations from 
+the running model or provide event input to the running model.
+
+The activation or not of an addon is done in the *Engine Addons* tab.
+
+[[img-engine_addons_configuration-userguide]]
+.Selection of addons in the launch configuration tab
+image::images/userguide/workbench/modeling/engine_addons_configuration.png["Selection of addons in the launch configuration tab", 400]
+
+When selected, an addon (and its optional associated views) will be activated in both run and debug mode.
+
+For example in <<img-engine_addons_configuration-userguide>>, selecting the a 
+_MultiDimentional Trace_ addon will enable the storing of the execution trace 
+and thus allow to use the MultiDimentionnal timeline view. 
+In this example, the user has the choice between the _Generic MultiDimentional Trace_ 
+addon and the language specific _k3fsm MultiDimentional Trace_ addon (more efficient) 
+generated thanks to the trace addon generator (see <<defining-multidimensional-trace-project-section>>). 
+
+
+NOTE: If most addons can be used for every languages, some addons may be developed for a single language or for a single engine. 

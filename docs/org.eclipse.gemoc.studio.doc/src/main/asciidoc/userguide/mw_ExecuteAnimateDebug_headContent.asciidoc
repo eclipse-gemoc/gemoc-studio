@@ -3,11 +3,18 @@
 ////////////////////////////////////////////////////////////////
 ifndef::includedInMaster[]
 = GEMOC Modeling workbench User guide
+
 == Execute, animate and debug models
 endif::[]
 
-footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/userguide/mw_ExecuteAnimateDebug_headContent.asciidocc.]
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/userguide/mw_ExecuteAnimateDebug_headContent.asciidoc.]
 
 
 As the GEMOC Studio offer different engines that requires specific configurations, it currently offers one launch configuration per engine.
 The views offered when running or debugging a model may also vary depending on the execution mode and the engine kind.
+
+In <<userguide-mw-execute-a-model>>, you'll learn how to start and stop a model execution. Additionally, some engine may also provide 
+some dedicated control panels and views. 
+<<userguide-mw-animate-a-model>> presents how to enable or disable the animation.
+<<userguide-mw-debug-a-model>> presents how to suspend the execution in order analyze the model during its execution. Thanks to the trace support, 
+in GEMOC, this activity allows to go forward but also backward and analyze several dimensions of the runtime data.   
