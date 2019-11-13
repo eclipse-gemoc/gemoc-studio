@@ -33,7 +33,7 @@
         </repository>
 		<repository>
 			<id>ale</id>
-			<url>http://www.kermeta.org/ale-lang/updates/2019-08-08</url>
+			<url>http://www.kermeta.org/ale-lang/updates/2019-11-13</url>
 			<layout>p2</layout>
 		</repository>
         <repository>
