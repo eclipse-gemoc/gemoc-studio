@@ -164,7 +164,7 @@
    <repository-reference location="http://download.eclipse.org/nebula/snapshot/" enabled="true" />
    <repository-reference location="http://www.i3s.unice.fr/~deantoni/photon/" enabled="true" />
    <repository-reference location="http://www.kermeta.org/k3/update_2018-09-05" enabled="true" />
-   <repository-reference location="http://www.kermeta.org/ale-lang/updates/2019-06-24" enabled="true" />
+   <repository-reference location="http://www.kermeta.org/ale-lang/updates/latest" enabled="true" />
    <repository-reference location="http://melange.inria.fr/updatesite/nightly/update_2019-01-25/" enabled="true" />
    <repository-reference location="http://www.kermeta.org/diverse-commons/updates/latest" enabled="true" />
    <repository-reference location="http://download.eclipse.org/elk/updates/releases/0.4.1/" enabled="true" />
