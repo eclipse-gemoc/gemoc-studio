@@ -26,6 +26,10 @@ First checkout the git repositories :
 ----
 git clone  https://github.com/eclipse/gemoc-studio
 git clone  https://github.com/eclipse/gemoc-studio-modeldebugging
+git clone  https://github.com/eclipse/gemoc-studio-execution-moccml
+git clone  https://github.com/eclipse/gemoc-studio-moccml
+git clone  https://github.com/eclipse/gemoc-studio-execution-ale
+git clone  https://github.com/eclipse/gemoc-studio-execution-java
 ----
 
 Note: the repositories must keep their names (Ie. do not change the destination folder name) as the maven pom file expects to find them at specific locations.
@@ -64,12 +68,39 @@ The build also assemble complementary results:
 
 If you have trouble to reproduce a bug in the CI or want to make sure that the CI will pass, you can run the maven build in a docker that mimic the CI environment.
 
+
+===== build image
+
 To do a full build using docker: go to the docker folder (*/gemoc-studio/dev_support/full_compilation/docker*), then call the command
 
 [source,bourne]
 ----
 docker-compose down && docker-compose up
 ----
+ or
+ 
+[source,bourne]
+----
+docker build -t "gemoc/gemoc-full-compilation:latest" .
+---- 
+
+Changes commited in master branch are automatically built and deployed on docker hub: https://hub.docker.com/r/gemoc/gemoc-full-compilation
+
+
+
+===== Manual launch
+A standard full build is done using the command:
+[source,bourne]
+----
+docker run -it -v $PWD/../../../..:/home/jenkins/src -v $PWD/cache-m2:/home/jenkins/.m2 --user 1000 gemoc/gemoc-full-compilation:latest ./build_gemoc.sh
+---- 
+
+where
+ 
+- $PWD/../../../.. points to the root containing all gemoc sources
+- --user 1000  makes sure to use your user uid (use `id -u` or `echo $UID`to get yours user uid if this isn't 1000) 
+
+
 
 
 Once the full compilation has been done at least once (ie. and filled the m2 cache), you can run the system test only using the command
@@ -81,8 +112,8 @@ docker-compose run gemoc_full_compilation system_test_only
 Or you can run a full build but including only the linux variant using:
 [source,bourne]
 ----
-docker-compose run gemoc_full_compilation linux
-----
+docker run -it -v $PWD/../../../..:/home/jenkins/src -v $PWD/cache-m2:/home/jenkins/.m2 --user 1000 gemoc/gemoc-full-compilation:latest ./build_gemoc.sh linux
+---- 
 or
 [source,bourne]
 ----
@@ -98,8 +129,8 @@ It also mounts a *cache-m2* folder in order to speed up the compilation.
 The docker-compose command is more or less equivalent to:
 [source,bourne]
 ----
-docker build -t gemoc-full-compilation .
-docker run -v $PWD/../../../..:/root/src -v $PWD/cache-m2:/root/.m2 gemoc-full-compilation
+docker build -t gemoc/gemoc-full-compilation:latest .
+docker run -v $PWD/../../../..:/home/jenkins/src -v $PWD/cache-m2:/home/jenkins/.m2 gemoc/gemoc-full-compilation:latest
 ----
 
 Then you'll have to manually prune unused containers after usage.
@@ -107,6 +138,6 @@ Then you'll have to manually prune unused containers after usage.
 If for some reason you wish to access it interactively you can use the following command:
 [source,bourne]
 ----
-docker run --entrypoint "/bin/bash" -ti  -v $PWD/../../../..:/root/src -v $PWD/cache-m2:/root/.m2 gemoc-full-compilation
+docker run -it -v $PWD/../../../..:/home/jenkins/src -v $PWD/cache-m2:/home/jenkins/.m2 --user 1000 gemoc/gemoc-full-compilation:latest /bin/bash
 ----
    
