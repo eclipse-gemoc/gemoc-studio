@@ -123,7 +123,7 @@ public class DslImpl extends MinimalEObjectImpl.Container implements Dsl {
 	 * @generated NOT
 	 */
 	public Entry getEntry(String key) {
-		Optional<Entry> nameEntry = getEntries().stream().filter(e -> e.getKey().equals("name")).findFirst();
+		Optional<Entry> nameEntry = getEntries().stream().filter(e -> e.getKey().equals(key)).findFirst();
 		if(nameEntry.isPresent()) {
 			return nameEntry.get();
 		}
