@@ -95,7 +95,7 @@ NOTE: You may apply some of these steps in a different order. This is only an ex
 ==== Create the Language project
 
 * Open the xDSML perspective
-* Create a GEMOC Sequential xDSML Project named "org.eclipse.gemoc.example.k3fsm.xdsml"( Menu _File -> New -> GEMOC Sequential xDSML Project_) then _Next_ and select _Simple Sequential K3 language project_ -> Finish
+* Create a GEMOC Java xDSML Project named "org.eclipse.gemoc.example.k3fsm.xdsml"( Menu _File -> New -> GEMOC Java xDSML Project_) then _Next_ and select _Simple Sequential K3 language project_ -> Finish
 
 ==== Create the Domain concepts
 

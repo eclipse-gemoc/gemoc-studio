@@ -109,7 +109,7 @@ public class CreateSequentialLanguageFromOfficialK3FSM_Test extends AbstractXtex
 	@Test
 	def void test01_OpenXDSMLPerspective() throws Exception {
 		bot.perspectiveById(XDSMLFrameworkUI.ID_PERSPECTIVE).activate()
-		helper.assertContains("Menu does not contain", "GEMOC Sequential xDSML Project",
+		helper.assertContains("Menu does not contain", "GEMOC Java xDSML Project",
 			bot.menu("File").menu("New").menuItems())
 
 	}
@@ -118,7 +118,7 @@ public class CreateSequentialLanguageFromOfficialK3FSM_Test extends AbstractXtex
 	def void test02_CreateSequentialLanguageProject() {
 
 		IResourcesSetupUtil::reallyWaitForAutoBuild
-		bot.menu("File").menu("New").menu("GEMOC Sequential xDSML Project").click();
+		bot.menu("File").menu("New").menu("GEMOC Java xDSML Project").click();
 		bot.text().setText(CreateSequentialLanguageFromOfficialK3FSM_Test.XDSML_PROJECT_NAME);
 		bot.button("Next >").click();
 
