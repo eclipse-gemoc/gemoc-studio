@@ -73,6 +73,7 @@ RUN yum update -y \
   telnet \
   tigervnc \
   tigervnc-server \
+  tmux \
   tk \
   unrar \
   unzip \
