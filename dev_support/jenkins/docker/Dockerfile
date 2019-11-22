@@ -32,17 +32,14 @@ RUN yum update -y \
   && yum install -y \
   autoconf \
   automake \
-  boost-test \
   blas \
   blas-devel \
-  cmake \
-  cppcheck \
   createrepo \
-  doxygen \
   e2fsprogs-devel \
-  gcc \
-  gcc-c++ \
+  ffmpeg \
+  ffmpeg-devel \
   git \
+  graphviz \
   gtk3 \
   ImageMagick \
   ImageMagick-devel \
@@ -59,7 +56,6 @@ RUN yum update -y \
   metacity \
   mutter \
   net-snmp-devel.x86_64 \
-  okular \
   java-1.8.0-openjdk-devel \
   openssl-devel.x86_64 \
   patch \
@@ -75,9 +71,6 @@ RUN yum update -y \
   tcpdump \
   tcsh \
   telnet \
-  texlive \
-  texlive-latex \
-  texlive-tex4ht \
   tigervnc \
   tigervnc-server \
   tk \
