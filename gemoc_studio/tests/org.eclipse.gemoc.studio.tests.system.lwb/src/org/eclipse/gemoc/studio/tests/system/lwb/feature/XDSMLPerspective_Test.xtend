@@ -75,7 +75,7 @@ public class XDSMLPerspective_Test extends AbstractXtextTests {
 
 	@Test
 	def void test01_FileMenuContent() throws Exception {
-		helper.assertContains("Menu does not contain", "GEMOC Sequential xDSML Project",
+		helper.assertContains("Menu does not contain", "GEMOC Java xDSML Project",
 			bot.menu("File").menu("New").menuItems())
 		helper.assertContains("Menu does not contain", "K3 Project", bot.menu("File").menu("New").menuItems())
 		helper.assertContains("Menu does not contain", "Ecore Modeling Project",
@@ -89,7 +89,7 @@ public class XDSMLPerspective_Test extends AbstractXtextTests {
 		newMenu.menuItem("K3 Project").click
 		bot.button("Cancel").click
 
-		newMenu.menuItem("GEMOC Sequential xDSML Project").click
+		newMenu.menuItem("GEMOC Java xDSML Project").click
 		bot.button("Cancel").click
 		
 		newMenu.menuItem("Ecore Modeling Project").click

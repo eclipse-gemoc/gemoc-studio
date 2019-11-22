@@ -104,7 +104,7 @@ class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends Abs
 	@Test
 	def void test01_OpenXDSMLPerspective() throws Exception {
 		bot.perspectiveById(XDSMLFrameworkUI.ID_PERSPECTIVE).activate()
-		helper.assertContains("Menu does not contain", "GEMOC Sequential xDSML Project",
+		helper.assertContains("Menu does not contain", "GEMOC Java xDSML Project",
 				bot.menu("File").menu("New").menuItems())
 
 	}

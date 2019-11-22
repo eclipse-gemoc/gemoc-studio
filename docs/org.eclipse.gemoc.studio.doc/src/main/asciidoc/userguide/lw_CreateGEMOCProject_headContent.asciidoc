@@ -35,7 +35,7 @@ It is available in the menu _Window > Open Perspective > Other_.
 This perspective eases the creation of a new xDSML project.
 In the menu _File > New_, you have direct access to
 
-* GEMOC Sequential xDSML Project
+* GEMOC Java xDSML Project
 * GEMOC Concurrent xDSML Project
 
 image::images/userguide/workbench/language/newProject.png[New xDSML project,1000]
