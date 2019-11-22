@@ -28,6 +28,10 @@ ENTRYPOINT [ "uid_entrypoint", "jenkins-slave" ]
 RUN yum install -y yum-utils && \
   yum install -y https://centos7.iuscommunity.org/ius-release.rpm
 
+# https://linuxize.com/post/how-to-install-ffmpeg-on-centos-7/
+RUN rpm -v --import http://li.nux.ro/download/nux/RPM-GPG-KEY-nux.ro
+RUN rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
+
 RUN yum update -y \
   && yum install -y \
   autoconf \
