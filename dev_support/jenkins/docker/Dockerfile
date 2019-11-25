@@ -28,21 +28,22 @@ ENTRYPOINT [ "uid_entrypoint", "jenkins-slave" ]
 RUN yum install -y yum-utils && \
   yum install -y https://centos7.iuscommunity.org/ius-release.rpm
 
+# https://linuxize.com/post/how-to-install-ffmpeg-on-centos-7/
+RUN rpm -v --import http://li.nux.ro/download/nux/RPM-GPG-KEY-nux.ro
+RUN rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
+
 RUN yum update -y \
   && yum install -y \
   autoconf \
   automake \
-  boost-test \
   blas \
   blas-devel \
-  cmake \
-  cppcheck \
   createrepo \
-  doxygen \
   e2fsprogs-devel \
-  gcc \
-  gcc-c++ \
+  ffmpeg \
+  ffmpeg-devel \
   git \
+  graphviz \
   gtk3 \
   ImageMagick \
   ImageMagick-devel \
@@ -59,7 +60,6 @@ RUN yum update -y \
   metacity \
   mutter \
   net-snmp-devel.x86_64 \
-  okular \
   java-1.8.0-openjdk-devel \
   openssl-devel.x86_64 \
   patch \
@@ -75,9 +75,6 @@ RUN yum update -y \
   tcpdump \
   tcsh \
   telnet \
-  texlive \
-  texlive-latex \
-  texlive-tex4ht \
   tigervnc \
   tigervnc-server \
   tk \
