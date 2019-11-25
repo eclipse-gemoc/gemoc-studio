@@ -1,0 +1,14 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+= GEMOC Modeling workbench User guide
+== Coordinate models
+endif::[]
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/userguide/mw_CoordinateModels_headContent.asciidoc.]
+
+As seen  in Chapter <<define-composition-of-languages-chapter>>, GEMOC allows to define composition of languages. From the Modeling workbench point of view this allows to execute several models in a larger simulation where these models collaborate.  
+
+
+

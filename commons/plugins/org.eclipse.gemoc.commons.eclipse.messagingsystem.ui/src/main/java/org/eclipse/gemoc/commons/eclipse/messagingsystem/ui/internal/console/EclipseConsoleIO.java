@@ -26,6 +26,7 @@ import org.eclipse.gemoc.commons.eclipse.messagingsystem.ui.preferences.Preferen
 import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.console.ConsolePlugin;
 import org.eclipse.ui.console.IOConsoleOutputStream;
 
@@ -116,7 +117,7 @@ public class EclipseConsoleIO extends ConsoleIO implements IPropertyChangeListen
 			// support for large string !
 			Job myJob = new Job("Writing a large string to the console") {
 			      public IStatus run(IProgressMonitor monitor) {
-			    	  safePrint( message.getMessage(), message.getColor(), monitor);
+			    	  safePrint( message.getMessage(), message.getColor(), message.getStyle(), monitor);
 			         return new Status(IStatus.OK, "fr.irisa.triskell.eclipse.utils", "large message printed to the console");
 			      }
 			   };
@@ -133,7 +134,7 @@ public class EclipseConsoleIO extends ConsoleIO implements IPropertyChangeListen
 			// support for reasonnable sized string
 			Runnable r = new Runnable() {
 				public void run() {
-					changeColor(message.getColor());
+					changeStyle(message.getColor(), message.getStyle());
 					String justifiedMsg = justifyMessage(message.getMessage());
 					if(!((IOConsoleOutputStream)getOutputStream()).isClosed()){
 						try {
@@ -150,7 +151,7 @@ public class EclipseConsoleIO extends ConsoleIO implements IPropertyChangeListen
 	/** deal with not justified and large string
 	 * this is because large string may block Eclipse UI
 	 */
-	protected void safePrint(String message, Color c, IProgressMonitor monitor){
+	protected void safePrint(String message, final Color c, final int style, IProgressMonitor monitor){
 		try {
 			String justifiedMsg = justifyMessage(message);
 			if(justifiedMsg.length() > LARGE_MESSAGE_SIZE){
@@ -162,34 +163,86 @@ public class EclipseConsoleIO extends ConsoleIO implements IPropertyChangeListen
 					start = LARGE_MESSAGE_SIZE*i;
 					end = LARGE_MESSAGE_SIZE*i + LARGE_MESSAGE_SIZE;
 					changeStream();
-					changeColor(c);
+					safeChangeStyle(c, style);
 					((IOConsoleOutputStream)getOutputStream()).write(justifiedMsg.substring(start, end));
 					monitor.worked(1);
 				}
 				changeStream();
-				changeColor(c);
+				safeChangeStyle(c, style);
 				((IOConsoleOutputStream)getOutputStream()).write(justifiedMsg.substring(end, justifiedMsg.length()));
 				monitor.done();
 			}
 			else{
-				changeColor(c);
+				safeChangeStyle(c, style);
 				((IOConsoleOutputStream)getOutputStream()).write(justifiedMsg);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
+	
 	/**
-	 * this methods allow to change the color of futur message
+	 * this methods allow to change the color of future message
 	 * (this is because a simple change of current stream color, change the color for all messages, even previous ones ...) 
 	 * @param c
 	 */
+	@Override
 	public void changeColor(Color c){
 		Color previousColor = ((IOConsoleOutputStream) getOutputStream()).getColor();
 		if( (c==null && c!= previousColor) || (c!=null && !c.equals(previousColor)) ){
 			// need to change to another stream for the new color
 			changeStream(); // reset the stream
 			((IOConsoleOutputStream) getOutputStream()).setColor(c);
+		}
+	}
+	/**
+	 * this methods allow to change the color and font style of future message
+	 * (this is because a simple change of current stream color, change the color for all messages, even previous ones ...) 
+	 * @param c
+	 */
+	@Override
+	public void changeStyle(Color c, int style){
+		Color previousColor = ((IOConsoleOutputStream) getOutputStream()).getColor();
+		int previousStyle = ((IOConsoleOutputStream) getOutputStream()).getFontStyle();
+		if( (c==null && c!= previousColor) || (c!=null && !c.equals(previousColor)) || style!= previousStyle ){
+			// need to change to another stream for the new color
+			changeStream(); // reset the stream
+			((IOConsoleOutputStream) getOutputStream()).setColor(c);
+			((IOConsoleOutputStream) getOutputStream()).setFontStyle(style);
+		}
+	}
+	
+	/**
+	 * does the same as changeStyle() but ensure to do it in the UI Thread
+	 * @param c
+	 * @param style
+	 */
+	protected void safeChangeStyle(final Color c, final int style) {
+		Color previousColor = ((IOConsoleOutputStream) getOutputStream()).getColor();
+		int previousStyle = ((IOConsoleOutputStream) getOutputStream()).getFontStyle();
+		if( (c==null && c!= previousColor) || (c!=null && !c.equals(previousColor)) || style!= previousStyle ){
+			Display.getDefault().syncExec(new Runnable() {
+				public void run() {
+					// need to change to another stream for the new color
+					changeStream(); // reset the stream
+					((IOConsoleOutputStream) getOutputStream()).setColor(c);
+					((IOConsoleOutputStream) getOutputStream()).setFontStyle(style);
+				}
+			});
+		}
+	}
+	/**
+	 * this methods allow to change the font style of future message
+	 * (this is because a simple change of current stream color, change the color for all messages, even previous ones ...) 
+	 * @param style
+	 */
+	@Override
+	public void changeFontStyle(int style){
+		int previousStyle = ((IOConsoleOutputStream) getOutputStream()).getFontStyle();
+		if( style!= previousStyle ){
+			// need to change to another stream for the new style
+			changeStream(); // reset the stream
+			((IOConsoleOutputStream) getOutputStream()).setFontStyle(style);
 		}
 	}
 	/**
@@ -210,7 +263,7 @@ public class EclipseConsoleIO extends ConsoleIO implements IPropertyChangeListen
 		// add the carriage return
 		Runnable r = new Runnable() {
 			public void run() {
-				changeColor(message.getColor());
+				changeStyle(message.getColor(), message.getStyle());
 				if(!((IOConsoleOutputStream)getOutputStream()).isClosed()){
 					try {
 						((IOConsoleOutputStream)getOutputStream()).write("\n");

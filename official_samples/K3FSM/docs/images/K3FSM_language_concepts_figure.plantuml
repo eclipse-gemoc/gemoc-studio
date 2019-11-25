@@ -1,0 +1,39 @@
+@startuml
+hide stereotype  
+skinparam class {
+	BackgroundColor White
+	ArrowColor Black
+	BorderColor Black
+}
+skinparam package {
+	BackgroundColor #PaleGreen-white
+	roundCorner 30
+	style rectangle
+}
+
+
+
+package "Language fsm" as language_fsm  {
+	  class FSM {
+	    name : String
+	    initialState : State
+	    finalState : State
+	    currentState : State
+	    run()
+	  }
+	  class State{
+	    name : String
+	    incommingTransition : Transition
+	    step()
+	  }
+	  class Transition{
+	    input : String
+	    target : State
+	    fire()
+	  }
+	  FSM *- State : ownedStates
+	  State *- Transition : outgoingTransitions
+	
+}
+
+@enduml

@@ -17,9 +17,13 @@ import java.io.InputStream;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.jdt.core.IClasspathEntry;
+import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
+import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.gemoc.commons.eclipse.core.resources.IProjectUtils;
 
 public class JavaProject 
@@ -65,6 +69,34 @@ public class JavaProject
 				if (stream != null)
 					stream.close();				
 			}
+	}
+	
+	/**
+	 * Add the folder as a java source folder (ie. update the classpath)
+	 * @param project
+	 * @param folder
+	 * @throws JavaModelException
+	 */
+	public static void addSourceFolder(IProject project, String folder) throws JavaModelException{
+		IJavaProject javaProject = JavaCore.create(project);
+		IClasspathEntry[] entries = javaProject.getRawClasspath();
+		IClasspathEntry[] newEntries = new IClasspathEntry[entries.length + 1];
+		System.arraycopy(entries, 0, newEntries, 0, entries.length);
+
+		IPath srcPath= javaProject.getPath().append(folder);
+		IClasspathEntry srcEntry= JavaCore.newSourceEntry(srcPath, null);
+		
+		boolean entryfound = false;
+		for (IClasspathEntry cpe : entries) {
+			if (cpe.equals(srcEntry)){
+				entryfound = true;
+			}
+		}
+		
+		if (! entryfound) {
+			newEntries[entries.length] = JavaCore.newSourceEntry(srcEntry.getPath());
+			javaProject.setRawClasspath(newEntries, null);
+		}
 	}
 
 }

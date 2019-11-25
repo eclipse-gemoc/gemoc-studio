@@ -5,3 +5,6 @@ build.acceleo
 *._trace
 **/gemoc-gen/*
 **/xtend-gen/*
+node_modules
+/package-lock.json
+**/.polyglot.build.properties

@@ -9,16 +9,16 @@
     Contributors:
         Inria - initial API and implementation
  -->
-
 <feature
       id="org.eclipse.gemoc.commons.feature"
-      label="GEMOC Eclipse Commons"
+      label="GEMOC Commons"
       version="3.0.0.qualifier"
       provider-name="%providerName"
       image="gemocstudio32.png">
 
    <description url="http://gemoc.org/studio/">
-      List of plugins that are part of GEMOC core (API, exchanged metamodels, ....)
+      All Commons plugins used by GEMOC. Contains reusable utils, metamodel
+and helper libraries.
    </description>
 
    <copyright url="http://www.eclipse.org/legal/epl-v10.html">
@@ -33,33 +33,25 @@ http://www.eclipse.org/legal/epl-v10.html
       %license
    </license>
 
-   <plugin
-         id="org.eclipse.gemoc.commons.eclipse"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
+   <includes
+         id="org.eclipse.gemoc.dsl.feature"
+         version="0.0.0"/>
 
-   <plugin
-         id="org.eclipse.gemoc.commons.eclipse.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
+   <includes
+         id="org.eclipse.gemoc.commons.3rdparty.feature"
+         version="0.0.0"/>
 
-   <plugin
-         id="org.eclipse.gemoc.commons.eclipse.jdt"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
+   <includes
+         id="org.eclipse.gemoc.gexpressions.feature"
+         version="0.0.0"/>
 
-   <plugin
-         id="org.eclipse.gemoc.commons.eclipse.pde"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
+   <includes
+         id="org.eclipse.gemoc.commons.eclipse.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.eclipse.gemoc.commons.eclipse.jdt.autosrcfolder.feature"
+         version="0.0.0"/>
 
    <plugin
          id="org.eclipse.gemoc.timeline"
@@ -68,40 +60,4 @@ http://www.eclipse.org/legal/epl-v10.html
          version="0.0.0"
          unpack="false"/>
 
-   <plugin
-         id="org.eclipse.gemoc.commons.eclipse.messagingsystem.api"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.gemoc.commons.eclipse.messagingsystem.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.gemoc.dsl"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.gemoc.dsl.ide"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipse.gemoc.dsl.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
 </feature>
-

@@ -18,3 +18,4 @@ Export-Package: org.eclipse.gemoc.timeline,
  org.eclipse.gemoc.timeline.model,
  org.eclipse.gemoc.timeline.sample,
  org.eclipse.gemoc.timeline.view
+Automatic-Module-Name: org.eclipse.gemoc.timeline

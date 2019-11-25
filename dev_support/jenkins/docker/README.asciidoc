@@ -1,0 +1,28 @@
+= Docker image for GEMOC on Eclipse CI
+
+Reference: https://wiki.eclipse.org/Jenkins
+
+The current migration pod doesn't match our need for 2 reasons:
+- missing grapviz (used to produce some documentation images (note: graphviz version 
+must either below 2.39.x or above 2.41, cf. cf. https://forum.plantuml.net/5425/relation-long-with-graphviz-using-labels-relations-namespace)
+- missing video capture tool in order to track the flacky UI tests
+
+
+Base for the images:
+
+https://github.com/eclipse-cbi/dockerfiles
+
+https://github.com/eclipse-cbi/jiro/tree/master/jenkins-agent-images/migration-fat-agent
+
+[source,bourne]
+----
+docker build . -t gemoc/gemoc-jenkins-fat-agent:latest
+docker push gemoc/gemoc-jenkins-fat-agent:latest
+----
+
+If for some reason you wish to access it interactively you can use the following command:
+[source,bourne]
+----
+docker run -it -v $PWD/../../../..:/home/jenkins/src -v $PWD/cache-m2:/home/jenkins/.m2 --user 1000 gemoc/gemoc-jenkins-fat-agent:latest /bin/bash
+----
+   

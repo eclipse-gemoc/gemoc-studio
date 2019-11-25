@@ -13,7 +13,7 @@ package org.eclipse.gemoc.commons.eclipse.messagingsystem.ui.internal.console.me
 public class DebugWarningMessage extends ConsoleMessage {
 
 	public DebugWarningMessage(String content) {
-		super(content, ConsoleMessage.DEBUG_WARNING);
+		super(content, ConsoleMessage.DEBUG_WARNING, ConsoleMessage.DEBUG_WARNING_STYLE);
 	}
 	
 }

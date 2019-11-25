@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import org.eclipse.gemoc.dsl.Dsl
 
 /**
  * Generates code from your model files on save.
@@ -16,10 +17,14 @@ import org.eclipse.xtext.generator.IGeneratorContext
 class DslGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(typeof(Greeting))
-//				.map[name]
-//				.join(', '))
+		
+//		For debug purpose
+//
+//		val root = resource.contents.head as Dsl
+//		root.entries.forEach[e |
+//			println("\"" +e.key + "\"" + " = " + "\"" + e.value + "\"")
+//		]
+//		
+//		println(resource)
 	}
 }

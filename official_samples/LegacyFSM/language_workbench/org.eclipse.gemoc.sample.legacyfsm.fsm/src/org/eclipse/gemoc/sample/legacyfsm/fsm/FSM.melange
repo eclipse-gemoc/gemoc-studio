@@ -1,6 +1,0 @@
-package org.eclipse.gemoc.sample.legacyfsm.fsm
-
-external language FSM {
-	syntax "platform:/resource/org.eclipse.gemoc.sample.legacyfsm.fsm.model/model/fsm.ecore"
-
-}

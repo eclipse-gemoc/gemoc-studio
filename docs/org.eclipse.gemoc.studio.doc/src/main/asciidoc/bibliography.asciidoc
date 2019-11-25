@@ -1,0 +1,27 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+= Appendix
+endif::[]
+
+[bibliography]
+=== Bibliography
+
+// footnote used to ease documentation modification
+footnote:[asciidoc source of this page: https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/bibliography.asciidoc.]
+
+The bibliography lists some useful external documents. For a more complete list, please refer to the publications section on http://gemoc.org site.
+
+////////////////////////
+[bibliography]
+.Books
+- [[[globalizing-modeling-languages-book]]] http://hal.inria.fr/hal-00994551[Globalizing Modeling Languages] (Benoit Combemale, Julien Deantoni, Benoit Baudry, Robert France, Jean-Marc Jezequel, Jeff Gray), In Computer, IEEE, 2014.
+////////////////////////
+
+
+[bibliography]
+.Articles
+- [[[globalizing-modeling-languages]]] http://hal.inria.fr/hal-00994551[Globalizing Modeling Languages] (Benoit Combemale, Julien Deantoni, Benoit Baudry, Robert France, Jean-Marc Jezequel, Jeff Gray), In Computer, IEEE, 2014.
+- [[[omniscient-debugging-for-executable-dsls]]] https://www.sciencedirect.com/science/article/pii/S0164121217302765[Omniscient debugging for executable DSLs] (Erwan Bousse, Dorian Leroy, Benoit Combemale, Manuel Wimmer, Benoit Baudry), In Journal of Systems and Software Volume 137, March 2018, Pages 261-288
+

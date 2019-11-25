@@ -13,8 +13,8 @@ package org.eclipse.gemoc.commons.eclipse.core.resources;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -176,7 +176,7 @@ public class IProjectUtils {
 	public static void removeNature(IProject project, String natureId) throws CoreException 
 	{
 		IProjectDescription description = project.getDescription();
-		List<String> natures = Arrays.asList(description.getNatureIds());
+		ArrayList<String> natures = new ArrayList<String>(Arrays.asList(description.getNatureIds()));
 		natures.remove(natureId);
 		String[] newNatures = natures.toArray(new String[natures.size()]);
 		description.setNatureIds(newNatures);

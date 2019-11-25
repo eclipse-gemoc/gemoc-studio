@@ -1,0 +1,18 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+
+= Developer Guide
+== Contributing
+=== Developing new features
+endif::[]
+
+==== Developing new engines
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/dev/DevelopingNewEngines.asciidoc.]
+
+As seen in <<img-ComponentsOverview-devguide>>, the framework is organized in several layers. The most complete layer is the GEMOC Framework which offers most of the advanced features. Thus, implementing an engine for a new technology consist in 2 main parts:
+
+* implementing subclasses for the classes from XDSML Framework in order to have the part dedicated to the Language Workbench,
+* and  implementing subclasses for the classes from Execution Framework in order to have the part dedicated to the Modeling Workbench

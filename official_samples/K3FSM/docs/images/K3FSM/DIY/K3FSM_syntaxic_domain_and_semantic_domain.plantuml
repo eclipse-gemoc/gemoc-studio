@@ -1,0 +1,49 @@
+@startuml
+hide stereotype  
+skinparam class {
+	BackgroundColor White
+	ArrowColor Black
+	BorderColor Black
+}
+skinparam package {
+	BackgroundColor #PaleGreen-white
+	roundCorner 30
+	style rectangle
+}
+
+note as MainNote
+Syntaxic domain and semantic domain 
+concepts are merged in the metamodel.
+Semantic domain concepts are tagged 
+with @Aspect annotation
+end note
+
+package "FSM" as language_fsm  {
+	  class FSM {
+	    name : String
+	    initialState : State
+	    finalState : State
+	    +currentState : State
+	    +unprocessedString : String
+	    +consummedString : String
+	    +producedString : String
+	    +run()
+	  }
+	  class State{
+	    name : String
+	    incommingTransitions : Transition
+	    +step()
+	  }
+	  class Transition{
+	    name : String
+	    input : String
+	    target : State
+	    output : String
+	    +fire()
+	  }
+	  FSM *- State : ownedStates
+	  State *- Transition : outgoingTransitions
+	
+}
+
+@enduml

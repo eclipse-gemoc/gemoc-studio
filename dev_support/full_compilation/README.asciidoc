@@ -1,0 +1,143 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+
+= Developer Guide
+== Contributing
+
+endif::[]
+
+
+=== Compilation of the complete GEMOC Studio
+
+==== Introduction
+
+The source code of the [GEMOC Studio](http://gemoc.org/studio/) is currently spread among different git repositories in Eclipse organization.
+
+This project relies on the presence of the correct git repositories (cloned with the correct name) to locally build a working studio.
+
+
+==== Usage
+
+First checkout the git repositories :
+
+[source,bourne]
+----
+git clone  https://github.com/eclipse/gemoc-studio
+git clone  https://github.com/eclipse/gemoc-studio-modeldebugging
+git clone  https://github.com/eclipse/gemoc-studio-execution-moccml
+git clone  https://github.com/eclipse/gemoc-studio-moccml
+git clone  https://github.com/eclipse/gemoc-studio-execution-ale
+git clone  https://github.com/eclipse/gemoc-studio-execution-java
+----
+
+Note: the repositories must keep their names (Ie. do not change the destination folder name) as the maven pom file expects to find them at specific locations.
+
+Then compile using maven:
+
+[source,bourne]
+----
+cd gemoc-studio/dev_support/full_compilation
+mvn package -Dmaven.repo.local=$PWD/localm2 
+----
+
+We use one options:
+
+- `-Dmaven.repo.local=$PWD/localm2`: use a folder called *localm2* to cache all the external dependencies of the studio, instead of using the user local maven repository. Since the GEMOC Studio a full eclipse package and has around 1GB of dependencies, this avoids using this much space in a hidden folder of the user home dir.
+
+
+If you prefer to use your own local maven repository (ie. in _<HOME>/.m2/repository_), remove the use of `-Dmaven.repo.local`, ie. use this command:
+
+[source,bourne]
+----
+mvn package 
+----
+
+If you already compiled and resolved all dependencies at least once (ie. if you filled your local maven repository with everything needed for the build), add the option `-o` to perform an offline only build, which is significantly faster since it skips checking all maven repositories online. 
+
+In the end, the result can be found in `gemoc_studio/gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.product/target/products/`, with one studio zip per platform.
+
+
+The build also assemble complementary results:
+ 
+- an update site, available in `gemoc_studio/gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.product/target/repository/`
+- an archivable version of the web help; available in `gemoc-studio/docs/org.eclipse.gemoc.studio.doc/target/publish/webhelp/`
+
+==== Advanced usage using docker
+
+If you have trouble to reproduce a bug in the CI or want to make sure that the CI will pass, you can run the maven build in a docker that mimic the CI environment.
+
+
+===== build image
+
+To do a full build using docker: go to the docker folder (*/gemoc-studio/dev_support/full_compilation/docker*), then call the command
+
+[source,bourne]
+----
+docker-compose down && docker-compose up
+----
+ or
+ 
+[source,bourne]
+----
+docker build -t "gemoc/gemoc-full-compilation:latest" .
+---- 
+
+Changes commited in master branch are automatically built and deployed on docker hub: https://hub.docker.com/r/gemoc/gemoc-full-compilation
+
+
+
+===== Manual launch
+A standard full build is done using the command:
+[source,bourne]
+----
+docker run -it -v $PWD/../../../..:/home/jenkins/src -v $PWD/cache-m2:/home/jenkins/.m2 --user 1000 gemoc/gemoc-full-compilation:latest ./build_gemoc.sh
+---- 
+
+where
+ 
+- $PWD/../../../.. points to the root containing all gemoc sources
+- --user 1000  makes sure to use your user uid (use `id -u` or `echo $UID`to get yours user uid if this isn't 1000) 
+
+
+
+
+Once the full compilation has been done at least once (ie. and filled the m2 cache), you can run the system test only using the command
+[source,bourne]
+----
+docker-compose run gemoc_full_compilation system_test_only
+----
+
+Or you can run a full build but including only the linux variant using:
+[source,bourne]
+----
+docker run -it -v $PWD/../../../..:/home/jenkins/src -v $PWD/cache-m2:/home/jenkins/.m2 --user 1000 gemoc/gemoc-full-compilation:latest ./build_gemoc.sh linux
+---- 
+or
+[source,bourne]
+----
+docker-compose run gemoc_full_compilation linux_offline
+----
+
+===== Description of the docker env
+
+The _Dockerfile_ defines a docker image based on ubuntu 16.04 with maven, oracle java8, xvfb, and graphviz. It embeds an *entrypoint.sh* script that calls the maven command.
+The _docker-compose.yml_ will mount the folder containing all gemoc repositories (ie. the place where you've done `git clone`) 
+It also mounts a *cache-m2* folder in order to speed up the compilation.
+
+The docker-compose command is more or less equivalent to:
+[source,bourne]
+----
+docker build -t gemoc/gemoc-full-compilation:latest .
+docker run -v $PWD/../../../..:/home/jenkins/src -v $PWD/cache-m2:/home/jenkins/.m2 gemoc/gemoc-full-compilation:latest
+----
+
+Then you'll have to manually prune unused containers after usage.
+
+If for some reason you wish to access it interactively you can use the following command:
+[source,bourne]
+----
+docker run -it -v $PWD/../../../..:/home/jenkins/src -v $PWD/cache-m2:/home/jenkins/.m2 --user 1000 gemoc/gemoc-full-compilation:latest /bin/bash
+----
+   
