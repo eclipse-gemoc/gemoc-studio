@@ -33,6 +33,10 @@ import org.eclipse.swt.widgets.Display
 import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences
 import org.eclipse.gemoc.xdsmlframework.test.lib.TailWorkspaceLogToStderrRule
 import org.junit.Rule
+import org.eclipse.gemoc.xdsmlframework.test.lib.GEMOCTestVideoHelper
+import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystemManager
+import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystem
+import org.junit.rules.TestName
 
 /**
  * Verifies that we can use the wizard to install the official sample
@@ -50,9 +54,18 @@ public class DeployOfficialExampleMelangeK3FSM_Test extends AbstractXtextTests
 	static final String PROJECT_NAME = BASE_NAME + ".xsfsm"
 	
 	private static SWTWorkbenchBot	bot;
+	
+	static MessagingSystem	messaggingSystem
+	
+	@Rule public TestName testName = new TestName();
  
 	@BeforeClass
 	def static void beforeClass() throws Exception {
+		GEMOCTestVideoHelper.addTestSuiteVideoLog("starting "+DeployOfficialExampleMelangeK3FSM_Test.canonicalName);
+		val MessagingSystemManager msm = new MessagingSystemManager()
+		messaggingSystem = msm.createBestPlatformMessagingSystem("","");
+		messaggingSystem.important(DeployOfficialExampleMelangeK3FSM_Test.canonicalName,"")
+		messaggingSystem.important(System.getProperty("user.dir"),"")
 		helper.init
 		bot = new SWTWorkbenchBot()
 		SWTBotPreferences.TIMEOUT = WorkspaceTestHelper.SWTBotPreferencesTIMEOUT_4_GEMOC;
@@ -67,6 +80,7 @@ public class DeployOfficialExampleMelangeK3FSM_Test extends AbstractXtextTests
     
 	@Before
 	override setUp() {
+		GEMOCTestVideoHelper.addTestSuiteVideoLog("   - "+testName.methodName);
 		helper.setTargetPlatform
 		bot.resetWorkbench
 		// helps to reset the workspace state by closing menu as bot.resetWorkbench is not enough
