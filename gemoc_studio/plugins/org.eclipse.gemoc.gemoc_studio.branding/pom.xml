@@ -145,35 +145,17 @@
 	
 	<pluginRepositories>
 		<pluginRepository>
-			<id>maven-inria-release</id>
+			<id>maven-inria</id>
 			<name>maven.inria.fr</name>
 			<releases>
 				<enabled>true</enabled>
-				<updatePolicy>always</updatePolicy>
-				<checksumPolicy>warn</checksumPolicy>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-				<updatePolicy>always</updatePolicy>
-				<checksumPolicy>fail</checksumPolicy>
-			</snapshots>
-			<url>http://maven.inria.fr/artifactory/public-release</url>
-			<layout>default</layout>
-		</pluginRepository>
-		<pluginRepository>
-			<id>maven-inria-snapshot</id>
-			<name>maven.inria.fr</name>
-			<releases>
-				<enabled>false</enabled>
-				<updatePolicy>always</updatePolicy>
 				<checksumPolicy>warn</checksumPolicy>
 			</releases>
 			<snapshots>
 				<enabled>true</enabled>
-				<updatePolicy>always</updatePolicy>
-				<checksumPolicy>fail</checksumPolicy>
+				<checksumPolicy>warn</checksumPolicy>
 			</snapshots>
-			<url>http://maven.inria.fr/artifactory/public-snapshot</url>
+			<url>http://maven.inria.fr/artifactory/public</url>
 			<layout>default</layout>
 		</pluginRepository>
 	</pluginRepositories>
