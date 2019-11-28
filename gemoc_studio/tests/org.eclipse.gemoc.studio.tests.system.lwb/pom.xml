@@ -49,7 +49,7 @@
               		<application>org.eclipse.ui.ide.workbench</application>
               		<testFailureIgnore>true</testFailureIgnore> <!-- failed tests here must fail the build-->
               		<systemProperties>
-              			<WORKSPACE>${basedir}/../../../../gemoc-studio</WORKSPACE>
+              			<WORKSPACE>${basedir}/../../../..</WORKSPACE>
               		</systemProperties>
 				</configuration>
 			</plugin>
