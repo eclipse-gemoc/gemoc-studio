@@ -12,58 +12,22 @@
 	</modules>
 
     <properties>
-		<tycho-version>1.2.0</tycho-version>
+		<tycho-version>1.5.1</tycho-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     	<xtend.version>2.14.0</xtend.version>
+    	
+    	<eclipse.release.p2.url>http://download.eclipse.org/releases/photon</eclipse.release.p2.url>
+		<k3.p2.url>http://www.kermeta.org/k3/update_2018-09-05</k3.p2.url>
+		<ale.p2.url>http://www.kermeta.org/ale-lang/updates/2019-11-13</ale.p2.url>
+		<melange.p2.url>http://melange.inria.fr/updatesite/nightly/update_2018-12-03/</melange.p2.url>
+		<elk.p2.url>http://download.eclipse.org/elk/updates/releases/0.4.1</elk.p2.url>
+		<app4mc.p2.url>http://download.eclipse.org/app4mc/updatesites/releases/0.8.1</app4mc.p2.url>
+		<aspectJ.p2.url>http://download.eclipse.org/tools/ajdt/48/dev/update</aspectJ.p2.url>
+		<timesquare.p2.url>http://www.i3s.unice.fr/~deantoni/photon/</timesquare.p2.url>
+		<!--             <url>http://timesquare.inria.fr/update_site/photon</url> -->
+		<diverse-commons.p2.url>http://www.kermeta.org/diverse-commons/updates/latest</diverse-commons.p2.url>
+		<sirius.p2.url>http://download.eclipse.org/sirius/updates/releases/6.0.1/photon</sirius.p2.url>
 	</properties>
-	
-  	<repositories>
-  	<!-- List of P2 repositories of external tool used to build the components -->
-  	<!--  must NOT include the repositories of the tools included in the Studio has it has its own complementary list -->
-  	        
-        <repository>
-            <id>Photon release</id>
-            <layout>p2</layout>
-            <url>http://download.eclipse.org/releases/photon</url>
-        </repository>
-		<repository>
-            <id>kermeta-3</id>
-            <layout>p2</layout>
-            <url>http://www.kermeta.org/k3/update_2018-09-05</url>
-        </repository>
-		<repository>
-			<id>ale</id>
-			<url>http://www.kermeta.org/ale-lang/updates/2019-11-13</url>
-			<layout>p2</layout>
-		</repository>
-        <repository>
-            <id>melange</id>
-            <layout>p2</layout>
-            <url>http://melange.inria.fr/updatesite/nightly/update_2019-01-25/</url>
-        </repository>
-        <repository>
-            <id>timesquare</id>
-            <layout>p2</layout>
-            <url>http://www.i3s.unice.fr/~deantoni/photon/</url>
-<!--             <url>http://timesquare.inria.fr/update_site/photon</url> -->
-        </repository>
-        <repository>
-            <id>Sirius</id>
-            <layout>p2</layout>
-            <url>http://download.eclipse.org/sirius/updates/releases/6.0.1/photon</url>
-        </repository>
-        <repository>
-            <id>nebula</id>
-            <layout>p2</layout>
-            <url>http://download.eclipse.org/nebula/snapshot/</url>
-        </repository>
-        <repository>
-            <id>diverse-commons</id>
-            <layout>p2</layout>
-            <url>http://www.kermeta.org/diverse-commons/updates/latest</url>
-        </repository>
-    </repositories>
-
 
 	<build>
 		<plugins>
