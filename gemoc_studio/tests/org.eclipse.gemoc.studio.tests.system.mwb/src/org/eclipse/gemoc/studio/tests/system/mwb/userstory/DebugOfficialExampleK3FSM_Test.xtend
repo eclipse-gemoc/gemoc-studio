@@ -47,6 +47,8 @@ import org.junit.Ignore
 import org.eclipse.debug.core.DebugPlugin
 import org.eclipse.debug.internal.core.LaunchManager
 import org.eclipse.gemoc.xdsmlframework.test.lib.SWTBotHelper
+import org.junit.rules.TestName
+import org.eclipse.gemoc.xdsmlframework.test.lib.GEMOCTestVideoHelper
 
 /**
  * Verifies that we can execute a debug session 
@@ -66,8 +68,11 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 	
 	static SWTWorkbenchBot bot;
  
+	@Rule public TestName testName = new TestName();
+	
 	@BeforeClass
 	def static void beforeClass() throws Exception {
+		GEMOCTestVideoHelper.addTestSuiteVideoLog("starting "+DebugOfficialExampleK3FSM_Test.canonicalName);
 		helper.init
 		bot = new SWTWorkbenchBot()
 		SWTBotPreferences.TIMEOUT = WorkspaceTestHelper.SWTBotPreferencesTIMEOUT_4_GEMOC ;
@@ -85,6 +90,7 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
     
 	@Before
 	override setUp() {
+		GEMOCTestVideoHelper.addTestSuiteVideoLog("   - "+testName.methodName);
 		helper.setTargetPlatform
 		bot.resetWorkbench
 		// helps to reset the workspace state by closing menu as bot.resetWorkbench is not enough

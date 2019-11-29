@@ -83,6 +83,7 @@ public class GenerateLangRuntime4OfficialExampleMelangeK3FSM_Test extends Abstra
     
 	@Before
 	override setUp() {
+		GEMOCTestVideoHelper.addTestSuiteVideoLog("   - "+testName.methodName);
 		helper.setTargetPlatform
 		super.setUp
 		helper.init
