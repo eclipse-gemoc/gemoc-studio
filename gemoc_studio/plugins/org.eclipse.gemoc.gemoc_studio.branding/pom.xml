@@ -145,8 +145,8 @@
 	
 	<pluginRepositories>
 		<pluginRepository>
-			<id>maven-inria</id>
-			<name>maven.inria.fr</name>
+			<id>diverse-project.github.io</id>
+			<name>diverse-project.github.io</name>
 			<releases>
 				<enabled>true</enabled>
 				<checksumPolicy>warn</checksumPolicy>
@@ -155,7 +155,7 @@
 				<enabled>true</enabled>
 				<checksumPolicy>warn</checksumPolicy>
 			</snapshots>
-			<url>http://maven.inria.fr/artifactory/public</url>
+			<url>http://diverse-project.github.io/tools/mavenRepository/</url>
 			<layout>default</layout>
 		</pluginRepository>
 	</pluginRepositories>
