@@ -1,203 +1,222 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-    Copyright (c) 2017 Inria and others.
-    All rights reserved. This program and the accompanying materials
-    are made available under the terms of the Eclipse Public License v1.0
-    which accompanies this distribution, and is available at
-    http://www.eclipse.org/legal/epl-v10.html
-   
-    Contributors:
-        Inria - initial API and implementation
- -->
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <modelVersion>4.0.0</modelVersion>
-    <name>GEMOC Studio root build</name>
-    <groupId>org.eclipse.gemoc.gemoc_studio</groupId>
-    <artifactId>org.eclipse.gemoc.gemoc_studio.parent</artifactId>
-    <version>3.2.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
+<!-- Copyright (c) 2017 Inria and others. All rights reserved. This program 
+	and the accompanying materials are made available under the terms of the 
+	Eclipse Public License v1.0 which accompanies this distribution, and is available 
+	at http://www.eclipse.org/legal/epl-v10.html Contributors: Inria - initial 
+	API and implementation -->
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<name>GEMOC Studio root build</name>
+	<groupId>org.eclipse.gemoc.gemoc_studio</groupId>
+	<artifactId>org.eclipse.gemoc.gemoc_studio.parent</artifactId>
+	<version>3.2.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
 	<parent>
 		<groupId>org.eclipse.gemoc</groupId>
 		<artifactId>org.eclipse.gemoc.gemoc_studio.root</artifactId>
-    	<version>3.0.0-SNAPSHOT</version>
+		<version>3.0.0-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
-    <properties>
-    </properties>
+	<properties>
+	</properties>
 
-    <modules>
-        <module>plugins/org.eclipse.gemoc.gemoc_studio.branding</module>
-        <module>plugins/org.eclipse.gemoc.gemoc_studio.headless</module>
-        <module>plugins/org.eclipse.gemoc.language_workbench.documentation</module>
-        <module>releng/org.eclipse.gemoc.gemoc_studio.headless.feature</module>
-        <module>releng/org.eclipse.gemoc.gemoc_studio.branding.feature</module>			
-        <module>releng/org.eclipse.gemoc.gemoc_studio.additions.feature</module>	
-        <module>releng/org.eclipse.gemoc.gemoc_studio.updatesite</module>
-        
-        <!-- modules required by modeling workbench tests platform -->
-        <module>../official_samples/K3FSM/language_workbench</module> 
-        
-        <!-- Tests -->
-        <module>tests/org.eclipse.gemoc.studio.tests.system.lwb</module>
-        <module>tests/org.eclipse.gemoc.studio.tests.system.mwb</module>
-        <!-- backlog tests are not part of the main CI build
-        <module>tests/org.eclipse.gemoc.studio.tests.system.backlog</module>
-        -->
-        
-        
-    </modules>
+	<modules>
+		<module>plugins/org.eclipse.gemoc.gemoc_studio.branding</module>
+		<module>plugins/org.eclipse.gemoc.gemoc_studio.headless</module>
+		<module>plugins/org.eclipse.gemoc.language_workbench.documentation</module>
+		<module>releng/org.eclipse.gemoc.gemoc_studio.headless.feature</module>
+		<module>releng/org.eclipse.gemoc.gemoc_studio.branding.feature</module>
+		<module>releng/org.eclipse.gemoc.gemoc_studio.additions.feature</module>
+		<module>releng/org.eclipse.gemoc.gemoc_studio.updatesite</module>
 
-    <repositories>
-       
-    	<!-- Repositories specific for the studio (typically referred by the additional feature) -->       
+		<!-- modules required by modeling workbench tests platform -->
+		<module>../official_samples/K3FSM/language_workbench</module>
 
-        <repository>
-            <id>elk</id>
-            <layout>p2</layout>
-            <url>http://download.eclipse.org/elk/updates/releases/0.4.1/</url>
-        </repository> 
+		<!-- Tests -->
+		<module>tests/org.eclipse.gemoc.studio.tests.system.lwb</module>
+		<module>tests/org.eclipse.gemoc.studio.tests.system.mwb</module>
+		<!-- backlog tests are not part of the main CI build <module>tests/org.eclipse.gemoc.studio.tests.system.backlog</module> -->
 
-        <repository>
-            <id>AspectJ</id>
-            <layout>p2</layout>
-            <url>http://download.eclipse.org/tools/ajdt/48/dev/update</url>
-        </repository>
-        <repository> <!-- this repo is used to provide jdom and jaxen plugins -->
-            <id>app4mc</id>
-            <layout>p2</layout>
-            <url>http://download.eclipse.org/app4mc/updatesites/releases/0.8.1/</url>
-        </repository>
-    </repositories>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.eclipse.tycho</groupId>
-                <artifactId>tycho-maven-plugin</artifactId>
-                <version>${tycho-version}</version>
-                <extensions>true</extensions>
-            </plugin>
-            <!-- disable source feature generation -->
+	</modules>
+
+	<repositories>
+		<repository>
+			<id>Eclipse release</id>
+			<layout>p2</layout>
+			<url>${eclipse.release.p2.url}</url>
+		</repository>
+		<repository>
+			<id>K3</id>
+			<layout>p2</layout>
+			<url>${k3.p2.url}</url>
+		</repository>
+		<repository>
+			<id>ALE</id>
+			<layout>p2</layout>
+			<url>${ale.p2.url}</url>
+		</repository>
+		<repository>
+			<id>Melange</id>
+			<layout>p2</layout>
+			<url>${melange.p2.url}</url>
+		</repository>
+		<repository>
+			<id>timesquare</id>
+			<layout>p2</layout>
+			<url>${timesquare.p2.url}</url>
+		</repository>
+		<repository>
+			<id>diverse-commons</id>
+			<layout>p2</layout>
+			<url>http://www.kermeta.org/diverse-commons/updates/latest</url>
+		</repository>
+		<repository>
+			<id>ELK</id>
+			<layout>p2</layout>
+			<url>${elk.p2.url}</url>
+		</repository>
+<!-- 		<repository> -->
+<!-- 			<id>APP4MC</id> -->
+<!-- 			<layout>p2</layout> -->
+<!-- 			<url>${app4mc.p2.url}</url> -->
+<!-- 		</repository> -->
+		<repository>
+			<id>AspectJ</id>
+			<layout>p2</layout>
+			<url>${aspectJ.p2.url}</url>
+		</repository>
+		<repository>
+			<id>Sirius</id>
+			<layout>p2</layout>
+			<url>${sirius.p2.url}</url>
+		</repository>
+	</repositories>
+
+	<build>
+		<plugins>
 			<plugin>
-		      <groupId>org.eclipse.tycho.extras</groupId>
-		      <artifactId>tycho-source-feature-plugin</artifactId>
-		      <version>${tycho-version}</version>
-		      <configuration>
-     			<skip>true</skip>
-   			  </configuration>
-		    </plugin>
-            <plugin>
-                <groupId>org.eclipse.tycho</groupId>
-                <artifactId>target-platform-configuration</artifactId>
-                <version>${tycho-version}</version>
-                <configuration>
-                    <!-- environments that will be built -->
-                    <environments>
-                       	<environment>
-                            <os>linux</os>
-                            <ws>gtk</ws>
-                            <arch>x86_64</arch>
-                        </environment>
-                       <!--  <environment>
-                            <os>linux</os>
-                            <ws>gtk</ws>
-                            <arch>x86</arch>
-                        </environment>
-                        <environment>
-                            <os>win32</os>
-                            <ws>win32</ws>
-                            <arch>x86</arch>
-                        </environment> -->
-                        <environment>
-                            <os>win32</os>
-                            <ws>win32</ws>
-                            <arch>x86_64</arch>
-                        </environment>
-                        <environment>
-                            <os>macosx</os>  
-                            <ws>cocoa</ws>  
-                            <arch>x86_64</arch> 
-                        </environment>
-                    </environments>
-                </configuration>
-            </plugin>
-            <!-- Java compiler plugin -->
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<extensions>true</extensions>
+			</plugin>
+			<!-- disable source feature generation -->
+			<plugin>
+				<groupId>org.eclipse.tycho.extras</groupId>
+				<artifactId>tycho-source-feature-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<!-- environments that will be built -->
+					<environments>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<!-- <environment> <os>linux</os> <ws>gtk</ws> <arch>x86</arch> </environment> 
+							<environment> <os>win32</os> <ws>win32</ws> <arch>x86</arch> </environment> -->
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>macosx</os>
+							<ws>cocoa</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
+			<!-- Java compiler plugin -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 			</plugin>
-        </plugins>
-    </build>
-    <profiles>
-    <!-- Profiles are used for easier test of the build, allowing to compile for a single OS -->
-    <!-- combined with offline mode, the build is relatively fast -->
-    	<profile>
-	    	<!-- use this command line to activate this profile -->
-	    	<!-- mvn clean package -Denvironment=test_win32 -->
-	    	<!-- or directly with the ID using the eclipse UI -->
-	    	<id>test_win64</id>
-	    	<activation>
-		      <property>
-		        <name>environment</name>
-		        <value>test_win64</value>
-		      </property>
-		    </activation>
-    		<build>
-    			<plugins>
-    				<plugin>
-		    			<groupId>org.eclipse.tycho</groupId>
-		                <artifactId>target-platform-configuration</artifactId>
-		                <version>${tycho-version}</version>
-		                <configuration>
-		                    <!-- environments that will be built in test mode -->
-		                    <environments>
-		                        <environment>
-		                            <os>win32</os>
-		                            <ws>win32</ws>
-		                            <arch>x86_64</arch>
-		                        </environment>		                        
-<!-- 		                        <environment> -->
-<!-- 		                            <os>win32</os> -->
-<!-- 		                            <ws>win32</ws> -->
-<!-- 		                            <arch>x86</arch> -->
-<!-- 		                        </environment> -->
-		                    </environments>
-		                </configuration>
-    				</plugin>
-    			</plugins>
-    		</build>
-    	</profile>
-    	<profile>
-	    	<!-- use this command line to activate this profile -->
-	    	<!-- mvn clean package -Denvironment=test_linux -->
-	    	<!-- or directly with the ID using the eclipse UI -->
-	    	<id>test_linux</id>
-	    	<activation>
-		      <property>
-		        <name>environment</name>
-		        <value>test_linux</value>
-		      </property>
-		    </activation>
-    		<build>
-    			<plugins>
-    				<plugin>
-		    			<groupId>org.eclipse.tycho</groupId>
-		                <artifactId>target-platform-configuration</artifactId>
-		                <version>${tycho-version}</version>
-		                <configuration>
-		                    <!-- environments that will be built in test mode -->
-		                    <environments>
-		                      	<environment>
-		                            <os>linux</os>
-		                            <ws>gtk</ws>
-		                            <arch>x86_64</arch>
-		                        </environment>
-		                    </environments>
-		                </configuration>
-    				</plugin>
-    			</plugins>
-    		</build>
-    	</profile>
-    </profiles>
+		</plugins>
+	</build>
+	<profiles>
+		<!-- Profiles are used for easier test of the build, allowing to compile 
+			for a single OS -->
+		<!-- combined with offline mode, the build is relatively fast -->
+		<profile>
+			<!-- use this command line to activate this profile -->
+			<!-- mvn clean package -Denvironment=test_win32 -->
+			<!-- or directly with the ID using the eclipse UI -->
+			<id>test_win64</id>
+			<activation>
+				<property>
+					<name>environment</name>
+					<value>test_win64</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<version>${tycho-version}</version>
+						<configuration>
+							<!-- environments that will be built in test mode -->
+							<environments>
+								<environment>
+									<os>win32</os>
+									<ws>win32</ws>
+									<arch>x86_64</arch>
+								</environment>
+								<!-- <environment> -->
+								<!-- <os>win32</os> -->
+								<!-- <ws>win32</ws> -->
+								<!-- <arch>x86</arch> -->
+								<!-- </environment> -->
+							</environments>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<!-- use this command line to activate this profile -->
+			<!-- mvn clean package -Denvironment=test_linux -->
+			<!-- or directly with the ID using the eclipse UI -->
+			<id>test_linux</id>
+			<activation>
+				<property>
+					<name>environment</name>
+					<value>test_linux</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<version>${tycho-version}</version>
+						<configuration>
+							<!-- environments that will be built in test mode -->
+							<environments>
+								<environment>
+									<os>linux</os>
+									<ws>gtk</ws>
+									<arch>x86_64</arch>
+								</environment>
+							</environments>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project> 
