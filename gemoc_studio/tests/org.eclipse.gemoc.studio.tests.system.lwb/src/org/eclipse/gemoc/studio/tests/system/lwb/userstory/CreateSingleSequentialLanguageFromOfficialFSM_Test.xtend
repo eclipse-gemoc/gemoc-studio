@@ -37,6 +37,10 @@ import org.junit.runner.RunWith
 import org.junit.runners.MethodSorters
 
 import static org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences.*
+import org.eclipse.gemoc.xdsmlframework.test.lib.GEMOCTestVideoHelper
+import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystemManager
+import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystem
+import org.junit.rules.TestName
 
 /**
  * This class check a scenario where we reuse some of the base projects of the official sample : MelangeK3FSM
@@ -59,8 +63,17 @@ class CreateSingleSequentialLanguageFromOfficialFSM_Test extends AbstractXtextTe
 	
 	private static SWTWorkbenchBot	bot;
  
+	static MessagingSystem	messaggingSystem
+	
+	@Rule public TestName testName = new TestName();
+	
 	@BeforeClass
 	def static void beforeClass() throws Exception {
+		GEMOCTestVideoHelper.addTestSuiteVideoLog("starting "+CreateSingleSequentialLanguageFromOfficialFSM_Test.canonicalName);
+		val MessagingSystemManager msm = new MessagingSystemManager()
+		messaggingSystem = msm.createBestPlatformMessagingSystem("","")
+		messaggingSystem.important(System.getProperty("user.dir"),"")
+		
 		helper.init
 		bot = new SWTWorkbenchBot()
 		// Set the SWTBot timeout
@@ -85,6 +98,7 @@ class CreateSingleSequentialLanguageFromOfficialFSM_Test extends AbstractXtextTe
 	
 	@Before
 	override setUp() {
+		GEMOCTestVideoHelper.addTestSuiteVideoLog("   - "+testName.methodName);
 		helper.setTargetPlatform
 		bot.resetWorkbench
 		// helps to reset the workspace state by closing menu as bot.resetWorkbench is not enough

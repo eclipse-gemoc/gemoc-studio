@@ -29,6 +29,8 @@ import org.junit.runners.MethodSorters
 import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences
 import org.eclipse.gemoc.xdsmlframework.test.lib.TailWorkspaceLogToStderrRule
 import org.junit.Rule
+import org.eclipse.gemoc.xdsmlframework.test.lib.GEMOCTestVideoHelper
+import org.junit.rules.TestName
 
 /**
  * Verifies that we can use the wizard to install the official sample models
@@ -45,8 +47,11 @@ class DeployOfficialExampleK3MelangeFSM_Test extends AbstractXtextTests
 	
 	static SWTWorkbenchBot	bot;
  
+	@Rule public TestName testName = new TestName();
+ 
 	@BeforeClass
 	def static void beforeClass() throws Exception {
+		GEMOCTestVideoHelper.addTestSuiteVideoLog("starting "+DeployOfficialExampleK3MelangeFSM_Test.canonicalName);
 		helper.init
 		bot = new SWTWorkbenchBot()
 		SWTBotPreferences.TIMEOUT = WorkspaceTestHelper.SWTBotPreferencesTIMEOUT_4_GEMOC;
@@ -61,6 +66,7 @@ class DeployOfficialExampleK3MelangeFSM_Test extends AbstractXtextTests
     
 	@Before
 	override setUp() {
+		GEMOCTestVideoHelper.addTestSuiteVideoLog("   - "+testName.methodName);
 		helper.setTargetPlatform
 		bot.resetWorkbench
 		// helps to reset the workspace state by closing menu as bot.resetWorkbench is not enough

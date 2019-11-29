@@ -32,6 +32,10 @@ import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot
 import org.eclipse.gemoc.xdsmlframework.test.lib.TailWorkspaceLogToStderrRule
 import org.junit.Rule
+import org.eclipse.gemoc.xdsmlframework.test.lib.GEMOCTestVideoHelper
+import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystem
+import org.junit.rules.TestName
+import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystemManager
 
 /**
  * Checks that the provided official sample can compile without error 
@@ -39,11 +43,16 @@ import org.junit.Rule
 @RunWith(XtextRunner)
 @InjectWith(MelangeUiInjectorProvider)
 @FixMethodOrder(MethodSorters::NAME_ASCENDING)
-public class GenerateTrace4OfficialExampleMelangeK3FSM_Test extends AbstractXtextTests
+class GenerateTrace4OfficialExampleMelangeK3FSM_Test extends AbstractXtextTests
 {
 	@Inject MelangeWorkspaceTestHelper melangeHelper
 	static WorkspaceTestHelper helper = new WorkspaceTestHelper
-	private static SWTWorkbenchBot	bot;
+	static SWTWorkbenchBot	bot;
+	
+	static MessagingSystem	messaggingSystem
+	
+	@Rule public TestName testName = new TestName();
+	
 	IProject melangeProject
 	IProject melangeProject2
 	static final String BASE_FOLDER_NAME = "tests-inputs-gen/SequentialFSM"
@@ -58,6 +67,10 @@ public class GenerateTrace4OfficialExampleMelangeK3FSM_Test extends AbstractXtex
 
 	@BeforeClass
 	def static void beforeClass() throws Exception {
+		GEMOCTestVideoHelper.addTestSuiteVideoLog("starting "+GenerateTrace4OfficialExampleMelangeK3FSM_Test.canonicalName);
+		val MessagingSystemManager msm = new MessagingSystemManager()
+		messaggingSystem = msm.createBestPlatformMessagingSystem("","");
+		messaggingSystem.important(System.getProperty("user.dir"),"")
 		helper.init
 		bot = new SWTWorkbenchBot()
 		SWTBotPreferences.TIMEOUT = WorkspaceTestHelper.SWTBotPreferencesTIMEOUT_4_GEMOC;
@@ -71,6 +84,7 @@ public class GenerateTrace4OfficialExampleMelangeK3FSM_Test extends AbstractXtex
     
 	@Before
 	override setUp() {
+		GEMOCTestVideoHelper.addTestSuiteVideoLog("   - "+testName.methodName);
 		helper.setTargetPlatform
 		super.setUp
 		helper.init
