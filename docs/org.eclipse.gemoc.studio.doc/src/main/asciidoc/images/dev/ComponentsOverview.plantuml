@@ -36,6 +36,10 @@ node  "ALE Execution" as ale_execution {
   [ALE XDSML]<<not implemented yet>>
   [ALE Engine]
 }
+node  "MoccML Execution" as moccml_execution {
+  [MOCCML XDSML]
+  [MOCCML Engine]
+}
 
 commons <- simulation_model_animation
 commons <- trace
@@ -45,5 +49,7 @@ trace <- gemoc_framework
 [Execution Framework] <|.. [Java Engine]
 [XDSML Framework] <|.. [ALE XDSML] 
 [Execution Framework] <|.. [ALE Engine]
+[XDSML Framework] <|.. [MOCCML XDSML] 
+[Execution Framework] <|.. [MOCCML Engine]
 
 @enduml
