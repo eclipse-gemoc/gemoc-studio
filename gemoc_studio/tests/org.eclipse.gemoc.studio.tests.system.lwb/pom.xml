@@ -48,6 +48,9 @@
 					<product>org.eclipse.sdk.ide</product>
               		<application>org.eclipse.ui.ide.workbench</application>
               		<testFailureIgnore>true</testFailureIgnore> <!-- failed tests here must fail the build-->
+              		<systemProperties>
+              			<WORKSPACE>${basedir}/../../../..</WORKSPACE>
+              		</systemProperties>
 				</configuration>
 			</plugin>
 		

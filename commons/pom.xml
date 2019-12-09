@@ -31,7 +31,9 @@
         <module>plugins/org.eclipse.gemoc.dsl</module>
         <module>plugins/org.eclipse.gemoc.dsl.ide</module>
         <module>plugins/org.eclipse.gemoc.dsl.ui</module>
-
+        <module>plugins/org.jaxen</module>
+        <module>plugins/org.jdom2</module>
+        
         <!-- feature and update site -->
         <module>releng</module>
         
@@ -58,11 +60,36 @@
 		</plugins>
 	</build>
  
- 	<repositories>
-        <repository> <!-- this repo is used to provide jdom and jaxen plugins -->
-            <id>app4mc</id>
-            <layout>p2</layout>
-            <url>http://download.eclipse.org/app4mc/updatesites/releases/0.8.1/</url>
-        </repository>
+	<repositories>
+		<repository>
+			<id>Eclipse release</id>
+			<layout>p2</layout>
+			<url>${eclipse.release.p2.url}</url>
+		</repository>
+<!-- 		<repository> -->
+<!-- 			<id>K3</id> -->
+<!-- 			<layout>p2</layout> -->
+<!-- 			<url>${k3.p2.url}</url> -->
+<!-- 		</repository> -->
+<!-- 		<repository> -->
+<!-- 			<id>Melange</id> -->
+<!-- 			<layout>p2</layout> -->
+<!-- 			<url>${melange.p2.url}</url> -->
+<!-- 		</repository> -->
+		<!-- <repository> -->
+		<!-- <id>ELK</id> -->
+		<!-- <layout>p2</layout> -->
+		<!-- <url>${elk.p2.url}</url> -->
+		<!-- </repository> -->
+<!-- 		<repository> -->
+<!-- 			<id>APP4MC</id> -->
+<!-- 			<layout>p2</layout> -->
+<!-- 			<url>${app4mc.p2.url}</url> -->
+<!-- 		</repository> -->
+		<!-- <repository> -->
+		<!-- <id>AspectJ</id> -->
+		<!-- <layout>p2</layout> -->
+		<!-- <url>${aspectJ.p2.url}</url> -->
+		<!-- </repository> -->
 	</repositories>
 </project>
