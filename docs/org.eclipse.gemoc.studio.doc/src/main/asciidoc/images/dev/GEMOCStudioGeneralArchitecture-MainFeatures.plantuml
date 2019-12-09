@@ -1,5 +1,6 @@
 @startuml
-!include SkinParam.iplantuml
+
+skinparam ComponentBorderColor black
 
 left to right direction
 
