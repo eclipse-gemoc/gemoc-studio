@@ -23,8 +23,8 @@
 		<elk.p2.url>http://download.eclipse.org/elk/updates/releases/0.4.1</elk.p2.url>
 		<app4mc.p2.url>http://download.eclipse.org/app4mc/updatesites/releases/0.8.1</app4mc.p2.url>
 		<aspectJ.p2.url>http://download.eclipse.org/tools/ajdt/48/dev/update</aspectJ.p2.url>
-		<timesquare.p2.url>http://www.i3s.unice.fr/~deantoni/photon/</timesquare.p2.url>
-		<!--             <url>http://timesquare.inria.fr/update_site/photon</url> -->
+		<!-- <timesquare.p2.url>http://www.i3s.unice.fr/~deantoni/photon/</timesquare.p2.url> -->
+		<timesquare.p2.url>http://timesquare.inria.fr/update_site/photon</timesquare.p2.url>
 		<diverse-commons.p2.url>http://www.kermeta.org/diverse-commons/updates/latest</diverse-commons.p2.url>
 		<sirius.p2.url>http://download.eclipse.org/sirius/updates/releases/6.0.1/photon</sirius.p2.url>
 	</properties>
