@@ -1,6 +1,6 @@
 # Changelog
 
-## v3.2.0-20191213 (13/12/2019)
+## v3.2.0-20191216 (16/12/2019)
 
 #### Enhancements:
 
@@ -21,6 +21,7 @@
 #### Version upgrades
 
 - [**bump**][**releng**] Change Timesquare updatesite [#195](https://github.com/eclipse/gemoc-studio/pull/195)
+- [**bump**] Bump to Sirius 6.1.3 [#194](https://github.com/eclipse/gemoc-studio/pull/194)
 - [**bump**] Bump ALE to latest version [#184](https://github.com/eclipse/gemoc-studio/pull/184)
 - [**bump**] Bump GEMOC Studio to 3.2.0 [#174](https://github.com/eclipse/gemoc-studio/pull/174)
 
