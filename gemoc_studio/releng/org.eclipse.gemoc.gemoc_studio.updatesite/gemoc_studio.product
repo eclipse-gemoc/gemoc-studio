@@ -85,7 +85,6 @@ openFile
       <repository location="http://download.eclipse.org/gemoc/updates/nightly/" enabled="true" />
       <repository location="http://download.eclipse.org/elk/updates/releases/0.4.1" enabled="false" />
       <repository location="http://download.eclipse.org/tools/ajdt/48/dev/update" enabled="true" />
-      <repository location="http://download.eclipse.org/app4mc/updatesites/releases/0.8.1/" enabled="false" />
    </repositories>
 
    <preferencesInfo>

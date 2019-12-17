@@ -30,6 +30,10 @@ import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences
 import org.eclipse.swtbot.swt.finder.exceptions.WidgetNotFoundException
 import org.junit.Rule
 import org.eclipse.gemoc.xdsmlframework.test.lib.TailWorkspaceLogToStderrRule
+import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystem
+import org.junit.rules.TestName
+import org.eclipse.gemoc.xdsmlframework.test.lib.GEMOCTestVideoHelper
+import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystemManager
 
 /**
  * This class check the content of the XDSML Perspective
@@ -41,10 +45,19 @@ public class XDSMLPerspective_Test extends AbstractXtextTests {
 
 	static WorkspaceTestHelper helper = new WorkspaceTestHelper
 
-	private static SWTWorkbenchBot bot;
+	static SWTWorkbenchBot bot;
+	
+	static MessagingSystem	messaggingSystem
+	
+	@Rule public TestName testName = new TestName();
 
 	@BeforeClass
 	def static void beforeClass() throws Exception {
+		GEMOCTestVideoHelper.addTestSuiteVideoLog("starting "+XDSMLPerspective_Test.canonicalName);
+		val MessagingSystemManager msm = new MessagingSystemManager()
+		messaggingSystem = msm.createBestPlatformMessagingSystem("","");
+		messaggingSystem.important(XDSMLPerspective_Test.canonicalName,"")
+		messaggingSystem.important(System.getProperty("user.dir"),"")
 		bot = new SWTWorkbenchBot()
 		SWTBotPreferences.TIMEOUT = WorkspaceTestHelper.SWTBotPreferencesTIMEOUT_4_GEMOC;
 		SWTBotPreferences.PLAYBACK_DELAY = WorkspaceTestHelper.SWTBotPreferencesPLAYBACK_DELAY_4_GEMOC;
@@ -55,6 +68,7 @@ public class XDSMLPerspective_Test extends AbstractXtextTests {
 
 	@Before
 	override setUp() {
+		GEMOCTestVideoHelper.addTestSuiteVideoLog("   - "+testName.methodName);
 		bot.resetWorkbench
 		// helps to reset the workspace state by closing menu as bot.resetWorkbench is not enough
 		val Keyboard key = KeyboardFactory.getSWTKeyboard();

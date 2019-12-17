@@ -39,6 +39,10 @@ import org.junit.runner.RunWith
 import org.junit.runners.MethodSorters
 
 import static org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences.*
+import org.eclipse.gemoc.xdsmlframework.test.lib.GEMOCTestVideoHelper
+import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystemManager
+import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystem
+import org.junit.rules.TestName
 
 /**
  * This class check a scenario where we reuse some of the base projects of the official sample : MelangeK3FSM
@@ -58,10 +62,20 @@ public class CreateSequentialLanguageFromOfficialK3FSM_Test extends AbstractXtex
 	static final String XDSML_PROJECT_NAME = BASE_NAME + ".xdsml"
 	static final String XTEXT_PROJECT_NAME = BASE_NAME + ".xtext"
 
-	private static SWTWorkbenchBot bot;
+	static SWTWorkbenchBot bot
+	
+	static MessagingSystem	messaggingSystem
+	
+	@Rule public TestName testName = new TestName();
 
 	@BeforeClass
 	def static void beforeClass() throws Exception {
+		GEMOCTestVideoHelper.addTestSuiteVideoLog("starting "+CreateSequentialLanguageFromOfficialK3FSM_Test.canonicalName);
+		val MessagingSystemManager msm = new MessagingSystemManager()
+		messaggingSystem = msm.createBestPlatformMessagingSystem("","");
+		messaggingSystem.important(CreateSequentialLanguageFromOfficialK3FSM_Test.canonicalName,"")
+		messaggingSystem.important(System.getProperty("user.dir"),"")
+		
 		helper.init
 		bot = new SWTWorkbenchBot()
 		// Set the SWTBot timeout
@@ -69,6 +83,8 @@ public class CreateSequentialLanguageFromOfficialK3FSM_Test extends AbstractXtex
 		helper.setTargetPlatform
 		bot.resetWorkbench
 		IResourcesSetupUtil::cleanWorkspace
+		messaggingSystem.important("user.dir="+System.getProperty("user.dir"),"") 
+		messaggingSystem.focus();
 		WorkspaceTestHelper::reallyWaitForJobs(2)
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 		helper.deployProject(CreateSequentialLanguageFromOfficialK3FSM_Test.MODEL_PROJECT_NAME,
@@ -88,8 +104,11 @@ public class CreateSequentialLanguageFromOfficialK3FSM_Test extends AbstractXtex
 
 	@Before
 	override setUp() {
+		GEMOCTestVideoHelper.addTestSuiteVideoLog("   - "+testName.methodName);
 		helper.setTargetPlatform
 		bot.resetWorkbench
+		messaggingSystem.important(testName.methodName,"") 
+		messaggingSystem.focus()
 		// helps to reset the workspace state by closing menu as bot.resetWorkbench is not enough
 		val Keyboard key = KeyboardFactory.getSWTKeyboard();
 		key.pressShortcut(Keystrokes.ESC);

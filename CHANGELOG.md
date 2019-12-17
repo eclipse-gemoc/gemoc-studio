@@ -1,5 +1,42 @@
 # Changelog
 
+## v3.2.0-20191216 (16/12/2019)
+
+#### Enhancements:
+
+- [**enhancement**] Add automatic creation of missing source folders [#179](https://github.com/eclipse/gemoc-studio/pull/179)
+- [**enhancement**] Remove event manager from feature.xml [#177](https://github.com/eclipse/gemoc-studio/pull/177)
+
+#### Bug Fixes:
+
+- [**bug**] Fix method getEntry of DslImpl [#186](https://github.com/eclipse/gemoc-studio/pull/186)
+- [**bug**] autosrc: set java compliance to 1.8 [#182](https://github.com/eclipse/gemoc-studio/pull/182)
+- [**bug**][**bump**] Stop ALE engine on error [#176](https://github.com/eclipse/gemoc-studio/pull/176)
+- [**bug**] Do not wait for discovery update site availability check in tests [#173](https://github.com/eclipse/gemoc-studio/pull/173)
+
+#### Refactorings
+
+- [**refactoring**] Use general extension point + nature and builder refactoring [#185](https://github.com/eclipse/gemoc-studio/pull/185)
+
+#### Version upgrades
+
+- [**bump**][**releng**] Change Timesquare updatesite [#195](https://github.com/eclipse/gemoc-studio/pull/195)
+- [**bump**] Bump to Sirius 6.1.3 [#194](https://github.com/eclipse/gemoc-studio/pull/194)
+- [**bump**] Bump ALE to latest version [#184](https://github.com/eclipse/gemoc-studio/pull/184)
+- [**bump**] Bump GEMOC Studio to 3.2.0 [#174](https://github.com/eclipse/gemoc-studio/pull/174)
+
+#### Release Engineering
+
+- [**releng**] Add OCLInEcore to the GEMOC Studio [#188](https://github.com/eclipse/gemoc-studio/pull/188)
+- [**releng**] Improve test video recording [#190](https://github.com/eclipse/gemoc-studio/pull/190)
+- [**releng**] Tycho 1.5 and p2 dependencies optimisation [#189](https://github.com/eclipse/gemoc-studio/pull/189)
+- [**releng**] Use custom docker image for building the studio on the CI [#187](https://github.com/eclipse/gemoc-studio/pull/187)
+- [**releng**] Improved docker image for local build [#181](https://github.com/eclipse/gemoc-studio/pull/181)
+- [**releng**] Remove deprecated update site [#180](https://github.com/eclipse/gemoc-studio/pull/180)
+- [**releng**] Merge products and updatesite projects [#175](https://github.com/eclipse/gemoc-studio/pull/175)
+
+---
+
 ## v3.1.0 (29/07/2019)
 
 #### Enhancements:
