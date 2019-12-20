@@ -2,6 +2,6 @@
 <?eclipse version="3.4"?>
 <plugin>
   <extension point="org.eclipse.gemoc.gemoc_language_workbench.xdsml">
-    <XDSML_Definition name="org.eclipse.gemoc.example.k3fsm.K3fsm" xdsmlFilePath="platform:/plugin/org.eclipse.gemoc.example.k3fsm.xdsml/K3fsm.dsl" modelLoader_class="org.eclipse.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" />
+    <XDSML_Definition name="org.eclipse.gemoc.example.k3fsm.K3fsm" xdsmlFilePath="/org.eclipse.gemoc.example.k3fsm.xdsml/K3fsm.dsl" modelLoader_class="org.eclipse.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" />
   </extension>
 </plugin>
