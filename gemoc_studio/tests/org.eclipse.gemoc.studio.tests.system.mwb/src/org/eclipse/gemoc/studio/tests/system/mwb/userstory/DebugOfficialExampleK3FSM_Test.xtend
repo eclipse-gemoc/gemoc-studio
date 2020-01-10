@@ -52,6 +52,7 @@ import org.eclipse.gemoc.xdsmlframework.test.lib.GEMOCTestVideoHelper
 import org.junit.AfterClass
 import org.eclipse.debug.core.IDebugEventSetListener
 import org.eclipse.debug.core.DebugEvent
+import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem
 
 /**
  * Verifies that we can execute a debug session 
@@ -99,7 +100,7 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
     
 	@Before
 	override setUp() {
-		GEMOCTestVideoHelper.addTestSuiteVideoLog("   - "+testName.methodName);
+		GEMOCTestVideoHelper.addTestSuiteVideoLog("   - START of "+testName.methodName);
 		helper.setTargetPlatform
 		bot.resetWorkbench
 		// helps to reset the workspace state by closing menu as bot.resetWorkbench is not enough
@@ -112,7 +113,7 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 	
 	@After
 	override tearDown() {
-		// Nothing to do
+		GEMOCTestVideoHelper.addTestSuiteVideoLog("   - END of "+testName.methodName);
 	}
 	
 	/**
@@ -220,10 +221,10 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 		
 		bot.tree().getTreeItem("org.eclipse.gemoc.example.k3fsm.model_examples").select();
 		bot.tree().getTreeItem("org.eclipse.gemoc.example.k3fsm.model_examples").expand();
-		val item = bot.tree().getTreeItem("org.eclipse.gemoc.example.k3fsm.model_examples").getNode("TwoStatesUpcast.k3fsm").select();
+		val item = bot.tree().getTreeItem("org.eclipse.gemoc.example.k3fsm.model_examples").waitNode("TwoStatesUpcast.k3fsm").select();
 		item.contextMenu("Debug As").menu("Debug Configurations...").click();
 		bot.tree().getTreeItem("Executable model with GEMOC Java engine").expand();
-		bot.tree().getTreeItem("Executable model with GEMOC Java engine").getNode("K3FSM - TwoStatesUpcast(abababa)").select();
+		bot.tree().getTreeItem("Executable model with GEMOC Java engine").waitNode("K3FSM - TwoStatesUpcast(abababa)").select();
 		bot.button("Debug").click();
 		
 		// accept switch to debug perspective (this also makes sure that the engines has started)		
@@ -246,21 +247,30 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 		// select stack in Debug view (this opens the xtext editor and enables the F5 buttons)
 		bot.viewByTitle("Debug").show();
 		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Executable model with GEMOC Java engine]").select();
-		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Executable model with GEMOC Java engine]").getNode("Gemoc debug target").getNode("Model debugging").select();
+		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Executable model with GEMOC Java engine]").waitNode("Gemoc debug target").waitNode("Model debugging").select();
 		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Executable model with GEMOC Java engine]").getNode("Gemoc debug target").getNode("Model debugging").expand();
-		bot.waitUntil(
-			org.eclipse.swtbot.swt.finder.waits.Conditions.treeItemHasNode(
-				bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Executable model with GEMOC Java engine]").getNode("Gemoc debug target").getNode("Model debugging"),
-				"Engine : TwoStatesUpcast.k3fsm => TwoStateUpcast")
-		)
-		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Executable model with GEMOC Java engine]").getNode("Gemoc debug target").getNode("Model debugging").getNode("Engine : TwoStatesUpcast.k3fsm => TwoStateUpcast").select();
-		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Executable model with GEMOC Java engine]").getNode("Gemoc debug target").getNode("Model debugging").getNode("[FSM] TwoStateUpcast#initializeModel()").select();
+		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Executable model with GEMOC Java engine]").getNode("Gemoc debug target").getNode("Model debugging").waitNode("Engine : TwoStatesUpcast.k3fsm => TwoStateUpcast").select();
+		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Executable model with GEMOC Java engine]").getNode("Gemoc debug target").getNode("Model debugging").waitNode("[FSM] TwoStateUpcast#initializeModel()").select();
 		
 		
 		closeXtextProjectConversionPopup
 		assertTrue("engine not found in runningEngineRegistry" +runningEnginesRegistry.runningEngines,  runningEnginesRegistry.runningEngines.size == 1)
 		
 	}
+	
+	
+	/**
+	 * wait for the node then returns its
+	 */
+	def SWTBotTreeItem waitNode(SWTBotTreeItem baseTreeItem, String nodeName) {
+		bot.waitUntil(
+			org.eclipse.swtbot.swt.finder.waits.Conditions.treeItemHasNode(
+				baseTreeItem,
+				nodeName)
+		)
+		return baseTreeItem.getNode(nodeName)
+	}
+	
 	def static void closeAndClearEngine() {
 		val runningEnginesRegistry = org.eclipse.gemoc.executionframework.engine.Activator.getDefault().gemocRunningEngineRegistry;
 		
