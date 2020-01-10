@@ -91,8 +91,7 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 	
 	@AfterClass
 	def static void afterClass() {
-		// do some cleanup in case of error so further test suites will have more chance to succeed
-		closeAndClearEngine
+		//
 	}
 	
 	@Rule
