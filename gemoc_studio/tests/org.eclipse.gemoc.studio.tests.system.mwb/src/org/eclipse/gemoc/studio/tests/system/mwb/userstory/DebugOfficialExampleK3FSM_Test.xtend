@@ -49,6 +49,9 @@ import org.eclipse.debug.internal.core.LaunchManager
 import org.eclipse.gemoc.xdsmlframework.test.lib.SWTBotHelper
 import org.junit.rules.TestName
 import org.eclipse.gemoc.xdsmlframework.test.lib.GEMOCTestVideoHelper
+import org.junit.AfterClass
+import org.eclipse.debug.core.IDebugEventSetListener
+import org.eclipse.debug.core.DebugEvent
 
 /**
  * Verifies that we can execute a debug session 
@@ -83,6 +86,12 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 		helper.deployProject(MODEL_PROJECT_NAME,BASE_FOLDER_NAME+"/"+MODEL_PROJECT_NAME+".zip")
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 		WorkspaceTestHelper::reallyWaitForJobs(2)
+	}
+	
+	@AfterClass
+	def static void afterClass() {
+		// do some cleanup in case of error so further test suites will have more chance to succeed
+		closeAndClearEngine
 	}
 	
 	@Rule
@@ -252,7 +261,7 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 		assertTrue("engine not found in runningEngineRegistry" +runningEnginesRegistry.runningEngines,  runningEnginesRegistry.runningEngines.size == 1)
 		
 	}
-	def void closeAndClearEngine() {
+	def static void closeAndClearEngine() {
 		val runningEnginesRegistry = org.eclipse.gemoc.executionframework.engine.Activator.getDefault().gemocRunningEngineRegistry;
 		
 		// stop engine and clear using the engine status view
@@ -269,12 +278,25 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 	 * similar to bot.toolbarButtonWithTooltip("Step &Into (F5)").click();
 	 */
 	def void clickOnStepInto(){
+		
+		val runningEnginesRegistry = org.eclipse.gemoc.executionframework.engine.Activator.getDefault().gemocRunningEngineRegistry;		
+		val engine = runningEnginesRegistry.runningEngines.entrySet.get(0).value
+		val prevNbLogicalStepCalled = engine.engineStatus.nbLogicalStepCalled		
+		
 		val matcher = allOf(widgetOfType(typeof(ToolItem)), 
 			anyOf(withTooltip("Step &Into (F5)"), withTooltip("Step &Into")), 
 			withStyle(SWT.PUSH, "SWT.PUSH")
 		)
 		val btn = new SWTBotToolbarPushButton( bot.widget(matcher, 0) as ToolItem, matcher);
 		btn.click
+		
+		// wait for the action being taken into account by the engine
+		var timeout = 80
+		while(engine.engineStatus.nbLogicalStepCalled == prevNbLogicalStepCalled || timeout < 0) {
+			Thread.sleep(100)
+			timeout--
+		} 
+		assertTrue("Timeout: Step Into debug command did not trigger a new step in engine "+ engine.name, timeout > 0)
 	}
 	
 	/**
