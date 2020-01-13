@@ -28,10 +28,10 @@ import org.eclipse.debug.core.ILaunchManager;
 import org.eclipse.gemoc.ale.interpreted.engine.AleEngine;
 import org.eclipse.gemoc.ale.interpreted.engine.sirius.ALEInterpreterProvider;
 import org.eclipse.gemoc.dsl.debug.ide.launch.AbstractDSLLaunchConfigurationDelegate;
-import org.eclipse.gemoc.execution.sequential.javaengine.IK3RunConfiguration;
-import org.eclipse.gemoc.execution.sequential.javaengine.K3RunConfiguration;
-import org.eclipse.gemoc.execution.sequential.javaengine.SequentialModelExecutionContext;
 import org.eclipse.gemoc.executionframework.engine.commons.EngineContextException;
+import org.eclipse.gemoc.executionframework.engine.commons.GenericModelExecutionContext;
+import org.eclipse.gemoc.executionframework.engine.commons.sequential.ISequentialRunConfiguration;
+import org.eclipse.gemoc.executionframework.engine.commons.sequential.SequentialRunConfiguration;
 import org.eclipse.gemoc.gemoc_studio.headless.Activator;
 import org.eclipse.gemoc.xdsmlframework.api.core.ExecutionMode;
 import org.eclipse.gemoc.xdsmlframework.api.core.IRunConfiguration;
@@ -67,16 +67,16 @@ public class ALEInterpretedSequentialRunner implements IEngineRunner {
 		configuration.setAttribute(AbstractDSLLaunchConfigurationDelegate.RESOURCE_URI, modelFile.getFullPath()
 				.toString());
 		configuration.setAttribute(IRunConfiguration.LAUNCH_SELECTED_LANGUAGE, selectedLanguage);
-		configuration.setAttribute(IK3RunConfiguration.LAUNCH_METHOD_ENTRY_POINT, methodEntryPoint);
-		configuration.setAttribute(IK3RunConfiguration.LAUNCH_MODEL_ENTRY_POINT, modelEntryPoint);
-		configuration.setAttribute(IK3RunConfiguration.LAUNCH_INITIALIZATION_METHOD, initializationMethod);
-		configuration.setAttribute(IK3RunConfiguration.LAUNCH_INITIALIZATION_ARGUMENTS, initializationMethodArgs);
+		configuration.setAttribute(ISequentialRunConfiguration.LAUNCH_METHOD_ENTRY_POINT, methodEntryPoint);
+		configuration.setAttribute(ISequentialRunConfiguration.LAUNCH_MODEL_ENTRY_POINT, modelEntryPoint);
+		configuration.setAttribute(ISequentialRunConfiguration.LAUNCH_INITIALIZATION_METHOD, initializationMethod);
+		configuration.setAttribute(ISequentialRunConfiguration.LAUNCH_INITIALIZATION_ARGUMENTS, initializationMethodArgs);
 		launchConfiguration = configuration;
 		return configuration;
 	}
 	
 	public void run() throws CoreException, EngineContextException, InterruptedException {
-		K3RunConfiguration runConfiguration = new K3RunConfiguration(launchConfiguration);
+		SequentialRunConfiguration runConfiguration = new SequentialRunConfiguration(launchConfiguration);
 		AleEngine executionEngine = new AleEngine();
 		
 		Set<IInterpreterProvider> aleProviders = 
@@ -91,7 +91,7 @@ public class ALEInterpretedSequentialRunner implements IEngineRunner {
 		IInterpreterProvider provider = new ALEInterpreterProvider(executionEngine);
 		CompoundInterpreter.INSTANCE.registerProvider(provider); //Register ALE for Sirius
 		
-		SequentialModelExecutionContext<K3RunConfiguration> executioncontext = new SequentialModelExecutionContext<K3RunConfiguration>(
+		GenericModelExecutionContext<SequentialRunConfiguration> executioncontext = new GenericModelExecutionContext<SequentialRunConfiguration>(
 				runConfiguration, ExecutionMode.Run);
 		executioncontext.initializeResourceModel(); // load model
 		executionEngine.initialize(executioncontext);

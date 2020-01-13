@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c)  2019 Inria.
+ * Copyright (c)  2019, 2020 Inria.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -23,11 +23,11 @@ import org.eclipse.debug.core.ILaunchConfigurationType;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.core.ILaunchManager;
 import org.eclipse.gemoc.dsl.debug.ide.launch.AbstractDSLLaunchConfigurationDelegate;
-import org.eclipse.gemoc.execution.sequential.javaengine.IK3RunConfiguration;
-import org.eclipse.gemoc.execution.sequential.javaengine.K3RunConfiguration;
 import org.eclipse.gemoc.execution.sequential.javaengine.PlainK3ExecutionEngine;
-import org.eclipse.gemoc.execution.sequential.javaengine.SequentialModelExecutionContext;
 import org.eclipse.gemoc.executionframework.engine.commons.EngineContextException;
+import org.eclipse.gemoc.executionframework.engine.commons.GenericModelExecutionContext;
+import org.eclipse.gemoc.executionframework.engine.commons.sequential.ISequentialRunConfiguration;
+import org.eclipse.gemoc.executionframework.engine.commons.sequential.SequentialRunConfiguration;
 import org.eclipse.gemoc.gemoc_studio.headless.Activator;
 import org.eclipse.gemoc.xdsmlframework.api.core.ExecutionMode;
 import org.eclipse.gemoc.xdsmlframework.api.core.IRunConfiguration;
@@ -59,22 +59,22 @@ public class PlainK3SequentialRunner implements IEngineRunner {
 		configuration.setAttribute(AbstractDSLLaunchConfigurationDelegate.RESOURCE_URI, modelFile.getFullPath()
 				.toString());
 		configuration.setAttribute(IRunConfiguration.LAUNCH_SELECTED_LANGUAGE, selectedLanguage);
-		configuration.setAttribute(IK3RunConfiguration.LAUNCH_METHOD_ENTRY_POINT, methodEntryPoint);
-		configuration.setAttribute(IK3RunConfiguration.LAUNCH_MODEL_ENTRY_POINT, modelEntryPoint);
-		configuration.setAttribute(IK3RunConfiguration.LAUNCH_INITIALIZATION_METHOD, initializationMethod);
-		configuration.setAttribute(IK3RunConfiguration.LAUNCH_INITIALIZATION_ARGUMENTS, initializationMethodArgs);
+		configuration.setAttribute(ISequentialRunConfiguration.LAUNCH_METHOD_ENTRY_POINT, methodEntryPoint);
+		configuration.setAttribute(ISequentialRunConfiguration.LAUNCH_MODEL_ENTRY_POINT, modelEntryPoint);
+		configuration.setAttribute(ISequentialRunConfiguration.LAUNCH_INITIALIZATION_METHOD, initializationMethod);
+		configuration.setAttribute(ISequentialRunConfiguration.LAUNCH_INITIALIZATION_ARGUMENTS, initializationMethodArgs);
 		launchConfiguration = configuration;
 		return configuration;
 	}
 	
 	public void run() throws CoreException, EngineContextException, InterruptedException {
-		IK3RunConfiguration runConfiguration = new K3RunConfiguration(launchConfiguration);
+		SequentialRunConfiguration runConfiguration = new SequentialRunConfiguration(launchConfiguration);
 		
 		PlainK3ExecutionEngine executionEngine = new PlainK3ExecutionEngine();
 		
 		
 		
-		SequentialModelExecutionContext<IK3RunConfiguration> executioncontext = new SequentialModelExecutionContext<IK3RunConfiguration>(
+		GenericModelExecutionContext<ISequentialRunConfiguration> executioncontext = new GenericModelExecutionContext<ISequentialRunConfiguration>(
 				runConfiguration, ExecutionMode.Run);
 		executioncontext.initializeResourceModel();
 		executionEngine.initialize(executioncontext);
