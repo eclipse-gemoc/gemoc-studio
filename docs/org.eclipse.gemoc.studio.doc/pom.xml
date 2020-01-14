@@ -119,7 +119,7 @@
 							    </resource>
 							    
 							    <resource>
-							        <directory>${basedir}/../../../gemoc-studio-modeldebugging/java_execution/java_engine/plugins/org.eclipse.gemoc.execution.sequential.javaengine.ui/docs/asciidoc/images</directory>
+							        <directory>${basedir}/../../../gemoc-studio-execution-java/java_engine/plugins/org.eclipse.gemoc.execution.sequential.javaengine.ui/docs/asciidoc/images</directory>
 							        <targetPath>images</targetPath>
 							    </resource>
 							    <resource>
@@ -167,7 +167,7 @@
 							        <targetPath>images</targetPath>
 							    </resource>
 							    <resource>
-							        <directory>${basedir}/../../../gemoc-studio-modeldebugging/java_execution/docs/dev/images</directory>
+							        <directory>${basedir}/../../../gemoc-studio-execution-java/docs/dev/images</directory>
 							        <targetPath>images</targetPath>
 							    </resource>
 							    <resource>
