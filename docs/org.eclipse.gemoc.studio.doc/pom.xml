@@ -165,6 +165,10 @@
 							    <resource>
 							        <directory>${basedir}/../../../gemoc-studio-modeldebugging/framework/xdsml_framework/docs/dev/images</directory>
 							        <targetPath>images</targetPath>
+							    </resource>				    
+							    <resource>
+							        <directory>${basedir}/../../../gemoc-studio-modeldebugging/commons/docs/dev/images</directory>
+							        <targetPath>images</targetPath>
 							    </resource>
 							    <resource>
 							        <directory>${basedir}/../../../gemoc-studio-execution-java/docs/dev/images</directory>
