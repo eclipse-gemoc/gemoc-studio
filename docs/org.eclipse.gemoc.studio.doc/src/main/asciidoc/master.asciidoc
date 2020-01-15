@@ -71,7 +71,7 @@ include::userguide/lw_DefineConcreteSyntax_headContent.asciidoc[]
 
 include::userguide/lw_MakeLanguageExecutable_headContent.asciidoc[]
 
-include::../../../../../../gemoc-studio-modeldebugging/java_execution/java_xdsml/plugins/org.eclipse.gemoc.execution.sequential.javaxdsml.ide.ui/docs/asciidoc/user_lw_MakeK3SequentialExecutableLanguage.asciidoc[]
+include::../../../../../../gemoc-studio-execution-java/java_xdsml/plugins/org.eclipse.gemoc.execution.sequential.javaxdsml.ide.ui/docs/asciidoc/user_lw_MakeK3SequentialExecutableLanguage.asciidoc[]
 
 include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/ccsljavaxdsml/user_lw_MakeCCSLJavaConcurrentExecutableLanguage.asciidoc[]
 
@@ -155,7 +155,7 @@ include::userguide/mw_ExecuteModel_headContent.asciidoc[]
 ==== Launch a model execution
 // include::userguide/mw_LaunchModelExecution_headContent.asciidoc[]
 
-include::../../../../../../gemoc-studio-modeldebugging/java_execution/java_engine/plugins/org.eclipse.gemoc.execution.sequential.javaengine.ui/docs/asciidoc/user_mw_LaunchSequentialModelExecution.asciidoc[]
+include::../../../../../../gemoc-studio-execution-java/java_engine/plugins/org.eclipse.gemoc.execution.sequential.javaengine.ui/docs/asciidoc/user_mw_LaunchSequentialModelExecution.asciidoc[]
 
 include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/ccsljavaxdsml/user_mw_LaunchConcurrentModelExecution.asciidoc[]
 
@@ -196,10 +196,10 @@ include::../../../../../../gemoc-studio-modeldebugging/framework/execution_frame
 include::userguide/mw_DebugModel_Timelines_headContent.asciidoc[]
 
 include::../../../../../../gemoc-studio-modeldebugging/trace/manager/plugins/org.eclipse.gemoc.addon.multidimensional.timeline/docs/asciidoc/user_mw_DebugModel_MultiDimentionalTimeline.asciidoc[]
-include::../../../../../../gemoc-studio-modeldebugging/java_execution/java_engine/plugins/org.eclipse.gemoc.execution.sequential.javaengine.ui/docs/asciidoc/user_mw_DebugModel_MultiDimentionalTimeline_javaengine.asciidoc[]
+include::../../../../../../gemoc-studio-execution-java/java_engine/plugins/org.eclipse.gemoc.execution.sequential.javaengine.ui/docs/asciidoc/user_mw_DebugModel_MultiDimentionalTimeline_javaengine.asciidoc[]
 
 include::../../../../org.eclipse.gemoc.studio.externaltools.doc/src/main/asciidoc/ccsljavaxdsml/user_mw_DebugModel_MultiBranchTimeline.asciidoc[]
-include::../../../../../../gemoc-studio-modeldebugging/java_execution/java_engine/plugins/org.eclipse.gemoc.execution.sequential.javaengine.ui/docs/asciidoc/user_mw_DebugModel_MultiBranchTimeline_javaengine.asciidoc[]
+include::../../../../../../gemoc-studio-execution-java/java_engine/plugins/org.eclipse.gemoc.execution.sequential.javaengine.ui/docs/asciidoc/user_mw_DebugModel_MultiBranchTimeline_javaengine.asciidoc[]
 
 include::../../../../../../gemoc-studio-modeldebugging/trace/manager/plugins/org.eclipse.gemoc.addon.diffviewer/docs/asciidoc/user_mw_DebugModel_Timeline_diff_view.asciidoc[]
 include::../../../../../../gemoc-studio-modeldebugging/trace/manager/plugins/org.eclipse.gemoc.addon.stategraph/docs/asciidoc/user_mw_DebugModel_Timeline_state_graph_view.asciidoc[]
@@ -320,7 +320,7 @@ include::../../../../../../gemoc-studio-modeldebugging/trace/docs/dev/TraceManag
 === Execution engines
 
 
-include::../../../../../../gemoc-studio-modeldebugging/java_execution/docs/dev/JavaExecution.asciidoc[]
+include::../../../../../../gemoc-studio-execution-java/docs/dev/JavaExecution.asciidoc[]
 include::../../../../../../gemoc-studio-execution-ale/docs/dev/ALEExecution.asciidoc[]
 
 
