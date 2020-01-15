@@ -1,1 +1,0 @@
-To successfully build this file in eclipse you must first run *mvn generate-sources*
