@@ -10,7 +10,6 @@
 	<name>Complete GEMOC Studio compilation</name>
 
 	<modules>
-		<module>../../../gemoc-studio/commons</module>
 		<module>../../../gemoc-studio/official_samples/sample.deployers</module>
 		<module>../../../gemoc-studio/docs/org.eclipse.gemoc.studio.doc</module>
 		<module>../../../gemoc-studio/gemoc_studio</module>
