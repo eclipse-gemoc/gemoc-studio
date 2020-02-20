@@ -13,8 +13,10 @@
 
     <properties>
         <!-- Distribution URLs -->
-        <jboss.releases.repo.url>https://repository.jboss.org/nexus/service/local/staging/deploy/maven2/</jboss.releases.repo.url>
-        <jboss.snapshots.repo.url>https://repository.jboss.org/nexus/content/repositories/snapshots/</jboss.snapshots.repo.url>
+        <gemoc.releases.repo.url>https://repo.eclipse.org/content/repositories/gemoc-releases/</gemoc.releases.repo.url>
+        <gemoc.snapshots.repo.url>https://repo.eclipse.org/content/repositories/gemoc-snapshots/</gemoc.snapshots.repo.url>
+        
+        <maven.deploy.skip>true</maven.deploy.skip>
     </properties>
 
     <scm>
@@ -38,14 +40,14 @@
 
     <distributionManagement>
         <repository>
-            <id>jboss-releases-repository</id>
-            <name>JBoss Releases Repository</name>
-            <url>${jboss.releases.repo.url}</url>
+            <id>repo.eclipse.org</id>
+            <name>GEMOC Releases Repository</name>
+            <url>${gemoc.releases.repo.url}</url>
         </repository>
         <snapshotRepository>
-            <id>jboss-snapshots-repository</id>
-            <name>JBoss Snapshots Repository</name>
-            <url>${jboss.snapshots.repo.url}</url>
+            <id>repo.eclipse.org</id>
+            <name>GEMOC Snapshots Repository</name>
+            <url>${gemoc.snapshots.repo.url}</url>
         </snapshotRepository>
     </distributionManagement>
 
