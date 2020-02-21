@@ -9,6 +9,9 @@
 	<version>3.0.0-SNAPSHOT</version>
 	<name>Complete GEMOC Studio compilation</name>
 
+	<properties>
+		<maven.deploy.skip>true</maven.deploy.skip>
+	</properties>
 	<modules>
 		<module>../../../gemoc-studio/official_samples/sample.deployers</module>
 		<module>../../../gemoc-studio/docs/org.eclipse.gemoc.studio.doc</module>
@@ -19,5 +22,16 @@
 		<module>../../../gemoc-studio-moccml</module>
 		<module>../../../gemoc-studio-execution-moccml</module>
 	</modules>
-
+	<distributionManagement>
+		<repository>
+			<id>repo.eclipse.org</id>
+			<name>GEMOC Project Repository - Releases</name>
+			<url>https://repo.eclipse.org/content/repositories/gemoc-releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>repo.eclipse.org</id>
+			<name>GEMOC Project Repository - Snapshots</name>
+			<url>https://repo.eclipse.org/content/repositories/gemoc-snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
 </project>

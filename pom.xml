@@ -27,6 +27,7 @@
 		<timesquare.p2.url>http://timesquare.inria.fr/update_site/photon</timesquare.p2.url>
 		<diverse-commons.p2.url>http://www.kermeta.org/diverse-commons/updates/latest</diverse-commons.p2.url>
 		<sirius.p2.url>http://download.eclipse.org/sirius/updates/releases/6.1.3/photon</sirius.p2.url>
+		<maven.deploy.skip>true</maven.deploy.skip>
 	</properties>
 
 	<build>
@@ -211,4 +212,16 @@
 			</plugins>
 		</pluginManagement>
 	</build>
+	<distributionManagement>
+		<repository>
+			<id>repo.eclipse.org</id>
+			<name>GEMOC Project Repository - Releases</name>
+			<url>https://repo.eclipse.org/content/repositories/gemoc-releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>repo.eclipse.org</id>
+			<name>GEMOC Project Repository - Snapshots</name>
+			<url>https://repo.eclipse.org/content/repositories/gemoc-snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
 </project>
