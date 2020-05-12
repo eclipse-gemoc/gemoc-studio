@@ -8,3 +8,6 @@ build.acceleo
 node_modules
 /package-lock.json
 **/.polyglot.build.properties
+.polyglot.*
+.META-INF_MANIFEST.MF
+feature.xml.takari_issue_192
