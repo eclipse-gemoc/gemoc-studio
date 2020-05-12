@@ -100,6 +100,7 @@ where
 - $PWD/../../../.. points to the root containing all gemoc sources
 - --user 1000  makes sure to use your user uid (use `id -u` or `echo $UID`to get yours user uid if this isn't 1000) 
 
+note: you must create the _$PWD/cache-m2_ folder before launching the docker command in order to avoid permission issues.
 
 
 
@@ -118,6 +119,17 @@ or
 [source,bourne]
 ----
 docker-compose run gemoc_full_compilation linux_offline
+----
+
+or
+[source,bourne]
+----
+docker-compose run gemoc_full_compilation linux_no_system_test
+----
+or
+[source,bourne]
+----
+docker-compose run gemoc_full_compilation linux_no_system_test_offline
 ----
 
 ===== Description of the docker env
