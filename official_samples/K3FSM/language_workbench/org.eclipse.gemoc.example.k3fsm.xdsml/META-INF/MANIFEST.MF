@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Automatic-Module-Name: org.eclipse.gemoc.example.k3fsm.xdsml
 Bundle-SymbolicName: org.eclipse.gemoc.example.k3fsm.xdsml; singleton:=true
 Bundle-Name: org.eclipse.gemoc.example.k3fsm.xdsml
-Bundle-Version: 1.0.0
+Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Require-Bundle: org.eclipse.xtend.lib;bundle-version="2.7.0";visibility:="private",
  org.eclipse.xtext.xbase.lib;bundle-version="2.7.0";visibility:="private",
