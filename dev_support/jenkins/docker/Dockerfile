@@ -101,7 +101,8 @@ RUN yum update -y \
   && yum clean all
 
 RUN ln -s /usr/bin/git /usr/local/bin/git \
-  && ln -s /bin/bash /usr/local/bin/hipp_shell
+  && ln -s /bin/bash /usr/local/bin/hipp_shell \
+  && if [ ! -a /etc/machine-id ] || [ ! -s /etc/machine-id ]; then dbus-uuidgen > /etc/machine-id; fi
 
 ENV HOME=/home/jenkins
 ENV DISPLAY :0
