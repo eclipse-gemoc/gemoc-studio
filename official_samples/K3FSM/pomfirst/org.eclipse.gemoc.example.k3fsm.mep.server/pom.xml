@@ -64,11 +64,6 @@
 			<artifactId>org.eclipse.emf.mwe.utils</artifactId>
 			<version>1.5.1</version>
 		</dependency>
-		<!-- <dependency> -->
-		<!-- <groupId>org.eclipse.lsp4j</groupId> -->
-		<!-- <artifactId>org.eclipse.lsp4j</artifactId> -->
-		<!-- <version>0.8.0</version> -->
-		<!-- </dependency> -->
 		<dependency>
 			<groupId>org.eclipse.lsp4j</groupId>
 			<artifactId>org.eclipse.lsp4j.debug</artifactId>
@@ -76,19 +71,17 @@
 		</dependency>
 		<!-- warning verify version retrieved via org.eclipse.xtext.ide -->
 		<dependency>
-			<!-- <groupId>fr.inria.glose.fcl</groupId> -->
 			<groupId>org.eclipse.gemoc.executionframework</groupId>
 			<artifactId>org.eclipse.gemoc.executionframework.mep</artifactId>
 			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<!-- <groupId>fr.inria.glose.fcl</groupId> -->
 			<groupId>org.eclipse.gemoc.execution.sequential.javaengine</groupId>
 			<artifactId>org.eclipse.gemoc.execution.sequential.javaengine.headless</artifactId>
 			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>fr.inria.glose</groupId>
+			<groupId>org.eclipse.gemoc.commons</groupId>
 			<artifactId>org.eclipse.gemoc.commons.utils</artifactId>
 			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
@@ -303,7 +296,7 @@
 					</filesets>
 				</configuration>
 			</plugin>
-			<plugin>
+<!-- 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
 				<version>1.7.1</version>
@@ -314,9 +307,6 @@
 							<goal>shade</goal>
 						</goals>
 						<configuration>
-							<!-- <artifactSet> <excludes> <exclude>org.kermeta.eclipse:org.eclipse.emf.common</exclude> 
-								<exclude>org.kermeta.eclipse:org.eclipse.emf.ecore</exclude> <exclude>org.kermeta.eclipse:org.eclipse.emf.ecore.xmi</exclude> 
-								</excludes> </artifactSet> -->
 							<filters>
 								<filter>
 									<artifact>*:*</artifact>
@@ -330,7 +320,7 @@
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>
+			</plugin> -->
 		</plugins>
 	</build>
 	<repositories>
