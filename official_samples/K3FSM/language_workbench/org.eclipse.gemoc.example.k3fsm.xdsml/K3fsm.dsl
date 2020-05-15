@@ -5,3 +5,5 @@ k3 = org.eclipse.gemoc.example.k3fsm.k3dsa.FSMAspect, org.eclipse.gemoc.example.
 xtext = /org.eclipse.gemoc.example.k3fsm.xtext/bin/org/eclipse/gemoc/example/k3fsm/K3FSM.xtext
 
 sirius = /org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign
+
+metaprog = k3
