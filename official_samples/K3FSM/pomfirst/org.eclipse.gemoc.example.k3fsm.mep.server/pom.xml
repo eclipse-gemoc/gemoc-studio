@@ -81,7 +81,7 @@
 			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>org.eclipse.gemoc.commons</groupId>
+			<groupId>org.eclipse.gemoc.pomfirst</groupId>
 			<artifactId>org.eclipse.gemoc.commons.utils</artifactId>
 			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
@@ -111,7 +111,7 @@
 
 		<!-- GEMOC Java Engine dependencies -->
 		<dependency>
-			<groupId>org.eclipse.gemoc.execution.sequential.java</groupId>
+			<groupId>org.eclipse.gemoc.pomfirst</groupId>
 			<artifactId>org.eclipse.gemoc.execution.sequential.javaengine</artifactId>
 			<version>4.0.0-SNAPSHOT</version>
 		</dependency>
@@ -121,22 +121,22 @@
 			<version>3.2.3-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>org.eclipse.gemoc.trace.commons</groupId>
+			<groupId>org.eclipse.gemoc.pomfirst</groupId>
 			<artifactId>org.eclipse.gemoc.trace.commons.model</artifactId>
 			<version>3.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>org.eclipse.gemoc.trace.commons</groupId>
+			<groupId>org.eclipse.gemoc.pomfirst</groupId>
 			<artifactId>org.eclipse.gemoc.trace.commons</artifactId>
 			<version>3.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>org.eclipse.gemoc.modeldebugging.executionframework</groupId>
+			<groupId>org.eclipse.gemoc.pomfirst</groupId>
 			<artifactId>org.eclipse.gemoc.executionframework.debugger</artifactId>
 			<version>4.0.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>org.eclipse.gemoc.modeldebugging.executionframework</groupId>
+			<groupId>org.eclipse.gemoc.pomfirst</groupId>
 			<artifactId>org.eclipse.gemoc.executionframework.engine</artifactId>
 			<version>4.0.0-SNAPSHOT</version>
 		</dependency>
@@ -153,7 +153,7 @@
 			<systemPath>${basedir}/lib_not_correctly_deployed/org.eclipse.emf.transaction_1.9.1.201805140824.jar</systemPath>
 		</dependency>
 
-		<dependency>
+<!-- 		<dependency>
 			<groupId>org.eclipse.emf</groupId>
 			<artifactId>org.eclipse.emf.edit</artifactId>
 			<version>2.16.0</version>
@@ -204,7 +204,7 @@
 			<groupId>DSLDebugger</groupId>
 			<artifactId>org.eclipse.gemoc.dsl.debug.edit</artifactId>
 			<version>3.0.1-SNAPSHOT</version>
-		</dependency>
+		</dependency> -->
 
 		<dependency>
 			<groupId>org.eclipse.platform</groupId>
@@ -296,7 +296,7 @@
 					</filesets>
 				</configuration>
 			</plugin>
-<!-- 			<plugin>
+ 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
 				<version>1.7.1</version>
@@ -320,7 +320,7 @@
 						</configuration>
 					</execution>
 				</executions>
-			</plugin> -->
+			</plugin>
 		</plugins>
 	</build>
 	<repositories>
