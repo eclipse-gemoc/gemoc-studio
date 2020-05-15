@@ -3,11 +3,14 @@ package org.eclipse.gemoc.example.k3fsm.mep.server;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.event.Observes;
 import javax.websocket.OnClose;
 import javax.websocket.OnError;
 import javax.websocket.OnMessage;
@@ -32,6 +35,8 @@ import org.eclipse.xtext.resource.XtextResourceSet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import io.quarkus.runtime.StartupEvent;
+
 
 
 @ServerEndpoint("/mep/k3fsm")
@@ -54,6 +59,31 @@ public class K3FSMMEPServerEndpoint {
 		}
 		return server;
 	}
+	
+    void onStart(@Observes StartupEvent ev) {               
+        LOGGER.info("The K3FSMMEPServerEndpoint is starting...");
+        // this is a check, in a correctly configured pom/classloader, this should pass
+        // otherwise you may obtain error it the classloader/
+        // we don this check here because error in onOpen tend to be captured and hidden to the user (+ a timeout)
+        LOGGER.debug("Creating server...");
+		try{ 
+			LOGGER.error("pause 5000ms in order to connect debugger before continuing...");
+			Thread.sleep(5000);
+			LOGGER.debug("Creating K3FSMMEPModule...");
+			getOrCreateServer();
+			LOGGER.debug("K3FSMMEPModule created");
+		} catch (InterruptedException e) {
+		} catch (Exception e) {
+			LOGGER.error("failed to create Xtext K3FSMMEPModule, classpath may be inconsistent");
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			e.printStackTrace(pw);
+			LOGGER.error(sw.toString());
+			
+			throw e;
+		}
+		LOGGER.debug("Server created");
+    }
 	
 	@OnOpen
 	public void onOpen(Session session) {
