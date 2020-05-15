@@ -38,7 +38,7 @@ import org.slf4j.LoggerFactory;
 @ApplicationScoped
 public class K3FSMMEPServerEndpoint {
 	
-	private static final Logger LOGGER = LoggerFactory.getLogger("K3FSMMEPServerEndpoint");
+	private static final Logger LOGGER = LoggerFactory.getLogger(K3FSMMEPServerEndpoint.class);
 
 	boolean supportHeader = true;
 	
@@ -58,13 +58,13 @@ public class K3FSMMEPServerEndpoint {
 	@OnOpen
 	public void onOpen(Session session) {
 		
-		LOGGER.info("Connection");
+		LOGGER.info("Starting connection...");
 
 		try {
-			
+			LOGGER.debug("Creating server...");
 			getOrCreateServer();
+			LOGGER.debug("Server created");
 			
-
 			ExtensibleInputStream in = new ExtensibleInputStream();
 			activeSessions.put(session, in);
 		
@@ -98,9 +98,10 @@ public class K3FSMMEPServerEndpoint {
 			serverSideLauncher.startListening();
 			
 			//Launcher<IModelExecutionProtocolServer> serverSideLauncher = MEPLauncher.createLauncher(server, IModelExecutionProtocolServer.class, in, outputstream);
-			
+			LOGGER.info("Connection success");
 		} catch (Exception e) {
 			e.printStackTrace();
+			LOGGER.error("Connection failed", e);
 		}
 
 	}
