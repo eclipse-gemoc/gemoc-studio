@@ -12,11 +12,11 @@
 	</modules>
 
     <properties>
-		<tycho-version>1.5.1</tycho-version>
+		<tycho-version>1.7.0</tycho-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    	<xtend.version>2.14.0</xtend.version>
+    	<xtend.version>2.21.0</xtend.version>
     	
-    	<eclipse.release.p2.url>http://download.eclipse.org/releases/photon</eclipse.release.p2.url>
+    	<eclipse.release.p2.url>http://download.eclipse.org/releases/2020-03</eclipse.release.p2.url>
 		<k3.p2.url>http://www.kermeta.org/k3/update_2018-09-05</k3.p2.url>
 		<ale.p2.url>http://www.kermeta.org/ale-lang/updates/2019-11-13</ale.p2.url>
 		<melange.p2.url>http://melange.inria.fr/updatesite/nightly/update_2018-12-03/</melange.p2.url>
