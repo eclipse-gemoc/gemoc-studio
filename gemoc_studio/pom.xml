@@ -50,6 +50,12 @@
 			<url>${eclipse.release.p2.url}</url>
 		</repository>
 		<repository>
+			<!-- used by branding due to amalgam discovery -->
+			<id>Eclipse Photon release</id>
+			<layout>p2</layout>
+			<url>${eclipse.photon.release.p2.url}</url>
+		</repository>
+		<repository>
 			<id>K3</id>
 			<layout>p2</layout>
 			<url>${k3.p2.url}</url>
