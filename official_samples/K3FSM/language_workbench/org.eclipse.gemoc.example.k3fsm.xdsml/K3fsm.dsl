@@ -6,4 +6,4 @@ xtext = /org.eclipse.gemoc.example.k3fsm.xtext/bin/org/eclipse/gemoc/example/k3f
 
 sirius = /org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign
 
-metaprog = kermeta3
+metaprog = org.eclipse.gemoc.metaprog.kermeta3
