@@ -11,7 +11,7 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<surefire-plugin.version>2.22.0</surefire-plugin.version>
 		<quarkus.version>0.21.1</quarkus.version>
-		<xtend.version>2.19.0</xtend.version>
+		<xtend.version>2.18.0</xtend.version>
 	</properties>
 
 	<dependencyManagement>
@@ -27,7 +27,12 @@
 	</dependencyManagement>
 	<dependencies>
 
-
+		<!-- use guice 4 in order to get better error repporting while designing -->
+	    <!-- <dependency>
+	      <groupId>com.google.inject</groupId>
+	      <artifactId>guice</artifactId>
+	      <version>4.2.0</version>
+	    </dependency> -->
 		<!-- web and general dependencies -->
 		<dependency>
 			<groupId>io.quarkus</groupId>
