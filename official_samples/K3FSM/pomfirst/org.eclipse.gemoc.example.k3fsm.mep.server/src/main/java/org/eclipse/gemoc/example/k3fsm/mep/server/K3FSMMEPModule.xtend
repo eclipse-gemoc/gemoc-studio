@@ -21,10 +21,17 @@ class K3FSMMEPModule extends K3FSMStandaloneSetupGenerated {
 	}*/
 	
 	override createInjector() {
-		Guice.createInjector(Modules2.mixin(new K3FSMRuntimeModule, new K3FSMIdeModule, new CustomServerModule,
-			[bind(IResourceServiceProvider.Registry).toProvider(IResourceServiceProvider.Registry.RegistryProvider)]
-		))
+		Guice.createInjector(
+			Modules2.mixin(
+				new K3FSMRuntimeModule, 
+				new K3FSMIdeModule, 
+				new CustomServerModule,
+				[bind(IResourceServiceProvider.Registry).toProvider(IResourceServiceProvider.Registry.RegistryProvider)]
+			)
+		)
 	}
+	
+	
 	
 	override register(Injector injector) {
 		super.register(injector)

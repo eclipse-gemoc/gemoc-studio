@@ -11,8 +11,6 @@ import org.eclipse.xtext.resource.IContainer
 import org.eclipse.xtext.resource.IResourceServiceProvider
 import org.eclipse.xtext.resource.ResourceServiceProviderServiceLoader
 import org.eclipse.xtext.resource.containers.ProjectDescriptionBasedContainerManager
-import org.eclipse.xtext.ide.server.rename.IRenameService
-import org.eclipse.xtext.ide.server.rename.RenameService
 
 class CustomServerModule extends AbstractModule {
 	
@@ -23,6 +21,6 @@ class CustomServerModule extends AbstractModule {
         bind(IWorkspaceConfigFactory).to(ProjectWorkspaceConfigFactory)
         bind(IProjectDescriptionFactory).to(DefaultProjectDescriptionFactory)
         bind(IContainer.Manager).to(ProjectDescriptionBasedContainerManager)
-        bind(IRenameService).to(RenameService)
+       // bind(IRenameService).to(RenameService)
 	 }
 }
