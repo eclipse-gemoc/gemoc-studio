@@ -12,6 +12,7 @@
 		<surefire-plugin.version>2.22.0</surefire-plugin.version>
 		<quarkus.version>0.21.1</quarkus.version>
 		<xtend.version>2.18.0</xtend.version>
+		<lsp4j.version>0.8.0</lsp4j.version>
 	</properties>
 
 	<dependencyManagement>
@@ -23,11 +24,21 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+			<dependency>
+				<groupId>org.eclipse.lsp4j</groupId>
+				<artifactId>org.eclipse.lsp4j</artifactId>
+			  	<version>${lsp4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.eclipse.lsp4j</groupId>
+				<artifactId>org.eclipse.lsp4j.debug</artifactId>
+			  	<version>${lsp4j.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 	<dependencies>
 
-		<!-- use guice 4 in order to get better error repporting while designing -->
+		<!-- use guice 4 in order to get better error reporting while designing -->
 	    <!-- <dependency>
 	      <groupId>com.google.inject</groupId>
 	      <artifactId>guice</artifactId>
@@ -69,11 +80,10 @@
 			<artifactId>org.eclipse.emf.mwe.utils</artifactId>
 			<version>1.5.1</version>
 		</dependency>
-		<dependency>
+<!-- 		<dependency>
 			<groupId>org.eclipse.lsp4j</groupId>
 			<artifactId>org.eclipse.lsp4j.debug</artifactId>
-			<version>0.8.0</version>
-		</dependency>
+		</dependency> -->
 		<!-- warning verify version retrieved via org.eclipse.xtext.ide -->
 		<dependency>
 			<groupId>org.eclipse.gemoc.executionframework</groupId>
