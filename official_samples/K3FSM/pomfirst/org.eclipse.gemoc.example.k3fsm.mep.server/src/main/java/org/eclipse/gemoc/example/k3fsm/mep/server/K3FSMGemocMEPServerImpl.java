@@ -20,7 +20,7 @@ import com.google.inject.Injector;
 
 public class K3FSMGemocMEPServerImpl extends K3GemocMEPServerImpl<K3FSMLanguageDefinitionExtension> {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger("K3FSMGemocMEPServerImpl");
+	private static final Logger LOGGER = LoggerFactory.getLogger(K3FSMGemocMEPServerImpl.class);
 		
 	public K3FSMGemocMEPServerImpl() {
 		super();
