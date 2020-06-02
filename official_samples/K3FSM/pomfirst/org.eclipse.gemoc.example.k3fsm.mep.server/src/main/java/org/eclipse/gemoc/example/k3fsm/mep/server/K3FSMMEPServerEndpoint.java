@@ -132,6 +132,11 @@ public class K3FSMMEPServerEndpoint {
 		} catch (Exception e) {
 			e.printStackTrace();
 			LOGGER.error("Connection failed", e);
+		} catch (Throwable e) {
+			if(e instanceof NoSuchFieldError)
+			LOGGER.error("NoSuchFieldError detected during MEPLauncher.createLauncher");
+			LOGGER.error("Please check jar versions consistency, most probably org.eclipse.lsp4j ");
+			throw e;
 		}
 
 	}
@@ -139,11 +144,12 @@ public class K3FSMMEPServerEndpoint {
 	@OnClose
 	public void onClose(Session session) {
 		activeSessions.remove(session);
+		LOGGER.info("Closing session "+session.getId()+" "+session.getRequestURI());
 	}
 
 	@OnError
 	public void onError(Session session, Throwable throwable) {
-
+		LOGGER.error("Error "+throwable.getMessage()+" on session "+session.getId()+" "+session.getRequestURI(), throwable);
 	}
 
 	@OnMessage
