@@ -66,12 +66,12 @@ public class MEPIntegrationTest {
 		InitializeRequestArguments initializeRequestArguments = new InitializeRequestArguments();
 		initializeRequestArguments.setClientName("MEPIntegrationTest.testInitialize()");
 		CompletableFuture<Capabilities> initFuture = clientSideLauncher.getRemoteProxy().initialize(initializeRequestArguments);
-		
+		Thread.sleep(100);
 		Capabilities cap = initFuture.get(TIMEOUT, TimeUnit.MILLISECONDS);
 		System.out.println(""+cap);
 		Assert.assertTrue(cap.getSupportsTerminateRequest());
 		
-		// TODO find how to assert answer form clientSide
+		// TODO find how to assert answer from clientSide
 		
 		Map<String, Object> launchRequestArguments = new HashMap<String, Object>();
 		launchRequestArguments.put(MEPLaunchParameterKey.modelContent.name(), loadModelContent("tests/xtext/models/TwoStatesUpcast.k3fsm"));
@@ -86,6 +86,7 @@ public class MEPIntegrationTest {
 		launchRequestArguments.put(MEPLaunchParameterKey.methodEntryPoint.name(), "public static void org.eclipse.gemoc.example.k3fsm.k3dsa.FSMAspect.main(org.eclipse.gemoc.example.k3fsm.FSM)");
 		
 		CompletableFuture<Void> launchFuture = clientSideLauncher.getRemoteProxy().launch(launchRequestArguments);
+		Thread.sleep(100);
 		launchFuture.get(TIMEOUT, TimeUnit.MILLISECONDS);
 		
 		for (int i = 0; i < 3; i++) {
@@ -94,6 +95,9 @@ public class MEPIntegrationTest {
 		}
 		CompletableFuture<ContinueResponse> continueFuture = clientSideLauncher.getRemoteProxy().continue_(null);
 		continueFuture.get(TIMEOUT, TimeUnit.MILLISECONDS);
+		
+
+		// TODO find how to assert notifications from clientSide (ex: end of the execution)
 		
 		
 	}
