@@ -67,12 +67,12 @@ public class K3FSMMEPServerEndpoint {
         // we don this check here because error in onOpen tend to be captured and hidden to the user (+ a timeout)
         LOGGER.debug("Creating server...");
 		try{ 
-			LOGGER.error("pause 5000ms in order to connect debugger before continuing...");
-			Thread.sleep(5000);
+			//LOGGER.error("pause 5000ms in order to connect debugger before continuing...");
+			//Thread.sleep(5000);
 			LOGGER.debug("Creating K3FSMMEPModule...");
 			getOrCreateServer();
 			LOGGER.debug("K3FSMMEPModule created");
-		} catch (InterruptedException e) {
+		//} catch (InterruptedException e) {
 		} catch (Exception e) {
 			LOGGER.error("failed to create Xtext K3FSMMEPModule, classpath may be inconsistent");
 			StringWriter sw = new StringWriter();
@@ -82,7 +82,13 @@ public class K3FSMMEPServerEndpoint {
 			
 			throw e;
 		}
-		LOGGER.debug("Server created");
+		ServerEndpoint[] sepAnnot = this.getClass().getAnnotationsByType(ServerEndpoint.class);
+		if(sepAnnot.length > 0) {
+			LOGGER.debug("ServerEndpoint created "+sepAnnot[0].value());
+		} else {
+
+			LOGGER.debug("ServerEndpoint created");
+		}
     }
 	
 	@OnOpen
@@ -129,6 +135,7 @@ public class K3FSMMEPServerEndpoint {
 			
 			//Launcher<IModelExecutionProtocolServer> serverSideLauncher = MEPLauncher.createLauncher(server, IModelExecutionProtocolServer.class, in, outputstream);
 			LOGGER.info("Connection success");
+			LOGGER.debug("Session "+session.getId()+" "+session.getRequestURI()+" opened");
 		} catch (Exception e) {
 			e.printStackTrace();
 			LOGGER.error("Connection failed", e);
@@ -144,7 +151,7 @@ public class K3FSMMEPServerEndpoint {
 	@OnClose
 	public void onClose(Session session) {
 		activeSessions.remove(session);
-		LOGGER.info("Closing session "+session.getId()+" "+session.getRequestURI());
+		LOGGER.debug("Closing session "+session.getId()+" "+session.getRequestURI());
 	}
 
 	@OnError
