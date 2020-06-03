@@ -22,6 +22,7 @@ import org.eclipse.gemoc.executionframework.mep.launch.MEPLauncher;
 import org.eclipse.gemoc.executionframework.mep.services.IModelExecutionProtocolClient;
 import org.eclipse.gemoc.executionframework.mep.services.IModelExecutionProtocolServer;
 import org.eclipse.lsp4j.debug.Capabilities;
+import org.eclipse.lsp4j.debug.ContinueResponse;
 import org.eclipse.lsp4j.debug.InitializeRequestArguments;
 import org.eclipse.lsp4j.jsonrpc.Launcher;
 import org.junit.jupiter.api.Test;
@@ -87,10 +88,12 @@ public class MEPIntegrationTest {
 		CompletableFuture<Void> launchFuture = clientSideLauncher.getRemoteProxy().launch(launchRequestArguments);
 		launchFuture.get(TIMEOUT, TimeUnit.MILLISECONDS);
 		
-		for (int i = 0; i < 20; i++) {
-			CompletableFuture<Void> doSTepFuture = clientSideLauncher.getRemoteProxy().next(null);
-			doSTepFuture.get(TIMEOUT, TimeUnit.MILLISECONDS);
+		for (int i = 0; i < 3; i++) {
+			CompletableFuture<Void> doStepInFuture = clientSideLauncher.getRemoteProxy().stepIn(null);
+			doStepInFuture.get(TIMEOUT, TimeUnit.MILLISECONDS);
 		}
+		CompletableFuture<ContinueResponse> continueFuture = clientSideLauncher.getRemoteProxy().continue_(null);
+		continueFuture.get(TIMEOUT, TimeUnit.MILLISECONDS);
 		
 		
 	}
