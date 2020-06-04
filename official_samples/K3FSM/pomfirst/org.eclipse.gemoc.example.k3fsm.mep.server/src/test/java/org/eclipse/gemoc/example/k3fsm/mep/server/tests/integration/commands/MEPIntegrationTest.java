@@ -1,5 +1,7 @@
 package org.eclipse.gemoc.example.k3fsm.mep.server.tests.integration.commands;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -16,6 +18,7 @@ import org.apache.commons.io.IOUtils;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.gemoc.example.k3fsm.mep.server.K3FSMGemocMEPServerImpl;
 import org.eclipse.gemoc.example.k3fsm.mep.server.K3FSMMEPModule;
+import org.eclipse.gemoc.example.k3fsm.mep.server.tests.integration.commands.TestClient.Status;
 import org.eclipse.gemoc.executionframework.mep.launch.GemocMEPServerImpl;
 import org.eclipse.gemoc.executionframework.mep.launch.MEPLaunchParameterKey;
 import org.eclipse.gemoc.executionframework.mep.launch.MEPLauncher;
@@ -23,7 +26,11 @@ import org.eclipse.gemoc.executionframework.mep.services.IModelExecutionProtocol
 import org.eclipse.gemoc.executionframework.mep.services.IModelExecutionProtocolServer;
 import org.eclipse.lsp4j.debug.Capabilities;
 import org.eclipse.lsp4j.debug.ContinueResponse;
+import org.eclipse.lsp4j.debug.ContinuedEventArguments;
+import org.eclipse.lsp4j.debug.ExitedEventArguments;
 import org.eclipse.lsp4j.debug.InitializeRequestArguments;
+import org.eclipse.lsp4j.debug.StoppedEventArguments;
+import org.eclipse.lsp4j.debug.TerminatedEventArguments;
 import org.eclipse.lsp4j.jsonrpc.Launcher;
 import org.junit.jupiter.api.Test;
 import org.wildfly.common.Assert;
@@ -47,9 +54,7 @@ public class MEPIntegrationTest {
 		
 
 		
-		IModelExecutionProtocolClient client = new IModelExecutionProtocolClient() {
-			
-		};
+		TestClient client = new TestClient();
 		Launcher<IModelExecutionProtocolServer> clientSideLauncher = MEPLauncher.createLauncher(client, IModelExecutionProtocolServer.class, in, out);
 
 		
@@ -93,12 +98,15 @@ public class MEPIntegrationTest {
 			CompletableFuture<Void> doStepInFuture = clientSideLauncher.getRemoteProxy().stepIn(null);
 			doStepInFuture.get(TIMEOUT, TimeUnit.MILLISECONDS);
 		}
+
+		assertEquals(Status.Stopped, client.currentStatus);
 		CompletableFuture<ContinueResponse> continueFuture = clientSideLauncher.getRemoteProxy().continue_(null);
 		continueFuture.get(TIMEOUT, TimeUnit.MILLISECONDS);
-		
+		//assertEquals(Status.Continuing, client.currentStatus);
 
-		// TODO find how to assert notifications from clientSide (ex: end of the execution)
-		
+		// TODO improve  how to assert notifications from clientSide (ex: end of the execution)
+		Thread.sleep(1000); // ugly
+		assertEquals(Status.Terminated, client.currentStatus);
 		
 	}
 
