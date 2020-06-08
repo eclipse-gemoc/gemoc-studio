@@ -52,11 +52,13 @@ openFile
       </win>
    </launcher>
 
+
    <vm>
       <linux include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</linux>
       <macos include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</macos>
       <windows include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8</windows>
    </vm>
+
 
    <plugins>
    </plugins>
@@ -69,7 +71,7 @@ openFile
    <configurations>
       <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="4" />
       <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
-      <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="2" />
+      <plugin id="org.apache.felix.scr" autoStart="true" startLevel="1" />
       <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.p2.reconciler.dropins" autoStart="true" startLevel="4" />
       <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
@@ -85,6 +87,7 @@ openFile
       <repository location="http://download.eclipse.org/gemoc/updates/nightly/" enabled="true" />
       <repository location="http://download.eclipse.org/elk/updates/releases/0.4.1" enabled="false" />
       <repository location="http://download.eclipse.org/tools/ajdt/48/dev/update" enabled="true" />
+      <repository location="http://download.eclipse.org/tools/ajdt/410/dev/update" enabled="true" />
    </repositories>
 
    <preferencesInfo>
