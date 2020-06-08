@@ -57,31 +57,26 @@
 				<version>${tycho-version}</version>
 				<executions>
 					<execution>
-						<id>materialize-products</id>
+						<id>create-distributions</id>
 						<goals>
 							<goal>materialize-products</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>archive-products</id>
-						<goals>
 							<goal>archive-products</goal>
 						</goals>
 					</execution>
 				</executions>
 				<configuration>
-				<products>
-					<product>
-						<!-- select product with ID product.id; the archives get the classifiers 
-							"<os>.<ws>.<arch>" -->
-						<id>gemoc_studio</id>
-					</product>
-					<product>
-						<!-- select product with ID other.product.id for the classifiers "other-<os>.<ws>.<arch>" -->
-						<id>gemoc_studio_headless</id>
-						<attachId>_headless</attachId>
-					</product>
-				</products>
+					<products>
+						<product>
+							<!-- select product with ID product.id; the archives get the classifiers 
+								"<os>.<ws>.<arch>" -->
+							<id>gemoc_studio</id>
+						</product>
+						<product>
+							<!-- select product with ID other.product.id for the classifiers "other-<os>.<ws>.<arch>" -->
+							<id>gemoc_studio_headless</id>
+							<attachId>_headless</attachId>
+						</product>
+					</products>
 			  </configuration>
 			</plugin>
 			<!-- patch for problem of "Error - 7 icon(s) not replaced in ... using 
