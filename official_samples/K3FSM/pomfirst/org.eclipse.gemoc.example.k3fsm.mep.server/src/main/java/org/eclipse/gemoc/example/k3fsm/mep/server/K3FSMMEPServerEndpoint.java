@@ -125,7 +125,6 @@ public class K3FSMMEPServerEndpoint {
 					System.out.println("[DEBUG] Sent: " + response);
 				}
 			};
-			
 			Launcher<IModelExecutionProtocolClient> serverSideLauncher = MEPLauncher.createLauncher(server, IModelExecutionProtocolClient.class, in, outputstream);
 			server.connect(serverSideLauncher.getRemoteProxy());
 
