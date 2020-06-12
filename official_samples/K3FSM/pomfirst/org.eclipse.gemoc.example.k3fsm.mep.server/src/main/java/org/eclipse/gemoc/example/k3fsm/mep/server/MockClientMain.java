@@ -1,7 +1,7 @@
 package org.eclipse.gemoc.example.k3fsm.mep.server;
 
 
-import org.eclipse.gemoc.executionframework.mep.launch.GemocMEPServerImpl;
+import org.eclipse.gemoc.executionframework.mep.launch.MEPServerLSP4J;
 import org.eclipse.gemoc.executionframework.mep.services.IModelExecutionProtocolClient;
 
 import org.eclipse.lsp4j.debug.BreakpointEventArguments;
@@ -23,7 +23,7 @@ public class MockClientMain {
 	
 	public static void main(String[] args) {
 		try {
-			GemocMEPServerImpl server = new K3FSMMEPModule().createInjectorAndDoEMFRegistration().getInstance(GemocMEPServerImpl.class);
+			MEPServerLSP4J server = new K3FSMMEPModule().createInjectorAndDoEMFRegistration().getInstance(MEPServerLSP4J.class);
 			
 //			new LogoIdeSetup().createInjectorAndDoEMFRegistration();
 //			ASMPackage rootPkg = ASMPackage.eINSTANCE;

@@ -19,7 +19,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.gemoc.example.k3fsm.mep.server.K3FSMGemocMEPServerImpl;
 import org.eclipse.gemoc.example.k3fsm.mep.server.K3FSMMEPModule;
 import org.eclipse.gemoc.example.k3fsm.mep.server.tests.integration.commands.TestClient.Status;
-import org.eclipse.gemoc.executionframework.mep.launch.GemocMEPServerImpl;
+import org.eclipse.gemoc.executionframework.mep.launch.MEPServerLSP4J;
 import org.eclipse.gemoc.executionframework.mep.launch.MEPLaunchParameterKey;
 import org.eclipse.gemoc.executionframework.mep.launch.MEPLauncher;
 import org.eclipse.gemoc.executionframework.mep.services.IModelExecutionProtocolClient;
