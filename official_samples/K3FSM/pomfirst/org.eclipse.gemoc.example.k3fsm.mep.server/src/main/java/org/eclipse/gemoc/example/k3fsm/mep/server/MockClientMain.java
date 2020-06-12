@@ -1,32 +1,9 @@
 package org.eclipse.gemoc.example.k3fsm.mep.server;
 
-import java.util.List;
-import java.util.concurrent.CompletableFuture;
 
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.gemoc.executionframework.mep.launch.GemocMEPServerImpl;
 import org.eclipse.gemoc.executionframework.mep.services.IModelExecutionProtocolClient;
-import org.eclipse.lsp4j.DidOpenTextDocumentParams;
-import org.eclipse.lsp4j.DocumentFormattingParams;
-import org.eclipse.lsp4j.FormattingOptions;
-import org.eclipse.lsp4j.InitializeParams;
-import org.eclipse.lsp4j.InitializedParams;
-import org.eclipse.lsp4j.Location;
-import org.eclipse.lsp4j.MessageActionItem;
-import org.eclipse.lsp4j.MessageParams;
-import org.eclipse.lsp4j.Position;
-import org.eclipse.lsp4j.PublishDiagnosticsParams;
-import org.eclipse.lsp4j.ReferenceContext;
-import org.eclipse.lsp4j.ReferenceParams;
-import org.eclipse.lsp4j.RenameParams;
-import org.eclipse.lsp4j.ShowMessageRequestParams;
-import org.eclipse.lsp4j.TextDocumentIdentifier;
-import org.eclipse.lsp4j.TextDocumentItem;
-import org.eclipse.lsp4j.TextEdit;
-import org.eclipse.lsp4j.WorkspaceEdit;
+
 import org.eclipse.lsp4j.debug.BreakpointEventArguments;
 import org.eclipse.lsp4j.debug.CapabilitiesEventArguments;
 import org.eclipse.lsp4j.debug.ContinuedEventArguments;
@@ -39,11 +16,6 @@ import org.eclipse.lsp4j.debug.ProcessEventArguments;
 import org.eclipse.lsp4j.debug.StoppedEventArguments;
 import org.eclipse.lsp4j.debug.TerminatedEventArguments;
 import org.eclipse.lsp4j.debug.ThreadEventArguments;
-import org.eclipse.lsp4j.debug.services.IDebugProtocolClient;
-import org.eclipse.lsp4j.services.LanguageClient;
-import org.eclipse.xtext.ide.server.LanguageServerImpl;
-import org.eclipse.xtext.nodemodel.INode;
-import org.eclipse.xtext.resource.XtextResource;
 
 
 

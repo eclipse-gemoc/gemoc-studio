@@ -96,6 +96,11 @@
 			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
+			<groupId>org.eclipse.gemoc.execution.sequential.javaengine</groupId>
+			<artifactId>org.eclipse.gemoc.execution.sequential.javaengine.headless.mep</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
 			<groupId>org.eclipse.gemoc.pomfirst</groupId>
 			<artifactId>org.eclipse.gemoc.commons.utils</artifactId>
 			<version>1.0.0-SNAPSHOT</version>
@@ -153,6 +158,21 @@
 		<dependency>
 			<groupId>org.eclipse.gemoc.pomfirst</groupId>
 			<artifactId>org.eclipse.gemoc.executionframework.engine</artifactId>
+			<version>4.0.0-SNAPSHOT</version>
+		</dependency>
+	    <dependency>
+		    <groupId>org.eclipse.gemoc.commons</groupId>
+			<artifactId>org.eclipse.gemoc.commons.eclipse.pde</artifactId>
+			<version>3.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.gemoc.commons</groupId>
+			<artifactId>org.eclipse.gemoc.commons.eclipse.messagingsystem.api</artifactId>
+			<version>3.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.gemoc.modeldebugging.framework.commons</groupId>
+			<artifactId>org.eclipse.gemoc.xdsmlframework.commons</artifactId>
 			<version>4.0.0-SNAPSHOT</version>
 		</dependency>
 

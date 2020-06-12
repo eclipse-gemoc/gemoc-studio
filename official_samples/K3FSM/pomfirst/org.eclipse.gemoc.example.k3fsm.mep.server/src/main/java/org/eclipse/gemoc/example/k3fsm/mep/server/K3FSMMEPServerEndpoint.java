@@ -18,20 +18,12 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource;
+
 import org.eclipse.gemoc.commons.utils.ExtensibleInputStream;
-import org.eclipse.gemoc.example.k3fsm.K3FSMStandaloneSetupGenerated;
-import org.eclipse.gemoc.executionframework.mep.launch.GemocMEPServerImpl;
+
 import org.eclipse.gemoc.executionframework.mep.launch.MEPLauncher;
 import org.eclipse.gemoc.executionframework.mep.services.IModelExecutionProtocolClient;
-import org.eclipse.gemoc.executionframework.mep.services.IModelExecutionProtocolServer;
 import org.eclipse.lsp4j.jsonrpc.Launcher;
-import org.eclipse.lsp4j.launch.LSPLauncher;
-import org.eclipse.lsp4j.services.LanguageClient;
-import org.eclipse.xtext.ide.server.LanguageServerImpl;
-import org.eclipse.xtext.resource.XtextResource;
-import org.eclipse.xtext.resource.XtextResourceSet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
