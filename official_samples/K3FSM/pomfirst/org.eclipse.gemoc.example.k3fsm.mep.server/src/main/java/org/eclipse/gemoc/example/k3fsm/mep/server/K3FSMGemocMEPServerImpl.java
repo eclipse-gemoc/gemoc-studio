@@ -4,7 +4,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.gemoc.example.k3fsm.K3FSMStandaloneSetup;
 import org.eclipse.gemoc.example.k3fsm.K3fsmPackage;
 import org.eclipse.gemoc.execution.sequential.javaengine.headless.mep.HeadlessPlainK3ExecutionEngineMEP;
-import org.eclipse.gemoc.executionframework.mep.launch.GemocMEPServerImpl;
+import org.eclipse.gemoc.executionframework.mep.launch.MEPServerLSP4J;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
 import org.slf4j.Logger;
@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 
 import com.google.inject.Injector;
 
-public class K3FSMGemocMEPServerImpl extends GemocMEPServerImpl {
+public class K3FSMGemocMEPServerImpl extends MEPServerLSP4J {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(K3FSMGemocMEPServerImpl.class);
 		
