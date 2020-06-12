@@ -3,7 +3,7 @@ package org.eclipse.gemoc.example.k3fsm.mep.server;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.gemoc.example.k3fsm.K3FSMStandaloneSetup;
 import org.eclipse.gemoc.example.k3fsm.K3fsmPackage;
-import org.eclipse.gemoc.execution.sequential.javaengine.headless.HeadlessPlainK3ExecutionEngineMEP;
+import org.eclipse.gemoc.execution.sequential.javaengine.headless.mep.HeadlessPlainK3ExecutionEngineMEP;
 import org.eclipse.gemoc.executionframework.mep.launch.GemocMEPServerImpl;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
