@@ -21,7 +21,7 @@
 		<k3.p2.url>http://www.kermeta.org/k3/update_2018-09-05</k3.p2.url>
 		<!-- <ale.p2.url>http://www.kermeta.org/ale-lang/updates/2019-11-13</ale.p2.url> -->
 		<ale.p2.url>https://ci.inria.fr/gemoc/job/ale-lang/job/bump-to-eclipse-2020-03/lastSuccessfulBuild/artifact/releng/org.eclipse.emf.ecoretools.ale.updatesite/target/repository/</ale.p2.url>
-		<melange.p2.url>http://melange.inria.fr/updatesite/nightly/update_2020-05-20</melange.p2.url>
+		<melange.p2.url>http://melange.inria.fr/updatesite/nightly/update_2020-06-19</melange.p2.url>
 		<elk.p2.url>http://download.eclipse.org/elk/updates/releases/0.4.1</elk.p2.url>
 		<app4mc.p2.url>http://download.eclipse.org/app4mc/updatesites/releases/0.8.1</app4mc.p2.url>
 		<aspectJ.p2.url>http://download.eclipse.org/tools/ajdt/410/dev/update</aspectJ.p2.url>
