@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.eclipse.gemoc.commons.feature_3.0.0.qualifier.jar" id="org.eclipse.gemoc.commons.feature" version="3.0.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.commons.feature_3.3.0.qualifier.jar" id="org.eclipse.gemoc.commons.feature" version="3.3.0.qualifier">
       <category name="GEMOC_3_gemoc-studio_Components"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.ale.interpreted.engine.feature_1.0.1.qualifier.jar" id="org.eclipse.gemoc.ale.interpreted.engine.feature" version="1.0.1.qualifier">
+   <feature url="features/org.eclipse.gemoc.ale.interpreted.engine.feature_1.1.0.qualifier.jar" id="org.eclipse.gemoc.ale.interpreted.engine.feature" version="1.1.0.qualifier">
       <category name="GEMOC_5_Execution ALE_Components"/>
    </feature>
    <feature url="features/org.eclipse.gemoc.moccml.constraint.ccsl.solver.extension.automata.feature_0.1.1.qualifier.jar" id="org.eclipse.gemoc.moccml.constraint.ccsl.solver.extension.automata.feature" version="0.1.1.qualifier">
@@ -87,22 +87,22 @@
    <feature url="features/org.eclipse.gemoc.trace.manager.feature_3.0.1.qualifier.jar" id="org.eclipse.gemoc.trace.manager.feature" version="3.0.1.qualifier">
       <category name="GEMOC_4_ModelDebugging_Components"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.commons.3rdparty.feature_3.0.0.qualifier.jar" id="org.eclipse.gemoc.commons.3rdparty.feature" version="3.0.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.commons.3rdparty.feature_3.3.0.qualifier.jar" id="org.eclipse.gemoc.commons.3rdparty.feature" version="3.3.0.qualifier">
       <category name="GEMOC_3_gemoc-studio_Components"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.gexpressions.feature_3.0.0.qualifier.jar" id="org.eclipse.gemoc.gexpressions.feature" version="3.0.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.gexpressions.feature_3.3.0.qualifier.jar" id="org.eclipse.gemoc.gexpressions.feature" version="3.3.0.qualifier">
       <category name="GEMOC_3_gemoc-studio_Components"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.commons.eclipse.jdt.autosrcfolder.feature_3.0.0.qualifier.jar" id="org.eclipse.gemoc.commons.eclipse.jdt.autosrcfolder.feature" version="3.0.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.commons.eclipse.jdt.autosrcfolder.feature_3.3.0.qualifier.jar" id="org.eclipse.gemoc.commons.eclipse.jdt.autosrcfolder.feature" version="3.3.0.qualifier">
       <category name="GEMOC_3_gemoc-studio_Components"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.gemoc_studio.additions.feature_3.2.0.qualifier.jar" id="org.eclipse.gemoc.gemoc_studio.additions.feature" version="3.2.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.gemoc_studio.additions.feature_3.3.0.qualifier.jar" id="org.eclipse.gemoc.gemoc_studio.additions.feature" version="3.3.0.qualifier">
       <category name="GEMOC_1_AllInOne"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.gemoc_studio.branding.feature_3.2.0.qualifier.jar" id="org.eclipse.gemoc.gemoc_studio.branding.feature" version="3.2.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.gemoc_studio.branding.feature_3.3.0.qualifier.jar" id="org.eclipse.gemoc.gemoc_studio.branding.feature" version="3.3.0.qualifier">
       <category name="GEMOC_1_AllInOne"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.gemoc_studio.headless.feature_3.2.0.qualifier.jar" id="org.eclipse.gemoc.gemoc_studio.headless.feature" version="3.2.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.gemoc_studio.headless.feature_3.3.0.qualifier.jar" id="org.eclipse.gemoc.gemoc_studio.headless.feature" version="3.3.0.qualifier">
       <category name="GEMOC_1_AllInOne"/>
    </feature>
    <feature url="features/org.eclipse.gemoc.execution.moccml.feature_2.3.0.qualifier.jar" id="org.eclipse.gemoc.execution.moccml.feature" version="2.3.0.qualifier">
@@ -123,7 +123,7 @@
    <feature url="features/org.eclipse.gemoc.moccml.feature.source_2.3.0.qualifier.jar" id="org.eclipse.gemoc.moccml.feature.source" version="2.3.0.qualifier">
       <category name="GEMOC_2_RootComponents"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.ale.interpreted.engine.feature_1.0.1.qualifier.jar" id="org.eclipse.gemoc.ale.interpreted.engine.feature" version="1.0.1.qualifier">
+   <feature url="features/org.eclipse.gemoc.ale.interpreted.engine.feature_1.1.0.qualifier.jar" id="org.eclipse.gemoc.ale.interpreted.engine.feature" version="1.1.0.qualifier">
       <category name="GEMOC_2_RootComponents"/>
    </feature>
    <category-def name="GEMOC_1_AllInOne" label="GEMOC all in one">

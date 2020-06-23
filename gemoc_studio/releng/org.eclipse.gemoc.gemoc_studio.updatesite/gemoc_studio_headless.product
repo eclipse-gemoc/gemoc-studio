@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="GEMOC Headless EngineRunner" uid="gemoc_studio_headless" id="org.eclipse.gemoc.gemoc_studio.headless.GemocStudioHeadless" application="org.eclipse.gemoc.gemoc_studio.headless.EngineRunner" version="3.2.0.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="GEMOC Headless EngineRunner" uid="gemoc_studio_headless" id="org.eclipse.gemoc.gemoc_studio.headless.GemocStudioHeadless" application="org.eclipse.gemoc.gemoc_studio.headless.EngineRunner" version="3.3.0.qualifier" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <text>
@@ -62,9 +62,9 @@ org.eclipse.gemoc.gemoc_studio.headless.GemocStudioHeadless
    </features>
 
    <configurations>
+      <plugin id="org.apache.felix.scr" autoStart="true" startLevel="1" />
       <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="4" />
       <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
-      <plugin id="org.apache.felix.scr" autoStart="true" startLevel="1" />
       <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.p2.reconciler.dropins" autoStart="true" startLevel="4" />
       <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
