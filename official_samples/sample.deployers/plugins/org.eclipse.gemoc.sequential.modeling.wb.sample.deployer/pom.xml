@@ -33,7 +33,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-antrun-plugin</artifactId>
-				<version>1.3</version>
+				<version>3.0.0</version>
 				<executions>
 					<execution>
 						<phase>initialize</phase>
@@ -41,7 +41,7 @@
 							<goal>run</goal>
 						</goals>
 						<configuration>
-							<tasks>
+							<target>
 								<mkdir dir="${basedir}/zips" />
 
 								<zip destfile="${basedir}/zips/org.eclipse.gemoc.example.melangek3fsm.model_examples.zip">
@@ -52,7 +52,7 @@
 									<fileset dir="${k3fsm_example_modeling_root}/org.eclipse.gemoc.example.k3fsm.model_examples/" />
 								</zip>
 
-							</tasks>
+							</target>
 						</configuration>
 					</execution>
 				</executions>

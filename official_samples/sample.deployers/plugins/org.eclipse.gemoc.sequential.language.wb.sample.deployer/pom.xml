@@ -34,7 +34,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-antrun-plugin</artifactId>
-				<version>1.3</version>
+				<version>3.0.0</version>
 				<executions>
 					<execution>
 						<phase>initialize</phase>
@@ -42,7 +42,7 @@
 							<goal>run</goal>
 						</goals>
 						<configuration>
-							<tasks>
+							<target>
 								<mkdir dir="${basedir}/zips" />
 
 								<!-- MelangeK3FSM -->
@@ -105,7 +105,7 @@
 								<zip destfile="${basedir}/zips/org.eclipse.gemoc.example.k3fsm.xtext.ui.zip">
 									<fileset dir="${k3fsm_example_language_root}/org.eclipse.gemoc.example.k3fsm.xtext.ui/" />
 								</zip>
-							</tasks>
+							</target>
 						</configuration>
 					</execution>
 				</executions>
