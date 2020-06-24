@@ -82,10 +82,10 @@ openFile
       <repository location="http://download.eclipse.org/releases/2020-03" enabled="true" />
       <repository location="http://download.eclipse.org/eclipse/updates/4.15/" enabled="true" />
       <repository location="http://www.kermeta.org/k3/update/" enabled="true" />
+      <repository location="http://www.kermeta.org/ale-lang/updates/latest/" enabled="true" />
       <repository location="http://timesquare.inria.fr/update_site/2020" enabled="true" />
       <repository location="http://download.eclipse.org/gemoc/updates/nightly/" enabled="true" />
       <repository location="http://download.eclipse.org/elk/updates/releases/0.4.1" enabled="false" />
-      <repository location="http://download.eclipse.org/tools/ajdt/48/dev/update" enabled="true" />
       <repository location="http://download.eclipse.org/tools/ajdt/410/dev/update" enabled="true" />
    </repositories>
 
