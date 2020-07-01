@@ -1,0 +1,12 @@
+Currently implemented:
+  - initialize (notice the client about available capabilities)
+  - launch (run model according to launch configuration)
+  - step in (step into debug frame)
+  - step out (step out of debug frame)
+  - next (execute next debug frame)
+  - set breakpoints (set line breakpoints)
+  - continue (execute model until breakpoint or end)
+  - variables (display defined variables (todo: should be tied to current frame))
+  - stack trace (display the current stack of debug frames)
+  - source (show the source of the currently executed model)
+  - terminate (stop execution)

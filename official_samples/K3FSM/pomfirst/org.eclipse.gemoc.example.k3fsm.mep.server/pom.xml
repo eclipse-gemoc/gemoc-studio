@@ -97,6 +97,11 @@
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.gemoc.execution.sequential.javaengine</groupId>
+			<artifactId>org.eclipse.gemoc.execution.sequential.javaengine.mep</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.gemoc.execution.sequential.javaengine</groupId>
 			<artifactId>org.eclipse.gemoc.execution.sequential.javaengine.headless.mep</artifactId>
 			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
@@ -160,6 +165,11 @@
 			<artifactId>org.eclipse.gemoc.executionframework.engine</artifactId>
 			<version>4.0.0-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>org.eclipse.gemoc.pomfirst</groupId>
+			<artifactId>org.eclipse.gemoc.executionframework.engine.model</artifactId>
+			<version>4.0.0-SNAPSHOT</version>
+		</dependency>
 	    <dependency>
 		    <groupId>org.eclipse.gemoc.commons</groupId>
 			<artifactId>org.eclipse.gemoc.commons.eclipse.pde</artifactId>
@@ -182,19 +192,57 @@
 			</dependency> -->
 		<dependency>
 			<groupId>org.eclipse.emf</groupId>
+			<artifactId>org.eclipse.emf.compare</artifactId>
+			<version>3.5.2.201805161152</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib_not_correctly_deployed/org.eclipse.emf.compare_3.5.2.201805161152.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.emf</groupId>
 			<artifactId>org.eclipse.emf.transaction</artifactId>
 			<version>1.9.1.201805140824</version>
 			<scope>system</scope>
 			<systemPath>${basedir}/lib_not_correctly_deployed/org.eclipse.emf.transaction_1.9.1.201805140824.jar</systemPath>
 		</dependency>
-
-<!-- 		<dependency>
+		<dependency>
+			<groupId>org.eclipse.emf</groupId>
+			<artifactId>org.eclipse.emf.validation</artifactId>
+			<version>1.8.0.201805030717</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib_not_correctly_deployed/org.eclipse.emf.validation_1.8.0.201805030717.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>fr.inria.diverse.melange</groupId>
+			<artifactId>fr.inria.diverse.melange.resource</artifactId>
+			<version>0.2.2.201812031029</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib_not_correctly_deployed/fr.inria.diverse.melange.resource_0.2.2.201812031029.jar</systemPath>
+		</dependency>
+		
+		<dependency>
+			<groupId>DSLDebugger</groupId>
+			<artifactId>org.eclipse.gemoc.dsl.debug.ide</artifactId>
+			<version>3.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+		  <groupId>org.eclipse.gemoc.executionframework</groupId>
+     	  <artifactId>org.eclipse.gemoc.executionframework.engine.headless</artifactId>
+      	  <version>1.0.0-SNAPSHOT</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.eclipse.gemoc.multidimensional_trace_management</groupId>
+			<artifactId>org.eclipse.gemoc.trace.gemoc</artifactId>
+			<version>3.0.1-SNAPSHOT</version>
+		</dependency>
+<!--
+ 		<dependency>
 			<groupId>org.eclipse.emf</groupId>
 			<artifactId>org.eclipse.emf.edit</artifactId>
 			<version>2.16.0</version>
 		</dependency>
 
-		<dependency>
+ 		<dependency>
 			<groupId>org.eclipse.gemoc.commons</groupId>
 			<artifactId>org.eclipse.gemoc.commons.eclipse</artifactId>
 			<version>3.0.0-SNAPSHOT</version>
@@ -223,11 +271,6 @@
 		<dependency>
 			<groupId>org.eclipse.gemoc.trace.commons</groupId>
 			<artifactId>org.eclipse.gemoc.trace.gemoc.api</artifactId>
-			<version>3.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>DSLDebugger</groupId>
-			<artifactId>org.eclipse.gemoc.dsl.debug.ide</artifactId>
 			<version>3.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>

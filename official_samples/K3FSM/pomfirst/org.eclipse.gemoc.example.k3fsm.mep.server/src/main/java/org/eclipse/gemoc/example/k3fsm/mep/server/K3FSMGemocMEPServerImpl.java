@@ -4,6 +4,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.gemoc.example.k3fsm.K3FSMStandaloneSetup;
 import org.eclipse.gemoc.example.k3fsm.K3fsmPackage;
 import org.eclipse.gemoc.execution.sequential.javaengine.headless.mep.HeadlessPlainK3ExecutionEngineMEP;
+import org.eclipse.gemoc.execution.sequential.javaengine.mep.PlainK3ExecutionEngineMEP;
 import org.eclipse.gemoc.executionframework.mep.launch.MEPServerLSP4J;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
@@ -17,7 +18,8 @@ public class K3FSMGemocMEPServerImpl extends MEPServerLSP4J {
 	private static final Logger LOGGER = LoggerFactory.getLogger(K3FSMGemocMEPServerImpl.class);
 		
 	public K3FSMGemocMEPServerImpl() {
-		super(new HeadlessPlainK3ExecutionEngineMEP<K3FSMLanguageDefinitionExtension>(new K3FSMLanguageDefinitionExtension()));
+		//super(new HeadlessPlainK3ExecutionEngineMEP<K3FSMLanguageDefinitionExtension>(new K3FSMLanguageDefinitionExtension()));
+		super(new PlainK3ExecutionEngineMEP<K3FSMLanguageDefinitionExtension>(new K3FSMLanguageDefinitionExtension()));
 	}
 	
 	/**

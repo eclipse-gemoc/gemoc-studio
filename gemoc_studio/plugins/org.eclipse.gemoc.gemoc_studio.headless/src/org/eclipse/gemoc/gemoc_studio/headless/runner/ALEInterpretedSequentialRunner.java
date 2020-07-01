@@ -25,8 +25,8 @@ import org.eclipse.debug.core.ILaunchManager;
 import org.eclipse.gemoc.ale.interpreted.engine.AleEngine;
 import org.eclipse.gemoc.dsl.debug.ide.launch.AbstractDSLLaunchConfigurationDelegate;
 import org.eclipse.gemoc.executionframework.engine.commons.EngineContextException;
-import org.eclipse.gemoc.executionframework.engine.commons.GenericModelExecutionContext;
 import org.eclipse.gemoc.executionframework.engine.commons.sequential.ISequentialRunConfiguration;
+import org.eclipse.gemoc.executionframework.engine.commons.sequential.SequentialModelExecutionContext;
 import org.eclipse.gemoc.executionframework.engine.commons.sequential.SequentialRunConfiguration;
 import org.eclipse.gemoc.gemoc_studio.headless.Activator;
 import org.eclipse.gemoc.xdsmlframework.api.core.ExecutionMode;
@@ -72,6 +72,18 @@ public class ALEInterpretedSequentialRunner implements IEngineRunner {
 	public void run() throws CoreException, EngineContextException, InterruptedException {
 		SequentialRunConfiguration runConfiguration = new SequentialRunConfiguration(launchConfiguration);
 		AleEngine executionEngine = new AleEngine();
+		
+		Set<IInterpreterProvider> aleProviders = 
+				CompoundInterpreter
+				.INSTANCE
+				.getProviders()
+				.stream()
+				.filter(p -> p instanceof ALEInterpreterProvider)
+				.collect(Collectors.toSet());
+		aleProviders.forEach(p -> CompoundInterpreter.INSTANCE.removeInterpreter(p));
+		
+		IInterpreterProvider provider = new ALEInterpreterProvider(executionEngine);
+		CompoundInterpreter.INSTANCE.registerProvider(provider); //Register ALE for Sirius
 		
 		GenericModelExecutionContext<SequentialRunConfiguration> executioncontext = new GenericModelExecutionContext<SequentialRunConfiguration>(
 				runConfiguration, ExecutionMode.Run);

@@ -25,8 +25,8 @@ import org.eclipse.debug.core.ILaunchManager;
 import org.eclipse.gemoc.dsl.debug.ide.launch.AbstractDSLLaunchConfigurationDelegate;
 import org.eclipse.gemoc.execution.sequential.javaengine.PlainK3ExecutionEngine;
 import org.eclipse.gemoc.executionframework.engine.commons.EngineContextException;
-import org.eclipse.gemoc.executionframework.engine.commons.GenericModelExecutionContext;
 import org.eclipse.gemoc.executionframework.engine.commons.sequential.ISequentialRunConfiguration;
+import org.eclipse.gemoc.executionframework.engine.commons.sequential.SequentialModelExecutionContext;
 import org.eclipse.gemoc.executionframework.engine.commons.sequential.SequentialRunConfiguration;
 import org.eclipse.gemoc.gemoc_studio.headless.Activator;
 import org.eclipse.gemoc.xdsmlframework.api.core.ExecutionMode;
@@ -74,7 +74,7 @@ public class PlainK3SequentialRunner implements IEngineRunner {
 		
 		
 		
-		GenericModelExecutionContext<ISequentialRunConfiguration> executioncontext = new GenericModelExecutionContext<ISequentialRunConfiguration>(
+		SequentialModelExecutionContext executioncontext = new SequentialModelExecutionContext(
 				runConfiguration, ExecutionMode.Run);
 		executioncontext.initializeResourceModel();
 		executionEngine.initialize(executioncontext);

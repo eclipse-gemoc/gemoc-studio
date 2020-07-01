@@ -37,6 +37,7 @@ example requests with SimpleWebSocket client for mozilla https://github.com/Wang
 {"type":"request",
  "command":"launch",
  "arguments":{
+    "language": "K3FSM",
 	"modelURI":"file:/home/rhiobet/gemoc-glose/k3fsm_mep/pomfirst/org.eclipse.gemoc.example.k3fsm.mep.server/src/test/resources/tests/xtext/models/TwoStatesUpcast.k3fsm", 
 	"modelEntryPoint":"/",
 	"initializationMethod":"org.eclipse.gemoc.example.k3fsm.k3dsa.FSMAspect.initializeModel",
