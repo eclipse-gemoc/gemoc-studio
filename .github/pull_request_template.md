@@ -19,7 +19,7 @@ Closes #
 
 ## Companion Pull Requests
 
-<!-- optionnal, indicate if this PR must be accepted in conjunction with some PR in other GEMOC github repositories in order to provide a working Studio-->
-<!-- you may have to edit this PR afte submitting it in order to get all cross references between the PRs -->
+<!-- optional, indicate if this PR must be accepted in conjunction with some PR in other GEMOC github repositories in order to provide a working Studio-->
+<!-- you may have to edit this PR after submitting it in order to get all cross references between the PRs -->
 
  - PR # 
