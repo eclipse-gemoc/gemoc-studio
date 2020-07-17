@@ -1,4 +1,3 @@
--
 
 ## Description
 
@@ -9,6 +8,8 @@ Does X
 
 ## Changes
 
+<!-- more details , changed documentation sections, changed version, some details about the code changes -->
+ 
  -
  
 ## Contribution to issues
