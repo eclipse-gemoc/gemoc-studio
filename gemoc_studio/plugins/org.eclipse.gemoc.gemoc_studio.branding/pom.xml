@@ -77,28 +77,28 @@
 	                        <canvas>
 	                        	<backgroundImageName>splash</backgroundImageName>
 	                            <draw>
+			                        <!-- Eclipse version -->
+	                            	<drawText>
+			                            <text>based on Eclipse ${eclipse.version.name}</text>
+			                            <textColor>#909090</textColor>
+			                            <fontName>SansSerif</fontName>
+			                            <fontStyle>italic</fontStyle>
+			                            <fontSize>12</fontSize>
+			                            <position>right-15,bottom-60</position>
+			                        </drawText>
 	                            	<drawText>
 			                            <text>${project.version}  ${timestamp}</text>
 			                            <textColor>#909090</textColor>
 			                            <fontName>SansSerif</fontName>
 			                            <fontStyle>italic,bold</fontStyle>
 			                            <fontSize>12</fontSize>
-			                            <position>right-15,bottom-55</position>
+			                            <position>right-15,bottom-42</position>
 			                        </drawText>
 			                        <!-- Eclipse Logo 64 -->
 			                       <!--  <drawImage>
                             			<imageName>eclipse</imageName>
                             			<position>right-20,bottom-65</position>
                         			</drawImage>-->
-			                        <!-- Eclipse version -->
-	                            	<drawText>
-			                            <text>${eclipse.version.name}</text>
-			                            <textColor>#ffffff</textColor>
-			                            <fontName>SansSerif</fontName>
-			                            <fontStyle>italic</fontStyle>
-			                            <fontSize>12</fontSize>
-			                            <position>right-5,bottom-102</position>
-			                        </drawText>
 			                        <!-- Studio variant -->
 	                            	<drawText>
 			                            <text>${studio.variant} - ${branch.variant} branch</text>
@@ -106,7 +106,7 @@
 			                            <fontName>SansSerif</fontName>
 			                            <fontStyle>italic,bold</fontStyle>
 			                            <fontSize>12</fontSize>
-			                            <position>right-15,bottom-40</position>
+			                            <position>right-15,bottom-27</position>
 			                        </drawText>
 	                            </draw>
 	                        </canvas>
