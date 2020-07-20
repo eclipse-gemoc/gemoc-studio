@@ -2,3 +2,4 @@
 1=${timestamp}
 2=${studio.variant}
 3=${branch.variant}
+4=${eclipse.version.name}
