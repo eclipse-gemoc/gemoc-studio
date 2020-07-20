@@ -12,7 +12,7 @@
 <feature
       id="org.eclipse.gemoc.gemoc_studio.headless.feature"
       label="GEMOC Studio Headless Features"
-      version="3.2.0.qualifier"
+      version="3.3.0.qualifier"
       provider-name="%providerName"
       image="gemocstudio32.png">
 

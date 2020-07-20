@@ -6,27 +6,30 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.eclipse.gemoc</groupId>
 	<artifactId>org.eclipse.gemoc.gemoc_studio.root</artifactId>
-	<version>3.0.0-SNAPSHOT</version>
+	<version>3.3.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<modules>
 	</modules>
 
     <properties>
-		<tycho-version>1.5.1</tycho-version>
+		<tycho-version>1.7.0</tycho-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    	<xtend.version>2.14.0</xtend.version>
+    	<xtend.version>2.21.0</xtend.version>
     	
-    	<eclipse.release.p2.url>http://download.eclipse.org/releases/photon</eclipse.release.p2.url>
+    	<eclipse.release.p2.url>http://download.eclipse.org/releases/2020-03</eclipse.release.p2.url>
+    	<eclipse.photon.release.p2.url>http://download.eclipse.org/releases/photon</eclipse.photon.release.p2.url>
 		<k3.p2.url>http://www.kermeta.org/k3/update_2018-09-05</k3.p2.url>
-		<ale.p2.url>http://www.kermeta.org/ale-lang/updates/2019-11-13</ale.p2.url>
-		<melange.p2.url>http://melange.inria.fr/updatesite/nightly/update_2018-12-03/</melange.p2.url>
+		<ale.p2.url>http://www.kermeta.org/ale-lang/updates/2020-07-17</ale.p2.url>
+		<!-- <ale.p2.url>https://ci.inria.fr/gemoc/job/ale-lang/job/bump-to-eclipse-2020-03/lastSuccessfulBuild/artifact/releng/org.eclipse.emf.ecoretools.ale.updatesite/target/repository/</ale.p2.url>-->
+		<melange.p2.url>http://melange.inria.fr/updatesite/nightly/update_2020-06-19</melange.p2.url>
 		<elk.p2.url>http://download.eclipse.org/elk/updates/releases/0.4.1</elk.p2.url>
 		<app4mc.p2.url>http://download.eclipse.org/app4mc/updatesites/releases/0.8.1</app4mc.p2.url>
-		<aspectJ.p2.url>http://download.eclipse.org/tools/ajdt/48/dev/update</aspectJ.p2.url>
+		<aspectJ.p2.url>http://download.eclipse.org/tools/ajdt/410/dev/update</aspectJ.p2.url>
 		<!-- <timesquare.p2.url>http://www.i3s.unice.fr/~deantoni/photon/</timesquare.p2.url> -->
-		<timesquare.p2.url>http://timesquare.inria.fr/update_site/photon</timesquare.p2.url>
+		<timesquare.p2.url>http://timesquare.inria.fr/update_site/2020</timesquare.p2.url>
 		<diverse-commons.p2.url>http://www.kermeta.org/diverse-commons/updates/latest</diverse-commons.p2.url>
 		<sirius.p2.url>http://download.eclipse.org/sirius/updates/releases/6.1.3/photon</sirius.p2.url>
+		<efxclipse.p2.url>https://download.eclipse.org/efxclipse/updates-released/3.6.0/site</efxclipse.p2.url>
 		<maven.deploy.skip>true</maven.deploy.skip>
 	</properties>
 

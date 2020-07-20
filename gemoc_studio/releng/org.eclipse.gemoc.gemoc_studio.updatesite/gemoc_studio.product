@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Gemoc Studio" uid="gemoc_studio" id="org.eclipse.gemoc.gemoc_studio.branding.gemoc_studio" application="org.eclipse.ui.ide.workbench" version="3.2.0.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="Gemoc Studio" uid="gemoc_studio" id="org.eclipse.gemoc.gemoc_studio.branding.gemoc_studio" application="org.eclipse.ui.ide.workbench" version="3.3.0.qualifier" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="/org.eclipse.gemoc.gemoc_studio.branding/images/GemocStudioAboutImage.png"/>
@@ -67,9 +67,9 @@ openFile
    </features>
 
    <configurations>
+      <plugin id="org.apache.felix.scr" autoStart="true" startLevel="1" />
       <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="4" />
       <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
-      <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.p2.reconciler.dropins" autoStart="true" startLevel="4" />
       <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
@@ -79,12 +79,14 @@ openFile
    <repositories>
       <repository location="http://melange-lang.org/updatesite/" enabled="true" />
       <repository location="http://archive.eclipse.org/nebula/Q22016/incubation" enabled="true" />
-      <repository location="http://download.eclipse.org/releases/photon" enabled="true" />
-      <repository location="http://download.eclipse.org/eclipse/updates/4.8/" enabled="true" />
+      <repository location="http://download.eclipse.org/releases/2020-03" enabled="true" />
+      <repository location="http://download.eclipse.org/eclipse/updates/4.15/" enabled="true" />
       <repository location="http://www.kermeta.org/k3/update/" enabled="true" />
+      <repository location="http://www.kermeta.org/ale-lang/updates/latest/" enabled="true" />
+      <repository location="http://timesquare.inria.fr/update_site/2020" enabled="true" />
       <repository location="http://download.eclipse.org/gemoc/updates/nightly/" enabled="true" />
       <repository location="http://download.eclipse.org/elk/updates/releases/0.4.1" enabled="false" />
-      <repository location="http://download.eclipse.org/tools/ajdt/48/dev/update" enabled="true" />
+      <repository location="http://download.eclipse.org/tools/ajdt/410/dev/update" enabled="true" />
    </repositories>
 
    <preferencesInfo>

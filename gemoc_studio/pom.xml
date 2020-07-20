@@ -12,12 +12,12 @@
 	<name>GEMOC Studio root build</name>
 	<groupId>org.eclipse.gemoc.gemoc_studio</groupId>
 	<artifactId>org.eclipse.gemoc.gemoc_studio.parent</artifactId>
-	<version>3.2.0-SNAPSHOT</version>
+	<version>3.3.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<parent>
 		<groupId>org.eclipse.gemoc</groupId>
 		<artifactId>org.eclipse.gemoc.gemoc_studio.root</artifactId>
-		<version>3.0.0-SNAPSHOT</version>
+		<version>3.3.0-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
 	<properties>
@@ -48,6 +48,12 @@
 			<id>Eclipse release</id>
 			<layout>p2</layout>
 			<url>${eclipse.release.p2.url}</url>
+		</repository>
+		<repository>
+			<!-- used by branding due to amalgam discovery -->
+			<id>Eclipse Photon release</id>
+			<layout>p2</layout>
+			<url>${eclipse.photon.release.p2.url}</url>
 		</repository>
 		<repository>
 			<id>K3</id>
@@ -93,6 +99,12 @@
 			<id>Sirius</id>
 			<layout>p2</layout>
 			<url>${sirius.p2.url}</url>
+		</repository>
+		<!--  e(fxc)lipse updatesite is currently required because they dropped from the release train -->
+		<repository>
+			<id>efxclipse</id>
+			<layout>p2</layout>
+			<url>${efxclipse.p2.url}</url>
 		</repository>
 	</repositories>
 
