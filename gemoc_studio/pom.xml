@@ -100,6 +100,11 @@
 			<layout>p2</layout>
 			<url>${sirius.p2.url}</url>
 		</repository>
+		<repository>
+			<id>LSP4J</id>
+			<layout>p2</layout>
+			<url>${lsp4j.p2.url}</url>
+		</repository>
 		<!--  e(fxc)lipse updatesite is currently required because they dropped from the release train -->
 		<repository>
 			<id>efxclipse</id>

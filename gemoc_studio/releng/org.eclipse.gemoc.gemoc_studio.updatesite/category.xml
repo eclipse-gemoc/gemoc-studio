@@ -161,12 +161,11 @@
          Individual components that are part of GEMOC and coming from https://github.com/eclipse/gemoc-studio-moccml/
       </description>
    </category-def>
-   <repository-reference location="http://download.eclipse.org/nebula/snapshot/" enabled="true" />
-   <repository-reference location="http://timesquare.inria.fr/update_site/photon" enabled="true" />
-   <repository-reference location="http://www.kermeta.org/k3/update_2018-09-05" enabled="true" />
+   <!-- repositories added in the product and using the update site -->
+   <repository-reference location="http://timesquare.inria.fr/update_site/2020" enabled="true" />
    <repository-reference location="http://www.kermeta.org/ale-lang/updates/latest" enabled="true" />
    <repository-reference location="http://melange.inria.fr/updatesite/nightly/update" enabled="true" />
    <repository-reference location="http://www.kermeta.org/diverse-commons/updates/latest" enabled="true" />
+   <repository-reference location="https://download.eclipse.org/lsp4j/updates/releases/0.9.0/" enabled="true" />
    <repository-reference location="http://download.eclipse.org/elk/updates/releases/0.4.1/" enabled="true" />
-   <repository-reference location="http://download.eclipse.org/tools/ajdt/48/dev/update" enabled="true" />
 </site>
