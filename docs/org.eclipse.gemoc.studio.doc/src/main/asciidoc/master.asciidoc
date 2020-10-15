@@ -246,19 +246,18 @@ include::userguide/headless_install_language_headContent.asciidoc[]
 == Run model
 include::userguide/headless_run_model_headContent.asciidoc[]
 
-
+////
 = Tutorials
 
 == Tuto 1
 include::tutorials_headContent.asciidoc[]
+//////
 
 = Examples
 
 include::examples_headContent.asciidoc[]
 
 include::../../../../../official_samples/K3FSM/docs/K3FSM.asciidoc[]
-
-include::../../../../../official_samples/MelangeK3FSM/docs/MelangeK3FSM.asciidoc[]
 
 include::../../../../../official_samples/MelangeK3FSM/docs/MelangeK3FSM.asciidoc[]
 
