@@ -109,6 +109,7 @@ image::images/K3FSM/DIY/K3FSM_syntaxic_domain.png["FSM Syntaxic domain."]
 
 * In the _org.eclipse.gemoc.example.k3fsm project_, open the *genmodel* file, 
     ** change the File extensions for the model to `k3fsmxmi`  (on the package: K3fsm -> K3fsm -> section Model)    
+    ** change the _Base Package_ for the model to `org.eclipse.gemoc.example.k3fsm`  (on the package: Fsm -> Fsm -> section _All_)    
     ** Right click on the root element then _Generate model code_; _Generate edit code_; _Generate editor code_.
 
 [TIP]
@@ -128,7 +129,7 @@ Menu _File -> New -> Ecore Modeling Project then in the template wizard of the x
 
 ==== Add Textual Editor
 
-* Rigth clik on the xdsml project; _GEMOC Language_ ->  _Create XText Editor Project for Language_. Add the genmodel to the list of EPackages; Name this new project "org.eclipse.gemoc.example.k3fsm.xtext"; use "org.eclipse.gemoc.example.k3fsm.K3FSM" as name for the language, and "k3fsm" as extensions.
+* Right click on the xdsml project; _GEMOC Language_ ->  _Create XText Editor Project for Language_. Add the genmodel to the list of EPackages; Name this new project "org.eclipse.gemoc.example.k3fsm.xtext"; use "org.eclipse.gemoc.example.k3fsm.K3FSM" as name for the language, and "k3fsm" as extensions.
    ** in the xtext editor:
    *** change the import from "http://www.eclipse.org/gemoc/example/k3fsm" to
 "platform:/resource/org.eclipse.gemoc.example.k3fsm/model/k3fsm.ecore"
@@ -143,7 +144,7 @@ Menu _File -> New -> Ecore Modeling Project then in the template wizard of the x
 
 ==== Add Semantics operations
 
-* Rigth clik on the xdsml project; _GEMOC Language_ ->  _Create DSA Project for Language_. Next -> Select "User Ecore Basic Aspect"; Set "Aspet file name" to "K3FSMAspects".
+* Right click on the xdsml project; _GEMOC Language_ ->  _Create DSA Project for Language_. Next -> Select "User Ecore Basic Aspect"; Set "Aspet file name" to "K3FSMAspects".
 
     ** in the .dsl file, fix the _k3_ entry by removing `qualified.class.name,` from the value.
     ** edit the k3fsmAspect.xtend file and add the following methods in the aspects:
@@ -195,14 +196,25 @@ public String getLabel(Transition transition) {
 	return res.toString();
 }
 ------
-    
+ 
+[[K3FSM-example-debug-animation]]    
 ==== Add Animation and Debug capabilities to the graphical editor
 
-Debug capabilities (breakpoint support, basic highlighting, ...)
+*Debug capabilities* (breakpoint support, basic highlighting, ...)
 
-    * Add debug capabilities to the graphical editor: Rigth clik on the xdsml project; _GEMOC Language_ ->  _Create Animator Project for Language_. Select _Add a debug layer to an existing diagram description_ -> Next -> Select your diagram (_FSM_) -> Next -> Finish
+    * Add debug capabilities to the graphical editor: Right click on the xdsml project; _GEMOC Language_ ->  _Create Animator Project for Language_. Select _Add a debug layer to an existing diagram description_ -> Next -> Select your diagram (_FSM_) -> Next -> Finish
     
-Domain specific animation
+This will create a new Sirius project that extends the existing diagram description. 
+The extensions adds to the Sirius editor a _Debug_ layer with:
+
+* a couple of actions (toggle breakpoint),
+* a java service class allowing to get information about some run state informations
+* color changes related to the service 
+* breakpoint decorators
+
+NOTE: Cf. <<defining-a-debug-representation-section>> 
+    
+*Domain specific animation*
     
     * in the _k3fsm.odesign_ file; on the diagram _FSM_ -> _New Diagram element_ -> _Additional layer_ ; ID = "Animation";
     ** on the animation layer; _New Diagram element_ -> _Decorations_; then _New_ -> _Mapping based decoration_; Name = "Current State"; Mapping =StateContainer; Image Expression = "/org.eclipse.gemoc.example.k3fsm.design/icons/cursor-3-24.png"; Precondition Expression = `service:self.isCurrenState`;
@@ -234,8 +246,24 @@ Also add the line `res.add(new StringCouple("FSM", "Animation"));` in the getRep
     
 Repeat the above steps about "_StringtoProcess_/unprocessedString" and adapt to "_ProducedString_/producedString" to create another element in the list for tthis other data
     
-    
+[NOTE]
+====
+This example uses Sirius to define an animation (Cf. <<define-sirus-animation-representation-section>>)
+Arbitrarily complex animation can be supported using Engine addons (Cf. <<define-animation-representation-using-engine-addon-section>> )
+====    
 
- 
+[[K3FSM-additional-resources]]
+=== Additional resources
 
- 
+The following online resources are related to this examples.
+
+* https://github.com/gemoc/MODELS2017Tutorial[Tutorial "Language Engineering with The GEMOC Studio", MODELS, 2017]: This tutorial starts from the FSM and extends it with concurrency  concerns in the behavioral semantics.
+
+[NOTE]
+====
+ as these resources have been written with a previous version of the GEMOC Studio, 
+ their content may need some adaptations to 100% work with the latest version.  
+====
+
+
+
