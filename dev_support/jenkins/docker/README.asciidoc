@@ -3,6 +3,8 @@
 Reference: https://wiki.eclipse.org/Jenkins
 
 
+includes OpenJDK 11, JavaFX 11
+
 Base for the images:
 
 https://github.com/eclipse-cbi/dockerfiles
