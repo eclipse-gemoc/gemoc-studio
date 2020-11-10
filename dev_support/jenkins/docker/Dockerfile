@@ -26,7 +26,7 @@ ENTRYPOINT [ "uid_entrypoint", "jenkins-slave" ]
 
 # Required for python36u
 RUN yum install -y yum-utils && \
-  yum install -y https://centos7.iuscommunity.org/ius-release.rpm
+  yum install -y https://repo.ius.io/ius-release-el7.rpm
 
 # https://linuxize.com/post/how-to-install-ffmpeg-on-centos-7/
 RUN rpm -v --import http://li.nux.ro/download/nux/RPM-GPG-KEY-nux.ro
@@ -100,11 +100,19 @@ RUN yum update -y \
   zsh \
   && yum clean all
 
+
+ENV HOME=/home/jenkins
+
+RUN wget https://gluonhq.com/download/javafx-11-0-2-sdk-linux  -O ${HOME}/javafx-11-0-2-sdk-linux.zip 
+RUN unzip ${HOME}/javafx-11-0-2-sdk-linux.zip -d ${HOME}/javafx-11-0-2-sdk-linux
+RUN rm ${HOME}/javafx-11-0-2-sdk-linux.zip 
+
+ENV JAVAFX_HOME=${HOME}/javafx-11-0-2-sdk-linux
+
 RUN ln -s /usr/bin/git /usr/local/bin/git \
   && ln -s /bin/bash /usr/local/bin/hipp_shell \
   && if [ ! -a /etc/machine-id ] || [ ! -s /etc/machine-id ]; then dbus-uuidgen > /etc/machine-id; fi
 
-ENV HOME=/home/jenkins
 ENV DISPLAY :0
 
 RUN mkdir -p ${HOME}/.vnc && chmod -R 775 ${HOME} \
