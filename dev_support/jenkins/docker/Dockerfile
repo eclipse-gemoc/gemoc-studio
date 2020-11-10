@@ -104,10 +104,10 @@ RUN yum update -y \
 ENV HOME=/home/jenkins
 
 RUN wget https://gluonhq.com/download/javafx-11-0-2-sdk-linux  -O ${HOME}/javafx-11-0-2-sdk-linux.zip 
-RUN unzip ${HOME}/javafx-11-0-2-sdk-linux.zip -d ${HOME}/javafx-11-0-2-sdk-linux
+RUN unzip ${HOME}/javafx-11-0-2-sdk-linux.zip -d ${HOME}
 RUN rm ${HOME}/javafx-11-0-2-sdk-linux.zip 
 
-ENV JAVAFX_HOME=${HOME}/javafx-11-0-2-sdk-linux
+ENV JAVAFX_HOME=${HOME}/javafx-sdk-11.0.2
 
 RUN ln -s /usr/bin/git /usr/local/bin/git \
   && ln -s /bin/bash /usr/local/bin/hipp_shell \
