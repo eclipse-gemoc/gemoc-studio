@@ -2,11 +2,6 @@
 
 Reference: https://wiki.eclipse.org/Jenkins
 
-The current migration pod doesn't match our need for 2 reasons:
-- missing grapviz (used to produce some documentation images (note: graphviz version 
-must either below 2.39.x or above 2.41, cf. cf. https://forum.plantuml.net/5425/relation-long-with-graphviz-using-labels-relations-namespace)
-- missing video capture tool in order to track the flacky UI tests
-
 
 Base for the images:
 
