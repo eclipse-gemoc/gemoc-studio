@@ -49,7 +49,7 @@
 			<layout>p2</layout>
 			<url>${eclipse.release.p2.url}</url>
 		</repository>
-		<repository>
+        <repository>
 			<!-- used by branding due to amalgam discovery -->
 			<id>Eclipse Photon release</id>
 			<layout>p2</layout>
@@ -95,16 +95,16 @@
 			<layout>p2</layout>
 			<url>${aspectJ.p2.url}</url>
 		</repository>
-		<repository>
-			<id>Sirius</id>
-			<layout>p2</layout>
-			<url>${sirius.p2.url}</url>
-		</repository>
 		<!--  e(fxc)lipse updatesite is currently required because they dropped from the release train -->
 		<repository>
 			<id>efxclipse</id>
 			<layout>p2</layout>
 			<url>${efxclipse.p2.url}</url>
+		</repository>
+        <repository>
+			<id>efxclipse2</id>
+			<layout>p2</layout>
+			<url>${efxclipse2.p2.url}</url>
 		</repository>
 	</repositories>
 
