@@ -51,7 +51,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	xvfb 
 
 RUN apt-get install -y  --no-install-recommends \
-	openjdk-8-jdk \
+	openjdk-11-jdk \
 	openjfx \
 	maven
 

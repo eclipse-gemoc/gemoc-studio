@@ -60,7 +60,7 @@ RUN yum update -y \
   metacity \
   mutter \
   net-snmp-devel.x86_64 \
-  java-1.8.0-openjdk-devel \
+  java-11-openjdk-devel \
   openssl-devel.x86_64 \
   patch \
   perl \
