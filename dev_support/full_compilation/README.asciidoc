@@ -64,6 +64,20 @@ The build also assemble complementary results:
 - an update site, available in `gemoc_studio/gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.product/target/repository/`
 - an archivable version of the web help; available in `gemoc-studio/docs/org.eclipse.gemoc.studio.doc/target/publish/webhelp/`
 
+
+[NOTE]
+====
+You can save some time on the compilation in development mode using some of the following options of the mvn command line:
+
+* `-P !plantuml` disabling this profile will disable plantuml image generation of the documentation (cf. https://github.com/eclipse/gemoc-studio/blob/master/docs/org.eclipse.gemoc.studio.doc/pom.xml)
+* `-P test_linux`  this profile will compile only the linux version of the studio (or `-P test_win64` for windows cf. https://github.com/eclipse/gemoc-studio/blob/master/gemoc_studio/pom.xml)
+* `--projects !../../gemoc_studio/tests/org.eclipse.gemoc.studio.tests.system.lwb,!../../gemoc_studio/tests/org.eclipse.gemoc.studio.tests.system.mwb`  do not launch system tests  (but still create the full studio)
+* `--offline` offline, (useful if you already have a full successful build that has installed all required dependencies in your local maven repository
+* `-DskipTests=true` do not launch unit tests
+====
+
+
+
 ==== Advanced usage using docker
 
 If you have trouble to reproduce a bug in the CI or want to make sure that the CI will pass, you can run the maven build in a docker that mimic the CI environment.
