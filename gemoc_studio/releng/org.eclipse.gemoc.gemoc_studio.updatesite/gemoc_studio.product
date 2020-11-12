@@ -20,10 +20,6 @@ org.eclipse.gemoc.gemoc_studio.branding.gemoc_studio
 openFile
       </programArgs>
       <vmArgs>--add-modules=ALL-SYSTEM,javafx.controls,javafx.fxml
--startup
-plugins/org.eclipse.equinox.launcher_1.5.700.v20200207-2156.jar
---launcher.library
-plugins/org.eclipse.equinox.launcher.gtk.linux.x86_64_1.1.1100.v20190907-0426
 -vmargs
 -Dosgi.requiredJavaVersion=11
 -XX:+UseG1GC

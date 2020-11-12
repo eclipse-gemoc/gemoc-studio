@@ -36,6 +36,26 @@ http://www.eclipse.org/legal/epl-v10.html
          id="org.eclipse.fx.runtime.min.feature"
          version="0.0.0"/>
 
+   <includes
+         id="openjfx.media.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="openjfx.standard.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="openjfx.swing.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="openjfx.swt.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="openjfx.web.feature"
+         version="0.0.0"/>
+
    <requires>
       <import feature="org.eclipse.egit" version="0.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.jgit" version="0.0.0" match="greaterOrEqual"/>
