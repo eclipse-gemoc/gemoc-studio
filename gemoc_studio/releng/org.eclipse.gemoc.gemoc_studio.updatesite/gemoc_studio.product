@@ -23,7 +23,6 @@ openFile
 -XX:+UseG1GC
 -XX:+UseStringDeduplication
 -Dosgi.framework.extensions=org.eclipse.fx.osgi
--Defxclipse.java-modules.dir=$JAVAFX_HOME
 -Xms256m
 -Xmx1024m
       </vmArgs>
