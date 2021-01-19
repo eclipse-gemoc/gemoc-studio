@@ -23,15 +23,12 @@ public interface StateMachine_producedString_Value extends SpecificAttributeValu
 	/**
 	 * Returns the value of the '<em><b>Produced String</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Produced String</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Produced String</em>' attribute.
 	 * @see #setProducedString(String)
 	 * @see fsmTrace.States.StatesPackage#getStateMachine_producedString_Value_ProducedString()
 	 * @model unique="false"
+	 *        annotation="aspect"
 	 * @generated
 	 */
 	String getProducedString();

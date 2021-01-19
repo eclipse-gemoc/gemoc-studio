@@ -69,6 +69,7 @@ public class StateMachine_producedString_ValueImpl extends SpecificValueImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getProducedString() {
 		return producedString;
 	}
@@ -78,6 +79,7 @@ public class StateMachine_producedString_ValueImpl extends SpecificValueImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setProducedString(String newProducedString) {
 		String oldProducedString = producedString;
 		producedString = newProducedString;

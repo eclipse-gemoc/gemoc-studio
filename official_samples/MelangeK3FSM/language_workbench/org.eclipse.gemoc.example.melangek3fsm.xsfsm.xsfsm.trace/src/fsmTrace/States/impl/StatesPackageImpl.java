@@ -236,6 +236,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSpecificAttributeValue() {
 		return specificAttributeValueEClass;
 	}
@@ -245,6 +246,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSpecificDimension() {
 		return specificDimensionEClass;
 	}
@@ -254,6 +256,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSpecificReferenceValue() {
 		return specificReferenceValueEClass;
 	}
@@ -263,6 +266,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSpecificState() {
 		return specificStateEClass;
 	}
@@ -272,6 +276,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSpecificTracedObject() {
 		return specificTracedObjectEClass;
 	}
@@ -281,6 +286,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSpecificValue() {
 		return specificValueEClass;
 	}
@@ -290,6 +296,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getStateMachine_consummedString_Dimension() {
 		return stateMachine_consummedString_DimensionEClass;
 	}
@@ -299,6 +306,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getStateMachine_consummedString_Value() {
 		return stateMachine_consummedString_ValueEClass;
 	}
@@ -308,6 +316,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getStateMachine_consummedString_Value_ConsummedString() {
 		return (EAttribute)stateMachine_consummedString_ValueEClass.getEStructuralFeatures().get(0);
 	}
@@ -317,6 +326,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getStateMachine_currentState_Dimension() {
 		return stateMachine_currentState_DimensionEClass;
 	}
@@ -326,6 +336,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getStateMachine_currentState_Value() {
 		return stateMachine_currentState_ValueEClass;
 	}
@@ -335,6 +346,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getStateMachine_currentState_Value_CurrentState() {
 		return (EReference)stateMachine_currentState_ValueEClass.getEStructuralFeatures().get(0);
 	}
@@ -344,6 +356,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getStateMachine_producedString_Dimension() {
 		return stateMachine_producedString_DimensionEClass;
 	}
@@ -353,6 +366,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getStateMachine_producedString_Value() {
 		return stateMachine_producedString_ValueEClass;
 	}
@@ -362,6 +376,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getStateMachine_producedString_Value_ProducedString() {
 		return (EAttribute)stateMachine_producedString_ValueEClass.getEStructuralFeatures().get(0);
 	}
@@ -371,6 +386,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getStateMachine_unprocessedString_Dimension() {
 		return stateMachine_unprocessedString_DimensionEClass;
 	}
@@ -380,6 +396,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getStateMachine_unprocessedString_Value() {
 		return stateMachine_unprocessedString_ValueEClass;
 	}
@@ -389,6 +406,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getStateMachine_unprocessedString_Value_UnprocessedString() {
 		return (EAttribute)stateMachine_unprocessedString_ValueEClass.getEStructuralFeatures().get(0);
 	}
@@ -398,6 +416,7 @@ public class StatesPackageImpl extends EPackageImpl implements StatesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StatesFactory getStatesFactory() {
 		return (StatesFactory)getEFactoryInstance();
 	}

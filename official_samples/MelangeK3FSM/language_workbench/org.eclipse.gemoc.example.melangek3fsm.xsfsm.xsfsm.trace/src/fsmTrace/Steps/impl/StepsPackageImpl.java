@@ -185,6 +185,7 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFsm_StateMachine_InitializeModel() {
 		return fsm_StateMachine_InitializeModelEClass;
 	}
@@ -194,6 +195,7 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFsm_State_Step() {
 		return fsm_State_StepEClass;
 	}
@@ -203,6 +205,7 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFsm_State_Step_AbstractSubStep() {
 		return fsm_State_Step_AbstractSubStepEClass;
 	}
@@ -212,6 +215,7 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFsm_State_Step_ImplicitStep() {
 		return fsm_State_Step_ImplicitStepEClass;
 	}
@@ -221,6 +225,7 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFsm_Transition_Fire() {
 		return fsm_Transition_FireEClass;
 	}
@@ -230,6 +235,7 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRootImplicitStep() {
 		return rootImplicitStepEClass;
 	}
@@ -239,6 +245,7 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSpecificRootStep() {
 		return specificRootStepEClass;
 	}
@@ -248,6 +255,7 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSpecificStep() {
 		return specificStepEClass;
 	}
@@ -257,6 +265,7 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StepsFactory getStepsFactory() {
 		return (StepsFactory)getEFactoryInstance();
 	}

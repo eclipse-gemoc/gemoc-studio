@@ -69,6 +69,7 @@ public class StateMachine_unprocessedString_ValueImpl extends SpecificValueImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUnprocessedString() {
 		return unprocessedString;
 	}
@@ -78,6 +79,7 @@ public class StateMachine_unprocessedString_ValueImpl extends SpecificValueImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUnprocessedString(String newUnprocessedString) {
 		String oldUnprocessedString = unprocessedString;
 		unprocessedString = newUnprocessedString;

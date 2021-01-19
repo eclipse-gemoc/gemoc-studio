@@ -62,6 +62,7 @@ public class StateMachine_currentState_ValueImpl extends SpecificValueImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TracedState getCurrentState() {
 		if (currentState != null && currentState.eIsProxy()) {
 			InternalEObject oldCurrentState = (InternalEObject)currentState;
@@ -88,6 +89,7 @@ public class StateMachine_currentState_ValueImpl extends SpecificValueImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setCurrentState(TracedState newCurrentState) {
 		TracedState oldCurrentState = currentState;
 		currentState = newCurrentState;

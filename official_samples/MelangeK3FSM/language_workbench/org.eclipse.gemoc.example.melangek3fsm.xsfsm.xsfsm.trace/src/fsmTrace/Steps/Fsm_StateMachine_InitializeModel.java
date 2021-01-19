@@ -23,7 +23,6 @@ public interface Fsm_StateMachine_InitializeModel extends SpecificStep, SmallSte
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" required="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return (fsmTrace.States.fsm.TracedStateMachine) this.getMseoccurrence().getMse().getCaller();'"
 	 * @generated
 	 */
 	TracedStateMachine getCaller();

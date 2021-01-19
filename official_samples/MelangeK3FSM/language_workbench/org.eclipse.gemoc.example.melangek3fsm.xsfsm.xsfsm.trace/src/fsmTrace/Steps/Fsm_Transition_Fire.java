@@ -23,7 +23,6 @@ public interface Fsm_Transition_Fire extends SpecificStep, SmallStep<SpecificSta
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" required="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return (fsmTrace.States.fsm.TracedTransition) this.getMseoccurrence().getMse().getCaller();'"
 	 * @generated
 	 */
 	TracedTransition getCaller();

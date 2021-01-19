@@ -139,13 +139,22 @@ public interface StepsPackage extends EPackage {
 	int FSM_STATE_MACHINE_INITIALIZE_MODEL__ENDING_STATE = SPECIFIC_STEP__ENDING_STATE;
 
 	/**
+	 * The feature id for the '<em><b>Footprint</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FSM_STATE_MACHINE_INITIALIZE_MODEL__FOOTPRINT = SPECIFIC_STEP_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Fsm State Machine Initialize Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FSM_STATE_MACHINE_INITIALIZE_MODEL_FEATURE_COUNT = SPECIFIC_STEP_FEATURE_COUNT + 0;
+	int FSM_STATE_MACHINE_INITIALIZE_MODEL_FEATURE_COUNT = SPECIFIC_STEP_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link fsmTrace.Steps.impl.Fsm_State_StepImpl <em>Fsm State Step</em>}' class.
@@ -286,13 +295,22 @@ public interface StepsPackage extends EPackage {
 	int FSM_STATE_STEP_IMPLICIT_STEP__ENDING_STATE = FSM_STATE_STEP_ABSTRACT_SUB_STEP__ENDING_STATE;
 
 	/**
+	 * The feature id for the '<em><b>Footprint</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FSM_STATE_STEP_IMPLICIT_STEP__FOOTPRINT = FSM_STATE_STEP_ABSTRACT_SUB_STEP_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Fsm State Step Implicit Step</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FSM_STATE_STEP_IMPLICIT_STEP_FEATURE_COUNT = FSM_STATE_STEP_ABSTRACT_SUB_STEP_FEATURE_COUNT + 0;
+	int FSM_STATE_STEP_IMPLICIT_STEP_FEATURE_COUNT = FSM_STATE_STEP_ABSTRACT_SUB_STEP_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link fsmTrace.Steps.impl.Fsm_Transition_FireImpl <em>Fsm Transition Fire</em>}' class.
@@ -332,13 +350,22 @@ public interface StepsPackage extends EPackage {
 	int FSM_TRANSITION_FIRE__ENDING_STATE = SPECIFIC_STEP__ENDING_STATE;
 
 	/**
+	 * The feature id for the '<em><b>Footprint</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FSM_TRANSITION_FIRE__FOOTPRINT = SPECIFIC_STEP_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Fsm Transition Fire</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FSM_TRANSITION_FIRE_FEATURE_COUNT = SPECIFIC_STEP_FEATURE_COUNT + 0;
+	int FSM_TRANSITION_FIRE_FEATURE_COUNT = SPECIFIC_STEP_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link fsmTrace.Steps.impl.RootImplicitStepImpl <em>Root Implicit Step</em>}' class.
@@ -376,6 +403,15 @@ public interface StepsPackage extends EPackage {
 	 * @ordered
 	 */
 	int ROOT_IMPLICIT_STEP__ENDING_STATE = TracePackage.SMALL_STEP__ENDING_STATE;
+
+	/**
+	 * The feature id for the '<em><b>Footprint</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOT_IMPLICIT_STEP__FOOTPRINT = TracePackage.SMALL_STEP__FOOTPRINT;
 
 	/**
 	 * The number of structural features of the '<em>Root Implicit Step</em>' class.

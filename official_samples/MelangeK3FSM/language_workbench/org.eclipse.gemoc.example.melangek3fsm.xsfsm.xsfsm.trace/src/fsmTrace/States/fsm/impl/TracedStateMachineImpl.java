@@ -115,6 +115,7 @@ public class TracedStateMachineImpl extends TracedNamedElementImpl implements Tr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StateMachine getOriginalObject() {
 		if (originalObject != null && originalObject.eIsProxy()) {
 			InternalEObject oldOriginalObject = (InternalEObject)originalObject;
@@ -141,6 +142,7 @@ public class TracedStateMachineImpl extends TracedNamedElementImpl implements Tr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOriginalObject(StateMachine newOriginalObject) {
 		StateMachine oldOriginalObject = originalObject;
 		originalObject = newOriginalObject;
@@ -153,6 +155,7 @@ public class TracedStateMachineImpl extends TracedNamedElementImpl implements Tr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StateMachine_consummedString_Dimension getStateMachine_consummedString_Dimension() {
 		return stateMachine_consummedString_Dimension;
 	}
@@ -177,6 +180,7 @@ public class TracedStateMachineImpl extends TracedNamedElementImpl implements Tr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setStateMachine_consummedString_Dimension(StateMachine_consummedString_Dimension newStateMachine_consummedString_Dimension) {
 		if (newStateMachine_consummedString_Dimension != stateMachine_consummedString_Dimension) {
 			NotificationChain msgs = null;
@@ -196,6 +200,7 @@ public class TracedStateMachineImpl extends TracedNamedElementImpl implements Tr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StateMachine_currentState_Dimension getStateMachine_currentState_Dimension() {
 		return stateMachine_currentState_Dimension;
 	}
@@ -220,6 +225,7 @@ public class TracedStateMachineImpl extends TracedNamedElementImpl implements Tr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setStateMachine_currentState_Dimension(StateMachine_currentState_Dimension newStateMachine_currentState_Dimension) {
 		if (newStateMachine_currentState_Dimension != stateMachine_currentState_Dimension) {
 			NotificationChain msgs = null;
@@ -239,6 +245,7 @@ public class TracedStateMachineImpl extends TracedNamedElementImpl implements Tr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StateMachine_producedString_Dimension getStateMachine_producedString_Dimension() {
 		return stateMachine_producedString_Dimension;
 	}
@@ -263,6 +270,7 @@ public class TracedStateMachineImpl extends TracedNamedElementImpl implements Tr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setStateMachine_producedString_Dimension(StateMachine_producedString_Dimension newStateMachine_producedString_Dimension) {
 		if (newStateMachine_producedString_Dimension != stateMachine_producedString_Dimension) {
 			NotificationChain msgs = null;
@@ -282,6 +290,7 @@ public class TracedStateMachineImpl extends TracedNamedElementImpl implements Tr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StateMachine_unprocessedString_Dimension getStateMachine_unprocessedString_Dimension() {
 		return stateMachine_unprocessedString_Dimension;
 	}
@@ -306,6 +315,7 @@ public class TracedStateMachineImpl extends TracedNamedElementImpl implements Tr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setStateMachine_unprocessedString_Dimension(StateMachine_unprocessedString_Dimension newStateMachine_unprocessedString_Dimension) {
 		if (newStateMachine_unprocessedString_Dimension != stateMachine_unprocessedString_Dimension) {
 			NotificationChain msgs = null;
@@ -325,12 +335,13 @@ public class TracedStateMachineImpl extends TracedNamedElementImpl implements Tr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<SpecificDimension<?>> getDimensionsInternal() {
 		final EList<SpecificDimension<?>> result = new org.eclipse.emf.ecore.util.BasicInternalEList<SpecificDimension<?>>(Object.class);
 		result.addAll(super.getDimensionsInternal());
+		result.add(getStateMachine_currentState_Dimension());
 		result.add(getStateMachine_unprocessedString_Dimension());
 		result.add(getStateMachine_consummedString_Dimension());
-		result.add(getStateMachine_currentState_Dimension());
 		result.add(getStateMachine_producedString_Dimension());
 		return result;
 		

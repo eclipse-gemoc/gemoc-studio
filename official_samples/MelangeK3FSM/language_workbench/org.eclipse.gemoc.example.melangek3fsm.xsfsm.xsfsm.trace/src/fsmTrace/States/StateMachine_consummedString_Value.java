@@ -23,15 +23,12 @@ public interface StateMachine_consummedString_Value extends SpecificAttributeVal
 	/**
 	 * Returns the value of the '<em><b>Consummed String</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Consummed String</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Consummed String</em>' attribute.
 	 * @see #setConsummedString(String)
 	 * @see fsmTrace.States.StatesPackage#getStateMachine_consummedString_Value_ConsummedString()
 	 * @model unique="false"
+	 *        annotation="aspect"
 	 * @generated
 	 */
 	String getConsummedString();

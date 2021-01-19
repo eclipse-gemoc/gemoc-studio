@@ -75,6 +75,7 @@ public class StatesFactoryImpl extends EFactoryImpl implements StatesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SpecificState createSpecificState() {
 		SpecificStateImpl specificState = new SpecificStateImpl();
 		return specificState;
@@ -85,6 +86,7 @@ public class StatesFactoryImpl extends EFactoryImpl implements StatesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StateMachine_consummedString_Dimension createStateMachine_consummedString_Dimension() {
 		StateMachine_consummedString_DimensionImpl stateMachine_consummedString_Dimension = new StateMachine_consummedString_DimensionImpl();
 		return stateMachine_consummedString_Dimension;
@@ -95,6 +97,7 @@ public class StatesFactoryImpl extends EFactoryImpl implements StatesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StateMachine_consummedString_Value createStateMachine_consummedString_Value() {
 		StateMachine_consummedString_ValueImpl stateMachine_consummedString_Value = new StateMachine_consummedString_ValueImpl();
 		return stateMachine_consummedString_Value;
@@ -105,6 +108,7 @@ public class StatesFactoryImpl extends EFactoryImpl implements StatesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StateMachine_currentState_Dimension createStateMachine_currentState_Dimension() {
 		StateMachine_currentState_DimensionImpl stateMachine_currentState_Dimension = new StateMachine_currentState_DimensionImpl();
 		return stateMachine_currentState_Dimension;
@@ -115,6 +119,7 @@ public class StatesFactoryImpl extends EFactoryImpl implements StatesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StateMachine_currentState_Value createStateMachine_currentState_Value() {
 		StateMachine_currentState_ValueImpl stateMachine_currentState_Value = new StateMachine_currentState_ValueImpl();
 		return stateMachine_currentState_Value;
@@ -125,6 +130,7 @@ public class StatesFactoryImpl extends EFactoryImpl implements StatesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StateMachine_producedString_Dimension createStateMachine_producedString_Dimension() {
 		StateMachine_producedString_DimensionImpl stateMachine_producedString_Dimension = new StateMachine_producedString_DimensionImpl();
 		return stateMachine_producedString_Dimension;
@@ -135,6 +141,7 @@ public class StatesFactoryImpl extends EFactoryImpl implements StatesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StateMachine_producedString_Value createStateMachine_producedString_Value() {
 		StateMachine_producedString_ValueImpl stateMachine_producedString_Value = new StateMachine_producedString_ValueImpl();
 		return stateMachine_producedString_Value;
@@ -145,6 +152,7 @@ public class StatesFactoryImpl extends EFactoryImpl implements StatesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StateMachine_unprocessedString_Dimension createStateMachine_unprocessedString_Dimension() {
 		StateMachine_unprocessedString_DimensionImpl stateMachine_unprocessedString_Dimension = new StateMachine_unprocessedString_DimensionImpl();
 		return stateMachine_unprocessedString_Dimension;
@@ -155,6 +163,7 @@ public class StatesFactoryImpl extends EFactoryImpl implements StatesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StateMachine_unprocessedString_Value createStateMachine_unprocessedString_Value() {
 		StateMachine_unprocessedString_ValueImpl stateMachine_unprocessedString_Value = new StateMachine_unprocessedString_ValueImpl();
 		return stateMachine_unprocessedString_Value;
@@ -165,6 +174,7 @@ public class StatesFactoryImpl extends EFactoryImpl implements StatesFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StatesPackage getStatesPackage() {
 		return (StatesPackage)getEPackage();
 	}
