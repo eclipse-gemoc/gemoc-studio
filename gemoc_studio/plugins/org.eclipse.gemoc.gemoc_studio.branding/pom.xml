@@ -80,7 +80,7 @@
 			                        <!-- Eclipse version -->
 	                            	<drawText>
 			                            <text>based on Eclipse ${eclipse.version.name}</text>
-			                            <textColor>#909090</textColor>
+			                            <textColor>#F0F0F0</textColor>
 			                            <fontName>SansSerif</fontName>
 			                            <fontStyle>italic</fontStyle>
 			                            <fontSize>12</fontSize>
@@ -88,7 +88,7 @@
 			                        </drawText>
 	                            	<drawText>
 			                            <text>${project.version}  ${timestamp}</text>
-			                            <textColor>#909090</textColor>
+			                            <textColor>#F0F0F0</textColor>
 			                            <fontName>SansSerif</fontName>
 			                            <fontStyle>italic,bold</fontStyle>
 			                            <fontSize>12</fontSize>
@@ -102,7 +102,7 @@
 			                        <!-- Studio variant -->
 	                            	<drawText>
 			                            <text>${studio.variant} - ${branch.variant} branch</text>
-			                            <textColor>#909090</textColor>
+			                            <textColor>#F0F0F0</textColor>
 			                            <fontName>SansSerif</fontName>
 			                            <fontStyle>italic,bold</fontStyle>
 			                            <fontSize>12</fontSize>
