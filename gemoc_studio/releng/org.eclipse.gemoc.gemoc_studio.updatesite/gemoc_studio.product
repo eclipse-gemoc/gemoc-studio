@@ -20,7 +20,7 @@ org.eclipse.gemoc.gemoc_studio.branding.gemoc_studio
 openFile
       </programArgs>
       <vmArgs>-Dosgi.requiredJavaVersion=11
--Dosgi.instance.area.default=@user.home/eclipse-workspace
+-Dosgi.instance.area.default=@user.home/eclipse-workspaces/gemoc-workspace
 -XX:+UseG1GC
 -XX:+UseStringDeduplication
 -Dosgi.framework.extensions=org.eclipse.fx.osgi
