@@ -54,10 +54,16 @@ public class XDSMLPerspective_Test extends AbstractXtextTests {
 	@BeforeClass
 	def static void beforeClass() throws Exception {
 		GEMOCTestVideoHelper.addTestSuiteVideoLog("starting "+XDSMLPerspective_Test.canonicalName);
+		helper.waitWorkbench // useful especially for the first test suite that starts the workbench
 		val MessagingSystemManager msm = new MessagingSystemManager()
 		messaggingSystem = msm.createBestPlatformMessagingSystem("","");
 		messaggingSystem.important(XDSMLPerspective_Test.canonicalName,"")
+		System.out.println("after msm.createBestPlatformMessagingSystem");
+		
+		System.out.println("before of Thread.sleep(5000)");
 		messaggingSystem.important(System.getProperty("user.dir"),"")
+		Thread.sleep(5000);
+		System.out.println("end of Thread.sleep(5000)");
 		bot = new SWTWorkbenchBot()
 		SWTBotPreferences.TIMEOUT = WorkspaceTestHelper.SWTBotPreferencesTIMEOUT_4_GEMOC;
 		SWTBotPreferences.PLAYBACK_DELAY = WorkspaceTestHelper.SWTBotPreferencesPLAYBACK_DELAY_4_GEMOC;

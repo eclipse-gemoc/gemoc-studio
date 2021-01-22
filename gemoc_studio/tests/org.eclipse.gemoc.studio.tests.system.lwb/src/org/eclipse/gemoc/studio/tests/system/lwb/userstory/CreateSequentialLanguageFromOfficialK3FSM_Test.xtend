@@ -71,6 +71,7 @@ public class CreateSequentialLanguageFromOfficialK3FSM_Test extends AbstractXtex
 	@BeforeClass
 	def static void beforeClass() throws Exception {
 		GEMOCTestVideoHelper.addTestSuiteVideoLog("starting "+CreateSequentialLanguageFromOfficialK3FSM_Test.canonicalName);
+		helper.waitWorkbench // useful especially for the first test suite that starts the workbench
 		val MessagingSystemManager msm = new MessagingSystemManager()
 		messaggingSystem = msm.createBestPlatformMessagingSystem("","");
 		messaggingSystem.important(CreateSequentialLanguageFromOfficialK3FSM_Test.canonicalName,"")
