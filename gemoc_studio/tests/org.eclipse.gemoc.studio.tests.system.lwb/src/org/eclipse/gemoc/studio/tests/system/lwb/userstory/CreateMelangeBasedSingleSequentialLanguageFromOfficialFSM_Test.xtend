@@ -68,6 +68,7 @@ class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends Abs
 	@BeforeClass
 	def static void beforeClass() throws Exception {
 		GEMOCTestVideoHelper.addTestSuiteVideoLog("starting "+CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test.canonicalName);
+		helper.waitWorkbench // useful especially for the first test suite that starts the workbench
 		val MessagingSystemManager msm = new MessagingSystemManager()
 		messaggingSystem = msm.createBestPlatformMessagingSystem("","");
 		messaggingSystem.important(CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test.canonicalName,"")

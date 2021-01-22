@@ -70,6 +70,7 @@ class CreateSingleSequentialLanguageFromOfficialFSM_Test extends AbstractXtextTe
 	@BeforeClass
 	def static void beforeClass() throws Exception {
 		GEMOCTestVideoHelper.addTestSuiteVideoLog("starting "+CreateSingleSequentialLanguageFromOfficialFSM_Test.canonicalName);
+		helper.waitWorkbench // useful especially for the first test suite that starts the workbench
 		val MessagingSystemManager msm = new MessagingSystemManager()
 		messaggingSystem = msm.createBestPlatformMessagingSystem("","")
 		messaggingSystem.important(System.getProperty("user.dir"),"")

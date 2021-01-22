@@ -68,6 +68,7 @@ class GenerateTrace4OfficialExampleMelangeK3FSM_Test extends AbstractXtextTests
 	@BeforeClass
 	def static void beforeClass() throws Exception {
 		GEMOCTestVideoHelper.addTestSuiteVideoLog("starting "+GenerateTrace4OfficialExampleMelangeK3FSM_Test.canonicalName);
+		helper.waitWorkbench // useful especially for the first test suite that starts the workbench
 		val MessagingSystemManager msm = new MessagingSystemManager()
 		messaggingSystem = msm.createBestPlatformMessagingSystem("","");
 		messaggingSystem.important(System.getProperty("user.dir"),"")
