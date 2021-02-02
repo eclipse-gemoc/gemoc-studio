@@ -167,5 +167,5 @@
    <repository-reference location="http://melange.inria.fr/updatesite/nightly/update" enabled="true" />
    <repository-reference location="http://www.kermeta.org/diverse-commons/updates/latest" enabled="true" />
    <repository-reference location="http://download.eclipse.org/elk/updates/releases/0.7.1/" enabled="true" />
-   <repository-reference location="http://download.eclipse.org/tools/ajdt/48/dev/update" enabled="true" />
+   <repository-reference location="http://download.eclipse.org/tools/ajdt/410/dev/update" enabled="true" />
 </site>
