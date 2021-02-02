@@ -44,20 +44,5 @@
 			<layout>p2</layout>
 			<url>${melange.p2.url}</url>
 		</repository>
-		<!-- <repository> -->
-		<!-- <id>ELK</id> -->
-		<!-- <layout>p2</layout> -->
-		<!-- <url>${elk.p2.url}</url> -->
-		<!-- </repository> -->
-<!-- 		<repository> -->
-<!-- 			<id>APP4MC</id> -->
-<!-- 			<layout>p2</layout> -->
-<!-- 			<url>${app4mc.p2.url}</url> -->
-<!-- 		</repository> -->
-		<!-- <repository> -->
-		<!-- <id>AspectJ</id> -->
-		<!-- <layout>p2</layout> -->
-		<!-- <url>${aspectJ.p2.url}</url> -->
-		<!-- </repository> -->
 	</repositories>
 </project>
