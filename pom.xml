@@ -26,7 +26,6 @@
 		<elk.p2.url>http://download.eclipse.org/elk/updates/releases/0.7.1</elk.p2.url>
 		<!-- for advanced sirius features such as Sirius ELK support , version needs to be aligned with the one  in ${eclipse.release.p2.url}-->
 		<sirius.p2.url>https://download.eclipse.org/sirius/updates/releases/6.4.1/2020-09/</sirius.p2.url>
-		<app4mc.p2.url>http://download.eclipse.org/app4mc/updatesites/releases/0.8.1</app4mc.p2.url>
 		<aspectJ.p2.url>http://download.eclipse.org/tools/ajdt/410/dev/update</aspectJ.p2.url>
 		<timesquare.p2.url>http://timesquare.inria.fr/update_site/2020</timesquare.p2.url>
 		<diverse-commons.p2.url>http://www.kermeta.org/diverse-commons/updates/latest</diverse-commons.p2.url>
