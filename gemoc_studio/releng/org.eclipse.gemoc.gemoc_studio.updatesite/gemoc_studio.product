@@ -85,7 +85,7 @@ openFile
       <repository location="http://www.kermeta.org/ale-lang/updates/latest/" enabled="true" />
       <repository location="http://timesquare.inria.fr/update_site/2020" enabled="true" />
       <repository location="http://download.eclipse.org/gemoc/updates/nightly/" enabled="true" />
-      <repository location="http://download.eclipse.org/elk/updates/releases/0.4.1" enabled="false" />
+      <repository location="http://download.eclipse.org/elk/updates/releases/0.7.1" enabled="false" />
       <repository location="http://download.eclipse.org/tools/ajdt/410/dev/update" enabled="true" />
       <repository location="http://downloads.efxclipse.bestsolution.at/p2-repos/openjfx-11/repository/" enabled="true" />
    </repositories>
