@@ -85,11 +85,11 @@
 			<layout>p2</layout>
 			<url>${elk.p2.url}</url>
 		</repository>
-<!-- 		<repository> -->
-<!-- 			<id>APP4MC</id> -->
-<!-- 			<layout>p2</layout> -->
-<!-- 			<url>${app4mc.p2.url}</url> -->
-<!-- 		</repository> -->
+		<repository>
+			<id>Sirius</id>
+			<layout>p2</layout>
+			<url>${sirius.p2.url}</url>
+		</repository>
 		<repository>
 			<id>AspectJ</id>
 			<layout>p2</layout>
