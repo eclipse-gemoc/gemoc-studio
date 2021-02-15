@@ -62,6 +62,7 @@ public class DeployOfficialExampleMelangeK3FSM_Test extends AbstractXtextTests
 	@BeforeClass
 	def static void beforeClass() throws Exception {
 		GEMOCTestVideoHelper.addTestSuiteVideoLog("starting "+DeployOfficialExampleMelangeK3FSM_Test.canonicalName);
+		helper.waitWorkbench // useful especially for the first test suite that starts the workbench
 		val MessagingSystemManager msm = new MessagingSystemManager()
 		messaggingSystem = msm.createBestPlatformMessagingSystem("","");
 		messaggingSystem.important(DeployOfficialExampleMelangeK3FSM_Test.canonicalName,"")

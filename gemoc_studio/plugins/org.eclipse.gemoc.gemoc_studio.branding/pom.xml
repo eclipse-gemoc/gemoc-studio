@@ -13,7 +13,7 @@
 	</parent>
 
 	<properties>
-		<eclipse.version.name>2020-03</eclipse.version.name>
+		<eclipse.version.name>2020-12</eclipse.version.name>
 		<!-- override these values using -D option on the maven command line on the CI (see jenkinsfile for CI configuration)-->		
 		<studio.variant>Local build</studio.variant>
 		<branch.variant>Unknown</branch.variant>
@@ -80,7 +80,7 @@
 			                        <!-- Eclipse version -->
 	                            	<drawText>
 			                            <text>based on Eclipse ${eclipse.version.name}</text>
-			                            <textColor>#909090</textColor>
+			                            <textColor>#F0F0F0</textColor>
 			                            <fontName>SansSerif</fontName>
 			                            <fontStyle>italic</fontStyle>
 			                            <fontSize>12</fontSize>
@@ -88,7 +88,7 @@
 			                        </drawText>
 	                            	<drawText>
 			                            <text>${project.version}  ${timestamp}</text>
-			                            <textColor>#909090</textColor>
+			                            <textColor>#F0F0F0</textColor>
 			                            <fontName>SansSerif</fontName>
 			                            <fontStyle>italic,bold</fontStyle>
 			                            <fontSize>12</fontSize>
@@ -102,7 +102,7 @@
 			                        <!-- Studio variant -->
 	                            	<drawText>
 			                            <text>${studio.variant} - ${branch.variant} branch</text>
-			                            <textColor>#909090</textColor>
+			                            <textColor>#F0F0F0</textColor>
 			                            <fontName>SansSerif</fontName>
 			                            <fontStyle>italic,bold</fontStyle>
 			                            <fontSize>12</fontSize>

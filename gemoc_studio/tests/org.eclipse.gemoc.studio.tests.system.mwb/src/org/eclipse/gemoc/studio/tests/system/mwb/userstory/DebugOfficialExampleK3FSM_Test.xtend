@@ -77,6 +77,7 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 	@BeforeClass
 	def static void beforeClass() throws Exception {
 		GEMOCTestVideoHelper.addTestSuiteVideoLog("starting "+DebugOfficialExampleK3FSM_Test.canonicalName);
+		helper.waitWorkbench // useful especially for the first test suite that starts the workbench
 		helper.init
 		bot = new SWTWorkbenchBot()
 		SWTBotPreferences.TIMEOUT = WorkspaceTestHelper.SWTBotPreferencesTIMEOUT_4_GEMOC ;
