@@ -1,0 +1,12 @@
+class Test {
+	private int field;
+	
+	public Test(int value) {
+		this.field = value;
+	}
+	
+	public static void main(String[] args) {
+		Test test = new Test(42);
+		System.out.println(test.field);
+	}
+}

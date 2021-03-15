@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="fr.inria.diverse.ale.repl.kernel">
+      <kernel
+            class="fr.inria.diverse.minijava_repl.notebook.MiniJava_replKernel"
+            languageName="MiniJava_repl">
+      </kernel>
+   </extension>
+</plugin>

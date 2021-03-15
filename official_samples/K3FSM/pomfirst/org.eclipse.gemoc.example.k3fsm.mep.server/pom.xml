@@ -5,16 +5,14 @@
 	<groupId>org.eclipse.gemoc.gemoc_studio</groupId>
 	<artifactId>org.eclipse.gemoc.example.k3fsm.mep.server</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-
+	
 	<properties>
-		<maven.compiler.target>1.8</maven.compiler.target>
-		<maven.compiler.source>1.8</maven.compiler.source>
 		<surefire-plugin.version>2.22.0</surefire-plugin.version>
 		<quarkus.version>0.21.1</quarkus.version>
-		<xtend.version>2.18.0</xtend.version>
-		<lsp4j.version>0.8.0</lsp4j.version>
+		<xtend.version>2.24.0</xtend.version>
+		<lsp4j.version>0.10.0</lsp4j.version>
 	</properties>
-
+	
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -27,23 +25,23 @@
 			<dependency>
 				<groupId>org.eclipse.lsp4j</groupId>
 				<artifactId>org.eclipse.lsp4j</artifactId>
-			  	<version>${lsp4j.version}</version>
+				<version>${lsp4j.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.eclipse.lsp4j</groupId>
 				<artifactId>org.eclipse.lsp4j.debug</artifactId>
-			  	<version>${lsp4j.version}</version>
+				<version>${lsp4j.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
 	<dependencies>
-
+	
 		<!-- use guice 4 in order to get better error reporting while designing -->
-	    <!-- <dependency>
-	      <groupId>com.google.inject</groupId>
-	      <artifactId>guice</artifactId>
-	      <version>4.2.0</version>
-	    </dependency> -->
+		<!-- <dependency>
+			<groupId>com.google.inject</groupId>
+			<artifactId>guice</artifactId>
+			<version>4.2.0</version>
+		</dependency> -->
 		<!-- web and general dependencies -->
 		<dependency>
 			<groupId>io.quarkus</groupId>
@@ -63,7 +61,7 @@
 			<groupId>io.quarkus</groupId>
 			<artifactId>quarkus-undertow-websockets</artifactId>
 		</dependency>
-
+	
 		<!-- DAP, GEMOC and Eclipse dependencies -->
 		<dependency>
 			<groupId>org.eclipse.xtext</groupId>
@@ -80,7 +78,7 @@
 			<artifactId>org.eclipse.emf.mwe.utils</artifactId>
 			<version>1.5.1</version>
 		</dependency>
-<!-- 		<dependency>
+		<!-- 		<dependency>
 			<groupId>org.eclipse.lsp4j</groupId>
 			<artifactId>org.eclipse.lsp4j.debug</artifactId>
 		</dependency> -->
@@ -110,7 +108,7 @@
 			<artifactId>org.eclipse.gemoc.commons.utils</artifactId>
 			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
-
+	
 		<!-- language specific dependencies -->
 		<dependency>
 			<groupId>org.eclipse.gemoc.gemoc_studio</groupId>
@@ -132,8 +130,8 @@
 			<artifactId>org.eclipse.gemoc.example.k3fsm.k3dsa</artifactId>
 			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
-
-
+	
+	
 		<!-- GEMOC Java Engine dependencies -->
 		<dependency>
 			<groupId>org.eclipse.gemoc.pomfirst</groupId>
@@ -170,8 +168,8 @@
 			<artifactId>org.eclipse.gemoc.executionframework.engine.model</artifactId>
 			<version>4.0.0-SNAPSHOT</version>
 		</dependency>
-	    <dependency>
-		    <groupId>org.eclipse.gemoc.commons</groupId>
+		<dependency>
+			<groupId>org.eclipse.gemoc.commons</groupId>
 			<artifactId>org.eclipse.gemoc.commons.eclipse.pde</artifactId>
 			<version>3.0.0-SNAPSHOT</version>
 		</dependency>
@@ -185,11 +183,11 @@
 			<artifactId>org.eclipse.gemoc.xdsmlframework.commons</artifactId>
 			<version>4.0.0-SNAPSHOT</version>
 		</dependency>
-
+	
 		<!-- TODO find a more recent version -->
 		<!-- <dependency> <groupId>org.eclipse.emf</groupId> <artifactId>transaction</artifactId> 
 			<version>1.1.0-v200706131240</version> <exclusions><exclusion></exclusion></exclusions> 
-			</dependency> -->
+		</dependency> -->
 		<dependency>
 			<groupId>org.eclipse.emf</groupId>
 			<artifactId>org.eclipse.emf.compare</artifactId>
@@ -218,79 +216,91 @@
 			<scope>system</scope>
 			<systemPath>${basedir}/lib_not_correctly_deployed/fr.inria.diverse.melange.resource_0.2.2.201812031029.jar</systemPath>
 		</dependency>
-		
+	
 		<dependency>
 			<groupId>DSLDebugger</groupId>
 			<artifactId>org.eclipse.gemoc.dsl.debug.ide</artifactId>
 			<version>3.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-		  <groupId>org.eclipse.gemoc.executionframework</groupId>
-     	  <artifactId>org.eclipse.gemoc.executionframework.engine.headless</artifactId>
-      	  <version>1.0.0-SNAPSHOT</version>
+			<groupId>org.eclipse.gemoc.executionframework</groupId>
+			<artifactId>org.eclipse.gemoc.executionframework.engine.headless</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
-		
+	
 		<dependency>
 			<groupId>org.eclipse.gemoc.multidimensional_trace_management</groupId>
 			<artifactId>org.eclipse.gemoc.trace.gemoc</artifactId>
 			<version>3.0.1-SNAPSHOT</version>
 		</dependency>
-<!--
- 		<dependency>
+		<!--
+			<dependency>
 			<groupId>org.eclipse.emf</groupId>
 			<artifactId>org.eclipse.emf.edit</artifactId>
 			<version>2.16.0</version>
-		</dependency>
-
- 		<dependency>
+			</dependency>
+	
+			<dependency>
 			<groupId>org.eclipse.gemoc.commons</groupId>
 			<artifactId>org.eclipse.gemoc.commons.eclipse</artifactId>
 			<version>3.0.0-SNAPSHOT</version>
-		</dependency>
-		<dependency>
+			</dependency>
+			<dependency>
 			<groupId>org.eclipse.gemoc.commons</groupId>
 			<artifactId>org.eclipse.gemoc.commons.eclipse.pde</artifactId>
 			<version>3.0.0-SNAPSHOT</version>
-		</dependency>
-
-		<dependency>
+			</dependency>
+	
+			<dependency>
 			<groupId>org.eclipse.gemoc.commons</groupId>
 			<artifactId>org.eclipse.gemoc.commons.eclipse.messagingsystem.api</artifactId>
 			<version>3.0.0-SNAPSHOT</version>
-		</dependency>
-		<dependency>
+			</dependency>
+			<dependency>
 			<groupId>org.eclipse.gemoc.modeldebugging.framework.commons</groupId>
 			<artifactId>org.eclipse.gemoc.xdsmlframework.api</artifactId>
 			<version>4.0.0-SNAPSHOT</version>
-		</dependency>
-		<dependency>
+			</dependency>
+			<dependency>
 			<groupId>org.eclipse.gemoc.modeldebugging.framework.commons</groupId>
 			<artifactId>org.eclipse.gemoc.xdsmlframework.commons</artifactId>
 			<version>4.0.0-SNAPSHOT</version>
-		</dependency>
-		<dependency>
+			</dependency>
+			<dependency>
 			<groupId>org.eclipse.gemoc.trace.commons</groupId>
 			<artifactId>org.eclipse.gemoc.trace.gemoc.api</artifactId>
 			<version>3.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
+			</dependency>
+			<dependency>
 			<groupId>DSLDebugger</groupId>
 			<artifactId>org.eclipse.gemoc.dsl.debug</artifactId>
 			<version>3.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
+			</dependency>
+			<dependency>
 			<groupId>DSLDebugger</groupId>
 			<artifactId>org.eclipse.gemoc.dsl.debug.edit</artifactId>
 			<version>3.0.1-SNAPSHOT</version>
 		</dependency> -->
-
+	
 		<dependency>
 			<groupId>org.eclipse.platform</groupId>
 			<artifactId>org.eclipse.debug.core</artifactId>
 			<version>3.12.0</version>
 		</dependency>
+	
+		<dependency>
+			<groupId>org.emfjson</groupId>
+			<artifactId>emfjson-jackson</artifactId>
+			<version>1.3.0</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.eclipse.jface</groupId>
+		    <artifactId>org.eclipse.jface</artifactId>
+		    <version>3.5.0.I20090525-2000</version>
+		</dependency>
 	</dependencies>
-
+	
 	<build>
 		<plugins>
 			<!-- enable xtend compilation -->
@@ -311,33 +321,8 @@
 						</configuration>
 					</execution>
 				</executions>
-				<!-- workaround https://github.com/eclipse/xtext/issues/1231 -->
-				<!-- workaround https://github.com/eclipse/xtext/issues/1373 -->
-				<!-- Remove with upgrade to Xtext 2.15 -->
-				<dependencies>
-					<dependency>
-						<groupId>org.eclipse.jdt</groupId>
-						<artifactId>org.eclipse.jdt.core</artifactId>
-						<version>3.13.102</version>
-					</dependency>
-					<dependency>
-						<groupId>org.eclipse.jdt</groupId>
-						<artifactId>org.eclipse.jdt.compiler.apt</artifactId>
-						<version>1.3.110</version>
-					</dependency>
-					<dependency>
-						<groupId>org.eclipse.jdt</groupId>
-						<artifactId>org.eclipse.jdt.compiler.tool</artifactId>
-						<version>1.2.101</version>
-					</dependency>
-					<dependency>
-						<groupId>org.eclipse.emf</groupId>
-						<artifactId>org.eclipse.emf.codegen</artifactId>
-						<version>2.11.0</version>
-					</dependency>
-				</dependencies>
 			</plugin>
-
+	
 			<plugin>
 				<groupId>io.quarkus</groupId>
 				<artifactId>quarkus-maven-plugin</artifactId>
@@ -374,7 +359,7 @@
 					</filesets>
 				</configuration>
 			</plugin>
- 			<plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
 				<version>1.7.1</version>
@@ -398,6 +383,14 @@
 						</configuration>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.0</version>
+				<configuration>
+					<release>11</release>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
@@ -425,4 +418,12 @@
 			<url>http://maven.inria.fr/artifactory/public/</url>
 		</repository>
 	</repositories>
+	<profiles>
+		<profile>
+			<id>native</id>
+			<properties>
+				<quarkus.package.type>native</quarkus.package.type>
+			</properties>
+		</profile>
+	</profiles>
 </project>

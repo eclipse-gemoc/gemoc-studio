@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="minijava_repl" nsURI="http://www.example.org/repl/minijava/MiniJava"
+    nsPrefix="minijava_repl">
+  <eClassifiers xsi:type="ecore:EClass" name="InterpretableInstruction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="previous" eType="#//InterpretableInstruction"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Interpreter">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="instruction" eType="#//InterpretableInstruction"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypeDeclaration_Instruction" eSuperTypes="#//InterpretableInstruction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="original" eType="ecore:EClass ../../../org.tetrabox.minijava.xtext/model/MiniJava.ecore#//TypeDeclaration"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Import_Instruction" eSuperTypes="#//InterpretableInstruction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="original" eType="ecore:EClass ../../../org.tetrabox.minijava.xtext/model/MiniJava.ecore#//Import"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Block_Instruction" eSuperTypes="#//InterpretableInstruction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="original" eType="ecore:EClass ../../../org.tetrabox.minijava.xtext/model/MiniJava.ecore#//Block"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VariableDeclaration_Instruction" eSuperTypes="#//InterpretableInstruction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="original" eType="ecore:EClass ../../../org.tetrabox.minijava.xtext/model/MiniJava.ecore#//VariableDeclaration"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Assignment_Instruction" eSuperTypes="#//InterpretableInstruction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="original" eType="ecore:EClass ../../../org.tetrabox.minijava.xtext/model/MiniJava.ecore#//Assignment"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ForStatement_Instruction" eSuperTypes="#//InterpretableInstruction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="original" eType="ecore:EClass ../../../org.tetrabox.minijava.xtext/model/MiniJava.ecore#//ForStatement"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IfStatement_Instruction" eSuperTypes="#//InterpretableInstruction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="original" eType="ecore:EClass ../../../org.tetrabox.minijava.xtext/model/MiniJava.ecore#//IfStatement"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WhileStatement_Instruction" eSuperTypes="#//InterpretableInstruction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="original" eType="ecore:EClass ../../../org.tetrabox.minijava.xtext/model/MiniJava.ecore#//WhileStatement"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Method_Instruction" eSuperTypes="#//InterpretableInstruction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="original" eType="ecore:EClass ../../../org.tetrabox.minijava.xtext/model/MiniJava.ecore#//Method"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Expression_Instruction" eSuperTypes="#//InterpretableInstruction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="original" eType="ecore:EClass ../../../org.tetrabox.minijava.xtext/model/MiniJava.ecore#//Expression"
+        containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

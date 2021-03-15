@@ -1,0 +1,176 @@
+grammar org.tetrabox.minijava.xtext.MiniJava with org.eclipse.xtext.common.Terminals
+
+import "http://www.example.org/minijava/MiniJava" 
+
+Program:
+	('package' name=QualifiedName ';')?
+	imports+=Import*
+	classes+=TypeDeclaration*;
+
+Import:
+	'import' importedNamespace=QualifiedNameWithWildcard ';';
+
+QualifiedName:
+	ID ('.' ID)*;
+
+QualifiedNameWithWildcard:
+	QualifiedName '.*'?;
+
+TypeDeclaration:
+	Clazz | Interface;
+
+Clazz:
+	accessLevel=AccessLevel? isabstract?='abstract'? 'class' name=ID ('extends' superClass=[Clazz|QualifiedName])?
+	('implements' implementz+=[Interface|QualifiedName] (',' implementz+=[Interface|QualifiedName])*)? '{'
+	members+=Member*
+	'}';
+
+Interface:
+	accessLevel=AccessLevel? 'interface' name=ID ('extends' implementz+=[Interface|QualifiedName] (','
+	implementz+=[Interface|QualifiedName])*)? '{'
+	members+=Member*
+	'}';
+
+Member:
+	Field | Method;
+
+Method:
+	access=AccessLevel? isabstract?='abstract'? isstatic?='static'? typeRef=TypeRef name=ID?
+	'(' (params+=Parameter (',' params+=Parameter)*)? ')'
+	(body=Block | ';');
+
+Parameter:
+	typeRef=TypeRef name=ID;
+
+Field:
+	access=AccessLevel? typeRef=TypeRef name=ID ('=' defaultValue=Expression)? ';';
+
+enum AccessLevel:
+	PRIVATE='private' | PROTECTED='protected' | PUBLIC='public';
+
+Block:
+	{Block} '{' statements+=Statement* '}';
+
+Statement:
+	Return ';' |
+	=> Assignment ';' |
+	IfStatement |
+	WhileStatement |
+	ForStatement |
+	PrintStatement ";" |
+	Block |
+	SelectionExpression ';';
+
+PrintStatement:
+	"System" "." "out" "." "println" "(" expression=Expression ")";
+
+Return:
+	'return' expression=Expression;
+
+IfStatement:
+	'if' '(' expression=Expression ')' thenBlock=Block
+	(=> 'else' elseBlock=Block)?;
+
+WhileStatement:
+	'while' '(' condition=Expression ')' block=Block;
+
+ForStatement:
+	'for' '(' declaration=Assignment ';' condition=Expression ';' progression=Assignment ')' block=Block;
+
+TypeRef:
+	SingleTypeRef ({ArrayTypeRef.typeRef=current} '[' ']')?;
+
+SingleTypeRef:
+	ClassRef |
+	{IntegerTypeRef} 'int' |
+	{BooleanTypeRef} 'boolean' |
+	{StringTypeRef} 'String' |
+	{VoidTypeRef} 'void';
+
+ClassRef:
+	referencedClass=[TypeDeclaration|QualifiedName];
+
+NamedElement:
+	TypedDeclaration |
+	TypeDeclaration;
+
+TypedDeclaration:
+	Symbol | Member;
+
+	// here we need to set up an artificial priority with =>
+Symbol:
+	=> Parameter | VariableDeclaration;
+
+VariableDeclaration:
+	typeRef=TypeRef name=ID;
+
+Assignment:
+	assignee=Assignee '=' value=Expression;
+
+Assignee:
+	=> ArrayAccess |
+	VariableDeclaration;
+
+Expression:
+	Or;
+
+Or returns Expression:
+	And ({Or.left=current} "||" right=And)*;
+
+And returns Expression:
+	Equality ({And.left=current} "&&" right=Equality)*;
+
+Equality returns Expression:
+	Comparison (({Equality.left=current} "==" | {Inequality.left=current} "!=")
+	right=Comparison)*;
+
+Comparison returns Expression:
+	Modulo (({SuperiorOrEqual.left=current} ">=" |
+	{InferiorOrEqual.left=current} "<=" |
+	{Superior.left=current} ">" |
+	{Inferior.left=current} "<") right=Modulo)*;
+
+Modulo returns Expression:
+	PlusOrMinus ({Modulo.left=current} "%" right=PlusOrMinus)*;
+
+PlusOrMinus returns Expression:
+	MulOrDiv (({Plus.left=current} '+' | {Minus.left=current} '-')
+	right=MulOrDiv)*;
+
+MulOrDiv returns Expression:
+	ArrayAccess (({Multiplication.left=current} '*' | {Division.left=current} '/')
+	right=ArrayAccess)*;
+
+ArrayAccess returns Expression:
+	ArrayLength ({ArrayAccess.object=current} '[' index=Expression ']')?;
+
+ArrayLength returns Expression:
+	Primary ({ArrayLength.array=current} '.' 'length')?;
+
+Primary returns Expression:
+	'(' Expression ')' |
+	{Not} => "!" expression=Primary |
+	{Neg} => "-" expression=Primary |
+	SelectionExpression;
+
+SelectionExpression returns Expression:
+	TerminalExpression
+	(({FieldAccess.receiver=current} '.' field=[Field]
+	|
+	{MethodCall.receiver=current} '.' method=[Method]
+	'(' (args+=Expression (',' args+=Expression)*)? ')'))*;
+
+TerminalExpression returns Expression:
+	{NativeExpression} "'''" value=STRING "'''" |
+	{StringConstant} value=STRING |
+	{IntConstant} value=INT |
+	{BoolConstant} value=('true' | 'false') |
+	{This} 'this' |
+	{Super} 'super' |
+	{Null} 'null' |
+	{NewObject} 'new' type=[Clazz] => '(' (args+=Expression (',' args+=Expression)*)? ')' |
+	{NewArray} 'new' type=TypeRef => '[' size=Expression ']' |
+	{SymbolRef} symbol=[Symbol|ID];
+	
+
+	

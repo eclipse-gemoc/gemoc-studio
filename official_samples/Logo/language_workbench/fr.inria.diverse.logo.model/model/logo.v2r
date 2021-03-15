@@ -1,0 +1,26 @@
+import logo, logo.statement, logo.statement.control, logo.expression,
+logo.expression.constant, logo.expression.unary, logo.expression.binary,
+logo.expression.extended, logo.symbol, logo.value
+
+repl logo_repl:
+attribute logolang::Turtle turtle;
+attribute logolang::SymbolTable st;
+initrepl def void init() {
+self.turtle := logolang::Turtle.create();
+self.turtle.xpos := 0.0;
+self.turtle.ypos := 0.0;
+self.turtle.direction := 0.0;
+self.turtle.pendown := false;
+self.turtle.canvas := logolang::Canvas.create();
+self.turtle.canvas.segments := Sequence{ };
+self.st := logolang::SymbolTable.create();
+self.st.init();
+}
+instruction logo.Statement:
+help right "Turn turtle of p degrees to the right";
+help forward "Move turtle of p units forward";
+execute(logo_repl.turtle, logo_repl.st) =>
+logo_repl.turtle.toString();
+instruction logo.Expression:
+compute(logo_repl.st) =>
+output.toString();

@@ -1,0 +1,43 @@
+import 'platform:/resource/org.tetrabox.minijava.xtext/model/MiniJava.ecore'
+
+instruction miniJava.TypeDeclaration:
+	doNothing();
+
+instruction miniJava.Import:
+	doNothing();
+
+instruction miniJava.Block:
+	evaluateStatement(minijava_repl.state);
+
+instruction miniJava.VariableDeclaration:
+	evaluateStatement(minijava_repl.state);
+
+instruction miniJava.Assignment:
+	evaluateStatement(minijava_repl.state);
+
+instruction miniJava.ForStatement:
+	evaluateStatement(minijava_repl.state);
+
+instruction miniJava.IfStatement:
+	evaluateStatement(minijava_repl.state);
+
+instruction miniJava.WhileStatement:
+	evaluateStatement(minijava_repl.state);
+
+instruction miniJava.Method:
+	doNothing();
+
+instruction miniJava.Expression:
+	evaluateExpression(minijava_repl.state)
+	=> output.customToString();
+
+interpreter minijava_repl:
+	attribute miniJava::State state;
+	initrepl def void initialize() {
+		miniJava::Context rootCont := miniJava::Context.create();
+		miniJava::State state := miniJava::State.create();
+		state.outputStream := miniJava::OutputStream.create();
+		state.rootFrame := miniJava::Frame.create();
+		state.rootFrame.rootContext := rootCont;
+		self.state := state;
+}

@@ -1,0 +1,9 @@
+pendown
+to square :c
+  repeat 4 [
+    forward :c
+    right 90
+  ]
+end
+square 100
+penup

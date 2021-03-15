@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: fr.inria.diverse.minijava_repl.notebook
+Bundle-SymbolicName: fr.inria.diverse.minijava_repl.notebook; singleton:=true
+Bundle-Version: 1.0.0
+Automatic-Module-Name: fr.inria.diverse.minijava_repl.notebook
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: fr.inria.diverse.ale.repl.notebook,
+ org.eclipse.gemoc.ale.interpreted.engine;bundle-version="1.0.1",
+ org.eclipse.gemoc.executionframework.engine;bundle-version="4.0.0",
+ org.eclipse.gemoc.dsl;bundle-version="3.0.0",
+ org.eclipse.emf.ecoretools.ale.core,
+ fr.inria.diverse.minijava_repl.xtext.server,
+ fr.inria.diverse.ale.repl;bundle-version="1.0.0"

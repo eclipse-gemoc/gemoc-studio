@@ -1,0 +1,101 @@
+behavior MiniJava_repl_behavior;
+
+open class Interpreter {
+	miniJava::State state;
+
+	@init
+	def void initialize() {
+		miniJava::Context rootCont := miniJava::Context.create();
+		miniJava::State state := miniJava::State.create();
+		state.outputStream := miniJava::OutputStream.create();
+		state.rootFrame := miniJava::Frame.create();
+		state.rootFrame.rootContext := rootCont;
+		self.state := state;
+	}
+
+	@main
+	def void run() {
+		self.instruction.interpret(self);
+	}
+}
+
+open class Expression_Instruction {
+	@step
+	def void interpret(Interpreter minijava_repl) {
+		miniJava::Value output := self.original.evaluateExpression(minijava_repl.state);
+		if (output.customToString() = null) {
+			'text/plain\n'.log();
+			'null'.log();
+		} else {
+			'text/plain\n'.log();
+			output.customToString().log();
+		}
+	}
+}
+
+open class Method_Instruction {
+	@step
+	def void interpret(Interpreter minijava_repl) {
+		self.original.doNothing();
+	}
+}
+
+open class WhileStatement_Instruction {
+	@step
+	def void interpret(Interpreter minijava_repl) {
+		self.original.evaluateStatement(minijava_repl.state);
+	}
+}
+
+open class IfStatement_Instruction {
+	@step
+	def void interpret(Interpreter minijava_repl) {
+		self.original.evaluateStatement(minijava_repl.state);
+	}
+}
+
+open class ForStatement_Instruction {
+	@step
+	def void interpret(Interpreter minijava_repl) {
+		self.original.evaluateStatement(minijava_repl.state);
+	}
+}
+
+open class Assignment_Instruction {
+	@step
+	def void interpret(Interpreter minijava_repl) {
+		self.original.evaluateStatement(minijava_repl.state);
+	}
+}
+
+open class VariableDeclaration_Instruction {
+	@step
+	def void interpret(Interpreter minijava_repl) {
+		self.original.evaluateStatement(minijava_repl.state);
+	}
+}
+
+open class Block_Instruction {
+	@step
+	def void interpret(Interpreter minijava_repl) {
+		self.original.evaluateStatement(minijava_repl.state);
+	}
+}
+
+open class Import_Instruction {
+	@step
+	def void interpret(Interpreter minijava_repl) {
+		self.original.doNothing();
+	}
+}
+
+open class TypeDeclaration_Instruction {
+	@step
+	def void interpret(Interpreter minijava_repl) {
+		self.original.doNothing();
+	}
+}
+
+open class Help {
+	@step
+	def void interpret(Interpreter minijava_repl) {}}

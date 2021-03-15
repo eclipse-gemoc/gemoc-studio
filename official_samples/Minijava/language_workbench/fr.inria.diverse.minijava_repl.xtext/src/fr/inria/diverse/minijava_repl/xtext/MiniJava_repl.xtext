@@ -1,0 +1,17 @@
+grammar fr.inria.diverse.minijava_repl.xtext.MiniJava_repl with org.tetrabox.minijava.xtext.MiniJava
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+generate minijava_repl "http://www.example.org/repl/minijava/MiniJava"
+
+EntryPoint returns ecore::EObject:
+	InterpretableInstruction | Interpreter;
+
+InterpretableInstruction:
+	{TypeDeclaration_Instruction} original=TypeDeclaration | {Import_Instruction} original=Import | {Block_Instruction}
+	original=Block | {VariableDeclaration_Instruction} original=VariableDeclaration | {Assignment_Instruction}
+	original=Assignment | {ForStatement_Instruction} original=ForStatement | {IfStatement_Instruction}
+	original=IfStatement | {WhileStatement_Instruction} original=WhileStatement | {Method_Instruction} original=Method |
+	{Expression_Instruction} original=Expression;
+
+Interpreter:
+	{Interpreter};

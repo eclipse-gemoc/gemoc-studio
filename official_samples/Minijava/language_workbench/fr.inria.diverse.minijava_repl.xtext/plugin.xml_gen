@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+	<extension point="org.eclipse.emf.ecore.generated_package">
+		<package
+			uri = "http://www.example.org/repl/minijava/MiniJava"
+			class = "fr.inria.diverse.minijava_repl.xtext.minijava_repl.Minijava_replPackage"
+			genModel = "model/generated/MiniJava_repl.genmodel" />
+	</extension>
+</plugin>

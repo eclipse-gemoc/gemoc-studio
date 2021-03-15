@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/fr.inria.diverse.logo.model/src-gen" creationIcons="false"
+    editDirectory="/fr.inria.diverse.logo.edit/src-gen" editorDirectory="/fr.inria.diverse.logo.editor/src-gen"
+    modelPluginID="fr.inria.diverse.logo.model" modelName="Logo" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>logo.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Logo" basePackage="fr.inria.diverse" disposableProviderFactory="true"
+      ecorePackage="logo.ecore#/">
+    <genClasses ecoreClass="logo.ecore#//Logo">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference logo.ecore#//Logo/statements"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="logo.ecore#//Statement"/>
+    <genClasses image="false" ecoreClass="logo.ecore#//Expression"/>
+    <genClasses ecoreClass="logo.ecore#//Parameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute logo.ecore#//Parameter/name"/>
+    </genClasses>
+    <genClasses ecoreClass="logo.ecore#//Symbol">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute logo.ecore#//Symbol/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="logo.ecore#//Value"/>
+    <nestedGenPackages prefix="Statement" disposableProviderFactory="true" ecorePackage="logo.ecore#//statement">
+      <genClasses ecoreClass="logo.ecore#//statement/Right">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference logo.ecore#//statement/Right/angle"/>
+      </genClasses>
+      <genClasses ecoreClass="logo.ecore#//statement/Left">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference logo.ecore#//statement/Left/angle"/>
+      </genClasses>
+      <genClasses ecoreClass="logo.ecore#//statement/Forward">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference logo.ecore#//statement/Forward/step"/>
+      </genClasses>
+      <genClasses ecoreClass="logo.ecore#//statement/PenDown"/>
+      <genClasses ecoreClass="logo.ecore#//statement/PenUp"/>
+      <genClasses ecoreClass="logo.ecore#//statement/ProcedureDefinition">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference logo.ecore#//statement/ProcedureDefinition/parameters"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference logo.ecore#//statement/ProcedureDefinition/statements"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute logo.ecore#//statement/ProcedureDefinition/name"/>
+      </genClasses>
+      <genClasses ecoreClass="logo.ecore#//statement/ProcedureCall">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference logo.ecore#//statement/ProcedureCall/parameterValues"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference logo.ecore#//statement/ProcedureCall/definition"/>
+      </genClasses>
+      <genClasses ecoreClass="logo.ecore#//statement/Block">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference logo.ecore#//statement/Block/statements"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="logo.ecore#//statement/ControlStatement">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference logo.ecore#//statement/ControlStatement/condition"/>
+      </genClasses>
+      <nestedGenPackages prefix="Control" disposableProviderFactory="true" ecorePackage="logo.ecore#//statement/control">
+        <genClasses ecoreClass="logo.ecore#//statement/control/If">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference logo.ecore#//statement/control/If/ifBlock"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference logo.ecore#//statement/control/If/elseBlock"/>
+        </genClasses>
+        <genClasses ecoreClass="logo.ecore#//statement/control/While">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference logo.ecore#//statement/control/While/block"/>
+        </genClasses>
+        <genClasses ecoreClass="logo.ecore#//statement/control/Repeat">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference logo.ecore#//statement/control/Repeat/block"/>
+        </genClasses>
+      </nestedGenPackages>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Expression" disposableProviderFactory="true" ecorePackage="logo.ecore#//expression">
+      <genClasses image="false" ecoreClass="logo.ecore#//expression/BinaryExpression">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference logo.ecore#//expression/BinaryExpression/leftExpression"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference logo.ecore#//expression/BinaryExpression/rightExpression"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="logo.ecore#//expression/UnaryExpression">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference logo.ecore#//expression/UnaryExpression/expression"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="logo.ecore#//expression/Constant"/>
+      <genClasses image="false" ecoreClass="logo.ecore#//expression/ExtendedExpression">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference logo.ecore#//expression/ExtendedExpression/expressions"/>
+      </genClasses>
+      <genClasses ecoreClass="logo.ecore#//expression/VariableRead">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute logo.ecore#//expression/VariableRead/name"/>
+      </genClasses>
+      <nestedGenPackages prefix="Constant" disposableProviderFactory="true" ecorePackage="logo.ecore#//expression/constant">
+        <genClasses ecoreClass="logo.ecore#//expression/constant/IntValue">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute logo.ecore#//expression/constant/IntValue/value"/>
+        </genClasses>
+        <genClasses ecoreClass="logo.ecore#//expression/constant/BoolValue">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute logo.ecore#//expression/constant/BoolValue/value"/>
+        </genClasses>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="Unary" disposableProviderFactory="true" ecorePackage="logo.ecore#//expression/unary">
+        <genClasses ecoreClass="logo.ecore#//expression/unary/Not"/>
+        <genClasses ecoreClass="logo.ecore#//expression/unary/Opposite"/>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="Binary" disposableProviderFactory="true" ecorePackage="logo.ecore#//expression/binary">
+        <genClasses ecoreClass="logo.ecore#//expression/binary/Minus"/>
+        <genClasses ecoreClass="logo.ecore#//expression/binary/Plus"/>
+        <genClasses ecoreClass="logo.ecore#//expression/binary/Mult"/>
+        <genClasses ecoreClass="logo.ecore#//expression/binary/Div"/>
+        <genClasses ecoreClass="logo.ecore#//expression/binary/Equals"/>
+        <genClasses ecoreClass="logo.ecore#//expression/binary/Greater"/>
+        <genClasses ecoreClass="logo.ecore#//expression/binary/Lower"/>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="Extended" disposableProviderFactory="true" ecorePackage="logo.ecore#//expression/extended">
+        <genClasses ecoreClass="logo.ecore#//expression/extended/And"/>
+        <genClasses ecoreClass="logo.ecore#//expression/extended/Or"/>
+      </nestedGenPackages>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Symbol" disposableProviderFactory="true" ecorePackage="logo.ecore#//symbol">
+      <genClasses ecoreClass="logo.ecore#//symbol/Variable"/>
+      <genClasses ecoreClass="logo.ecore#//symbol/Procedure"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Value" disposableProviderFactory="true" ecorePackage="logo.ecore#//value">
+      <genClasses ecoreClass="logo.ecore#//value/IntValue">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute logo.ecore#//value/IntValue/value"/>
+      </genClasses>
+      <genClasses ecoreClass="logo.ecore#//value/BoolValue">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute logo.ecore#//value/BoolValue/value"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

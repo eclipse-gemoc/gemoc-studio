@@ -73,20 +73,7 @@ public class ALEInterpretedSequentialRunner implements IEngineRunner {
 		SequentialRunConfiguration runConfiguration = new SequentialRunConfiguration(launchConfiguration);
 		AleEngine executionEngine = new AleEngine();
 		
-		Set<IInterpreterProvider> aleProviders = 
-				CompoundInterpreter
-				.INSTANCE
-				.getProviders()
-				.stream()
-				.filter(p -> p instanceof ALEInterpreterProvider)
-				.collect(Collectors.toSet());
-		aleProviders.forEach(p -> CompoundInterpreter.INSTANCE.removeInterpreter(p));
-		
-		IInterpreterProvider provider = new ALEInterpreterProvider(executionEngine);
-		CompoundInterpreter.INSTANCE.registerProvider(provider); //Register ALE for Sirius
-		
-		GenericModelExecutionContext<SequentialRunConfiguration> executioncontext = new GenericModelExecutionContext<SequentialRunConfiguration>(
-				runConfiguration, ExecutionMode.Run);
+		SequentialModelExecutionContext executioncontext = new SequentialModelExecutionContext(runConfiguration, ExecutionMode.Run);
 		executioncontext.initializeResourceModel(); // load model
 		executionEngine.initialize(executioncontext);
 	

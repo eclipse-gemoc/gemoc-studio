@@ -1,0 +1,10 @@
+{
+    "display_name": "MiniJava",
+    "argv": [
+        "/opt/anaconda/bin/gemoc_kernel",
+        "-f",
+        "{connection_file}",
+        "25185"
+    ],
+    "language": "MiniJava"
+}

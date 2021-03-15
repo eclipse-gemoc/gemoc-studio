@@ -24,6 +24,7 @@
 	</properties>
 
 	<modules>
+		<!--
 		<module>plugins/org.eclipse.gemoc.gemoc_studio.branding</module>
 		<module>plugins/org.eclipse.gemoc.gemoc_studio.headless</module>
 		<module>plugins/org.eclipse.gemoc.language_workbench.documentation</module>
@@ -31,13 +32,16 @@
 		<module>releng/org.eclipse.gemoc.gemoc_studio.branding.feature</module>
 		<module>releng/org.eclipse.gemoc.gemoc_studio.additions.feature</module>
 		<module>releng/org.eclipse.gemoc.gemoc_studio.updatesite</module>
+		-->
 
 		<!-- modules required by modeling workbench tests platform -->
 		<module>../official_samples/K3FSM/language_workbench</module>
 
 		<!-- Tests -->
+		<!--
 		<module>tests/org.eclipse.gemoc.studio.tests.system.lwb</module>
 		<module>tests/org.eclipse.gemoc.studio.tests.system.mwb</module>
+		-->
 		<!-- backlog tests are not part of the main CI build <module>tests/org.eclipse.gemoc.studio.tests.system.backlog</module> -->
 
 

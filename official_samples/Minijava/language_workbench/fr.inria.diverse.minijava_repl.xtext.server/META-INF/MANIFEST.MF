@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: fr.inria.diverse.minijava_repl.xtext.server
+Bundle-SymbolicName: fr.inria.diverse.minijava_repl.xtext.server; singleton:=true
+Bundle-Version: 1.0.0
+Automatic-Module-Name: fr.inria.diverse.minijava_repl.xtext.server
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: com.google.inject,
+ fr.inria.diverse.ale.repl,
+ org.eclipse.lsp4j,
+ org.eclipse.lsp4j.jsonrpc,
+ org.eclipse.xtext.ide,
+ fr.inria.diverse.minijava_repl.xtext,
+ fr.inria.diverse.minijava_repl.xtext.ide
+Export-Package: fr.inria.diverse.minijava_repl.xtext.server

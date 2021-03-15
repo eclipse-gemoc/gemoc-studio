@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<!--
+-->
+<plugin>
+  <extension point="org.eclipse.gemoc.gemoc_language_workbench.xdsml">
+    <XDSML_Definition name="Logo" xdsmlFilePath="platform:/plugin/fr.inria.diverse.logo.model/model/logo.dsl" modelLoader_class="org.eclipse.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" />
+  </extension>
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <!-- @generated logo -->
+    <package uri="http://www.example.org/logo" class="fr.inria.diverse.logo.LogoPackage" genModel="model/logo.genmodel" />
+  </extension>
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <!-- @generated logo -->
+    <package uri="http://www.example.org/logo/statement" class="fr.inria.diverse.logo.statement.StatementPackage" genModel="model/logo.genmodel" />
+  </extension>
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <!-- @generated logo -->
+    <package uri="http://www.example.org/logo/statement/control" class="fr.inria.diverse.logo.statement.control.ControlPackage" genModel="model/logo.genmodel" />
+  </extension>
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <!-- @generated logo -->
+    <package uri="http://www.example.org/logo/expression" class="fr.inria.diverse.logo.expression.ExpressionPackage" genModel="model/logo.genmodel" />
+  </extension>
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <!-- @generated logo -->
+    <package uri="http://www.example.org/logo/expression/constant" class="fr.inria.diverse.logo.expression.constant.ConstantPackage" genModel="model/logo.genmodel" />
+  </extension>
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <!-- @generated logo -->
+    <package uri="http://www.example.org/logo/expression/unary" class="fr.inria.diverse.logo.expression.unary.UnaryPackage" genModel="model/logo.genmodel" />
+  </extension>
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <!-- @generated logo -->
+    <package uri="http://www.example.org/logo/expression/binary" class="fr.inria.diverse.logo.expression.binary.BinaryPackage" genModel="model/logo.genmodel" />
+  </extension>
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <!-- @generated logo -->
+    <package uri="http://www.example.org/logo/expression/extended" class="fr.inria.diverse.logo.expression.extended.ExtendedPackage" genModel="model/logo.genmodel" />
+  </extension>
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <!-- @generated logo -->
+    <package uri="http://www.example.org/logo/symbol" class="fr.inria.diverse.logo.symbol.SymbolPackage" genModel="model/logo.genmodel" />
+  </extension>
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <!-- @generated logo -->
+    <package uri="http://www.example.org/logo/value" class="fr.inria.diverse.logo.value.ValuePackage" genModel="model/logo.genmodel" />
+  </extension>
+</plugin>

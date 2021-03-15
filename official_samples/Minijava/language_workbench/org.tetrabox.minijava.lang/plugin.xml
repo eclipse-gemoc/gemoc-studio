@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+  <extension point="org.eclipse.gemoc.gemoc_language_workbench.xdsml">
+    <XDSML_Definition name="MiniJava" xdsmlFilePath="platform:/plugin/org.tetrabox.minijava.lang/model/minijava_exec.dsl" modelLoader_class="org.eclipse.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" />
+  </extension>
+</plugin>

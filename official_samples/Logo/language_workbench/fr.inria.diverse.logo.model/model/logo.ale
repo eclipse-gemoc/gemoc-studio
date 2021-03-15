@@ -1,0 +1,477 @@
+behavior logolang;
+
+use java.lang.Math;
+use fr.inria.diverse.logo.tools.Util;
+
+class SymbolTable {
+	logolang::SymbolTable parent;
+	0 .. * logo::Symbol symbols;
+	
+	def void init(logolang::SymbolTable parent) {
+		self.parent := parent;
+	}
+
+    def void init() {
+    	self.init(null);
+    }
+	
+	def void register(logo::Symbol symbol) {
+		self.symbols += symbol;
+	}
+	
+	def logo::Symbol find(String name) {
+		logo::Symbol found := self.symbols->any(s | s.name = name);
+		if (found = null and self.parent != null) {
+			found := self.parent.find(name);
+		}
+		result := found;
+	}
+}
+
+class Segment {
+	double x1;
+	double x2;
+	double y1;
+	double y2;
+	
+	def String representation() {
+		result := '(' + self.x1 + ', ' + self.y1 + ', ' + self.x2 + ', ' + self.y2 + ')';
+	}
+}
+
+class Canvas {
+	0 .. * logolang::Segment segments;
+}
+
+class Turtle {
+	double xpos;
+	double ypos;
+	double direction;
+	boolean pendown;
+	logolang::Canvas canvas;
+	
+	def String toString() {
+		result := ('x: ' + self.xpos + ' | y: ' + self.ypos
+			+ ' | direction: ' + self.direction
+			+ '\n  canvas: ' + self.canvas.segments->collect(seg | seg.representation()));
+	}
+}
+
+open class Logo {       
+	logolang::Turtle turtle;
+	logolang::SymbolTable st;
+
+	@init
+	def void init() {
+		'Start init'.log();
+		self.turtle := logolang::Turtle.create();
+		self.turtle.xpos := 0.0;
+		self.turtle.ypos := 0.0;
+		self.turtle.direction := 0.0;
+		self.turtle.pendown := false;
+		self.turtle.canvas := logolang::Canvas.create();
+		self.st := logolang::SymbolTable.create();
+		self.st.init();
+		'End init'.log();
+	}
+	
+	@main
+	def void run() {
+		'Start execution'.log();
+		for (s in self.statements) {
+			s.execute(self.turtle, self.st);
+		}
+		'End execution'.log();
+	}
+}
+
+open class Statement {
+	/**
+	 * right: Turn turtle of 'p' degrees to the right
+     * forward: Move turtle of 'p' units forward
+	 */
+	 
+	@repl__turtle__toString
+	@step
+	def void execute(Turtle turtle, SymbolTable st) {
+		'ERROR: Unknown statement'.log();
+	}
+}
+
+open class logo.Expression {
+	@repl__output__toString
+	@step
+	def Value compute(SymbolTable st) {
+		'ERROR: Unknown expression'.log();		
+		result := null;
+	}
+}
+
+open class logo.Value {
+	def String toString() {
+		result := '' + self.value;
+	}
+}
+
+open class Variable {
+	Value value := null;
+	
+	def void init(Parameter definition) {
+		self.definition := definition;
+		self.name := definition.name;
+	}
+	
+	def Value getValue() {
+		result := self.value;
+	}
+
+    def void setValue(Value value) {    	
+    	self.value := value;
+    }
+}
+
+open class Procedure {
+	ProcedureDefinition definition := null;
+	
+	def void init(ProcedureDefinition definition) {
+		self.definition := definition;
+		self.name := definition.name;
+	}
+}
+
+open class Left extends Statement {
+	@step
+	def void execute(Turtle turtle, SymbolTable st) {
+		logo::Value value := self.angle.compute(st);
+		if (value.oclIsKindOf(value::IntValue)) {
+			value::IntValue nvalue := value;
+		    turtle.direction := turtle.direction - nvalue.value.toDouble();
+		    while (turtle.direction < -180.0) {
+		    	turtle.direction := turtle.direction + 360.0;
+		    }
+		}
+	}
+}
+open class Right extends Statement {
+	@step
+	def void execute(Turtle turtle, SymbolTable st) {
+		logo::Value value := self.angle.compute(st);
+		if (value.oclIsKindOf(value::IntValue)) {
+			value::IntValue nvalue := value;
+		    turtle.direction := turtle.direction + nvalue.value.toDouble();
+		    while (turtle.direction > 180.0) {
+		    	turtle.direction := turtle.direction - 360.0;
+		    }
+		}
+	}
+}
+open class Forward extends Statement {
+	@step
+	def void execute(Turtle turtle, SymbolTable st) {
+		logo::Value value := self.step.compute(st);
+		if (value.oclIsKindOf(value::IntValue)) {
+			value::IntValue nvalue := value;
+			logo::Segment segment := null;
+			if (turtle.pendown) {
+				segment := logolang::Segment.create();
+				segment.x1 := turtle.xpos;
+				segment.y1 := turtle.ypos;
+			}
+			turtle.xpos := turtle.xpos + nvalue.value.toDouble() * turtle.direction.toRadians().cos();
+			turtle.ypos := turtle.ypos + nvalue.value.toDouble() * turtle.direction.toRadians().sin();
+			if (turtle.pendown) {
+				segment.x2 := turtle.xpos;
+				segment.y2 := turtle.ypos;
+				turtle.canvas.segments += segment;
+			}
+		}
+	}
+}
+open class PenDown extends Statement {
+	@step
+	def void execute(Turtle turtle, SymbolTable st) {
+		turtle.pendown := true;
+	}
+}
+open class PenUp extends Statement {
+	@step
+	def void execute(Turtle turtle, SymbolTable st) {
+		turtle.pendown := false;
+	}
+}
+open class ProcedureDefinition extends Statement {
+	def void execute(Turtle turtle, SymbolTable st) {
+		symbol::Procedure procedure := symbol::Procedure.create();
+		procedure.init(self);
+		st.register(procedure);
+	}
+}
+open class ProcedureCall extends Statement {
+	@step
+	def void execute(Turtle turtle, SymbolTable st) {
+		logolang::SymbolTable nst := logolang::SymbolTable.create();
+		nst.init(st);
+		int i := 1;
+		while (i <= self.definition.parameters->size()) {
+			symbol::Variable variable := symbol::Variable.create();
+			variable.init(self.definition.parameters->at(i));
+			variable.setValue(self.parameterValues->at(i).compute(st));
+			nst.register(variable);
+			i := i + 1;
+		}
+		
+		for (s in self.definition.statements) {
+			s.execute(turtle, nst);
+		}
+	}
+}
+open class Block extends Statement {
+	@step
+	def void execute(Turtle turtle, SymbolTable st) {
+		logolang::SymbolTable nst := logolang::SymbolTable.create();
+		nst.init(st);
+		for (s in self.statements) {
+			s.execute(turtle, nst);
+		}
+	}
+}
+open class If extends Statement {
+	@step
+	def void execute(Turtle turtle, SymbolTable st) {
+		logo::Value value := self.condition.compute(st);
+		if (value.oclIsKindOf(value::BoolValue)) {
+			value::BoolValue nvalue := value;
+			if (nvalue.value) {
+				self.ifBlock.execute(turtle, st);
+			} else {
+				if (self.elseBlock != null) {
+					self.elseBlock.execute(turtle, st);
+				}
+			}
+		}
+	}
+}
+open class While extends Statement {
+	@step
+	def void execute(Turtle turtle, SymbolTable st) {
+		while (self.condition.compute(st)) {
+			self.block.execute(turtle, st);
+		}
+	}
+}
+open class Repeat extends Statement {
+	@step
+	def void execute(Turtle turtle, SymbolTable st) {
+		logo::Value value := self.condition.compute(st);
+		if (value.oclIsKindOf(value::IntValue)) {
+			value::IntValue nvalue := value;
+			int nbRepetitions := nvalue.value;
+			while (nbRepetitions > 0) {
+				self.block.execute(turtle, st);
+				nbRepetitions := nbRepetitions - 1;
+			}
+		}
+	}
+}
+
+open class logo.expression.constant.IntValue extends Expression {
+	@step
+	def Value compute(SymbolTable st) {
+		value::IntValue rvalue := value::IntValue.create();
+		rvalue.value := self.value;
+		result := rvalue;
+	}
+}
+open class logo.expression.constant.BoolValue extends Expression {
+	@step
+	def Value compute(SymbolTable st) {
+		value::BoolValue rvalue := value::BoolValue.create();
+		rvalue.value := self.value;
+		result := rvalue;
+	}
+}
+open class Not extends Expression {
+	@step
+	def Value compute(SymbolTable st) {
+		logo::Value value := self.expression.compute(st);
+		if (value.oclIsKindOf(value::BoolValue)) {
+			value::BoolValue nvalue := value;
+			value::BoolValue rvalue := value::BoolValue.create();
+			rvalue.value := not nvalue.value;
+			result := rvalue;
+		} else {
+			result := null;
+		}
+	}
+}
+open class Opposite extends Expression {
+	@step
+	def Value compute(SymbolTable st) {
+		logo::Value value := self.expression.compute(st);
+		if (value.oclIsKindOf(value::IntValue)) {
+			value::IntValue nvalue := value;
+			value::IntValue rvalue := value::IntValue.create();
+			rvalue.value := -nvalue.value;
+			result := rvalue;
+		} else {
+			result := null;
+		}
+	}
+}
+open class Minus extends Expression {
+	@step
+	def Value compute(SymbolTable st) {
+		logo::Value value1 := self.leftExpression.compute(st);
+		logo::Value value2 := self.rightExpression.compute(st);
+		if (value1.oclIsKindOf(value::IntValue) and value2.oclIsKindOf(value::IntValue)) {
+			value::IntValue nvalue1 := value1;
+			value::IntValue nvalue2 := value2;
+			value::IntValue rvalue := value::IntValue.create();
+			rvalue.value := nvalue1.value - nvalue2.value;
+			result := rvalue;
+		} else {
+			result := null;
+		}
+	}
+}
+open class Plus extends Expression {
+	@step
+	def Value compute(SymbolTable st) {
+		logo::Value value1 := self.leftExpression.compute(st);
+		logo::Value value2 := self.rightExpression.compute(st);
+		if (value1.oclIsKindOf(value::IntValue) and value2.oclIsKindOf(value::IntValue)) {
+			value::IntValue nvalue1 := value1;
+			value::IntValue nvalue2 := value2;
+			value::IntValue rvalue := value::IntValue.create();
+			rvalue.value := nvalue1.value + nvalue2.value;
+			result := rvalue;
+		} else {
+			result := null;
+		}
+	}
+}
+open class Mult extends Expression {
+	@step
+	def Value compute(SymbolTable st) {
+		logo::Value value1 := self.leftExpression.compute(st);
+		logo::Value value2 := self.rightExpression.compute(st);
+		if (value1.oclIsKindOf(value::IntValue) and value2.oclIsKindOf(value::IntValue)) {
+			value::IntValue nvalue1 := value1;
+			value::IntValue nvalue2 := value2;
+			value::IntValue rvalue := value::IntValue.create();
+			rvalue.value := nvalue1.value * nvalue2.value;
+			result := rvalue;
+		} else {
+			result := null;
+		}
+	}
+}
+open class Div extends Expression {
+	@step
+	def Value compute(SymbolTable st) {
+		logo::Value value1 := self.leftExpression.compute(st);
+		logo::Value value2 := self.rightExpression.compute(st);
+		if (value1.oclIsKindOf(value::IntValue) and value2.oclIsKindOf(value::IntValue)) {
+			value::IntValue nvalue1 := value1;
+			value::IntValue nvalue2 := value2;
+			value::IntValue rvalue := value::IntValue.create();
+			rvalue.value := nvalue1.value / nvalue2.value;
+			result := rvalue;
+		} else {
+			result := null;
+		}
+	}
+}
+open class Equals extends Expression {
+	@step
+	def Value compute(SymbolTable st) {
+		logo::Value value1 := self.leftExpression.compute(st);
+		logo::Value value2 := self.rightExpression.compute(st);
+		if (value1.oclIsKindOf(value::IntValue) and value2.oclIsKindOf(value::IntValue)) {
+			value::IntValue nvalue1 := value1;
+			value::IntValue nvalue2 := value2;
+			value::IntValue rvalue := value::BoolValue.create();
+			rvalue.value := nvalue1.value = nvalue2.value;
+			result := rvalue;
+		} else {
+			result := null;
+		}
+	}
+}
+open class Greater extends Expression {
+	@step
+	def Value compute(SymbolTable st) {
+		logo::Value value1 := self.leftExpression.compute(st);
+		logo::Value value2 := self.rightExpression.compute(st);
+		if (value1.oclIsKindOf(value::IntValue) and value2.oclIsKindOf(value::IntValue)) {
+			value::IntValue nvalue1 := value1;
+			value::IntValue nvalue2 := value2;
+			value::IntValue rvalue := value::BoolValue.create();
+			rvalue.value := nvalue1.value > nvalue2.value;
+			result := rvalue;
+		} else {
+			result := null;
+		}
+	}
+}
+open class Lower extends Expression {
+	@step
+	def Value compute(SymbolTable st) {
+		logo::Value value1 := self.leftExpression.compute(st);
+		logo::Value value2 := self.rightExpression.compute(st);
+		if (value1.oclIsKindOf(value::IntValue) and value2.oclIsKindOf(value::IntValue)) {
+			value::IntValue nvalue1 := value1;
+			value::IntValue nvalue2 := value2;
+			value::IntValue rvalue := value::BoolValue.create();
+			rvalue.value := nvalue1.value < nvalue2.value;
+			result := rvalue;
+		} else {
+			result := null;
+		}
+	}
+}
+open class logo.expression.extended.And extends Expression {
+	@step
+	def Value compute(SymbolTable st) {
+		value::BoolValue rvalue := value::BoolValue.create();
+		rvalue.value := true;
+		for (e in self.expressions) {
+		    logo::Value value := e.compute(st);
+		    if (value.oclIsKindOf(value::BoolValue) and rvalue != null) {
+				value::BoolValue nvalue := value;
+				rvalue.value := rvalue.value and nvalue.value;
+			} else {
+				rvalue := null;
+			}
+		}
+		result := rvalue;
+	}
+}
+open class logo.expression.extended.Or extends Expression {
+	@step
+	def Value compute(SymbolTable st) {
+		value::BoolValue rvalue := value::BoolValue.create();
+		rvalue.value := false;
+		for (e in self.expressions) {
+		    logo::Value value := e.compute(st);
+		    if (value.oclIsKindOf(value::BoolValue) and rvalue != null) {
+				value::BoolValue nvalue := value;
+				rvalue.value := rvalue.value or nvalue.value;
+			} else {
+				rvalue := null;
+			}
+		}
+		result := rvalue;
+	}
+}
+open class VariableRead extends Expression {
+	@step
+	def Value compute(SymbolTable st) {
+		Variable found := st.find(self.name);
+		if (found != null) {
+			result := found.getValue();
+		} else {
+			result := null;
+		}
+	}
+}

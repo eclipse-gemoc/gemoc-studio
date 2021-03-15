@@ -1,0 +1,33 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: fr.inria.diverse.minijava_repl.xtext
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: fr.inria.diverse.minijava_repl.xtext; singleton:=tr
+ ue
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.tetrabox.minijava.xtext,
+ org.tetrabox.minijava.xtext,
+ fr.inria.diverse.ale.repl,
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Automatic-Module-Name: fr.inria.diverse.minijava_repl.xtext
+Export-Package: fr.inria.diverse.minijava_repl.xtext.minijava_repl,
+ fr.inria.diverse.minijava_repl.xtext.parser.antlr,
+ fr.inria.diverse.minijava_repl.xtext.validation,
+ fr.inria.diverse.minijava_repl.xtext.minijava_repl.util,
+ fr.inria.diverse.minijava_repl.xtext.serializer,
+ fr.inria.diverse.minijava_repl.xtext.parser.antlr.internal,
+ fr.inria.diverse.minijava_repl.xtext,
+ fr.inria.diverse.minijava_repl.xtext.scoping,
+ fr.inria.diverse.minijava_repl.xtext.services,
+ fr.inria.diverse.minijava_repl.xtext.minijava_repl.impl,
+ fr.inria.diverse.minijava_repl.xtext.generator
+Import-Package: org.apache.log4j

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+	<extension point="org.eclipse.emf.ecore.generated_package">
+		<package
+			uri = "http://www.example.org/repl/minijava/MiniJava"
+			class = "fr.inria.diverse.minijava_repl.xtext.minijava_repl.Minijava_replPackage"
+			genModel = "model/generated/MiniJava_repl.genmodel" />
+	</extension>
+  <extension
+        point="org.eclipse.xtext.setup">
+     <setup
+           class="fr.inria.diverse.minijava_repl.xtext.MiniJava_replStandaloneSetup"
+           languageName="MiniJava_repl">
+     </setup>
+  </extension>
+    <extension point="org.eclipse.gemoc.gemoc_language_workbench.xdsml">
+        <XDSML_Definition name="MiniJava_repl" xdsmlFilePath="platform:/plugin/fr.inria.diverse.minijava_repl.xtext/model/generated/MiniJava_repl.dsl" modelLoader_class="org.eclipse.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" />
+    </extension>
+</plugin>

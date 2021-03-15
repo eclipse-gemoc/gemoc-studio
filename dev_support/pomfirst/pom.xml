@@ -11,8 +11,8 @@
 
 	
 	<modules>
-		<!-- <module>../language_workbench</module> -->
-		<module>../../official_samples/K3FSM/pomfirst</module>
+		<!-- <module>../language_workbench</module> 
+		<module>../../official_samples/K3FSM/pomfirst</module> -->
 		<module>../../../gemoc-studio-modeldebugging/pomfirst</module>
 		<module>../../../gemoc-studio-execution-java/pomfirst</module>
 	</modules>

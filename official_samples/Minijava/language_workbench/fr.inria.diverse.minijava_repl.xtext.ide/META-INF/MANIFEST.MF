@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: fr.inria.diverse.minijava_repl.xtext.ide
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: fr.inria.diverse.minijava_repl.xtext.ide; singleton
+ :=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: fr.inria.diverse.minijava_repl.xtext,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide,
+ org.tetrabox.minijava.xtext,
+ org.tetrabox.minijava.xtext,
+ fr.inria.diverse.ale.repl,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Automatic-Module-Name: fr.inria.diverse.minijava_repl.xtext.ide
+Export-Package: fr.inria.diverse.minijava_repl.xtext.ide,
+ fr.inria.diverse.minijava_repl.xtext.ide.contentassist.antlr,
+ fr.inria.diverse.minijava_repl.xtext.ide.contentassist.antlr.internal

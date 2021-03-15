@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xmi:id="_aT0UENq_EemHp_Cs4HEftQ" version="13.0.0.201804031646">
+  <semanticResources>platform:/resource/org.tetrabox.minijava.xtext/model/MiniJava.ecore</semanticResources>
+  <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
+  <semanticResources>http://www.eclipse.org/acceleo/query/1.0</semanticResources>
+  <semanticResources>model/minijava_exec.ale</semanticResources>
+  <semanticResources>model/minijava_exec.v2r</semanticResources>
+</viewpoint:DAnalysis>

@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: fr.inria.diverse.logo.xtext.ide
+Bundle-ManifestVersion: 2
+Bundle-Name: fr.inria.diverse.logo.xtext.ide
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: fr.inria.diverse.logo.xtext.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: fr.inria.diverse.logo.xtext,
+ fr.inria.diverse.logo.model,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide,
+ org.antlr.runtime,
+ org.eclipse.lsp4j;bundle-version="0.4.1",
+ org.eclipse.lsp4j.jsonrpc;bundle-version="0.4.1"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: fr.inria.diverse.logo.xtext.ide,
+ fr.inria.diverse.logo.xtext.ide.contentassist.antlr,
+ fr.inria.diverse.logo.xtext.ide.contentassist.antlr.internal
+

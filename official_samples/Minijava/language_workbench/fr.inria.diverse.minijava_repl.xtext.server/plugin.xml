@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="fr.inria.diverse.ale.repl.lsp">
+      <server
+            class="fr.inria.diverse.minijava_repl.xtext.server.MiniJava_replLspServer"
+            languageName="MiniJava_repl">
+      </server>
+   </extension>
+</plugin>
