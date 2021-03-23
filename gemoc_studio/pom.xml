@@ -78,7 +78,7 @@
 		<repository>
 			<id>diverse-commons</id>
 			<layout>p2</layout>
-			<url>http://www.kermeta.org/diverse-commons/updates/latest</url>
+			<url>${diverse-commons.p2.url}</url>
 		</repository>
 		<repository>
 			<id>ELK</id>
