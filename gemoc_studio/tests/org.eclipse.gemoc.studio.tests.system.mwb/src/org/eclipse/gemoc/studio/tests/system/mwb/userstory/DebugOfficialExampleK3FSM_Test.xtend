@@ -53,6 +53,8 @@ import org.junit.AfterClass
 import org.eclipse.debug.core.IDebugEventSetListener
 import org.eclipse.debug.core.DebugEvent
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem
+import org.junit.rules.TestWatcher
+import org.junit.runner.Description
 
 /**
  * Verifies that we can execute a debug session 
@@ -115,6 +117,20 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 	override tearDown() {
 		GEMOCTestVideoHelper.addTestSuiteVideoLog("   - END of "+testName.methodName);
 	}
+	
+	/** print SWTBot context on failure */
+	@Rule(order=Integer.MIN_VALUE)
+	public TestWatcher watchman = new TestWatcher() {
+		override void failed(Throwable e, Description description) {
+			println("FAILED test: " + description )
+			SWTBotHelper.printSWTBotStatus(bot)
+		}
+
+		override void succeeded(Description description) {
+			println(description + " success!")
+			//SWTBotHelper.printSWTBotStatus(bot)
+		}
+	};
 	
 	/**
 	 * Stop is done using Engine Status view

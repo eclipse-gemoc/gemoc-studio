@@ -31,6 +31,9 @@ import org.eclipse.gemoc.xdsmlframework.test.lib.TailWorkspaceLogToStderrRule
 import org.junit.Rule
 import org.eclipse.gemoc.xdsmlframework.test.lib.GEMOCTestVideoHelper
 import org.junit.rules.TestName
+import org.junit.rules.TestWatcher
+import org.junit.runner.Description
+import org.eclipse.gemoc.xdsmlframework.test.lib.SWTBotHelper
 
 /**
  * Verifies that we can use the wizard to install the official sample models
@@ -82,6 +85,20 @@ class DeployOfficialExampleK3MelangeFSM_Test extends AbstractXtextTests
 	override tearDown() {
 		// Nothing to do
 	}
+	
+	/** print SWTBot context on failure */
+	@Rule(order=Integer.MIN_VALUE)
+	public TestWatcher watchman = new TestWatcher() {
+		override void failed(Throwable e, Description description) {
+			println("FAILED test: " + description )
+			SWTBotHelper.printSWTBotStatus(bot)
+		}
+
+		override void succeeded(Description description) {
+			println(description + " success!")
+			//SWTBotHelper.printSWTBotStatus(bot)
+		}
+	};
 	
 	@Test
 	def void test01_InstallK3MelangeFsmModels() throws Exception {
