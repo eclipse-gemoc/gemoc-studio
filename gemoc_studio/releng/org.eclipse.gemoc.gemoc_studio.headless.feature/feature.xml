@@ -72,6 +72,7 @@ http://www.eclipse.org/legal/epl-v10.html
       <import plugin="org.apache.felix.gogo.runtime"/>
       <import plugin="org.apache.felix.gogo.shell"/>
       <import plugin="org.eclipse.gemoc.executionframework.engine.ui"/>
+      <import plugin="org.eclipse.gemoc.executionframework.event.manager"/>
       <import plugin="org.eclipse.gemoc.executionframework.debugger"/>
       <import plugin="org.eclipse.equinox.common"/>
       <import plugin="org.eclipse.osgi"/>
