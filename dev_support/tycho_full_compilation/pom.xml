@@ -7,7 +7,7 @@
 	<artifactId>complete-studio</artifactId>
 	<packaging>pom</packaging>
 	<version>3.3.0-SNAPSHOT</version>
-	<name>Complete GEMOC Studio compilation</name>
+	<name>Full tycho build</name>
 
 	<properties>
 		<maven.deploy.skip>true</maven.deploy.skip>
