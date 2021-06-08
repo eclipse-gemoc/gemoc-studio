@@ -53,6 +53,9 @@ import org.junit.AfterClass
 import org.eclipse.debug.core.IDebugEventSetListener
 import org.eclipse.debug.core.DebugEvent
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem
+import org.junit.rules.TestWatcher
+import org.junit.runner.Description
+import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine
 
 /**
  * Verifies that we can execute a debug session 
@@ -116,6 +119,20 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 		GEMOCTestVideoHelper.addTestSuiteVideoLog("   - END of "+testName.methodName);
 	}
 	
+	/** print SWTBot context on failure */
+	@Rule(order=Integer.MIN_VALUE)
+	public TestWatcher watchman = new TestWatcher() {
+		override void failed(Throwable e, Description description) {
+			println("FAILED test: " + description )
+			SWTBotHelper.printSWTBotStatus(bot)
+		}
+
+		override void succeeded(Description description) {
+			println(description + " success!")
+			//SWTBotHelper.printSWTBotStatus(bot)
+		}
+	};
+	
 	/**
 	 * Stop is done using Engine Status view
 	 */
@@ -177,7 +194,7 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 		assertEquals(5,engine.engineStatus.nbLogicalStepRun)
 		assertEquals("S1",fsm.currentState.name)
 		
-		closeAndClearEngine
+		closeAndClearEngineProgrammatically
 		
 		helper.assertNoMarkers();	
 	}
@@ -211,7 +228,7 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 		assertEquals("ABABABA",fsm.producedString)
 		assertEquals("",fsm.unprocessedString)
 		
-		closeAndClearEngine
+		closeAndClearEngineProgrammatically
 	}
 	
 	// some reusabe test part
@@ -278,6 +295,18 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 		bot.viewByTitle("Gemoc Engines Status").show();
 		bot.toolbarButtonWithTooltip("Stop selected engines").click();
 		bot.toolbarButtonWithTooltip("Dispose all stopped engines").click();
+				
+		assertTrue("runningEngineRegistry not empty " +runningEnginesRegistry.runningEngines,  runningEnginesRegistry.runningEngines.size == 0)
+	}
+	
+	def static void closeAndClearEngineProgrammatically() {
+		val runningEnginesRegistry = org.eclipse.gemoc.executionframework.engine.Activator.getDefault().gemocRunningEngineRegistry;
+		
+		// The Engine view used by closeAndClearEngine() tends to be flacky in Test suites, close and dispose manually
+		for(IExecutionEngine<?> e : runningEnginesRegistry.runningEngines.values) {
+			e.stop
+			e.dispose
+		}
 		
 		assertTrue("runningEngineRegistry not empty " +runningEnginesRegistry.runningEngines,  runningEnginesRegistry.runningEngines.size == 0)
 	}
