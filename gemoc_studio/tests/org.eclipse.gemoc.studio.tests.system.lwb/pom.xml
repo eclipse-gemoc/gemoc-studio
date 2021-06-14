@@ -51,6 +51,13 @@
               		<systemProperties>
               			<WORKSPACE>${basedir}/../../../..</WORKSPACE>
               		</systemProperties>
+              		<bundleStartLevel>
+              			<bundle>
+	              			<id>org.eclipse.gemoc.studio.tests.logging.config</id>
+	              			<!-- <level>4</level> -->
+	              			<autoStart>true</autoStart>
+              			</bundle>
+              		</bundleStartLevel>
 				</configuration>
 			</plugin>
 		
@@ -158,6 +165,22 @@
 			               <id>org.eclipse.sdk</id>
 			               <versionRange>4.18.0</versionRange>
 			            </requirement>
+			            <!-- avoid debug message from git -->
+			            <requirement>
+			               <type>eclipse-feature</type>
+			               <id>org.eclipse.jgit</id>
+			               <versionRange>5.10.0</versionRange>
+			            </requirement>
+			            <requirement>
+			               <type>eclipse-feature</type>
+			               <id>org.eclipse.egit</id>
+			               <versionRange>5.10.0</versionRange>
+			            </requirement>
+			            <requirement>
+			               <type>eclipse-feature</type>
+			               <id>org.eclipse.pde</id>
+			               <versionRange>3.14.0</versionRange>
+			            </requirement>
 			            <!-- GEMOC components -->
 			            <requirement>
 			               <type>eclipse-feature</type>
@@ -189,6 +212,12 @@
 			               <type>eclipse-feature</type>
 			               <id>org.eclipse.swtbot.ide</id>
 			               <versionRange>3.0.0</versionRange>
+			            </requirement>
+			            
+			            <requirement>
+			               <type>eclipse-plugin</type>
+			               <id>org.eclipse.gemoc.studio.tests.logging.config</id>
+			               <versionRange>0.0.0</versionRange>
 			            </requirement>
 			         </extraRequirements>
 			        
