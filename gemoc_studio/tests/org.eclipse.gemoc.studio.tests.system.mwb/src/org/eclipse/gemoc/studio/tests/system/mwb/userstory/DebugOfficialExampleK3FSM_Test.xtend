@@ -96,6 +96,11 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 	@AfterClass
 	def static void afterClass() {
 		//
+		println("afterClass clearing: " + DebugOfficialExampleK3FSM_Test.canonicalName )
+		IResourcesSetupUtil::cleanWorkspace
+		IResourcesSetupUtil::reallyWaitForAutoBuild
+		WorkspaceTestHelper::reallyWaitForJobs(2)
+		println("afterClass done: " + DebugOfficialExampleK3FSM_Test.canonicalName )
 	}
 	
 	@Rule
