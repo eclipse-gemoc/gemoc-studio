@@ -3,13 +3,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.eclipse.gemoc.gemoc_studio</groupId>
-	<artifactId>org.eclipse.gemoc.gemoc_studio.pomfirst</artifactId>
+	<artifactId>org.eclipse.gemoc.gemoc_studio.root</artifactId>
 	<version>3.3.0-SNAPSHOT</version>
 	
     <packaging>pom</packaging>
 	
 	<modules>
-		<module>../../gemoc_studio/pomfirst</module>
-		<module>../../../gemoc-studio-modeldebugging/pomfirst</module>
+		<module>gemoc-studio-bom</module>
+		<module>thirdparty-bundle</module>
 	</modules>
 </project>
