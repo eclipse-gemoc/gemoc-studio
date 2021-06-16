@@ -10,7 +10,11 @@
  *******************************************************************************/
 package org.eclipse.gemoc.studio.tests.system.mwb.userstory
 
+import org.eclipse.debug.core.DebugPlugin
+import org.eclipse.debug.internal.core.LaunchManager
 import org.eclipse.gemoc.xdsmlframework.ide.ui.XDSMLFrameworkUI
+import org.eclipse.gemoc.xdsmlframework.test.lib.GEMOCTestVideoHelper
+import org.eclipse.gemoc.xdsmlframework.test.lib.SWTBotHelper
 import org.eclipse.gemoc.xdsmlframework.test.lib.TailWorkspaceLogToStderrRule
 import org.eclipse.gemoc.xdsmlframework.test.lib.WorkspaceTestHelper
 import org.eclipse.swt.SWT
@@ -26,11 +30,15 @@ import org.eclipse.swtbot.swt.finder.widgets.SWTBotToolbarPushButton
 import org.eclipse.xtext.junit4.AbstractXtextTests
 import org.eclipse.xtext.ui.testing.util.IResourcesSetupUtil
 import org.junit.After
+import org.junit.AfterClass
 import org.junit.Before
 import org.junit.BeforeClass
 import org.junit.FixMethodOrder
 import org.junit.Rule
 import org.junit.Test
+import org.junit.rules.TestName
+import org.junit.rules.TestWatcher
+import org.junit.runner.Description
 import org.junit.runner.RunWith
 import org.junit.runners.MethodSorters
 
@@ -40,13 +48,6 @@ import static org.eclipse.swtbot.swt.finder.matchers.WidgetMatcherFactory.widget
 import static org.eclipse.swtbot.swt.finder.matchers.WidgetMatcherFactory.withStyle
 import static org.eclipse.swtbot.swt.finder.matchers.WidgetMatcherFactory.withTooltip
 import static org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences.*
-import org.eclipse.debug.core.DebugPlugin
-import org.eclipse.debug.internal.core.LaunchManager
-import org.eclipse.gemoc.xdsmlframework.test.lib.SWTBotHelper
-import org.junit.rules.TestName
-import org.eclipse.gemoc.xdsmlframework.test.lib.GEMOCTestVideoHelper
-import org.junit.rules.TestWatcher
-import org.junit.runner.Description
 
 /**
  * Verifies that we can use the wizard to install the official sample models 
@@ -93,6 +94,16 @@ class DeployOfficialExampleK3FSM_Test extends AbstractXtextTests
 		// make sure we are on the correct perspective
 		bot.perspectiveById(XDSMLFrameworkUI.ID_PERSPECTIVE).activate()
 		IResourcesSetupUtil::reallyWaitForAutoBuild
+	}
+	
+	@AfterClass
+	def static void afterClass() {
+		//
+		println("afterClass clearing: " + DeployOfficialExampleK3FSM_Test.canonicalName )
+		IResourcesSetupUtil::cleanWorkspace
+		IResourcesSetupUtil::reallyWaitForAutoBuild
+		WorkspaceTestHelper::reallyWaitForJobs(2)
+		println("afterClass done: " + DebugOfficialExampleK3FSM_Test.canonicalName )
 	}
 	
 	@After
