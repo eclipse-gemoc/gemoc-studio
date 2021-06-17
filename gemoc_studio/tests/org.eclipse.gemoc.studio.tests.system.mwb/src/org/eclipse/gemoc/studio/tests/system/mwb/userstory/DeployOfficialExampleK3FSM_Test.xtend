@@ -194,16 +194,13 @@ class DeployOfficialExampleK3FSM_Test extends AbstractXtextTests
 		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Executable model with GEMOC Java engine]").getNode("Gemoc debug target").select();
 		bot.toolbarButtonWithTooltip("Resu&me (F8)").click();
 		
-		// at some point, xtext may  wish to convert the project containing the models, accept is silently
-		// however, it seems to be in another thread and do not block the execution 
-		try {
-			bot.shell("Configure Xtext").bot.button("Yes").click
-		} catch (WidgetNotFoundException wnfe){}
+		ModelingWorkbenchTestHelper.closeConfigureXtextPopup(bot)
 		
-		// stop engine and clear using the engine status view
-		bot.viewByTitle("Gemoc Engines Status").show();
-		bot.toolbarButtonWithTooltip("Stop selected engines").click();
-		bot.toolbarButtonWithTooltip("Dispose all stopped engines").click();
+		ModelingWorkbenchTestHelper.waitFirstTargetThreadSuspendedOrTerminated("K3FSM - TwoStatesUpcast(abababa)")
+		//ModelingWorkbenchTestHelper.closeAndClearEngine(bot)
+		ModelingWorkbenchTestHelper.closeAndClearEngineProgrammatically
+		val runningEnginesRegistry = org.eclipse.gemoc.executionframework.engine.Activator.getDefault().gemocRunningEngineRegistry;
+		assertTrue("runningEngineRegistry not empty " +runningEnginesRegistry.runningEngines,  runningEnginesRegistry.runningEngines.size == 0)
 		helper.assertNoMarkers();	
 		
 	}
@@ -227,19 +224,7 @@ class DeployOfficialExampleK3FSM_Test extends AbstractXtextTests
 	 * or timeout exception
 	 */
 	def void waitThreadSuspended(){		
-		val launchManager = DebugPlugin.getDefault().getLaunchManager() as LaunchManager
-		val targets = launchManager.debugTargets
-		val target = targets.get(0)
-		assertTrue(target.name == "Gemoc debug target")
-		assertTrue(target.launch.launchConfiguration.name == "K3FSM - TwoStatesUpcast(abababa)")
-		
-		// wait that the target suspends or timeout exception
-		var timeout = 80
-		while(!	target.suspended || timeout < 0) {
-			Thread.sleep(100)
-			timeout--
-		} 
-		assertTrue("Timeout: K3FSM - TwoStatesUpcast(abababa) did not suspend",timeout > 0)
+		ModelingWorkbenchTestHelper.waitFirstTargetThreadSuspended("K3FSM - TwoStatesUpcast(abababa)")
 	}
 	
 }

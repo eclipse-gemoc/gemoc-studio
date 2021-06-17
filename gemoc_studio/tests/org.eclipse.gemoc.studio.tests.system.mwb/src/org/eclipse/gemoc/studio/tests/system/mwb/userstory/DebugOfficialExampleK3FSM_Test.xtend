@@ -56,6 +56,8 @@ import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem
 import org.junit.rules.TestWatcher
 import org.junit.runner.Description
 import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine
+import org.eclipse.core.resources.IProject
+import org.eclipse.core.resources.ResourcesPlugin
 
 /**
  * Verifies that we can execute a debug session 
@@ -97,7 +99,15 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 	def static void afterClass() {
 		//
 		println("afterClass clearing: " + DebugOfficialExampleK3FSM_Test.canonicalName )
+		val IProject[] visibleProjects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
+		visibleProjects.forEach[p | p.close(null)]
+		println("afterClass visibleProjects.forEach[p | p.close(null)] " + DebugOfficialExampleK3FSM_Test.canonicalName )
+		WorkspaceTestHelper::reallyWaitForJobs(2)
+		println("afterClass WorkspaceTestHelper::reallyWaitForJobs(2) " + DebugOfficialExampleK3FSM_Test.canonicalName )
+		bot.resetWorkbench
+		println("afterClass bot.resetWorkbench: " + DebugOfficialExampleK3FSM_Test.canonicalName )
 		IResourcesSetupUtil::cleanWorkspace
+		println("afterClass IResourcesSetupUtil::cleanWorkspace: " + DebugOfficialExampleK3FSM_Test.canonicalName )
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 		WorkspaceTestHelper::reallyWaitForJobs(2)
 		println("afterClass done: " + DebugOfficialExampleK3FSM_Test.canonicalName )
@@ -199,7 +209,9 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 		assertEquals(5,engine.engineStatus.nbLogicalStepRun)
 		assertEquals("S1",fsm.currentState.name)
 		
-		closeAndClearEngineProgrammatically
+		println("TwoStatesUpCast_Model_some_steps_stop_and_clear ending")
+		Thread.sleep(2000)
+		ModelingWorkbenchTestHelper.closeAndClearEngine(bot)
 		
 		helper.assertNoMarkers();	
 	}
@@ -233,7 +245,9 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 		assertEquals("ABABABA",fsm.producedString)
 		assertEquals("",fsm.unprocessedString)
 		
-		closeAndClearEngineProgrammatically
+		ModelingWorkbenchTestHelper.closeAndClearEngine(bot)
+		ModelingWorkbenchTestHelper.closeAndClearEngineProgrammatically
+		assertTrue("runningEngineRegistry not empty " +runningEnginesRegistry.runningEngines,  runningEnginesRegistry.runningEngines.size == 0)
 	}
 	
 	// some reusabe test part
@@ -293,28 +307,7 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 		return baseTreeItem.getNode(nodeName)
 	}
 	
-	def static void closeAndClearEngine() {
-		val runningEnginesRegistry = org.eclipse.gemoc.executionframework.engine.Activator.getDefault().gemocRunningEngineRegistry;
-		
-		// stop engine and clear using the engine status view
-		bot.viewByTitle("Gemoc Engines Status").show();
-		bot.toolbarButtonWithTooltip("Stop selected engines").click();
-		bot.toolbarButtonWithTooltip("Dispose all stopped engines").click();
-				
-		assertTrue("runningEngineRegistry not empty " +runningEnginesRegistry.runningEngines,  runningEnginesRegistry.runningEngines.size == 0)
-	}
-	
-	def static void closeAndClearEngineProgrammatically() {
-		val runningEnginesRegistry = org.eclipse.gemoc.executionframework.engine.Activator.getDefault().gemocRunningEngineRegistry;
-		
-		// The Engine view used by closeAndClearEngine() tends to be flacky in Test suites, close and dispose manually
-		for(IExecutionEngine<?> e : runningEnginesRegistry.runningEngines.values) {
-			e.stop
-			e.dispose
-		}
-		
-		assertTrue("runningEngineRegistry not empty " +runningEnginesRegistry.runningEngines,  runningEnginesRegistry.runningEngines.size == 0)
-	}
+
 
 	/**
 	 * for some reason, the step into tooltip may change
@@ -348,19 +341,20 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 	 * or timeout exception
 	 */
 	def void waitThreadSuspended(){		
-		val launchManager = DebugPlugin.getDefault().getLaunchManager() as LaunchManager
-		val targets = launchManager.debugTargets
-		val target = targets.get(0)
-		assertTrue(target.name == "Gemoc debug target")
-		assertTrue(target.launch.launchConfiguration.name == "K3FSM - TwoStatesUpcast(abababa)")
-		
-		// wait that the target suspends or timeout exception
-		var timeout = 80
-		while(!	target.suspended || timeout < 0) {
-			Thread.sleep(100)
-			timeout--
-		} 
-		assertTrue("Timeout: K3FSM - TwoStatesUpcast(abababa) did not suspend",timeout > 0)
+		ModelingWorkbenchTestHelper.waitFirstTargetThreadSuspended("K3FSM - TwoStatesUpcast(abababa)")
+//		val launchManager = DebugPlugin.getDefault().getLaunchManager() as LaunchManager
+//		val targets = launchManager.debugTargets
+//		val target = targets.get(0)
+//		assertTrue(target.name == "Gemoc debug target")
+//		assertTrue(target.launch.launchConfiguration.name == "K3FSM - TwoStatesUpcast(abababa)")
+//		
+//		// wait that the target suspends or timeout exception
+//		var timeout = 80
+//		while(!	target.suspended || timeout < 0) {
+//			Thread.sleep(100)
+//			timeout--
+//		} 
+//		assertTrue("Timeout: K3FSM - TwoStatesUpcast(abababa) did not suspend",timeout > 0)
 	}
 	
 	var xtextProjectConversionPopupclosed = false
