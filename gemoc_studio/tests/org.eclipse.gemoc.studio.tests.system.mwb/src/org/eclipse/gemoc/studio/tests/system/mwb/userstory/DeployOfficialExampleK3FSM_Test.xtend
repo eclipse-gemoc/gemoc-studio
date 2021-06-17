@@ -48,6 +48,7 @@ import static org.eclipse.swtbot.swt.finder.matchers.WidgetMatcherFactory.widget
 import static org.eclipse.swtbot.swt.finder.matchers.WidgetMatcherFactory.withStyle
 import static org.eclipse.swtbot.swt.finder.matchers.WidgetMatcherFactory.withTooltip
 import static org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences.*
+import static extension org.eclipse.gemoc.studio.tests.system.mwb.userstory.ModelingWorkbenchTestHelper.*
 
 /**
  * Verifies that we can use the wizard to install the official sample models 
@@ -165,66 +166,39 @@ class DeployOfficialExampleK3FSM_Test extends AbstractXtextTests
 		bot.button("Debug").click();
 				
 		// accept switch to debug perspective (this also makes sure that the engines has started)		
-		//bot.perspectiveByLabel("Debug").activate
-		try {
-			bot.shell("Confirm Perspective Switch").bot.button("Switch").click
-		} catch (WidgetNotFoundException wnfe){
-			System.out.println(wnfe);
-			SWTBotHelper.printShellList(bot);
-			System.out.println("retry a second time");
-			try {
-				bot.shell("Confirm Perspective Switch").bot.button("Switch").click
-			} catch (WidgetNotFoundException wnfe2){
-				System.out.println(wnfe2);
-				System.out.println("retry a third time using main shell");
-				bot.button("Switch").click
-			}
-		}
+		confirmPerspectiveSwitch(bot)
 		
 		bot.viewByTitle("Debug").show();
 		// proceeds for some steps and then run up to the end
-		clickOnStepInto()
+		clickOnStepInto(bot)
 		waitThreadSuspended
-		clickOnStepInto()
+		clickOnStepInto(bot)
 		waitThreadSuspended
-		clickOnStepInto()
+		clickOnStepInto(bot)
 		waitThreadSuspended
-		clickOnStepInto()
+		clickOnStepInto(bot)
 		waitThreadSuspended
 		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Executable model with GEMOC Java engine]").getNode("Gemoc debug target").select();
 		bot.toolbarButtonWithTooltip("Resu&me (F8)").click();
 		
-		ModelingWorkbenchTestHelper.closeConfigureXtextPopup(bot)
+		closeConfigureXtextPopup(bot)
 		
-		ModelingWorkbenchTestHelper.waitFirstTargetThreadSuspendedOrTerminated("K3FSM - TwoStatesUpcast(abababa)")
+		waitFirstTargetThreadSuspendedOrTerminated("K3FSM - TwoStatesUpcast(abababa)")
 		//ModelingWorkbenchTestHelper.closeAndClearEngine(bot)
-		ModelingWorkbenchTestHelper.closeAndClearEngineProgrammatically
+		closeAndClearEngineProgrammatically
 		val runningEnginesRegistry = org.eclipse.gemoc.executionframework.engine.Activator.getDefault().gemocRunningEngineRegistry;
 		assertTrue("runningEngineRegistry not empty " +runningEnginesRegistry.runningEngines,  runningEnginesRegistry.runningEngines.size == 0)
 		helper.assertNoMarkers();	
 		
 	}
 
-	/**
-	 * for some reason, the step into tooltip may change
-	 * so, here is a method that handle both tooltips
-	 * similar to bot.toolbarButtonWithTooltip("Step &Into (F5)").click();
-	 */
-	def void clickOnStepInto(){
-		val matcher = allOf(widgetOfType(typeof(ToolItem)), 
-			anyOf(withTooltip("Step &Into (F5)"), withTooltip("Step &Into")), 
-			withStyle(SWT.PUSH, "SWT.PUSH")
-		)
-		val btn = new SWTBotToolbarPushButton( bot.widget(matcher, 0) as ToolItem, matcher);
-		btn.click
-	}
-	
+
 	/**
 	 * This is very basic, it supposes that there is one and only one debug target in the debug view
 	 * or timeout exception
 	 */
 	def void waitThreadSuspended(){		
-		ModelingWorkbenchTestHelper.waitFirstTargetThreadSuspended("K3FSM - TwoStatesUpcast(abababa)")
+		waitFirstTargetThreadSuspended("K3FSM - TwoStatesUpcast(abababa)")
 	}
 	
 }
