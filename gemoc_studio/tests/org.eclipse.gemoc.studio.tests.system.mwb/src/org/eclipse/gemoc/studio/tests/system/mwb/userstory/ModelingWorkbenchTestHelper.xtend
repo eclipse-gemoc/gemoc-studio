@@ -17,6 +17,7 @@ import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences
 import org.eclipse.debug.core.DebugPlugin
 import org.eclipse.debug.internal.core.LaunchManager
 import org.junit.Assert
+import org.eclipse.gemoc.xdsmlframework.test.lib.SWTBotHelper
 
 /**
  * Class containing helper methods for testing a workspace in a GEMOC Language workbench
@@ -85,4 +86,25 @@ class ModelingWorkbenchTestHelper {
 		} 
 		Assert.assertTrue("Timeout: first target didn't suspend or terminated "+target.launch.launchConfiguration.name,timeout > 0)
 	}
+	
+	def static void confirmPerspectiveSwitch(SWTWorkbenchBot bot) {
+		val long savedTimeout = SWTBotPreferences.TIMEOUT
+		SWTBotPreferences.TIMEOUT = 8000
+		
+		try {
+			bot.shell("Confirm Perspective Switch").bot.button("Switch").click
+		} catch (WidgetNotFoundException wnfe){
+			System.out.println(wnfe);
+			SWTBotHelper.printShellList(bot);
+			System.out.println("retry a second time");
+			try {
+				bot.shell("Confirm Perspective Switch").bot.button("Switch").click
+			} catch (WidgetNotFoundException wnfe2){
+				System.out.println(wnfe2);
+				System.out.println("retry a third time using main shell");
+				bot.button("Switch").click
+			}
+		}
+		SWTBotPreferences.TIMEOUT = savedTimeout
+	} 
 }
