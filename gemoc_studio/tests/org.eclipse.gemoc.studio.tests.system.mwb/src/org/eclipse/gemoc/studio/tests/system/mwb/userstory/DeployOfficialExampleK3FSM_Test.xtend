@@ -184,8 +184,13 @@ class DeployOfficialExampleK3FSM_Test extends AbstractXtextTests
 		closeConfigureXtextPopup(bot)
 		
 		waitFirstTargetThreadSuspendedOrTerminated("K3FSM - TwoStatesUpcast(abababa)")
-		//ModelingWorkbenchTestHelper.closeAndClearEngine(bot)
-		closeAndClearEngineProgrammatically
+		try {
+			closeAndClearEngine(bot)	
+		} catch (Exception e){
+			println("Failed to close engine using UI, Trying programmatically instead")
+			e.printStackTrace
+			closeAndClearEngineProgrammatically
+		}
 		val runningEnginesRegistry = org.eclipse.gemoc.executionframework.engine.Activator.getDefault().gemocRunningEngineRegistry;
 		assertTrue("runningEngineRegistry not empty " +runningEnginesRegistry.runningEngines,  runningEnginesRegistry.runningEngines.size == 0)
 		helper.assertNoMarkers();	

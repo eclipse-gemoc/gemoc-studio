@@ -212,7 +212,13 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 		
 		println("TwoStatesUpCast_Model_some_steps_stop_and_clear ending")
 		Thread.sleep(2000)
-		closeAndClearEngine(bot)
+		try {
+			closeAndClearEngine(bot)	
+		} catch (Exception e){
+			println("Failed to close engine using UI, Trying programmatically instead")
+			e.printStackTrace
+			closeAndClearEngineProgrammatically
+		}
 		
 		helper.assertNoMarkers();	
 	}
