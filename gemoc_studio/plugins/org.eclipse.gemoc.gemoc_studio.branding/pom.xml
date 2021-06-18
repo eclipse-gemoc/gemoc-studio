@@ -116,9 +116,9 @@
 	        </plugin>
 	        <!-- convert the splash screen to bmp -->
 	        <plugin>
-	        	<groupId>fr.inria.diverse.image-tools</groupId>
-				<artifactId>image-tools.mavenplugin</artifactId>
-				<version>0.0.1-SNAPSHOT</version>
+	        	<groupId>org.gemoc.image-tools-mavenplugin</groupId>
+				<artifactId>image-tools-plugin</artifactId>
+				<version>0.1.0</version>
 				<executions>
 					<execution>
 						<phase>generate-resources</phase>
@@ -143,20 +143,5 @@
 		<url>http://127.0.0.1/dummy</url>
 	</scm>-->
 	
-	<pluginRepositories>
-		<pluginRepository>
-			<id>diverse-project.github.io</id>
-			<name>diverse-project.github.io</name>
-			<releases>
-				<enabled>true</enabled>
-				<checksumPolicy>warn</checksumPolicy>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-				<checksumPolicy>warn</checksumPolicy>
-			</snapshots>
-			<url>http://diverse-project.github.io/tools/mavenRepository/</url>
-			<layout>default</layout>
-		</pluginRepository>
-	</pluginRepositories>
+
 </project>
