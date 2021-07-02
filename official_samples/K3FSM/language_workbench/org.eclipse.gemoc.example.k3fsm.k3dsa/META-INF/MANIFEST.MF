@@ -3,7 +3,7 @@ Automatic-Module-Name: org.eclipse.gemoc.example.k3fsm.k3dsa
 Bundle-SymbolicName: org.eclipse.gemoc.example.k3fsm.k3dsa; singleton:=true
 Export-Package: org.eclipse.gemoc.example.k3fsm.k3dsa
 Bundle-Name: org.eclipse.gemoc.example.k3fsm.k3dsa
-Bundle-Version: 1.0.0
+Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Require-Bundle: fr.inria.diverse.k3.al.annotationprocessor.plugin;bundle-version="3.0.0";visibility:="reexport",
  org.eclipse.xtend.lib;bundle-version="2.6.0";visibility:="private",
