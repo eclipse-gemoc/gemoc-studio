@@ -11,6 +11,7 @@
 	<modules>
 		<module>org.eclipse.debug.core</module>
 		<module>org.eclipse.debug.ui</module>
+		<module>org.eclipse.emf.compare</module>
 		<module>org.eclipse.emf.transaction</module>
 	</modules>
 

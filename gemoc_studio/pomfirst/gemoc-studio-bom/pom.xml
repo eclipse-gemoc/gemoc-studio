@@ -42,9 +42,11 @@
 		<!-- Eclipse EMF dependencies versions -->
 		<emf.common-version>[2.16.0,3.0.0)</emf.common-version>
 		<emf.ecore-version>[2.16.0,3.0.0)</emf.ecore-version>
+		<emf.compare-version>[3.4.0,3.6.0)</emf.compare-version>
 		<emf.transaction-version>[1.9.0,2.0.0)</emf.transaction-version>
 		
 		<xtext-version>2.24.0</xtext-version>
+		<xtend-version>2.24.0</xtend-version>
 		
 	</properties>
 	<dependencyManagement>
@@ -77,6 +79,17 @@
 				<version>${emf.common-version}</version>
 			</dependency>
 			<dependency>
+				<groupId>org.eclipse.emf</groupId>
+				<artifactId>org.eclipse.emf.codegen.ecore</artifactId>
+				<version>${emf.ecore-version}</version>
+			</dependency>
+			<dependency>
+				<!-- <groupId>org.eclipse.emf</groupId> -->
+				<groupId>org.eclipse.gemoc.gemoc-studio.thirdparty.bundle</groupId>
+				<artifactId>org.eclipse.emf.compare</artifactId>
+				<version>${emf.compare-version}</version>
+			</dependency>
+			<dependency>
 				<!-- <groupId>org.eclipse.emf</groupId> -->
 				<groupId>org.eclipse.gemoc.gemoc-studio.thirdparty.bundle</groupId>
 				<artifactId>org.eclipse.emf.transaction</artifactId>
@@ -95,6 +108,25 @@
 				<artifactId>org.eclipse.xtext</artifactId>
 				<version>${xtext-version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.eclipse.xtext</groupId>
+				<artifactId>org.eclipse.xtext.xbase.lib</artifactId>
+				<version>${xtext-version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>org.eclipse.xtend</groupId>
+			    <artifactId>org.eclipse.xtend.lib</artifactId>
+				<version>${xtend-version}</version>
+			</dependency>
+			
+			
+			
+			<dependency>
+			    <groupId>junit</groupId>
+			    <artifactId>junit</artifactId>
+			    <version>4.11</version>
+			</dependency>
+			
 		</dependencies>
 	</dependencyManagement>
 </project>
