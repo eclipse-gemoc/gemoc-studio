@@ -130,7 +130,7 @@ ENV DISPLAY :0
 
 RUN mkdir -p ${HOME}/.vnc && chmod -R 775 ${HOME} \
   && echo "123456" | vncpasswd -f > ${HOME}/.vnc/passwd \
-  && chmod 600 ${HOME}/.vnc/passwd
+  && chmod 644 ${HOME}/.vnc/passwd
 
 # Create a custom vnc xstartup file
 COPY scripts/xstartup_mutter.sh ${HOME}/.vnc/xstartup.sh
