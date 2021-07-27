@@ -13,6 +13,7 @@
 		<maven.deploy.skip>true</maven.deploy.skip>
 	</properties>
 	<modules>
+		<module>../../../gemoc-studio/gemoc_studio/plugins/gemoc_studio-eclipse-bom</module>
 		<module>../../../gemoc-studio</module>
 		<module>../../../gemoc-studio/official_samples/sample.deployers</module>
 		<module>../../../gemoc-studio/docs/org.eclipse.gemoc.studio.doc</module>
