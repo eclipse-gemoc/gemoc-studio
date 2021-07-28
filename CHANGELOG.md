@@ -1,9 +1,39 @@
 # Changelog
 
+## v3.3.0 (28/07/2021)
+
+#### Enhancements:
+
+- [**enhancement**] Disable flacky tests [#227](https://github.com/eclipse/gemoc-studio/pull/227)
+- [**enhancement**][**testing**] Improve test suites timings [#229](https://github.com/eclipse/gemoc-studio/pull/229)
+- [**bug**][**enhancement**][**releng**] Add Sirius ELK support [#222](https://github.com/eclipse/gemoc-studio/pull/222)
+- [**enhancement**] Remove use of ALESiriusInterpreter in headles launcher [#216](https://github.com/eclipse/gemoc-studio/pull/216)
+
+#### Refactorings
+
+- [**documentation**][**refactoring**] Improvement of the official examples documentation [#217](https://github.com/eclipse/gemoc-studio/pull/217)
+
+#### Version upgrades
+
+- [**bump**] Bump to Eclipse 2021-06 [#231](https://github.com/eclipse/gemoc-studio/pull/231)
+- [**bump**] Bump eclipse 2020-12 [#219](https://github.com/eclipse/gemoc-studio/pull/219)
+- [**bump**] Bump to Eclipse 2020-03 [#212](https://github.com/eclipse/gemoc-studio/pull/212)
+
+#### Release Engineering
+
+- [**releng**] Consolidation and automatic bump of K3 versions [#224](https://github.com/eclipse/gemoc-studio/pull/224)
+- [**releng**] Explicit repository feature [#226](https://github.com/eclipse/gemoc-studio/pull/226)
+- [**releng**] Use image-tools-plugin 0.1.0 from GEMOC organization [#230](https://github.com/eclipse/gemoc-studio/pull/230)
+- [**releng**] Improve docker for CI [#232](https://github.com/eclipse/gemoc-studio/pull/232)
+- [**releng**] Provide github issue templates [#215](https://github.com/eclipse/gemoc-studio/pull/215)
+
+---
+
 ## v3.2.0 (16/06/2020)
 
 #### Enhancements:
 
+- [**enhancement**] "metaprog" entry added to dsl files for the GEMOC Studio examples [#206](https://github.com/eclipse/gemoc-studio/pull/206)
 - [**enhancement**] Add wait for treeitem after expand in tests [#197](https://github.com/eclipse/gemoc-studio/pull/197)
 - [**enhancement**][**refactoring**] Improve default Engine addon launch conf tab [#193](https://github.com/eclipse/gemoc-studio/pull/193)
 - [**enhancement**] Add automatic creation of missing source folders [#179](https://github.com/eclipse/gemoc-studio/pull/179)
