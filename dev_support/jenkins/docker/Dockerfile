@@ -100,6 +100,19 @@ RUN yum update -y \
   zsh \
   && yum clean all
 
+RUN alternatives --set java /usr/lib/jvm/java-11-openjdk-11.0.12.0.7-0.el7_9.x86_64/bin/java \
+  && alternatives --set javac /usr/lib/jvm/java-11-openjdk-11.0.12.0.7-0.el7_9.x86_64/bin/javac
+ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk-11.0.12.0.7-0.el7_9.x86_64
+
+
+# Setting Maven Version that needs to be installed
+ARG MAVEN_VERSION=3.8.1 
+
+# Maven
+RUN curl -fsSL https://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar xzf - -C /usr/share \
+  && mv /usr/share/apache-maven-$MAVEN_VERSION /usr/share/maven \
+  && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
+ENV M2_HOME /usr/share/maven
 
 ENV HOME=/home/jenkins
 
@@ -117,7 +130,7 @@ ENV DISPLAY :0
 
 RUN mkdir -p ${HOME}/.vnc && chmod -R 775 ${HOME} \
   && echo "123456" | vncpasswd -f > ${HOME}/.vnc/passwd \
-  && chmod 600 ${HOME}/.vnc/passwd
+  && chmod 644 ${HOME}/.vnc/passwd
 
 # Create a custom vnc xstartup file
 COPY scripts/xstartup_mutter.sh ${HOME}/.vnc/xstartup.sh
