@@ -6,7 +6,7 @@
 	<groupId>org.eclipse.gemoc</groupId>
 	<artifactId>complete-studio</artifactId>
 	<packaging>pom</packaging>
-	<version>3.3.0-SNAPSHOT</version>
+	<version>3.4.0-SNAPSHOT</version>
 	<name>Complete GEMOC Studio compilation</name>
 
 	<properties>
