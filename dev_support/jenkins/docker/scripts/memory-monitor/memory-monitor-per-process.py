@@ -43,27 +43,14 @@ def printAllMax(procs):
     procs.sort(key=lambda p: p['uss'])
     print("=" * 78)
     templ = "%-7s %-7s %7s %7s %7s %7s %7s"
-    print("Memory information used by processes at when last seen at maximum unique set size (USS)")
+    t = time.localtime()
+    current_time = time.strftime("%H:%M:%S", t)
+    print("Memory information used by processes at when last seen at maximum unique set size (USS) ", current_time)
     print(templ % ("PID", "User", "max(USS)", "PSS", "Swap", "RSS", "Cmdline"))
     print("=" * 78)
     # for p in procs[:86]:
     for p in procs:
         printProc(p['proc'])
-        # cmd = " ".join(p._info["cmdline"])[:256] if p._info["cmdline"] else ""
-        # line = templ % (
-        #     p.pid,
-        #     p._info["username"][:7] if p._info["username"] else "",
-        #     convert_bytes(p._uss),
-        #     convert_bytes(p._pss) if p._pss != "" else "",
-        #     convert_bytes(p._swap) if p._swap != "" else "",
-        #     convert_bytes(p._rss),
-        #     cmd,
-        # )
-        # print(line)
-    # if ad_pids:
-    #     print("warning: access denied for %s pids" % (len(ad_pids)),
-    #           file=sys.stderr)
-    
 
 def main():
     ad_pids = []
@@ -114,7 +101,10 @@ def main():
         #prevProcsMap = copy.deepcopy(procsMap)
         if newMaxObserved:
             printAllMax(list(prevProcsMap.values()))
-        procs.clear()
+        # keep only active pid
+        for pid in [pid for pid in prevProcsMap.keys() if pid not in procsMap.keys()]:
+            prevProcsMap.pop(pid)
+        procsMap.clear()
         time.sleep(1)
 
 
