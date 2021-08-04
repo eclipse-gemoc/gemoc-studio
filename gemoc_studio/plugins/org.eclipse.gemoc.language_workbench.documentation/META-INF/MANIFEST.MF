@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Documentation
+Bundle-Name: GEMOC Documentation
 Bundle-SymbolicName: org.eclipse.gemoc.language_workbench.documentation; singleton:=true
 Bundle-Version: 3.4.0.qualifier
 Bundle-Activator: org.eclipse.gemoc.language_workbench.documentation.Activator
@@ -10,3 +10,4 @@ Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.eclipse.gemoc.language_workbench.documentation
 Automatic-Module-Name: org.eclipse.gemoc.language_workbench.documentation
+Bundle-Vendor: Eclipse GEMOC Project
