@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Gemoc Studio" uid="gemoc_studio" id="org.eclipse.gemoc.gemoc_studio.branding.gemoc_studio" application="org.eclipse.ui.ide.workbench" version="3.3.0.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="Gemoc Studio" uid="gemoc_studio" id="org.eclipse.gemoc.gemoc_studio.branding.gemoc_studio" application="org.eclipse.ui.ide.workbench" version="3.4.0.qualifier" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="/org.eclipse.gemoc.gemoc_studio.branding/images/GemocStudioAboutImage.png"/>

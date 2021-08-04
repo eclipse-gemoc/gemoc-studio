@@ -32,6 +32,7 @@ RUN yum install -y yum-utils && \
 RUN rpm -v --import http://li.nux.ro/download/nux/RPM-GPG-KEY-nux.ro
 RUN rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
 
+
 RUN yum update -y \
   && yum install -y \
   autoconf \
@@ -66,7 +67,7 @@ RUN yum update -y \
   perl \
   perl-LDAP \
   python-gtk-vnc \
-  python36u\
+  python36u python36u-libs python36u-devel python36u-pip\
   rpm-build \
   strace \
   subversion \
@@ -117,10 +118,10 @@ ENV M2_HOME /usr/share/maven
 ENV HOME=/home/jenkins
 
 RUN wget https://gluonhq.com/download/javafx-11-0-2-sdk-linux  -O ${HOME}/javafx-11-0-2-sdk-linux.zip 
-RUN unzip ${HOME}/javafx-11-0-2-sdk-linux.zip -d ${HOME}
+RUN unzip ${HOME}/javafx-11-0-2-sdk-linux.zip -d /usr/share/
 RUN rm ${HOME}/javafx-11-0-2-sdk-linux.zip 
 
-ENV JAVAFX_HOME=${HOME}/javafx-sdk-11.0.2
+ENV JAVAFX_HOME=/usr/share/javafx-sdk-11.0.2
 
 RUN ln -s /usr/bin/git /usr/local/bin/git \
   && ln -s /bin/bash /usr/local/bin/hipp_shell \
@@ -135,6 +136,11 @@ RUN mkdir -p ${HOME}/.vnc && chmod -R 775 ${HOME} \
 # Create a custom vnc xstartup file
 COPY scripts/xstartup_mutter.sh ${HOME}/.vnc/xstartup.sh
 RUN chmod 755 ${HOME}/.vnc/xstartup.sh
+
+# install memory monitor script file
+COPY scripts/memory-monitor/memory-monitor-per-process.py ${HOME}/memory-monitor-per-process.py
+RUN python3 -m pip install psutil
+RUN chmod 755 ${HOME}/memory-monitor-per-process.py
 
 # explicitly set locale
 ENV LANG=en_US.UTF-8
