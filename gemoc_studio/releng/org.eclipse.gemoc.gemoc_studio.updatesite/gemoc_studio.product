@@ -21,6 +21,7 @@ openFile
       </programArgs>
       <vmArgs>-Dosgi.requiredJavaVersion=11
 -Dosgi.instance.area.default=@user.home/eclipse-workspaces/gemoc-workspace
+-Dosgi.dataAreaRequiresExplicitInit=true
 -XX:+UseG1GC
 -XX:+UseStringDeduplication
 -Dosgi.framework.extensions=org.eclipse.fx.osgi
