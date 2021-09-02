@@ -30,19 +30,19 @@
    <feature url="features/org.eclipse.gemoc.moccml.mapping.transfos.feature_1.0.0.qualifier.jar" id="org.eclipse.gemoc.moccml.mapping.transfos.feature" version="1.0.0.qualifier">
       <category name="GEMOC_8_MOCCML_Components"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.concurrent_addons.feature_2.3.0.qualifier.jar" id="org.eclipse.gemoc.concurrent_addons.feature" version="2.3.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.concurrent_addons.feature_3.4.0.qualifier.jar" id="org.eclipse.gemoc.concurrent_addons.feature" version="3.4.0.qualifier">
       <category name="GEMOC_7_Execution MOCCML_Components"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.concurrent_addons.feature_2.3.0.qualifier.jar" id="org.eclipse.gemoc.concurrent_addons.feature" version="2.3.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.concurrent_addons.feature_3.4.0.qualifier.jar" id="org.eclipse.gemoc.concurrent_addons.feature" version="3.4.0.qualifier">
       <category name="GEMOC_7_Execution MOCCML_Components"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.execution.concurrent.ccsljavaengine.feature_2.3.0.qualifier.jar" id="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.feature" version="2.3.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.execution.concurrent.ccsljavaengine.feature_3.4.0.qualifier.jar" id="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.feature" version="3.4.0.qualifier">
       <category name="GEMOC_7_Execution MOCCML_Components"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.feature_2.3.0.qualifier.jar" id="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.feature" version="2.3.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.feature_3.4.0.qualifier.jar" id="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.feature" version="3.4.0.qualifier">
       <category name="GEMOC_7_Execution MOCCML_Components"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.feature_2.3.0.qualifier.jar" id="org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.feature" version="2.3.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.feature_3.4.0.qualifier.jar" id="org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.feature" version="3.4.0.qualifier">
       <category name="GEMOC_7_Execution MOCCML_Components"/>
    </feature>
    <feature url="features/org.eclipse.gemoc.executionframework.feature_4.0.0.qualifier.jar" id="org.eclipse.gemoc.executionframework.feature" version="4.0.0.qualifier">
