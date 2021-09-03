@@ -7,33 +7,20 @@
 	<groupId>org.eclipse.gemoc.gemoc-studio.bundle</groupId>
 	<artifactId>org.eclipse.gemoc.gemoc_studio.root</artifactId>
 	<name>gemoc-studio root with tycho</name>
-	<version>3.3.0-SNAPSHOT</version>
+	<version>3.4.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
+	
+	<parent>
+		<groupId>org.eclipse.gemoc.gemoc-studio</groupId>
+		<artifactId>gemoc_studio-eclipse-bom</artifactId>
+		<version>3.4.0-SNAPSHOT</version>
+		<relativePath>gemoc_studio/plugins/gemoc_studio-eclipse-bom</relativePath>
+	</parent>
+	
 	<modules>
 	</modules>
-
+	
     <properties>
-		<tycho-version>2.2.0</tycho-version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    	<xtend.version>2.24.0</xtend.version>
-    	
-    	<eclipse.release.p2.url>http://download.eclipse.org/releases/2020-12</eclipse.release.p2.url>
-        <!--used only for amalgam which seems REALLY deprecated-->
-        <eclipse.photon.release.p2.url>http://download.eclipse.org/releases/photon</eclipse.photon.release.p2.url>
-		<k3.p2.url>http://www.kermeta.org/k3/update</k3.p2.url>
-		<ale.p2.url>http://www.kermeta.org/ale-lang/updates/2020-07-17</ale.p2.url>
-		<!-- <ale.p2.url>https://ci.inria.fr/gemoc/job/ale-lang/job/bump-to-eclipse-2020-03/lastSuccessfulBuild/artifact/releng/org.eclipse.emf.ecoretools.ale.updatesite/target/repository/</ale.p2.url>-->
-		<melange.p2.url>http://melange.inria.fr/updatesite/nightly/update_2020-11-16</melange.p2.url>
-		<elk.p2.url>http://download.eclipse.org/elk/updates/releases/0.7.1</elk.p2.url>
-		<!-- for advanced sirius features such as Sirius ELK support , version needs to be aligned with the one  in ${eclipse.release.p2.url}-->
-		<sirius.p2.url>https://download.eclipse.org/sirius/updates/releases/6.4.1/2020-09/</sirius.p2.url>
-		<aspectJ.p2.url>http://download.eclipse.org/tools/ajdt/410/dev/update</aspectJ.p2.url>
-		<timesquare.p2.url>http://timesquare.inria.fr/update_site/2020</timesquare.p2.url>
-		<diverse-commons.p2.url>http://www.kermeta.org/diverse-commons/updates/latest</diverse-commons.p2.url>
-		<efxclipse.p2.url>https://downloads.efxclipse.bestsolution.at/p2-repos/openjfx-11/repository/</efxclipse.p2.url>
-        <efxclipse2.p2.url>https://download.eclipse.org/efxclipse/updates-released/3.7.0/site</efxclipse2.p2.url>
-        
-		<maven.deploy.skip>true</maven.deploy.skip>
 	</properties>
 
 	<build>

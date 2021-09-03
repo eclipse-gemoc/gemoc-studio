@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Gemoc Studio" uid="gemoc_studio" id="org.eclipse.gemoc.gemoc_studio.branding.gemoc_studio" application="org.eclipse.ui.ide.workbench" version="3.3.0.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="Gemoc Studio" uid="gemoc_studio" id="org.eclipse.gemoc.gemoc_studio.branding.gemoc_studio" application="org.eclipse.ui.ide.workbench" version="3.4.0.qualifier" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="/org.eclipse.gemoc.gemoc_studio.branding/images/GemocStudioAboutImage.png"/>
@@ -21,11 +21,12 @@ openFile
       </programArgs>
       <vmArgs>-Dosgi.requiredJavaVersion=11
 -Dosgi.instance.area.default=@user.home/eclipse-workspaces/gemoc-workspace
+-Dosgi.dataAreaRequiresExplicitInit=true
 -XX:+UseG1GC
 -XX:+UseStringDeduplication
 -Dosgi.framework.extensions=org.eclipse.fx.osgi
 -Xms256m
--Xmx1024m
+-Xmx2048m
       </vmArgs>
       <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
       </vmArgsMac>
@@ -78,8 +79,8 @@ openFile
 
    <repositories>
       <repository location="http://melange-lang.org/updatesite/" enabled="true" />
-      <repository location="http://download.eclipse.org/releases/2020-12" enabled="true" />
-      <repository location="http://download.eclipse.org/eclipse/updates/4.15/" enabled="true" />
+      <repository location="http://download.eclipse.org/releases/2021-06" enabled="true" />
+      <repository location="http://download.eclipse.org/eclipse/updates/4.20/" enabled="true" />
       <repository location="http://www.kermeta.org/k3/update/" enabled="true" />
       <repository location="http://www.kermeta.org/ale-lang/updates/latest/" enabled="true" />
       <repository location="http://timesquare.inria.fr/update_site/2020" enabled="true" />

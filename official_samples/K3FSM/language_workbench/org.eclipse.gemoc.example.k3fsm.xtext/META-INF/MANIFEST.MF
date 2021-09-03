@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: org.eclipse.gemoc.example.k3fsm.xtext
-Bundle-Vendor: My Company
+Bundle-Vendor: Eclipse GEMOC Project
 Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: org.eclipse.gemoc.example.k3fsm.xtext; singleton:=true
 Bundle-ActivationPolicy: lazy

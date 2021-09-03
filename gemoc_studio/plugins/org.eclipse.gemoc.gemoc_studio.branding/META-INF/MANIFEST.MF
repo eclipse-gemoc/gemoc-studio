@@ -2,8 +2,8 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: GEMOC Studio
 Bundle-SymbolicName: org.eclipse.gemoc.gemoc_studio.branding;singleton:=true
-Bundle-Version: 3.3.0.qualifier
-Bundle-Vendor: GEMOC
+Bundle-Version: 3.4.0.qualifier
+Bundle-Vendor: Eclipse GEMOC Project
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui,

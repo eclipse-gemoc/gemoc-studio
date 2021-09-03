@@ -40,6 +40,7 @@ import static org.eclipse.swtbot.swt.finder.matchers.WidgetMatcherFactory.widget
 import static org.eclipse.swtbot.swt.finder.matchers.WidgetMatcherFactory.withStyle
 import static org.eclipse.swtbot.swt.finder.matchers.WidgetMatcherFactory.withTooltip
 import static org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences.*
+import static extension org.eclipse.gemoc.studio.tests.system.mwb.userstory.ModelingWorkbenchTestHelper.*
 import org.eclipse.gemoc.example.k3fsm.FSM
 import org.eclipse.gemoc.trace.commons.model.trace.Step
 import java.util.Deque
@@ -56,6 +57,8 @@ import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem
 import org.junit.rules.TestWatcher
 import org.junit.runner.Description
 import org.eclipse.gemoc.xdsmlframework.api.core.IExecutionEngine
+import org.eclipse.core.resources.IProject
+import org.eclipse.core.resources.ResourcesPlugin
 
 /**
  * Verifies that we can execute a debug session 
@@ -96,6 +99,19 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 	@AfterClass
 	def static void afterClass() {
 		//
+		println("afterClass clearing: " + DebugOfficialExampleK3FSM_Test.canonicalName )
+		val IProject[] visibleProjects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
+		visibleProjects.forEach[p | p.close(null)]
+		println("afterClass visibleProjects.forEach[p | p.close(null)] " + DebugOfficialExampleK3FSM_Test.canonicalName )
+		WorkspaceTestHelper::reallyWaitForJobs(2)
+		println("afterClass WorkspaceTestHelper::reallyWaitForJobs(2) " + DebugOfficialExampleK3FSM_Test.canonicalName )
+		bot.resetWorkbench
+		println("afterClass bot.resetWorkbench: " + DebugOfficialExampleK3FSM_Test.canonicalName )
+		IResourcesSetupUtil::cleanWorkspace
+		println("afterClass IResourcesSetupUtil::cleanWorkspace: " + DebugOfficialExampleK3FSM_Test.canonicalName )
+		IResourcesSetupUtil::reallyWaitForAutoBuild
+		WorkspaceTestHelper::reallyWaitForJobs(2)
+		println("afterClass done: " + DebugOfficialExampleK3FSM_Test.canonicalName )
 	}
 	
 	@Rule
@@ -150,7 +166,6 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 		val runningEnginesRegistry = org.eclipse.gemoc.executionframework.engine.Activator.getDefault().gemocRunningEngineRegistry;
 		
 		startDebugwoStatesUpCast_Model
-		
 		val engine = runningEnginesRegistry.runningEngines.entrySet.get(0).value		
 		assertEquals("GEMOC Kermeta Sequential Engine platform:/resource/org.eclipse.gemoc.example.k3fsm.model_examples/TwoStatesUpcast.k3fsm", engine.name)
 		assertEquals(0,engine.engineStatus.nbLogicalStepRun)
@@ -160,41 +175,50 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 		// proceeds for some steps
 		// verify some basic points in the engine status, in the model resource and in the UI
 		
+		
 		bot.viewByTitle("Debug").show();
-		clickOnStepInto() // initializeModel, no increment of steps		
+		clickOnStepInto(bot) // initializeModel, no increment of steps		
 		waitThreadSuspended
 		assertEquals(1,engine.engineStatus.nbLogicalStepRun)
 		assertEquals("S1",fsm.currentState.name)
 		assertEquals("MSE_FSMImpl_main",stackToString(engine.currentStack))
-		
-		clickOnStepInto() // initializeModel, no increment of steps		
+				
+		clickOnStepInto(bot) // initializeModel, no increment of steps		
 		waitThreadSuspended
 		assertEquals("S1",fsm.currentState.name)
 		assertEquals(1,engine.engineStatus.nbLogicalStepRun) // this is a small step (no increment)
 		assertEquals("MSE_StateImpl_step|MSE_FSMImpl_main",stackToString(engine.currentStack))
 		
-		clickOnStepInto() 
+		clickOnStepInto(bot) 
 		waitThreadSuspended
 		assertEquals("S1",fsm.currentState.name)
 		assertEquals(1,engine.engineStatus.nbLogicalStepRun) // this is a small step (no increment)
 		assertEquals("MSE_TransitionImpl_fire|MSE_StateImpl_step|MSE_FSMImpl_main",stackToString(engine.currentStack))
 		
-		clickOnStepInto()
+		clickOnStepInto(bot)
 		waitThreadSuspended
 		assertEquals(3,engine.engineStatus.nbLogicalStepRun) // increment only here because the BigStep finishes here 
 		assertEquals("S2",fsm.currentState.name)
 		assertEquals("MSE_StateImpl_step|MSE_FSMImpl_main",stackToString(engine.currentStack))
 		
-		clickOnStepInto()
+		clickOnStepInto(bot)
 		waitThreadSuspended
 		assertEquals("S2",fsm.currentState.name)
 		
-		clickOnStepInto()
+		clickOnStepInto(bot)
 		waitThreadSuspended
 		assertEquals(5,engine.engineStatus.nbLogicalStepRun)
 		assertEquals("S1",fsm.currentState.name)
 		
-		closeAndClearEngineProgrammatically
+		println("TwoStatesUpCast_Model_some_steps_stop_and_clear ending")
+		Thread.sleep(2000)
+		try {
+			closeAndClearEngine(bot)	
+		} catch (Exception e){
+			println("Failed to close engine using UI, Trying programmatically instead")
+			e.printStackTrace
+			closeAndClearEngineProgrammatically
+		}
 		
 		helper.assertNoMarkers();	
 	}
@@ -228,7 +252,9 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 		assertEquals("ABABABA",fsm.producedString)
 		assertEquals("",fsm.unprocessedString)
 		
-		closeAndClearEngineProgrammatically
+		ModelingWorkbenchTestHelper.closeAndClearEngine(bot)
+		ModelingWorkbenchTestHelper.closeAndClearEngineProgrammatically
+		assertTrue("runningEngineRegistry not empty " +runningEnginesRegistry.runningEngines,  runningEnginesRegistry.runningEngines.size == 0)
 	}
 	
 	// some reusabe test part
@@ -244,22 +270,8 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 		bot.tree().getTreeItem("Executable model with GEMOC Java engine").waitNode("K3FSM - TwoStatesUpcast(abababa)").select();
 		bot.button("Debug").click();
 		
-		// accept switch to debug perspective (this also makes sure that the engines has started)		
-		//bot.perspectiveByLabel("Debug").activate
-		try {
-			bot.shell("Confirm Perspective Switch").bot.button("Switch").click
-		} catch (WidgetNotFoundException wnfe){
-			System.out.println(wnfe);
-			SWTBotHelper.printShellList(bot);
-			System.out.println("retry a second time");
-			try {
-				bot.shell("Confirm Perspective Switch").bot.button("Switch").click
-			} catch (WidgetNotFoundException wnfe2){
-				System.out.println(wnfe2);
-				System.out.println("retry a third time using main shell");
-				bot.button("Switch").click
-			}
-		}
+		// accept switch to debug perspective (this also makes sure that the engines has started)
+		confirmPerspectiveSwitch(bot)
 		
 		// select stack in Debug view (this opens the xtext editor and enables the F5 buttons)
 		bot.viewByTitle("Debug").show();
@@ -270,7 +282,7 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Executable model with GEMOC Java engine]").getNode("Gemoc debug target").getNode("Model debugging").waitNode("[FSM] TwoStateUpcast#initializeModel([])").select();
 		
 		
-		closeXtextProjectConversionPopup
+		closeConfigureXtextPopup(bot)
 		assertTrue("engine not found in runningEngineRegistry" +runningEnginesRegistry.runningEngines,  runningEnginesRegistry.runningEngines.size == 1)
 		
 	}
@@ -288,88 +300,14 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 		return baseTreeItem.getNode(nodeName)
 	}
 	
-	def static void closeAndClearEngine() {
-		val runningEnginesRegistry = org.eclipse.gemoc.executionframework.engine.Activator.getDefault().gemocRunningEngineRegistry;
-		
-		// stop engine and clear using the engine status view
-		bot.viewByTitle("Gemoc Engines Status").show();
-		bot.toolbarButtonWithTooltip("Stop selected engines").click();
-		bot.toolbarButtonWithTooltip("Dispose all stopped engines").click();
-				
-		assertTrue("runningEngineRegistry not empty " +runningEnginesRegistry.runningEngines,  runningEnginesRegistry.runningEngines.size == 0)
-	}
-	
-	def static void closeAndClearEngineProgrammatically() {
-		val runningEnginesRegistry = org.eclipse.gemoc.executionframework.engine.Activator.getDefault().gemocRunningEngineRegistry;
-		
-		// The Engine view used by closeAndClearEngine() tends to be flacky in Test suites, close and dispose manually
-		for(IExecutionEngine<?> e : runningEnginesRegistry.runningEngines.values) {
-			e.stop
-			e.dispose
-		}
-		
-		assertTrue("runningEngineRegistry not empty " +runningEnginesRegistry.runningEngines,  runningEnginesRegistry.runningEngines.size == 0)
-	}
 
-	/**
-	 * for some reason, the step into tooltip may change
-	 * so, here is a method that handle both tooltips
-	 * similar to bot.toolbarButtonWithTooltip("Step &Into (F5)").click();
-	 */
-	def void clickOnStepInto(){
-		
-		val runningEnginesRegistry = org.eclipse.gemoc.executionframework.engine.Activator.getDefault().gemocRunningEngineRegistry;		
-		val engine = runningEnginesRegistry.runningEngines.entrySet.get(0).value
-		val prevNbLogicalStepCalled = engine.engineStatus.nbLogicalStepCalled		
-		
-		val matcher = allOf(widgetOfType(typeof(ToolItem)), 
-			anyOf(withTooltip("Step &Into (F5)"), withTooltip("Step &Into")), 
-			withStyle(SWT.PUSH, "SWT.PUSH")
-		)
-		val btn = new SWTBotToolbarPushButton( bot.widget(matcher, 0) as ToolItem, matcher);
-		btn.click
-		
-		// wait for the action being taken into account by the engine
-		var timeout = 80
-		while(engine.engineStatus.nbLogicalStepCalled == prevNbLogicalStepCalled || timeout < 0) {
-			Thread.sleep(100)
-			timeout--
-		} 
-		assertTrue("Timeout: Step Into debug command did not trigger a new step in engine "+ engine.name, timeout > 0)
-	}
 	
 	/**
 	 * supposes that there is one and only one debug target in the debug view
 	 * or timeout exception
 	 */
 	def void waitThreadSuspended(){		
-		val launchManager = DebugPlugin.getDefault().getLaunchManager() as LaunchManager
-		val targets = launchManager.debugTargets
-		val target = targets.get(0)
-		assertTrue(target.name == "Gemoc debug target")
-		assertTrue(target.launch.launchConfiguration.name == "K3FSM - TwoStatesUpcast(abababa)")
-		
-		// wait that the target suspends or timeout exception
-		var timeout = 80
-		while(!	target.suspended || timeout < 0) {
-			Thread.sleep(100)
-			timeout--
-		} 
-		assertTrue("Timeout: K3FSM - TwoStatesUpcast(abababa) did not suspend",timeout > 0)
-	}
-	
-	var xtextProjectConversionPopupclosed = false
-	
-	def void closeXtextProjectConversionPopup(){
-		// at some point, xtext may  wish to convert the project containing the models, accept is silently
-		// however, it seems to be in another thread and do not block the execution
-		// close it only once per testsuite (this saves the timeout)
-		if(!xtextProjectConversionPopupclosed) {
-			try {
-				bot.shell("Configure Xtext").bot.button("Yes").click
-			} catch (WidgetNotFoundException wnfe){}
-			xtextProjectConversionPopupclosed= true
-		}
+		ModelingWorkbenchTestHelper.waitFirstTargetThreadSuspended("K3FSM - TwoStatesUpcast(abababa)")
 	}
 	
 	/** simple helper method to get a string representation of the stack*/

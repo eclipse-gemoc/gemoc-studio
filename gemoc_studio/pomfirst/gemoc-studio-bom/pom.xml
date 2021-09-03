@@ -20,7 +20,7 @@
 		<developer>
 			<name>Didier Vojtisek</name>
 			<email>didier.vojtisek@inria.fr</email>
-			<organization>itemis</organization>
+			<organization>Inria</organization>
 			<organizationUrl>http://www.inria.fr</organizationUrl>
 		</developer>
 	</developers>
@@ -118,13 +118,23 @@
 			    <artifactId>org.eclipse.xtend.lib</artifactId>
 				<version>${xtend-version}</version>
 			</dependency>
-			
+					
+		    <dependency>
+			    <groupId>org.eclipse.xtend</groupId>
+			    <artifactId>org.eclipse.xtend.ide.common</artifactId>
+				<version>${xtend-version}</version>
+		    </dependency>
 			
 			
 			<dependency>
 			    <groupId>junit</groupId>
 			    <artifactId>junit</artifactId>
 			    <version>4.11</version>
+			</dependency>
+			<dependency>
+			    <groupId>org.jdom</groupId>
+			    <artifactId>jdom2</artifactId>
+			    <version>2.0.6</version>
 			</dependency>
 			
 		</dependencies>
