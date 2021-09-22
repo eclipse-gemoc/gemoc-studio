@@ -10,13 +10,13 @@
 	<packaging>jar</packaging>
 	<description>Maven distribution of org.eclipse.debug.core osgi bundle without maven dependencies</description>
 
-	<parent>
+	<!-- <parent>
 		<groupId>org.eclipse.gemoc.gemoc-studio.thirdparty.bundle</groupId>
 		<artifactId>org.eclipse.gemoc.gemoc_studio.thirdparty-bundle</artifactId>
 		<version>3.4.0-SNAPSHOT</version>
-	</parent>
+	</parent> -->
 
-	<dependencies>
+	<!-- <dependencies>
 		<dependency>
 			<groupId>org.eclipse.debug</groupId>
 			<artifactId>${project.artifactId}</artifactId>
@@ -24,5 +24,27 @@
 			<scope>system</scope>
 			<systemPath>${project.basedir}/${project.artifactId}_${project.version}.jar</systemPath>
 		</dependency>
-	</dependencies>
+	</dependencies> -->
+	<build>
+		<plugins>
+			<plugin>
+		      <artifactId>maven-antrun-plugin</artifactId>
+		      <version>1.8</version>
+		      <executions>
+		         <execution>
+		            <phase>generate-resources</phase>
+		            <configuration>
+		               <tasks>
+		                  <echo message="unzipping file" />
+		                  <unzip src="${project.basedir}/${project.artifactId}_${project.version}.jar" dest="${project.build.directory}/classes/" />
+		               </tasks>
+		            </configuration>
+		            <goals>
+		               <goal>run</goal>
+		            </goals>
+		         </execution>
+		      </executions>
+		   </plugin>
+	   </plugins>
+   </build>
 </project>
