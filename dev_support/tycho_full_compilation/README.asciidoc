@@ -38,7 +38,7 @@ Then compile using maven:
 
 [source,bourne]
 ----
-cd gemoc-studio/dev_support/full_compilation
+cd gemoc-studio/dev_support/tycho_full_compilation
 mvn package -Dmaven.repo.local=$PWD/localm2 
 ----
 
@@ -74,6 +74,12 @@ You can save some time on the compilation in development mode using some of the 
 * `--projects !../../gemoc_studio/tests/org.eclipse.gemoc.studio.tests.system.lwb,!../../gemoc_studio/tests/org.eclipse.gemoc.studio.tests.system.mwb`  do not launch system tests  (but still create the full studio)
 * `--offline` offline, (useful if you already have a full successful build that has installed all required dependencies in your local maven repository
 * `-DskipTests=true` do not launch unit tests
+====
+
+[NOTE]
+====
+The current versio compiles using Java11 and Java FX.
+You need to indicate the location of javafx using an environment variable JAVAFX_HOME indicating the location of your java fx installation.
 ====
 
 

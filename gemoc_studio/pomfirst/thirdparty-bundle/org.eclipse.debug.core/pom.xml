@@ -1,0 +1,50 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+    http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.eclipse.gemoc.gemoc-studio.thirdparty.bundle</groupId>
+	<artifactId>org.eclipse.debug.core</artifactId>
+	<version>3.15.0.v20200224-0654</version>
+	<packaging>jar</packaging>
+	<description>Maven distribution of org.eclipse.debug.core osgi bundle without maven dependencies</description>
+
+	<!-- <parent>
+		<groupId>org.eclipse.gemoc.gemoc-studio.thirdparty.bundle</groupId>
+		<artifactId>org.eclipse.gemoc.gemoc_studio.thirdparty-bundle</artifactId>
+		<version>3.4.0-SNAPSHOT</version>
+	</parent> -->
+
+	<!-- <dependencies>
+		<dependency>
+			<groupId>org.eclipse.debug</groupId>
+			<artifactId>${project.artifactId}</artifactId>
+			<version>${project.version}</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/${project.artifactId}_${project.version}.jar</systemPath>
+		</dependency>
+	</dependencies> -->
+	<build>
+		<plugins>
+			<plugin>
+		      <artifactId>maven-antrun-plugin</artifactId>
+		      <version>1.8</version>
+		      <executions>
+		         <execution>
+		            <phase>generate-resources</phase>
+		            <configuration>
+		               <tasks>
+		                  <echo message="unzipping file" />
+		                  <unzip src="${project.basedir}/${project.artifactId}_${project.version}.jar" dest="${project.build.directory}/classes/" />
+		               </tasks>
+		            </configuration>
+		            <goals>
+		               <goal>run</goal>
+		            </goals>
+		         </execution>
+		      </executions>
+		   </plugin>
+	   </plugins>
+   </build>
+</project>
