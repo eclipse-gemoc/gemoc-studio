@@ -35,6 +35,7 @@
 		<groupId>org.eclipse.gemoc.gemoc-studio</groupId>
 		<artifactId>org.eclipse.gemoc.gemoc_studio.root</artifactId>
 		<version>3.4.0-SNAPSHOT</version>
+		<relativePath>..</relativePath>
 	</parent>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
