@@ -6,7 +6,7 @@
 
 	<groupId>org.eclipse.gemoc.gemoc-studio.thirdparty.bundle</groupId>
 	<artifactId>org.eclipse.emf.transaction</artifactId>
-	<version>1.9.1.201805140824</version>
+	<version>1.9.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<description>Maven distribution of org.eclipse.emf.transaction osgi bundle without maven dependencies</description>
 
@@ -27,7 +27,7 @@
 		            <configuration>
 		               <tasks>
 		                  <echo message="unzipping file" />
-		                  <unzip src="${project.basedir}/${project.artifactId}_${project.version}.jar" dest="${project.build.directory}/classes/" />
+		                  <unzip src="${project.basedir}/${project.artifactId}_1.9.1.201805140824.jar" dest="${project.build.directory}/classes/" />
 		               </tasks>
 		            </configuration>
 		            <goals>
