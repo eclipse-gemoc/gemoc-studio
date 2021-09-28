@@ -10,6 +10,12 @@
 	<packaging>jar</packaging>
 	<description>Maven distribution of org.eclipse.emf.transaction osgi bundle without maven dependencies</description>
 
+	<parent>
+		<groupId>org.eclipse.gemoc.gemoc-studio.thirdparty.bundle</groupId>
+		<artifactId>org.eclipse.gemoc.gemoc_studio.thirdparty-bundle</artifactId>
+		<version>3.4.0-SNAPSHOT</version>
+	</parent>
+	
 	<build>
 		<plugins>
 			<plugin>
