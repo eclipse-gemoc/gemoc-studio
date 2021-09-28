@@ -47,8 +47,8 @@
 		<core.runtime-version>3.19.0</core.runtime-version>
 
 		<!-- Eclipse debug dependencies versions -->
-		<debug.core-version>3.15.0.v20200224-0654</debug.core-version>
-		<debug.ui-version>3.14.700.v20201123-0650</debug.ui-version>
+		<debug.core-version>3.15.0-SNAPSHOT</debug.core-version>
+		<debug.ui-version>3.14.700-SNAPSHOT</debug.ui-version>
 		
 		<!-- Eclipse equinox dependencies versions -->
 		<equinox.common-version>3.13.0</equinox.common-version>
@@ -59,7 +59,7 @@
 
 		<!-- Eclipse EMF dependencies versions -->
 		<!--  MUST BE ALIGNED with xtext bom currently https://github.com/eclipse/xtext-lib/blob/v2.24.0/org.eclipse.xtext.dev-bom/build.gradle -->
-		<emf.edit-version>2.16.0.20190920</emf.edit-version>
+		<emf.edit-version>2.16.0-SNAPSHOT</emf.edit-version>
 		<emf.common-version>2.17.0</emf.common-version><!-- <emf.common-version>[2.16.0,3.0.0)</emf.common-version> -->
 		<emf.ecore-version>2.20.0</emf.ecore-version><!-- <emf.ecore-version>[2.16.0,3.0.0)</emf.ecore-version> -->
 		<emf.ecore.xmi-version>2.16.0</emf.ecore.xmi-version>
