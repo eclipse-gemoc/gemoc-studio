@@ -9,6 +9,7 @@
 	<version>3.5.3-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<description>Maven distribution of org.eclipse.emf.compare osgi bundle without maven dependencies</description>
+	<url>https://www.eclipse.org/gemoc/</url>
 
 	<parent>
 		<groupId>org.eclipse.gemoc.gemoc-studio.thirdparty.bundle</groupId>
