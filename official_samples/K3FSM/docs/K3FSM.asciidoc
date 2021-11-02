@@ -109,7 +109,7 @@ image::images/K3FSM/DIY/K3FSM_syntaxic_domain.png["FSM Syntaxic domain."]
 
 * In the _org.eclipse.gemoc.example.k3fsm project_, open the *genmodel* file, 
     ** change the File extensions for the model to `k3fsmxmi`  (on the package: K3fsm -> K3fsm -> section Model)    
-    ** change the _Base Package_ for the model to `org.eclipse.gemoc.example.k3fsm`  (on the package: Fsm -> Fsm -> section _All_)    
+    ** change the _Base Package_ for the model to `org.eclipse.gemoc.example.k3fsm`  (on the package: K3fsm -> K3fsm -> section _All_)    
     ** Right click on the root element then _Generate model code_; _Generate edit code_; _Generate editor code_.
 
 [TIP]
