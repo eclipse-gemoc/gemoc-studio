@@ -47,11 +47,11 @@ Install the projects of this language:
 
 - File -> new  -> Examples... -> GEMOC K3 FSM Language example (Sequential)
 
-Create and start an eclipse runtime:
+Create and start the corresponding modeling workbench:
 
 - Run  ->  Run Configurations... -> Eclipse application > new
 
-In the second Eclipse instance.
+In the modeling workbench (the second Eclipse instance).
 
 Install sample models for the language:
 
