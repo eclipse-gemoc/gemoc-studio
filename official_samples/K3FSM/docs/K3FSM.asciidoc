@@ -99,7 +99,7 @@ NOTE: You may apply some of these steps in a different order. This is only an ex
 
 ==== Create the Domain concepts
 
-* Right click on the project; _GEMOC Language_ ->  _Create Domain Model Project for Language_. Name this new project "org.eclipse.gemoc.example.k3fsm". Optionally adapt the nsUri.
+* Right click on the project; _GEMOC Language_ ->  _Create Domain Model Project for Language_. Name this new project "org.eclipse.gemoc.example.k3fsm". Adapt the nsUri to match this name.
     ** in the .dsl file, fix the _ecore_ entry by removing `platform:/resource/ecoreFilePath,` from the value.
 * Edit the ecore file and add the concepts corresponding to the syntaxic domain (ie. reproduce concepts of <<img-K3FSM_syntaxic_domain_figure>>).
 
