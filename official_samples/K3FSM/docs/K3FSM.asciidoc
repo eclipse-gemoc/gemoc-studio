@@ -61,7 +61,7 @@ Run (actually debug ;-) ) one of the provided model using the predefined launch 
 
 - Run  ->  Debug Configurations... -> Executable model with GEMOC Java engine -> one of the K3FSM launch conf such as _K3FSM - TwostatesUpcast(abababa)_.
 
-You can change the string passed to the model in the launch configuration (in the _Model initialization argutments_ field).
+You can change the string passed to the model in the launch configuration (in the _Model initialization arguments_ field).
 
 
 === Language structure overview
@@ -82,7 +82,7 @@ image::images/K3FSM/K3FSM_classes.png["K3FSM Metamodel classes and K3 aspects cl
 For simplification of the diagrams, the associations that doesn't represent a containment, are represented as attributes rather than links.
 ====
 
-The elements with a green bullet in <<img-K3FSM_classes>> are par of the semantic domain. This is the part of the model that will change  during the execution of a FSM model. Note that some attributes (such as _consummedString_) may not be  mandatory for correct execution but provide nice user feedback in the animation. 
+The elements with a green bullet in <<img-K3FSM_classes>> are part of the semantic domain. This is the part of the model that will change  during the execution of a FSM model. Note that some attributes (such as _consummedString_) may not be  mandatory for correct execution but provide nice user feedback in the animation. 
 
 
 [[K3FSM-example-DIY]]
@@ -144,7 +144,7 @@ Menu _File -> New -> Ecore Modeling Project then in the template wizard of the x
 
 ==== Add Semantics operations
 
-* Right click on the xdsml project; _GEMOC Language_ ->  _Create DSA Project for Language_. Next -> Select "User Ecore Basic Aspect"; Set "Aspet file name" to "K3FSMAspects".
+* Right click on the xdsml project; _GEMOC Language_ ->  _Create DSA Project for Language_. Next -> Select "User Ecore Basic Aspect"; Set "Aspect file name" to "K3FSMAspects".
 
     ** in the .dsl file, fix the _k3_ entry by removing `qualified.class.name,` from the value.
     ** edit the k3fsmAspect.xtend file and add the following methods in the aspects:
