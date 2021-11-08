@@ -220,10 +220,11 @@ NOTE: Cf. <<defining-a-debug-representation-section>>
     ** on the animation layer; _New Diagram element_ -> _Decorations_; then _New_ -> _Mapping based decoration_; Name = "Current State"; Mapping =StateContainer; Image Expression = "/org.eclipse.gemoc.example.k3fsm.design/icons/cursor-3-24.png"; Precondition Expression = `service:self.isCurrenState`;
     ** add an image named _cursor-3-24.png_ in the icons folder of the design project.
     *** in the plugin.xmlfile editor, add the icons folder to the binary build (ie. in the _bin.includes_ section of build.properties file) .
-    * in the _k3fsm.odesign_ file; in FSM Palette; add a _User fixed color_; name = _hasBeenAnimated_; select a color (pink for example)
-    ** in the _Animation_ layer; _New Customization_ -> _Style Customizations_; then _New Customization_ -> _Style Customization_; Predicate expression = `service:self.hasBeenActivated`
-    ** in this Customization; _New Customization_ -> _Property customization by selection_; applied on = "TransitionEdge > Edge Style solid"; Property Name = `strokeColor`, Value Selection = `hasBeenAnimated`
-    ** in this Customization; _New Customization_ -> _Property customization by selection_; applied on = (all Gradient stuff related to StateContainer) ; Property Name = `borderColor`, Value Selection = `hasBeenAnimated`
+    * in the _k3fsm.odesign_ file; in k3fsm; add a _User Colors Palette_; name = _FSM Palette_
+    ** in FSM Palette; add a _User fixed color_; name = _hasBeenAnimated_; select a color (pink for example)
+    *** in the _Animation_ layer; _New Customization_ -> _Style Customizations_; then _New Customization_ -> _Style Customization_; Predicate expression = `service:self.hasBeenActivated`
+    *** in this Customization; _New Customization_ -> _Property customization by selection_; applied on = "TransitionEdge > Edge Style solid"; Property Name = `strokeColor`, Value Selection = `hasBeenAnimated`
+    *** in this Customization; _New Customization_ -> _Property customization by selection_; applied on = (all Gradient stuff related to StateContainer) ; Property Name = `borderColor`, Value Selection = `hasBeenAnimated`
     
     * in K3FSMViewPoint; _New Extension_ -> _Java Extension_; Qualified Class Name = `org.eclipse.gemoc.example.k3fsm.design.services.FsmAnimatorServices`
     
