@@ -47,11 +47,11 @@ Install the projects of this language:
 
 - File -> new  -> Examples... -> GEMOC K3 FSM Language example (Sequential)
 
-Create and start an eclipse runtime:
+Create and start the corresponding modeling workbench:
 
 - Run  ->  Run Configurations... -> Eclipse application > new
 
-In the second Eclipse instance.
+In the modeling workbench (the second Eclipse instance).
 
 Install sample models for the language:
 
@@ -59,9 +59,9 @@ Install sample models for the language:
 
 Run (actually debug ;-) ) one of the provided model using the predefined launch configurations:
 
-- Run  ->  Debug Configurations... -> Gemoc Sequential eXecutable Model -> one of the K3FSM launch conf such as _K3FSM - TwostatesUpcast(abababa)_.
+- Run  ->  Debug Configurations... -> Executable model with GEMOC Java engine -> one of the K3FSM launch conf such as _K3FSM - TwostatesUpcast(abababa)_.
 
-You can change the string passed to the model in the launch configuration (in the _Model initialization argutments_ field).
+You can change the string passed to the model in the launch configuration (in the _Model initialization arguments_ field).
 
 
 === Language structure overview
@@ -82,7 +82,7 @@ image::images/K3FSM/K3FSM_classes.png["K3FSM Metamodel classes and K3 aspects cl
 For simplification of the diagrams, the associations that doesn't represent a containment, are represented as attributes rather than links.
 ====
 
-The elements with a green bullet in <<img-K3FSM_classes>> are par of the semantic domain. This is the part of the model that will change  during the execution of a FSM model. Note that some attributes (such as _consummedString_) may not be  mandatory for correct execution but provide nice user feedback in the animation. 
+The elements with a green bullet in <<img-K3FSM_classes>> are part of the semantic domain. This is the part of the model that will change  during the execution of a FSM model. Note that some attributes (such as _consummedString_) may not be  mandatory for correct execution but provide nice user feedback in the animation. 
 
 
 [[K3FSM-example-DIY]]
@@ -99,7 +99,7 @@ NOTE: You may apply some of these steps in a different order. This is only an ex
 
 ==== Create the Domain concepts
 
-* Right click on the project; _GEMOC Language_ ->  _Create Domain Model Project for Language_. Name this new project "org.eclipse.gemoc.example.k3fsm". Optionally adapt the nsUri.
+* Right click on the project; _GEMOC Language_ ->  _Create Domain Model Project for Language_. Name this new project "org.eclipse.gemoc.example.k3fsm". Adapt the nsUri to match this name.
     ** in the .dsl file, fix the _ecore_ entry by removing `platform:/resource/ecoreFilePath,` from the value.
 * Edit the ecore file and add the concepts corresponding to the syntaxic domain (ie. reproduce concepts of <<img-K3FSM_syntaxic_domain_figure>>).
 
@@ -109,7 +109,7 @@ image::images/K3FSM/DIY/K3FSM_syntaxic_domain.png["FSM Syntaxic domain."]
 
 * In the _org.eclipse.gemoc.example.k3fsm project_, open the *genmodel* file, 
     ** change the File extensions for the model to `k3fsmxmi`  (on the package: K3fsm -> K3fsm -> section Model)    
-    ** change the _Base Package_ for the model to `org.eclipse.gemoc.example.k3fsm`  (on the package: Fsm -> Fsm -> section _All_)    
+    ** change the _Base Package_ for the model to `org.eclipse.gemoc.example.k3fsm`  (on the package: K3fsm -> K3fsm -> section _All_)    
     ** Right click on the root element then _Generate model code_; _Generate edit code_; _Generate editor code_.
 
 [TIP]
@@ -144,7 +144,7 @@ Menu _File -> New -> Ecore Modeling Project then in the template wizard of the x
 
 ==== Add Semantics operations
 
-* Right click on the xdsml project; _GEMOC Language_ ->  _Create DSA Project for Language_. Next -> Select "User Ecore Basic Aspect"; Set "Aspet file name" to "K3FSMAspects".
+* Right click on the xdsml project; _GEMOC Language_ ->  _Create DSA Project for Language_. Next -> Select "User Ecore Basic Aspect"; Set "Aspect file name" to "K3FSMAspects".
 
     ** in the .dsl file, fix the _k3_ entry by removing `qualified.class.name,` from the value.
     ** edit the k3fsmAspect.xtend file and add the following methods in the aspects:
@@ -220,10 +220,11 @@ NOTE: Cf. <<defining-a-debug-representation-section>>
     ** on the animation layer; _New Diagram element_ -> _Decorations_; then _New_ -> _Mapping based decoration_; Name = "Current State"; Mapping =StateContainer; Image Expression = "/org.eclipse.gemoc.example.k3fsm.design/icons/cursor-3-24.png"; Precondition Expression = `service:self.isCurrenState`;
     ** add an image named _cursor-3-24.png_ in the icons folder of the design project.
     *** in the plugin.xmlfile editor, add the icons folder to the binary build (ie. in the _bin.includes_ section of build.properties file) .
-    * in the _k3fsm.odesign_ file; in FSM Palette; add a _User fixed color_; name = _hasBeenAnimated_; select a color (pink for example)
-    ** in the _Animation_ layer; _New Customization_ -> _Style Customizations_; then _New Customization_ -> _Style Customization_; Predicate expression = `service:self.hasBeenActivated`
-    ** in this Customization; _New Customization_ -> _Property customization by selection_; applied on = "TransitionEdge > Edge Style solid"; Property Name = `strokeColor`, Value Selection = `hasBeenAnimated`
-    ** in this Customization; _New Customization_ -> _Property customization by selection_; applied on = (all Gradient stuff related to StateContainer) ; Property Name = `borderColor`, Value Selection = `hasBeenAnimated`
+    * in the _k3fsm.odesign_ file; in k3fsm; add a _User Colors Palette_; name = _FSM Palette_
+    ** in FSM Palette; add a _User fixed color_; name = _hasBeenAnimated_; select a color (pink for example)
+    *** in the _Animation_ layer; _New Customization_ -> _Style Customizations_; then _New Customization_ -> _Style Customization_; Predicate expression = `service:self.hasBeenActivated`
+    *** in this Customization; _New Customization_ -> _Property customization by selection_; applied on = "TransitionEdge > Edge Style solid"; Property Name = `strokeColor`, Value Selection = `hasBeenAnimated`
+    *** in this Customization; _New Customization_ -> _Property customization by selection_; applied on = (all Gradient stuff related to StateContainer) ; Property Name = `borderColor`, Value Selection = `hasBeenAnimated`
     
     * in K3FSMViewPoint; _New Extension_ -> _Java Extension_; Qualified Class Name = `org.eclipse.gemoc.example.k3fsm.design.services.FsmAnimatorServices`
     
