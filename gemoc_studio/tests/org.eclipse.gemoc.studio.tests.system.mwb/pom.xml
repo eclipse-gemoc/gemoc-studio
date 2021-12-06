@@ -15,9 +15,9 @@
 
 	<parent>
 		<relativePath>../..</relativePath>
-		<groupId>org.eclipse.gemoc.gemoc_studio</groupId>
+		<groupId>org.eclipse.gemoc.gemoc-studio.bundle</groupId>
 		<artifactId>org.eclipse.gemoc.gemoc_studio.parent</artifactId>
-		<version>3.3.0-SNAPSHOT</version>
+		<version>3.4.0-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>org.eclipse.gemoc.studio.tests.system.mwb</artifactId>
@@ -42,7 +42,7 @@
 				<artifactId>tycho-surefire-plugin</artifactId>
 				<version>${tycho-version}</version>
 				<configuration>
-					<argLine>-Xmx2048m</argLine>
+					<argLine>-Xmx1500m</argLine>
 					<useUIHarness>true</useUIHarness>
 					<useUIThread>false</useUIThread>
 					<product>org.eclipse.sdk.ide</product>
@@ -51,6 +51,13 @@
               		<systemProperties>
               			<WORKSPACE>${basedir}/../../../..</WORKSPACE>
               		</systemProperties>
+              		<bundleStartLevel>
+              			<bundle>
+	              			<id>org.eclipse.gemoc.studio.tests.logging.config</id>
+	              			<!-- <level>4</level> -->
+	              			<autoStart>true</autoStart>
+              			</bundle>
+              		</bundleStartLevel>
 				</configuration>
 			</plugin>
 		
@@ -140,6 +147,11 @@
 			               <type>eclipse-feature</type>
 			               <id>org.eclipse.swtbot.ide</id>
 			               <versionRange>3.0.0</versionRange>
+			            </requirement>
+			            <requirement>
+			               <type>eclipse-plugin</type>
+			               <id>org.eclipse.gemoc.studio.tests.logging.config</id>
+			               <versionRange>0.0.0</versionRange>
 			            </requirement>
 			         </extraRequirements>
 			        

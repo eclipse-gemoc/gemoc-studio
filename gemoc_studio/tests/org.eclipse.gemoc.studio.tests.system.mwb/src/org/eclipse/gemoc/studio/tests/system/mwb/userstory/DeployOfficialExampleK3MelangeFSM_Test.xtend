@@ -11,26 +11,32 @@
 package org.eclipse.gemoc.studio.tests.system.mwb.userstory
 
 import org.eclipse.gemoc.xdsmlframework.ide.ui.XDSMLFrameworkUI
+import org.eclipse.gemoc.xdsmlframework.test.lib.GEMOCTestVideoHelper
+import org.eclipse.gemoc.xdsmlframework.test.lib.SWTBotHelper
+import org.eclipse.gemoc.xdsmlframework.test.lib.TailWorkspaceLogToStderrRule
 import org.eclipse.gemoc.xdsmlframework.test.lib.WorkspaceTestHelper
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner
 import org.eclipse.swtbot.swt.finder.keyboard.Keyboard
 import org.eclipse.swtbot.swt.finder.keyboard.KeyboardFactory
 import org.eclipse.swtbot.swt.finder.keyboard.Keystrokes
+import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences
 import org.eclipse.xtext.junit4.AbstractXtextTests
 import org.eclipse.xtext.ui.testing.util.IResourcesSetupUtil
 import org.junit.After
+import org.junit.AfterClass
 import org.junit.Before
 import org.junit.BeforeClass
 import org.junit.FixMethodOrder
+import org.junit.Rule
 import org.junit.Test
+import org.junit.rules.TestName
+import org.junit.rules.TestWatcher
+import org.junit.runner.Description
 import org.junit.runner.RunWith
 import org.junit.runners.MethodSorters
-import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences
-import org.eclipse.gemoc.xdsmlframework.test.lib.TailWorkspaceLogToStderrRule
-import org.junit.Rule
-import org.eclipse.gemoc.xdsmlframework.test.lib.GEMOCTestVideoHelper
-import org.junit.rules.TestName
+
+import static org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences.*
 
 /**
  * Verifies that we can use the wizard to install the official sample models
@@ -78,10 +84,34 @@ class DeployOfficialExampleK3MelangeFSM_Test extends AbstractXtextTests
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 	}
 	
+	@AfterClass
+	def static void afterClass() {
+		//
+		println("afterClass clearing: " + DeployOfficialExampleK3MelangeFSM_Test.canonicalName )
+		IResourcesSetupUtil::cleanWorkspace
+		IResourcesSetupUtil::reallyWaitForAutoBuild
+		WorkspaceTestHelper::reallyWaitForJobs(2)
+		println("afterClass done: " + DebugOfficialExampleK3FSM_Test.canonicalName )
+	}
+	
 	@After
 	override tearDown() {
 		// Nothing to do
 	}
+	
+	/** print SWTBot context on failure */
+	@Rule(order=Integer.MIN_VALUE)
+	public TestWatcher watchman = new TestWatcher() {
+		override void failed(Throwable e, Description description) {
+			println("FAILED test: " + description )
+			SWTBotHelper.printSWTBotStatus(bot)
+		}
+
+		override void succeeded(Description description) {
+			println(description + " success!")
+			//SWTBotHelper.printSWTBotStatus(bot)
+		}
+	};
 	
 	@Test
 	def void test01_InstallK3MelangeFsmModels() throws Exception {

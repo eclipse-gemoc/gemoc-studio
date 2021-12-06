@@ -10,7 +10,11 @@
  *******************************************************************************/
 package org.eclipse.gemoc.studio.tests.system.mwb.userstory
 
+import org.eclipse.debug.core.DebugPlugin
+import org.eclipse.debug.internal.core.LaunchManager
 import org.eclipse.gemoc.xdsmlframework.ide.ui.XDSMLFrameworkUI
+import org.eclipse.gemoc.xdsmlframework.test.lib.GEMOCTestVideoHelper
+import org.eclipse.gemoc.xdsmlframework.test.lib.SWTBotHelper
 import org.eclipse.gemoc.xdsmlframework.test.lib.TailWorkspaceLogToStderrRule
 import org.eclipse.gemoc.xdsmlframework.test.lib.WorkspaceTestHelper
 import org.eclipse.swt.SWT
@@ -26,11 +30,15 @@ import org.eclipse.swtbot.swt.finder.widgets.SWTBotToolbarPushButton
 import org.eclipse.xtext.junit4.AbstractXtextTests
 import org.eclipse.xtext.ui.testing.util.IResourcesSetupUtil
 import org.junit.After
+import org.junit.AfterClass
 import org.junit.Before
 import org.junit.BeforeClass
 import org.junit.FixMethodOrder
 import org.junit.Rule
 import org.junit.Test
+import org.junit.rules.TestName
+import org.junit.rules.TestWatcher
+import org.junit.runner.Description
 import org.junit.runner.RunWith
 import org.junit.runners.MethodSorters
 
@@ -40,11 +48,7 @@ import static org.eclipse.swtbot.swt.finder.matchers.WidgetMatcherFactory.widget
 import static org.eclipse.swtbot.swt.finder.matchers.WidgetMatcherFactory.withStyle
 import static org.eclipse.swtbot.swt.finder.matchers.WidgetMatcherFactory.withTooltip
 import static org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences.*
-import org.eclipse.debug.core.DebugPlugin
-import org.eclipse.debug.internal.core.LaunchManager
-import org.eclipse.gemoc.xdsmlframework.test.lib.SWTBotHelper
-import org.junit.rules.TestName
-import org.eclipse.gemoc.xdsmlframework.test.lib.GEMOCTestVideoHelper
+import static extension org.eclipse.gemoc.studio.tests.system.mwb.userstory.ModelingWorkbenchTestHelper.*
 
 /**
  * Verifies that we can use the wizard to install the official sample models 
@@ -93,10 +97,34 @@ class DeployOfficialExampleK3FSM_Test extends AbstractXtextTests
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 	}
 	
+	@AfterClass
+	def static void afterClass() {
+		//
+		println("afterClass clearing: " + DeployOfficialExampleK3FSM_Test.canonicalName )
+		IResourcesSetupUtil::cleanWorkspace
+		IResourcesSetupUtil::reallyWaitForAutoBuild
+		WorkspaceTestHelper::reallyWaitForJobs(2)
+		println("afterClass done: " + DebugOfficialExampleK3FSM_Test.canonicalName )
+	}
+	
 	@After
 	override tearDown() {
 		// Nothing to do
 	}
+	
+	/** print SWTBot context on failure */
+	@Rule(order=Integer.MIN_VALUE)
+	public TestWatcher watchman = new TestWatcher() {
+		override void failed(Throwable e, Description description) {
+			println("FAILED test: " + description )
+			SWTBotHelper.printSWTBotStatus(bot)
+		}
+
+		override void succeeded(Description description) {
+			println(description + " success!")
+			//SWTBotHelper.printSWTBotStatus(bot)
+		}
+	};
 	
 	/**
 	 * verifies that the example models installation proceeds correctly
@@ -138,81 +166,44 @@ class DeployOfficialExampleK3FSM_Test extends AbstractXtextTests
 		bot.button("Debug").click();
 				
 		// accept switch to debug perspective (this also makes sure that the engines has started)		
-		//bot.perspectiveByLabel("Debug").activate
-		try {
-			bot.shell("Confirm Perspective Switch").bot.button("Switch").click
-		} catch (WidgetNotFoundException wnfe){
-			System.out.println(wnfe);
-			SWTBotHelper.printShellList(bot);
-			System.out.println("retry a second time");
-			try {
-				bot.shell("Confirm Perspective Switch").bot.button("Switch").click
-			} catch (WidgetNotFoundException wnfe2){
-				System.out.println(wnfe2);
-				System.out.println("retry a third time using main shell");
-				bot.button("Switch").click
-			}
-		}
+		confirmPerspectiveSwitch(bot)
 		
 		bot.viewByTitle("Debug").show();
 		// proceeds for some steps and then run up to the end
-		clickOnStepInto()
+		clickOnStepInto(bot)
 		waitThreadSuspended
-		clickOnStepInto()
+		clickOnStepInto(bot)
 		waitThreadSuspended
-		clickOnStepInto()
+		clickOnStepInto(bot)
 		waitThreadSuspended
-		clickOnStepInto()
+		clickOnStepInto(bot)
 		waitThreadSuspended
 		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Executable model with GEMOC Java engine]").getNode("Gemoc debug target").select();
 		bot.toolbarButtonWithTooltip("Resu&me (F8)").click();
 		
-		// at some point, xtext may  wish to convert the project containing the models, accept is silently
-		// however, it seems to be in another thread and do not block the execution 
-		try {
-			bot.shell("Configure Xtext").bot.button("Yes").click
-		} catch (WidgetNotFoundException wnfe){}
+		closeConfigureXtextPopup(bot)
 		
-		// stop engine and clear using the engine status view
-		bot.viewByTitle("Gemoc Engines Status").show();
-		bot.toolbarButtonWithTooltip("Stop selected engines").click();
-		bot.toolbarButtonWithTooltip("Dispose all stopped engines").click();
+		waitFirstTargetThreadSuspendedOrTerminated("K3FSM - TwoStatesUpcast(abababa)")
+		try {
+			closeAndClearEngine(bot)	
+		} catch (Exception e){
+			println("Failed to close engine using UI, Trying programmatically instead")
+			e.printStackTrace
+			closeAndClearEngineProgrammatically
+		}
+		val runningEnginesRegistry = org.eclipse.gemoc.executionframework.engine.Activator.getDefault().gemocRunningEngineRegistry;
+		assertTrue("runningEngineRegistry not empty " +runningEnginesRegistry.runningEngines,  runningEnginesRegistry.runningEngines.size == 0)
 		helper.assertNoMarkers();	
 		
 	}
 
-	/**
-	 * for some reason, the step into tooltip may change
-	 * so, here is a method that handle both tooltips
-	 * similar to bot.toolbarButtonWithTooltip("Step &Into (F5)").click();
-	 */
-	def void clickOnStepInto(){
-		val matcher = allOf(widgetOfType(typeof(ToolItem)), 
-			anyOf(withTooltip("Step &Into (F5)"), withTooltip("Step &Into")), 
-			withStyle(SWT.PUSH, "SWT.PUSH")
-		)
-		val btn = new SWTBotToolbarPushButton( bot.widget(matcher, 0) as ToolItem, matcher);
-		btn.click
-	}
-	
+
 	/**
 	 * This is very basic, it supposes that there is one and only one debug target in the debug view
 	 * or timeout exception
 	 */
 	def void waitThreadSuspended(){		
-		val launchManager = DebugPlugin.getDefault().getLaunchManager() as LaunchManager
-		val targets = launchManager.debugTargets
-		val target = targets.get(0)
-		assertTrue(target.name == "Gemoc debug target")
-		assertTrue(target.launch.launchConfiguration.name == "K3FSM - TwoStatesUpcast(abababa)")
-		
-		// wait that the target suspends or timeout exception
-		var timeout = 80
-		while(!	target.suspended || timeout < 0) {
-			Thread.sleep(100)
-			timeout--
-		} 
-		assertTrue("Timeout: K3FSM - TwoStatesUpcast(abababa) did not suspend",timeout > 0)
+		waitFirstTargetThreadSuspended("K3FSM - TwoStatesUpcast(abababa)")
 	}
 	
 }

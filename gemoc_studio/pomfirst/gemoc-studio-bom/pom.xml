@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<!-- cf. https://github.com/eclipse/xtext-lib/blob/v2.18.0/releng/org.eclipse.xtext.dev-bom/pom.xml -->
+	<!-- cf. https://github.com/eclipse/xtext-lib/blob/v2.24.0/org.eclipse.xtext.dev-bom/build.gradle -->
+	<!-- cf. https://blogs.itemis.com/en/eclipse-xtext-goes-shopping-the-new-bill-of-materials -->
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.eclipse.gemoc.gemoc-studio</groupId>
+	<artifactId>gemoc-studio-bom</artifactId>
+	<packaging>pom</packaging>
+	<name>GEMOC Studio BOM</name>
+	<description>GEMOC Studio Third Party Dependencies (Bill of Materials)</description>
+	<url>https://www.eclipse.org/gemoc/</url>
+
+	<parent>
+		<groupId>org.eclipse.gemoc.gemoc-studio</groupId>
+		<artifactId>org.eclipse.gemoc.gemoc_studio.root</artifactId>
+		<version>3.4.0-SNAPSHOT</version>
+		<relativePath>..</relativePath>
+	</parent>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<!-- Eclipse platform dependencies versions --> <!--  ie. groupid org.eclipse.platform -->
+		<core.expressions-version>3.7.0</core.expressions-version>
+		<core.resources-version>3.13.800</core.resources-version>
+		<core.filesystem-version>1.7.700</core.filesystem-version>
+		<core.runtime-version>3.19.0</core.runtime-version>
+
+		<!-- Eclipse debug dependencies versions -->
+		<debug.core-version>3.15.0-SNAPSHOT</debug.core-version>
+		<debug.ui-version>3.14.700-SNAPSHOT</debug.ui-version>
+		
+		<!-- Eclipse equinox dependencies versions -->
+		<equinox.common-version>3.13.0</equinox.common-version>
+		<equinox.registry-version>3.9.0</equinox.registry-version>
+		
+		<!-- Eclipse osgi -->
+		<osgi-version>3.16.0</osgi-version>
+
+		<!-- Eclipse EMF dependencies versions -->
+		<!--  MUST BE ALIGNED with xtext bom currently https://github.com/eclipse/xtext-lib/blob/v2.24.0/org.eclipse.xtext.dev-bom/build.gradle -->
+		<emf.edit-version>2.16.0-SNAPSHOT</emf.edit-version>
+		<emf.common-version>2.17.0</emf.common-version><!-- <emf.common-version>[2.16.0,3.0.0)</emf.common-version> -->
+		<emf.ecore-version>2.25.0</emf.ecore-version><!-- <emf.ecore-version>[2.16.0,3.0.0)</emf.ecore-version> -->
+		<emf.ecore.xmi-version>2.16.0</emf.ecore.xmi-version>
+		<emf.compare-version>[3.4.0,3.6.0)</emf.compare-version>
+		<emf.transaction-version>[1.9.0,2.0.0)</emf.transaction-version> 
+		
+		<xtext-version>2.24.0</xtext-version>
+		<xtend-version>2.24.0</xtend-version>
+		
+	</properties>
+	<dependencyManagement>
+		<dependencies>
+			<!-- import bom from xtext -->
+			<!-- <dependency>
+				<groupId>org.eclipse.xtext</groupId>
+				<artifactId>xtext-dev-bom</artifactId>
+				<version>${xtext-version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency> -->
+			
+			<dependency>
+				<!-- <groupId>org.eclipse.debug</groupId> -->
+				<groupId>org.eclipse.gemoc.gemoc-studio.thirdparty.bundle</groupId>
+				<artifactId>org.eclipse.debug.core</artifactId>
+				<version>${debug.core-version}</version>
+			</dependency>
+			<dependency>
+				<!-- <groupId>org.eclipse.debug</groupId> -->
+				<groupId>org.eclipse.gemoc.gemoc-studio.thirdparty.bundle</groupId>
+				<artifactId>org.eclipse.debug.ui</artifactId>
+				<version>${debug.ui-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.eclipse.emf</groupId>
+				<artifactId>org.eclipse.emf.common</artifactId>
+				<version>${emf.common-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.eclipse.emf</groupId>
+				<artifactId>org.eclipse.emf.ecore</artifactId>
+				<version>${emf.ecore-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.eclipse.emf</groupId>
+				<artifactId>org.eclipse.emf.ecore.xmi</artifactId>
+				<version>${emf.ecore.xmi-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.eclipse.gemoc.gemoc-studio.thirdparty.bundle</groupId>
+				<artifactId>org.eclipse.emf.edit</artifactId>
+				<version>${emf.edit-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.eclipse.emf</groupId>
+				<artifactId>org.eclipse.emf.codegen.ecore</artifactId>
+				<version>${emf.ecore-version}</version>
+			</dependency> 
+			<dependency>
+				<!-- <groupId>org.eclipse.emf</groupId> -->
+				<groupId>org.eclipse.gemoc.gemoc-studio.thirdparty.bundle</groupId>
+				<artifactId>org.eclipse.emf.compare</artifactId>
+				<version>${emf.compare-version}</version>
+			</dependency>
+			<dependency>
+				<!-- <groupId>org.eclipse.emf</groupId> -->
+				<groupId>org.eclipse.gemoc.gemoc-studio.thirdparty.bundle</groupId>
+				<artifactId>org.eclipse.emf.transaction</artifactId>
+				<version>${emf.transaction-version}</version>
+			</dependency>
+
+
+			<dependency>
+				<groupId>org.eclipse.platform</groupId>
+				<artifactId>org.eclipse.core.expressions</artifactId>
+				<version>${core.expressions-version}</version>
+			</dependency>  
+			<dependency>
+				<groupId>org.eclipse.platform</groupId>
+				<artifactId>org.eclipse.core.filesystem</artifactId>
+				<version>${core.filesystem-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.eclipse.platform</groupId>
+				<artifactId>org.eclipse.core.resources</artifactId>
+				<version>${core.resources-version}</version>
+			</dependency> 
+			<dependency>
+				<groupId>org.eclipse.platform</groupId>
+				<artifactId>org.eclipse.core.runtime</artifactId>
+				<version>${core.runtime-version}</version>
+			</dependency> 
+			<dependency>
+				<groupId>org.eclipse.platform</groupId>
+				<artifactId>org.eclipse.equinox.common</artifactId>
+				<version>${equinox.common-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.eclipse.platform</groupId>
+				<artifactId>org.eclipse.equinox.registry</artifactId>
+				<version>${equinox.registry-version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.eclipse.platform</groupId>
+				<artifactId>org.eclipse.osgi</artifactId>
+				<version>${osgi-version}</version>
+			</dependency>
+
+
+			<dependency>
+				<groupId>org.eclipse.xtext</groupId>
+				<artifactId>org.eclipse.xtext</artifactId>
+				<version>${xtext-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.eclipse.xtext</groupId>
+				<artifactId>org.eclipse.xtext.xbase.lib</artifactId>
+				<version>${xtext-version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>org.eclipse.xtend</groupId>
+			    <artifactId>org.eclipse.xtend.lib</artifactId>
+				<version>${xtend-version}</version>
+			</dependency>
+					
+		    <dependency>
+			    <groupId>org.eclipse.xtend</groupId>
+			    <artifactId>org.eclipse.xtend.ide.common</artifactId>
+				<version>${xtend-version}</version>
+		    </dependency>
+			
+			<dependency>
+			    <groupId>com.google.inject</groupId>
+			    <artifactId>guice</artifactId>
+			    <version>3.0</version>
+			</dependency>
+			<dependency>
+			    <groupId>com.google.guava</groupId>
+			    <artifactId>guava</artifactId>
+			    <version>27.1-jre</version>
+			</dependency>
+			
+			<dependency>
+			    <groupId>junit</groupId>
+			    <artifactId>junit</artifactId>
+			    <version>4.11</version>
+			</dependency>
+			<dependency>
+			    <groupId>org.jdom</groupId>
+			    <artifactId>jdom2</artifactId>
+			    <version>2.0.6</version>
+			</dependency>
+			
+		</dependencies>
+	</dependencyManagement>
+</project>
