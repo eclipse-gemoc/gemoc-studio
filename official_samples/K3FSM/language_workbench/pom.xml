@@ -22,6 +22,8 @@
         <module>org.eclipse.gemoc.example.k3fsm.design</module>
         <module>org.eclipse.gemoc.example.k3fsm.edit</module>
         <module>org.eclipse.gemoc.example.k3fsm.editor</module>
+        <module>org.eclipse.gemoc.example.k3fsm.event</module>
+        <module>org.eclipse.gemoc.example.k3fsm.event.xdsml</module>
         <module>org.eclipse.gemoc.example.k3fsm.k3dsa</module>
         <module>org.eclipse.gemoc.example.k3fsm.xdsml</module>
         <module>org.eclipse.gemoc.example.k3fsm.xtext</module>

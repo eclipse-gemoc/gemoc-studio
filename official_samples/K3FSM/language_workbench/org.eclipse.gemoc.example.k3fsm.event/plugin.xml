@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.gemoc.executionframework.event.implementationrelationship">
+      <implementation_relationship
+            class="org.eclipse.gemoc.example.k3fsm.event.K3FsmImplementationRelationship"
+            id="org.eclipse.gemoc.example.k3fsm.relationships.implementation_relationship"
+            name="K3Fsm Implementation Relationship">
+      </implementation_relationship>
+   </extension>
+
+</plugin>
