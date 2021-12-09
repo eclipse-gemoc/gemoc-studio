@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
-Bundle-Name: org.eclipse.gemoc.example.k3fsm.event.xdsml
-Bundle-SymbolicName: org.eclipse.gemoc.example.k3fsm.event.xdsml; singleton:=true
 Automatic-Module-Name: org.eclipse.gemoc.example.k3fsm.event.xdsml
+Bundle-SymbolicName: org.eclipse.gemoc.example.k3fsm.event.xdsml; singleton:=true
+Bundle-Name: org.eclipse.gemoc.example.k3fsm.event.xdsml
 Bundle-Version: 1.0.0
 Bundle-ClassPath: .
 Require-Bundle: org.eclipse.xtend.lib;bundle-version="2.7.0";visibility:="private",
