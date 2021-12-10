@@ -10,7 +10,7 @@ Require-Bundle: org.eclipse.gemoc.example.k3fsm.xtext,
  org.eclipse.xtext.ide,
  org.eclipse.xtext.xbase.ide,
  org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: org.eclipse.gemoc.example.k3fsm.ide.contentassist.antlr.internal,
  org.eclipse.gemoc.example.k3fsm.ide.contentassist.antlr
 Automatic-Module-Name: org.eclipse.gemoc.example.k3fsm.xtext.ide
