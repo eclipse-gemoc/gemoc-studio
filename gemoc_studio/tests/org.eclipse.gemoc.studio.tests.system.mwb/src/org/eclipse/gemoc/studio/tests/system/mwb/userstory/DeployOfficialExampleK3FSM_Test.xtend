@@ -136,7 +136,7 @@ class DeployOfficialExampleK3FSM_Test extends AbstractXtextTests
 		val newExampleBot = bot.shell("New Example").bot
 		newExampleBot.tree().getTreeItem("GEMOC modeling workbench examples").select();
 		newExampleBot.tree().getTreeItem("GEMOC modeling workbench examples").expand();
-		newExampleBot.tree().getTreeItem("GEMOC modeling workbench examples").getNode("GEMOC models for K3FSM Language (Sequential)").select();
+		newExampleBot.tree().getTreeItem("GEMOC modeling workbench examples").getNode("GEMOC models for K3FSM and EventK3FSM languages (Sequential)").select();
 	  	newExampleBot.button("Finish").click();
 	  
 		IResourcesSetupUtil::reallyWaitForAutoBuild
