@@ -105,6 +105,16 @@
 								<zip destfile="${basedir}/zips/org.eclipse.gemoc.example.k3fsm.xtext.ui.zip">
 									<fileset dir="${k3fsm_example_language_root}/org.eclipse.gemoc.example.k3fsm.xtext.ui/" />
 								</zip>
+								
+								<!-- EventK3FSM -->
+								<!-- only diff from K3FSM -->
+								<zip destfile="${basedir}/zips/org.eclipse.gemoc.example.k3fsm.event.zip">
+									<fileset dir="${k3fsm_example_language_root}/org.eclipse.gemoc.example.k3fsm.event/" />
+								</zip>
+								<zip destfile="${basedir}/zips/org.eclipse.gemoc.example.k3fsm.event.xdsml.zip">
+									<fileset dir="${k3fsm_example_language_root}/org.eclipse.gemoc.example.k3fsm.event.xdsml/" />
+								</zip>
+								
 							</target>
 						</configuration>
 					</execution>

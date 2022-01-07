@@ -32,7 +32,7 @@
             name="GEMOC models for MelangeK3FSM Language (Sequential)"
             preferredPerspectives="org.eclipse.sirius.ui.tools.perspective.modeling">
          <description>
-            T⁮his project contains some FSM models that can be executed if you have installed the MelangeK3FSM language.
+            T⁮his project contains some finite state machine models that can be executed if you have installed the MelangeK3FSM language.
          </description>
       </wizard>  
       <wizard
@@ -43,10 +43,10 @@
             hasPages="false"
             icon="icons/IconeGemocModel-16.png"
             id="org.eclipse.gemoc.sequential.modeling.wb.sample.deployer.k3fsm.model.wizard"
-            name="GEMOC models for K3FSM Language (Sequential)"
+            name="GEMOC models for K3FSM and EventK3FSM languages (Sequential)"
             preferredPerspectives="org.eclipse.sirius.ui.tools.perspective.modeling">
          <description>
-            T⁮his project contains some K3FSM models that can be executed if you have installed the K3FSM language.
+            T⁮his project contains some finite state machine models that can be executed if you have installed the K3FSM language or the EventK3FSM language.
          </description>
       </wizard>    
    </extension>
