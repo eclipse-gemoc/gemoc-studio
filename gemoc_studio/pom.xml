@@ -12,12 +12,12 @@
 	<groupId>org.eclipse.gemoc.gemoc-studio.bundle</groupId>
 	<artifactId>org.eclipse.gemoc.gemoc_studio.parent</artifactId>
 	<name>gemoc-studio/gemoc_studio root with tycho</name>
-	<version>3.4.0-SNAPSHOT</version>
+	<version>3.5.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<parent>
 		<groupId>org.eclipse.gemoc.gemoc-studio.bundle</groupId>
 		<artifactId>org.eclipse.gemoc.gemoc_studio.root</artifactId>
-		<version>3.4.0-SNAPSHOT</version>
+		<version>3.5.0-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
 	<properties>
