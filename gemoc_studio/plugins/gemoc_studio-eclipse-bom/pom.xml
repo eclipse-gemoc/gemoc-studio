@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.eclipse.gemoc.gemoc-studio</groupId>
 	<artifactId>gemoc_studio-eclipse-bom</artifactId>
-	<version>3.4.0-SNAPSHOT</version>
+	<version>3.5.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>GEMOC Studio Eclipse Product BOM</name>
 	<description>GEMOC Studio Eclipse Product Bill of Materials</description>
