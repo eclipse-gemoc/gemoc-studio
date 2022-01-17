@@ -33,7 +33,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.deploy.skip>true</maven.deploy.skip>
 		
-		<tycho-version>2.6.0</tycho-version>
+		<tycho-version>2.5.0</tycho-version>
     	<xtend.version>2.25.0</xtend.version>
     	
     	<eclipse.release.p2.url>http://download.eclipse.org/releases/2021-12</eclipse.release.p2.url>
