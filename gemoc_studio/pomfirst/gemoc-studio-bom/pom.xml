@@ -48,8 +48,8 @@
 		<emf.compare-version>[3.4.0,3.6.0)</emf.compare-version>
 		<emf.transaction-version>[1.9.0,2.0.0)</emf.transaction-version> 
 		
-		<xtext-version>2.24.0</xtext-version>
-		<xtend-version>2.24.0</xtend-version>
+		<xtext-version>2.25.0</xtext-version>
+		<xtend-version>2.25.0</xtend-version>
 		
 	</properties>
 	<dependencyManagement>
