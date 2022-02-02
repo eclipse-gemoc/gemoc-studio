@@ -11,7 +11,7 @@
     <booleanAttribute key="Generic MultiDimensional Data Trace" value="false"/>
     <stringAttribute key="LAUNCH_METHOD_ENTRY_POINT" value="public static void org.eclipse.gemoc.example.k3fsm.k3dsa.FSMAspect.main(org.eclipse.gemoc.example.k3fsm.FSM)"/>
     <stringAttribute key="LAUNCH_MODEL_ENTRY_POINT" value="/"/>
-    <stringAttribute key="Resource" value="/org.eclipse.gemoc.example.k3fsm.model_examples.ThreeStates/xmi/ThreeStates.k3fsm"/>
+    <stringAttribute key="Resource" value="/org.eclipse.gemoc.example.k3fsm.model_examples.ThreeStates/xmi/ThreeStates.k3fsmxmi"/>
     <stringAttribute key="airdResource" value="/org.eclipse.gemoc.example.k3fsm.model_examples.ThreeStates/representations.aird"/>
     <booleanAttribute key="fsm MultiDimensional Trace" value="false"/>
     <booleanAttribute key="org.eclipse.gemoc.trace.gemoc.addon_equivClassComputing_booleanOption" value="false"/>
