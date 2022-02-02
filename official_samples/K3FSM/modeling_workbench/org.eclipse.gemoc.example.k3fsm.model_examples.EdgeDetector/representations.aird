@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:k3fsm="http://www.eclipse.org/gemoc/example/k3fsm" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
+  <viewpoint:DAnalysis uid="_v7fdEGjZEeigzahbdubRQQ" selectedViews="_NWp6kGjaEeiU559ojQA1Ug" version="14.5.1.202106111100">
+    <semanticResources>xtext/TwoStates.k3fsm</semanticResources>
+    <semanticResources>xmi/ThreeStates.k3fsmxmi</semanticResources>
+    <semanticResources>xtext/BitShifting.k3fsm</semanticResources>
+    <semanticResources>xtext/EdgeDetector.k3fsm</semanticResources>
+    <semanticResources>xtext/String.toLowercase.k3fsm</semanticResources>
+    <semanticResources>xtext/String.toUpperCase.k3fsm</semanticResources>
+    <semanticResources>xtext/TrafficLight.k3fsm</semanticResources>
+    <ownedViews xmi:type="viewpoint:DView" uid="_NWp6kGjaEeiU559ojQA1Ug">
+      <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign#//@ownedViewpoints[name='K3FSMViewpoint']"/>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_nHa_QIQvEeyNiLaxleGxTQ" name="EdgeDetector" repPath="#_nHaYMIQvEeyNiLaxleGxTQ" changeId="edcfb144-8473-4ae0-86ed-c0e1ae2fd4cb">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign#//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']"/>
+        <target xmi:type="k3fsm:FSM" href="xtext/EdgeDetector.k3fsm#/"/>
+      </ownedRepresentationDescriptors>
+    </ownedViews>
+  </viewpoint:DAnalysis>
+  <diagram:DSemanticDiagram uid="_nHaYMIQvEeyNiLaxleGxTQ">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_nHcNYIQvEeyNiLaxleGxTQ" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_nHcNYYQvEeyNiLaxleGxTQ" type="Sirius" element="_nHaYMIQvEeyNiLaxleGxTQ" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_nIzfUIQvEeyNiLaxleGxTQ" type="2002" element="_nHoaoIQvEeyNiLaxleGxTQ">
+          <children xmi:type="notation:Node" xmi:id="_nI0GYIQvEeyNiLaxleGxTQ" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_nI0GYYQvEeyNiLaxleGxTQ" type="7001">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_nI0GYoQvEeyNiLaxleGxTQ"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_nI0GY4QvEeyNiLaxleGxTQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_nIzfUYQvEeyNiLaxleGxTQ" fontName="Cantarell" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nIzfUoQvEeyNiLaxleGxTQ" x="325" y="85" width="98" height="48"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_nI0GZIQvEeyNiLaxleGxTQ" type="2002" element="_nHzZwYQvEeyNiLaxleGxTQ">
+          <children xmi:type="notation:Node" xmi:id="_nI17kIQvEeyNiLaxleGxTQ" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_nI17kYQvEeyNiLaxleGxTQ" type="7001">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_nI17koQvEeyNiLaxleGxTQ"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_nI17k4QvEeyNiLaxleGxTQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_nI0GZYQvEeyNiLaxleGxTQ" fontName="Cantarell" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nI0GZoQvEeyNiLaxleGxTQ" x="435" y="185" width="98" height="48"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_nI17lIQvEeyNiLaxleGxTQ" type="2002" element="_nH5gYoQvEeyNiLaxleGxTQ">
+          <children xmi:type="notation:Node" xmi:id="_nI2ioIQvEeyNiLaxleGxTQ" type="5006"/>
+          <children xmi:type="notation:Node" xmi:id="_nI2ioYQvEeyNiLaxleGxTQ" type="7001">
+            <styles xmi:type="notation:SortingStyle" xmi:id="_nI2iooQvEeyNiLaxleGxTQ"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_nI2io4QvEeyNiLaxleGxTQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_nI17lYQvEeyNiLaxleGxTQ" fontName="Cantarell" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nI17loQvEeyNiLaxleGxTQ" x="135" y="185" width="98" height="48"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_nHcNYoQvEeyNiLaxleGxTQ"/>
+        <edges xmi:type="notation:Edge" xmi:id="_nI3JsIQvEeyNiLaxleGxTQ" type="4001" element="_nIk10IQvEeyNiLaxleGxTQ" source="_nIzfUIQvEeyNiLaxleGxTQ" target="_nI0GZIQvEeyNiLaxleGxTQ">
+          <children xmi:type="notation:Node" xmi:id="_nI3JtIQvEeyNiLaxleGxTQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nI3JtYQvEeyNiLaxleGxTQ" x="-32" y="-15"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nI3JtoQvEeyNiLaxleGxTQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nI3Jt4QvEeyNiLaxleGxTQ" x="-16" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nI3JuIQvEeyNiLaxleGxTQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nI3JuYQvEeyNiLaxleGxTQ" x="-36" y="-4"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_nI3JsYQvEeyNiLaxleGxTQ" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_nI3JsoQvEeyNiLaxleGxTQ" fontName="Cantarell" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nI3Js4QvEeyNiLaxleGxTQ" points="[21, 24, -89, -144]$[110, 24, 0, -144]$[110, 100, 0, -68]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nI3wwIQvEeyNiLaxleGxTQ" id="(0.78125,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nI3wwYQvEeyNiLaxleGxTQ" id="(0.78125,1.4782608695652173)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_nI3wwoQvEeyNiLaxleGxTQ" type="4001" element="_nIvN4IQvEeyNiLaxleGxTQ" source="_nIzfUIQvEeyNiLaxleGxTQ" target="_nI17lIQvEeyNiLaxleGxTQ">
+          <children xmi:type="notation:Node" xmi:id="_nI4X0IQvEeyNiLaxleGxTQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nI4X0YQvEeyNiLaxleGxTQ" x="-30" y="20"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nI4X0oQvEeyNiLaxleGxTQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nI4X04QvEeyNiLaxleGxTQ" x="14" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nI4X1IQvEeyNiLaxleGxTQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nI4X1YQvEeyNiLaxleGxTQ" x="-32" y="31"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_nI3ww4QvEeyNiLaxleGxTQ" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_nI3wxIQvEeyNiLaxleGxTQ" fontName="Cantarell" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nI3wxYQvEeyNiLaxleGxTQ" points="[-75, 24, 115, -144]$[-210, 24, -20, -144]$[-210, 100, -20, -68]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nI4-4IQvEeyNiLaxleGxTQ" id="(0.78125,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nI4-4YQvEeyNiLaxleGxTQ" id="(0.78125,1.4782608695652173)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_nI4-4oQvEeyNiLaxleGxTQ" type="4001" element="_nIv08IQvEeyNiLaxleGxTQ" source="_nI0GZIQvEeyNiLaxleGxTQ" target="_nI0GZIQvEeyNiLaxleGxTQ">
+          <children xmi:type="notation:Node" xmi:id="_nI4-5oQvEeyNiLaxleGxTQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nI4-54QvEeyNiLaxleGxTQ" x="24" y="24"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nI4-6IQvEeyNiLaxleGxTQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nI4-6YQvEeyNiLaxleGxTQ" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nI5l8IQvEeyNiLaxleGxTQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nI5l8YQvEeyNiLaxleGxTQ" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_nI4-44QvEeyNiLaxleGxTQ" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_nI4-5IQvEeyNiLaxleGxTQ" fontName="Cantarell" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nI4-5YQvEeyNiLaxleGxTQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nI5l8oQvEeyNiLaxleGxTQ" id="(0.7708333333333334,0.7391304347826086)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nI5l84QvEeyNiLaxleGxTQ" id="(0.7708333333333334,0.7391304347826086)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_nI6NAIQvEeyNiLaxleGxTQ" type="4001" element="_nIwcAIQvEeyNiLaxleGxTQ" source="_nI0GZIQvEeyNiLaxleGxTQ" target="_nI17lIQvEeyNiLaxleGxTQ">
+          <children xmi:type="notation:Node" xmi:id="_nI60EIQvEeyNiLaxleGxTQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nI60EYQvEeyNiLaxleGxTQ" x="-35" y="21"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nI7bIIQvEeyNiLaxleGxTQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nI7bIYQvEeyNiLaxleGxTQ" x="42" y="-10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nI8CMIQvEeyNiLaxleGxTQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nI8CMYQvEeyNiLaxleGxTQ" x="-26" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_nI6NAYQvEeyNiLaxleGxTQ" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_nI6NAoQvEeyNiLaxleGxTQ" fontName="Cantarell" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nI6NA4QvEeyNiLaxleGxTQ" points="[-25, 46, 275, -22]$[-25, 195, 275, 127]$[-320, 195, -20, 127]$[-320, 46, -20, -22]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nI8CMoQvEeyNiLaxleGxTQ" id="(0.78125,0.0)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nI8CM4QvEeyNiLaxleGxTQ" id="(0.78125,1.4782608695652173)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_nI8CNIQvEeyNiLaxleGxTQ" type="4001" element="_nIxDEoQvEeyNiLaxleGxTQ" source="_nI17lIQvEeyNiLaxleGxTQ" target="_nI17lIQvEeyNiLaxleGxTQ">
+          <children xmi:type="notation:Node" xmi:id="_nI8pQIQvEeyNiLaxleGxTQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nI8pQYQvEeyNiLaxleGxTQ" x="-20" y="32"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nI8pQoQvEeyNiLaxleGxTQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nI8pQ4QvEeyNiLaxleGxTQ" x="3" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nI8pRIQvEeyNiLaxleGxTQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nI8pRYQvEeyNiLaxleGxTQ" x="-3" y="10"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_nI8CNYQvEeyNiLaxleGxTQ" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_nI8CNoQvEeyNiLaxleGxTQ" fontName="Cantarell" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nI8CN4QvEeyNiLaxleGxTQ" points="[22, 0, 22, 0]$[84, 0, 84, 0]$[84, 71, 84, 71]$[11, 71, 11, 71]$[11, 12, 11, 12]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nI9QUIQvEeyNiLaxleGxTQ" id="(0.7708333333333334,0.7391304347826086)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nI9QUYQvEeyNiLaxleGxTQ" id="(0.7708333333333334,0.7391304347826086)"/>
+        </edges>
+        <edges xmi:type="notation:Edge" xmi:id="_nI9QUoQvEeyNiLaxleGxTQ" type="4001" element="_nIyRMIQvEeyNiLaxleGxTQ" source="_nI17lIQvEeyNiLaxleGxTQ" target="_nI0GZIQvEeyNiLaxleGxTQ">
+          <children xmi:type="notation:Node" xmi:id="_nI9QVoQvEeyNiLaxleGxTQ" type="6001">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nI9QV4QvEeyNiLaxleGxTQ" x="38" y="-21"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nI-ecIQvEeyNiLaxleGxTQ" type="6002">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nI-ecYQvEeyNiLaxleGxTQ" x="15" y="10"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_nI-ecoQvEeyNiLaxleGxTQ" type="6003">
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nI-ec4QvEeyNiLaxleGxTQ" x="-25" y="-7"/>
+          </children>
+          <styles xmi:type="notation:ConnectorStyle" xmi:id="_nI9QU4QvEeyNiLaxleGxTQ" routing="Rectilinear"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_nI9QVIQvEeyNiLaxleGxTQ" fontName="Cantarell" fontHeight="8"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nI9QVYQvEeyNiLaxleGxTQ" points="[0, -22, -300, 46]$[0, 77, -300, 145]$[250, 77, -50, 145]$[250, -22, -50, 46]"/>
+          <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nI-edIQvEeyNiLaxleGxTQ" id="(0.78125,1.4782608695652173)"/>
+          <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nI_FgIQvEeyNiLaxleGxTQ" id="(0.78125,0.0)"/>
+        </edges>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" uid="_nIy4QIQvEeyNiLaxleGxTQ" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" uid="_nIy4QYQvEeyNiLaxleGxTQ"/>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_nHoaoIQvEeyNiLaxleGxTQ" name="Si (initial)" outgoingEdges="_nIk10IQvEeyNiLaxleGxTQ _nIvN4IQvEeyNiLaxleGxTQ">
+      <target xmi:type="k3fsm:State" href="xtext/EdgeDetector.k3fsm#//@ownedStates.0"/>
+      <semanticElements xmi:type="k3fsm:State" href="xtext/EdgeDetector.k3fsm#//@ownedStates.0"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_nHyysIQvEeyNiLaxleGxTQ" showIcon="false" borderSize="4" borderSizeComputationExpression="4" foregroundColor="253,206,137">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign#//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='StateContainer']/@conditionnalStyles.0/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign#//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='StateContainer']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_nHzZwYQvEeyNiLaxleGxTQ" name="S0" outgoingEdges="_nIv08IQvEeyNiLaxleGxTQ _nIwcAIQvEeyNiLaxleGxTQ" incomingEdges="_nIk10IQvEeyNiLaxleGxTQ _nIv08IQvEeyNiLaxleGxTQ _nIyRMIQvEeyNiLaxleGxTQ">
+      <target xmi:type="k3fsm:State" href="xtext/EdgeDetector.k3fsm#//@ownedStates.1"/>
+      <semanticElements xmi:type="k3fsm:State" href="xtext/EdgeDetector.k3fsm#//@ownedStates.1"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_nH5gYIQvEeyNiLaxleGxTQ" showIcon="false" borderSize="1" borderSizeComputationExpression="1" foregroundColor="204,242,166">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign#//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='StateContainer']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign#//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='StateContainer']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DNodeContainer" uid="_nH5gYoQvEeyNiLaxleGxTQ" name="S1" outgoingEdges="_nIxDEoQvEeyNiLaxleGxTQ _nIyRMIQvEeyNiLaxleGxTQ" incomingEdges="_nIvN4IQvEeyNiLaxleGxTQ _nIwcAIQvEeyNiLaxleGxTQ _nIxDEoQvEeyNiLaxleGxTQ">
+      <target xmi:type="k3fsm:State" href="xtext/EdgeDetector.k3fsm#//@ownedStates.2"/>
+      <semanticElements xmi:type="k3fsm:State" href="xtext/EdgeDetector.k3fsm#//@ownedStates.2"/>
+      <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+      <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+      <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_nH6HcIQvEeyNiLaxleGxTQ" showIcon="false" borderSize="1" borderSizeComputationExpression="1" foregroundColor="204,242,166">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign#//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='StateContainer']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign#//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='StateContainer']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_nIk10IQvEeyNiLaxleGxTQ" name="Si_to_S0&#xA;&quot;0&quot; / &quot;0&quot;" sourceNode="_nHoaoIQvEeyNiLaxleGxTQ" targetNode="_nHzZwYQvEeyNiLaxleGxTQ">
+      <target xmi:type="k3fsm:Transition" href="xtext/EdgeDetector.k3fsm#//@ownedStates.0/@outgoingTransitions.0"/>
+      <semanticElements xmi:type="k3fsm:Transition" href="xtext/EdgeDetector.k3fsm#//@ownedStates.0/@outgoingTransitions.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_nIlc4IQvEeyNiLaxleGxTQ" size="2" routingStyle="manhattan">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign#//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='TransitionEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_nIlc4YQvEeyNiLaxleGxTQ" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign#//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='TransitionEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_nIvN4IQvEeyNiLaxleGxTQ" name="Si_to_S1&#xA;&quot;1&quot; / &quot;0&quot;" sourceNode="_nHoaoIQvEeyNiLaxleGxTQ" targetNode="_nH5gYoQvEeyNiLaxleGxTQ">
+      <target xmi:type="k3fsm:Transition" href="xtext/EdgeDetector.k3fsm#//@ownedStates.0/@outgoingTransitions.1"/>
+      <semanticElements xmi:type="k3fsm:Transition" href="xtext/EdgeDetector.k3fsm#//@ownedStates.0/@outgoingTransitions.1"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_nIvN4YQvEeyNiLaxleGxTQ" size="2" routingStyle="manhattan">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign#//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='TransitionEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_nIvN4oQvEeyNiLaxleGxTQ" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign#//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='TransitionEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_nIv08IQvEeyNiLaxleGxTQ" name="S0_to_S0&#xA;&quot;0&quot; / &quot;0&quot;" sourceNode="_nHzZwYQvEeyNiLaxleGxTQ" targetNode="_nHzZwYQvEeyNiLaxleGxTQ">
+      <target xmi:type="k3fsm:Transition" href="xtext/EdgeDetector.k3fsm#//@ownedStates.1/@outgoingTransitions.0"/>
+      <semanticElements xmi:type="k3fsm:Transition" href="xtext/EdgeDetector.k3fsm#//@ownedStates.1/@outgoingTransitions.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_nIv08YQvEeyNiLaxleGxTQ" size="2" routingStyle="manhattan">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign#//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='TransitionEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_nIv08oQvEeyNiLaxleGxTQ" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign#//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='TransitionEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_nIwcAIQvEeyNiLaxleGxTQ" name="S0_to_S1&#xA;&quot;1&quot; / &quot;1&quot;" sourceNode="_nHzZwYQvEeyNiLaxleGxTQ" targetNode="_nH5gYoQvEeyNiLaxleGxTQ">
+      <target xmi:type="k3fsm:Transition" href="xtext/EdgeDetector.k3fsm#//@ownedStates.1/@outgoingTransitions.1"/>
+      <semanticElements xmi:type="k3fsm:Transition" href="xtext/EdgeDetector.k3fsm#//@ownedStates.1/@outgoingTransitions.1"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_nIwcAYQvEeyNiLaxleGxTQ" size="2" routingStyle="manhattan">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign#//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='TransitionEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_nIwcAoQvEeyNiLaxleGxTQ" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign#//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='TransitionEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_nIxDEoQvEeyNiLaxleGxTQ" name="S1_to_S1&#xA;&quot;1&quot; / &quot;0&quot;" sourceNode="_nH5gYoQvEeyNiLaxleGxTQ" targetNode="_nH5gYoQvEeyNiLaxleGxTQ">
+      <target xmi:type="k3fsm:Transition" href="xtext/EdgeDetector.k3fsm#//@ownedStates.2/@outgoingTransitions.0"/>
+      <semanticElements xmi:type="k3fsm:Transition" href="xtext/EdgeDetector.k3fsm#//@ownedStates.2/@outgoingTransitions.0"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_nIxqIIQvEeyNiLaxleGxTQ" size="2" routingStyle="manhattan">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign#//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='TransitionEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_nIxqIYQvEeyNiLaxleGxTQ" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign#//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='TransitionEdge']"/>
+    </ownedDiagramElements>
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_nIyRMIQvEeyNiLaxleGxTQ" name="S1_to_S0&#xA;&quot;0&quot; / &quot;1&quot;" sourceNode="_nH5gYoQvEeyNiLaxleGxTQ" targetNode="_nHzZwYQvEeyNiLaxleGxTQ">
+      <target xmi:type="k3fsm:Transition" href="xtext/EdgeDetector.k3fsm#//@ownedStates.2/@outgoingTransitions.1"/>
+      <semanticElements xmi:type="k3fsm:Transition" href="xtext/EdgeDetector.k3fsm#//@ownedStates.2/@outgoingTransitions.1"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_nIyRMYQvEeyNiLaxleGxTQ" size="2" routingStyle="manhattan">
+        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign#//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='TransitionEdge']/@style"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_nIyRMoQvEeyNiLaxleGxTQ" showIcon="false"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign#//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='TransitionEdge']"/>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign#//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" uid="_nHaYMYQvEeyNiLaxleGxTQ"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign#//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.gemoc.example.k3fsm.design/description/k3fsm.odesign#//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@additionalLayers[name='Debug']"/>
+    <target xmi:type="k3fsm:FSM" href="xtext/EdgeDetector.k3fsm#/"/>
+  </diagram:DSemanticDiagram>
+</xmi:XMI>

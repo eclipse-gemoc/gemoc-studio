@@ -1,4 +1,4 @@
-FSM TwoStateUpcast {
+FSM TwoStates {
  initialState S1
  ownedStates {
  	State S1 {
