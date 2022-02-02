@@ -28,7 +28,7 @@
             id="org.eclipse.gemoc.example.k3fsm.presentation.K3fsmEditorID"
             name="%_UI_K3fsmEditor_label"
             icon="icons/full/obj16/K3fsmModelFile.gif"
-            extensions="k3fsm"
+            extensions="k3fsmxmi"
             class="org.eclipse.gemoc.example.k3fsm.presentation.K3fsmEditor"
             contributorClass="org.eclipse.gemoc.example.k3fsm.presentation.K3fsmActionBarContributor">
       </editor>

@@ -186,6 +186,7 @@ public class FSMImpl extends MinimalEObjectImpl.Container implements FSM {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -195,6 +196,7 @@ public class FSMImpl extends MinimalEObjectImpl.Container implements FSM {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -207,6 +209,7 @@ public class FSMImpl extends MinimalEObjectImpl.Container implements FSM {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<State> getOwnedStates() {
 		if (ownedStates == null) {
 			ownedStates = new EObjectContainmentWithInverseEList<State>(State.class, this,
@@ -220,6 +223,7 @@ public class FSMImpl extends MinimalEObjectImpl.Container implements FSM {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public State getInitialState() {
 		if (initialState != null && initialState.eIsProxy()) {
 			InternalEObject oldInitialState = (InternalEObject) initialState;
@@ -247,6 +251,7 @@ public class FSMImpl extends MinimalEObjectImpl.Container implements FSM {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setInitialState(State newInitialState) {
 		State oldInitialState = initialState;
 		initialState = newInitialState;
@@ -260,6 +265,7 @@ public class FSMImpl extends MinimalEObjectImpl.Container implements FSM {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public State getFinalState() {
 		if (finalState != null && finalState.eIsProxy()) {
 			InternalEObject oldFinalState = (InternalEObject) finalState;
@@ -287,6 +293,7 @@ public class FSMImpl extends MinimalEObjectImpl.Container implements FSM {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setFinalState(State newFinalState) {
 		State oldFinalState = finalState;
 		finalState = newFinalState;
@@ -300,6 +307,7 @@ public class FSMImpl extends MinimalEObjectImpl.Container implements FSM {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public State getCurrentState() {
 		if (currentState != null && currentState.eIsProxy()) {
 			InternalEObject oldCurrentState = (InternalEObject) currentState;
@@ -327,6 +335,7 @@ public class FSMImpl extends MinimalEObjectImpl.Container implements FSM {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setCurrentState(State newCurrentState) {
 		State oldCurrentState = currentState;
 		currentState = newCurrentState;
@@ -340,6 +349,7 @@ public class FSMImpl extends MinimalEObjectImpl.Container implements FSM {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getUnprocessedString() {
 		return unprocessedString;
 	}
@@ -349,6 +359,7 @@ public class FSMImpl extends MinimalEObjectImpl.Container implements FSM {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUnprocessedString(String newUnprocessedString) {
 		String oldUnprocessedString = unprocessedString;
 		unprocessedString = newUnprocessedString;
@@ -362,6 +373,7 @@ public class FSMImpl extends MinimalEObjectImpl.Container implements FSM {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getConsummedString() {
 		return consummedString;
 	}
@@ -371,6 +383,7 @@ public class FSMImpl extends MinimalEObjectImpl.Container implements FSM {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setConsummedString(String newConsummedString) {
 		String oldConsummedString = consummedString;
 		consummedString = newConsummedString;
@@ -384,6 +397,7 @@ public class FSMImpl extends MinimalEObjectImpl.Container implements FSM {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getProducedString() {
 		return producedString;
 	}
@@ -393,6 +407,7 @@ public class FSMImpl extends MinimalEObjectImpl.Container implements FSM {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setProducedString(String newProducedString) {
 		String oldProducedString = producedString;
 		producedString = newProducedString;
@@ -579,7 +594,7 @@ public class FSMImpl extends MinimalEObjectImpl.Container implements FSM {
 		if (eIsProxy())
 			return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
 		result.append(", unprocessedString: ");

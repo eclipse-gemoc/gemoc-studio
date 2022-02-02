@@ -105,6 +105,7 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -114,6 +115,7 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -126,6 +128,7 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Transition> getOutgoingTransitions() {
 		if (outgoingTransitions == null) {
 			outgoingTransitions = new EObjectContainmentWithInverseEList<Transition>(Transition.class, this,
@@ -139,6 +142,7 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Transition> getIncomingTransitions() {
 		if (incomingTransitions == null) {
 			incomingTransitions = new EObjectWithInverseResolvingEList<Transition>(Transition.class, this,
@@ -152,6 +156,7 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public FSM getOwningFSM() {
 		if (eContainerFeatureID() != K3fsmPackage.STATE__OWNING_FSM)
 			return null;
@@ -173,6 +178,7 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOwningFSM(FSM newOwningFSM) {
 		if (newOwningFSM != eInternalContainer()
 				|| (eContainerFeatureID() != K3fsmPackage.STATE__OWNING_FSM && newOwningFSM != null)) {
@@ -348,7 +354,7 @@ public class StateImpl extends MinimalEObjectImpl.Container implements State {
 		if (eIsProxy())
 			return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
 		result.append(')');
