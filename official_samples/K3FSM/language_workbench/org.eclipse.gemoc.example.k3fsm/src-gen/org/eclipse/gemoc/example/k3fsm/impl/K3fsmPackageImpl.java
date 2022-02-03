@@ -70,7 +70,7 @@ public class K3fsmPackageImpl extends EPackageImpl implements K3fsmPackage {
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link K3fsmPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -85,9 +85,10 @@ public class K3fsmPackageImpl extends EPackageImpl implements K3fsmPackage {
 			return (K3fsmPackage) EPackage.Registry.INSTANCE.getEPackage(K3fsmPackage.eNS_URI);
 
 		// Obtain or create and register package
-		K3fsmPackageImpl theK3fsmPackage = (K3fsmPackageImpl) (EPackage.Registry.INSTANCE
-				.get(eNS_URI) instanceof K3fsmPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
-						: new K3fsmPackageImpl());
+		Object registeredK3fsmPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		K3fsmPackageImpl theK3fsmPackage = registeredK3fsmPackage instanceof K3fsmPackageImpl
+				? (K3fsmPackageImpl) registeredK3fsmPackage
+				: new K3fsmPackageImpl();
 
 		isInited = true;
 
@@ -110,6 +111,7 @@ public class K3fsmPackageImpl extends EPackageImpl implements K3fsmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFSM() {
 		return fsmEClass;
 	}
@@ -119,6 +121,7 @@ public class K3fsmPackageImpl extends EPackageImpl implements K3fsmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getFSM_Name() {
 		return (EAttribute) fsmEClass.getEStructuralFeatures().get(0);
 	}
@@ -128,6 +131,7 @@ public class K3fsmPackageImpl extends EPackageImpl implements K3fsmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getFSM_OwnedStates() {
 		return (EReference) fsmEClass.getEStructuralFeatures().get(1);
 	}
@@ -137,6 +141,7 @@ public class K3fsmPackageImpl extends EPackageImpl implements K3fsmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getFSM_InitialState() {
 		return (EReference) fsmEClass.getEStructuralFeatures().get(2);
 	}
@@ -146,6 +151,7 @@ public class K3fsmPackageImpl extends EPackageImpl implements K3fsmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getFSM_FinalState() {
 		return (EReference) fsmEClass.getEStructuralFeatures().get(3);
 	}
@@ -155,6 +161,7 @@ public class K3fsmPackageImpl extends EPackageImpl implements K3fsmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getFSM_CurrentState() {
 		return (EReference) fsmEClass.getEStructuralFeatures().get(4);
 	}
@@ -164,6 +171,7 @@ public class K3fsmPackageImpl extends EPackageImpl implements K3fsmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getFSM_UnprocessedString() {
 		return (EAttribute) fsmEClass.getEStructuralFeatures().get(5);
 	}
@@ -173,6 +181,7 @@ public class K3fsmPackageImpl extends EPackageImpl implements K3fsmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getFSM_ConsummedString() {
 		return (EAttribute) fsmEClass.getEStructuralFeatures().get(6);
 	}
@@ -182,6 +191,7 @@ public class K3fsmPackageImpl extends EPackageImpl implements K3fsmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getFSM_ProducedString() {
 		return (EAttribute) fsmEClass.getEStructuralFeatures().get(7);
 	}
@@ -191,6 +201,7 @@ public class K3fsmPackageImpl extends EPackageImpl implements K3fsmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getState() {
 		return stateEClass;
 	}
@@ -200,6 +211,7 @@ public class K3fsmPackageImpl extends EPackageImpl implements K3fsmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getState_Name() {
 		return (EAttribute) stateEClass.getEStructuralFeatures().get(0);
 	}
@@ -209,6 +221,7 @@ public class K3fsmPackageImpl extends EPackageImpl implements K3fsmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getState_OutgoingTransitions() {
 		return (EReference) stateEClass.getEStructuralFeatures().get(1);
 	}
@@ -218,6 +231,7 @@ public class K3fsmPackageImpl extends EPackageImpl implements K3fsmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getState_IncomingTransitions() {
 		return (EReference) stateEClass.getEStructuralFeatures().get(2);
 	}
@@ -227,6 +241,7 @@ public class K3fsmPackageImpl extends EPackageImpl implements K3fsmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getState_OwningFSM() {
 		return (EReference) stateEClass.getEStructuralFeatures().get(3);
 	}
@@ -236,6 +251,7 @@ public class K3fsmPackageImpl extends EPackageImpl implements K3fsmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTransition() {
 		return transitionEClass;
 	}
@@ -245,6 +261,7 @@ public class K3fsmPackageImpl extends EPackageImpl implements K3fsmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTransition_Input() {
 		return (EAttribute) transitionEClass.getEStructuralFeatures().get(0);
 	}
@@ -254,6 +271,7 @@ public class K3fsmPackageImpl extends EPackageImpl implements K3fsmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTransition_Target() {
 		return (EReference) transitionEClass.getEStructuralFeatures().get(1);
 	}
@@ -263,6 +281,7 @@ public class K3fsmPackageImpl extends EPackageImpl implements K3fsmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTransition_Name() {
 		return (EAttribute) transitionEClass.getEStructuralFeatures().get(2);
 	}
@@ -272,6 +291,7 @@ public class K3fsmPackageImpl extends EPackageImpl implements K3fsmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getTransition_Output() {
 		return (EAttribute) transitionEClass.getEStructuralFeatures().get(3);
 	}
@@ -281,6 +301,7 @@ public class K3fsmPackageImpl extends EPackageImpl implements K3fsmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTransition_Source() {
 		return (EReference) transitionEClass.getEStructuralFeatures().get(4);
 	}
@@ -290,6 +311,7 @@ public class K3fsmPackageImpl extends EPackageImpl implements K3fsmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public K3fsmFactory getK3fsmFactory() {
 		return (K3fsmFactory) getEFactoryInstance();
 	}

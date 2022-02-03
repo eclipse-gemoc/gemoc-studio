@@ -8,12 +8,12 @@
 	<parent>
 		<groupId>org.eclipse.gemoc.gemoc-studio.bundle</groupId>
 		<artifactId>org.eclipse.gemoc.gemoc_studio.parent</artifactId>
-		<version>3.4.0-SNAPSHOT</version>
+		<version>3.5.0-SNAPSHOT</version>
 		<relativePath>../..</relativePath>
 	</parent>
 
 	<properties>
-		<eclipse.version.name>2021-06</eclipse.version.name>
+		<eclipse.version.name>2021-12</eclipse.version.name>
 		<!-- override these values using -D option on the maven command line on the CI (see jenkinsfile for CI configuration)-->		
 		<studio.variant>Local build</studio.variant>
 		<branch.variant>Unknown</branch.variant>

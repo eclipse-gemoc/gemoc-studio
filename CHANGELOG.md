@@ -1,5 +1,27 @@
 # Changelog
 
+## v3.4.0 (10/01/2022)
+
+#### Enhancements:
+
+- [**enhancement**] Example behavioral interface and implementation relationship [#251](https://github.com/eclipse/gemoc-studio/pull/251)
+
+#### Bug Fixes:
+
+- [**bug**] Re-enable workspace location prompt on startup [#238](https://github.com/eclipse/gemoc-studio/pull/238)
+
+#### Version upgrades
+
+- [**releng**][**bump**] Bump Studio to 3.4.0 [#236](https://github.com/eclipse/gemoc-studio/pull/236)
+
+#### Release Engineering
+
+- [**releng**] Fix mvn deploy config [#242](https://github.com/eclipse/gemoc-studio/pull/242)
+- [**releng**] Bundle vs pomfirst separate build and groupid [#240](https://github.com/eclipse/gemoc-studio/pull/240)
+- [**releng**] Fixes usage of GEMOC updatesite with recent Eclipse package [#250](https://github.com/eclipse/gemoc-studio/pull/250)
+
+---
+
 ## v3.3.0 (28/07/2021)
 
 #### Enhancements:

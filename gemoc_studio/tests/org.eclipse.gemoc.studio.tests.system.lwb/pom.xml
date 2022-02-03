@@ -17,7 +17,7 @@
 		<relativePath>../..</relativePath>
 		<groupId>org.eclipse.gemoc.gemoc-studio.bundle</groupId>
 		<artifactId>org.eclipse.gemoc.gemoc_studio.parent</artifactId>
-		<version>3.4.0-SNAPSHOT</version>
+		<version>3.5.0-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>org.eclipse.gemoc.studio.tests.system.lwb</artifactId>
