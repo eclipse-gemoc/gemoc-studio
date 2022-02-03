@@ -71,6 +71,7 @@ public class K3fsmFactoryImpl extends EFactoryImpl implements K3fsmFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public FSM createFSM() {
 		FSMImpl fsm = new FSMImpl();
 		return fsm;
@@ -81,6 +82,7 @@ public class K3fsmFactoryImpl extends EFactoryImpl implements K3fsmFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public State createState() {
 		StateImpl state = new StateImpl();
 		return state;
@@ -91,6 +93,7 @@ public class K3fsmFactoryImpl extends EFactoryImpl implements K3fsmFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Transition createTransition() {
 		TransitionImpl transition = new TransitionImpl();
 		return transition;
@@ -101,6 +104,7 @@ public class K3fsmFactoryImpl extends EFactoryImpl implements K3fsmFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public K3fsmPackage getK3fsmPackage() {
 		return (K3fsmPackage) getEPackage();
 	}

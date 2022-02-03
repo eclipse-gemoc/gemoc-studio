@@ -1,53 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" name="k3fsm" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="k3fsm" version="12.0.0.2017041100">
   <ownedViewpoints name="K3FSMViewpoint" label="K3FSM">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="FSM" titleExpression="feature:name" initialisation="true" domainClass="k3fsm::FSM" enablePopupBars="true">
       <metamodel href="../../org.eclipse.gemoc.example.k3fsm/model/k3fsm.ecore#/"/>
       <defaultLayer name="Default">
         <edgeMappings name="TransitionEdge" sourceMapping="//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='StateContainer']" targetMapping="//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='StateContainer']" targetFinderExpression="[self.target/]" sourceFinderExpression="[self.source/]" domainClass="k3fsm::Transition" useDomainElement="true">
-          <style sizeComputationExpression="2">
+          <style sizeComputationExpression="2" routingStyle="manhattan">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription labelExpression="aql:self.getLabel()">
+            <centerLabelStyleDescription showIcon="false" labelExpression="[  self.name + '\n\&quot;'  + self.input + '\&quot; / \&quot;' + self.output +'\&quot;'  /]">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
         <containerMappings name="StateContainer" semanticCandidatesExpression="[self.ownedStates/]" domainClass="k3fsm::State">
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" showIcon="false" roundedCorner="true">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
           </style>
           <conditionnalStyles predicateExpression="[self.eContainer().oclAsType(FSM).initialState = self/]">
-            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="4">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="4" showIcon="false" labelExpression="[ self.name + ' (initial)' /]" roundedCorner="true">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[self.eContainer().oclAsType(FSM).finalState = self/]">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="[ self.name + ' (final)' /]" roundedCorner="true">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
             </style>
           </conditionnalStyles>
         </containerMappings>
+        <toolSections name="FSM">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Create state" containerMappings="//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='StateContainer']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="k3fsm::State" referenceName="ownedStates">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="&lt;&lt;name>>"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Create initial state" containerMappings="//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='StateContainer']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="k3fsm::State" referenceName="ownedStates">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="&lt;&lt;name>>">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="feature:owningFSM">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="initialState" valueExpression="var:instance"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Create final state" containerMappings="//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@containerMappings[name='StateContainer']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="k3fsm::State" referenceName="ownedStates">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="&lt;&lt;name>>">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="feature:owningFSM">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="finalState" valueExpression="var:instance"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Create transition" edgeMappings="//@ownedViewpoints[name='K3FSMViewpoint']/@ownedRepresentations[name='FSM']/@defaultLayer/@edgeMappings[name='TransitionEdge']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="k3fsm::Transition" referenceName="outgoingTransitions">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="source" valueExpression="var:source"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="target" valueExpression="var:target"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="&lt;&lt;name>>"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="input" valueExpression="&lt;&lt;input>>"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="output" valueExpression="&lt;&lt;output>>"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
       </defaultLayer>
       <additionalLayers name="Debug" activeByDefault="true">
         <toolSections name="Debug">
-          <ownedTools xsi:type="tool:PopupMenu" name="Gemoc">
-            <menuItemDescription xsi:type="tool:OperationAction" name="Debug" icon="/org.eclipse.gemoc.executionframework.extensions.sirius/icons/debug_exc.gif">
+          <ownedTools xsi:type="tool_1:PopupMenu" name="Gemoc">
+            <menuItemDescription xsi:type="tool_1:OperationAction" name="Debug" icon="/org.eclipse.gemoc.executionframework.extensions.sirius/icons/debug_exc.gif">
               <view name="views"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ExternalJavaAction" name="Debug" icon="/org.eclipse.gemoc.executionframework.extensions.sirius/icons/debug_exc.gif" id="org.eclipse.gemoc.execution.sequential.javaengine.ui.debug.sirius.action.gemocDebugAs"/>
+                <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="Debug" icon="/org.eclipse.gemoc.executionframework.extensions.sirius/icons/debug_exc.gif" id="org.eclipse.gemoc.execution.sequential.javaengine.ui.debug.sirius.action.gemocDebugAs"/>
               </initialOperation>
             </menuItemDescription>
-            <menuItemDescription xsi:type="tool:OperationAction" name="Toggle breakpoint" icon="/org.eclipse.gemoc.executionframework.extensions.sirius/icons/debug_exc.gif">
+            <menuItemDescription xsi:type="tool_1:OperationAction" name="Toggle breakpoint" icon="/org.eclipse.gemoc.executionframework.extensions.sirius/icons/debug_exc.gif">
               <view name="views"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ExternalJavaAction" name="Toggle Gemoc breakpoint" icon="/org.eclipse.gemoc.executionframework.extensions.sirius/icons/breakpoint.gif" id="org.eclipse.gemoc.execution.sequential.javaengine.ui.debug.sirius.action.GemocSequentialToggleBreakpointAction"/>
+                <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="Toggle Gemoc breakpoint" icon="/org.eclipse.gemoc.executionframework.extensions.sirius/icons/breakpoint.gif" id="org.eclipse.gemoc.execution.sequential.javaengine.ui.debug.sirius.action.GemocSequentialToggleBreakpointAction"/>
               </initialOperation>
             </menuItemDescription>
-            <menuItemDescription xsi:type="tool:OperationAction" name="Toggle conditional breakpoint" icon="/org.eclipse.gemoc.executionframework.extensions.sirius/icons/debug_exc.gif">
+            <menuItemDescription xsi:type="tool_1:OperationAction" name="Toggle conditional breakpoint" icon="/org.eclipse.gemoc.executionframework.extensions.sirius/icons/debug_exc.gif">
               <view name="views"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ExternalJavaAction" name="Toggle Gemoc conditional breakpoint" icon="/org.eclipse.gemoc.executionframework.extensions.sirius/icons/breakpoint.gif" id="org.eclipse.gemoc.execution.sequential.javaengine.ui.debug.sirius.action.GemocSequentialToggleConditionalBreakpointAction"/>
+                <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="Toggle Gemoc conditional breakpoint" icon="/org.eclipse.gemoc.executionframework.extensions.sirius/icons/breakpoint.gif" id="org.eclipse.gemoc.execution.sequential.javaengine.ui.debug.sirius.action.GemocSequentialToggleConditionalBreakpointAction"/>
               </initialOperation>
             </menuItemDescription>
           </ownedTools>
@@ -69,6 +131,7 @@
           <subNodeMappings name="StringToProcess" semanticCandidatesExpression="[self/]" domainClass="FSM">
             <style xsi:type="style:BundledImageDescription" showIcon="false" labelExpression="aql:' string to process: '+self.unprocessedString" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelFormat>italic</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
@@ -76,12 +139,14 @@
           <subNodeMappings name="ProducedString" semanticCandidatesExpression="[self/]" domainClass="FSM">
             <style xsi:type="style:BundledImageDescription" showIcon="false" labelExpression="aql:' produced string: '+self.producedString" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelFormat>italic</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelExpression="aql:self.name+ ' processing status'">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderLineStyle="dash" showIcon="false" labelExpression="aql:self.name+ ' processing status'">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>italic</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>

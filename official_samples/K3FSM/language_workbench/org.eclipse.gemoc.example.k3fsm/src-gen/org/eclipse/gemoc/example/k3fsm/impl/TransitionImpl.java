@@ -127,6 +127,7 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getInput() {
 		return input;
 	}
@@ -136,6 +137,7 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setInput(String newInput) {
 		String oldInput = input;
 		input = newInput;
@@ -148,6 +150,7 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public State getTarget() {
 		if (target != null && target.eIsProxy()) {
 			InternalEObject oldTarget = (InternalEObject) target;
@@ -194,6 +197,7 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTarget(State newTarget) {
 		if (newTarget != target) {
 			NotificationChain msgs = null;
@@ -216,6 +220,7 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -225,6 +230,7 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -237,6 +243,7 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getOutput() {
 		return output;
 	}
@@ -246,6 +253,7 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOutput(String newOutput) {
 		String oldOutput = output;
 		output = newOutput;
@@ -258,6 +266,7 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public State getSource() {
 		if (eContainerFeatureID() != K3fsmPackage.TRANSITION__SOURCE)
 			return null;
@@ -279,6 +288,7 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSource(State newSource) {
 		if (newSource != eInternalContainer()
 				|| (eContainerFeatureID() != K3fsmPackage.TRANSITION__SOURCE && newSource != null)) {
@@ -460,7 +470,7 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
 		if (eIsProxy())
 			return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (input: ");
 		result.append(input);
 		result.append(", name: ");
