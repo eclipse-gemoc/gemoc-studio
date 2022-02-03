@@ -45,7 +45,8 @@
 					<argLine>-Xmx1500m</argLine>
 					<useUIHarness>true</useUIHarness>
 					<useUIThread>false</useUIThread>
-					<product>org.eclipse.sdk.ide</product>
+					<!-- <product>org.eclipse.sdk.ide</product>-->
+					<product>org.eclipse.gemoc.gemoc_studio.branding.gemoc_studio</product>
               		<application>org.eclipse.ui.ide.workbench</application>
               		<testFailureIgnore>true</testFailureIgnore> <!-- failed tests here must fail the build-->
               		<systemProperties>
