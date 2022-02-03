@@ -151,78 +151,40 @@
 			   <groupId>org.eclipse.tycho</groupId>
 			   <artifactId>target-platform-configuration</artifactId>
 			   <version>${tycho-version}</version>
-			   <configuration>
-			      <dependency-resolution>
-			         <extraRequirements>
-			         	<!-- Eclipse platform -->
-			            <requirement>
-			               <type>eclipse-feature</type>
-			               <id>org.eclipse.e4.rcp</id>
-			               <versionRange>4.18.0</versionRange>
-			            </requirement>
-			            <requirement>
-			               <type>eclipse-feature</type>
-			               <id>org.eclipse.sdk</id>
-			               <versionRange>4.18.0</versionRange>
-			            </requirement>
-			            <!-- avoid debug message from git -->
-			            <requirement>
-			               <type>eclipse-feature</type>
-			               <id>org.eclipse.jgit</id>
-			               <versionRange>5.10.0</versionRange>
-			            </requirement>
-			            <requirement>
-			               <type>eclipse-feature</type>
-			               <id>org.eclipse.egit</id>
-			               <versionRange>5.10.0</versionRange>
-			            </requirement>
-			            <requirement>
-			               <type>eclipse-feature</type>
-			               <id>org.eclipse.pde</id>
-			               <versionRange>3.14.0</versionRange>
-			            </requirement>
-			            <!-- GEMOC components -->
-			            <requirement>
-			               <type>eclipse-feature</type>
-			               <id>org.eclipse.gemoc.modeldebugging.feature</id>
-			               <versionRange>3.1.0</versionRange>
-			            </requirement>
-			            <requirement>
-			               <type>eclipse-feature</type>
-			               <id>org.eclipse.gemoc.gemoc_studio.branding.feature</id>
-			               <versionRange>3.1.0</versionRange>
-			            </requirement>
-			            <requirement>
-			               <type>eclipse-feature</type>
-			               <id>org.eclipse.gemoc.gemoc_studio.additions.feature</id>
-			               <versionRange>3.1.0</versionRange>
-			            </requirement>
-			            <!-- SWTBot features -->
-			            <requirement>
-			               <type>eclipse-feature</type>
-			               <id>org.eclipse.swtbot</id>
-			               <versionRange>3.0.0</versionRange>
-			            </requirement>
-			            <requirement>
-			               <type>eclipse-feature</type>
-			               <id>org.eclipse.swtbot.eclipse</id>
-			               <versionRange>3.0.0</versionRange>
-			            </requirement>
-			            <requirement>
-			               <type>eclipse-feature</type>
-			               <id>org.eclipse.swtbot.ide</id>
-			               <versionRange>3.0.0</versionRange>
-			            </requirement>
-			            
-			            <requirement>
-			               <type>eclipse-plugin</type>
-			               <id>org.eclipse.gemoc.studio.tests.logging.config</id>
-			               <versionRange>0.0.0</versionRange>
-			            </requirement>
-			         </extraRequirements>
-			        
-			      </dependency-resolution>
-			   </configuration>
+				<configuration>
+					<target>
+						<artifact>
+		                    <groupId>org.eclipse.gemoc.gemoc-studio.bundle</groupId>
+		                    <artifactId>org.eclipse.gemoc.gemoc_studio.targetplatform</artifactId>
+		                    <version>3.5.0-SNAPSHOT</version>
+		                    <classifier>gemoc_studio</classifier>
+		                </artifact>
+	                </target>
+				      <dependency-resolution>
+				         <extraRequirements>
+				           <requirement>
+				               <type>eclipse-feature</type>
+				               <id>org.eclipse.gemoc.modeldebugging.feature</id>
+				               <versionRange>3.1.0</versionRange>
+				            </requirement>
+				            <requirement>
+				               <type>eclipse-feature</type>
+				               <id>org.eclipse.gemoc.gemoc_studio.branding.feature</id>
+				               <versionRange>3.1.0</versionRange>
+				            </requirement>
+				            <requirement>
+				               <type>eclipse-feature</type>
+				               <id>org.eclipse.gemoc.gemoc_studio.additions.feature</id>
+				               <versionRange>3.1.0</versionRange>
+				            </requirement>
+				            <requirement>
+				               <type>eclipse-plugin</type>
+				               <id>org.eclipse.gemoc.studio.tests.logging.config</id>
+				               <versionRange>0.0.0</versionRange>
+				            </requirement>
+				         </extraRequirements>
+				      </dependency-resolution>
+				</configuration>
 			</plugin>
 			<plugin>
     			<artifactId>maven-clean-plugin</artifactId>
