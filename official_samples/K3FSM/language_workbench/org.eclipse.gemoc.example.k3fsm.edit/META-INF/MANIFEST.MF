@@ -8,7 +8,7 @@ Bundle-ClassPath: .
 Bundle-Activator: org.eclipse.gemoc.example.k3fsm.provider.K3fsmEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: org.eclipse.gemoc.example.k3fsm.provider
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.gemoc.example.k3fsm;visibility:=reexport,
