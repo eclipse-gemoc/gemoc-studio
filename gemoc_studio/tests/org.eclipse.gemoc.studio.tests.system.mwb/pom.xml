@@ -45,7 +45,8 @@
 					<argLine>-Xmx1500m</argLine>
 					<useUIHarness>true</useUIHarness>
 					<useUIThread>false</useUIThread>
-					<!-- <product>org.eclipse.sdk.ide</product>-->
+					<showEclipseLog>true</showEclipseLog>
+					<testRuntime>p2Installed</testRuntime><!-- install the full gemoc_studio product cf. extraRequirements section -->
 					<product>org.eclipse.gemoc.gemoc_studio.branding.gemoc_studio</product>
               		<application>org.eclipse.ui.ide.workbench</application>
               		<testFailureIgnore>true</testFailureIgnore> <!-- failed tests here must fail the build-->
@@ -114,7 +115,7 @@
 	                </target>
 				      <dependency-resolution>
 				         <extraRequirements>
-				           <requirement>
+				          <!-- <requirement>
 				               <type>eclipse-feature</type>
 				               <id>org.eclipse.gemoc.modeldebugging.feature</id>
 				               <versionRange>3.1.0</versionRange>
@@ -128,10 +129,16 @@
 				               <type>eclipse-feature</type>
 				               <id>org.eclipse.gemoc.gemoc_studio.additions.feature</id>
 				               <versionRange>3.1.0</versionRange>
-				            </requirement>
+				            </requirement>-->
 				            <requirement>
 				               <type>eclipse-plugin</type>
 				               <id>org.eclipse.gemoc.studio.tests.logging.config</id>
+				               <versionRange>0.0.0</versionRange>
+				            </requirement>
+							<!-- product IU under test -->
+				            <requirement>
+				               <type>p2-installable-unit</type>
+				               <id>gemoc_studio</id>
 				               <versionRange>0.0.0</versionRange>
 				            </requirement>
 				         </extraRequirements>
