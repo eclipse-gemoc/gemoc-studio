@@ -37,18 +37,40 @@
       </wizard>  
       <wizard
             canFinishEarly="true"
-            category="org.eclipse.ui.Examples/org.eclipse.gemoc.gemoc_modeling_workbench.samples.category"
-            class="org.eclipse.gemoc.sequential.modeling.wb.sample.deployer.wizards.K3FSMExampleWizard"
-            finalPerspective="org.eclipse.sirius.ui.tools.perspective.modeling"
-            hasPages="false"
-            icon="icons/IconeGemocModel-16.png"
-            id="org.eclipse.gemoc.sequential.modeling.wb.sample.deployer.k3fsm.model.wizard"
-            name="GEMOC models for K3FSM and EventK3FSM languages (Sequential)"
-            preferredPerspectives="org.eclipse.sirius.ui.tools.perspective.modeling">
-         <description>
-            T⁮his project contains some finite state machine models that can be executed if you have installed the K3FSM language or the EventK3FSM language.
-         </description>
-      </wizard>    
+      		category="org.eclipse.ui.Examples/org.eclipse.gemoc.gemoc_modeling_workbench.samples.category"
+			class="org.eclipse.emf.common.ui.wizard.ExampleInstallerWizard"
+			icon="icons/IconeGemocModel-16.png"
+			id="org.eclipse.gemoc.sequential.modeling.wb.sample.deployer.k3fsm.model.wizard"
+			name="GEMOC models for K3FSM and EventK3FSM languages (Sequential)"
+			project="true">
+      	<description>
+            T⁮hese projects contain some finite state machine models that can be executed if you have installed the K3FSM language or the EventK3FSM language.
+        </description>
+    </wizard>   
    </extension>
- 
+   <extension point="org.eclipse.emf.common.ui.examples">
+  	<example wizardID="org.eclipse.gemoc.sequential.modeling.wb.sample.deployer.k3fsm.model.wizard">
+		<projectDescriptor name="org.eclipse.gemoc.example.k3fsm.model_examples.Bitshifting"
+                         contentURI="zips/org.eclipse.gemoc.example.k3fsm.model_examples.Bitshifting.zip"
+                         description="A bit shifting statemachine model example for use with K3FSM or EventK3FSM language"/>
+  		<projectDescriptor name="org.eclipse.gemoc.example.k3fsm.model_examples.EdgeDetectors"
+                         contentURI="zips/org.eclipse.gemoc.example.k3fsm.model_examples.EdgeDetector.zip"
+                         description="An edge detector statemachine model example for use with K3FSM or EventK3FSM language"/>
+  		<projectDescriptor name="org.eclipse.gemoc.example.k3fsm.model_examples.StringtoLowercase"
+                         contentURI="zips/org.eclipse.gemoc.example.k3fsm.model_examples.StringtoLowercase.zip"
+                         description="A string to lower case converter statemachine model example for use with K3FSM or EventK3FSM language"/>
+	  	<projectDescriptor name="org.eclipse.gemoc.example.k3fsm.model_examples.StringtoUpperCases"
+                         contentURI="zips/org.eclipse.gemoc.example.k3fsm.model_examples.StringtoUpperCase.zip"
+                         description="A string to uppercase converter statemachine model example for use with K3FSM or EventK3FSM language"/>
+  		<projectDescriptor name="org.eclipse.gemoc.example.k3fsm.model_examples.ThreeStates"
+                         contentURI="zips/org.eclipse.gemoc.example.k3fsm.model_examples.ThreeStates.zip"
+                         description="A three states statemachine model example for use with K3FSM or EventK3FSM language"/>
+  		<projectDescriptor name="org.eclipse.gemoc.example.k3fsm.model_examples.TrafficLight"
+                         contentURI="zips/org.eclipse.gemoc.example.k3fsm.model_examples.TrafficLight.zip"
+                         description="A traffic light statemachine model example for use with K3FSM or EventK3FSM language"/>
+  		<projectDescriptor name="org.eclipse.gemoc.example.k3fsm.model_examples.TwoStates"
+                         contentURI="zips/org.eclipse.gemoc.example.k3fsm.model_examples.TwoStates.zip"
+                         description="A two states statemachine model example for use with K3FSM or EventK3FSM language"/>
+  	</example>
+  </extension>
 </plugin>
