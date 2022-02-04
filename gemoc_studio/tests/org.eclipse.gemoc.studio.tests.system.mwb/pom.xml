@@ -93,6 +93,28 @@
 								<zip destfile="${k3FSM.tests-inputs-gen.path}/org.eclipse.gemoc.example.k3fsm.model_examples.zip">
 									<fileset dir="${k3FSM.modeling.root}/org.eclipse.gemoc.example.k3fsm.model_examples/" />
 								</zip>
+								<!--K3FSM model example projects -->
+								<zip destfile="${k3FSM.tests-inputs-gen.path}/org.eclipse.gemoc.example.k3fsm.model_examples.Bitshifting.zip">
+									<fileset dir="${k3FSM.modeling.root}/org.eclipse.gemoc.example.k3fsm.model_examples.Bitshifting/" />
+								</zip>
+								<zip destfile="${k3FSM.tests-inputs-gen.path}/org.eclipse.gemoc.example.k3fsm.model_examples.EdgeDetector.zip">
+									<fileset dir="${k3FSM.modeling.root}/org.eclipse.gemoc.example.k3fsm.model_examples.EdgeDetector/" />
+								</zip>
+								<zip destfile="${k3FSM.tests-inputs-gen.path}/org.eclipse.gemoc.example.k3fsm.model_examples.StringtoLowercase.zip">
+									<fileset dir="${k3FSM.modeling.root}/org.eclipse.gemoc.example.k3fsm.model_examples.StringtoLowercase/" />
+								</zip>
+								<zip destfile="${k3FSM.tests-inputs-gen.path}/org.eclipse.gemoc.example.k3fsm.model_examples.StringtoUpperCase.zip">
+									<fileset dir="${k3FSM.modeling.root}/org.eclipse.gemoc.example.k3fsm.model_examples.StringtoUpperCase/" />
+								</zip>
+								<zip destfile="${k3FSM.tests-inputs-gen.path}/org.eclipse.gemoc.example.k3fsm.model_examples.ThreeStates.zip">
+									<fileset dir="${k3FSM.modeling.root}/org.eclipse.gemoc.example.k3fsm.model_examples.ThreeStates/" />
+								</zip>
+								<zip destfile="${k3FSM.tests-inputs-gen.path}/org.eclipse.gemoc.example.k3fsm.model_examples.TrafficLight.zip">
+									<fileset dir="${k3FSM.modeling.root}/org.eclipse.gemoc.example.k3fsm.model_examples.TrafficLight/" />
+								</zip>
+								<zip destfile="${k3FSM.tests-inputs-gen.path}/org.eclipse.gemoc.example.k3fsm.model_examples.TwoStates.zip">
+									<fileset dir="${k3FSM.modeling.root}/org.eclipse.gemoc.example.k3fsm.model_examples.TwoStates/" />
+								</zip>
 								
 
 							</target>
