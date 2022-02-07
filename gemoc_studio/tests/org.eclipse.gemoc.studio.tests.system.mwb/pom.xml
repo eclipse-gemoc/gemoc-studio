@@ -45,7 +45,9 @@
 					<argLine>-Xmx1500m</argLine>
 					<useUIHarness>true</useUIHarness>
 					<useUIThread>false</useUIThread>
-					<product>org.eclipse.sdk.ide</product>
+					<showEclipseLog>true</showEclipseLog>
+					<testRuntime>p2Installed</testRuntime><!-- install the full gemoc_studio product cf. extraRequirements section -->
+					<product>org.eclipse.gemoc.gemoc_studio.branding.gemoc_studio</product>
               		<application>org.eclipse.ui.ide.workbench</application>
               		<testFailureIgnore>true</testFailureIgnore> <!-- failed tests here must fail the build-->
               		<systemProperties>
@@ -99,64 +101,50 @@
 				</executions>
 			</plugin>
 			<plugin>
-			   <groupId>org.eclipse.tycho</groupId>
-			   <artifactId>target-platform-configuration</artifactId>
-			   <version>${tycho-version}</version>
-			   <configuration>
-			      <dependency-resolution>
-			         <extraRequirements>
-			         	<!-- Eclipse platform -->
-			            <requirement>
-			               <type>eclipse-feature</type>
-			               <id>org.eclipse.e4.rcp</id>
-			               <versionRange>4.18.0</versionRange>
-			            </requirement>
-			            <requirement>
-			               <type>eclipse-feature</type>
-			               <id>org.eclipse.sdk</id>
-			               <versionRange>4.18.0</versionRange>
-			            </requirement>
-			            <!-- GEMOC components -->
-			            <requirement>
-			               <type>eclipse-feature</type>
-			               <id>org.eclipse.gemoc.modeldebugging.feature</id>
-			               <versionRange>3.1.0</versionRange>
-			            </requirement>
-			            <requirement>
-			               <type>eclipse-feature</type>
-			               <id>org.eclipse.gemoc.gemoc_studio.branding.feature</id>
-			               <versionRange>3.1.0</versionRange>
-			            </requirement>
-			            <requirement>
-			               <type>eclipse-feature</type>
-			               <id>org.eclipse.gemoc.gemoc_studio.additions.feature</id>
-			               <versionRange>3.1.0</versionRange>
-			            </requirement>
-			            <!-- SWTBot features -->
-			            <requirement>
-			               <type>eclipse-feature</type>
-			               <id>org.eclipse.swtbot</id>
-			               <versionRange>3.0.0</versionRange>
-			            </requirement>
-			            <requirement>
-			               <type>eclipse-feature</type>
-			               <id>org.eclipse.swtbot.eclipse</id>
-			               <versionRange>3.0.0</versionRange>
-			            </requirement>
-			            <requirement>
-			               <type>eclipse-feature</type>
-			               <id>org.eclipse.swtbot.ide</id>
-			               <versionRange>3.0.0</versionRange>
-			            </requirement>
-			            <requirement>
-			               <type>eclipse-plugin</type>
-			               <id>org.eclipse.gemoc.studio.tests.logging.config</id>
-			               <versionRange>0.0.0</versionRange>
-			            </requirement>
-			         </extraRequirements>
-			        
-			      </dependency-resolution>
-			   </configuration>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<target>
+						<artifact>
+		                    <groupId>org.eclipse.gemoc.gemoc-studio.bundle</groupId>
+		                    <artifactId>org.eclipse.gemoc.gemoc_studio.targetplatform</artifactId>
+		                    <version>3.5.0-SNAPSHOT</version>
+		                    <classifier>gemoc_studio</classifier>
+		                </artifact>
+	                </target>
+				      <dependency-resolution>
+				         <extraRequirements>
+				          <!-- <requirement>
+				               <type>eclipse-feature</type>
+				               <id>org.eclipse.gemoc.modeldebugging.feature</id>
+				               <versionRange>3.1.0</versionRange>
+				            </requirement>
+				            <requirement>
+				               <type>eclipse-feature</type>
+				               <id>org.eclipse.gemoc.gemoc_studio.branding.feature</id>
+				               <versionRange>3.1.0</versionRange>
+				            </requirement>
+				            <requirement>
+				               <type>eclipse-feature</type>
+				               <id>org.eclipse.gemoc.gemoc_studio.additions.feature</id>
+				               <versionRange>3.1.0</versionRange>
+				            </requirement>-->
+				            <requirement>
+				               <type>eclipse-plugin</type>
+				               <id>org.eclipse.gemoc.studio.tests.logging.config</id>
+				               <versionRange>0.0.0</versionRange>
+				            </requirement>
+							<!-- product IU under test -->
+				            <requirement>
+				               <type>p2-installable-unit</type>
+				               <id>gemoc_studio</id>
+				               <versionRange>0.0.0</versionRange>
+				            </requirement>
+				         </extraRequirements>
+				        
+				      </dependency-resolution>
+				</configuration>
 			</plugin>
 			<plugin>
     			<artifactId>maven-clean-plugin</artifactId>

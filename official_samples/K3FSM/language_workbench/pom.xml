@@ -32,11 +32,6 @@
     </modules>
     <repositories>
 		<repository>
-			<id>Eclipse release</id>
-			<layout>p2</layout>
-			<url>${eclipse.release.p2.url}</url>
-		</repository>
-		<repository>
 			<id>K3</id>
 			<layout>p2</layout>
 			<url>${k3.p2.url}</url>

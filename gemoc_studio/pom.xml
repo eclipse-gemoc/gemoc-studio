@@ -31,6 +31,7 @@
 		<module>releng/org.eclipse.gemoc.gemoc_studio.branding.feature</module>
 		<module>releng/org.eclipse.gemoc.gemoc_studio.additions.feature</module>
 		<module>releng/org.eclipse.gemoc.gemoc_studio.updatesite</module>
+		<module>releng/org.eclipse.gemoc.gemoc_studio.targetplatform</module>
 
 		<!-- modules required by modeling workbench tests platform -->
 		<module>../official_samples/K3FSM/language_workbench</module>
@@ -45,67 +46,16 @@
 	</modules>
 
 	<repositories>
-		<repository>
-			<id>Eclipse release</id>
-			<layout>p2</layout>
-			<url>${eclipse.release.p2.url}</url>
-		</repository>
-        <repository>
-			<!-- used by branding due to amalgam discovery -->
-			<id>Eclipse Photon release</id>
-			<layout>p2</layout>
-			<url>${eclipse.photon.release.p2.url}</url>
-		</repository>
+
 		<repository>
 			<id>K3</id>
 			<layout>p2</layout>
 			<url>${k3.p2.url}</url>
 		</repository>
 		<repository>
-			<id>ALE</id>
-			<layout>p2</layout>
-			<url>${ale.p2.url}</url>
-		</repository>
-		<repository>
 			<id>Melange</id>
 			<layout>p2</layout>
 			<url>${melange.p2.url}</url>
-		</repository>
-		<repository>
-			<id>timesquare</id>
-			<layout>p2</layout>
-			<url>${timesquare.p2.url}</url>
-		</repository>
-		<repository>
-			<id>diverse-commons</id>
-			<layout>p2</layout>
-			<url>${diverse-commons.p2.url}</url>
-		</repository>
-		<repository>
-			<id>ELK</id>
-			<layout>p2</layout>
-			<url>${elk.p2.url}</url>
-		</repository>
-		<repository>
-			<id>Sirius</id>
-			<layout>p2</layout>
-			<url>${sirius.p2.url}</url>
-		</repository>
-		<repository>
-			<id>AspectJ</id>
-			<layout>p2</layout>
-			<url>${aspectJ.p2.url}</url>
-		</repository>
-		<!--  e(fxc)lipse updatesite is currently required because they dropped from the release train -->
-		<repository>
-			<id>efxclipse</id>
-			<layout>p2</layout>
-			<url>${efxclipse.p2.url}</url>
-		</repository>
-        <repository>
-			<id>efxclipse2</id>
-			<layout>p2</layout>
-			<url>${efxclipse2.p2.url}</url>
 		</repository>
 	</repositories>
 
@@ -131,6 +81,14 @@
 				<artifactId>target-platform-configuration</artifactId>
 				<version>${tycho-version}</version>
 				<configuration>
+					<target>
+                        <artifact>
+                            <groupId>org.eclipse.gemoc.gemoc-studio.bundle</groupId>
+                            <artifactId>org.eclipse.gemoc.gemoc_studio.targetplatform</artifactId>
+                            <version>3.5.0-SNAPSHOT</version>
+                            <classifier>gemoc_studio</classifier>
+                        </artifact>
+                    </target>
 					<!-- environments that will be built -->
 					<environments>
 						<environment>
@@ -182,6 +140,14 @@
 						<artifactId>target-platform-configuration</artifactId>
 						<version>${tycho-version}</version>
 						<configuration>
+							<target>
+		                        <artifact>
+		                            <groupId>org.eclipse.gemoc.gemoc-studio.bundle</groupId>
+		                            <artifactId>org.eclipse.gemoc.gemoc_studio.targetplatform</artifactId>
+		                            <version>3.5.0-SNAPSHOT</version>
+		                            <classifier>gemoc_studio</classifier>
+		                        </artifact>
+		                    </target>
 							<!-- environments that will be built in test mode -->
 							<environments>
 								<environment>
@@ -218,6 +184,14 @@
 						<artifactId>target-platform-configuration</artifactId>
 						<version>${tycho-version}</version>
 						<configuration>
+							<target>
+		                        <artifact>
+		                            <groupId>org.eclipse.gemoc.gemoc-studio.bundle</groupId>
+		                            <artifactId>org.eclipse.gemoc.gemoc_studio.targetplatform</artifactId>
+		                            <version>3.5.0-SNAPSHOT</version>
+		                            <classifier>gemoc_studio</classifier>
+		                        </artifact>
+		                    </target>
 							<!-- environments that will be built in test mode -->
 							<environments>
 								<environment>
