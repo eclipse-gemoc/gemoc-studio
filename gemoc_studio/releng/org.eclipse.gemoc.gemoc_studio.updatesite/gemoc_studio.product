@@ -79,8 +79,8 @@ openFile
 
    <repositories>
       <repository location="http://melange-lang.org/updatesite/" enabled="true" />
-      <repository location="http://download.eclipse.org/releases/2021-06" enabled="true" />
-      <repository location="http://download.eclipse.org/eclipse/updates/4.20/" enabled="true" />
+      <repository location="http://download.eclipse.org/releases/2021-12" enabled="true" />
+      <repository location="http://download.eclipse.org/eclipse/updates/4.22/" enabled="true" />
       <repository location="http://www.kermeta.org/k3/update/" enabled="true" />
       <repository location="http://www.kermeta.org/ale-lang/updates/latest/" enabled="true" />
       <repository location="http://timesquare.inria.fr/update_site/2020" enabled="true" />
