@@ -86,6 +86,7 @@ RUN yum update -y \
   webkitgtk3 \
   webkitgtk4 \
   wget \
+  xdg-utils \
   xmlstarlet \
   xorg-x11-apps.x86_64 \
   xorg-x11-drv-dummy.x86_64 \
