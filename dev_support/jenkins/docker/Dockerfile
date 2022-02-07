@@ -124,7 +124,7 @@ RUN wget https://download2.gluonhq.com/openjfx/17.0.2/openjfx-17.0.2_linux-x64_b
 RUN unzip ${HOME}/openjfx-17.0.2_linux-x64_bin-sdk.zip -d /usr/share/
 RUN rm ${HOME}/openjfx-17.0.2_linux-x64_bin-sdk.zip 
 
-ENV JAVAFX_HOME=/usr/share/openjfx-17.0.2_linux-x64_bin-sdk
+ENV JAVAFX_HOME=/usr/share/javafx-sdk-17.0.2
 
 RUN ln -s /usr/bin/git /usr/local/bin/git \
   && ln -s /bin/bash /usr/local/bin/hipp_shell \
