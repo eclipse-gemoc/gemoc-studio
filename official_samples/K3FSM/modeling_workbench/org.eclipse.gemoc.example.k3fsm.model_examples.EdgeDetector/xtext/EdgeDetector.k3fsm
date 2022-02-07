@@ -1,0 +1,47 @@
+FSM EdgeDetector {
+ initialState Si
+ ownedStates {
+ 	State Si {
+ 		outgoingTransitions {
+ 			Transition "Si_to_S0" {
+ 				input "0"
+ 				output "0"
+ 				target S0
+ 			},
+ 			Transition "Si_to_S1" {
+ 				input "1"
+ 				output "0"
+ 				target S1
+ 			}
+ 		}
+ 	},
+ 	State S0 {
+ 		outgoingTransitions {
+ 			Transition "S0_to_S0" {
+ 				input "0"
+ 				output "0"
+ 				target S0
+ 			},
+ 			Transition "S0_to_S1" {
+ 				input "1"
+ 				output "1"
+ 				target S1
+ 			}
+ 		}
+ 	},
+ 	State S1{
+ 		outgoingTransitions {
+ 			Transition "S1_to_S1" {
+ 				input "1"
+ 				output "0"
+ 				target S1
+ 			},
+ 			Transition "S1_to_S0" {
+ 				input "0"
+ 				output "1"
+ 				target S0
+ 			}
+ 		}
+ 	}
+ }
+}

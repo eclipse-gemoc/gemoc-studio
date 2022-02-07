@@ -1,0 +1,47 @@
+FSM BitShifting {
+ unprocessedString "1011" producedString "" initialState S0
+ ownedStates {
+ 	State S0 {
+ 		outgoingTransitions {
+ 			Transition "S0_to_S1" {
+ 				input "1"
+ 				output "0"
+ 				target S1
+ 			},
+ 			Transition "S0_to_S2" {
+ 				input "0"
+ 				output "0"
+ 				target S2
+ 			}
+ 		}
+ 	},
+ 	State S1 {
+ 		outgoingTransitions {
+ 			Transition "S1_to_S1" {
+ 				input "1"
+ 				output "1"
+ 				target S1
+ 			},
+ 			Transition "S1_to_S2" {
+ 				input "0"
+ 				output "1"
+ 				target S2
+ 			}
+ 		}
+ 	},
+ 	State S2{
+ 		outgoingTransitions {
+ 			Transition "S2_to_S2" {
+ 				input "0"
+ 				output "0"
+ 				target S2
+ 			},
+ 			Transition "S2_to_S1" {
+ 				input "1"
+ 				output "0"
+ 				target S1
+ 			}
+ 		}
+ 	}
+ }
+}

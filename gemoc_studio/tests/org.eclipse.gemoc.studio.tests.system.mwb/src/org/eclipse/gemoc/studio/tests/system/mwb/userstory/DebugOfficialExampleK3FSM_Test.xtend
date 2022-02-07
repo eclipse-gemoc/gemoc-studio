@@ -73,8 +73,7 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 	static WorkspaceTestHelper helper = new WorkspaceTestHelper
 
 	static final String BASE_FOLDER_NAME = "tests-inputs-gen/K3FSM"
-	static final String BASE_NAME = "org.eclipse.gemoc.example.k3fsm"
-	static final String MODEL_PROJECT_NAME = BASE_NAME+".model_examples"
+	static final String MODEL_PROJECT_NAME = "org.eclipse.gemoc.example.k3fsm.model_examples.TwoStates"
 	
 	static SWTWorkbenchBot bot;
  
@@ -153,21 +152,21 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 	 * Stop is done using Engine Status view
 	 */
 	@Test
-	def void test01_TwoStatesUpCast_Model_some_steps_stop_and_clear() throws Exception {
+	def void test01_TwoStates_Model_some_steps_stop_and_clear() throws Exception {
 		TwoStatesUpCast_Model_some_steps_stop_and_clear	
 	}
 
 	@Test
-	def void test02_secondRun_TwoStatesUpCast_Model_some_steps_stop_and_clear() throws Exception {
+	def void test02_secondRun_TwoStates_Model_some_steps_stop_and_clear() throws Exception {
 		TwoStatesUpCast_Model_some_steps_stop_and_clear
 	}
 	
 	private def void TwoStatesUpCast_Model_some_steps_stop_and_clear() {
 		val runningEnginesRegistry = org.eclipse.gemoc.executionframework.engine.Activator.getDefault().gemocRunningEngineRegistry;
 		
-		startDebugwoStatesUpCast_Model
+		startDebugTwoStates_Model
 		val engine = runningEnginesRegistry.runningEngines.entrySet.get(0).value		
-		assertEquals("GEMOC Kermeta Sequential Engine platform:/resource/org.eclipse.gemoc.example.k3fsm.model_examples/TwoStatesUpcast.k3fsm", engine.name)
+		assertEquals("GEMOC Kermeta Sequential Engine platform:/resource/"+MODEL_PROJECT_NAME+"/xtext/TwoStates.k3fsm", engine.name)
 		assertEquals(0,engine.engineStatus.nbLogicalStepRun)
 		val fsm = engine.executionContext.resourceModel.contents.get(0) as FSM
 		fsm.currentState.assertNull
@@ -229,8 +228,8 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 	 */
 	@Ignore // this test actually implies to fix https://github.com/eclipse/gemoc-studio-modeldebugging/issues/66
 	@Test
-	def void test03_TwoStatesUpCast_Model_run_to_end() throws Exception {
-		startDebugwoStatesUpCast_Model
+	def void test03_TwoStates_Model_run_to_end() throws Exception {
+		startDebugTwoStates_Model
 		
 		val matcher = allOf(widgetOfType(typeof(ToolItem)), 
 			anyOf(withTooltip("Resu&me (F8)"), withTooltip("Resu&me")), 
@@ -258,16 +257,18 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 	}
 	
 	// some reusabe test part
-	def void startDebugwoStatesUpCast_Model() {
+	def void startDebugTwoStates_Model() {
 		val runningEnginesRegistry = org.eclipse.gemoc.executionframework.engine.Activator.getDefault().gemocRunningEngineRegistry;
 		assertTrue("runningEngineRegistry not empty " +runningEnginesRegistry.runningEngines,  runningEnginesRegistry.runningEngines.size == 0)
 		
-		bot.tree().getTreeItem("org.eclipse.gemoc.example.k3fsm.model_examples").select();
-		bot.tree().getTreeItem("org.eclipse.gemoc.example.k3fsm.model_examples").expand();
-		val item = bot.tree().getTreeItem("org.eclipse.gemoc.example.k3fsm.model_examples").waitNode("TwoStatesUpcast.k3fsm").select();
+		bot.tree().getTreeItem(MODEL_PROJECT_NAME).select();
+		bot.tree().getTreeItem(MODEL_PROJECT_NAME).expand();
+		bot.tree().getTreeItem(MODEL_PROJECT_NAME).waitNode("xtext").select();
+		bot.tree().getTreeItem(MODEL_PROJECT_NAME).getNode("xtext").expand();
+		val item = bot.tree().getTreeItem(MODEL_PROJECT_NAME).getNode("xtext").waitNode("TwoStates.k3fsm").select();
 		item.contextMenu("Debug As").menu("Debug Configurations...").click();
 		bot.tree().getTreeItem("Executable model with GEMOC Java engine").expand();
-		bot.tree().getTreeItem("Executable model with GEMOC Java engine").waitNode("K3FSM - TwoStatesUpcast(abababa)").select();
+		bot.tree().getTreeItem("Executable model with GEMOC Java engine").waitNode("K3FSM- TwoStates(abababa)").select();
 		bot.button("Debug").click();
 		
 		// accept switch to debug perspective (this also makes sure that the engines has started)
@@ -275,11 +276,11 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 		
 		// select stack in Debug view (this opens the xtext editor and enables the F5 buttons)
 		bot.viewByTitle("Debug").show();
-		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Executable model with GEMOC Java engine]").select();
-		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Executable model with GEMOC Java engine]").waitNode("Gemoc debug target").waitNode("Model debugging").select();
-		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Executable model with GEMOC Java engine]").getNode("Gemoc debug target").getNode("Model debugging").expand();
-		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Executable model with GEMOC Java engine]").getNode("Gemoc debug target").getNode("Model debugging").waitNode("Engine : TwoStatesUpcast.k3fsm => TwoStateUpcast").select();
-		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Executable model with GEMOC Java engine]").getNode("Gemoc debug target").getNode("Model debugging").waitNode("[FSM] TwoStateUpcast#initializeModel([])").select();
+		bot.tree().getTreeItem("K3FSM- TwoStates(abababa) [Executable model with GEMOC Java engine]").select();
+		bot.tree().getTreeItem("K3FSM- TwoStates(abababa) [Executable model with GEMOC Java engine]").waitNode("Gemoc debug target").waitNode("Model debugging").select();
+		bot.tree().getTreeItem("K3FSM- TwoStates(abababa) [Executable model with GEMOC Java engine]").getNode("Gemoc debug target").getNode("Model debugging").expand();
+		bot.tree().getTreeItem("K3FSM- TwoStates(abababa) [Executable model with GEMOC Java engine]").getNode("Gemoc debug target").getNode("Model debugging").waitNode("Engine : TwoStates.k3fsm => TwoStates").select();
+		bot.tree().getTreeItem("K3FSM- TwoStates(abababa) [Executable model with GEMOC Java engine]").getNode("Gemoc debug target").getNode("Model debugging").waitNode("[FSM] TwoStates#initializeModel([])").select();
 		
 		
 		closeConfigureXtextPopup(bot)
@@ -307,7 +308,7 @@ class DebugOfficialExampleK3FSM_Test extends AbstractXtextTests
 	 * or timeout exception
 	 */
 	def void waitThreadSuspended(){		
-		ModelingWorkbenchTestHelper.waitFirstTargetThreadSuspended("K3FSM - TwoStatesUpcast(abababa)")
+		ModelingWorkbenchTestHelper.waitFirstTargetThreadSuspended("K3FSM- TwoStates(abababa)")
 	}
 	
 	/** simple helper method to get a string representation of the stack*/
