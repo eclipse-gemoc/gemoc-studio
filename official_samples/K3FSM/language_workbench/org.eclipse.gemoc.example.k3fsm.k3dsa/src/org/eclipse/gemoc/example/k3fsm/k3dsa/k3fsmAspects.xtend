@@ -15,7 +15,7 @@ import static extension org.eclipse.gemoc.example.k3fsm.k3dsa.TransitionAspect.*
 @Aspect(className=FSM)
 class FSMAspect {
 	@Step
-	@InitializeModel
+	@InitializeModel									// <1>
 	def void initializeModel(EList<String> args) {
 		_self.currentState = _self.initialState;
 		_self.unprocessedString = args.get(0)
@@ -27,7 +27,7 @@ class FSMAspect {
 	}
 
 	@Step
-	@Main
+	@Main												// <2>
 	def void main() {
 		try {
 			while (!_self.unprocessedString.isEmpty) {
@@ -44,7 +44,7 @@ class FSMAspect {
 
 @Aspect(className=State)
 class StateAspect {
-	@Step
+	@Step												// <3>
 	def void step(String inputString) {
 		// Get the valid transitions	
 		val validTransitions = _self.outgoingTransitions.filter[t|t.input === null || inputString.startsWith(t.input)]
@@ -63,7 +63,7 @@ class StateAspect {
 @Aspect(className=Transition)
 class TransitionAspect {
 
-	@Step
+	@Step												// <4>
 	def void fire() {
 		println("Firing " + _self.name + " and entering " + _self.target.name)
 		val fsm = _self.source.owningFSM
