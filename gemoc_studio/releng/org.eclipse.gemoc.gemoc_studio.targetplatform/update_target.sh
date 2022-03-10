@@ -10,7 +10,7 @@ if [[ ! -d eclipse ]]
 then
   rm -rf $ECLIPSE_PLATFORM_ARCHIVE
   echo "Downloading eclipse platform..."
-  wget -O $ECLIPSE_PLATFORM_ARCHIVE  "$ECLIPSE_PLATFORM_URL" 
+  wget -nv -O $ECLIPSE_PLATFORM_ARCHIVE  "$ECLIPSE_PLATFORM_URL" 
 
   echo "Extracting eclipse platform..."
   tar -xzf $ECLIPSE_PLATFORM_ARCHIVE
