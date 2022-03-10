@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="GEMOCStudio Target platform" sequenceNumber="1646831631">
+<target name="GEMOCStudio Target platform" sequenceNumber="1646928669">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.acceleo.feature.group" version="3.7.11.202102190929"/>
@@ -22,6 +22,8 @@
       <unit id="org.eclipse.epp.mpc.feature.group" version="1.9.2.v20210826-0851"/>
       <unit id="org.eclipse.equinox.p2.sdk.feature.group" version="3.11.1400.v20211104-1616"/>
       <unit id="org.eclipse.equinox.executable.feature.group" version="3.8.1400.v20211117-0650"/>
+      <unit id="org.eclipse.equinox.server.jetty.feature.group" version="1.10.900.v20211021-1418"/>
+      <unit id="org.eclipse.lsp4j.sdk.feature.group" version="0.12.0.v20210402-1310"/>
       <unit id="org.eclipse.m2e.feature.feature.group" version="1.19.0.20211116-0804"/>
       <unit id="org.eclipse.m2e.logback.feature.feature.group" version="1.17.2.20211002-1029"/>
       <unit id="org.eclipse.m2m.qvt.oml.feature.group" version="3.10.5.v20211130-1509"/>
@@ -34,6 +36,7 @@
       <unit id="org.eclipse.swtbot.eclipse.feature.group" version="3.1.0.202106041005"/>
       <unit id="org.eclipse.swtbot.ide.feature.group" version="3.1.0.202106041005"/>
       <unit id="org.eclipse.swtbot.feature.group" version="3.1.0.202106041005"/>
+      <unit id="org.eclipse.wst.web_core.feature.feature.group" version="3.24.0.v202110010350"/>
       <unit id="org.eclipse.wst.xml_core.feature.feature.group" version="3.24.0.v202110010323"/>
       <unit id="org.eclipse.wst.xml_ui.feature.feature.group" version="3.24.0.v202111190506"/>
       <unit id="org.eclipse.xtext.sdk.feature.group" version="2.25.0.v20210301-1429"/>
