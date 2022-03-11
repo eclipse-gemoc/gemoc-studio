@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="GEMOCStudio Target platform" sequenceNumber="1646928669">
+<target name="GEMOCStudio Target platform" sequenceNumber="1647008380">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.acceleo.feature.group" version="3.7.11.202102190929"/>
@@ -101,6 +101,10 @@
       <unit id="org.eclipse.fx.ide.pde.feature.feature.group" version="3.7.0.202010120832"/>
       <unit id="org.eclipse.fx.runtime.min.feature.feature.group" version="3.7.0.202010120826"/>
       <repository id="fxclipse" location="https://download.eclipse.org/efxclipse/updates-released/3.7.0/site"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.jetty.bundles.f.feature.group" version="9.4.44.v20210927"/>
+      <repository id="jetty" location="https://download.eclipse.org/jetty/updates/jetty-bundles-9.x/9.4.44.v20210927"/>
     </location>
   </locations>
   <targetJRE path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11"/>

@@ -132,4 +132,8 @@ location fxclipse "https://download.eclipse.org/efxclipse/updates-released/3.7.0
 	org.eclipse.fx.runtime.min.feature.feature.group
 }
 
+location jetty "https://download.eclipse.org/jetty/updates/jetty-bundles-9.x/9.4.44.v20210927" {
+	org.eclipse.jetty.bundles.f.feature.group
+}
+
 
