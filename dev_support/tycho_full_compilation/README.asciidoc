@@ -34,7 +34,16 @@ git clone  https://github.com/eclipse/gemoc-studio-execution-java
 
 Note: the repositories must keep their names (Ie. do not change the destination folder name) as the maven pom file expects to find them at specific locations.
 
-Then compile using maven:
+Generate the protocols code
+
+[source,bourne]
+----
+cd gemoc-studio-modeldebugging/protocols/generators/ts/JSONSchema2APIProtocolGenerator
+npm run build
+npm run  generate
+----
+
+Then compile the Eclipse Studio using maven:
 
 [source,bourne]
 ----
