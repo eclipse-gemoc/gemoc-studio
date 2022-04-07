@@ -136,7 +136,7 @@ class DeployOfficialExampleK3FSM_Test extends AbstractXtextTests
 		val newExampleBot = bot.shell("New Example").bot
 		newExampleBot.tree().getTreeItem("GEMOC modeling workbench examples").select();
 		newExampleBot.tree().getTreeItem("GEMOC modeling workbench examples").expand();
-		newExampleBot.tree().getTreeItem("GEMOC modeling workbench examples").getNode("GEMOC models for K3FSM Language (Sequential)").select();
+		newExampleBot.tree().getTreeItem("GEMOC modeling workbench examples").getNode("GEMOC models for K3FSM and EventK3FSM languages (Sequential)").select();
 	  	newExampleBot.button("Finish").click();
 	  
 		IResourcesSetupUtil::reallyWaitForAutoBuild
@@ -145,7 +145,13 @@ class DeployOfficialExampleK3FSM_Test extends AbstractXtextTests
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 		WorkspaceTestHelper::reallyWaitForJobs(2)
 
-		helper.assertProjectExists(BASE_NAME+".model_examples");
+		helper.assertProjectExists(BASE_NAME+".model_examples.Bitshifting");
+		helper.assertProjectExists(BASE_NAME+".model_examples.EdgeDetectors");
+		helper.assertProjectExists(BASE_NAME+".model_examples.StringtoLowercase");
+		helper.assertProjectExists(BASE_NAME+".model_examples.StringtoUpperCases");
+		helper.assertProjectExists(BASE_NAME+".model_examples.ThreeStates");
+		helper.assertProjectExists(BASE_NAME+".model_examples.TrafficLight");
+		helper.assertProjectExists(BASE_NAME+".model_examples.TwoStates");
 
 		helper.assertNoMarkers();		
 	}
@@ -154,15 +160,17 @@ class DeployOfficialExampleK3FSM_Test extends AbstractXtextTests
 	 * verifies that we can use the predefined launch configuration and launch a debug session
 	 */
 	@Test
-	def void test02_DebugPredefinedK3Fsm_TwoStatesUpCast_Model_some_steps_and_stop() throws Exception {
+	def void test02_DebugPredefinedK3Fsm_TwoStates_Model_some_steps_and_stop() throws Exception {
 		//val activeShell = bot.activeShell // the focus is lost after click on "Browse..."
 		// open the Debug configuration and start the predefined launch conf
-		bot.tree().getTreeItem("org.eclipse.gemoc.example.k3fsm.model_examples").select();
-		bot.tree().getTreeItem("org.eclipse.gemoc.example.k3fsm.model_examples").expand();
-		val item = bot.tree().getTreeItem("org.eclipse.gemoc.example.k3fsm.model_examples").getNode("TwoStatesUpcast.k3fsm").select();
+		bot.tree().getTreeItem("org.eclipse.gemoc.example.k3fsm.model_examples.TwoStates").select();
+		bot.tree().getTreeItem("org.eclipse.gemoc.example.k3fsm.model_examples.TwoStates").expand();
+		bot.tree().getTreeItem("org.eclipse.gemoc.example.k3fsm.model_examples.TwoStates").getNode("xtext").select();
+		bot.tree().getTreeItem("org.eclipse.gemoc.example.k3fsm.model_examples.TwoStates").getNode("xtext").expand();
+		val item = bot.tree().getTreeItem("org.eclipse.gemoc.example.k3fsm.model_examples.TwoStates").getNode("xtext").getNode("TwoStates.k3fsm").select();
 		item.contextMenu("Debug As").menu("Debug Configurations...").click();
 		bot.tree().getTreeItem("Executable model with GEMOC Java engine").expand();
-		bot.tree().getTreeItem("Executable model with GEMOC Java engine").getNode("K3FSM - TwoStatesUpcast(abababa)").select();
+		bot.tree().getTreeItem("Executable model with GEMOC Java engine").getNode("K3FSM- TwoStates(abababa)").select();
 		bot.button("Debug").click();
 				
 		// accept switch to debug perspective (this also makes sure that the engines has started)		
@@ -178,12 +186,12 @@ class DeployOfficialExampleK3FSM_Test extends AbstractXtextTests
 		waitThreadSuspended
 		clickOnStepInto(bot)
 		waitThreadSuspended
-		bot.tree().getTreeItem("K3FSM - TwoStatesUpcast(abababa) [Executable model with GEMOC Java engine]").getNode("Gemoc debug target").select();
+		bot.tree().getTreeItem("K3FSM- TwoStates(abababa) [Executable model with GEMOC Java engine]").getNode("Gemoc debug target").select();
 		bot.toolbarButtonWithTooltip("Resu&me (F8)").click();
 		
 		closeConfigureXtextPopup(bot)
 		
-		waitFirstTargetThreadSuspendedOrTerminated("K3FSM - TwoStatesUpcast(abababa)")
+		waitFirstTargetThreadSuspendedOrTerminated("K3FSM- TwoStates(abababa)")
 		try {
 			closeAndClearEngine(bot)	
 		} catch (Exception e){
@@ -203,7 +211,7 @@ class DeployOfficialExampleK3FSM_Test extends AbstractXtextTests
 	 * or timeout exception
 	 */
 	def void waitThreadSuspended(){		
-		waitFirstTargetThreadSuspended("K3FSM - TwoStatesUpcast(abababa)")
+		waitFirstTargetThreadSuspended("K3FSM- TwoStates(abababa)")
 	}
 	
 }

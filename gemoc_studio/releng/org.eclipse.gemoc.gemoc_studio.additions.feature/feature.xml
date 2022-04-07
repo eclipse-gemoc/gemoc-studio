@@ -12,7 +12,7 @@
 <feature
       id="org.eclipse.gemoc.gemoc_studio.additions.feature"
       label="GEMOC Studio Additional Features"
-      version="3.4.0.qualifier"
+      version="3.5.0.qualifier"
       provider-name="%providerName"
       image="gemocstudio32.png">
 
@@ -71,13 +71,12 @@ http://www.eclipse.org/legal/epl-v10.html
       <import feature="org.eclipse.ecf.core.feature.source" version="1.4.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.ecf.core.ssl.feature.source" version="1.1.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.ecf.filetransfer.feature.source" version="3.13.7" match="greaterOrEqual"/>
-      <import feature="org.eclipse.ecf.filetransfer.httpclient4.feature.source" version="3.13.7" match="greaterOrEqual"/>
-      <import feature="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature.source" version="1.1.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.ecf.filetransfer.httpclient45.feature.source" version="1.1.0" match="greaterOrEqual"/>
+      <!--<import feature="org.eclipse.ecf.filetransfer.httpclient45.ssl.feature.source" version="1.1.0" match="greaterOrEqual"/>-->
       <import feature="org.eclipse.ecf.filetransfer.ssl.feature.source" version="1.1.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.emf.ecoretools.registration.feature" version="3.3.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.emf.query.sdk" version="0.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.emf.compare" version="2.0.0" match="greaterOrEqual"/>
-      <import feature="org.eclipse.emf.compare.source" version="2.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.emf.compare.ide.ui" version="2.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.emf.diffmerge.feature" version="0.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.emf.diffmerge.gmf.feature" version="0.0.0" match="greaterOrEqual"/>

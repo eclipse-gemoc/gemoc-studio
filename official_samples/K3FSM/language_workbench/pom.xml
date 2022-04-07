@@ -13,7 +13,7 @@
 	<parent>
 		<groupId>org.eclipse.gemoc.gemoc-studio.bundle</groupId>
     	<artifactId>org.eclipse.gemoc.gemoc_studio.parent</artifactId>
-    	<version>3.4.0-SNAPSHOT</version>
+    	<version>3.5.0-SNAPSHOT</version>
 		<relativePath>../../../gemoc_studio</relativePath>
 	</parent>
 	
@@ -22,6 +22,8 @@
         <module>org.eclipse.gemoc.example.k3fsm.design</module>
         <module>org.eclipse.gemoc.example.k3fsm.edit</module>
         <module>org.eclipse.gemoc.example.k3fsm.editor</module>
+        <module>org.eclipse.gemoc.example.k3fsm.event</module>
+        <module>org.eclipse.gemoc.example.k3fsm.event.xdsml</module>
         <module>org.eclipse.gemoc.example.k3fsm.k3dsa</module>
         <module>org.eclipse.gemoc.example.k3fsm.xdsml</module>
         <module>org.eclipse.gemoc.example.k3fsm.xtext</module>
@@ -29,11 +31,6 @@
         <module>org.eclipse.gemoc.example.k3fsm.xtext.ui</module>
     </modules>
     <repositories>
-		<repository>
-			<id>Eclipse release</id>
-			<layout>p2</layout>
-			<url>${eclipse.release.p2.url}</url>
-		</repository>
 		<repository>
 			<id>K3</id>
 			<layout>p2</layout>

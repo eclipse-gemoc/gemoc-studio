@@ -84,7 +84,9 @@ RUN yum update -y \
   vino \
   webkitgtk \
   webkitgtk3 \
+  webkitgtk4 \
   wget \
+  xdg-utils \
   xmlstarlet \
   xorg-x11-apps.x86_64 \
   xorg-x11-drv-dummy.x86_64 \
@@ -101,9 +103,9 @@ RUN yum update -y \
   zsh \
   && yum clean all
 
-RUN alternatives --set java /usr/lib/jvm/java-11-openjdk-11.0.12.0.7-0.el7_9.x86_64/bin/java \
-  && alternatives --set javac /usr/lib/jvm/java-11-openjdk-11.0.12.0.7-0.el7_9.x86_64/bin/javac
-ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk-11.0.12.0.7-0.el7_9.x86_64
+RUN alternatives --set java /usr/lib/jvm/java-11-openjdk-11.0.14.0.9-1.el7_9.x86_64/bin/java \
+  && alternatives --set javac /usr/lib/jvm/java-11-openjdk-11.0.14.0.9-1.el7_9.x86_64/bin/javac
+ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk-11.0.14.0.9-1.el7_9.x86_64
 
 
 # Setting Maven Version that needs to be installed
@@ -117,11 +119,12 @@ ENV M2_HOME /usr/share/maven
 
 ENV HOME=/home/jenkins
 
-RUN wget https://gluonhq.com/download/javafx-11-0-2-sdk-linux  -O ${HOME}/javafx-11-0-2-sdk-linux.zip 
-RUN unzip ${HOME}/javafx-11-0-2-sdk-linux.zip -d /usr/share/
-RUN rm ${HOME}/javafx-11-0-2-sdk-linux.zip 
 
-ENV JAVAFX_HOME=/usr/share/javafx-sdk-11.0.2
+RUN wget https://download2.gluonhq.com/openjfx/17.0.2/openjfx-17.0.2_linux-x64_bin-sdk.zip  -O ${HOME}/openjfx-17.0.2_linux-x64_bin-sdk.zip 
+RUN unzip ${HOME}/openjfx-17.0.2_linux-x64_bin-sdk.zip -d /usr/share/
+RUN rm ${HOME}/openjfx-17.0.2_linux-x64_bin-sdk.zip 
+
+ENV JAVAFX_HOME=/usr/share/javafx-sdk-17.0.2
 
 RUN ln -s /usr/bin/git /usr/local/bin/git \
   && ln -s /bin/bash /usr/local/bin/hipp_shell \

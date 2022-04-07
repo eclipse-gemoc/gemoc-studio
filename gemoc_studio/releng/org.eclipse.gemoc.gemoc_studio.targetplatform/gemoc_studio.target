@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde?>
+<!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
+<target name="GEMOCStudio Target platform" sequenceNumber="1646831631">
+  <locations>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.acceleo.feature.group" version="3.7.11.202102190929"/>
+      <unit id="org.eclipse.e4.rcp.feature.group" version="4.22.0.v20211123-0851"/>
+      <unit id="org.eclipse.ecf.filetransfer.feature.feature.group" version="3.14.1800.v20210618-0642"/>
+      <unit id="org.eclipse.ecf.filetransfer.httpclient45.feature.feature.group" version="1.1.0.v20211008-2034"/>
+      <unit id="org.eclipse.ecf.filetransfer.ssl.feature.feature.group" version="1.1.401.v20210409-2301"/>
+      <unit id="org.eclipse.egit.feature.group" version="6.0.0.202111291000-r"/>
+      <unit id="org.eclipse.emf.feature.group" version="2.28.0.v20211110-0654"/>
+      <unit id="org.eclipse.emf.compare.feature.group" version="3.3.17.202111290942"/>
+      <unit id="org.eclipse.emf.compare.rcp" version="2.5.2.202111290942"/>
+      <unit id="org.eclipse.emf.compare.ide.ui.feature.group" version="3.3.17.202111290942"/>
+      <unit id="org.eclipse.emf.ecoretools.sdk.feature.group" version="3.3.4.202111191450"/>
+      <unit id="org.eclipse.emf.mwe2.runtime.sdk.feature.group" version="2.12.1.v20210218-2134"/>
+      <unit id="org.eclipse.emf.mwe2.launcher.feature.group" version="2.12.1.v20210218-2134"/>
+      <unit id="org.eclipse.emf.mwe2.language.sdk.feature.group" version="2.12.1.v20210218-2134"/>
+      <unit id="org.eclipse.emf.query.sdk.feature.group" version="1.12.0.201805030653"/>
+      <unit id="org.eclipse.epp.mpc.feature.group" version="1.9.2.v20210826-0851"/>
+      <unit id="org.eclipse.equinox.p2.sdk.feature.group" version="3.11.1400.v20211104-1616"/>
+      <unit id="org.eclipse.equinox.executable.feature.group" version="3.8.1400.v20211117-0650"/>
+      <unit id="org.eclipse.m2e.feature.feature.group" version="1.19.0.20211116-0804"/>
+      <unit id="org.eclipse.m2e.logback.feature.feature.group" version="1.17.2.20211002-1029"/>
+      <unit id="org.eclipse.m2m.qvt.oml.feature.group" version="3.10.5.v20211130-1509"/>
+      <unit id="org.eclipse.m2m.qvt.oml.editor.feature.group" version="3.10.5.v20211130-1509"/>
+      <unit id="org.eclipse.m2m.qvt.oml.runtime.feature.group" version="3.10.5.v20211130-1509"/>
+      <unit id="org.eclipse.m2m.qvt.oml.sdk.feature.group" version="3.10.5.v20211130-1509"/>
+      <unit id="org.eclipse.ocl.examples.feature.group" version="6.17.0.v20211130-1448"/>
+      <unit id="org.eclipse.rcp.feature.group" version="4.22.0.v20211124-1800"/>
+      <unit id="org.eclipse.sdk.feature.group" version="4.22.0.v20211124-1800"/>
+      <unit id="org.eclipse.swtbot.eclipse.feature.group" version="3.1.0.202106041005"/>
+      <unit id="org.eclipse.swtbot.ide.feature.group" version="3.1.0.202106041005"/>
+      <unit id="org.eclipse.swtbot.feature.group" version="3.1.0.202106041005"/>
+      <unit id="org.eclipse.wst.xml_core.feature.feature.group" version="3.24.0.v202110010323"/>
+      <unit id="org.eclipse.wst.xml_ui.feature.feature.group" version="3.24.0.v202111190506"/>
+      <unit id="org.eclipse.xtext.sdk.feature.group" version="2.25.0.v20210301-1429"/>
+      <unit id="org.eclipse.xtend.sdk.feature.group" version="2.25.0.v20210301-1429"/>
+      <unit id="ch.qos.logback.classic" version="1.2.3.v20200428-2012"/>
+      <unit id="org.apache.commons.lang3" version="3.1.0.v201403281430"/>
+      <unit id="org.apache.xalan" version="2.7.2.v20201124-1837"/>
+      <repository id="eclipse" location="https://download.eclipse.org/releases/2021-12"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.sirius.specifier.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.aql.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.runtime.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.runtime.aql.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.runtime.ocl.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.runtime.ide.ui.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.runtime.ide.eef.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.runtime.ide.xtext.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.sirius.properties.feature.feature.group" version="6.5.1.202106111115"/>
+      <unit id="org.eclipse.eef.sdk.feature.feature.group" version="2.1.5.202008270808"/>
+      <unit id="org.eclipse.eef.ext.widgets.reference.feature.feature.group" version="2.1.5.202008270808"/>
+      <unit id="org.eclipse.sirius.diagram.elk.feature.feature.group" version="6.5.1.202106111115"/>
+      <repository id="sirius" location="https://download.eclipse.org/sirius/updates/releases/6.5.1/2020-09/"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.amalgam.discovery.feature.group" version="1.8.0.201706011309"/>
+      <repository id="photon" location="http://download.eclipse.org/releases/photon"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.emf.diffmerge.feature.feature.group" version="0.13.0.202010211615"/>
+      <unit id="org.eclipse.emf.diffmerge.gmf.feature.feature.group" version="0.13.0.202010211615"/>
+      <unit id="org.eclipse.emf.diffmerge.sirius.feature.feature.group" version="0.13.0.202010211615"/>
+      <unit id="org.eclipse.emf.diffmerge.egit.feature.feature.group" version="0.13.0.202010211615"/>
+      <repository id="diffmerge" location="http://download.eclipse.org/diffmerge/releases/0.13.0/emf-diffmerge-site"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.emf.ecoretools.ale.feature.feature.group" version="1.2.0.202007171516"/>
+      <repository id="ale" location="http://www.kermeta.org/ale-lang/updates/2020-07-17"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.ajdt.feature.group" version="2.2.4.202202111622"/>
+      <repository id="ajdt" location="http://download.eclipse.org/tools/ajdt/410/dev/update"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="fr.inria.aoste.timesquare.feature.feature.group" version="1.0.0.202109021545"/>
+      <repository id="timesquare" location="http://timesquare.inria.fr/update_site/2020"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.emf.ecoretools.registration.feature.feature.group" version="3.3.0.201811051325"/>
+      <repository id="diverse-commons" location="http://www.kermeta.org/diverse-commons/updates/latest"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="openjfx.standard.feature.feature.group" version="11.0.0.201901231300"/>
+      <unit id="openjfx.swing.feature.feature.group" version="11.0.0.201901231300"/>
+      <unit id="openjfx.swt.feature.feature.group" version="11.0.0.201901231300"/>
+      <unit id="openjfx.media.feature.feature.group" version="11.0.0.201901231300"/>
+      <unit id="openjfx.web.feature.feature.group" version="11.0.0.201901231300"/>
+      <repository id="openjfx" location="https://downloads.efxclipse.bestsolution.at/p2-repos/openjfx-11/repository/"/>
+    </location>
+    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
+      <unit id="org.eclipse.fx.ide.basic.feature.feature.group" version="3.7.0.202010120832"/>
+      <unit id="org.eclipse.fx.ide.pde.feature.feature.group" version="3.7.0.202010120832"/>
+      <unit id="org.eclipse.fx.runtime.min.feature.feature.group" version="3.7.0.202010120826"/>
+      <repository id="fxclipse" location="https://download.eclipse.org/efxclipse/updates-released/3.7.0/site"/>
+    </location>
+  </locations>
+  <targetJRE path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11"/>
+</target>

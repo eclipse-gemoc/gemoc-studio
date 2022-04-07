@@ -137,7 +137,7 @@ public interface FSM extends EObject {
 	 * @return the value of the '<em>Current State</em>' reference.
 	 * @see #setCurrentState(State)
 	 * @see org.eclipse.gemoc.example.k3fsm.K3fsmPackage#getFSM_CurrentState()
-	 * @model
+	 * @model annotation="aspect"
 	 * @generated
 	 */
 	State getCurrentState();
@@ -163,7 +163,7 @@ public interface FSM extends EObject {
 	 * @return the value of the '<em>Unprocessed String</em>' attribute.
 	 * @see #setUnprocessedString(String)
 	 * @see org.eclipse.gemoc.example.k3fsm.K3fsmPackage#getFSM_UnprocessedString()
-	 * @model
+	 * @model annotation="aspect"
 	 * @generated
 	 */
 	String getUnprocessedString();
@@ -189,7 +189,7 @@ public interface FSM extends EObject {
 	 * @return the value of the '<em>Consummed String</em>' attribute.
 	 * @see #setConsummedString(String)
 	 * @see org.eclipse.gemoc.example.k3fsm.K3fsmPackage#getFSM_ConsummedString()
-	 * @model
+	 * @model annotation="aspect"
 	 * @generated
 	 */
 	String getConsummedString();
@@ -215,7 +215,7 @@ public interface FSM extends EObject {
 	 * @return the value of the '<em>Produced String</em>' attribute.
 	 * @see #setProducedString(String)
 	 * @see org.eclipse.gemoc.example.k3fsm.K3fsmPackage#getFSM_ProducedString()
-	 * @model
+	 * @model annotation="aspect"
 	 * @generated
 	 */
 	String getProducedString();

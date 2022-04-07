@@ -1,0 +1,586 @@
+FSM toLowerCase {
+initialState S0
+ ownedStates {
+ 	State S0 {
+ 		outgoingTransitions {
+ 			Transition S0_to_S0_space {
+ 				input " "
+ 				output " "
+ 				target S0
+ 			},
+ 			Transition S0_to_a_A {
+ 				input "A"
+ 				output "a"
+ 				target a
+ 			},
+ 			Transition S0_to_b_B {
+ 				input "B"
+ 				output "b"
+ 				target b
+ 			},
+ 			Transition S0_to_c_C {
+ 				input "C"
+ 				output "c"
+ 				target c
+ 			},
+ 			Transition S0_to_d_D {
+ 				input "D"
+ 				output "d"
+ 				target d
+ 			},
+ 			Transition S0_to_e_E {
+ 				input "E"
+ 				output "e"
+ 				target e
+ 			},
+ 			Transition S0_to_f_F {
+ 				input "F"
+ 				output "f"
+ 				target f
+ 			},
+ 			Transition S0_to_g_G {
+ 				input "G"
+ 				output "g"
+ 				target g
+ 			},
+ 			Transition S0_to_h_H {
+ 				input "H"
+ 				output "h"
+ 				target h
+ 			},
+ 			Transition S0_to_i_I {
+ 				input "I"
+ 				output "i"
+ 				target i
+ 			},
+ 			Transition S0_to_j_J {
+ 				input "J"
+ 				output "j"
+ 				target j
+ 			},
+ 			Transition S0_to_k_K {
+ 				input "K"
+ 				output "k"
+ 				target k
+ 			},
+ 			Transition S0_to_l_L {
+ 				input "L"
+ 				output "l"
+ 				target l
+ 			},
+ 			Transition S0_to_m_M {
+ 				input "M"
+ 				output "m"
+ 				target m
+ 			},
+ 			Transition S0_to_n_N {
+ 				input "N"
+ 				output "n"
+ 				target n
+ 			},
+ 			Transition S0_to_o_O {
+ 				input "O"
+ 				output "o"
+ 				target o
+ 			},
+ 			Transition S0_to_p_P {
+ 				input "P"
+ 				output "p"
+ 				target p
+ 			},
+ 			Transition S0_to_q_Q {
+ 				input "Q"
+ 				output "q"
+ 				target q
+ 			},
+ 			Transition S0_to_r_R {
+ 				input "R"
+ 				output "r"
+ 				target r
+ 			},
+ 			Transition S0_to_s_S {
+ 				input "S"
+ 				output "s"
+ 				target s
+ 			},
+ 			Transition S0_to_t_T {
+ 				input "T"
+ 				output "t"
+ 				target t
+ 			},
+ 			Transition S0_to_u_U {
+ 				input "U"
+ 				output "u"
+ 				target u
+ 			},
+ 			Transition S0_to_v_V {
+ 				input "V"
+ 				output "v"
+ 				target v
+ 			},
+ 			Transition S0_to_w_W {
+ 				input "W"
+ 				output "w"
+ 				target w
+ 			},
+ 			Transition S0_to_x_X {
+ 				input "X"
+ 				output "x"
+ 				target x
+ 			},
+ 			Transition S0_to_y_Y {
+ 				input "Y"
+ 				output "y"
+ 				target y
+ 			},
+ 			Transition S0_to_z_Z {
+ 				input "Z"
+ 				output "z"
+ 				target z
+ 			},
+ 			Transition S0_to_a_a {
+ 				input "a"
+ 				output "a"
+ 				target a
+ 			},
+ 			Transition S0_to_b_b {
+ 				input "b"
+ 				output "b"
+ 				target b
+ 			},
+ 			Transition S0_to_c_c {
+ 				input "c"
+ 				output "c"
+ 				target c
+ 			},
+ 			Transition S0_to_d_d {
+ 				input "d"
+ 				output "d"
+ 				target d
+ 			},
+ 			Transition S0_to_e_e {
+ 				input "e"
+ 				output "e"
+ 				target e
+ 			},
+ 			Transition S0_to_f_f {
+ 				input "f"
+ 				output "f"
+ 				target f
+ 			},
+ 			Transition S0_to_g_g {
+ 				input "g"
+ 				output "g"
+ 				target g
+ 			},
+ 			Transition S0_to_h_h {
+ 				input "h"
+ 				output "h"
+ 				target h
+ 			},
+ 			Transition S0_to_i_i {
+ 				input "i"
+ 				output "i"
+ 				target i
+ 			},
+ 			Transition S0_to_j_j {
+ 				input "j"
+ 				output "j"
+ 				target j
+ 			},
+ 			Transition S0_to_k_k {
+ 				input "k"
+ 				output "k"
+ 				target k
+ 			},
+ 			Transition S0_to_l_l {
+ 				input "l"
+ 				output "l"
+ 				target l
+ 			},
+ 			Transition S0_to_m_m {
+ 				input "m"
+ 				output "m"
+ 				target m
+ 			},
+ 			Transition S0_to_n_n {
+ 				input "n"
+ 				output "n"
+ 				target n
+ 			},
+ 			Transition S0_to_o_o {
+ 				input "o"
+ 				output "o"
+ 				target o
+ 			},
+ 			Transition S0_to_p_p {
+ 				input "p"
+ 				output "p"
+ 				target p
+ 			},
+ 			Transition S0_to_q_q {
+ 				input "q"
+ 				output "q"
+ 				target q
+ 			},
+ 			Transition S0_to_r_r {
+ 				input "r"
+ 				output "r"
+ 				target r
+ 			},
+ 			Transition S0_to_s_s {
+ 				input "s"
+ 				output "s"
+ 				target s
+ 			},
+ 			Transition S0_to_t_t {
+ 				input "t"
+ 				output "t"
+ 				target t
+ 			},
+ 			Transition S0_to_u_u {
+ 				input "u"
+ 				output "u"
+ 				target u
+ 			},
+ 			Transition S0_to_v_v {
+ 				input "v"
+ 				output "v"
+ 				target v
+ 			},
+ 			Transition S0_to_w_w {
+ 				input "w"
+ 				output "w"
+ 				target w
+ 			},
+ 			Transition S0_to_x_x {
+ 				input "x"
+ 				output "x"
+ 				target x
+ 			},
+ 			Transition S0_to_y_y {
+ 				input "y"
+ 				output "y"
+ 				target y
+ 			},
+ 			Transition S0_to_z_z {
+ 				input "z"
+ 				output "z"
+ 				target z
+ 			}
+ 		}
+ 	},
+ 	State a {
+ 		outgoingTransitions {
+ 			Transition a_to_a {
+ 				input "a"
+ 				output "a"
+ 				target a
+ 			},
+ 			Transition back_to_S0 {
+ 				target S0
+ 			}
+ 		}
+ 	},
+ 	State b {
+ 		outgoingTransitions {
+ 			Transition b_to_b {
+ 				input "b"
+ 				output "b"
+ 				target b
+ 			},
+ 			Transition back_to_S0 {
+ 				target S0
+ 			}
+ 		}
+ 	},
+ 	State c {
+ 		outgoingTransitions {
+ 			Transition c_to_c {
+ 				input "c"
+ 				output "c"
+ 				target c
+ 			},
+ 			Transition back_to_S0 {
+ 				target S0
+ 			}
+ 		}
+ 	},
+ 	State d {
+ 		outgoingTransitions {
+ 			Transition d_to_d {
+ 				input "d"
+ 				output "d"
+ 				target d
+ 			},
+ 			Transition back_to_S0 {
+ 				target S0
+ 			}
+ 		}
+ 	},
+ 	State e {
+ 		outgoingTransitions {
+ 			Transition e_to_e {
+ 				input "e"
+ 				output "e"
+ 				target e
+ 			},
+ 			Transition back_to_S0 {
+ 				target S0
+ 			}
+ 		}
+ 	},
+ 	State f {
+ 		outgoingTransitions {
+ 			Transition f_to_f {
+ 				input "f"
+ 				output "f"
+ 				target f
+ 			},
+ 			Transition back_to_S0 {
+ 				target S0
+ 			}
+ 		}
+ 	},
+ 	State g {
+ 		outgoingTransitions {
+ 			Transition g_to_g {
+ 				input "g"
+ 				output "g"
+ 				target g
+ 			},
+ 			Transition back_to_S0 {
+ 				target S0
+ 			}
+ 		}
+ 	},
+ 	State h {
+ 		outgoingTransitions {
+ 			Transition h_to_h {
+ 				input "h"
+ 				output "h"
+ 				target h
+ 			},
+ 			Transition back_to_S0 {
+ 				target S0
+ 			}
+ 		}
+ 	},
+ 	State i {
+ 		outgoingTransitions {
+ 			Transition i_to_i {
+ 				input "i"
+ 				output "i"
+ 				target i
+ 			},
+ 			Transition back_to_S0 {
+ 				target S0
+ 			}
+ 		}
+ 	},
+ 	State j {
+ 		outgoingTransitions {
+ 			Transition j_to_j {
+ 				input "j"
+ 				output "j"
+ 				target j
+ 			},
+ 			Transition back_to_S0 {
+ 				target S0
+ 			}
+ 		}
+ 	},
+ 	State k {
+ 		outgoingTransitions {
+ 			Transition k_to_k {
+ 				input "k"
+ 				output "k"
+ 				target k
+ 			},
+ 			Transition back_to_S0 {
+ 				target S0
+ 			}
+ 		}
+ 	},
+ 	State l {
+ 		outgoingTransitions {
+ 			Transition l_to_l {
+ 				input "l"
+ 				output "l"
+ 				target l
+ 			},
+ 			Transition back_to_S0 {
+ 				target S0
+ 			}
+ 		}
+ 	},
+ 	State m {
+ 		outgoingTransitions {
+ 			Transition m_to_m {
+ 				input "m"
+ 				output "m"
+ 				target m
+ 			},
+ 			Transition back_to_S0 {
+ 				target S0
+ 			}
+ 		}
+ 	},
+ 	State n {
+ 		outgoingTransitions {
+ 			Transition n_to_n {
+ 				input "n"
+ 				output "n"
+ 				target n
+ 			},
+ 			Transition back_to_S0 {
+ 				target S0
+ 			}
+ 		}
+ 	},
+ 	State o {
+ 		outgoingTransitions {
+ 			Transition o_to_o {
+ 				input "o"
+ 				output "o"
+ 				target o
+ 			},
+ 			Transition back_to_S0 {
+ 				target S0
+ 			}
+ 		}
+ 	},
+ 	State p {
+ 		outgoingTransitions {
+ 			Transition p_to_p {
+ 				input "p"
+ 				output "p"
+ 				target p
+ 			},
+ 			Transition back_to_S0 {
+ 				target S0
+ 			}
+ 		}
+ 	},
+ 	State q {
+ 		outgoingTransitions {
+ 			Transition q_to_q {
+ 				input "q"
+ 				output "q"
+ 				target q
+ 			},
+ 			Transition back_to_S0 {
+ 				target S0
+ 			}
+ 		}
+ 	},
+ 	State r {
+ 		outgoingTransitions {
+ 			Transition r_to_r {
+ 				input "r"
+ 				output "r"
+ 				target r
+ 			},
+ 			Transition back_to_S0 {
+ 				target S0
+ 			}
+ 		}
+ 	},
+ 	State s {
+ 		outgoingTransitions {
+ 			Transition s_to_s {
+ 				input "s"
+ 				output "s"
+ 				target s
+ 			},
+ 			Transition back_to_S0 {
+ 				target S0
+ 			}
+ 		}
+ 	},
+ 	State t {
+ 		outgoingTransitions {
+ 			Transition t_to_t {
+ 				input "t"
+ 				output "t"
+ 				target t
+ 			},
+ 			Transition back_to_S0 {
+ 				target S0
+ 			}
+ 		}
+ 	},
+ 	State u {
+ 		outgoingTransitions {
+ 			Transition u_to_u {
+ 				input "u"
+ 				output "u"
+ 				target u
+ 			},
+ 			Transition back_to_S0 {
+ 				target S0
+ 			}
+ 		}
+ 	},
+ 	State v {
+ 		outgoingTransitions {
+ 			Transition v_to_v {
+ 				input "v"
+ 				output "v"
+ 				target v
+ 			},
+ 			Transition back_to_S0 {
+ 				target S0
+ 			}
+ 		}
+ 	},
+ 	State w {
+ 		outgoingTransitions {
+ 			Transition w_to_w {
+ 				input "w"
+ 				output "w"
+ 				target w
+ 			},
+ 			Transition back_to_S0 {
+ 				target S0
+ 			}
+ 		}
+ 	},
+ 	State x {
+ 		outgoingTransitions {
+ 			Transition x_to_x {
+ 				input "x"
+ 				output "x"
+ 				target x
+ 			},
+ 			Transition back_to_S0 {
+ 				target S0
+ 			}
+ 		}
+ 	},
+ 	State y {
+ 		outgoingTransitions {
+ 			Transition y_to_y {
+ 				input "y"
+ 				output "y"
+ 				target y
+ 			},
+ 			Transition back_to_S0 {
+ 				target S0
+ 			}
+ 		}
+ 	},
+ 	State z {
+ 		outgoingTransitions {
+ 			Transition z_to_z {
+ 				input "z"
+ 				output "z"
+ 				target z
+ 			},
+ 			Transition back_to_S0 {
+ 				target S0
+ 			}
+ 		}
+ 	}
+ }
+}

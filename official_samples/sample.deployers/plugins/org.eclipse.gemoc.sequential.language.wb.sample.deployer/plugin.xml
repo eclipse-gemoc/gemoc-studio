@@ -32,7 +32,7 @@
             name="GEMOC MelangeK3FSM Language (Sequential)"
             preferredPerspectives="org.eclipse.gemoc.xdsmlframework.ide.ui.xdsml.perspective">
          <description>
-            T⁮his set of projects features a simple Finite State Machine language which is extended and made executable using GEMOC.
+T⁮his set of projects features a simple Finite State Machine language which is extended and made executable using GEMOC.
 It illustrates the building of an executable sequential language (xsfsm) on top of an existing language environment and editor (fsm) thanks to Melange.
          </description>
       </wizard> 
@@ -47,8 +47,26 @@ It illustrates the building of an executable sequential language (xsfsm) on top 
             name="GEMOC K3FSM Language (Sequential)"
             preferredPerspectives="org.eclipse.gemoc.xdsmlframework.ide.ui.xdsml.perspective">
          <description>
-            This example features a simple executable language using GEMOC Java Engine (ie. based on Xtend/K3).
-			It illustrates the GEMOC animation framework on a Finite State Machine language where the concepts of both the syntax and semantic domains are in a single ecore file. 
+This example features a simple executable language using GEMOC Java Engine (ie. based on Xtend/K3).
+It illustrates the GEMOC animation framework on a Finite State Machine language where the concepts of both the syntax and semantic domains are in a single ecore file. 
+         </description>
+      </wizard>
+      
+      <wizard
+            canFinishEarly="true"
+            category="org.eclipse.ui.Examples/org.eclipse.gemoc.gemoc_language_workbench.samples.category"
+            class="org.eclipse.gemoc.sequential.language.wb.sample.deployer.wizards.EventK3FSMExampleWizard"
+            finalPerspective="org.eclipse.gemoc.xdsmlframework.ide.ui.xdsml.perspective"
+            hasPages="false"
+            icon="icons/IconeGemocLanguage-16.png"
+            id="org.eclipse.gemoc.sequential.language.wb.sample.deployer.eventk3fsm.wizard"
+            name="GEMOC EventK3FSM Language (Sequential)"
+            preferredPerspectives="org.eclipse.gemoc.xdsmlframework.ide.ui.xdsml.perspective">
+         <description>
+This example features a simple executable language using GEMOC Java Engine (ie. based on Xtend/K3) and Event behavior interface.
+This a variant of the GEMOC K3FSM Language that offers a behavioral interface. Ie. An addon is used to send event conforming to 
+the declared interface during the execution.
+Note: The GEMOC EventK3FSM Language shares several plugins with GEMOC K3FSM Language.
          </description>
       </wizard>     
             
