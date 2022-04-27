@@ -1,0 +1,28 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+
+= Developer Guide
+== Components Overview
+
+endif::[]
+
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/dev/Protocols_headContent.asciidoc.]
+
+In addition to java API, the GEMOC Studio implements several web protocols.
+
+For consistency, these protocols are defined using the same mechanism as LSP.
+
+However, in order to be deployed internally in web browsers, instead of defining a socket or a port for each protocol, most implementation in the studio use websockets.
+
+For convenience, an extensible websocket server is provided as an eclipse plugin. This allows to deploy a new endpoint in any eclipse based application or IDE, 
+simply by adding a plugin extension.
+
+<<img-ProtocolsOverview-devguide>> shows an overview of the components that offer or use the protocols in the Eclipse Studio.
+
+[[img-ProtocolsOverview-devguide]]
+.Protocols overview
+image::images/dev/ProtocolsOverview.png["Protocols overview"]
+
