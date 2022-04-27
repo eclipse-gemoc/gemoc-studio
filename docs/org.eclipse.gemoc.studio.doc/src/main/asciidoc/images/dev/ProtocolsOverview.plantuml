@@ -1,0 +1,15 @@
+@startuml
+skinparam ComponentBorderColor black
+
+scale max 1024 width
+scale max 800 height
+
+node "Execution Framework" as exec_framework {
+  [org.eclipse.gemoc.executionframework.addon.eaop.server]
+}
+
+interface "Engine AddOn Protocol" as EAOP
+
+org.eclipse.gemoc.executionframework.addon.eaop.server - EAOP
+
+@enduml

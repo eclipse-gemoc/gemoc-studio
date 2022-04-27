@@ -1,0 +1,74 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+
+= Developer Guide
+== Contributing
+
+endif::[]
+
+
+=== Compilation of the pom first jar
+
+==== Introduction
+
+Some of the components provided as part of the GEMOC Studio are now available as pomfirst. This means that the jar are compiled and provided using 
+maven dependency system (while the Eclipse studio is compiled using manifest dependency information using tycho).
+
+Only a subset of the components are provided as pomfirst. You can still use them in your pomfirst build but will need to rebuild the dependencies for maven.
+(You can also open a request  https://github.com/eclipse/gemoc-studio/issues for a given jar you may require).
+
+The source code of the [GEMOC Studio](http://gemoc.org/studio/) is currently spread among different git repositories in Eclipse organization.
+
+This project relies on the presence of the correct git repositories (cloned with the correct name) to locally build a working studio.
+
+
+==== Usage
+
+First checkout the git repositories :
+
+[source,bourne]
+----
+git clone  https://github.com/eclipse/gemoc-studio
+git clone  https://github.com/eclipse/gemoc-studio-modeldebugging
+git clone  https://github.com/eclipse/gemoc-studio-execution-moccml
+git clone  https://github.com/eclipse/gemoc-studio-moccml
+git clone  https://github.com/eclipse/gemoc-studio-execution-ale
+git clone  https://github.com/eclipse/gemoc-studio-execution-java
+----
+
+Note: the repositories must keep their names (Ie. do not change the destination folder name) as the maven pom file expects to find them at specific locations.
+
+Generate the protocols code
+
+[source,bourne]
+----
+cd gemoc-studio-modeldebugging/protocols/generators/ts/JSONSchema2APIProtocolGenerator
+npm run build
+npm run  generate
+----
+
+Then compile and install the pomfirst component:
+
+[source,bourne]
+----
+cd gemoc-studio/dev_support/pomfirst_full_compilation
+mvn install  
+----
+
+[NOTE]
+====
+Most of the pomfirst component are completely recompiled from the same sources as their tycho equivalent but using maven dependencies instead of platform target.
+This is NOT only a repackaging of the .class and ensure that the dependencies are all defined. 
+
+They typically use `maven-resources-plugin` to copy the java sources.
+====
+
+[NOTE]
+====
+`gemoc-studio/dev_support/pomfirst_full_compilation/pom.xml` is a convenient central place to compile all of them across the GEMOC repositories in one command.
+====
+
+
+   

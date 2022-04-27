@@ -101,6 +101,9 @@ http://www.eclipse.org/legal/epl-v10.html
       <import plugin="org.eclipse.equinox.p2.console"/>
       <import plugin="org.eclipse.equinox.p2.directorywatcher"/>
       <import plugin="org.eclipse.equinox.p2.reconciler.dropins"/>
+      <import plugin="org.eclipse.gemoc.ws.server"/>
+      <import plugin="org.eclipse.gemoc.executionframework.addon.eaop.server"/>
+      <import plugin="org.eclipse.gemoc.protocols.eaop.api"/>
    </requires>
 
    <plugin
