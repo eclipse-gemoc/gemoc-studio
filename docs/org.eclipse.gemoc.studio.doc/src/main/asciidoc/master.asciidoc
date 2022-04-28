@@ -320,6 +320,8 @@ include::../../../../../../gemoc-studio-execution-ale/docs/dev/ALEExecution.asci
 
 include::dev/Protocols_headContent.asciidoc[]
 
+include::../../../../../../gemoc-studio-modeldebugging/protocols/generators/docs/ProtocolGenerators.asciidoc[]
+
 include::../../../../../../gemoc-studio-modeldebugging/protocols/engine_addon_protocol/docs/EngineAddonProtocol.asciidoc[]
 
 == Contributing
