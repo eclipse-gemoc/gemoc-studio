@@ -324,9 +324,9 @@ include::../../../../../../gemoc-studio-modeldebugging/protocols/engine_addon_pr
 
 == Contributing
 
-
 include::../../../../../../gemoc-studio/dev_support/tycho_full_compilation/README.asciidoc[]
 include::../../../../../../gemoc-studio/dev_support/pomfirst_full_compilation/README.asciidoc[]
+include::../../../../../../gemoc-studio/dev_support/jenkins/README.asciidoc[]
 
 === Developing new features
 
