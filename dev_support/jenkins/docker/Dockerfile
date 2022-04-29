@@ -32,6 +32,8 @@ RUN yum install -y yum-utils && \
 RUN rpm -v --import http://li.nux.ro/download/nux/RPM-GPG-KEY-nux.ro
 RUN rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
 
+# Node JS 17 cf. https://github.com/nodesource/distributions/blob/master/README.md#debinstall
+RUN curl -sL https://rpm.nodesource.com/setup_17.x | bash -
 
 RUN yum update -y \
   && yum install -y \
@@ -61,6 +63,7 @@ RUN yum update -y \
   metacity \
   mutter \
   net-snmp-devel.x86_64 \
+  nodejs \
   java-11-openjdk-devel \
   openssl-devel.x86_64 \
   patch \
@@ -103,9 +106,9 @@ RUN yum update -y \
   zsh \
   && yum clean all
 
-RUN alternatives --set java /usr/lib/jvm/java-11-openjdk-11.0.14.0.9-1.el7_9.x86_64/bin/java \
-  && alternatives --set javac /usr/lib/jvm/java-11-openjdk-11.0.14.0.9-1.el7_9.x86_64/bin/javac
-ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk-11.0.14.0.9-1.el7_9.x86_64
+# RUN alternatives --set java /usr/lib/jvm/java-11-openjdk-11.0.14.0.9-1.el7_9.x86_64/bin/java \
+#  && alternatives --set javac /usr/lib/jvm/java-11-openjdk-11.0.14.0.9-1.el7_9.x86_64/bin/javac
+#ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk-11.0.14.0.9-1.el7_9.x86_64
 
 
 # Setting Maven Version that needs to be installed
