@@ -109,5 +109,18 @@ Animate models::
 [NOTE]
 .Note
 =====================================================================
-In order to run, Eclipse workbench work better with additional memory. Use the following setting to start Eclipse: -Xms1024m -Xmx1024m -XX:PermSize=512m -XX:MaxPermSize=512m
+In order to run, Eclipse workbench work better with additional memory. Use the following setting to start Eclipse: `-Xms1024m -Xmx1024m -XX:PermSize=512m -XX:MaxPermSize=512m`
+=====================================================================
+
+[NOTE]
+.Note
+=====================================================================
+As our package aren't digitically signed, Mac computer may prevent running the studio. To workaround this Mac limitation, you may try one of these actions:
+
+* Remove the quarantine status
+   ** Open a terminal in the folder containing the `.app`
+   ** Execute: `xattr -d com.apple.quarantine Eclipse.app`
+   ** Double clic the `.app`
+* Open a terminal and launch `./Eclipse.app/Contents/Eclipse/eclipse`
+
 =====================================================================
