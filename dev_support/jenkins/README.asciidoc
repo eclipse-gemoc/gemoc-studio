@@ -1,0 +1,57 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+
+= Developer Guide
+== Contributing
+
+endif::[]
+
+=== Continuous integration
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/dev_support/jenkins]
+
+
+==== Introduction
+
+The continuous integration of the project uses an integration repository with git submodules in order
+to have a complete build 
+
+Some synchronization jobs allow to automate the management of the git submodules. 
+It uses a branch naming schema in order to automatically associate branches having the same names.
+(it uses https://github.com/gemoc/git-sync-tools)
+See the readme in https://github.com/gemoc/gemoc-studio-eclipse-integration/ for links to the synchronization jobs.
+
+==== Eclipse organization continuous integration
+
+This is the official continuous integration for preparing new official releases.
+
+- https://github.com/gemoc/gemoc-studio-eclipse-integration/ : Integration repository (with sub modules) containing the branches that will be built.
+- https://ci.eclipse.org/gemoc/job/gemoc-studio-integration/ : Jenkins build for all branches of GEMOC projects in github Eclipse organisation
+
+==== Community (GEMOC organization) continuous integration
+
+[TIP]
+====
+In order to prepare pull request, even if you aren't an official eclipse commiter, 
+if you wish to have a CI support to make sure that your contribution will
+work smoothly before proposing it to Eclipse organization, you can ask to be part of the  GEMOC initiative.
+
+This initiative manages a fork of Eclipse GEMOC projects and a dedicated CI working on these 
+forked repositories.
+====
+
+The forked repositories are hosted in the  https://github.com/gemoc organization.
+The associated CI is hosted by one of the initiative partner at https://ci.inria.fr/gemoc/job/gemoc-studio-eclipseforks-integration/
+
+It works using the similar synchronization jobs as the main Eclipse integration.
+ 
+As its goal is to help prepare pull request to the official repositories, the _master_ branches of the community repositories are 
+automatically synched using Eclipse repositories _master_ branches.
+
+- https://github.com/gemoc/gemoc-studio-eclipseforks-integration/ : Integration repository (sub modules) for the community
+
+
+
+

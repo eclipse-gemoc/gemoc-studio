@@ -38,8 +38,9 @@ If you wish to contribute to the project, you'll find some guidance and tip and 
 
 Development
 ============
-- Instructions about how to build locally the eclipse studio are available in this readme page https://github.com/eclipse/gemoc-studio/tree/master/dev_support/tycho_full_compilation or in the [studio documentation](http://download.eclipse.org/gemoc/docs/nightly/_contributing.html#_compilation_of_the_complete_gemoc_studio).
-- Instructions about how to build locally the pomfirst components are available in this readme page https://github.com/eclipse/gemoc-studio/tree/master/dev_support/pomfirst_full_compilation.
+A dedicated section is available in the [documentation](http://download.eclipse.org/gemoc/docs/nightly/_contributing.html).
+- Instructions about how to build locally the eclipse studio are available in this readme page https://github.com/eclipse/gemoc-studio/tree/master/dev_support/tycho_full_compilation (or in the [documentation](http://download.eclipse.org/gemoc/docs/nightly/_contributing.html#_compilation_of_the_complete_gemoc_studio)).
+- Instructions about how to build locally the pomfirst components are available in this readme page https://github.com/eclipse/gemoc-studio/tree/master/dev_support/pomfirst_full_compilation (or in the [documentation](https://download.eclipse.org/gemoc/docs/nightly/_contributing.html#_compilation_of_the_pom_first_jar)).
 - Continuous integration on [Eclipse CI](https://ci.eclipse.org/gemoc/job/gemoc-studio/)
  
 
