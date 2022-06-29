@@ -8,8 +8,9 @@ ifndef::includedInMaster[]
 
 endif::[]
 
-
 === Compilation of the complete GEMOC Studio
+
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/dev_support/tycho_full_compilation]
 
 ==== Introduction
 
