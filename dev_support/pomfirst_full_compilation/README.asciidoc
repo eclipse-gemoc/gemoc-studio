@@ -11,6 +11,8 @@ endif::[]
 
 === Compilation of the pom first jar
 
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/dev_support/pomfirst_full_compilation]
+
 ==== Introduction
 
 Some of the components provided as part of the GEMOC Studio are now available as pomfirst. This means that the jar are compiled and provided using 

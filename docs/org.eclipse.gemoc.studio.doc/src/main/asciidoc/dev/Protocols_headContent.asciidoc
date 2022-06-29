@@ -17,7 +17,8 @@ For consistency, these protocols are defined using the same mechanism as LSP.
 
 However, in order to be deployed internally in web browsers, instead of defining a socket or a port for each protocol, most implementation in the studio use websockets.
 
-For convenience, an extensible websocket server is provided as an eclipse plugin. This allows to deploy a new endpoint in any eclipse based application or IDE, 
+For convenience, an extensible websocket server is provided as an eclipse plugin (see <<devguide-frameworkcommons-ws-server>>). 
+This allows deploying new endpoints in any eclipse based application or IDE, 
 simply by adding a plugin extension.
 
 <<img-ProtocolsOverview-devguide>> shows an overview of the components that offer or use the protocols in the Eclipse Studio.
