@@ -2,6 +2,16 @@
 
 ## v3.5.0 (30/06/2022)
 
+#### Enhancements:
+
+- [**enhancement**] K3FSM sample improvements [#256](https://github.com/eclipse/gemoc-studio/pull/256)
+- [**enhancement**] Add new k3fsm modeling samples [#257](https://github.com/eclipse/gemoc-studio/pull/257)
+- [**enhancement**] Initial version of a Webprotocol based EngineAddon server [#264](https://github.com/eclipse/gemoc-studio/pull/264)
+
+#### Bug Fixes:
+
+- [**bug**] Make K3FSM semantics work with null input/outputs [#258](https://github.com/eclipse/gemoc-studio/pull/258)
+
 #### Version upgrades
 
 - [**bump**] Bump to 3.5.0 [#254](https://github.com/eclipse/gemoc-studio/pull/254)
