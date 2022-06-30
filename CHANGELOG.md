@@ -1,5 +1,22 @@
 # Changelog
 
+## v3.5.0 (30/06/2022)
+
+#### Version upgrades
+
+- [**bump**] Bump to 3.5.0 [#254](https://github.com/eclipse/gemoc-studio/pull/254)
+- [**bump**] Bump eclipse 2021 12 [#255](https://github.com/eclipse/gemoc-studio/pull/255)
+
+#### Release Engineering
+
+- [**releng**] Add nodejs to docker for CI [#265](https://github.com/eclipse/gemoc-studio/pull/265)
+- [**releng**] MacOS M1 processor version of the Studio [#268](https://github.com/eclipse/gemoc-studio/pull/268)
+- [**releng**] Update target to latest and target generation script [#263](https://github.com/eclipse/gemoc-studio/pull/263)
+- [**releng**] Update docker ci eclipse jenkins image [#261](https://github.com/eclipse/gemoc-studio/pull/261)
+- [**releng**] Use tpd for defining target platform [#259](https://github.com/eclipse/gemoc-studio/pull/259)
+
+---
+
 ## v3.4.0 (10/01/2022)
 
 #### Enhancements:
