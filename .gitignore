@@ -9,5 +9,6 @@ node_modules
 /package-lock.json
 **/.polyglot.build.properties
 .polyglot.*
+.tycho-consumer-pom.xml
 .META-INF_MANIFEST.MF
 feature.xml.takari_issue_192
