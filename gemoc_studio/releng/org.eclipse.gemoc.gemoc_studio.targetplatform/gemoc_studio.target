@@ -28,6 +28,7 @@
       <unit id="org.eclipse.lsp4e.jdt" version="0.0.0"/>
       <unit id="org.eclipse.m2e.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.m2e.logback.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.m2e.pde.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.m2m.qvt.oml.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.m2m.qvt.oml.editor.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.m2m.qvt.oml.runtime.feature.group" version="0.0.0"/>
