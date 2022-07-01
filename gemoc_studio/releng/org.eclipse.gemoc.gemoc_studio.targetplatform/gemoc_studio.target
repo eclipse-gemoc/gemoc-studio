@@ -6,7 +6,7 @@
       <unit id="org.eclipse.acceleo.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.e4.rcp.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.ecf.filetransfer.feature.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.ecf.filetransfer.httpclient45.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.ecf.filetransfer.httpclient5.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.ecf.filetransfer.ssl.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.egit.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.emf.feature.group" version="0.0.0"/>
@@ -46,7 +46,7 @@
       <unit id="ch.qos.logback.classic" version="0.0.0"/>
       <unit id="org.apache.commons.lang3" version="0.0.0"/>
       <unit id="org.apache.xalan" version="0.0.0"/>
-      <repository id="eclipse" location="https://download.eclipse.org/releases/2021-12"/>
+      <repository id="eclipse" location="https://download.eclipse.org/releases/2022-06"/>
     </location>
     <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
       <unit id="org.eclipse.sirius.specifier.feature.group" version="0.0.0"/>
@@ -61,7 +61,7 @@
       <unit id="org.eclipse.eef.sdk.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.eef.ext.widgets.reference.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.diagram.elk.feature.feature.group" version="0.0.0"/>
-      <repository id="sirius" location="https://download.eclipse.org/sirius/updates/releases/6.5.1/2020-09/"/>
+      <repository id="sirius" location="https://download.eclipse.org/sirius/updates/releases/7.0.1/2021-06/"/>
     </location>
     <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
       <unit id="org.eclipse.amalgam.discovery.feature.group" version="0.0.0"/>
