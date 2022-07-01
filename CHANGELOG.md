@@ -19,9 +19,9 @@
 
 #### Release Engineering
 
-- [**releng**] Add nodejs to docker for CI [#265](https://github.com/eclipse/gemoc-studio/pull/265)
-- [**releng**] MacOS M1 processor version of the Studio [#268](https://github.com/eclipse/gemoc-studio/pull/268)
 - [**releng**] Update target to latest and target generation script [#263](https://github.com/eclipse/gemoc-studio/pull/263)
+- [**releng**] MacOS M1 processor version of the Studio [#268](https://github.com/eclipse/gemoc-studio/pull/268)
+- [**releng**] Add nodejs to docker for CI [#265](https://github.com/eclipse/gemoc-studio/pull/265)
 - [**releng**] Update docker ci eclipse jenkins image [#261](https://github.com/eclipse/gemoc-studio/pull/261)
 - [**releng**] Use tpd for defining target platform [#259](https://github.com/eclipse/gemoc-studio/pull/259)
 
