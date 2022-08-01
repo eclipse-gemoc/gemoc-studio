@@ -43,7 +43,6 @@
       <unit id="org.eclipse.wst.xml_core.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.wst.xml_ui.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.xtext.sdk.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.xtext.generator" version="0.0.0"/>
       <unit id="org.eclipse.xtend.sdk.feature.group" version="0.0.0"/>
       <unit id="ch.qos.logback.classic" version="0.0.0"/>
       <unit id="org.apache.commons.lang3" version="0.0.0"/>
@@ -64,6 +63,10 @@
       <unit id="org.eclipse.eef.ext.widgets.reference.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.diagram.elk.feature.feature.group" version="0.0.0"/>
       <repository id="sirius" location="https://download.eclipse.org/sirius/updates/releases/7.0.1/2021-06/"/>
+    </location>
+    <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+      <unit id="org.eclipse.xtext.generator.feature.group" version="0.0.0"/>
+      <repository id="eclipse" location="https://download.eclipse.org/modeling/tmf/xtext/updates/releases/2.27.0/"/>
     </location>
     <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
       <unit id="org.eclipse.amalgam.discovery.feature.group" version="0.0.0"/>
