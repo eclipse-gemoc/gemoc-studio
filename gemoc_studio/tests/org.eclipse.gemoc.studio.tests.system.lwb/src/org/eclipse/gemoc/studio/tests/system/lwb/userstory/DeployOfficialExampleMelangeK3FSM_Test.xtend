@@ -11,7 +11,6 @@
 package org.eclipse.gemoc.studio.tests.system.lwb.userstory
 
 import org.eclipse.gemoc.xdsmlframework.ide.ui.XDSMLFrameworkUI
-import org.eclipse.gemoc.xdsmlframework.test.lib.MelangeUiInjectorProvider
 import org.eclipse.gemoc.xdsmlframework.test.lib.WorkspaceTestHelper
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner
@@ -20,7 +19,6 @@ import org.eclipse.swtbot.swt.finder.keyboard.KeyboardFactory
 import org.eclipse.swtbot.swt.finder.keyboard.Keystrokes
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem
 import org.eclipse.xtext.junit4.AbstractXtextTests
-import org.eclipse.xtext.junit4.InjectWith
 import org.eclipse.xtext.ui.testing.util.IResourcesSetupUtil
 import org.junit.After
 import org.junit.Before
@@ -43,9 +41,8 @@ import org.junit.rules.TestName
  * The resulting projects should not have any errors (no user action required except a Project>Clean...)
  */
 @RunWith(SWTBotJunit4ClassRunner)
-@InjectWith(MelangeUiInjectorProvider)
 @FixMethodOrder(MethodSorters::NAME_ASCENDING)
-public class DeployOfficialExampleMelangeK3FSM_Test extends AbstractXtextTests
+class DeployOfficialExampleMelangeK3FSM_Test extends AbstractXtextTests
 {
 	
 	static WorkspaceTestHelper helper = new WorkspaceTestHelper
@@ -53,7 +50,7 @@ public class DeployOfficialExampleMelangeK3FSM_Test extends AbstractXtextTests
 	static final String BASE_NAME = "org.eclipse.gemoc.example.melangek3fsm"
 	static final String PROJECT_NAME = BASE_NAME + ".xsfsm"
 	
-	private static SWTWorkbenchBot	bot;
+	static SWTWorkbenchBot	bot;
 	
 	static MessagingSystem	messaggingSystem
 	

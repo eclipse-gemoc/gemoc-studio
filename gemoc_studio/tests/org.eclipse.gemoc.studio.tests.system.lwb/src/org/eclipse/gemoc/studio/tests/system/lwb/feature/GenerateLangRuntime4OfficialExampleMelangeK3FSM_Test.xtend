@@ -133,7 +133,10 @@ public class GenerateLangRuntime4OfficialExampleMelangeK3FSM_Test extends Abstra
 			try {
 				melangeHelper.generateAll(MELANGE_FILE)
 				melangeHelper.generateAll(MELANGE_FILE2)
-			} catch (Exception e) {	thrownException.add(e) }
+			} catch (Exception e) {
+				e.printStackTrace	
+				thrownException.add(e)
+			}
 		])
 		thrownException.forall[e| throw new Exception(e)] // rethrown exception that was executed in the ui thread
 		IResourcesSetupUtil::reallyWaitForAutoBuild
