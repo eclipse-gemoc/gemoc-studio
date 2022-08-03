@@ -82,7 +82,7 @@ class CreateSequentialLanguageFromOfficialK3FSM_Test extends AbstractXtextTests 
 		SWTBotPreferences.TIMEOUT = WorkspaceTestHelper.SWTBotPreferencesTIMEOUT_4_GEMOC;
 		helper.setTargetPlatform
 		bot.resetWorkbench
-		IResourcesSetupUtil::cleanWorkspace
+		WorkspaceTestHelper::forceCleanPreviousWorkspaceContent
 		messaggingSystem.important("user.dir="+System.getProperty("user.dir"),"") 
 		messaggingSystem.focus();
 		WorkspaceTestHelper::reallyWaitForJobs(2)

@@ -17,7 +17,6 @@ import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner
 import org.eclipse.swtbot.swt.finder.keyboard.Keyboard
 import org.eclipse.swtbot.swt.finder.keyboard.KeyboardFactory
 import org.eclipse.swtbot.swt.finder.keyboard.Keystrokes
-import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem
 import org.eclipse.xtext.junit4.AbstractXtextTests
 import org.eclipse.xtext.ui.testing.util.IResourcesSetupUtil
 import org.junit.After
@@ -27,7 +26,6 @@ import org.junit.FixMethodOrder
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.MethodSorters
-import org.eclipse.swt.widgets.Display
 import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences
 import org.eclipse.gemoc.xdsmlframework.test.lib.TailWorkspaceLogToStderrRule
 import org.junit.Rule
@@ -68,7 +66,7 @@ class DeployOfficialExampleMelangeK3FSM_Test extends AbstractXtextTests
 		bot = new SWTWorkbenchBot()
 		SWTBotPreferences.TIMEOUT = WorkspaceTestHelper.SWTBotPreferencesTIMEOUT_4_GEMOC;
 		bot.resetWorkbench
-		IResourcesSetupUtil::cleanWorkspace
+		WorkspaceTestHelper::forceCleanPreviousWorkspaceContent
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 		WorkspaceTestHelper::reallyWaitForJobs(2)
 	}

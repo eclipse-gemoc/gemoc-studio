@@ -78,7 +78,7 @@ class CreateSingleSequentialLanguageFromOfficialFSM_Test extends AbstractXtextTe
 		SWTBotPreferences.TIMEOUT = WorkspaceTestHelper.SWTBotPreferencesTIMEOUT_4_GEMOC ;
 		helper.setTargetPlatform
 		bot.resetWorkbench
-		IResourcesSetupUtil::cleanWorkspace
+		WorkspaceTestHelper::forceCleanPreviousWorkspaceContent
 		WorkspaceTestHelper::reallyWaitForJobs(2)
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 		helper.deployProject(SOURCE_PROJECT_NAME+".model",BASE_FOLDER_NAME+"/"+SOURCE_PROJECT_NAME+".model.zip")

@@ -36,6 +36,7 @@ import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystem
 import org.junit.rules.TestName
 import org.eclipse.gemoc.xdsmlframework.test.lib.GEMOCTestVideoHelper
 import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystemManager
+import org.eclipse.ui.PlatformUI
 
 /**
  * This class check a scenario where we reuse some of the base projects of the official sample : MelangeK3FSM
@@ -75,7 +76,8 @@ class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends Abs
 		SWTBotPreferences.TIMEOUT = WorkspaceTestHelper.SWTBotPreferencesTIMEOUT_4_GEMOC;
 		helper.setTargetPlatform
 		bot.resetWorkbench
-		IResourcesSetupUtil::cleanWorkspace
+		
+		WorkspaceTestHelper::forceCleanPreviousWorkspaceContent
 		WorkspaceTestHelper::reallyWaitForJobs(2)
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 		helper.deployProject(SOURCE_PROJECT_NAME+".model",BASE_FOLDER_NAME+"/"+SOURCE_PROJECT_NAME+".model.zip")
@@ -91,6 +93,7 @@ class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends Abs
 	@Rule
     public TailWorkspaceLogToStderrRule workspaceLogRule = new TailWorkspaceLogToStderrRule();
     
+    
 	@Before
 	override setUp() {
 		GEMOCTestVideoHelper.addTestSuiteVideoLog("   - "+testName.methodName);
@@ -102,6 +105,14 @@ class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends Abs
 		// make sure we are on the correct perspective
 		bot.perspectiveById(XDSMLFrameworkUI.ID_PERSPECTIVE).activate()
 		val projExplorerBot = bot.viewByTitle("Project Explorer").bot
+		
+		Display.getDefault().asyncExec( new Runnable {
+			override run() {
+				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().showView("org.eclipse.ui.console.ConsoleView");
+			}
+		})
+		
+		bot.viewById("org.eclipse.ui.console.ConsoleView").show
 		
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 		WorkspaceTestHelper::reallyWaitForJobs(4)
@@ -117,6 +128,7 @@ class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends Abs
 		bot.perspectiveById(XDSMLFrameworkUI.ID_PERSPECTIVE).activate()
 		helper.assertContains("Menu does not contain", "GEMOC Java xDSML Project",
 				bot.menu("File").menu("New").menuItems())
+		
 
 	}
 	
@@ -262,6 +274,7 @@ class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends Abs
 		projectItem.contextMenu("GEMOC Language").menu("Create Sirius Editor Project for language").click();
 		bot.button("Finish").click();
 		
+		IResourcesSetupUtil::waitForBuild
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 		WorkspaceTestHelper::waitForJobs
 		
@@ -283,5 +296,6 @@ class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends Abs
            }
         });
 	}
+	
 }
 	
