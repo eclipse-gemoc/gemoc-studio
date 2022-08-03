@@ -13,8 +13,8 @@ package org.eclipse.gemoc.studio.tests.system.lwb.feature
 import com.google.inject.Inject
 import org.eclipse.core.resources.IProject
 import org.eclipse.xtext.junit4.AbstractXtextTests
-import org.eclipse.xtext.junit4.InjectWith
-import org.eclipse.xtext.junit4.XtextRunner
+import org.eclipse.xtext.testing.InjectWith
+import org.eclipse.xtext.testing.XtextRunner
 import org.junit.After
 import org.junit.Before
 import org.junit.FixMethodOrder
@@ -26,10 +26,8 @@ import org.eclipse.gemoc.xdsmlframework.test.lib.MelangeUiInjectorProvider
 import org.eclipse.swt.widgets.Display
 import org.junit.BeforeClass
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot
-import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner
 import org.eclipse.gemoc.xdsmlframework.test.lib.WorkspaceTestHelper
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem
-import com.google.inject.Injector
 import java.util.ArrayList
 import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences
 import org.eclipse.xtext.ui.testing.util.IResourcesSetupUtil
@@ -47,12 +45,12 @@ import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystemMana
 //@RunWith(SWTBotJunit4ClassRunner)
 @InjectWith(MelangeUiInjectorProvider)
 @FixMethodOrder(MethodSorters::NAME_ASCENDING)
-public class GenerateLangRuntime4OfficialExampleMelangeK3FSM_Test extends AbstractXtextTests
+class GenerateLangRuntime4OfficialExampleMelangeK3FSM_Test extends AbstractXtextTests
 {
 	
 	@Inject MelangeWorkspaceTestHelper melangeHelper
 	static WorkspaceTestHelper helper = new WorkspaceTestHelper
-	private static SWTWorkbenchBot	bot;
+	static SWTWorkbenchBot	bot;
 	
 	static MessagingSystem	messaggingSystem
 	
@@ -133,7 +131,10 @@ public class GenerateLangRuntime4OfficialExampleMelangeK3FSM_Test extends Abstra
 			try {
 				melangeHelper.generateAll(MELANGE_FILE)
 				melangeHelper.generateAll(MELANGE_FILE2)
-			} catch (Exception e) {	thrownException.add(e) }
+			} catch (Exception e) {
+				e.printStackTrace	
+				thrownException.add(e)
+			}
 		])
 		thrownException.forall[e| throw new Exception(e)] // rethrown exception that was executed in the ui thread
 		IResourcesSetupUtil::reallyWaitForAutoBuild

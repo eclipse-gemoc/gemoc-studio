@@ -12,7 +12,6 @@ package org.eclipse.gemoc.studio.tests.system.lwb.userstory
 
 import org.eclipse.gemoc.execution.sequential.javaxdsml.ide.ui.templates.WizardTemplateMessages
 import org.eclipse.gemoc.xdsmlframework.ide.ui.XDSMLFrameworkUI
-import org.eclipse.gemoc.xdsmlframework.test.lib.MelangeUiInjectorProvider
 import org.eclipse.gemoc.xdsmlframework.test.lib.TailWorkspaceLogToStderrRule
 import org.eclipse.gemoc.xdsmlframework.test.lib.WorkspaceTestHelper
 import org.eclipse.swt.widgets.Display
@@ -25,7 +24,6 @@ import org.eclipse.swtbot.swt.finder.keyboard.Keystrokes
 import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem
 import org.eclipse.xtext.junit4.AbstractXtextTests
-import org.eclipse.xtext.junit4.InjectWith
 import org.eclipse.xtext.ui.testing.util.IResourcesSetupUtil
 import org.junit.After
 import org.junit.Before
@@ -48,7 +46,6 @@ import org.junit.rules.TestName
  * The tests are ordered and a failure in the initial tests will most likely make fail the following ones.
  */
 @RunWith(SWTBotJunit4ClassRunner)
-@InjectWith(MelangeUiInjectorProvider)
 @FixMethodOrder(MethodSorters::NAME_ASCENDING)
 class CreateSingleSequentialLanguageFromOfficialFSM_Test extends AbstractXtextTests
 {
@@ -61,7 +58,7 @@ class CreateSingleSequentialLanguageFromOfficialFSM_Test extends AbstractXtextTe
 	static final String SOURCE_PROJECT_NAME = BASE_NAME + ".fsm"
 	static final String PROJECT_NAME = BASE_NAME + ".xfsm"
 	
-	private static SWTWorkbenchBot	bot;
+	static SWTWorkbenchBot	bot;
  
 	static MessagingSystem	messaggingSystem
 	
@@ -81,7 +78,7 @@ class CreateSingleSequentialLanguageFromOfficialFSM_Test extends AbstractXtextTe
 		SWTBotPreferences.TIMEOUT = WorkspaceTestHelper.SWTBotPreferencesTIMEOUT_4_GEMOC ;
 		helper.setTargetPlatform
 		bot.resetWorkbench
-		IResourcesSetupUtil::cleanWorkspace
+		WorkspaceTestHelper::forceCleanPreviousWorkspaceContent
 		WorkspaceTestHelper::reallyWaitForJobs(2)
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 		helper.deployProject(SOURCE_PROJECT_NAME+".model",BASE_FOLDER_NAME+"/"+SOURCE_PROJECT_NAME+".model.zip")
@@ -107,7 +104,7 @@ class CreateSingleSequentialLanguageFromOfficialFSM_Test extends AbstractXtextTe
 		key.pressShortcut(Keystrokes.ESC);		
 		// make sure we are on the correct perspective
 		bot.perspectiveById(XDSMLFrameworkUI.ID_PERSPECTIVE).activate()
-		val projExplorerBot = bot.viewByTitle("Project Explorer").bot
+		bot.viewByTitle("Project Explorer")
 		
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 		WorkspaceTestHelper::reallyWaitForJobs(4)

@@ -6,7 +6,7 @@
       <unit id="org.eclipse.acceleo.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.e4.rcp.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.ecf.filetransfer.feature.feature.group" version="0.0.0"/>
-      <unit id="org.eclipse.ecf.filetransfer.httpclient45.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.ecf.filetransfer.httpclient5.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.ecf.filetransfer.ssl.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.egit.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.emf.feature.group" version="0.0.0"/>
@@ -28,6 +28,7 @@
       <unit id="org.eclipse.lsp4e.jdt" version="0.0.0"/>
       <unit id="org.eclipse.m2e.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.m2e.logback.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.m2e.pde.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.m2m.qvt.oml.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.m2m.qvt.oml.editor.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.m2m.qvt.oml.runtime.feature.group" version="0.0.0"/>
@@ -46,7 +47,7 @@
       <unit id="ch.qos.logback.classic" version="0.0.0"/>
       <unit id="org.apache.commons.lang3" version="0.0.0"/>
       <unit id="org.apache.xalan" version="0.0.0"/>
-      <repository id="eclipse" location="https://download.eclipse.org/releases/2021-12"/>
+      <repository id="eclipse" location="https://download.eclipse.org/releases/2022-06"/>
     </location>
     <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
       <unit id="org.eclipse.sirius.specifier.feature.group" version="0.0.0"/>
@@ -61,7 +62,11 @@
       <unit id="org.eclipse.eef.sdk.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.eef.ext.widgets.reference.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.sirius.diagram.elk.feature.feature.group" version="0.0.0"/>
-      <repository id="sirius" location="https://download.eclipse.org/sirius/updates/releases/6.5.1/2020-09/"/>
+      <repository id="sirius" location="https://download.eclipse.org/sirius/updates/releases/7.0.1/2021-06/"/>
+    </location>
+    <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+      <unit id="org.eclipse.xtext.generator.feature.group" version="0.0.0"/>
+      <repository id="eclipse" location="https://download.eclipse.org/modeling/tmf/xtext/updates/releases/2.27.0/"/>
     </location>
     <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
       <unit id="org.eclipse.amalgam.discovery.feature.group" version="0.0.0"/>
@@ -96,13 +101,13 @@
       <unit id="openjfx.swt.feature.feature.group" version="0.0.0"/>
       <unit id="openjfx.media.feature.feature.group" version="0.0.0"/>
       <unit id="openjfx.web.feature.feature.group" version="0.0.0"/>
-      <repository id="openjfx" location="https://downloads.efxclipse.bestsolution.at/p2-repos/openjfx-11/repository/"/>
+      <repository id="openjfx" location="https://downloads.efxclipse.bestsolution.at/p2-repos/openjfx-11.0.1/"/>
     </location>
     <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
       <unit id="org.eclipse.fx.ide.basic.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.fx.ide.pde.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.fx.runtime.min.feature.feature.group" version="0.0.0"/>
-      <repository id="fxclipse" location="https://download.eclipse.org/efxclipse/updates-released/3.7.0/site"/>
+      <repository id="fxclipse" location="https://download.eclipse.org/efxclipse/updates-released/3.8.0/site"/>
     </location>
 	  <location includeDependencyScope="compile" includeSource="true" missingManifest="generate" type="Maven">
 		  <dependencies>

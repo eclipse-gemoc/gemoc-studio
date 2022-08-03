@@ -17,7 +17,7 @@ then
 
   echo "Installing TPD tool in eclipse platform..."
   ./eclipse/eclipse -nosplash -application org.eclipse.equinox.p2.director \
-    -repository http://download.eclipse.org/cbi/tpd/3.0.0-SNAPSHOT/,http://download.eclipse.org/releases/2021-12/ \
+    -repository http://download.eclipse.org/cbi/tpd/3.0.0-SNAPSHOT/,http://download.eclipse.org/releases/2022-06/ \
     -destination ./eclipse/ \
     -installIU org.eclipse.cbi.targetplatform-feature.feature.group
 else

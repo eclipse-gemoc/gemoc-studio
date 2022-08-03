@@ -6,7 +6,7 @@
 	<groupId>org.eclipse.gemoc.gemoc-studio.bundle</groupId>
 	<artifactId>complete-studio</artifactId>
 	<packaging>pom</packaging>
-	<version>3.5.0-SNAPSHOT</version>
+	<version>3.6.0-SNAPSHOT</version>
 	<name>Full tycho build</name>
 
 	<properties>
