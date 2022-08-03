@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: GEMOC Studio Headless
 Bundle-SymbolicName: org.eclipse.gemoc.gemoc_studio.headless;singleton:=true
-Bundle-Version: 3.5.0.qualifier
+Bundle-Version: 3.6.0.qualifier
 Bundle-Vendor: Eclipse GEMOC Project
 Automatic-Module-Name: org.eclipse.gemoc.headless
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
