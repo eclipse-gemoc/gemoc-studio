@@ -32,7 +32,6 @@ import org.junit.After
 import org.junit.Before
 import org.junit.BeforeClass
 import org.junit.FixMethodOrder
-import org.junit.Ignore
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -52,7 +51,7 @@ import org.junit.rules.TestName
  */
 @RunWith(SWTBotJunit4ClassRunner)
 @FixMethodOrder(MethodSorters::NAME_ASCENDING)
-public class CreateSequentialLanguageFromOfficialK3FSM_Test extends AbstractXtextTests {
+class CreateSequentialLanguageFromOfficialK3FSM_Test extends AbstractXtextTests {
 
 	static WorkspaceTestHelper helper = new WorkspaceTestHelper
 
@@ -83,7 +82,7 @@ public class CreateSequentialLanguageFromOfficialK3FSM_Test extends AbstractXtex
 		SWTBotPreferences.TIMEOUT = WorkspaceTestHelper.SWTBotPreferencesTIMEOUT_4_GEMOC;
 		helper.setTargetPlatform
 		bot.resetWorkbench
-		IResourcesSetupUtil::cleanWorkspace
+		WorkspaceTestHelper::forceCleanPreviousWorkspaceContent
 		messaggingSystem.important("user.dir="+System.getProperty("user.dir"),"") 
 		messaggingSystem.focus();
 		WorkspaceTestHelper::reallyWaitForJobs(2)

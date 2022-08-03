@@ -12,7 +12,7 @@ target "GEMOCStudio Target platform"
 with source requirements
 environment JavaSE-11
 
-location eclipse "https://download.eclipse.org/releases/2021-12" {
+location eclipse "https://download.eclipse.org/releases/2022-06" {
 	// features
 	org.eclipse.acceleo.feature.group
 	org.eclipse.e4.rcp.feature.group
