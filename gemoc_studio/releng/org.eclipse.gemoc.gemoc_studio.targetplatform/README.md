@@ -1,9 +1,4 @@
-Please install TP DSL to edit the `gemoc_studio.tpd` file
+Please install `m2e PDE integration` feature in order to correctly edit the target file (in order to open the dependecies coming from maven central)
+(this feature is available in the http://download.eclipse.org/releases/2022-06 update site )
 
-Source/User guide:
-https://github.com/eclipse-cbi/targetplatform-dsl
-
-Update-site:
-http://download.eclipse.org/cbi/tpd/3.0.0-SNAPSHOT/
-
-Never edit the `gemoc_studio.target` directly, generate it from the `gemoc_studio.tpd` (right-click on the file -> Create Target Definition File)
+ 
