@@ -269,15 +269,20 @@ class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends Abs
 	 */
 	@Test
 	def void test05_CreateSiriusEditorForBaseLanguage() throws Exception {
-				
+		System.out.println("DEBUG test05_CreateSiriusEditorForBaseLanguage - val SWTBotTreeItem projectItem = bot.tree().getTreeItem(PROJECT_NAME).select();")		
 		val SWTBotTreeItem projectItem = bot.tree().getTreeItem(PROJECT_NAME).select();
+		System.out.println("DEBUG test05_CreateSiriusEditorForBaseLanguage - projectItem.contextMenu(\"GEMOC Language\").menu(\"Create Sirius Editor Project for language\").click();")		
 		projectItem.contextMenu("GEMOC Language").menu("Create Sirius Editor Project for language").click();
+		System.out.println("DEBUG test05_CreateSiriusEditorForBaseLanguage - bot.button(\"Finish\").click();")		
 		bot.button("Finish").click();
 		
+		System.out.println("DEBUG test05_CreateSiriusEditorForBaseLanguage - IResourcesSetupUtil::waitForBuild")
 		IResourcesSetupUtil::waitForBuild
 		//IResourcesSetupUtil::reallyWaitForAutoBuild
+		System.out.println("DEBUG test05_CreateSiriusEditorForBaseLanguage - WorkspaceTestHelper::reallyWaitForJobs(50)")
 		WorkspaceTestHelper::reallyWaitForJobs(50)
 		
+		System.out.println("DEBUG test05_CreateSiriusEditorForBaseLanguage - helper.assertProjectExists(PROJECT_NAME + \".design\");")
 		helper.assertProjectExists(PROJECT_NAME + ".design");
 		
 		bot.editorByTitle("xfsm.odesign").show();
