@@ -13,5 +13,6 @@
 
     <artifactId>org.eclipse.gemoc.gemoc_studio.targetplatform</artifactId>
     <version>3.6.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
+    <packaging>eclipse-target-definition</packaging>
+    
 </project>

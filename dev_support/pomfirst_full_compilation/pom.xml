@@ -14,6 +14,7 @@
 	
 	<modules>
 		<module>../../gemoc_studio/pomfirst</module>
+		<module>../../../gemoc-studio-commons/pomfirst</module>
 		<module>../../../gemoc-studio-modeldebugging/pomfirst</module>
 	</modules>
 </project>
