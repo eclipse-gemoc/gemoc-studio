@@ -224,9 +224,9 @@ class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends Abs
 
 		// Melange "Generate all is a bit special as it trigger several jobs one after the other
 		// retry in order to make sure they all have been done 
-		IResourcesSetupUtil::reallyWaitForAutoBuild
+		IResourcesSetupUtil::waitForBuild
 		WorkspaceTestHelper::reallyWaitForJobs(50)
-		IResourcesSetupUtil::reallyWaitForAutoBuild
+		//IResourcesSetupUtil::reallyWaitForAutoBuild
 		
 		// if the package name is correct all the files are created in the current project
 		// Language runtime classes
@@ -275,8 +275,8 @@ class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends Abs
 		bot.button("Finish").click();
 		
 		IResourcesSetupUtil::waitForBuild
-		IResourcesSetupUtil::reallyWaitForAutoBuild
-		WorkspaceTestHelper::waitForJobs
+		//IResourcesSetupUtil::reallyWaitForAutoBuild
+		WorkspaceTestHelper::reallyWaitForJobs(50)
 		
 		helper.assertProjectExists(PROJECT_NAME + ".design");
 		
