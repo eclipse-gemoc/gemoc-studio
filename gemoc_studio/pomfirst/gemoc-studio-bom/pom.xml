@@ -48,6 +48,8 @@
 		<emf.compare-version>[3.4.0,3.6.0)</emf.compare-version>
 		<emf.transaction-version>[1.9.0,2.0.0)</emf.transaction-version> 
 		
+		<k3-version>3.3.0-SNAPSHOT</k3-version>
+		
 		<xtext-version>2.25.0</xtext-version>
 		<xtend-version>2.25.0</xtend-version>
 		
@@ -62,6 +64,13 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency> -->
+			
+			
+			<dependency>
+				<groupId>fr.inria.diverse.k3.al</groupId>
+				<artifactId>fr.inria.diverse.k3.al.annotationprocessor</artifactId>
+				<version>${k3-version}</version>
+			</dependency>
 			
 			<dependency>
 				<!-- <groupId>org.eclipse.debug</groupId> -->
@@ -150,6 +159,7 @@
 				<artifactId>org.eclipse.osgi</artifactId>
 				<version>${osgi-version}</version>
 			</dependency>
+			
 
 
 			<dependency>
@@ -198,4 +208,5 @@
 			
 		</dependencies>
 	</dependencyManagement>
+	
 </project>

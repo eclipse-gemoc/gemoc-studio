@@ -36,6 +36,13 @@
 		<developerConnection>scm:git:git@github.com:eclipse/gemoc-studio.git</developerConnection>
 		<url>git@github.com:eclipse/gemoc-studio.git</url>
 	</scm>
+
+	<repositories>
+		<repository>
+			<id>K3</id>
+			<url>https://maven.inria.fr/artifactory/public/</url>  
+		</repository>
+	</repositories>
 	
 	<distributionManagement>
 		<repository>
