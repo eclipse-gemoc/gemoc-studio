@@ -275,6 +275,11 @@ class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends Abs
 		projectItem.contextMenu("GEMOC Language").menu("Create Sirius Editor Project for language").click();
 		System.out.println("DEBUG test05_CreateSiriusEditorForBaseLanguage - bot.button(\"Finish\").click();")		
 		bot.button("Finish").click();
+		System.out.println("DEBUG test05_CreateSiriusEditorForBaseLanguage - WorkspaceTestHelper::delay(10)")
+		WorkspaceTestHelper.delay(10)
+		
+		System.out.println("DEBUG test05_CreateSiriusEditorForBaseLanguage - WorkspaceTestHelper::reallyWaitForJobs(50)")
+		WorkspaceTestHelper::reallyWaitForJobs(50)
 		
 		System.out.println("DEBUG test05_CreateSiriusEditorForBaseLanguage - IResourcesSetupUtil::waitForBuild")
 		IResourcesSetupUtil::waitForBuild
