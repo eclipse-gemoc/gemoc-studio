@@ -16,7 +16,7 @@
 	<parent>
 		<groupId>org.eclipse.gemoc.gemoc-studio</groupId>
 		<artifactId>org.eclipse.gemoc.gemoc_studio.root</artifactId>
-		<version>3.5.0-SNAPSHOT</version>
+		<version>3.6.0-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
 	<properties>
@@ -47,6 +47,7 @@
 		<emf.ecore.xmi-version>2.16.0</emf.ecore.xmi-version>
 		<emf.compare-version>[3.4.0,3.6.0)</emf.compare-version>
 		<emf.transaction-version>[1.9.0,2.0.0)</emf.transaction-version> 
+		<jdt-version>3.30.0</jdt-version> 
 		
 		<xtext-version>2.25.0</xtext-version>
 		<xtend-version>2.25.0</xtend-version>
@@ -114,6 +115,11 @@
 			</dependency>
 
 
+			<dependency>
+			    <groupId>org.eclipse.jdt</groupId>
+			    <artifactId>org.eclipse.jdt.core</artifactId>
+				<version>${jdt-version}</version>
+			</dependency>
 			<dependency>
 				<groupId>org.eclipse.platform</groupId>
 				<artifactId>org.eclipse.core.expressions</artifactId>

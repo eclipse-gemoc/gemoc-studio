@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.eclipse.gemoc.gemoc_studio</groupId>
 	<artifactId>org.eclipse.gemoc.gemoc_studio.pomfirst</artifactId>
-	<version>3.5.0-SNAPSHOT</version>
+	<version>3.6.0-SNAPSHOT</version>
 	
     <packaging>pom</packaging>
 	
@@ -14,6 +14,7 @@
 	
 	<modules>
 		<module>../../gemoc_studio/pomfirst</module>
+		<module>../../../gemoc-studio-commons/pomfirst</module>
 		<module>../../../gemoc-studio-modeldebugging/pomfirst</module>
 	</modules>
 </project>

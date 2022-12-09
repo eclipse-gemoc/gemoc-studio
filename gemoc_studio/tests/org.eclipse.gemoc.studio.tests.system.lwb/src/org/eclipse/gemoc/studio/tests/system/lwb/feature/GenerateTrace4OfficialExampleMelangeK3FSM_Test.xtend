@@ -13,8 +13,8 @@ package org.eclipse.gemoc.studio.tests.system.lwb.feature
 import com.google.inject.Inject
 import org.eclipse.core.resources.IProject
 import org.eclipse.xtext.junit4.AbstractXtextTests
-import org.eclipse.xtext.junit4.InjectWith
-import org.eclipse.xtext.junit4.XtextRunner
+import org.eclipse.xtext.testing.InjectWith
+import org.eclipse.xtext.testing.XtextRunner
 import org.junit.After
 import org.junit.Before
 import org.junit.FixMethodOrder

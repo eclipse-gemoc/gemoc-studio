@@ -19,7 +19,7 @@ import org.eclipse.swtbot.swt.finder.keyboard.Keyboard
 import org.eclipse.swtbot.swt.finder.keyboard.KeyboardFactory
 import org.eclipse.swtbot.swt.finder.keyboard.Keystrokes
 import org.eclipse.xtext.junit4.AbstractXtextTests
-import org.eclipse.xtext.junit4.InjectWith
+import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.ui.testing.util.IResourcesSetupUtil
 import org.junit.After
 import org.junit.Before

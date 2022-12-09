@@ -6,6 +6,7 @@ This repository is part of a serie of repositories related to [GEMOC Studio](htt
 - https://github.com/eclipse/gemoc-studio-execution-java
 - https://github.com/eclipse/gemoc-studio-execution-moccml
 - https://github.com/eclipse/gemoc-studio-moccml
+- https://github.com/eclipse/gemoc-studio-commons
 -------------
 
 Gemoc Studio
@@ -22,7 +23,6 @@ The [contact page](https://projects.eclipse.org/projects/modeling.gemoc/contact)
 Reporting issues
 ============
 In case of trouble with the studio, you can use one the issue trackers of the Studio. Since the Studio is an assembly of various tools and components, the precise tracker will depend on the involved component.
-A dashboard of all issues is available as a waffle:  [https://waffle.io/eclipse/gemoc-studio](https://waffle.io/eclipse/gemoc-studio).
 
 * https://github.com/eclipse/gemoc-studio/issues : Main/Global tracker, use this tracker if this is an assembly problem or if you don't know which precise component is affected.
 * https://github.com/eclipse/gemoc-studio-modeldebugging/issues : Tracker for issues related to the main framework, to the definition of Sequential languages and to the sequential engine.

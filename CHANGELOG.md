@@ -1,5 +1,32 @@
 # Changelog
 
+## v3.5.0 (30/06/2022)
+
+#### Enhancements:
+
+- [**enhancement**] K3FSM sample improvements [#256](https://github.com/eclipse/gemoc-studio/pull/256)
+- [**enhancement**] Add new k3fsm modeling samples [#257](https://github.com/eclipse/gemoc-studio/pull/257)
+- [**enhancement**] Initial version of a Webprotocol based EngineAddon server [#264](https://github.com/eclipse/gemoc-studio/pull/264)
+
+#### Bug Fixes:
+
+- [**bug**] Make K3FSM semantics work with null input/outputs [#258](https://github.com/eclipse/gemoc-studio/pull/258)
+
+#### Version upgrades
+
+- [**bump**] Bump to 3.5.0 [#254](https://github.com/eclipse/gemoc-studio/pull/254)
+- [**bump**] Bump eclipse 2021 12 [#255](https://github.com/eclipse/gemoc-studio/pull/255)
+
+#### Release Engineering
+
+- [**releng**] Update target to latest and target generation script [#263](https://github.com/eclipse/gemoc-studio/pull/263)
+- [**releng**] MacOS M1 processor version of the Studio [#268](https://github.com/eclipse/gemoc-studio/pull/268)
+- [**releng**] Add nodejs to docker for CI [#265](https://github.com/eclipse/gemoc-studio/pull/265)
+- [**releng**] Update docker ci eclipse jenkins image [#261](https://github.com/eclipse/gemoc-studio/pull/261)
+- [**releng**] Use tpd for defining target platform [#259](https://github.com/eclipse/gemoc-studio/pull/259)
+
+---
+
 ## v3.4.0 (10/01/2022)
 
 #### Enhancements:
