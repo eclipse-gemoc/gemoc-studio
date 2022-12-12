@@ -96,7 +96,7 @@ class CreateSingleSequentialLanguageFromOfficialFSM_Test extends AbstractXtextTe
 	
 	@Before
 	override setUp() {
-		GEMOCTestVideoHelper.addTestSuiteVideoLog("   - "+testName.methodName);
+		GEMOCTestVideoHelper.addTestSuiteVideoLog("   - "+testName.methodName + " (setUp(start))");
 		helper.setTargetPlatform
 		bot.resetWorkbench
 		// helps to reset the workspace state by closing menu as bot.resetWorkbench is not enough
@@ -105,14 +105,16 @@ class CreateSingleSequentialLanguageFromOfficialFSM_Test extends AbstractXtextTe
 		// make sure we are on the correct perspective
 		bot.perspectiveById(XDSMLFrameworkUI.ID_PERSPECTIVE).activate()
 		bot.viewByTitle("Project Explorer")
-		
+		IResourcesSetupUtil::waitForBuild
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 		WorkspaceTestHelper::reallyWaitForJobs(4)
+		GEMOCTestVideoHelper.addTestSuiteVideoLog("   - "+testName.methodName + " (setup(end))");
 	}
 	
 	@After
 	override tearDown() {
-		// Nothing to do
+		
+		GEMOCTestVideoHelper.addTestSuiteVideoLog("   - "+testName.methodName + " (tearDown())");
 	}
 	
 	@Test
