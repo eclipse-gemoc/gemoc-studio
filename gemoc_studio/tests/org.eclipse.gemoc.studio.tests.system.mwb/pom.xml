@@ -48,6 +48,7 @@
 					<showEclipseLog>true</showEclipseLog>
 					<printBundles>true</printBundles>
 					<printWires>true</printWires>
+					<forkedProcessTimeoutInSeconds>1800</forkedProcessTimeoutInSeconds>
 					<testRuntime>p2Installed</testRuntime><!-- install the full gemoc_studio product cf. extraRequirements section -->
 					<product>org.eclipse.gemoc.gemoc_studio.branding.gemoc_studio</product>
               		<application>org.eclipse.ui.ide.workbench</application>
