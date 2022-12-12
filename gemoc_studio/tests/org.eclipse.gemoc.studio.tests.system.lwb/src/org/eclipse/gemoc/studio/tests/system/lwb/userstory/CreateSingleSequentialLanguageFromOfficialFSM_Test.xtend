@@ -218,13 +218,20 @@ class CreateSingleSequentialLanguageFromOfficialFSM_Test extends AbstractXtextTe
 	 */
 	@Test
 	def void test05_CreateSiriusEditorForLanguage() throws Exception {
+		System.out.println("DEBUG test05_CreateSiriusEditorForLanguage - val SWTBotTreeItem projectItem = bot.tree().getTreeItem(PROJECT_NAME).select();")		
 				
 		val SWTBotTreeItem projectItem = bot.tree().getTreeItem(PROJECT_NAME).select();
 		projectItem.contextMenu("GEMOC Language").menu("Create Sirius Editor Project for language").click();
 		bot.button("Finish").click();
+		System.out.println("DEBUG test05_CreateSiriusEditorForLanguage - WorkspaceTestHelper::delay(10)")
+		WorkspaceTestHelper.delay(10)
 		
-		IResourcesSetupUtil::reallyWaitForAutoBuild
-		WorkspaceTestHelper::waitForJobs
+		System.out.println("DEBUG test05_CreateSiriusEditorForLanguage - WorkspaceTestHelper::reallyWaitForJobs(50)")
+		WorkspaceTestHelper::reallyWaitForJobs(50)
+		System.out.println("DEBUG test05_CreateSiriusEditorForLanguage - IResourcesSetupUtil::waitForBuild")
+		IResourcesSetupUtil::waitForBuild
+		System.out.println("DEBUG test05_CreateSiriusEditorForLanguage - WorkspaceTestHelper::reallyWaitForJobs(50)")
+		WorkspaceTestHelper::reallyWaitForJobs(50)
 		
 		helper.assertProjectExists(PROJECT_NAME + ".design");
 		
