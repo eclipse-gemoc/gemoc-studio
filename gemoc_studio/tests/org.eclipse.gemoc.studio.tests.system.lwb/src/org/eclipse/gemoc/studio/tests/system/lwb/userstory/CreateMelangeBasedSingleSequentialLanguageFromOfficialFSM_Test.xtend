@@ -194,6 +194,7 @@ class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends Abs
 		activeShell.bot.button("Finish").click()
 		//bot.button("Finish").click();
 
+		IResourcesSetupUtil::waitForBuild
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 		WorkspaceTestHelper::reallyWaitForJobs(4)
 		helper.assertProjectExists(PROJECT_NAME);
@@ -249,12 +250,16 @@ class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends Abs
 	
 	@Test
 	def void test04_CreateTraceAddon() throws Exception {
+
+		IResourcesSetupUtil::waitForBuild
+		
 		val projExplorerBot = bot.viewByTitle("Project Explorer").bot
 		val SWTBotTreeItem projectItem = projExplorerBot.tree().getTreeItem(PROJECT_NAME).select();
 		projectItem.contextMenu("GEMOC Language").menu("Generate Multidimensional Trace Addon project for language")
 				.click();
 		bot.button("OK").click();
 
+		IResourcesSetupUtil::waitForBuild
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 		WorkspaceTestHelper::waitForJobs
 
