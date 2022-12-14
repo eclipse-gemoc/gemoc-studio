@@ -42,7 +42,7 @@
 		<k3.p2.url>http://www.kermeta.org/k3/update</k3.p2.url>
 		<ale.p2.url>http://www.kermeta.org/ale-lang/updates/2020-07-17</ale.p2.url>
 		<!-- <ale.p2.url>https://ci.inria.fr/gemoc/job/ale-lang/job/bump-to-eclipse-2020-03/lastSuccessfulBuild/artifact/releng/org.eclipse.emf.ecoretools.ale.updatesite/target/repository/</ale.p2.url>-->
-		<melange.p2.url>http://melange.inria.fr/updatesite/nightly/update_2022-08-02</melange.p2.url>
+		<melange.p2.url>http://melange.inria.fr/updatesite/nightly/update_2022-09-29</melange.p2.url>
 		<elk.p2.url>http://download.eclipse.org/elk/updates/releases/0.7.1</elk.p2.url>
 		<!-- for advanced sirius features such as Sirius ELK support , version needs to be aligned with the one  in ${eclipse.release.p2.url}-->
 		<sirius.p2.url>https://download.eclipse.org/sirius/updates/releases/6.5.1/2020-09/</sirius.p2.url>

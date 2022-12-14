@@ -96,7 +96,7 @@ class CreateSingleSequentialLanguageFromOfficialFSM_Test extends AbstractXtextTe
 	
 	@Before
 	override setUp() {
-		GEMOCTestVideoHelper.addTestSuiteVideoLog("   - "+testName.methodName);
+		GEMOCTestVideoHelper.addTestSuiteVideoLog("   - "+testName.methodName + " (setUp(start))");
 		helper.setTargetPlatform
 		bot.resetWorkbench
 		// helps to reset the workspace state by closing menu as bot.resetWorkbench is not enough
@@ -105,14 +105,16 @@ class CreateSingleSequentialLanguageFromOfficialFSM_Test extends AbstractXtextTe
 		// make sure we are on the correct perspective
 		bot.perspectiveById(XDSMLFrameworkUI.ID_PERSPECTIVE).activate()
 		bot.viewByTitle("Project Explorer")
-		
+		IResourcesSetupUtil::waitForBuild
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 		WorkspaceTestHelper::reallyWaitForJobs(4)
+		GEMOCTestVideoHelper.addTestSuiteVideoLog("   - "+testName.methodName + " (setup(end))");
 	}
 	
 	@After
 	override tearDown() {
-		// Nothing to do
+		
+		GEMOCTestVideoHelper.addTestSuiteVideoLog("   - "+testName.methodName + " (tearDown())");
 	}
 	
 	@Test
@@ -218,13 +220,20 @@ class CreateSingleSequentialLanguageFromOfficialFSM_Test extends AbstractXtextTe
 	 */
 	@Test
 	def void test05_CreateSiriusEditorForLanguage() throws Exception {
+		System.out.println("DEBUG test05_CreateSiriusEditorForLanguage - val SWTBotTreeItem projectItem = bot.tree().getTreeItem(PROJECT_NAME).select();")		
 				
 		val SWTBotTreeItem projectItem = bot.tree().getTreeItem(PROJECT_NAME).select();
 		projectItem.contextMenu("GEMOC Language").menu("Create Sirius Editor Project for language").click();
 		bot.button("Finish").click();
+		System.out.println("DEBUG test05_CreateSiriusEditorForLanguage - WorkspaceTestHelper::delay(10)")
+		WorkspaceTestHelper.delay(10)
 		
-		IResourcesSetupUtil::reallyWaitForAutoBuild
-		WorkspaceTestHelper::waitForJobs
+		System.out.println("DEBUG test05_CreateSiriusEditorForLanguage - WorkspaceTestHelper::reallyWaitForJobs(50)")
+		WorkspaceTestHelper::reallyWaitForJobs(50)
+		System.out.println("DEBUG test05_CreateSiriusEditorForLanguage - IResourcesSetupUtil::waitForBuild")
+		IResourcesSetupUtil::waitForBuild
+		System.out.println("DEBUG test05_CreateSiriusEditorForLanguage - WorkspaceTestHelper::reallyWaitForJobs(50)")
+		WorkspaceTestHelper::reallyWaitForJobs(50)
 		
 		helper.assertProjectExists(PROJECT_NAME + ".design");
 		
