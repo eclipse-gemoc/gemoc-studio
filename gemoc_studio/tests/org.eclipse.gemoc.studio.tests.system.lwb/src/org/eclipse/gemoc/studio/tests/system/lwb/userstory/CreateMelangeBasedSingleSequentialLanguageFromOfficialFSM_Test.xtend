@@ -226,6 +226,7 @@ class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends Abs
 		// Melange "Generate all is a bit special as it trigger several jobs one after the other
 		// retry in order to make sure they all have been done 
 		IResourcesSetupUtil::waitForBuild
+		IResourcesSetupUtil::reallyWaitForAutoBuild
 		WorkspaceTestHelper::reallyWaitForJobs(50)
 		//IResourcesSetupUtil::reallyWaitForAutoBuild
 		
