@@ -283,9 +283,16 @@ class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends Abs
 		bot.button("Finish").click();
 		System.out.println("DEBUG test05_CreateSiriusEditorForBaseLanguage - WorkspaceTestHelper::delay(10)")
 		WorkspaceTestHelper.delay(10)
+		printShellList
 		
 		System.out.println("DEBUG test05_CreateSiriusEditorForBaseLanguage - WorkspaceTestHelper::reallyWaitForJobs(50)")
-		WorkspaceTestHelper::reallyWaitForJobs(50)
+		try{
+			WorkspaceTestHelper::reallyWaitForJobs(50)
+		}
+		catch (Exception e) {
+			printShellList
+			throw e
+		}
 		
 		System.out.println("DEBUG test05_CreateSiriusEditorForBaseLanguage - IResourcesSetupUtil::waitForBuild")
 		IResourcesSetupUtil::waitForBuild
@@ -309,6 +316,18 @@ class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends Abs
 		Display.getDefault().syncExec(new Runnable() {
            override void run() {
               System.out.println("Focused Widget = "+bot.focusedWidget.toString+ " "+bot.focusedWidget.class)
+           }
+        });
+	}
+	
+	def printShellList(){
+		
+		Display.getDefault().syncExec(new Runnable() {
+           override void run() {
+           	System.out.println("Shell list:")
+           	for(s :        	bot.shells) {
+           		System.out.println('''«s» - text="«s.text»"  id="«s.id»"''')
+           	}
            }
         });
 	}
