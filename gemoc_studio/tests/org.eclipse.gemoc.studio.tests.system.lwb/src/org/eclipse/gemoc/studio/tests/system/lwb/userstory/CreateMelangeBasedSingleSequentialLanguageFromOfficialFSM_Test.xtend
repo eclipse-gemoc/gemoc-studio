@@ -275,7 +275,8 @@ class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends Abs
 	 */
 	@Test
 	def void test05_CreateSiriusEditorForBaseLanguage() throws Exception {
-		System.out.println("DEBUG test05_CreateSiriusEditorForBaseLanguage - val SWTBotTreeItem projectItem = bot.tree().getTreeItem(PROJECT_NAME).select();")		
+		System.out.println("DEBUG test05_CreateSiriusEditorForBaseLanguage - val SWTBotTreeItem projectItem = bot.tree().getTreeItem(PROJECT_NAME).select();")
+		printShellList		
 		val SWTBotTreeItem projectItem = bot.tree().getTreeItem(PROJECT_NAME).select();
 		System.out.println("DEBUG test05_CreateSiriusEditorForBaseLanguage - projectItem.contextMenu(\"GEMOC Language\").menu(\"Create Sirius Editor Project for language\").click();")		
 		projectItem.contextMenu("GEMOC Language").menu("Create Sirius Editor Project for language").click();
