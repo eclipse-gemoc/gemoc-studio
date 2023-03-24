@@ -37,6 +37,7 @@ import org.junit.rules.TestName
 import org.eclipse.gemoc.xdsmlframework.test.lib.GEMOCTestVideoHelper
 import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystemManager
 import org.eclipse.ui.PlatformUI
+import org.eclipse.gemoc.xdsmlframework.test.lib.SWTBotHelper
 
 /**
  * This class check a scenario where we reuse some of the base projects of the official sample : MelangeK3FSM
@@ -276,7 +277,7 @@ class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends Abs
 	@Test
 	def void test05_CreateSiriusEditorForBaseLanguage() throws Exception {
 		System.out.println("DEBUG test05_CreateSiriusEditorForBaseLanguage - val SWTBotTreeItem projectItem = bot.tree().getTreeItem(PROJECT_NAME).select();")
-		printShellList		
+		SWTBotHelper.printShellListUI(bot)		
 		val SWTBotTreeItem projectItem = bot.tree().getTreeItem(PROJECT_NAME).select();
 		System.out.println("DEBUG test05_CreateSiriusEditorForBaseLanguage - projectItem.contextMenu(\"GEMOC Language\").menu(\"Create Sirius Editor Project for language\").click();")		
 		projectItem.contextMenu("GEMOC Language").menu("Create Sirius Editor Project for language").click();
@@ -284,14 +285,14 @@ class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends Abs
 		bot.button("Finish").click();
 		System.out.println("DEBUG test05_CreateSiriusEditorForBaseLanguage - WorkspaceTestHelper::delay(10)")
 		WorkspaceTestHelper.delay(10)
-		printShellList
+		SWTBotHelper.printShellListUI(bot)
 		
 		System.out.println("DEBUG test05_CreateSiriusEditorForBaseLanguage - WorkspaceTestHelper::reallyWaitForJobs(50)")
 		try{
 			WorkspaceTestHelper::reallyWaitForJobs(50)
 		}
 		catch (Exception e) {
-			printShellList
+			SWTBotHelper.printShellListUI(bot)
 			throw e
 		}
 		
@@ -320,18 +321,7 @@ class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends Abs
            }
         });
 	}
-	
-	def printShellList(){
-		
-		Display.getDefault().syncExec(new Runnable() {
-           override void run() {
-           	System.out.println("Shell list:")
-           	for(s :        	bot.shells) {
-           		System.out.println('''«s» - text="«s.text»"  id="«s.id»"''')
-           	}
-           }
-        });
-	}
+
 	
 }
 	

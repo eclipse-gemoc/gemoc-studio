@@ -39,6 +39,7 @@ import org.eclipse.gemoc.xdsmlframework.test.lib.GEMOCTestVideoHelper
 import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystemManager
 import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystem
 import org.junit.rules.TestName
+import org.eclipse.gemoc.xdsmlframework.test.lib.SWTBotHelper
 
 /**
  * This class check a scenario where we reuse some of the base projects of the official sample : MelangeK3FSM
@@ -227,14 +228,19 @@ class CreateSingleSequentialLanguageFromOfficialFSM_Test extends AbstractXtextTe
 		bot.button("Finish").click();
 		System.out.println("DEBUG test05_CreateSiriusEditorForLanguage - WorkspaceTestHelper::delay(10)")
 		WorkspaceTestHelper.delay(10)
-		
+		SWTBotHelper.printShellListUI(bot)
 		System.out.println("DEBUG test05_CreateSiriusEditorForLanguage - WorkspaceTestHelper::reallyWaitForJobs(50)")
 		WorkspaceTestHelper::reallyWaitForJobs(50)
 		System.out.println("DEBUG test05_CreateSiriusEditorForLanguage - IResourcesSetupUtil::waitForBuild")
 		IResourcesSetupUtil::waitForBuild
 		System.out.println("DEBUG test05_CreateSiriusEditorForLanguage - WorkspaceTestHelper::reallyWaitForJobs(50)")
-		WorkspaceTestHelper::reallyWaitForJobs(50)
-		
+		try{
+			WorkspaceTestHelper::reallyWaitForJobs(50)
+		}
+		catch (Exception e) {
+			SWTBotHelper.printShellListUI(bot)
+			throw e
+		}
 		helper.assertProjectExists(PROJECT_NAME + ".design");
 		
 		bot.editorByTitle("xfsm.odesign").show();
