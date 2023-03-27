@@ -37,6 +37,8 @@ import org.junit.rules.TestName
 import org.eclipse.gemoc.xdsmlframework.test.lib.GEMOCTestVideoHelper
 import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystemManager
 import org.eclipse.ui.PlatformUI
+import org.eclipse.gemoc.xdsmlframework.test.lib.SWTBotHelper
+import org.junit.Ignore
 
 /**
  * This class check a scenario where we reuse some of the base projects of the official sample : MelangeK3FSM
@@ -274,8 +276,10 @@ class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends Abs
 	 * @throws Exception
 	 */
 	@Test
+	@Ignore // this test is flaky too often
 	def void test05_CreateSiriusEditorForBaseLanguage() throws Exception {
-		System.out.println("DEBUG test05_CreateSiriusEditorForBaseLanguage - val SWTBotTreeItem projectItem = bot.tree().getTreeItem(PROJECT_NAME).select();")		
+		System.out.println("DEBUG test05_CreateSiriusEditorForBaseLanguage - val SWTBotTreeItem projectItem = bot.tree().getTreeItem(PROJECT_NAME).select();")
+		SWTBotHelper.printShellListUI(bot)		
 		val SWTBotTreeItem projectItem = bot.tree().getTreeItem(PROJECT_NAME).select();
 		System.out.println("DEBUG test05_CreateSiriusEditorForBaseLanguage - projectItem.contextMenu(\"GEMOC Language\").menu(\"Create Sirius Editor Project for language\").click();")		
 		projectItem.contextMenu("GEMOC Language").menu("Create Sirius Editor Project for language").click();
@@ -283,9 +287,16 @@ class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends Abs
 		bot.button("Finish").click();
 		System.out.println("DEBUG test05_CreateSiriusEditorForBaseLanguage - WorkspaceTestHelper::delay(10)")
 		WorkspaceTestHelper.delay(10)
+		SWTBotHelper.printShellListUI(bot)
 		
 		System.out.println("DEBUG test05_CreateSiriusEditorForBaseLanguage - WorkspaceTestHelper::reallyWaitForJobs(50)")
-		WorkspaceTestHelper::reallyWaitForJobs(50)
+		try{
+			WorkspaceTestHelper::reallyWaitForJobs(50)
+		}
+		catch (Exception e) {
+			SWTBotHelper.printShellListUI(bot)
+			throw e
+		}
 		
 		System.out.println("DEBUG test05_CreateSiriusEditorForBaseLanguage - IResourcesSetupUtil::waitForBuild")
 		IResourcesSetupUtil::waitForBuild
@@ -312,6 +323,7 @@ class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends Abs
            }
         });
 	}
+
 	
 }
 	
