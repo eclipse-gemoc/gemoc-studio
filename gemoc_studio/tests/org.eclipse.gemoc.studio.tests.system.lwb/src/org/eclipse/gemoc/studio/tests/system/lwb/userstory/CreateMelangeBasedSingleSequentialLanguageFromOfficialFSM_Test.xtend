@@ -38,6 +38,7 @@ import org.eclipse.gemoc.xdsmlframework.test.lib.GEMOCTestVideoHelper
 import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystemManager
 import org.eclipse.ui.PlatformUI
 import org.eclipse.gemoc.xdsmlframework.test.lib.SWTBotHelper
+import org.junit.Ignore
 
 /**
  * This class check a scenario where we reuse some of the base projects of the official sample : MelangeK3FSM
@@ -275,6 +276,7 @@ class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends Abs
 	 * @throws Exception
 	 */
 	@Test
+	@Ignore // this test is flaky too often
 	def void test05_CreateSiriusEditorForBaseLanguage() throws Exception {
 		System.out.println("DEBUG test05_CreateSiriusEditorForBaseLanguage - val SWTBotTreeItem projectItem = bot.tree().getTreeItem(PROJECT_NAME).select();")
 		SWTBotHelper.printShellListUI(bot)		

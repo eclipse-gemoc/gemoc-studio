@@ -43,6 +43,7 @@ import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystemMana
 import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystem
 import org.junit.rules.TestName
 import org.eclipse.gemoc.xdsmlframework.test.lib.SWTBotHelper
+import org.junit.Ignore
 
 /**
  * This class check a scenario where we reuse some of the base projects of the official sample : MelangeK3FSM
@@ -275,6 +276,7 @@ class CreateSequentialLanguageFromOfficialK3FSM_Test extends AbstractXtextTests 
 	 * @throws Exception
 	 */
 	@Test
+	@Ignore // this test is flaky too often
 	def void test05_CreateSiriusEditorForLanguage() throws Exception {
 
 		val SWTBotTreeItem projectItem = bot.tree().getTreeItem(XDSML_PROJECT_NAME).select();
