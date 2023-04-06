@@ -1,5 +1,33 @@
 # Changelog
 
+## v3.6.0 (06/04/2023)
+
+#### Enhancements:
+
+- [**enhancement**] Manage step params in MW test cases [#280](https://github.com/eclipse/gemoc-studio/pull/280)
+- [**enhancement**][**refactoring**] Split commons eclipse pde to remove UI dependency [#276](https://github.com/eclipse/gemoc-studio/pull/276)
+
+#### Bug Fixes:
+
+- [**bug**] Bump to version of k3 including StepCommand return null fix [#284](https://github.com/eclipse/gemoc-studio/pull/284)
+
+#### Refactorings
+
+- [**refactoring**] Move commons from modeldebugging repository to dedicated repository [#275](https://github.com/eclipse/gemoc-studio/pull/275)
+
+#### Version upgrades
+
+- [**bump**] Bump K3 version to 2022-12-20 [#281](https://github.com/eclipse/gemoc-studio/pull/281)
+- [**bump**] Bump to melange 2022-09-29 [#278](https://github.com/eclipse/gemoc-studio/pull/278)
+- [**bump**] Bump xtend and k3 [#282](https://github.com/eclipse/gemoc-studio/pull/282)
+- [**bump**] Bump to Eclipse 2022-06 [#273](https://github.com/eclipse/gemoc-studio/pull/273)
+
+#### Release Engineering
+
+- [**releng**] Use fixed version of k3 to ensure reproducibility [#279](https://github.com/eclipse/gemoc-studio/pull/279)
+
+---
+
 ## v3.5.0 (30/06/2022)
 
 #### Enhancements:
