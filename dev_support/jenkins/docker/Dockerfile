@@ -1,127 +1,59 @@
-FROM centos:7
+FROM eclipsecbi/centos:8
+# based on https://github.com/eclipse-cbi/jiro-agents/blob/master/centos-8/Dockerfile
 
-### user name recognition at runtime w/ an arbitrary uid - for OpenShift deployments
-COPY scripts/uid_entrypoint /usr/local/bin/uid_entrypoint
-RUN chmod u+x /usr/local/bin/uid_entrypoint && \
-    chgrp 0 /usr/local/bin/uid_entrypoint && \
-    chmod g=u /usr/local/bin/uid_entrypoint /etc/passwd
+# Mirrors moved to vault.centos.org after EOL on Dec 31st, 2021
+RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-* \
+  && sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*
 
-# https://github.com/jenkinsci/remoting/blob/master/CHANGELOG.md
-ARG REMOTING_VERSION=3.29
-
-# https://github.com/jenkinsci/docker-jnlp-slave/
-ARG JNLP_AGENT_SCRIPT_VERSION=3.29-1
-
-RUN curl --create-dirs -sSLo /usr/share/jenkins/slave.jar https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/${REMOTING_VERSION}/remoting-${REMOTING_VERSION}.jar \
-  && chmod 755 /usr/share/jenkins \
-  && chmod 644 /usr/share/jenkins/slave.jar
-
-ADD https://raw.githubusercontent.com/jenkinsci/docker-jnlp-slave/${JNLP_AGENT_SCRIPT_VERSION}/jenkins-slave /usr/local/bin/jenkins-slave
-RUN chmod 555 /usr/local/bin/jenkins-slave && \
-  chgrp 0 /usr/local/bin/jenkins-slave && \
-  mkdir -p /home/jenkins/.jenkins && \
-  mkdir -p /home/jenkins/agent
-
-ENTRYPOINT [ "uid_entrypoint", "jenkins-slave" ]
-
-# Required for python36u
-RUN yum install -y yum-utils && \
-  yum install -y https://repo.ius.io/ius-release-el7.rpm
-
-# https://linuxize.com/post/how-to-install-ffmpeg-on-centos-7/
-RUN rpm -v --import http://li.nux.ro/download/nux/RPM-GPG-KEY-nux.ro
-RUN rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
+ENV HOME=/home/jenkins
+WORKDIR /home/jenkins
 
 # Node JS 17 cf. https://github.com/nodesource/distributions/blob/master/README.md#debinstall
 RUN curl -sL https://rpm.nodesource.com/setup_17.x | bash -
 
-RUN yum update -y \
-  && yum install -y \
-  autoconf \
-  automake \
-  blas \
-  blas-devel \
-  createrepo \
-  e2fsprogs-devel \
-  ffmpeg \
-  ffmpeg-devel \
-  git \
-  graphviz \
-  gtk3 \
-  ImageMagick \
-  ImageMagick-devel \
-  lapack \
-  lapack-devel \
-  libclang \
-  libgtk-vnc-2.0-0 \
-  libtool \
-  libXtst \
-  mailx \
-  make \
-  makeinfo \
-  mariadb-libs \
-  metacity \
-  mutter \
-  net-snmp-devel.x86_64 \
-  nodejs \
-  java-11-openjdk-devel \
-  openssl-devel.x86_64 \
-  patch \
-  perl \
-  perl-LDAP \
-  python-gtk-vnc \
-  python36u python36u-libs python36u-devel python36u-pip\
-  rpm-build \
-  strace \
-  subversion \
-  sysstat \
-  tcl \
-  tcpdump \
-  tcsh \
-  telnet \
-  tigervnc \
-  tigervnc-server \
-  tk \
-  unrar \
-  unzip \
-  vino \
-  webkitgtk \
-  webkitgtk3 \
-  webkitgtk4 \
-  wget \
-  xdg-utils \
-  xmlstarlet \
-  xorg-x11-apps.x86_64 \
-  xorg-x11-drv-dummy.x86_64 \
-  xorg-x11-drv-evdev.x86_64 \
-  xorg-x11-drv-fbdev.x86_64 \
-  xorg-x11-drv-keyboard.x86_64 \
-  xorg-x11-drv-mouse.x86_64 \
-  xorg-x11-drv-synaptics.x86_64 \
-  xorg-x11-drv-vmmouse.x86_64 \
-  xorg-x11-drv-void.x86_64 \
-  xorg-x11-server-Xvfb.x86_64 \
-  xterm \
-  zip \
-  zsh \
-  && yum clean all
 
-# RUN alternatives --set java /usr/lib/jvm/java-11-openjdk-11.0.14.0.9-1.el7_9.x86_64/bin/java \
-#  && alternatives --set javac /usr/lib/jvm/java-11-openjdk-11.0.14.0.9-1.el7_9.x86_64/bin/javac
-#ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk-11.0.14.0.9-1.el7_9.x86_64
+# https://linuxize.com/post/how-to-install-ffmpeg-on-centos-8/
+# add repo https://negativo17.org/repos/epel-multimedia.repo
 
 
-# Setting Maven Version that needs to be installed
-ARG MAVEN_VERSION=3.8.1 
+# See https://fedoraproject.org/wiki/EPEL
+RUN dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm \ 
+  && dnf install -y https://opensource.wandisco.com/centos/8/git/x86_64/wandisco-git-release-8-1.noarch.rpm \ 
+  && dnf install -y 'dnf-command(config-manager)' \
+  && dnf config-manager --set-enabled powertools \
+  && dnf groupinstall -y "Development Tools" \
+  && dnf config-manager --add-repo https://negativo17.org/repos/epel-multimedia.repo \
+  && dnf install -y \
+    coreutils-single \
+    cmake \
+    cppcheck \
+    glibc-langpack-en \
+    graphviz \
+    gtk3 \
+    ffmpeg \
+    ImageMagick \
+    java-11-openjdk-devel \
+    jq \
+    lsof \
+    mutter \
+    pinentry \
+    python3 \
+    python3-devel \
+    rsync \
+    tigervnc \
+    tigervnc-server \
+    unzip \
+    webkitgtk4 \
+    wget \
+    xorg-x11-server-Xvfb.x86_64 \
+    xterm \
+    xz \
+    zip \
+    zsh \
+  && dnf clean all
 
-# Maven
-RUN curl -fsSL https://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar xzf - -C /usr/share \
-  && mv /usr/share/apache-maven-$MAVEN_VERSION /usr/share/maven \
-  && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
-ENV M2_HOME /usr/share/maven
-
-ENV HOME=/home/jenkins
-
+RUN alternatives --install /usr/bin/java java /usr/lib/jvm/java-11-openjdk/bin/java 1000 --family java-11-openjdk.x86_64 \
+  && alternatives --set java /usr/lib/jvm/java-11-openjdk/bin/java
 
 RUN wget https://download2.gluonhq.com/openjfx/17.0.2/openjfx-17.0.2_linux-x64_bin-sdk.zip  -O ${HOME}/openjfx-17.0.2_linux-x64_bin-sdk.zip 
 RUN unzip ${HOME}/openjfx-17.0.2_linux-x64_bin-sdk.zip -d /usr/share/
@@ -137,7 +69,7 @@ ENV DISPLAY :0
 
 RUN mkdir -p ${HOME}/.vnc && chmod -R 775 ${HOME} \
   && echo "123456" | vncpasswd -f > ${HOME}/.vnc/passwd \
-  && chmod 644 ${HOME}/.vnc/passwd
+  && chmod 600 ${HOME}/.vnc/passwd
 
 # Create a custom vnc xstartup file
 COPY scripts/xstartup_mutter.sh ${HOME}/.vnc/xstartup.sh
@@ -148,19 +80,6 @@ COPY scripts/memory-monitor/memory-monitor-per-process.py ${HOME}/memory-monitor
 RUN python3 -m pip install psutil
 RUN chmod 755 ${HOME}/memory-monitor-per-process.py
 
+
 # explicitly set locale
 ENV LANG=en_US.UTF-8
-
-ENV JENKINS_AGENT_WORKDIR=${HOME}/agent
-ENV JAVA_OPTS=""
-# org.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true to allow git client to ssh clone to use passphrase protected keys
-ENV JNLP_PROTOCOL_OPTS="-XshowSettings:vm -Xmx256m -Dsun.zip.disableMemoryMapping=true -Dorg.jenkinsci.remoting.engine.JnlpProtocol3.disabled=true -Dorg.jenkinsci.plugins.gitclient.CliGitAPIImpl.useSETSID=true"
-
-ENV JAVA_TOOL_OPTIONS="-XX:+IgnoreUnrecognizedVMOptions -XX:+UseContainerSupport -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
-ENV OPENJ9_JAVA_OPTIONS="-XX:+IgnoreUnrecognizedVMOptions -XX:+UseContainerSupport -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle -XX:MaxRAMPercentage=64"
-ENV IBM_JAVA_OPTIONS="-XX:+IgnoreUnrecognizedVMOptions -XX:+UseContainerSupport -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle -XX:MaxRAMPercentage=64"
-ENV _JAVA_OPTIONS="-XX:MaxRAMPercentage=64.0"
-
-WORKDIR /home/jenkins
-
-USER 10001:0
