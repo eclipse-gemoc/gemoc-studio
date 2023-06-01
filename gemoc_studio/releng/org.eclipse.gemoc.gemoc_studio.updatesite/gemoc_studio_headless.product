@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="GEMOC Headless EngineRunner" uid="gemoc_studio_headless" id="org.eclipse.gemoc.gemoc_studio.headless.GemocStudioHeadless" application="org.eclipse.gemoc.gemoc_studio.headless.EngineRunner" version="3.6.0.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="GEMOC Headless EngineRunner" uid="gemoc_studio_headless" id="org.eclipse.gemoc.gemoc_studio.headless.GemocStudioHeadless" application="org.eclipse.gemoc.gemoc_studio.headless.EngineRunner" version="3.6.1.qualifier" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <text>

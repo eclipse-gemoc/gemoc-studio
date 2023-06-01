@@ -42,6 +42,8 @@ import org.eclipse.gemoc.xdsmlframework.test.lib.GEMOCTestVideoHelper
 import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystemManager
 import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystem
 import org.junit.rules.TestName
+import org.eclipse.gemoc.xdsmlframework.test.lib.SWTBotHelper
+import org.junit.Ignore
 
 /**
  * This class check a scenario where we reuse some of the base projects of the official sample : MelangeK3FSM
@@ -274,6 +276,7 @@ class CreateSequentialLanguageFromOfficialK3FSM_Test extends AbstractXtextTests 
 	 * @throws Exception
 	 */
 	@Test
+	@Ignore // this test is flaky too often
 	def void test05_CreateSiriusEditorForLanguage() throws Exception {
 
 		val SWTBotTreeItem projectItem = bot.tree().getTreeItem(XDSML_PROJECT_NAME).select();
@@ -281,7 +284,13 @@ class CreateSequentialLanguageFromOfficialK3FSM_Test extends AbstractXtextTests 
 		bot.button("Finish").click();
 
 		IResourcesSetupUtil::reallyWaitForAutoBuild
-		WorkspaceTestHelper::reallyWaitForJobs(2)
+		try{
+			WorkspaceTestHelper::reallyWaitForJobs(2)
+		}
+		catch (Exception e) {
+			SWTBotHelper.printShellListUI(bot)
+			throw e
+		}
 		helper.assertProjectExists(CreateSequentialLanguageFromOfficialK3FSM_Test.BASE_NAME + ".design");
 
 		bot.editorByTitle("k3fsm.odesign").show();

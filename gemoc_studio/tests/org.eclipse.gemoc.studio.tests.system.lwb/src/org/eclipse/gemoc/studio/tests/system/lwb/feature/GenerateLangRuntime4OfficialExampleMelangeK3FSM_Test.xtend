@@ -137,7 +137,10 @@ class GenerateLangRuntime4OfficialExampleMelangeK3FSM_Test extends AbstractXtext
 			}
 		])
 		thrownException.forall[e| throw new Exception(e)] // rethrown exception that was executed in the ui thread
+		
+		IResourcesSetupUtil::waitForBuild
 		IResourcesSetupUtil::reallyWaitForAutoBuild
+		WorkspaceTestHelper::reallyWaitForJobs(4)
 		helper.assertNoMarkers
 		
 		helper.assertProjectExists(PROJECT_NAME)
