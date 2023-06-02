@@ -70,22 +70,22 @@
     </location>
     <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
       <unit id="org.eclipse.amalgam.discovery.feature.group" version="0.0.0"/>
-      <repository id="photon" location="http://download.eclipse.org/releases/photon"/>
+      <repository id="photon" location="https://download.eclipse.org/releases/photon"/>
     </location>
     <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
       <unit id="org.eclipse.emf.diffmerge.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.emf.diffmerge.gmf.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.emf.diffmerge.sirius.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.emf.diffmerge.egit.feature.feature.group" version="0.0.0"/>
-      <repository id="diffmerge" location="http://download.eclipse.org/diffmerge/releases/0.13.0/emf-diffmerge-site"/>
+      <repository id="diffmerge" location="https://download.eclipse.org/diffmerge/releases/0.13.0/emf-diffmerge-site"/>
     </location>
     <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
       <unit id="org.eclipse.emf.ecoretools.ale.feature.feature.group" version="0.0.0"/>
-      <repository id="ale" location="http://www.kermeta.org/ale-lang/updates/2020-07-17"/>
+      <repository id="ale" location="https://www.kermeta.org/ale-lang/updates/2020-07-17"/>
     </location>
     <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
       <unit id="org.eclipse.ajdt.feature.group" version="0.0.0"/>
-      <repository id="ajdt" location="http://download.eclipse.org/tools/ajdt/410/dev/update"/>
+      <repository id="ajdt" location="https://download.eclipse.org/tools/ajdt/410/dev/update"/>
     </location>
     <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
       <unit id="fr.inria.aoste.timesquare.feature.feature.group" version="0.0.0"/>
@@ -93,7 +93,7 @@
     </location>
     <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
       <unit id="org.eclipse.emf.ecoretools.registration.feature.feature.group" version="0.0.0"/>
-      <repository id="diverse-commons" location="http://www.kermeta.org/diverse-commons/updates/latest"/>
+      <repository id="diverse-commons" location="https://www.kermeta.org/diverse-commons/updates/latest"/>
     </location>
     <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
       <unit id="openjfx.standard.feature.feature.group" version="0.0.0"/>

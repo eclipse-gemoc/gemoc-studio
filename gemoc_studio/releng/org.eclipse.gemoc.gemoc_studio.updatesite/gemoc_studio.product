@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Gemoc Studio" uid="gemoc_studio" id="org.eclipse.gemoc.gemoc_studio.branding.gemoc_studio" application="org.eclipse.ui.ide.workbench" version="3.6.1.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="Gemoc Studio" uid="gemoc_studio" id="org.eclipse.gemoc.gemoc_studio.branding.gemoc_studio" application="org.eclipse.ui.ide.workbench" version="3.6.1.qualifier" useFeatures="true" includeLaunchers="true" autoIncludeRequirements="true">
 
    <aboutInfo>
       <image path="/org.eclipse.gemoc.gemoc_studio.branding/images/GemocStudioAboutImage.png"/>
@@ -78,16 +78,17 @@ openFile
    </configurations>
 
    <repositories>
-      <repository location="http://melange-lang.org/updatesite/" enabled="true" />
-      <repository location="http://download.eclipse.org/releases/2022-06" enabled="true" />
-      <repository location="http://download.eclipse.org/eclipse/updates/4.22/" enabled="true" />
-      <repository location="http://www.kermeta.org/k3/update/" enabled="true" />
-      <repository location="http://www.kermeta.org/ale-lang/updates/latest/" enabled="true" />
+      <repository location="https://melange-lang.org/updatesite/" enabled="true" />
+      <repository location="https://download.eclipse.org/releases/2022-06" enabled="true" />
+      <repository location="https://download.eclipse.org/eclipse/updates/4.22/" enabled="true" />
+      <repository location="https://www.kermeta.org/k3/update/" enabled="true" />
+      <repository location="https://www.kermeta.org/ale-lang/updates/latest/" enabled="true" />
       <repository location="http://timesquare.inria.fr/update_site/2020" enabled="true" />
-      <repository location="http://download.eclipse.org/gemoc/updates/nightly/" enabled="true" />
-      <repository location="http://download.eclipse.org/elk/updates/releases/0.7.1" enabled="false" />
-      <repository location="http://download.eclipse.org/tools/ajdt/410/dev/update" enabled="true" />
-      <repository location="http://downloads.efxclipse.bestsolution.at/p2-repos/openjfx-11/repository/" enabled="true" />
+      <repository location="https://download.eclipse.org/gemoc/updates/nightly/" enabled="true" />
+      <repository location="https://download.eclipse.org/elk/updates/releases/0.7.1" enabled="false" />
+      <repository location="https://download.eclipse.org/tools/ajdt/410/dev/update" enabled="true" />
+      <repository location="https://downloads.efxclipse.bestsolution.at/p2-repos/openjfx-11/repository/" enabled="true" />
+      <repository location="https://download.eclipse.org/cbi/updates/tpd/" enabled="true" />
    </repositories>
 
    <preferencesInfo>

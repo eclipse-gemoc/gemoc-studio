@@ -4,7 +4,7 @@
   <targetJRE path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11"/>
 	<locations>
 		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-			<repository location="http://download.eclipse.org/gemoc/updates/nightly/"/>
+			<repository location="https://download.eclipse.org/gemoc/updates/nightly/"/>
 			<unit id="org.eclipse.gemoc.gemoc_studio.additions.feature.feature.group" version="0.0.0"/>
 			<unit id="org.eclipse.gemoc.gemoc_studio.branding.feature.feature.group" version="0.0.0"/>
 			<unit id="org.eclipse.gemoc.gemoc_studio.headless.feature.feature.group" version="0.0.0"/>
@@ -15,8 +15,52 @@
 			<unit id="org.eclipse.lsp4e.debug" version="0.0.0"/>
 			<unit id="org.eclipse.lsp4e.jdt" version="0.0.0"/>
 			<unit id="org.eclipse.lsp4j.sdk.feature.group" version="0.0.0"/>
-		</location>		
-		<location includeDependencyScope="compile" includeSource="true" missingManifest="generate" type="Maven">
+			<unit id="org.eclipse.acceleo.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.e4.rcp.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.ecf.filetransfer.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.ecf.filetransfer.httpclient5.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.ecf.filetransfer.ssl.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.egit.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.emf.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.emf.compare.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.emf.compare.rcp" version="0.0.0"/>
+      <unit id="org.eclipse.emf.compare.ide.ui.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.emf.ecoretools.sdk.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.emf.mwe2.runtime.sdk.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.emf.mwe2.launcher.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.emf.mwe2.language.sdk.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.emf.query.sdk.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.epp.mpc.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.p2.sdk.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.executable.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.server.jetty.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.lsp4j.sdk.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.lsp4e" version="0.0.0"/>
+      <unit id="org.eclipse.lsp4e.debug" version="0.0.0"/>
+      <unit id="org.eclipse.lsp4e.jdt" version="0.0.0"/>
+      <unit id="org.eclipse.m2e.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.m2e.logback.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.m2e.pde.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.m2m.qvt.oml.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.m2m.qvt.oml.editor.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.m2m.qvt.oml.runtime.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.m2m.qvt.oml.sdk.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.ocl.examples.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.rcp.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.sdk.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.swtbot.eclipse.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.swtbot.ide.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.swtbot.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.wst.web_core.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.wst.xml_core.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.wst.xml_ui.feature.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.xtext.sdk.feature.group" version="0.0.0"/>
+      <unit id="org.eclipse.xtend.sdk.feature.group" version="0.0.0"/>
+      <unit id="ch.qos.logback.classic" version="0.0.0"/>
+      <unit id="org.apache.commons.lang3" version="0.0.0"/>
+      <unit id="org.apache.xalan" version="0.0.0"/>
+		</location>
+		<location includeDependencyDepth="infinite" includeDependencyScopes="compile" includeSource="true" missingManifest="generate" type="Maven">
 			<dependencies>
 				<dependency>
 					<groupId>org.eclipse.jetty.osgi</groupId>
@@ -26,7 +70,7 @@
 				</dependency>
 			</dependencies>
 		</location>
-		<location includeDependencyScope="compile" includeSource="true" missingManifest="generate" type="Maven">
+		<location includeDependencyDepth="infinite" includeDependencyScopes="compile" includeSource="true" missingManifest="generate" type="Maven">
 			<dependencies>
 				<dependency>
 					<groupId>org.apache.aries.spifly</groupId>
@@ -36,7 +80,7 @@
 				</dependency>
 			</dependencies>
 		</location>
-		<location includeDependencyScope="compile" includeSource="true" missingManifest="generate" type="Maven">
+		<location includeDependencyDepth="infinite" includeDependencyScopes="compile" includeSource="true" missingManifest="generate" type="Maven">
 			<dependencies>
 				<dependency>
 					<groupId>com.ibm.icu</groupId>
@@ -46,7 +90,7 @@
 				</dependency>
 			</dependencies>
 		</location>
-		<location includeDependencyScope="compile" includeSource="true" missingManifest="error" type="Maven">
+		<location includeDependencyDepth="infinite" includeDependencyScopes="compile" includeSource="true" missingManifest="error" type="Maven">
 			<dependencies>
 				<dependency>
 					<groupId>javax.servlet</groupId>
@@ -56,7 +100,7 @@
 				</dependency>
 			</dependencies>
 		</location>
-		<location includeDependencyScope="compile" includeSource="true" missingManifest="generate" type="Maven">
+		<location includeDependencyDepth="infinite" includeDependencyScopes="compile" includeSource="true" missingManifest="generate" type="Maven">
 			<dependencies>
 				<dependency>
 					<groupId>org.eclipse.jetty.websocket</groupId>
@@ -66,7 +110,7 @@
 				</dependency>
 			</dependencies>
 		</location>
-		<location includeSource="true" missingManifest="generate" type="Maven">
+		<location includeDependencyDepth="none" includeDependencyScopes="compile" includeSource="true" missingManifest="generate" type="Maven">
 			<dependencies>
 				<dependency>
 					<groupId>org.eclipse.jetty.toolchain</groupId>
@@ -76,16 +120,16 @@
 				</dependency>
 			</dependencies>
 		</location>
-	  <location includeSource="true" missingManifest="generate" type="Maven">
-		  <dependencies>
-			  <dependency>
-				  <groupId>org.mapstruct</groupId>
-				  <artifactId>mapstruct</artifactId>
-				  <version>1.4.2.Final</version>
-				  <type>jar</type>
-			  </dependency>
-		  </dependencies>
-	  </location>
+		<location includeDependencyDepth="none" includeDependencyScopes="compile" includeSource="true" missingManifest="generate" type="Maven">
+			<dependencies>
+				<dependency>
+					<groupId>org.mapstruct</groupId>
+					<artifactId>mapstruct</artifactId>
+					<version>1.5.5.Final</version>
+					<type>jar</type>
+				</dependency>
+			</dependencies>
+		</location>
 	</locations>
 	<includeBundles>
 		<plugin id="ch.qos.logback.classic"/>
@@ -1859,4 +1903,9 @@
 		<plugin id="slf4j.api.source" version="2.0.0.alpha1"/>
 		<plugin id="org.mapstruct"/>
 	</includeBundles>
+	<environment>
+		<os>linux</os>
+		<ws>gtk</ws>
+		<arch>x86_64</arch>
+	</environment>
 </target>
