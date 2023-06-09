@@ -1,0 +1,68 @@
+/*******************************************************************************
+ * Copyright (c) 2022 Inria
+ * This program and the accompanying materials are made available under the 
+ * terms of the Eclipse Public License 2.0 which is available at
+ * http://www.eclipse.org/legal/epl-2.0.
+ *
+ * SPDX-License-Identifier: EPL-2.0
+ * Contributors: see AUTHORS file
+ *******************************************************************************/
+target "GEMOCStudio Target platform"
+
+with source requirements
+environment JavaSE-11
+
+location eclipse "https://download.eclipse.org/releases/2022-06" {
+	// features
+	
+	// individual plugins
+	
+}
+
+
+location gemoc "https://download.eclipse.org/gemoc/updates/nightly/" {
+	org.eclipse.gemoc.gemoc_studio.additions.feature.feature.group
+	org.eclipse.gemoc.gemoc_studio.branding.feature.feature.group
+	org.eclipse.gemoc.gemoc_studio.headless.feature.feature.group
+}
+
+maven MavenDependencies scope=compile,test dependencyDepth=infinite missingManifest=generate includeSources {
+	dependency {
+		groupId="org.eclipse.jetty.osgi"
+		artifactId="jetty-osgi-boot"
+		version="10.0.6"
+	}
+	dependency {
+		groupId="org.apache.aries.spifly"
+		artifactId="org.apache.aries.spifly.dynamic.bundle"
+		version="1.3.4"
+	}
+	dependency {
+		groupId="com.ibm.icu"
+		artifactId="icu4j"
+		version="70.1"
+	}
+	dependency {
+		groupId="javax.servlet"
+		artifactId="javax.servlet-api"
+		version="3.1.0"
+	}
+	dependency {
+		groupId="org.eclipse.jetty.websocket"
+		artifactId="websocket-javax-server"
+		version="10.0.6"
+	}
+	dependency {
+		groupId="org.eclipse.jetty.toolchain"
+		artifactId="jetty-javax-websocket-api"
+		version="1.1.2"
+	}
+	dependency {
+		groupId="org.mapstruct"
+		artifactId="mapstruct"
+		version="1.4.2.Final"
+	}
+}
+
+
+
