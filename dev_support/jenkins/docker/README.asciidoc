@@ -3,7 +3,7 @@
 Reference: https://wiki.eclipse.org/Jenkins
 
 
-includes OpenJDK 11, JavaFX 11
+includes OpenJDK 17, JavaFX 17
 
 Base for the images:
 
