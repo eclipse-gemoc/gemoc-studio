@@ -12,7 +12,7 @@ target "GEMOCStudio Target platform"
 with source requirements
 environment JavaSE-11
 
-location eclipse "https://download.eclipse.org/releases/2022-06" {
+location eclipse "https://download.eclipse.org/releases/2023-06" {
 	// features
 	org.eclipse.acceleo.feature.group
 	org.eclipse.e4.rcp.feature.group
@@ -24,7 +24,7 @@ location eclipse "https://download.eclipse.org/releases/2022-06" {
 	org.eclipse.emf.compare.feature.group
 	org.eclipse.emf.compare.rcp
 	org.eclipse.emf.compare.ide.ui.feature.group
-	org.eclipse.emf.ecoretools.sdk.feature.group
+	org.eclipse.emf.ecoretools.design.feature.group
 	org.eclipse.emf.mwe2.runtime.sdk.feature.group
 	org.eclipse.emf.mwe2.launcher.feature.group
 	org.eclipse.emf.mwe2.language.sdk.feature.group
@@ -61,10 +61,9 @@ location eclipse "https://download.eclipse.org/releases/2022-06" {
 	org.eclipse.lsp4e.debug
 	org.eclipse.lsp4e.jdt
 
-
 }
 
-location sirius "https://download.eclipse.org/sirius/updates/releases/7.0.1/2021-06/" {
+location sirius "https://download.eclipse.org/sirius/updates/releases/7.2.0/2023-03/" {
 	org.eclipse.sirius.specifier.feature.group
 	org.eclipse.sirius.aql.feature.group
 	org.eclipse.sirius.runtime.feature.group
@@ -79,16 +78,13 @@ location sirius "https://download.eclipse.org/sirius/updates/releases/7.0.1/2021
 	org.eclipse.sirius.diagram.elk.feature.feature.group
 }
 
-location xtext "https://download.eclipse.org/modeling/tmf/xtext/updates/releases/2.27.0/" {
-	org.eclipse.xtext.generator
-}
 
 /* required due to amalgam discovery */
-location photon "http://download.eclipse.org/releases/photon" {
+location photon "https://download.eclipse.org/releases/photon" {
 	org.eclipse.amalgam.discovery.feature.group
 }
 
-location diffmerge "http://download.eclipse.org/diffmerge/releases/0.13.0/emf-diffmerge-site" {
+location diffmerge "https://download.eclipse.org/diffmerge/releases/0.14.1/emf-diffmerge-site" {
 	org.eclipse.emf.diffmerge.feature.feature.group
 	org.eclipse.emf.diffmerge.gmf.feature.feature.group
 	org.eclipse.emf.diffmerge.sirius.feature.feature.group
@@ -105,7 +101,7 @@ location diffmerge "http://download.eclipse.org/diffmerge/releases/0.13.0/emf-di
 //	org.eclipse.gemoc.dsl.model
 //}
 
-location ale "http://www.kermeta.org/ale-lang/updates/2020-07-17" {
+location ale "https://www.kermeta.org/ale-lang/updates/2020-07-17" {
 	org.eclipse.emf.ecoretools.ale.feature.feature.group
 }
 
@@ -114,7 +110,7 @@ location ale "http://www.kermeta.org/ale-lang/updates/2020-07-17" {
 //	
 //}
 
-location ajdt "http://download.eclipse.org/tools/ajdt/410/dev/update" {
+location ajdt "https://download.eclipse.org/tools/ajdt/426/dev/update" {
 	org.eclipse.ajdt.feature.group
 }
 
@@ -122,11 +118,11 @@ location timesquare "http://timesquare.inria.fr/update_site/2020" {
 	fr.inria.aoste.timesquare.feature.feature.group
 }
 
-location diverse-commons "http://www.kermeta.org/diverse-commons/updates/latest" {
+location diverse-commons "https://www.kermeta.org/diverse-commons/updates/latest" {
 	org.eclipse.emf.ecoretools.registration.feature.feature.group
 }
 
-location openjfx "https://downloads.efxclipse.bestsolution.at/p2-repos/openjfx-11/repository/" {
+location openjfx "https://downloads.efxclipse.bestsolution.at/p2-repos/openjfx-19/" {
 	openjfx.standard.feature.feature.group
 	openjfx.swing.feature.feature.group
 	openjfx.swt.feature.feature.group
@@ -134,7 +130,7 @@ location openjfx "https://downloads.efxclipse.bestsolution.at/p2-repos/openjfx-1
 	openjfx.web.feature.feature.group
 }
 
-location fxclipse "https://download.eclipse.org/efxclipse/updates-released/3.8.0/site" {
+location fxclipse "https://download.eclipse.org/efxclipse/updates-released/3.9.0/site" {
 	org.eclipse.fx.ide.basic.feature.feature.group
 	org.eclipse.fx.ide.pde.feature.feature.group
 	org.eclipse.fx.runtime.min.feature.feature.group
