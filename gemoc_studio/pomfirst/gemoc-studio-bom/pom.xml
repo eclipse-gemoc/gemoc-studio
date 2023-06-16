@@ -49,8 +49,8 @@
 		<emf.transaction-version>[1.9.0,2.0.0)</emf.transaction-version> 
 		<jdt-version>3.30.0</jdt-version> 
 		
-		<xtext-version>2.27.0</xtext-version>
-		<xtend-version>2.27.0</xtend-version>
+		<xtext-version>2.31.0</xtext-version>
+		<xtend-version>2.31.0</xtend-version>
 		
 	</properties>
 	<dependencyManagement>
