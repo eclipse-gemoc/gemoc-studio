@@ -110,6 +110,8 @@
 			   <artifactId>target-platform-configuration</artifactId>
 			   <version>${tycho-version}</version>
 			   <configuration>
+			   	  <!-- Optional set the Java version you are using-->
+    		      <executionEnvironment>JavaSE-17</executionEnvironment>
 			      <dependency-resolution>
 			         <extraRequirements>
 			         	<!-- Eclipse platform -->
