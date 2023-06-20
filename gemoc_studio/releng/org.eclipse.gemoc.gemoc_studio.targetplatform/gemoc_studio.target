@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="GEMOCStudio Target platform" sequenceNumber="1686912016">
+<target name="GEMOCStudio Target platform" sequenceNumber="1687191192">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.acceleo.feature.group" version="3.7.13.202304041222"/>
@@ -48,6 +48,7 @@
       <unit id="org.eclipse.lsp4e" version="0.16.1.202305241229"/>
       <unit id="org.eclipse.lsp4e.debug" version="0.15.2.202305241157"/>
       <unit id="org.eclipse.lsp4e.jdt" version="0.11.0.202301312314"/>
+      <unit id="org.eclipse.xtext.generator" version="2.31.0.v20230529-0659"/>
       <repository id="eclipse" location="https://download.eclipse.org/releases/2023-06"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">

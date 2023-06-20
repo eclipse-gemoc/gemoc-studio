@@ -52,6 +52,7 @@ location eclipse "https://download.eclipse.org/releases/2023-06" {
 	org.eclipse.wst.xml_core.feature.feature.group
 	org.eclipse.wst.xml_ui.feature.feature.group
 	org.eclipse.xtext.sdk.feature.group
+	org.eclipse.xtext.redist.feature.group
 	org.eclipse.xtend.sdk.feature.group
 	// individual plugins
 	ch.qos.logback.classic
@@ -60,6 +61,7 @@ location eclipse "https://download.eclipse.org/releases/2023-06" {
 	org.eclipse.lsp4e
 	org.eclipse.lsp4e.debug
 	org.eclipse.lsp4e.jdt
+	org.eclipse.xtext.generator
 
 }
 
