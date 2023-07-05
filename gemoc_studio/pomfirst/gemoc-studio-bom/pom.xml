@@ -6,7 +6,6 @@
 	<!-- cf. https://github.com/eclipse/xtext-lib/blob/v2.24.0/org.eclipse.xtext.dev-bom/build.gradle -->
 	<!-- cf. https://blogs.itemis.com/en/eclipse-xtext-goes-shopping-the-new-bill-of-materials -->
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.eclipse.gemoc.gemoc-studio</groupId>
 	<artifactId>gemoc-studio-bom</artifactId>
 	<packaging>pom</packaging>
 	<name>GEMOC Studio BOM</name>
@@ -49,8 +48,9 @@
 		<emf.transaction-version>[1.9.0,2.0.0)</emf.transaction-version> 
 		<jdt-version>3.30.0</jdt-version> 
 		
-		<xtext-version>2.25.0</xtext-version>
-		<xtend-version>2.25.0</xtend-version>
+		<xtext-version>2.31.0</xtext-version>
+		<xtend-version>2.31.0</xtend-version>
+	    <lsp4j-version>0.21.0</lsp4j-version>
 		
 	</properties>
 	<dependencyManagement>
@@ -180,6 +180,17 @@
 				<version>${xtend-version}</version>
 		    </dependency>
 			
+			<dependency>
+			    <groupId>org.eclipse.lsp4j</groupId>
+			    <artifactId>org.eclipse.lsp4j.jsonrpc</artifactId>
+			    <version>${lsp4j-version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>org.eclipse.lsp4j</groupId>
+			    <artifactId>org.eclipse.lsp4j.generator</artifactId>
+			    <version>${lsp4j-version}</version>
+			</dependency>
+		
 			<dependency>
 			    <groupId>com.google.inject</groupId>
 			    <artifactId>guice</artifactId>

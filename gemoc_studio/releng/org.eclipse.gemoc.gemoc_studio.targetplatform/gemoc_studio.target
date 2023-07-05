@@ -1,92 +1,89 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="GEMOCStudio Target platform" sequenceNumber="1685720978">
+<target name="GEMOCStudio Target platform" sequenceNumber="1687191192">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.acceleo.feature.group" version="3.7.11.202102190929"/>
-      <unit id="org.eclipse.e4.rcp.feature.group" version="4.24.0.v20220530-1036"/>
-      <unit id="org.eclipse.ecf.filetransfer.feature.feature.group" version="3.14.1800.v20220215-0126"/>
-      <unit id="org.eclipse.ecf.filetransfer.httpclient5.feature.feature.group" version="1.1.600.v20220215-0126"/>
-      <unit id="org.eclipse.ecf.filetransfer.ssl.feature.feature.group" version="1.1.401.v20210409-2301"/>
-      <unit id="org.eclipse.egit.feature.group" version="6.2.0.202206071550-r"/>
-      <unit id="org.eclipse.emf.feature.group" version="2.30.0.v20220516-1117"/>
-      <unit id="org.eclipse.emf.compare.feature.group" version="3.3.18.202202240907"/>
-      <unit id="org.eclipse.emf.compare.rcp" version="2.5.2.202202240907"/>
-      <unit id="org.eclipse.emf.compare.ide.ui.feature.group" version="3.3.18.202202240907"/>
-      <unit id="org.eclipse.emf.ecoretools.sdk.feature.group" version="3.4.0.202201202026"/>
-      <unit id="org.eclipse.emf.mwe2.runtime.sdk.feature.group" version="2.13.0.v20220519-1115"/>
-      <unit id="org.eclipse.emf.mwe2.launcher.feature.group" version="2.13.0.v20220519-1115"/>
-      <unit id="org.eclipse.emf.mwe2.language.sdk.feature.group" version="2.13.0.v20220519-1115"/>
-      <unit id="org.eclipse.emf.query.sdk.feature.group" version="1.12.0.201805030653"/>
-      <unit id="org.eclipse.epp.mpc.feature.group" version="1.10.0.v20220502-0731"/>
-      <unit id="org.eclipse.equinox.p2.sdk.feature.group" version="3.11.1600.v20220518-1326"/>
-      <unit id="org.eclipse.equinox.executable.feature.group" version="3.8.1700.v20220509-0833"/>
-      <unit id="org.eclipse.equinox.server.jetty.feature.group" version="1.10.1000.v20220424-0922"/>
-      <unit id="org.eclipse.lsp4j.sdk.feature.group" version="0.14.0.v20220526-1520"/>
-      <unit id="org.eclipse.m2e.feature.feature.group" version="1.20.1.20220227-1319"/>
-      <unit id="org.eclipse.m2e.logback.feature.feature.group" version="1.17.2.20211002-1029"/>
-      <unit id="org.eclipse.m2e.pde.feature.feature.group" version="1.20.0.20220208-0831"/>
+      <unit id="org.eclipse.acceleo.feature.group" version="3.7.13.202304041222"/>
+      <unit id="org.eclipse.e4.rcp.feature.group" version="4.28.0.v20230525-0648"/>
+      <unit id="org.eclipse.ecf.filetransfer.feature.feature.group" version="3.14.1800.v20230422-0242"/>
+      <unit id="org.eclipse.ecf.filetransfer.httpclient5.feature.feature.group" version="1.1.701.v20230423-0417"/>
+      <unit id="org.eclipse.ecf.filetransfer.ssl.feature.feature.group" version="1.1.401.v20230422-0242"/>
+      <unit id="org.eclipse.egit.feature.group" version="6.6.0.202305301015-r"/>
+      <unit id="org.eclipse.emf.feature.group" version="2.34.0.v20230406-1334"/>
+      <unit id="org.eclipse.emf.compare.feature.group" version="3.3.21.202212280858"/>
+      <unit id="org.eclipse.emf.compare.rcp" version="2.5.2.202212280858"/>
+      <unit id="org.eclipse.emf.compare.ide.ui.feature.group" version="3.3.21.202212280858"/>
+      <unit id="org.eclipse.emf.ecoretools.design.feature.group" version="3.5.0.202306021647"/>
+      <unit id="org.eclipse.emf.mwe2.runtime.sdk.feature.group" version="2.14.0.v20221117-1134"/>
+      <unit id="org.eclipse.emf.mwe2.launcher.feature.group" version="2.14.0.v20221117-1134"/>
+      <unit id="org.eclipse.emf.mwe2.language.sdk.feature.group" version="2.14.0.v20221117-1134"/>
+      <unit id="org.eclipse.emf.query.sdk.feature.group" version="1.12.1.202208101410"/>
+      <unit id="org.eclipse.epp.mpc.feature.group" version="1.10.1.v20221110-1841"/>
+      <unit id="org.eclipse.equinox.p2.sdk.feature.group" version="3.11.2000.v20230510-1208"/>
+      <unit id="org.eclipse.equinox.executable.feature.group" version="3.8.2100.v20230415-0944"/>
+      <unit id="org.eclipse.equinox.server.jetty.feature.group" version="1.11.100.v20221109-0702"/>
+      <unit id="org.eclipse.lsp4j.sdk.feature.group" version="0.21.0.v20230517-2121"/>
+      <unit id="org.eclipse.m2e.feature.feature.group" version="2.3.0.20230523-2033"/>
+      <unit id="org.eclipse.m2e.logback.feature.feature.group" version="2.1.2.20230523-2106"/>
+      <unit id="org.eclipse.m2e.pde.feature.feature.group" version="2.2.100.20230523-1752"/>
       <unit id="org.eclipse.m2m.qvt.oml.feature.group" version="3.10.7.v20220605-1149"/>
       <unit id="org.eclipse.m2m.qvt.oml.editor.feature.group" version="3.10.7.v20220605-1149"/>
       <unit id="org.eclipse.m2m.qvt.oml.runtime.feature.group" version="3.10.7.v20220605-1149"/>
       <unit id="org.eclipse.m2m.qvt.oml.sdk.feature.group" version="3.10.7.v20220605-1149"/>
-      <unit id="org.eclipse.ocl.examples.feature.group" version="6.17.1.v20220309-0840"/>
-      <unit id="org.eclipse.rcp.feature.group" version="4.24.0.v20220607-0700"/>
-      <unit id="org.eclipse.sdk.feature.group" version="4.24.0.v20220607-0700"/>
-      <unit id="org.eclipse.swtbot.eclipse.feature.group" version="4.0.0.202206011610"/>
-      <unit id="org.eclipse.swtbot.ide.feature.group" version="4.0.0.202206011610"/>
-      <unit id="org.eclipse.swtbot.feature.group" version="4.0.0.202206011610"/>
-      <unit id="org.eclipse.wst.web_core.feature.feature.group" version="3.26.0.v202204042240"/>
-      <unit id="org.eclipse.wst.xml_core.feature.feature.group" version="3.26.0.v202204042240"/>
-      <unit id="org.eclipse.wst.xml_ui.feature.feature.group" version="3.26.0.v202204091445"/>
-      <unit id="org.eclipse.xtext.sdk.feature.group" version="2.27.0.v20220530-0508"/>
-      <unit id="org.eclipse.xtend.sdk.feature.group" version="2.27.0.v20220530-0508"/>
-      <unit id="ch.qos.logback.classic" version="1.1.2.v20171220-1825"/>
-      <unit id="org.apache.commons.lang3" version="3.1.0.v201403281430"/>
-      <unit id="org.apache.xalan" version="2.7.2.v20201124-1837"/>
-      <unit id="org.eclipse.lsp4e" version="0.13.12.202206011407"/>
-      <unit id="org.eclipse.lsp4e.debug" version="0.13.5.202205301057"/>
-      <unit id="org.eclipse.lsp4e.jdt" version="0.10.2.202205031750"/>
-      <repository id="eclipse" location="https://download.eclipse.org/releases/2022-06"/>
+      <unit id="org.eclipse.ocl.examples.feature.group" version="6.18.0.v20221201-0557"/>
+      <unit id="org.eclipse.rcp.feature.group" version="4.28.0.v20230605-0440"/>
+      <unit id="org.eclipse.sdk.feature.group" version="4.28.0.v20230605-0440"/>
+      <unit id="org.eclipse.swtbot.eclipse.feature.group" version="4.1.0.202306071420"/>
+      <unit id="org.eclipse.swtbot.ide.feature.group" version="4.1.0.202306071420"/>
+      <unit id="org.eclipse.swtbot.feature.group" version="4.1.0.202306071420"/>
+      <unit id="org.eclipse.wst.web_core.feature.feature.group" version="3.30.0.v202305230750"/>
+      <unit id="org.eclipse.wst.xml_core.feature.feature.group" version="3.30.0.v202305230750"/>
+      <unit id="org.eclipse.wst.xml_ui.feature.feature.group" version="3.30.0.v202305230750"/>
+      <unit id="org.eclipse.xtext.sdk.feature.group" version="2.31.0.v20230529-0659"/>
+      <unit id="org.eclipse.xtend.sdk.feature.group" version="2.31.0.v20230529-0659"/>
+      <unit id="ch.qos.logback.classic" version="1.2.12"/>
+      <unit id="org.apache.commons.lang3" version="3.12.0.v20221221-1931"/>
+      <unit id="org.apache.xalan" version="2.7.2.v20221112-0806"/>
+      <unit id="org.eclipse.lsp4e" version="0.16.1.202305241229"/>
+      <unit id="org.eclipse.lsp4e.debug" version="0.15.2.202305241157"/>
+      <unit id="org.eclipse.lsp4e.jdt" version="0.11.0.202301312314"/>
+      <unit id="org.eclipse.xtext.generator" version="2.31.0.v20230529-0659"/>
+      <repository id="eclipse" location="https://download.eclipse.org/releases/2023-06"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.sirius.specifier.feature.group" version="7.0.1.202205300817"/>
-      <unit id="org.eclipse.sirius.aql.feature.group" version="7.0.1.202205300817"/>
-      <unit id="org.eclipse.sirius.runtime.feature.group" version="7.0.1.202205300817"/>
-      <unit id="org.eclipse.sirius.runtime.aql.feature.group" version="7.0.1.202205300817"/>
-      <unit id="org.eclipse.sirius.runtime.ocl.feature.group" version="7.0.1.202205300817"/>
-      <unit id="org.eclipse.sirius.runtime.ide.ui.feature.group" version="7.0.1.202205300817"/>
-      <unit id="org.eclipse.sirius.runtime.ide.eef.feature.group" version="7.0.1.202205300817"/>
-      <unit id="org.eclipse.sirius.runtime.ide.xtext.feature.group" version="7.0.1.202205300817"/>
-      <unit id="org.eclipse.sirius.properties.feature.feature.group" version="7.0.1.202205300817"/>
-      <unit id="org.eclipse.eef.sdk.feature.feature.group" version="2.1.5.202008270808"/>
-      <unit id="org.eclipse.eef.ext.widgets.reference.feature.feature.group" version="2.1.5.202008270808"/>
-      <unit id="org.eclipse.sirius.diagram.elk.feature.feature.group" version="7.0.1.202205300817"/>
-      <repository id="sirius" location="https://download.eclipse.org/sirius/updates/releases/7.0.1/2021-06/"/>
-    </location>
-    <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.xtext.generator" version="2.27.0.v20220530-0402"/>
-      <repository id="xtext" location="https://download.eclipse.org/modeling/tmf/xtext/updates/releases/2.27.0/"/>
+      <unit id="org.eclipse.sirius.specifier.feature.group" version="7.2.0.202306070701"/>
+      <unit id="org.eclipse.sirius.aql.feature.group" version="7.2.0.202306070701"/>
+      <unit id="org.eclipse.sirius.runtime.feature.group" version="7.2.0.202306070701"/>
+      <unit id="org.eclipse.sirius.runtime.aql.feature.group" version="7.2.0.202306070701"/>
+      <unit id="org.eclipse.sirius.runtime.ocl.feature.group" version="7.2.0.202306070701"/>
+      <unit id="org.eclipse.sirius.runtime.ide.ui.feature.group" version="7.2.0.202306070701"/>
+      <unit id="org.eclipse.sirius.runtime.ide.eef.feature.group" version="7.2.0.202306070701"/>
+      <unit id="org.eclipse.sirius.runtime.ide.xtext.feature.group" version="7.2.0.202306070701"/>
+      <unit id="org.eclipse.sirius.properties.feature.feature.group" version="7.2.0.202306070701"/>
+      <unit id="org.eclipse.eef.sdk.feature.feature.group" version="2.1.6.202210191223"/>
+      <unit id="org.eclipse.eef.ext.widgets.reference.feature.feature.group" version="2.1.6.202210191223"/>
+      <unit id="org.eclipse.sirius.diagram.elk.feature.feature.group" version="7.2.0.202306070701"/>
+      <repository id="sirius" location="https://download.eclipse.org/sirius/updates/releases/7.2.0/2023-03/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.amalgam.discovery.feature.group" version="1.8.0.201706011309"/>
-      <repository id="photon" location="http://download.eclipse.org/releases/photon"/>
+      <repository id="photon" location="https://download.eclipse.org/releases/photon"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.emf.diffmerge.feature.feature.group" version="0.13.0.202010211615"/>
-      <unit id="org.eclipse.emf.diffmerge.gmf.feature.feature.group" version="0.13.0.202010211615"/>
-      <unit id="org.eclipse.emf.diffmerge.sirius.feature.feature.group" version="0.13.0.202010211615"/>
-      <unit id="org.eclipse.emf.diffmerge.egit.feature.feature.group" version="0.13.0.202010211615"/>
-      <repository id="diffmerge" location="http://download.eclipse.org/diffmerge/releases/0.13.0/emf-diffmerge-site"/>
+      <unit id="org.eclipse.emf.diffmerge.feature.feature.group" version="0.14.1.202303210900"/>
+      <unit id="org.eclipse.emf.diffmerge.gmf.feature.feature.group" version="0.14.1.202303210900"/>
+      <unit id="org.eclipse.emf.diffmerge.sirius.feature.feature.group" version="0.14.1.202303210900"/>
+      <unit id="org.eclipse.emf.diffmerge.egit.feature.feature.group" version="0.14.1.202303210900"/>
+      <repository id="diffmerge" location="https://download.eclipse.org/diffmerge/releases/0.14.1/emf-diffmerge-site"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.emf.ecoretools.ale.feature.feature.group" version="1.2.0.202007171516"/>
-      <repository id="ale" location="http://www.kermeta.org/ale-lang/updates/2020-07-17"/>
+      <repository id="ale" location="https://www.kermeta.org/ale-lang/updates/2020-07-17"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.ajdt.feature.group" version="2.2.4.202304111524"/>
-      <repository id="ajdt" location="http://download.eclipse.org/tools/ajdt/410/dev/update"/>
+      <unit id="org.eclipse.ajdt.feature.group" version="2.2.4.202304111527"/>
+      <repository id="ajdt" location="https://download.eclipse.org/tools/ajdt/426/dev/update"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="fr.inria.aoste.timesquare.feature.feature.group" version="1.0.0.202109021545"/>
@@ -94,21 +91,21 @@
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.emf.ecoretools.registration.feature.feature.group" version="3.3.0.201811051325"/>
-      <repository id="diverse-commons" location="http://www.kermeta.org/diverse-commons/updates/latest"/>
+      <repository id="diverse-commons" location="https://www.kermeta.org/diverse-commons/updates/latest"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="openjfx.standard.feature.feature.group" version="11.0.0.201901231300"/>
-      <unit id="openjfx.swing.feature.feature.group" version="11.0.0.201901231300"/>
-      <unit id="openjfx.swt.feature.feature.group" version="11.0.0.201901231300"/>
-      <unit id="openjfx.media.feature.feature.group" version="11.0.0.201901231300"/>
-      <unit id="openjfx.web.feature.feature.group" version="11.0.0.201901231300"/>
-      <repository id="openjfx" location="https://downloads.efxclipse.bestsolution.at/p2-repos/openjfx-11/repository/"/>
+      <unit id="openjfx.standard.feature.feature.group" version="19.0.0.202211040945"/>
+      <unit id="openjfx.swing.feature.feature.group" version="19.0.0.202211040945"/>
+      <unit id="openjfx.swt.feature.feature.group" version="19.0.0.202211040945"/>
+      <unit id="openjfx.media.feature.feature.group" version="19.0.0.202211040945"/>
+      <unit id="openjfx.web.feature.feature.group" version="19.0.0.202211040945"/>
+      <repository id="openjfx" location="https://downloads.efxclipse.bestsolution.at/p2-repos/openjfx-19/"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.fx.ide.basic.feature.feature.group" version="3.8.0.202204150904"/>
-      <unit id="org.eclipse.fx.ide.pde.feature.feature.group" version="3.8.0.202204150904"/>
-      <unit id="org.eclipse.fx.runtime.min.feature.feature.group" version="3.8.0.202204150815"/>
-      <repository id="fxclipse" location="https://download.eclipse.org/efxclipse/updates-released/3.8.0/site"/>
+      <unit id="org.eclipse.fx.ide.basic.feature.feature.group" version="3.9.0.202210170554"/>
+      <unit id="org.eclipse.fx.ide.pde.feature.feature.group" version="3.9.0.202210170554"/>
+      <unit id="org.eclipse.fx.runtime.min.feature.feature.group" version="3.9.0.202210170500"/>
+      <repository id="fxclipse" location="https://download.eclipse.org/efxclipse/updates-released/3.9.0/site"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.jetty.bundles.f.feature.group" version="9.4.44.v20210927"/>
@@ -161,5 +158,5 @@
     </dependencies>
     </location>
   </locations>
-  <targetJRE path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11"/>
+  <targetJRE path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17"/>
 </target>
