@@ -8,7 +8,7 @@ endif::[]
 [[MelangeK3FSM-Sequential-example]]
 == MelangeK3FSM Sequential example
 
-footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/official_samples/MelangeK3FSM/docs/MelangeK3FSM_sequential.asciidoc.]
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/official_samples/MelangeK3FSM/docs/MelangeK3FSM.asciidoc]
 
 
 
