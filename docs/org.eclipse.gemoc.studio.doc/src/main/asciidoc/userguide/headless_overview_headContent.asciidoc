@@ -2,11 +2,9 @@
 //	Reproduce title only if not included in master documentation
 ////////////////////////////////////////////////////////////////
 ifndef::includedInMaster[]
-== User Guide
+= Headless engine user guide image:images/icons/IconeGemocModel_16.png[width=16, height=16, role=right]
 
-=== Headless engine user image:images/icons/IconeGemocModel_16.png[width=16, height=16, role=right]
-
-==== Headless engine overview
+== Headless engine overview
 endif::[]
 
 footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/userguide/headless_overview_headContent.asciidoc.]
@@ -39,7 +37,7 @@ The commands take the following form:
 ./GemocStudioHeadless [<EclipseSpecificOptions>] <EngineRunner options> [<additionnal arguments to be passed to the model execution>]
 ----
 
-===== Eclipse specific options overview
+=== Eclipse specific options overview
 We have selected the use of the following eclipse specific options which might be useful when running GemocStudioHealess:
 
 * `-clean` Any cached data used by the OSGi framework and eclipse runtime will be wiped clean. 
@@ -57,7 +55,7 @@ their data. For example, the Resources plug-in uses this as the default location
 (A complete list of eclipse specific options is available at 
  https://help.eclipse.org/2018-12/index.jsp?topic=%2Forg.eclipse.platform.doc.isv%2Freference%2Fmisc%2Fruntime-options.html ).
 
-==== GemocStudioHeadless options overview
+=== GemocStudioHeadless options overview
 
 The EngineRunner currently accepts the following options:
 
