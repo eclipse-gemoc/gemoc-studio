@@ -2,11 +2,9 @@
 //	Reproduce title only if not included in master documentation
 ////////////////////////////////////////////////////////////////
 ifndef::includedInMaster[]
-== User Guide
+= Headless engine user image:images/icons/IconeGemocModel_16.png[width=16, height=16, role=right]
 
-=== Headless engine user image:images/icons/IconeGemocModel_16.png[width=16, height=16, role=right]
-
-==== Prepare language
+== Prepare language
 endif::[]
 
 footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/userguide/headless_prepare_language_headContent.asciidoc.]
@@ -19,7 +17,7 @@ Roughly, this task is similar to <<userguide-lw-deploy-language>>.
 
 Actually this consist in creating deployable jars of the plugins. These jars can be generated in several ways:
 
-===== Create deployable jars using Eclipse UI
+=== Create deployable jars using Eclipse UI
 
 In the Language Workbench where you have developped the language.
 
@@ -28,7 +26,7 @@ In the Language Workbench where you have developped the language.
 
 The directory will typically be the _dropins_ folder of the headless studio.
 
-===== Create deployable jars using Maven
+=== Create deployable jars using Maven
 
 You can automate the production of the deployable jars using maven and https://www.eclipse.org/tycho/documentation.php[tycho].
 

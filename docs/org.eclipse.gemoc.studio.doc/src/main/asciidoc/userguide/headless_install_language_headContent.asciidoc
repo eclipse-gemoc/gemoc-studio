@@ -2,11 +2,9 @@
 //	Reproduce title only if not included in master documentation
 ////////////////////////////////////////////////////////////////
 ifndef::includedInMaster[]
-== User Guide
+= Headless engine user guide image:images/icons/IconeGemocModel_16.png[width=16, height=16, role=right]
 
-=== Headless engine user image:images/icons/IconeGemocModel_16.png[width=16, height=16, role=right]
-
-==== Install language
+== Install language
 endif::[]
 
 footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/userguide/headless_install_language_headContent.asciidoc.]
@@ -16,7 +14,7 @@ In order to run a model using the headless runner, the plugins that define the l
 placed in a location where the runner will be able to find them. 
 
 
-===== Installing jars in _dropins_ folder
+=== Installing jars in _dropins_ folder
 
 The easiest way to install a language is to copy the jars in the _dropins_ folder of the studio (headless or IDE).
 Eclipse will automatically find them and add them.
@@ -31,7 +29,7 @@ the jars will be silently ignored by default. Have a look in
 
  
  
-===== Installing jars using the p2 director
+=== Installing jars using the p2 director
 
 If the jars have been packaged as an update site, you can use the p2 director 
 application to install them in an existing eclipse from the command line.
@@ -39,12 +37,12 @@ application to install them in an existing eclipse from the command line.
 See https://help.eclipse.org/2018-12/index.jsp?topic=%2Forg.eclipse.platform.doc.isv%2Fguide%2Fp2_director.html
 
 
-===== Installing jars using the `--installLanguage` option
+=== Installing jars using the `--installLanguage` option
 
 TO BE IMPLEMENTED
 
 [[userguide-headless-debug-deployment-issues]]
-===== Debugging language deployment issues
+=== Debugging language deployment issues
 
 
 Here are series of tips and thing you must verify in case of troubles.

@@ -1,0 +1,45 @@
+////////////////////////////////////////////////////////////////
+//	Reproduce title only if not included in master documentation
+////////////////////////////////////////////////////////////////
+ifndef::includedInMaster[]
+= Examples
+endif::[]
+
+
+// footnote used to ease documentation modification
+footnote:[asciidoc source of this page: https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/examples_headContent.asciidoc]
+
+The GEMOC Studio is distributed with a set of official examples that are regularly verified.
+
+These examples use two installers. 
+
+* One installer is dedicated to create the language projects in the Language workbench. image:images/icons/IconeGemocLanguage_16.png[width=16, height=16, role=right]
+* The second installed is dedicated to create example model of the language in the modeling workbench. image:images/icons/IconeGemocModel_16.png[width=16, height=16, role=right]
+
+
+All installers are available in the corresponding Eclipse via the menu: _File_ -> _new_  -> _Examples..._ 
+Then make sure to select the examples in the _GEMOC language workbench examples_ group or in the
+_GEMOC modeling workbench examples_ group depending on your workbenches.
+
+[WARNING]
+.Warning
+=====================================================================
+When installing in the language and modeling workbenches, make sure to select the correct
+corresponding pair of projects, since even if they may have similar language names, models for a given
+language may not be compatible with another language.
+=====================================================================
+
+Several examples documentation contain a DIY section. 
+This DIY section provides tutorial material allowing to manually reproduce the language workbench projects step-by-step.
+
+ 
+[TIP]
+.Tip
+=====================================================================
+In addition to those official examples, many examples are available in other places:
+
+- in the GEMOC discovery,  (in Eclipse, open the menu _Help -> Install Additional GEMOC Components_)
+- on github (some of them are listed in https://gemoc.org/tutorial.html and https://gemoc.org/gallery.html)
+- in Eclipse marketplace,
+=====================================================================
+

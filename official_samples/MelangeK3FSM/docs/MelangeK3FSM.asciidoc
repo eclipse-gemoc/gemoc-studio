@@ -8,7 +8,7 @@ endif::[]
 [[MelangeK3FSM-Sequential-example]]
 == MelangeK3FSM Sequential example
 
-footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/official_samples/MelangeK3FSM/docs/MelangeK3FSM_sequential.asciidoc.]
+footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio/tree/master/official_samples/MelangeK3FSM/docs/MelangeK3FSM.asciidoc]
 
 
 
@@ -25,7 +25,7 @@ on the separation of the base language: *FSM* and the executable sequential lang
 
 [[img-MelangeK3FSM_language_concepts_figure]]
 .FSM/XSFSM main relations.
-image::images/MelangeK3FSM_language_concepts_figure.png["FSM/XSFSM main relations."]
+image::images/MelangeK3FSM/MelangeK3FSM_language_concepts_figure.png["FSM/XSFSM main relations."]
 
 
 
@@ -61,7 +61,7 @@ The following figure presents :
 
 [[img-MelangeK3FSM_language_figure]]
 .Language relations, packages and classes view.
-image::images/MelangeK3FSM_language_figure.png["Language relations, packages and classes view."]
+image::images/MelangeK3FSM/MelangeK3FSM_language_figure.png["Language relations, packages and classes view."]
 
 		
 Please note that for simplification of the diagram, the associations that doesn't represent a containment, have been represented as attribute rather than links.
@@ -122,7 +122,7 @@ Create an Ecore project:
 
 [[img-MelangeK3FSM_syntaxic_domain_figure]]
 .FSM Syntaxic domain.
-image::images/MelangeK3FSM/DIY/MelangeK3FSM_syntaxic_domain.png["FSM Syntaxic domain."]
+image::images/MelangeK3FSM/DIY/MelangeK3FSM_syntaxic_domain.png["FSM Syntaxic domain.", width=640]
 
 * In the _org.eclipse.gemoc.example.k3fsm project_, open the *genmodel* file, 
     ** change the _Base Package_ for the model to `org.eclipse.gemoc.example.melangek3fsm`  (on the package: Fsm -> Fsm -> section _All_)    
