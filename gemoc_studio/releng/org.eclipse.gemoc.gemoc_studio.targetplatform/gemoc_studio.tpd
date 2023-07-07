@@ -10,21 +10,21 @@
 target "GEMOCStudio Target platform"
 
 with source requirements
-environment JavaSE-11
+environment JavaSE-17
 
-location eclipse "https://download.eclipse.org/releases/2022-06" {
+location eclipse "https://download.eclipse.org/releases/2023-06" {
 	// features
 	org.eclipse.acceleo.feature.group
 	org.eclipse.e4.rcp.feature.group
 	org.eclipse.ecf.filetransfer.feature.feature.group
-	org.eclipse.ecf.filetransfer.httpclient45.feature.feature.group
+	org.eclipse.ecf.filetransfer.httpclient5.feature.feature.group
 	org.eclipse.ecf.filetransfer.ssl.feature.feature.group
 	org.eclipse.egit.feature.group
 	org.eclipse.emf.feature.group
 	org.eclipse.emf.compare.feature.group
 	org.eclipse.emf.compare.rcp
 	org.eclipse.emf.compare.ide.ui.feature.group
-	org.eclipse.emf.ecoretools.sdk.feature.group
+	org.eclipse.emf.ecoretools.design.feature.group
 	org.eclipse.emf.mwe2.runtime.sdk.feature.group
 	org.eclipse.emf.mwe2.launcher.feature.group
 	org.eclipse.emf.mwe2.language.sdk.feature.group
@@ -36,6 +36,7 @@ location eclipse "https://download.eclipse.org/releases/2022-06" {
 	org.eclipse.lsp4j.sdk.feature.group
 	org.eclipse.m2e.feature.feature.group
 	org.eclipse.m2e.logback.feature.feature.group
+	org.eclipse.m2e.pde.feature.feature.group
 	org.eclipse.m2m.qvt.oml.feature.group
 	org.eclipse.m2m.qvt.oml.editor.feature.group
 	org.eclipse.m2m.qvt.oml.runtime.feature.group
@@ -51,16 +52,20 @@ location eclipse "https://download.eclipse.org/releases/2022-06" {
 	org.eclipse.wst.xml_core.feature.feature.group
 	org.eclipse.wst.xml_ui.feature.feature.group
 	org.eclipse.xtext.sdk.feature.group
+	org.eclipse.xtext.redist.feature.group
 	org.eclipse.xtend.sdk.feature.group
 	// individual plugins
 	ch.qos.logback.classic
 	org.apache.commons.lang3
 	org.apache.xalan
-
+	org.eclipse.lsp4e
+	org.eclipse.lsp4e.debug
+	org.eclipse.lsp4e.jdt
+	org.eclipse.xtext.generator
 
 }
 
-location sirius "https://download.eclipse.org/sirius/updates/releases/6.5.1/2020-09/" {
+location sirius "https://download.eclipse.org/sirius/updates/releases/7.2.0/2023-03/" {
 	org.eclipse.sirius.specifier.feature.group
 	org.eclipse.sirius.aql.feature.group
 	org.eclipse.sirius.runtime.feature.group
@@ -75,12 +80,13 @@ location sirius "https://download.eclipse.org/sirius/updates/releases/6.5.1/2020
 	org.eclipse.sirius.diagram.elk.feature.feature.group
 }
 
+
 /* required due to amalgam discovery */
-location photon "http://download.eclipse.org/releases/photon" {
+location photon "https://download.eclipse.org/releases/photon" {
 	org.eclipse.amalgam.discovery.feature.group
 }
 
-location diffmerge "http://download.eclipse.org/diffmerge/releases/0.13.0/emf-diffmerge-site" {
+location diffmerge "https://download.eclipse.org/diffmerge/releases/0.14.1/emf-diffmerge-site" {
 	org.eclipse.emf.diffmerge.feature.feature.group
 	org.eclipse.emf.diffmerge.gmf.feature.feature.group
 	org.eclipse.emf.diffmerge.sirius.feature.feature.group
@@ -97,7 +103,7 @@ location diffmerge "http://download.eclipse.org/diffmerge/releases/0.13.0/emf-di
 //	org.eclipse.gemoc.dsl.model
 //}
 
-location ale "http://www.kermeta.org/ale-lang/updates/2020-07-17" {
+location ale "https://www.kermeta.org/ale-lang/updates/2020-07-17" {
 	org.eclipse.emf.ecoretools.ale.feature.feature.group
 }
 
@@ -106,7 +112,7 @@ location ale "http://www.kermeta.org/ale-lang/updates/2020-07-17" {
 //	
 //}
 
-location ajdt "http://download.eclipse.org/tools/ajdt/410/dev/update" {
+location ajdt "https://download.eclipse.org/tools/ajdt/426/dev/update" {
 	org.eclipse.ajdt.feature.group
 }
 
@@ -114,11 +120,11 @@ location timesquare "http://timesquare.inria.fr/update_site/2020" {
 	fr.inria.aoste.timesquare.feature.feature.group
 }
 
-location diverse-commons "http://www.kermeta.org/diverse-commons/updates/latest" {
+location diverse-commons "https://www.kermeta.org/diverse-commons/updates/latest" {
 	org.eclipse.emf.ecoretools.registration.feature.feature.group
 }
 
-location openjfx "https://downloads.efxclipse.bestsolution.at/p2-repos/openjfx-11/repository/" {
+location openjfx "https://downloads.efxclipse.bestsolution.at/p2-repos/openjfx-19/" {
 	openjfx.standard.feature.feature.group
 	openjfx.swing.feature.feature.group
 	openjfx.swt.feature.feature.group
@@ -126,7 +132,7 @@ location openjfx "https://downloads.efxclipse.bestsolution.at/p2-repos/openjfx-1
 	openjfx.web.feature.feature.group
 }
 
-location fxclipse "https://download.eclipse.org/efxclipse/updates-released/3.7.0/site" {
+location fxclipse "https://download.eclipse.org/efxclipse/updates-released/3.9.0/site" {
 	org.eclipse.fx.ide.basic.feature.feature.group
 	org.eclipse.fx.ide.pde.feature.feature.group
 	org.eclipse.fx.runtime.min.feature.feature.group
@@ -135,5 +141,44 @@ location fxclipse "https://download.eclipse.org/efxclipse/updates-released/3.7.0
 location jetty "https://download.eclipse.org/jetty/updates/jetty-bundles-9.x/9.4.44.v20210927" {
 	org.eclipse.jetty.bundles.f.feature.group
 }
+
+maven MavenDependencies scope=compile,test dependencyDepth=infinite missingManifest=generate includeSources {
+	dependency {
+		groupId="org.eclipse.jetty.osgi"
+		artifactId="jetty-osgi-boot"
+		version="10.0.6"
+	}
+	dependency {
+		groupId="org.apache.aries.spifly"
+		artifactId="org.apache.aries.spifly.dynamic.bundle"
+		version="1.3.4"
+	}
+	dependency {
+		groupId="com.ibm.icu"
+		artifactId="icu4j"
+		version="70.1"
+	}
+	dependency {
+		groupId="javax.servlet"
+		artifactId="javax.servlet-api"
+		version="3.1.0"
+	}
+	dependency {
+		groupId="org.eclipse.jetty.websocket"
+		artifactId="websocket-javax-server"
+		version="10.0.6"
+	}
+	dependency {
+		groupId="org.eclipse.jetty.toolchain"
+		artifactId="jetty-javax-websocket-api"
+		version="1.1.2"
+	}
+	dependency {
+		groupId="org.mapstruct"
+		artifactId="mapstruct"
+		version="1.4.2.Final"
+	}
+}
+
 
 

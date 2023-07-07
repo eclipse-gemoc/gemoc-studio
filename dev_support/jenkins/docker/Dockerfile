@@ -15,14 +15,20 @@ RUN curl -sL https://rpm.nodesource.com/setup_20.x | bash -
 # https://linuxize.com/post/how-to-install-ffmpeg-on-centos-8/
 # add repo https://negativo17.org/repos/epel-multimedia.repo
 
+
 RUN dnf config-manager --add-repo https://negativo17.org/repos/epel-multimedia.repo \
   && dnf install -y \
     ffmpeg \
+    java-17-openjdk-devel \
     nodejs \
     unzip \
     zip \
   && dnf clean all
 
+RUN alternatives --install /usr/bin/java java /usr/lib/jvm/java-17-openjdk/bin/java 1000 --family java-17-openjdk.x86_64 \
+  && alternatives --set java /usr/lib/jvm/java-17-openjdk/bin/java
+RUN alternatives --install /usr/bin/javac javac /usr/lib/jvm/java-17-openjdk/bin/javac 1000 --family java-17-openjdk.x86_64 \
+  && alternatives --set javac /usr/lib/jvm/java-17-openjdk/bin/javac
 
 RUN wget https://download2.gluonhq.com/openjfx/17.0.2/openjfx-17.0.2_linux-x64_bin-sdk.zip  -O ${HOME}/openjfx-17.0.2_linux-x64_bin-sdk.zip 
 RUN unzip ${HOME}/openjfx-17.0.2_linux-x64_bin-sdk.zip -d /usr/share/
