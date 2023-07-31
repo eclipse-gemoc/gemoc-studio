@@ -14,6 +14,8 @@
     <stringAttribute key="Resource" value="/org.eclipse.gemoc.example.k3fsm.model_examples.TwoStates/xtext/TwoStates.k3fsm"/>
     <stringAttribute key="airdResource" value="/org.eclipse.gemoc.example.k3fsm.model_examples.TwoStates/representations.aird"/>
     <booleanAttribute key="fsm MultiDimensional Trace" value="false"/>
+    <booleanAttribute key="org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING" value="false"/>
+    <booleanAttribute key="org.eclipse.gemoc.executionframework.addon.eaop.server.addon" value="false"/>
     <booleanAttribute key="org.eclipse.gemoc.trace.gemoc.addon_equivClassComputing_booleanOption" value="false"/>
     <booleanAttribute key="org.eclipse.gemoc.trace.gemoc.addon_saveTraceOnEngineStop_booleanOption" value="true"/>
     <booleanAttribute key="org.eclipse.gemoc.trace.gemoc.addon_saveTraceOnStep_booleanOption" value="false"/>
