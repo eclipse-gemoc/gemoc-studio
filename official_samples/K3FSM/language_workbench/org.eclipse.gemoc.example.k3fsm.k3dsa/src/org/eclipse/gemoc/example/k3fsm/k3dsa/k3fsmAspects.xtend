@@ -18,7 +18,7 @@ class FSMAspect {
 	@InitializeModel									// <1>
 	def void initializeModel(EList<String> args) {
 		_self.currentState = _self.initialState;
-		_self.unprocessedString = args.get(0)
+		_self.unprocessedString = args.get(0) ?: ""
 		_self.consummedString = ""
 		_self.producedString = ""
 		if (_self.unprocessedString.isEmpty) {
