@@ -18,7 +18,10 @@ It can be downloaded from [gemoc.org/download.html](http://gemoc.org/download.ht
 
 Getting help
 ============
-The [contact page](https://projects.eclipse.org/projects/modeling.gemoc/contact) lists all the various ways to interact in the context of the GEMOC Studio. As a user of the GEMOC Studio you'll probably be interested by the [Mattermost GEMOC Users](https://mattermost.eclipse.org/eclipse/channels/gemoc) channel, the GEMOC User mailing list (to be created soon, in the meantime, you can post questions in the [gemoc-dev](https://dev.eclipse.org/mailman/listinfo/gemoc-dev) mailing list) and the Github trackers (see next section: reporting issue for identifying the best tracker).
+The [contact page](https://projects.eclipse.org/projects/modeling.gemoc/contact) lists all the various ways to interact in the context of the GEMOC Studio. 
+
+As a user of the GEMOC Studio you'll probably be interested by the [![](https://img.shields.io/matrix/xtext:matrix.eclipse.org) matrix channel](https://chat.eclipse.org/#/room/#gemoc-studio:matrix.eclipse.org) , 
+the [GEMOC User mailing list](https://dev.eclipse.org/mailman/listinfo/gemoc-users), or the [forum](https://www.eclipse.org/forums/index.php/f/369/).
 
 Reporting issues
 ============
