@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="GEMOCStudio Target platform" sequenceNumber="1687191192">
+<target name="GEMOCStudio Target platform" sequenceNumber="1692366480">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.acceleo.feature.group" version="3.7.13.202304041222"/>
@@ -41,6 +41,7 @@
       <unit id="org.eclipse.wst.xml_core.feature.feature.group" version="3.30.0.v202305230750"/>
       <unit id="org.eclipse.wst.xml_ui.feature.feature.group" version="3.30.0.v202305230750"/>
       <unit id="org.eclipse.xtext.sdk.feature.group" version="2.31.0.v20230529-0659"/>
+      <unit id="org.eclipse.xtext.redist.feature.group" version="2.31.0.v20230529-0659"/>
       <unit id="org.eclipse.xtend.sdk.feature.group" version="2.31.0.v20230529-0659"/>
       <unit id="ch.qos.logback.classic" version="1.2.12"/>
       <unit id="org.apache.commons.lang3" version="3.12.0.v20221221-1931"/>
@@ -82,12 +83,12 @@
       <repository id="ale" location="https://www.kermeta.org/ale-lang/updates/2020-07-17"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.ajdt.feature.group" version="2.2.4.202304111527"/>
+      <unit id="org.eclipse.ajdt.feature.group" version="2.2.4.202308170621"/>
       <repository id="ajdt" location="https://download.eclipse.org/tools/ajdt/426/dev/update"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="fr.inria.aoste.timesquare.feature.feature.group" version="1.0.0.202109021545"/>
-      <repository id="timesquare" location="http://timesquare.inria.fr/update_site/2020"/>
+      <unit id="fr.inria.aoste.timesquare.feature.feature.group" version="1.0.0.202307261556"/>
+      <repository id="timesquare" location="https://timesquare.gitlabpages.inria.fr/updatesite/latest"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.emf.ecoretools.registration.feature.feature.group" version="3.3.0.201811051325"/>
