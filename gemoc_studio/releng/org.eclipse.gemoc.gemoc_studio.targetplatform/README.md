@@ -18,7 +18,7 @@ Source/User guide:
 https://github.com/eclipse-cbi/targetplatform-dsl
 
 Update-site:
-https://download.eclipse.org/cbi/updates/tpd/nightly/
+https://download.eclipse.org/cbi/updates/tpd/nightly/latest
 
 Never edit the `gemoc_studio.target` directly, generate it from the `gemoc_studio.tpd` (right-click on the file -> Create Target Definition File)
 
