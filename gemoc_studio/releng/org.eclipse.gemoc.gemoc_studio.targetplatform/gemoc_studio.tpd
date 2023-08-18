@@ -62,7 +62,7 @@ location eclipse "https://download.eclipse.org/releases/2023-06" {
 	org.eclipse.lsp4e.debug
 	org.eclipse.lsp4e.jdt
 	org.eclipse.xtext.generator
-
+	javax.annotation
 }
 
 location sirius "https://download.eclipse.org/sirius/updates/releases/7.2.0/2023-03/" {
