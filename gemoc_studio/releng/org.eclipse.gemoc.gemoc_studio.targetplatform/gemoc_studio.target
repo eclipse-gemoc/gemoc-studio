@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="GEMOCStudio Target platform" sequenceNumber="1692369804">
+<target name="GEMOCStudio Target platform" sequenceNumber="1692711546">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.acceleo.feature.group" version="3.7.13.202304041222"/>
@@ -88,8 +88,8 @@
       <repository id="ajdt" location="https://download.eclipse.org/tools/ajdt/426/dev/update"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="fr.inria.aoste.timesquare.feature.feature.group" version="1.0.0.202307261556"/>
-      <repository id="timesquare" location="https://timesquare.gitlabpages.inria.fr/updatesite/latest"/>
+      <unit id="fr.inria.aoste.timesquare.feature.feature.group" version="1.0.0.202109021545"/>
+      <repository id="timesquare" location="https://timesquare.gitlabpages.inria.fr/updatesite/2021-09-02"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.emf.ecoretools.registration.feature.feature.group" version="3.3.0.201811051325"/>
