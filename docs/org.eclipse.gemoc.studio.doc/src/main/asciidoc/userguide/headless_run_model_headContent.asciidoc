@@ -2,11 +2,9 @@
 //	Reproduce title only if not included in master documentation
 ////////////////////////////////////////////////////////////////
 ifndef::includedInMaster[]
-== User Guide
+= Headless engine user guide image:images/icons/IconeGemocModel_16.png[width=16, height=16, role=right]
 
-=== Headless engine user image:images/icons/IconeGemocModel_16.png[width=16, height=16, role=right]
-
-==== Run model
+== Run model
 endif::[]
 
 
@@ -35,7 +33,7 @@ You may omit `-l` and/or `-e` option if the default language/engine correspond t
 This is usually the case if you have only one language installed.
 ====
 
-==== Example: Install K3FSM language in GEMOC headless and run a sample model 
+=== Example: Install K3FSM language in GEMOC headless and run a sample model 
 As an example, in order to run a model from the official K3FSM example (see <<K3FSM-example>>), 
 one possible way would be to follow these steps:
 

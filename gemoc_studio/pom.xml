@@ -12,12 +12,12 @@
 	<groupId>org.eclipse.gemoc.gemoc-studio.bundle</groupId>
 	<artifactId>org.eclipse.gemoc.gemoc_studio.parent</artifactId>
 	<name>gemoc-studio/gemoc_studio root with tycho</name>
-	<version>3.5.0-SNAPSHOT</version>
+	<version>3.6.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<parent>
 		<groupId>org.eclipse.gemoc.gemoc-studio.bundle</groupId>
 		<artifactId>org.eclipse.gemoc.gemoc_studio.root</artifactId>
-		<version>3.5.0-SNAPSHOT</version>
+		<version>3.6.1-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
 	<properties>
@@ -67,25 +67,18 @@
 				<version>${tycho-version}</version>
 				<extensions>true</extensions>
 			</plugin>
-			<!-- disable source feature generation -->
-			<plugin>
-				<groupId>org.eclipse.tycho.extras</groupId>
-				<artifactId>tycho-source-feature-plugin</artifactId>
-				<version>${tycho-version}</version>
-				<configuration>
-					<skip>true</skip>
-				</configuration>
-			</plugin>
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>target-platform-configuration</artifactId>
 				<version>${tycho-version}</version>
 				<configuration>
+				   	<!-- Optional set the Java version you are using-->
+	    		    <executionEnvironment>JavaSE-17</executionEnvironment>
 					<target>
                         <artifact>
                             <groupId>org.eclipse.gemoc.gemoc-studio.bundle</groupId>
                             <artifactId>org.eclipse.gemoc.gemoc_studio.targetplatform</artifactId>
-                            <version>3.5.0-SNAPSHOT</version>
+                            <version>3.6.1-SNAPSHOT</version>
                             <classifier>gemoc_studio</classifier>
                         </artifact>
                     </target>
@@ -107,6 +100,11 @@
 							<os>macosx</os>
 							<ws>cocoa</ws>
 							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>macosx</os>
+							<ws>cocoa</ws>
+							<arch>aarch64</arch>
 						</environment>
 					</environments>
 				</configuration>
@@ -140,11 +138,13 @@
 						<artifactId>target-platform-configuration</artifactId>
 						<version>${tycho-version}</version>
 						<configuration>
+						   	<!-- Optional set the Java version you are using-->
+			    		    <executionEnvironment>JavaSE-17</executionEnvironment>
 							<target>
 		                        <artifact>
 		                            <groupId>org.eclipse.gemoc.gemoc-studio.bundle</groupId>
 		                            <artifactId>org.eclipse.gemoc.gemoc_studio.targetplatform</artifactId>
-		                            <version>3.5.0-SNAPSHOT</version>
+		                            <version>3.6.1-SNAPSHOT</version>
 		                            <classifier>gemoc_studio</classifier>
 		                        </artifact>
 		                    </target>
@@ -184,11 +184,13 @@
 						<artifactId>target-platform-configuration</artifactId>
 						<version>${tycho-version}</version>
 						<configuration>
+						   	<!-- Optional set the Java version you are using-->
+			    		    <executionEnvironment>JavaSE-17</executionEnvironment>
 							<target>
 		                        <artifact>
 		                            <groupId>org.eclipse.gemoc.gemoc-studio.bundle</groupId>
 		                            <artifactId>org.eclipse.gemoc.gemoc_studio.targetplatform</artifactId>
-		                            <version>3.5.0-SNAPSHOT</version>
+		                            <version>3.6.1-SNAPSHOT</version>
 		                            <classifier>gemoc_studio</classifier>
 		                        </artifact>
 		                    </target>

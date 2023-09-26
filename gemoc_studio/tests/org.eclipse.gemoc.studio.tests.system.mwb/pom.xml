@@ -17,7 +17,7 @@
 		<relativePath>../..</relativePath>
 		<groupId>org.eclipse.gemoc.gemoc-studio.bundle</groupId>
 		<artifactId>org.eclipse.gemoc.gemoc_studio.parent</artifactId>
-		<version>3.5.0-SNAPSHOT</version>
+		<version>3.6.1-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>org.eclipse.gemoc.studio.tests.system.mwb</artifactId>
@@ -46,6 +46,9 @@
 					<useUIHarness>true</useUIHarness>
 					<useUIThread>false</useUIThread>
 					<showEclipseLog>true</showEclipseLog>
+					<printBundles>true</printBundles>
+					<printWires>true</printWires>
+					<forkedProcessTimeoutInSeconds>1800</forkedProcessTimeoutInSeconds>
 					<testRuntime>p2Installed</testRuntime><!-- install the full gemoc_studio product cf. extraRequirements section -->
 					<product>org.eclipse.gemoc.gemoc_studio.branding.gemoc_studio</product>
               		<application>org.eclipse.ui.ide.workbench</application>
@@ -124,11 +127,13 @@
 				<artifactId>target-platform-configuration</artifactId>
 				<version>${tycho-version}</version>
 				<configuration>
+				   	<!-- Optional set the Java version you are using-->
+	    		    <executionEnvironment>JavaSE-17</executionEnvironment>
 					<target>
 						<artifact>
 		                    <groupId>org.eclipse.gemoc.gemoc-studio.bundle</groupId>
 		                    <artifactId>org.eclipse.gemoc.gemoc_studio.targetplatform</artifactId>
-		                    <version>3.5.0-SNAPSHOT</version>
+		                    <version>3.6.1-SNAPSHOT</version>
 		                    <classifier>gemoc_studio</classifier>
 		                </artifact>
 	                </target>

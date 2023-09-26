@@ -11,17 +11,22 @@ endif::[]
 // footnote used to ease documentation modification
 footnote:[asciidoc source of this page: https://github.com/eclipse/gemoc-studio/tree/master/docs/org.eclipse.gemoc.studio.doc/src/main/asciidoc/bibliography.asciidoc.]
 
-The bibliography lists some useful external documents. For a more complete list, please refer to the publications section on http://gemoc.org site.
-
-////////////////////////
-[bibliography]
-.Books
-- [[[globalizing-modeling-languages-book]]] http://hal.inria.fr/hal-00994551[Globalizing Modeling Languages] (Benoit Combemale, Julien Deantoni, Benoit Baudry, Robert France, Jean-Marc Jezequel, Jeff Gray), In Computer, IEEE, 2014.
-////////////////////////
+This section lists a short selection of scientific documents about the GEMOC Studio and some of its features. 
+For a more complete list, please refer to the publications section on https://gemoc.org/publications.html[gemoc.org]  site.
 
 
-[bibliography]
 .Articles
-- [[[globalizing-modeling-languages]]] http://hal.inria.fr/hal-00994551[Globalizing Modeling Languages] (Benoit Combemale, Julien Deantoni, Benoit Baudry, Robert France, Jean-Marc Jezequel, Jeff Gray), In Computer, IEEE, 2014.
-- [[[omniscient-debugging-for-executable-dsls]]] https://www.sciencedirect.com/science/article/pii/S0164121217302765[Omniscient debugging for executable DSLs] (Erwan Bousse, Dorian Leroy, Benoit Combemale, Manuel Wimmer, Benoit Baudry), In Journal of Systems and Software Volume 137, March 2018, Pages 261-288
+- [[[generic-concurrency]]] https://inria.hal.science/hal-03921704/[A Generic Framework for Representing and Analysing Model Concurrency] (S. Zschaler, E. Bousse, J. Deantoni, B. Combemale) In Software and Systems Modeling, inPress, Jan. 2023.
+- [[[advanced-dsl-testing]]] https://hal.science/hal-03723920[Advanced Testing and Debugging Support for Reactive Executable DSLs] F. Khorram, E. Bousse, J.-M. Mottu , G. Sunyé, In Software and Systems Modeling, In press, 2022.
+- [[[interactive-dsl]]] https://inria.hal.science/hal-02307953[From DSL Specification to Interactive Computer Programming Environment] (P. Jeanjean, B. Combemale, O. Barais) In 12th ACM SIGPLAN International Conference on Software Language Engineering, Oct 2019,
+- [[[omniscient-debugging-for-executable-dsls]]] https://www.sciencedirect.com/science/article/pii/S0164121217302765[Omniscient debugging for executable DSLs] (E. Bousse, D. Leroy, B. Combemale, M. Wimmer, B. Baudry), In Journal of Systems and Software Volume 137, March 2018, Pages 261-288
+- [[[gemoc-studio-tool-demo]]] https://inria.hal.science/hal-01355391/[Execution Framework of the GEMOC Studio (Tool Demo)] (E. Bousse, T. Degueule, D. Vojtisek, T. Mayerhofer, J. Deantoni , B. Combemale), In Proceedings of the 2016 ACM SIGPLAN International Conference on Software Language Engineering, Oct 2016
+- [[[melange-15]]] https://inria.hal.science/hal-01197038/[Melange: A Meta-language for Modular and Reusable Development of DSLs] (T. Degueule, B. Combemale, A. Blouin, O. Barais, J.-M. Jézéquel) In 8th International Conference on Software Language Engineering (SLE), Oct 2015.
+- [[[bcool-15]]] https://inria.hal.science/hal-01182773/[A Behavioral Coordination Operator Language (BCOoL)] (M. E. Vara Larsen, J. Deantoni, B. Combemale, F. Mallet) In International Conference on Model Driven Engineering Languages and Systems (MODELS), Sep 2015.
+- [[[gemoc-ttc-15]]] https://inria.hal.science/hal-01152342v2[A Solution to the TTC'15 Model Execution Case Using the GEMOC Studio] (B. Combemale , J. Deantoni, O. Barais, A. Blouin, E. Bousse, C. Brun, T. Degueule, D. Vojtisek) In 8th Transformation Tool Contest, 2015.
+- [[[globalizing-modeling-languages]]] http://hal.inria.fr/hal-00994551[Globalizing Modeling Languages] (B. Combemale, J. Deantoni, B. Baudry, R. France, J.-M. Jezequel, J. Gray), In Computer, IEEE, 2014.
+
+
+.Books
+- [[[engineerin-modeling-languages]]] https://inria.hal.science/hal-01355374[Engineering Modeling Languages] (B. Combemale, R. France, J.-M. Jézéquel, B. Rumpe, J. R.H. Steel, D. Vojtisek), Chapman and Hall/CRC, 2016.
 

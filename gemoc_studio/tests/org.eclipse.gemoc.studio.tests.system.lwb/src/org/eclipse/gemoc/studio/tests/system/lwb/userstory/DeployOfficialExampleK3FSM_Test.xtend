@@ -65,7 +65,7 @@ class DeployOfficialExampleK3FSM_Test extends AbstractXtextTests
 		bot = new SWTWorkbenchBot()
 		SWTBotPreferences.TIMEOUT = WorkspaceTestHelper.SWTBotPreferencesTIMEOUT_4_GEMOC;
 		bot.resetWorkbench
-		IResourcesSetupUtil::cleanWorkspace
+		WorkspaceTestHelper::forceCleanPreviousWorkspaceContent
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 		WorkspaceTestHelper::reallyWaitForJobs(2)
 	}

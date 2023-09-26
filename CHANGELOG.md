@@ -1,5 +1,60 @@
 # Changelog
 
+## v3.6.0 (06/04/2023)
+
+#### Enhancements:
+
+- [**enhancement**] Manage step params in MW test cases [#280](https://github.com/eclipse/gemoc-studio/pull/280)
+- [**enhancement**][**refactoring**] Split commons eclipse pde to remove UI dependency [#276](https://github.com/eclipse/gemoc-studio/pull/276)
+
+#### Bug Fixes:
+
+- [**bug**] Bump to version of k3 including StepCommand return null fix [#284](https://github.com/eclipse/gemoc-studio/pull/284)
+
+#### Refactorings
+
+- [**refactoring**] Move commons from modeldebugging repository to dedicated repository [#275](https://github.com/eclipse/gemoc-studio/pull/275)
+
+#### Version upgrades
+
+- [**bump**] Bump K3 version to 2022-12-20 [#281](https://github.com/eclipse/gemoc-studio/pull/281)
+- [**bump**] Bump to melange 2022-09-29 [#278](https://github.com/eclipse/gemoc-studio/pull/278)
+- [**bump**] Bump xtend and k3 [#282](https://github.com/eclipse/gemoc-studio/pull/282)
+- [**bump**] Bump to Eclipse 2022-06 [#273](https://github.com/eclipse/gemoc-studio/pull/273)
+
+#### Release Engineering
+
+- [**releng**] Use fixed version of k3 to ensure reproducibility [#279](https://github.com/eclipse/gemoc-studio/pull/279)
+
+---
+
+## v3.5.0 (30/06/2022)
+
+#### Enhancements:
+
+- [**enhancement**] K3FSM sample improvements [#256](https://github.com/eclipse/gemoc-studio/pull/256)
+- [**enhancement**] Add new k3fsm modeling samples [#257](https://github.com/eclipse/gemoc-studio/pull/257)
+- [**enhancement**] Initial version of a Webprotocol based EngineAddon server [#264](https://github.com/eclipse/gemoc-studio/pull/264)
+
+#### Bug Fixes:
+
+- [**bug**] Make K3FSM semantics work with null input/outputs [#258](https://github.com/eclipse/gemoc-studio/pull/258)
+
+#### Version upgrades
+
+- [**bump**] Bump to 3.5.0 [#254](https://github.com/eclipse/gemoc-studio/pull/254)
+- [**bump**] Bump eclipse 2021 12 [#255](https://github.com/eclipse/gemoc-studio/pull/255)
+
+#### Release Engineering
+
+- [**releng**] Update target to latest and target generation script [#263](https://github.com/eclipse/gemoc-studio/pull/263)
+- [**releng**] MacOS M1 processor version of the Studio [#268](https://github.com/eclipse/gemoc-studio/pull/268)
+- [**releng**] Add nodejs to docker for CI [#265](https://github.com/eclipse/gemoc-studio/pull/265)
+- [**releng**] Update docker ci eclipse jenkins image [#261](https://github.com/eclipse/gemoc-studio/pull/261)
+- [**releng**] Use tpd for defining target platform [#259](https://github.com/eclipse/gemoc-studio/pull/259)
+
+---
+
 ## v3.4.0 (10/01/2022)
 
 #### Enhancements:

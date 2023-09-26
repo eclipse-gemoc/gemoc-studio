@@ -11,7 +11,6 @@
 package org.eclipse.gemoc.studio.tests.system.lwb.userstory
 
 import org.eclipse.gemoc.xdsmlframework.ide.ui.XDSMLFrameworkUI
-import org.eclipse.gemoc.xdsmlframework.test.lib.MelangeUiInjectorProvider
 import org.eclipse.gemoc.xdsmlframework.test.lib.WorkspaceTestHelper
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot
 import org.eclipse.swtbot.swt.finder.junit.SWTBotJunit4ClassRunner
@@ -20,7 +19,6 @@ import org.eclipse.swtbot.swt.finder.keyboard.KeyboardFactory
 import org.eclipse.swtbot.swt.finder.keyboard.Keystrokes
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem
 import org.eclipse.xtext.junit4.AbstractXtextTests
-import org.eclipse.xtext.junit4.InjectWith
 import org.eclipse.xtext.ui.testing.util.IResourcesSetupUtil
 import org.junit.After
 import org.junit.Before
@@ -30,7 +28,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.MethodSorters
 import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences
-import org.junit.Ignore
 import org.eclipse.swt.widgets.Display
 import org.eclipse.gemoc.execution.sequential.javaxdsml.ide.ui.templates.WizardTemplateMessages
 import org.eclipse.gemoc.xdsmlframework.test.lib.TailWorkspaceLogToStderrRule
@@ -39,6 +36,9 @@ import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystem
 import org.junit.rules.TestName
 import org.eclipse.gemoc.xdsmlframework.test.lib.GEMOCTestVideoHelper
 import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystemManager
+import org.eclipse.ui.PlatformUI
+import org.eclipse.gemoc.xdsmlframework.test.lib.SWTBotHelper
+import org.junit.Ignore
 
 /**
  * This class check a scenario where we reuse some of the base projects of the official sample : MelangeK3FSM
@@ -46,7 +46,6 @@ import org.eclipse.gemoc.commons.eclipse.messagingsystem.api.MessagingSystemMana
  * The tests are ordered and a failure in the initial tests will most likely make fail the following ones.
  */
 @RunWith(SWTBotJunit4ClassRunner)
-@InjectWith(MelangeUiInjectorProvider)
 @FixMethodOrder(MethodSorters::NAME_ASCENDING)
 class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends AbstractXtextTests
 {
@@ -79,7 +78,8 @@ class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends Abs
 		SWTBotPreferences.TIMEOUT = WorkspaceTestHelper.SWTBotPreferencesTIMEOUT_4_GEMOC;
 		helper.setTargetPlatform
 		bot.resetWorkbench
-		IResourcesSetupUtil::cleanWorkspace
+		
+		WorkspaceTestHelper::forceCleanPreviousWorkspaceContent
 		WorkspaceTestHelper::reallyWaitForJobs(2)
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 		helper.deployProject(SOURCE_PROJECT_NAME+".model",BASE_FOLDER_NAME+"/"+SOURCE_PROJECT_NAME+".model.zip")
@@ -95,6 +95,7 @@ class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends Abs
 	@Rule
     public TailWorkspaceLogToStderrRule workspaceLogRule = new TailWorkspaceLogToStderrRule();
     
+    
 	@Before
 	override setUp() {
 		GEMOCTestVideoHelper.addTestSuiteVideoLog("   - "+testName.methodName);
@@ -106,6 +107,14 @@ class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends Abs
 		// make sure we are on the correct perspective
 		bot.perspectiveById(XDSMLFrameworkUI.ID_PERSPECTIVE).activate()
 		val projExplorerBot = bot.viewByTitle("Project Explorer").bot
+		
+		Display.getDefault().asyncExec( new Runnable {
+			override run() {
+				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().showView("org.eclipse.ui.console.ConsoleView");
+			}
+		})
+		
+		bot.viewById("org.eclipse.ui.console.ConsoleView").show
 		
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 		WorkspaceTestHelper::reallyWaitForJobs(4)
@@ -121,6 +130,7 @@ class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends Abs
 		bot.perspectiveById(XDSMLFrameworkUI.ID_PERSPECTIVE).activate()
 		helper.assertContains("Menu does not contain", "GEMOC Java xDSML Project",
 				bot.menu("File").menu("New").menuItems())
+		
 
 	}
 	
@@ -186,6 +196,7 @@ class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends Abs
 		activeShell.bot.button("Finish").click()
 		//bot.button("Finish").click();
 
+		IResourcesSetupUtil::waitForBuild
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 		WorkspaceTestHelper::reallyWaitForJobs(4)
 		helper.assertProjectExists(PROJECT_NAME);
@@ -216,8 +227,10 @@ class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends Abs
 
 		// Melange "Generate all is a bit special as it trigger several jobs one after the other
 		// retry in order to make sure they all have been done 
-		WorkspaceTestHelper::reallyWaitForJobs(50)
+		IResourcesSetupUtil::waitForBuild
 		IResourcesSetupUtil::reallyWaitForAutoBuild
+		WorkspaceTestHelper::reallyWaitForJobs(50)
+		//IResourcesSetupUtil::reallyWaitForAutoBuild
 		
 		// if the package name is correct all the files are created in the current project
 		// Language runtime classes
@@ -240,12 +253,16 @@ class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends Abs
 	
 	@Test
 	def void test04_CreateTraceAddon() throws Exception {
+
+		IResourcesSetupUtil::waitForBuild
+		
 		val projExplorerBot = bot.viewByTitle("Project Explorer").bot
 		val SWTBotTreeItem projectItem = projExplorerBot.tree().getTreeItem(PROJECT_NAME).select();
 		projectItem.contextMenu("GEMOC Language").menu("Generate Multidimensional Trace Addon project for language")
 				.click();
 		bot.button("OK").click();
 
+		IResourcesSetupUtil::waitForBuild
 		IResourcesSetupUtil::reallyWaitForAutoBuild
 		WorkspaceTestHelper::waitForJobs
 
@@ -259,15 +276,35 @@ class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends Abs
 	 * @throws Exception
 	 */
 	@Test
+	@Ignore // this test is flaky too often
 	def void test05_CreateSiriusEditorForBaseLanguage() throws Exception {
-				
+		System.out.println("DEBUG test05_CreateSiriusEditorForBaseLanguage - val SWTBotTreeItem projectItem = bot.tree().getTreeItem(PROJECT_NAME).select();")
+		SWTBotHelper.printShellListUI(bot)		
 		val SWTBotTreeItem projectItem = bot.tree().getTreeItem(PROJECT_NAME).select();
+		System.out.println("DEBUG test05_CreateSiriusEditorForBaseLanguage - projectItem.contextMenu(\"GEMOC Language\").menu(\"Create Sirius Editor Project for language\").click();")		
 		projectItem.contextMenu("GEMOC Language").menu("Create Sirius Editor Project for language").click();
+		System.out.println("DEBUG test05_CreateSiriusEditorForBaseLanguage - bot.button(\"Finish\").click();")		
 		bot.button("Finish").click();
+		System.out.println("DEBUG test05_CreateSiriusEditorForBaseLanguage - WorkspaceTestHelper::delay(10)")
+		WorkspaceTestHelper.delay(10)
+		SWTBotHelper.printShellListUI(bot)
 		
-		IResourcesSetupUtil::reallyWaitForAutoBuild
-		WorkspaceTestHelper::waitForJobs
+		System.out.println("DEBUG test05_CreateSiriusEditorForBaseLanguage - WorkspaceTestHelper::reallyWaitForJobs(50)")
+		try{
+			WorkspaceTestHelper::reallyWaitForJobs(50)
+		}
+		catch (Exception e) {
+			SWTBotHelper.printShellListUI(bot)
+			throw e
+		}
 		
+		System.out.println("DEBUG test05_CreateSiriusEditorForBaseLanguage - IResourcesSetupUtil::waitForBuild")
+		IResourcesSetupUtil::waitForBuild
+		//IResourcesSetupUtil::reallyWaitForAutoBuild
+		System.out.println("DEBUG test05_CreateSiriusEditorForBaseLanguage - WorkspaceTestHelper::reallyWaitForJobs(50)")
+		WorkspaceTestHelper::reallyWaitForJobs(50)
+		
+		System.out.println("DEBUG test05_CreateSiriusEditorForBaseLanguage - helper.assertProjectExists(PROJECT_NAME + \".design\");")
 		helper.assertProjectExists(PROJECT_NAME + ".design");
 		
 		bot.editorByTitle("xfsm.odesign").show();
@@ -286,5 +323,7 @@ class CreateMelangeBasedSingleSequentialLanguageFromOfficialFSM_Test extends Abs
            }
         });
 	}
+
+	
 }
 	

@@ -2,9 +2,8 @@
 
 #set -o xtrace
 
-export ECLIPSE_PLATFORM_ARCHIVE=eclipse-platform-4.22-linux-gtk-x86_64.tar.gz
-export ECLIPSE_PLATFORM_URL="https://www.eclipse.org/downloads/download.php?file=/eclipse/downloads/drops4/R-4.22-202111241800/eclipse-platform-4.22-linux-gtk-x86_64.tar.gz&r=1"
-
+export ECLIPSE_PLATFORM_ARCHIVE=eclipse-platform-4.24-linux-gtk-x86_64.tar.gz
+export ECLIPSE_PLATFORM_URL="https://www.eclipse.org/downloads/download.php?file=/eclipse/downloads/drops4/R-4.24-202206070700/eclipse-platform-4.24-linux-gtk-x86_64.tar.gz&r=1"
 
 if [[ ! -d eclipse ]]
 then
@@ -17,9 +16,10 @@ then
 
   echo "Installing TPD tool in eclipse platform..."
   ./eclipse/eclipse -nosplash -application org.eclipse.equinox.p2.director \
-    -repository http://download.eclipse.org/cbi/tpd/3.0.0-SNAPSHOT/,http://download.eclipse.org/releases/2021-12/ \
+    -repository https://download.eclipse.org/cbi/updates/tpd/nightly/,http://download.eclipse.org/releases/2022-06/ \
     -destination ./eclipse/ \
-    -installIU org.eclipse.cbi.targetplatform-feature.feature.group
+    -installIU org.eclipse.cbi.targetplatform.feature.feature.group
+
 else
    echo "Eclipse platform already installed, skipping platform download"
 fi

@@ -5,7 +5,7 @@
 
     <groupId>org.eclipse.gemoc.documentation</groupId>
     <artifactId>gemoc-studio-documentation</artifactId>
-    <version>3.5.0-SNAPSHOT</version>
+    <version>3.6.1-SNAPSHOT</version>
     <!-- <packaging>jdocbook</packaging>--> 
     <packaging>jar</packaging>
    
@@ -172,6 +172,10 @@
 							        <directory>${basedir}/../../../gemoc-studio-modeldebugging/commons/docs/dev/images</directory>
 							        <targetPath>images</targetPath>
 							    </resource>			    
+							    <!-- <resource>
+							        <directory>${basedir}/../../../gemoc-studio-modeldebugging/protocols/generators/docs/images</directory>
+							        <targetPath>images</targetPath>
+							    </resource>	-->	    
 							    <resource>
 							        <directory>${basedir}/../../../gemoc-studio-modeldebugging/protocols/engine_addon_protocol/docs/images</directory>
 							        <targetPath>images</targetPath>
@@ -297,7 +301,7 @@
 					<dependency>
 						<groupId>org.apache.xmlgraphics</groupId>
 						<artifactId>fop</artifactId>
-						<version>1.0</version>
+						<version>2.2</version>
 					</dependency>
 					<dependency>
 						<groupId>net.sf.saxon</groupId>
@@ -393,48 +397,11 @@
     		</activation>
     		<build>
     			<plugins>
-    				<plugin>
-					    <groupId>org.codehaus.gmaven</groupId>                       
-						    <artifactId>groovy-maven-plugin</artifactId>                 
-						    <version>2.0</version>                                       
-						    <executions>                                                 
-						        <execution>
-					            <phase>process-sources</phase>
-					            <goals>
-					                <goal>execute</goal>
-					            </goals>
-					            <configuration>                                      
-					                <source> 
-					                	def pbWithGraphviwVersionversion = false  
-					                	try { 
-					                		def proc = "dot -V".execute();
-					                		def outputStream = new StringBuffer();
-											proc.waitForProcessOutput(outputStream, outputStream);
-											if(outputStream.toString().contains("2.39") || outputStream.toString().contains("2.40")) {
-												pbWithGraphviwVersionversion = true
-												System.err.println(outputStream.toString());
-											} else {
-												println(outputStream.toString());
-											}
-										} catch(Exception e) {
-										}     
-										if(!pbWithGraphviwVersionversion){                                
-						                    log.info('Graphiz check: {}', 'if  the build is slow due to https://github.com/eclipse/gemoc-studio/issues/152')
-						                    log.info('Graphiz check: {}', 'you can disable the "plantuml" profile (using "-P !plantuml") or you may run this maven using the docker environment')
-						                } else {
-						                    log.warn('Graphiz check: {}', 'if  the build is slow due to https://github.com/eclipse/gemoc-studio/issues/152')
-						                    log.warn('Graphiz check: {}', 'you can disable the "plantuml" profile (using "-P !plantuml") or you may run this maven using the docker environment')
-						                }
-					                </source>                                        
-					            </configuration> 
-					        </execution>
-					    </executions>
-					</plugin>
     				<!-- generate the images from plantUMl -->
 				 	<plugin>
-						<groupId>com.github.jeluard</groupId>
+						<groupId>com.github.davidmoten</groupId>
 						<artifactId>plantuml-maven-plugin</artifactId>
-						<version>1.2</version>
+						<version>0.2.4</version>
 						<executions>
 							<execution>
 								<id>output-plantuml</id>
@@ -442,25 +409,25 @@
 								<goals>
 									<goal>generate</goal>
 								</goals>
+								<configuration>
+			                        <sources>
+			                            <directory>${basedir}</directory>
+			                            <includes>
+			                                <include>target/generated-docbook/**/*.plantuml</include>
+			                            </includes>
+			                            <excludes>
+			                                <exclude>**/ignore-me.puml</exclude>
+			                            </excludes>
+			                        </sources>
+			                        <outputDirectory>${basedir}</outputDirectory>
+			                        <formats>
+			                            <format>png</format>
+			                            <format>svg</format>
+			                        </formats>
+			                        <preserveDirectoryStructure>true</preserveDirectoryStructure>
+	                    		</configuration>
 							</execution>
 						</executions>
-						<configuration>
-							<outputInSourceDirectory>true</outputInSourceDirectory>
-							<verbose>true</verbose>
-							<sourceFiles>
-								<directory>${basedir}</directory>
-								<includes>
-									<include>target/generated-docbook/**/*.plantuml</include>
-								</includes>
-							</sourceFiles>
-						</configuration>
-						<dependencies>
-							<dependency>
-								<groupId>net.sourceforge.plantuml</groupId>
-								<artifactId>plantuml</artifactId>
-								<version>8059</version>
-							</dependency>
-						</dependencies>
 					</plugin>
     			</plugins>
     		</build>

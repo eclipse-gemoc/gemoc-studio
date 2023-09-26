@@ -12,7 +12,7 @@
 <feature
       id="org.eclipse.gemoc.gemoc_studio.branding.feature"
       label="GEMOC Studio Main Features"
-      version="3.5.0.qualifier"
+      version="3.6.1.qualifier"
       provider-name="%providerName"
       plugin="org.eclipse.gemoc.gemoc_studio.branding"
       image="gemocstudio32.png">
@@ -37,7 +37,7 @@ http://www.eclipse.org/legal/epl-v10.html
       <import feature="org.eclipse.xtext.sdk" version="2.5.4" match="greaterOrEqual"/>
       <import feature="org.eclipse.xtend.sdk" version="2.5.4" match="greaterOrEqual"/>
       <import feature="org.eclipse.ocl.examples" version="0.0.0" match="greaterOrEqual"/>
-      <import feature="org.eclipse.emf.ecoretools.sdk" version="2.0.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.emf.ecoretools.design" version="2.0.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.gemoc.modeldebugging.feature" version="0.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.gemoc.modeldebugging.feature.source" version="0.0.0" match="greaterOrEqual"/>
       <import feature="fr.inria.diverse.k3.feature" version="0.0.0" match="greaterOrEqual"/>

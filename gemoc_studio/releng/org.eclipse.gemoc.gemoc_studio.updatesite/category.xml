@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.eclipse.gemoc.commons.feature_3.5.0.qualifier.jar" id="org.eclipse.gemoc.commons.feature" version="3.5.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.commons.feature_3.6.1.qualifier.jar" id="org.eclipse.gemoc.commons.feature" version="3.6.1.qualifier">
       <category name="GEMOC_3_gemoc-studio_Components"/>
    </feature>
    <feature url="features/org.eclipse.gemoc.ale.interpreted.engine.feature_1.1.0.qualifier.jar" id="org.eclipse.gemoc.ale.interpreted.engine.feature" version="1.1.0.qualifier">
@@ -30,19 +30,19 @@
    <feature url="features/org.eclipse.gemoc.moccml.mapping.transfos.feature_1.0.0.qualifier.jar" id="org.eclipse.gemoc.moccml.mapping.transfos.feature" version="1.0.0.qualifier">
       <category name="GEMOC_8_MOCCML_Components"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.concurrent_addons.feature_3.5.0.qualifier.jar" id="org.eclipse.gemoc.concurrent_addons.feature" version="3.5.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.concurrent_addons.feature_3.6.1.qualifier.jar" id="org.eclipse.gemoc.concurrent_addons.feature" version="3.6.1.qualifier">
       <category name="GEMOC_7_Execution MOCCML_Components"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.concurrent_addons.feature_3.5.0.qualifier.jar" id="org.eclipse.gemoc.concurrent_addons.feature" version="3.5.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.concurrent_addons.feature_3.6.1.qualifier.jar" id="org.eclipse.gemoc.concurrent_addons.feature" version="3.6.1.qualifier">
       <category name="GEMOC_7_Execution MOCCML_Components"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.execution.concurrent.ccsljavaengine.feature_3.5.0.qualifier.jar" id="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.feature" version="3.5.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.execution.concurrent.ccsljavaengine.feature_3.6.1.qualifier.jar" id="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.feature" version="3.6.1.qualifier">
       <category name="GEMOC_7_Execution MOCCML_Components"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.feature_3.5.0.qualifier.jar" id="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.feature" version="3.5.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.feature_3.6.1.qualifier.jar" id="org.eclipse.gemoc.execution.concurrent.ccsljavaengine.ui.feature" version="3.6.1.qualifier">
       <category name="GEMOC_7_Execution MOCCML_Components"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.feature_3.5.0.qualifier.jar" id="org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.feature" version="3.5.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.feature_3.6.1.qualifier.jar" id="org.eclipse.gemoc.execution.concurrent.ccsljavaxdsml.feature" version="3.6.1.qualifier">
       <category name="GEMOC_7_Execution MOCCML_Components"/>
    </feature>
    <feature url="features/org.eclipse.gemoc.executionframework.feature_4.0.0.qualifier.jar" id="org.eclipse.gemoc.executionframework.feature" version="4.0.0.qualifier">
@@ -96,43 +96,43 @@
    <feature url="features/org.eclipse.gemoc.commons.eclipse.jdt.autosrcfolder.feature_3.3.0.qualifier.jar" id="org.eclipse.gemoc.commons.eclipse.jdt.autosrcfolder.feature" version="3.3.0.qualifier">
       <category name="GEMOC_3_gemoc-studio_Components"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.gemoc_studio.additions.feature_3.5.0.qualifier.jar" id="org.eclipse.gemoc.gemoc_studio.additions.feature" version="3.5.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.gemoc_studio.additions.feature_3.6.1.qualifier.jar" id="org.eclipse.gemoc.gemoc_studio.additions.feature" version="3.6.1.qualifier">
       <category name="GEMOC_1_AllInOne"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.gemoc_studio.branding.feature_3.5.0.qualifier.jar" id="org.eclipse.gemoc.gemoc_studio.branding.feature" version="3.5.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.gemoc_studio.branding.feature_3.6.1.qualifier.jar" id="org.eclipse.gemoc.gemoc_studio.branding.feature" version="3.6.1.qualifier">
       <category name="GEMOC_1_AllInOne"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.gemoc_studio.headless.feature_3.5.0.qualifier.jar" id="org.eclipse.gemoc.gemoc_studio.headless.feature" version="3.5.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.gemoc_studio.headless.feature_3.6.1.qualifier.jar" id="org.eclipse.gemoc.gemoc_studio.headless.feature" version="3.6.1.qualifier">
       <category name="GEMOC_1_AllInOne"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.execution.moccml.feature_3.5.0.qualifier.jar" id="org.eclipse.gemoc.execution.moccml.feature" version="3.5.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.execution.moccml.feature_3.6.1.qualifier.jar" id="org.eclipse.gemoc.execution.moccml.feature" version="3.6.1.qualifier">
       <category name="GEMOC_2_RootComponents"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.execution.moccml.feature.source_3.5.0.qualifier.jar" id="org.eclipse.gemoc.execution.moccml.feature.source" version="3.5.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.execution.moccml.feature.source_3.6.1.qualifier.jar" id="org.eclipse.gemoc.execution.moccml.feature.source" version="3.6.1.qualifier">
       <category name="GEMOC_2_RootComponents"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.execution.java.feature_3.5.0.qualifier.jar" id="org.eclipse.gemoc.execution.java.feature" version="3.5.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.execution.java.feature_3.6.1.qualifier.jar" id="org.eclipse.gemoc.execution.java.feature" version="3.6.1.qualifier">
       <category name="GEMOC_2_RootComponents"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.execution.java.feature.source_3.5.0.qualifier.jar" id="org.eclipse.gemoc.execution.java.feature.source" version="3.5.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.execution.java.feature.source_3.6.1.qualifier.jar" id="org.eclipse.gemoc.execution.java.feature.source" version="3.6.1.qualifier">
       <category name="GEMOC_2_RootComponents"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.modeldebugging.feature_3.5.0.qualifier.jar" id="org.eclipse.gemoc.modeldebugging.feature" version="3.5.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.modeldebugging.feature_3.6.1.qualifier.jar" id="org.eclipse.gemoc.modeldebugging.feature" version="3.6.1.qualifier">
       <category name="GEMOC_2_RootComponents"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.modeldebugging.feature.source_3.5.0.qualifier.jar" id="org.eclipse.gemoc.modeldebugging.feature.source" version="3.5.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.modeldebugging.feature.source_3.6.1.qualifier.jar" id="org.eclipse.gemoc.modeldebugging.feature.source" version="3.6.1.qualifier">
       <category name="GEMOC_2_RootComponents"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.moccml.feature_3.5.0.qualifier.jar" id="org.eclipse.gemoc.moccml.feature" version="3.5.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.moccml.feature_3.6.1.qualifier.jar" id="org.eclipse.gemoc.moccml.feature" version="3.6.1.qualifier">
       <category name="GEMOC_2_RootComponents"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.moccml.feature.source_3.5.0.qualifier.jar" id="org.eclipse.gemoc.moccml.feature.source" version="3.5.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.moccml.feature.source_3.6.1.qualifier.jar" id="org.eclipse.gemoc.moccml.feature.source" version="3.6.1.qualifier">
       <category name="GEMOC_2_RootComponents"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.execution.ale.feature_3.5.0.qualifier.jar" id="org.eclipse.gemoc.execution.ale.feature" version="3.5.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.execution.ale.feature_3.6.1.qualifier.jar" id="org.eclipse.gemoc.execution.ale.feature" version="3.6.1.qualifier">
       <category name="GEMOC_2_RootComponents"/>
    </feature>
-   <feature url="features/org.eclipse.gemoc.execution.ale.feature.source_3.5.0.qualifier.jar" id="org.eclipse.gemoc.execution.ale.feature.source" version="3.5.0.qualifier">
+   <feature url="features/org.eclipse.gemoc.execution.ale.feature.source_3.6.1.qualifier.jar" id="org.eclipse.gemoc.execution.ale.feature.source" version="3.6.1.qualifier">
       <category name="GEMOC_2_RootComponents"/>
    </feature>
    <category-def name="GEMOC_1_AllInOne" label="GEMOC all in one">
@@ -175,10 +175,10 @@
          Individual components that are part of GEMOC and coming from https://github.com/eclipse/gemoc-studio-moccml/
       </description>
    </category-def>
-   <repository-reference location="http://www.kermeta.org/k3/update" enabled="true" />
-   <repository-reference location="http://www.kermeta.org/ale-lang/updates/latest" enabled="true" />
-   <repository-reference location="http://melange.inria.fr/updatesite/nightly/update" enabled="true" />
-   <repository-reference location="http://www.kermeta.org/diverse-commons/updates/latest" enabled="true" />
-   <repository-reference location="http://download.eclipse.org/elk/updates/releases/0.7.1/" enabled="true" />
-   <repository-reference location="http://download.eclipse.org/tools/ajdt/410/dev/update" enabled="true" />
+   <repository-reference location="https://www.kermeta.org/k3/update" enabled="true" />
+   <repository-reference location="https://www.kermeta.org/ale-lang/updates/latest" enabled="true" />
+   <repository-reference location="https://melange.inria.fr/updatesite/nightly/update" enabled="true" />
+   <repository-reference location="https://www.kermeta.org/diverse-commons/updates/latest" enabled="true" />
+   <repository-reference location="https://download.eclipse.org/elk/updates/releases/0.7.1/" enabled="true" />
+   <repository-reference location="https://download.eclipse.org/tools/ajdt/410/dev/update" enabled="true" />
 </site>

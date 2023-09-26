@@ -17,14 +17,23 @@ import org.eclipse.emf.common.util.EList
 @Aspect(className=StateMachine)
 class StateMachineAspect {
 
-	public State currentState
+	public State currentState							// <1>
 	
 	public String unprocessedString
 	public String consummedString
 	public String producedString 
-	
+	  
+    @Step 
+	@InitializeModel									// <2>
+	def void initializeModel(EList<String> args){
+		_self.currentState = _self.initialState;
+		_self.unprocessedString = args.get(0)
+		_self.consummedString = ""
+		_self.producedString = ""
+	}
+		
 	@Step
-	@Main
+	@Main												// <3>
     def void main() {
     	try{
     		while (!_self.unprocessedString.isEmpty) {
@@ -42,23 +51,14 @@ class StateMachineAspect {
 		println("produced string: "+_self.producedString)
 	}
        
-      
-    @Step 
-	@InitializeModel
-	def void initializeModel(EList<String> args){
-		_self.currentState = _self.initialState;
-		_self.unprocessedString = args.get(0)
-		_self.consummedString = ""
-		_self.producedString = ""
-	}
-	
+    	
 
 }
 
 
 @Aspect(className=State)
 class StateAspect {
-	@Step
+	@Step									// <4>
 	def void step(String inputString) {
 		// Get the valid transitions	
 		val validTransitions =  _self.outgoingTransitions.filter[t | inputString.startsWith(t.input)]
@@ -78,7 +78,7 @@ class StateAspect {
 
 @Aspect(className=Transition)
 class TransitionAspect {
-	@Step
+	@Step								// <5>
 	def void fire() {
 		println("Firing " + _self.name + " and entering " + _self.target.name)
 		val fsm = _self.source.owningFSM
@@ -89,9 +89,7 @@ class TransitionAspect {
 	}
 }
 /* need to be enabled when feature request  */
-class NoTransition extends Exception{
-	
+class NoTransition extends Exception {
 }
-class NonDeterminism extends Exception{
-	
+class NonDeterminism extends Exception {
 }

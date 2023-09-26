@@ -7,13 +7,13 @@
 	<groupId>org.eclipse.gemoc.gemoc-studio.bundle</groupId>
 	<artifactId>org.eclipse.gemoc.gemoc_studio.root</artifactId>
 	<name>gemoc-studio root with tycho</name>
-	<version>3.5.0-SNAPSHOT</version>
+	<version>3.6.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	
 	<parent>
 		<groupId>org.eclipse.gemoc.gemoc-studio</groupId>
 		<artifactId>gemoc_studio-eclipse-bom</artifactId>
-		<version>3.5.0-SNAPSHOT</version>
+		<version>3.6.1-SNAPSHOT</version>
 		<relativePath>gemoc_studio/plugins/gemoc_studio-eclipse-bom</relativePath>
 	</parent>
 	
@@ -43,23 +43,23 @@
 							<goal>plugin-source</goal>
 						</goals>
 					</execution>
+					<execution>
+			            <id>feature-source</id>
+			            <goals>
+			              <goal>feature-source</goal>
+			            </goals>
+			            <configuration>
+			              <excludes>
+			                <!-- provide plug-ins not containing any source code -->
+			                <plugin id="org.eclipse.gemoc.gemoc_studio.product" />
+			                <plugin id="org.eclipse.gemoc.gemoc_studio.targetplatform" />
+			                <!-- also possible to exclude feature-->
+			              </excludes>
+			            </configuration>
+          			</execution>
 				</executions>
 			</plugin>
-			<!-- enable source feature generation -->
-			<plugin>
-		      <groupId>org.eclipse.tycho.extras</groupId>
-		      <artifactId>tycho-source-feature-plugin</artifactId>
-		      <version>${tycho-version}</version>
-		      <executions>
-		        <execution>
-		          <id>source-feature</id>
-		          <phase>package</phase>
-		          <goals>
-		            <goal>source-feature</goal>
-		          </goals>
-		        </execution>
-		      </executions>
-		    </plugin>
+			
 		    <plugin>
 		     <groupId>org.eclipse.tycho</groupId>
 		     <artifactId>tycho-p2-plugin</artifactId>
@@ -98,11 +98,13 @@
 				<artifactId>target-platform-configuration</artifactId>
 				<version>${tycho-version}</version>
 				<configuration>
+				   	<!-- Optional set the Java version you are using-->
+	    		    <executionEnvironment>JavaSE-17</executionEnvironment>
 					<target>
                         <artifact>
                             <groupId>org.eclipse.gemoc.gemoc-studio.bundle</groupId>
                             <artifactId>org.eclipse.gemoc.gemoc_studio.targetplatform</artifactId>
-                            <version>3.5.0-SNAPSHOT</version>
+                            <version>3.6.1-SNAPSHOT</version>
                             <classifier>gemoc_studio</classifier>
                         </artifact>
                     </target>
@@ -153,8 +155,8 @@
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>3.8.0</version>
 					<configuration>
-						<source>11</source>
-						<target>11</target>
+						<source>17</source>
+						<target>17</target>
 						<encoding>${project.build.sourceEncoding}</encoding>
 					</configuration>
 				</plugin>
