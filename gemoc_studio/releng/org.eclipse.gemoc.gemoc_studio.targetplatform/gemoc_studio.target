@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="GEMOCStudio Target platform" sequenceNumber="1692711546">
+<target name="GEMOCStudio Target platform" sequenceNumber="1695817459">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.acceleo.feature.group" version="3.7.13.202304041222"/>
@@ -84,7 +84,7 @@
       <repository id="ale" location="https://www.kermeta.org/ale-lang/updates/2020-07-17"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <unit id="org.eclipse.ajdt.feature.group" version="2.2.4.202308170621"/>
+      <unit id="org.eclipse.ajdt.feature.group" version="2.2.4.202309080255"/>
       <repository id="ajdt" location="https://download.eclipse.org/tools/ajdt/426/dev/update"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
