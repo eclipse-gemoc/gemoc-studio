@@ -62,7 +62,7 @@ location eclipse "https://download.eclipse.org/releases/2023-06" {
 	org.eclipse.lsp4e.debug
 	org.eclipse.lsp4e.jdt
 	org.eclipse.xtext.generator
-
+	javax.annotation
 }
 
 location sirius "https://download.eclipse.org/sirius/updates/releases/7.2.0/2023-03/" {
@@ -116,7 +116,7 @@ location ajdt "https://download.eclipse.org/tools/ajdt/426/dev/update" {
 	org.eclipse.ajdt.feature.group
 }
 
-location timesquare "http://timesquare.inria.fr/update_site/2020" {
+location timesquare "https://timesquare.gitlabpages.inria.fr/updatesite/2021-09-02" {
 	fr.inria.aoste.timesquare.feature.feature.group
 }
 
