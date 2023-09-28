@@ -34,7 +34,7 @@
 		<maven.deploy.skip>true</maven.deploy.skip>
 		
 		<tycho-version>3.0.4</tycho-version>
-    	<xtend.version>2.31.0</xtend.version>
+    	<xtend.version>2.32.0</xtend.version>
     	
     	<eclipse.release.p2.url>http://download.eclipse.org/releases/2023-06</eclipse.release.p2.url>
         <!--used only for amalgam which seems REALLY deprecated-->
