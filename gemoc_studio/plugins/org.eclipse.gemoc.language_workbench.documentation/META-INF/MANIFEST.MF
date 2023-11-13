@@ -7,7 +7,7 @@ Bundle-Activator: org.eclipse.gemoc.language_workbench.documentation.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: org.eclipse.gemoc.language_workbench.documentation
 Automatic-Module-Name: org.eclipse.gemoc.language_workbench.documentation
 Bundle-Vendor: Eclipse GEMOC Project
