@@ -20,6 +20,7 @@ location eclipse "https://download.eclipse.org/releases/2023-06" {
 	org.eclipse.ecf.filetransfer.httpclient5.feature.feature.group
 	org.eclipse.ecf.filetransfer.ssl.feature.feature.group
 	org.eclipse.egit.feature.group
+	org.eclipse.egit.gitflow.feature.feature.group
 	org.eclipse.emf.feature.group
 	org.eclipse.emf.compare.feature.group
 	org.eclipse.emf.compare.rcp
@@ -30,6 +31,7 @@ location eclipse "https://download.eclipse.org/releases/2023-06" {
 	org.eclipse.emf.mwe2.language.sdk.feature.group
 	org.eclipse.emf.query.sdk.feature.group
 	org.eclipse.epp.mpc.feature.group
+	org.eclipse.epp.package.common.feature.feature.group
 	org.eclipse.equinox.p2.sdk.feature.group
 	org.eclipse.equinox.executable.feature.group
 	org.eclipse.equinox.server.jetty.feature.group
@@ -41,13 +43,16 @@ location eclipse "https://download.eclipse.org/releases/2023-06" {
 	org.eclipse.m2m.qvt.oml.editor.feature.group
 	org.eclipse.m2m.qvt.oml.runtime.feature.group
 	org.eclipse.m2m.qvt.oml.sdk.feature.group
+	org.eclipse.mylyn.wikitext_feature.feature.group
 	org.eclipse.ocl.examples.feature.group
+	org.eclipse.oomph.setup.feature.group
 	//org.eclipse.cdt.feature.group
 	org.eclipse.rcp.feature.group
 	org.eclipse.sdk.feature.group
 	org.eclipse.swtbot.eclipse.feature.group
 	org.eclipse.swtbot.ide.feature.group
 	org.eclipse.swtbot.feature.group
+	org.eclipse.tm.terminal.feature.feature.group
 	org.eclipse.wst.web_core.feature.feature.group
 	org.eclipse.wst.xml_core.feature.feature.group
 	org.eclipse.wst.xml_ui.feature.feature.group
@@ -64,6 +69,7 @@ location eclipse "https://download.eclipse.org/releases/2023-06" {
 	org.eclipse.xtext.generator
 	javax.annotation
 }
+
 
 location sirius "https://download.eclipse.org/sirius/updates/releases/7.2.0/2023-03/" {
 	org.eclipse.sirius.specifier.feature.group

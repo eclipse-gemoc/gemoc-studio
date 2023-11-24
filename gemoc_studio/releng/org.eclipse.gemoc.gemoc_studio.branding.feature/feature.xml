@@ -34,14 +34,15 @@ http://www.eclipse.org/legal/epl-v10.html
    </license>
 
    <requires>
-      <import feature="org.eclipse.xtext.sdk" version="2.5.4" match="greaterOrEqual"/>
-      <import feature="org.eclipse.xtend.sdk" version="2.5.4" match="greaterOrEqual"/>
+      <import feature="org.eclipse.xtext.sdk" version="0.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.xtend.sdk" version="0.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.lsp4j.sdk" version="0.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.ocl.examples" version="0.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.emf.ecoretools.design" version="2.0.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.gemoc.modeldebugging.feature" version="0.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.gemoc.modeldebugging.feature.source" version="0.0.0" match="greaterOrEqual"/>
       <import feature="fr.inria.diverse.k3.feature" version="0.0.0" match="greaterOrEqual"/>
-      <import feature="org.eclipse.sirius.specifier" version="5.0.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.sirius.specifier" version="0.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.e4.rcp" version="0.0.0" match="greaterOrEqual"/>
       <import feature="fr.inria.diverse.melange.sdk" version="0.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.emf.ecoretools.ale.feature" version="0.0.0" match="greaterOrEqual"/>
