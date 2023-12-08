@@ -14,21 +14,27 @@
    </configIni>
 
    <launcherArgs>
-      <programArgs>-product
-org.eclipse.gemoc.gemoc_studio.branding.gemoc_studio
---launcher.defaultAction
-openFile
+      <programArgs>-product org.eclipse.gemoc.gemoc_studio.branding.gemoc_studio
+--launcher.defaultAction openFile
+--launcher.appendVmargs
       </programArgs>
-      <vmArgs>-Dosgi.requiredJavaVersion=11
+      <vmArgs>-Dosgi.requiredJavaVersion=17
 -Dosgi.instance.area.default=@user.home/eclipse-workspaces/gemoc-workspace
 -Dosgi.dataAreaRequiresExplicitInit=true
+-Dorg.eclipse.swt.graphics.Resource.reportNonDisposed=true
+-Dosgi.framework.extensions=org.eclipse.fx.osgi
+-Declipse.e4.inject.javax.warning=false
+-Dsun.java.command=GemocStudio
 -XX:+UseG1GC
 -XX:+UseStringDeduplication
--Dosgi.framework.extensions=org.eclipse.fx.osgi
 -Xms256m
 -Xmx2048m
+--add-modules=ALL-SYSTEM
+-Djava.security.manager=allow
       </vmArgs>
-      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
+      <vmArgsMac>-XstartOnFirstThread 
+-Dorg.eclipse.swt.internal.carbon.smallFonts
+-Xdock:icon=../Resources/GemocStudio.icns
       </vmArgsMac>
    </launcherArgs>
 
@@ -36,7 +42,9 @@ openFile
 
    <splash
       location="org.eclipse.gemoc.gemoc_studio.branding"
-      startupProgressRect="5,275,445,15" />
+      startupProgressRect="5,275,445,15"
+      startupMessageRect="7,252,320,20"
+      startupForegroundColor="ffffff" />
    <launcher name="GemocStudio">
       <linux icon="/images/icons/IconeGemocStudio-text/xpm/IconeGemocStudio-text.xpm"/>
       <macosx icon="/images/icons/IconeGemocStudio-text/icns/IconeGemocStudio-text.icns"/>
@@ -52,19 +60,189 @@ openFile
       </win>
    </launcher>
 
+
    <vm>
       <linux include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11</linux>
       <macos include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11</macos>
       <windows include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11</windows>
    </vm>
 
+   <license>
+        <url>http://eclipse.org/legal/epl/notice.php</url>
+        <text>
+   Eclipse Foundation Software User Agreement
+
+November 22, 2017
+
+Usage Of Content
+
+THE ECLIPSE FOUNDATION MAKES AVAILABLE SOFTWARE, DOCUMENTATION, INFORMATION
+AND/OR OTHER MATERIALS FOR OPEN SOURCE PROJECTS (COLLECTIVELY &amp;quot;CONTENT&amp;quot;). USE OF
+THE CONTENT IS GOVERNED BY THE TERMS AND CONDITIONS OF THIS AGREEMENT AND/OR THE
+TERMS AND CONDITIONS OF LICENSE AGREEMENTS OR NOTICES INDICATED OR REFERENCED
+BELOW. BY USING THE CONTENT, YOU AGREE THAT YOUR USE OF THE CONTENT IS GOVERNED
+BY THIS AGREEMENT AND/OR THE TERMS AND CONDITIONS OF ANY APPLICABLE LICENSE
+AGREEMENTS OR NOTICES INDICATED OR REFERENCED BELOW. IF YOU DO NOT AGREE TO THE
+TERMS AND CONDITIONS OF THIS AGREEMENT AND THE TERMS AND CONDITIONS OF ANY
+APPLICABLE LICENSE AGREEMENTS OR NOTICES INDICATED OR REFERENCED BELOW, THEN YOU
+MAY NOT USE THE CONTENT.
+
+Applicable Licenses
+
+Unless otherwise indicated, all Content made available by the Eclipse Foundation
+is provided to you under the terms and conditions of the Eclipse Public License
+Version 2.0 (&amp;quot;EPL&amp;quot;). A copy of the EPL is provided with this Content and is also
+available at http://www.eclipse.org/legal/epl-2.0. For purposes of the EPL,
+&amp;quot;Program&amp;quot; will mean the Content.
+
+Content includes, but is not limited to, source code, object code, documentation
+and other files maintained in the Eclipse Foundation source code repository
+(&amp;quot;Repository&amp;quot;) in software modules (&amp;quot;Modules&amp;quot;) and made available as
+downloadable archives (&amp;quot;Downloads&amp;quot;).
+
+-   Content may be structured and packaged into modules to facilitate
+    delivering, extending, and upgrading the Content. Typical modules may
+    include plug-ins (&amp;quot;Plug-ins&amp;quot;), plug-in fragments (&amp;quot;Fragments&amp;quot;), and
+    features (&amp;quot;Features&amp;quot;).
+-   Each Plug-in or Fragment may be packaged as a sub-directory or JAR
+    (Java™ ARchive) in a directory named &amp;quot;plugins&amp;quot;.
+-   A Feature is a bundle of one or more Plug-ins and/or Fragments and
+    associated material. Each Feature may be packaged as a sub-directory in a
+    directory named &amp;quot;features&amp;quot;. Within a Feature, files named &amp;quot;feature.xml&amp;quot; may
+    contain a list of the names and version numbers of the Plug-ins and/or
+    Fragments associated with that Feature.
+-   Features may also include other Features (&amp;quot;Included Features&amp;quot;). Within a
+    Feature, files named &amp;quot;feature.xml&amp;quot; may contain a list of the names and
+    version numbers of Included Features.
+
+The terms and conditions governing Plug-ins and Fragments should be contained in
+files named &amp;quot;about.html&amp;quot; (&amp;quot;Abouts&amp;quot;). The terms and conditions governing Features
+and Included Features should be contained in files named &amp;quot;license.html&amp;quot;
+(&amp;quot;Feature Licenses&amp;quot;). Abouts and Feature Licenses may be located in any
+directory of a Download or Module including, but not limited to the following
+locations:
+
+-   The top-level (root) directory
+-   Plug-in and Fragment directories
+-   Inside Plug-ins and Fragments packaged as JARs
+-   Sub-directories of the directory named &amp;quot;src&amp;quot; of certain Plug-ins
+-   Feature directories
+
+Note: if a Feature made available by the Eclipse Foundation is installed using
+the Provisioning Technology (as defined below), you must agree to a license
+(&amp;quot;Feature Update License&amp;quot;) during the installation process. If the Feature
+contains Included Features, the Feature Update License should either provide you
+with the terms and conditions governing the Included Features or inform you
+where you can locate them. Feature Update Licenses may be found in the &amp;quot;license&amp;quot;
+property of files named &amp;quot;feature.properties&amp;quot; found within a Feature. Such
+Abouts, Feature Licenses, and Feature Update Licenses contain the terms and
+conditions (or references to such terms and conditions) that govern your use of
+the associated Content in that directory.
+
+THE ABOUTS, FEATURE LICENSES, AND FEATURE UPDATE LICENSES MAY REFER TO THE EPL
+OR OTHER LICENSE AGREEMENTS, NOTICES OR TERMS AND CONDITIONS. SOME OF THESE
+OTHER LICENSE AGREEMENTS MAY INCLUDE (BUT ARE NOT LIMITED TO):
+
+-   Eclipse Public License Version 1.0 (available at
+    http://www.eclipse.org/legal/epl-v10.html)
+-   Eclipse Distribution License Version 1.0 (available at
+    http://www.eclipse.org/licenses/edl-v1.0.html)
+-   Common Public License Version 1.0 (available at
+    http://www.eclipse.org/legal/cpl-v10.html)
+-   Apache Software License 1.1 (available at
+    http://www.apache.org/licenses/LICENSE)
+-   Apache Software License 2.0 (available at
+    http://www.apache.org/licenses/LICENSE-2.0)
+-   Mozilla Public License Version 1.1 (available at
+    http://www.mozilla.org/MPL/MPL-1.1.html)
+
+IT IS YOUR OBLIGATION TO READ AND ACCEPT ALL SUCH TERMS AND CONDITIONS PRIOR TO
+USE OF THE CONTENT. If no About, Feature License, or Feature Update License is
+provided, please contact the Eclipse Foundation to determine what terms and
+conditions govern that particular Content.
+
+Use of Provisioning Technology
+
+The Eclipse Foundation makes available provisioning software, examples of which
+include, but are not limited to, p2 and the Eclipse Update Manager
+(&amp;quot;Provisioning Technology&amp;quot;) for the purpose of allowing users to install
+software, documentation, information and/or other materials (collectively
+&amp;quot;Installable Software&amp;quot;). This capability is provided with the intent of allowing
+such users to install, extend and update Eclipse-based products. Information
+about packaging Installable Software is available at
+http://eclipse.org/equinox/p2/repository_packaging.html (&amp;quot;Specification&amp;quot;).
+
+You may use Provisioning Technology to allow other parties to install
+Installable Software. You shall be responsible for enabling the applicable
+license agreements relating to the Installable Software to be presented to, and
+accepted by, the users of the Provisioning Technology in accordance with the
+Specification. By using Provisioning Technology in such a manner and making it
+available in accordance with the Specification, you further acknowledge your
+agreement to, and the acquisition of all necessary rights to permit the
+following:
+
+1.  A series of actions may occur (&amp;quot;Provisioning Process&amp;quot;) in which a user may
+    execute the Provisioning Technology on a machine (&amp;quot;Target Machine&amp;quot;) with the
+    intent of installing, extending or updating the functionality of an
+    Eclipse-based product.
+2.  During the Provisioning Process, the Provisioning Technology may cause third
+    party Installable Software or a portion thereof to be accessed and copied to
+    the Target Machine.
+3.  Pursuant to the Specification, you will provide to the user the terms and
+    conditions that govern the use of the Installable Software (&amp;quot;Installable
+    Software Agreement&amp;quot;) and such Installable Software Agreement shall be
+    accessed from the Target Machine in accordance with the Specification. Such
+    Installable Software Agreement must inform the user of the terms and
+    conditions that govern the Installable Software and must solicit acceptance
+    by the end user in the manner prescribed in such Installable
+    Software Agreement. Upon such indication of agreement by the user, the
+    provisioning Technology will complete installation of the
+    Installable Software.
+
+Cryptography
+
+Content may contain encryption software. The country in which you are currently
+may have restrictions on the import, possession, and use, and/or re-export to
+another country, of encryption software. BEFORE using any encryption software,
+please check the country&amp;apos;s laws, regulations and policies concerning the import,
+possession, or use, and re-export of encryption software, to see if this is
+permitted.
+
+Java and all Java-based trademarks are trademarks of Oracle Corporation in the
+United States, other countries, or both.
+         </text>
+   </license>
+
    <plugins>
    </plugins>
 
    <features>
+      <!-- all features added here as installMode="root" need to be added to p2.inf as well -->
+
+      <!-- common features that all products have -->
+      <feature id="org.eclipse.epp.package.common.feature"/>
+      <feature id="org.eclipse.platform"/>
+      <feature id="org.eclipse.equinox.p2.user.ui"/>
+      <feature id="org.eclipse.epp.mpc" installMode="root"/>
+      <feature id="org.eclipse.oomph.setup" installMode="root"/>
+      <feature id="org.eclipse.tm.terminal.feature" installMode="root"/>
+      <feature id="org.eclipse.egit" installMode="root"/>
+      <feature id="org.eclipse.jgit" installMode="root"/>
+      <feature id="org.eclipse.mylyn.wikitext_feature" installMode="root"/>
+            
+      <!-- common features to almost all products -->
+      
+      <!-- product specific contents -->
       <feature id="org.eclipse.gemoc.gemoc_studio.branding.feature"/>
       <feature id="org.eclipse.gemoc.gemoc_studio.additions.feature"/>
       <feature id="org.eclipse.fx.runtime.min.feature" installMode="root"/>
+      
+      
+      <feature id="org.eclipse.egit.gitflow.feature" installMode="root"/>
+      <!-- either m2e.logback or slf4j.simple should be provided in each package -->
+      <feature id="org.eclipse.m2e.logback.feature" installMode="root"/>
+      
+      
    </features>
 
    <configurations>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde?>
 <!-- generated with https://github.com/eclipse-cbi/targetplatform-dsl -->
-<target name="GEMOCStudio Target platform" sequenceNumber="1699547113">
+<target name="GEMOCStudio Target platform" sequenceNumber="1700842450">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
       <unit id="org.eclipse.acceleo.feature.group" version="3.7.13.202304041222"/>
@@ -10,6 +10,7 @@
       <unit id="org.eclipse.ecf.filetransfer.httpclient5.feature.feature.group" version="1.1.701.v20230423-0417"/>
       <unit id="org.eclipse.ecf.filetransfer.ssl.feature.feature.group" version="1.1.401.v20230422-0242"/>
       <unit id="org.eclipse.egit.feature.group" version="6.6.0.202305301015-r"/>
+      <unit id="org.eclipse.egit.gitflow.feature.feature.group" version="6.6.0.202305301015-r"/>
       <unit id="org.eclipse.emf.feature.group" version="2.34.0.v20230406-1334"/>
       <unit id="org.eclipse.emf.compare.feature.group" version="3.3.21.202212280858"/>
       <unit id="org.eclipse.emf.compare.rcp" version="2.5.2.202212280858"/>
@@ -20,6 +21,7 @@
       <unit id="org.eclipse.emf.mwe2.language.sdk.feature.group" version="2.14.0.v20221117-1134"/>
       <unit id="org.eclipse.emf.query.sdk.feature.group" version="1.12.1.202208101410"/>
       <unit id="org.eclipse.epp.mpc.feature.group" version="1.10.1.v20221110-1841"/>
+      <unit id="org.eclipse.epp.package.common.feature.feature.group" version="4.28.0.20230608-1200"/>
       <unit id="org.eclipse.equinox.p2.sdk.feature.group" version="3.11.2000.v20230510-1208"/>
       <unit id="org.eclipse.equinox.executable.feature.group" version="3.8.2100.v20230415-0944"/>
       <unit id="org.eclipse.equinox.server.jetty.feature.group" version="1.11.100.v20221109-0702"/>
@@ -31,12 +33,15 @@
       <unit id="org.eclipse.m2m.qvt.oml.editor.feature.group" version="3.10.7.v20220605-1149"/>
       <unit id="org.eclipse.m2m.qvt.oml.runtime.feature.group" version="3.10.7.v20220605-1149"/>
       <unit id="org.eclipse.m2m.qvt.oml.sdk.feature.group" version="3.10.7.v20220605-1149"/>
+      <unit id="org.eclipse.mylyn.wikitext_feature.feature.group" version="3.0.46.202301111837"/>
       <unit id="org.eclipse.ocl.examples.feature.group" version="6.18.0.v20221201-0557"/>
+      <unit id="org.eclipse.oomph.setup.feature.group" version="1.28.0.v20230523-0636"/>
       <unit id="org.eclipse.rcp.feature.group" version="4.28.0.v20230605-0440"/>
       <unit id="org.eclipse.sdk.feature.group" version="4.28.0.v20230605-0440"/>
       <unit id="org.eclipse.swtbot.eclipse.feature.group" version="4.1.0.202306071420"/>
       <unit id="org.eclipse.swtbot.ide.feature.group" version="4.1.0.202306071420"/>
       <unit id="org.eclipse.swtbot.feature.group" version="4.1.0.202306071420"/>
+      <unit id="org.eclipse.tm.terminal.feature.feature.group" version="11.2.0.202303131754"/>
       <unit id="org.eclipse.wst.web_core.feature.feature.group" version="3.30.0.v202305230750"/>
       <unit id="org.eclipse.wst.xml_core.feature.feature.group" version="3.30.0.v202305230750"/>
       <unit id="org.eclipse.wst.xml_ui.feature.feature.group" version="3.30.0.v202305230750"/>
