@@ -47,6 +47,11 @@ mvn -DskipTests=true -Djava.awt.headless=true -P test_linux install
 ```
 
 
+With timestamped log file
+```
+mvn -DskipTests=true -Djava.awt.headless=true -P test_linux install | ts -s | tee -a /home/jenkins/src/tycho_full_compilation.log
+```
+
 Start system tests (UI) from the container:
 ```
 ~/.vnc/xstartup.sh

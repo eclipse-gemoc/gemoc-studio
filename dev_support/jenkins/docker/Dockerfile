@@ -51,6 +51,12 @@ RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
  && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
 ENV MAVEN_HOME /usr/share/maven
 
+
+# used to have ts to have console timestamps cf. https://unix.stackexchange.com/questions/26728/prepending-a-timestamp-to-each-line-of-output-from-a-command
+RUN dnf install -y \
+    moreutils \
+  && dnf clean all
+
 # install memory monitor script file
 COPY scripts/memory-monitor/memory-monitor-per-process.py ${HOME}/memory-monitor-per-process.py
 RUN python3 -m pip install psutil
