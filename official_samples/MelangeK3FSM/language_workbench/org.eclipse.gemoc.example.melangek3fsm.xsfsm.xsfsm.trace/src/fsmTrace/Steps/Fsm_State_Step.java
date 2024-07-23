@@ -23,7 +23,6 @@ public interface Fsm_State_Step extends SpecificStep, SequentialStep<Fsm_State_S
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" required="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return (fsmTrace.States.fsm.TracedState) this.getMseoccurrence().getMse().getCaller();'"
 	 * @generated
 	 */
 	TracedState getCaller();

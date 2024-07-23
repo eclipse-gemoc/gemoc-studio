@@ -117,7 +117,6 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 	private StepsPackageImpl() {
 		super(eNS_URI, StepsFactory.eINSTANCE);
 	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -185,6 +184,7 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFsm_StateMachine_InitializeModel() {
 		return fsm_StateMachine_InitializeModelEClass;
 	}
@@ -194,6 +194,7 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFsm_State_Step() {
 		return fsm_State_StepEClass;
 	}
@@ -203,6 +204,7 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFsm_State_Step_AbstractSubStep() {
 		return fsm_State_Step_AbstractSubStepEClass;
 	}
@@ -212,6 +214,7 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFsm_State_Step_ImplicitStep() {
 		return fsm_State_Step_ImplicitStepEClass;
 	}
@@ -221,6 +224,7 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFsm_Transition_Fire() {
 		return fsm_Transition_FireEClass;
 	}
@@ -230,6 +234,7 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRootImplicitStep() {
 		return rootImplicitStepEClass;
 	}
@@ -239,6 +244,7 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSpecificRootStep() {
 		return specificRootStepEClass;
 	}
@@ -248,6 +254,7 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSpecificStep() {
 		return specificStepEClass;
 	}
@@ -257,6 +264,7 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StepsFactory getStepsFactory() {
 		return (StepsFactory)getEFactoryInstance();
 	}
@@ -351,13 +359,13 @@ public class StepsPackageImpl extends EPackageImpl implements StepsPackage {
 		g2 = createEGenericType(theStatesPackage.getSpecificState());
 		g1.getETypeArguments().add(g2);
 		fsm_State_Step_ImplicitStepEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getFsm_State_Step_AbstractSubStep());
+		fsm_Transition_FireEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getSpecificStep());
 		fsm_Transition_FireEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(theTracePackage.getSmallStep());
 		g2 = createEGenericType(theStatesPackage.getSpecificState());
 		g1.getETypeArguments().add(g2);
-		fsm_Transition_FireEClass.getEGenericSuperTypes().add(g1);
-		g1 = createEGenericType(this.getFsm_State_Step_AbstractSubStep());
 		fsm_Transition_FireEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(theTracePackage.getSmallStep());
 		g2 = createEGenericType(theStatesPackage.getSpecificState());

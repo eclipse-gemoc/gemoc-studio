@@ -66,6 +66,7 @@ public class TracedStateImpl extends TracedNamedElementImpl implements TracedSta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public State getOriginalObject() {
 		if (originalObject != null && originalObject.eIsProxy()) {
 			InternalEObject oldOriginalObject = (InternalEObject)originalObject;
@@ -92,6 +93,7 @@ public class TracedStateImpl extends TracedNamedElementImpl implements TracedSta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOriginalObject(State newOriginalObject) {
 		State oldOriginalObject = originalObject;
 		originalObject = newOriginalObject;
@@ -104,6 +106,7 @@ public class TracedStateImpl extends TracedNamedElementImpl implements TracedSta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<SpecificDimension<?>> getDimensionsInternal() {
 		final EList<SpecificDimension<?>> result = new org.eclipse.emf.ecore.util.BasicInternalEList<SpecificDimension<?>>(Object.class);
 		result.addAll(super.getDimensionsInternal());

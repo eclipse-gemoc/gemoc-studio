@@ -57,7 +57,6 @@ public class FsmTraceStateManager implements IStateManager<State<?, ?>> {
 		return result;
 	}
 
-	@SuppressWarnings("unchecked")
 	private void restoreStateExecute(fsmTrace.States.SpecificState state) {
 		for (fsmTrace.States.SpecificValue value : state.getValues()) {
 			if (value instanceof fsmTrace.States.StateMachine_consummedString_Value) {

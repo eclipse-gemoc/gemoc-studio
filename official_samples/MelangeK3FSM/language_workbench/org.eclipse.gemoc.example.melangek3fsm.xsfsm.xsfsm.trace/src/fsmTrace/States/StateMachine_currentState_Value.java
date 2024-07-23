@@ -24,15 +24,11 @@ public interface StateMachine_currentState_Value extends SpecificReferenceValue<
 	/**
 	 * Returns the value of the '<em><b>Current State</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Current State</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Current State</em>' reference.
 	 * @see #setCurrentState(TracedState)
 	 * @see fsmTrace.States.StatesPackage#getStateMachine_currentState_Value_CurrentState()
-	 * @model
+	 * @model annotation="aspect"
 	 * @generated
 	 */
 	TracedState getCurrentState();

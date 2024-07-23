@@ -87,7 +87,6 @@ public class FsmPackageImpl extends EPackageImpl implements FsmPackage {
 	private FsmPackageImpl() {
 		super(eNS_URI, FsmFactory.eINSTANCE);
 	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -155,6 +154,7 @@ public class FsmPackageImpl extends EPackageImpl implements FsmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTracedNamedElement() {
 		return tracedNamedElementEClass;
 	}
@@ -164,6 +164,7 @@ public class FsmPackageImpl extends EPackageImpl implements FsmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTracedState() {
 		return tracedStateEClass;
 	}
@@ -173,6 +174,7 @@ public class FsmPackageImpl extends EPackageImpl implements FsmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTracedState_OriginalObject() {
 		return (EReference)tracedStateEClass.getEStructuralFeatures().get(0);
 	}
@@ -182,6 +184,7 @@ public class FsmPackageImpl extends EPackageImpl implements FsmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTracedStateMachine() {
 		return tracedStateMachineEClass;
 	}
@@ -191,6 +194,7 @@ public class FsmPackageImpl extends EPackageImpl implements FsmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTracedStateMachine_OriginalObject() {
 		return (EReference)tracedStateMachineEClass.getEStructuralFeatures().get(0);
 	}
@@ -200,6 +204,7 @@ public class FsmPackageImpl extends EPackageImpl implements FsmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTracedStateMachine_StateMachine_consummedString_Dimension() {
 		return (EReference)tracedStateMachineEClass.getEStructuralFeatures().get(1);
 	}
@@ -209,6 +214,7 @@ public class FsmPackageImpl extends EPackageImpl implements FsmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTracedStateMachine_StateMachine_currentState_Dimension() {
 		return (EReference)tracedStateMachineEClass.getEStructuralFeatures().get(2);
 	}
@@ -218,6 +224,7 @@ public class FsmPackageImpl extends EPackageImpl implements FsmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTracedStateMachine_StateMachine_producedString_Dimension() {
 		return (EReference)tracedStateMachineEClass.getEStructuralFeatures().get(3);
 	}
@@ -227,6 +234,7 @@ public class FsmPackageImpl extends EPackageImpl implements FsmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTracedStateMachine_StateMachine_unprocessedString_Dimension() {
 		return (EReference)tracedStateMachineEClass.getEStructuralFeatures().get(4);
 	}
@@ -236,6 +244,7 @@ public class FsmPackageImpl extends EPackageImpl implements FsmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTracedTransition() {
 		return tracedTransitionEClass;
 	}
@@ -245,6 +254,7 @@ public class FsmPackageImpl extends EPackageImpl implements FsmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getTracedTransition_OriginalObject() {
 		return (EReference)tracedTransitionEClass.getEStructuralFeatures().get(0);
 	}
@@ -254,6 +264,7 @@ public class FsmPackageImpl extends EPackageImpl implements FsmPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public FsmFactory getFsmFactory() {
 		return (FsmFactory)getEFactoryInstance();
 	}

@@ -66,6 +66,7 @@ public class TracedTransitionImpl extends TracedNamedElementImpl implements Trac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Transition getOriginalObject() {
 		if (originalObject != null && originalObject.eIsProxy()) {
 			InternalEObject oldOriginalObject = (InternalEObject)originalObject;
@@ -92,6 +93,7 @@ public class TracedTransitionImpl extends TracedNamedElementImpl implements Trac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOriginalObject(Transition newOriginalObject) {
 		Transition oldOriginalObject = originalObject;
 		originalObject = newOriginalObject;
@@ -104,6 +106,7 @@ public class TracedTransitionImpl extends TracedNamedElementImpl implements Trac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<SpecificDimension<?>> getDimensionsInternal() {
 		final EList<SpecificDimension<?>> result = new org.eclipse.emf.ecore.util.BasicInternalEList<SpecificDimension<?>>(Object.class);
 		result.addAll(super.getDimensionsInternal());

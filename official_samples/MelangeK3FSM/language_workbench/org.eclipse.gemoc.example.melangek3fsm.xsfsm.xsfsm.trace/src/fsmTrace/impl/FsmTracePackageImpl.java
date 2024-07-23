@@ -62,7 +62,6 @@ public class FsmTracePackageImpl extends EPackageImpl implements FsmTracePackage
 	private FsmTracePackageImpl() {
 		super(eNS_URI, FsmTraceFactory.eINSTANCE);
 	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -130,6 +129,7 @@ public class FsmTracePackageImpl extends EPackageImpl implements FsmTracePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSpecificTrace() {
 		return specificTraceEClass;
 	}
@@ -139,6 +139,7 @@ public class FsmTracePackageImpl extends EPackageImpl implements FsmTracePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSpecificTrace_Fsm_StateMachine_InitializeModel_Sequence() {
 		return (EReference)specificTraceEClass.getEStructuralFeatures().get(0);
 	}
@@ -148,6 +149,7 @@ public class FsmTracePackageImpl extends EPackageImpl implements FsmTracePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSpecificTrace_Fsm_State_Step_Sequence() {
 		return (EReference)specificTraceEClass.getEStructuralFeatures().get(1);
 	}
@@ -157,6 +159,7 @@ public class FsmTracePackageImpl extends EPackageImpl implements FsmTracePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSpecificTrace_Fsm_Transition_Fire_Sequence() {
 		return (EReference)specificTraceEClass.getEStructuralFeatures().get(2);
 	}
@@ -166,6 +169,7 @@ public class FsmTracePackageImpl extends EPackageImpl implements FsmTracePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public FsmTraceFactory getFsmTraceFactory() {
 		return (FsmTraceFactory)getEFactoryInstance();
 	}

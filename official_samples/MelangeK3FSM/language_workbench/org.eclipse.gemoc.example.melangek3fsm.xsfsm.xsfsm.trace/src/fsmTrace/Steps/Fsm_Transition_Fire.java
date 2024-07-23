@@ -18,12 +18,11 @@ import org.eclipse.gemoc.trace.commons.model.trace.SmallStep;
  * @model
  * @generated
  */
-public interface Fsm_Transition_Fire extends SpecificStep, SmallStep<SpecificState>, Fsm_State_Step_AbstractSubStep {
+public interface Fsm_Transition_Fire extends Fsm_State_Step_AbstractSubStep, SpecificStep, SmallStep<SpecificState> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" required="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return (fsmTrace.States.fsm.TracedTransition) this.getMseoccurrence().getMse().getCaller();'"
 	 * @generated
 	 */
 	TracedTransition getCaller();

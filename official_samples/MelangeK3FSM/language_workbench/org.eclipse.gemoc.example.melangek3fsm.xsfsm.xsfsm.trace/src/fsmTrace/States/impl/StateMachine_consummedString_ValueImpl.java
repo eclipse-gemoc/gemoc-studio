@@ -69,6 +69,7 @@ public class StateMachine_consummedString_ValueImpl extends SpecificValueImpl im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getConsummedString() {
 		return consummedString;
 	}
@@ -78,6 +79,7 @@ public class StateMachine_consummedString_ValueImpl extends SpecificValueImpl im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setConsummedString(String newConsummedString) {
 		String oldConsummedString = consummedString;
 		consummedString = newConsummedString;

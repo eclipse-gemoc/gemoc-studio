@@ -67,6 +67,7 @@ public class FsmTraceFactoryImpl extends EFactoryImpl implements FsmTraceFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SpecificTrace createSpecificTrace() {
 		SpecificTraceImpl specificTrace = new SpecificTraceImpl();
 		return specificTrace;
@@ -77,6 +78,7 @@ public class FsmTraceFactoryImpl extends EFactoryImpl implements FsmTraceFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public FsmTracePackage getFsmTracePackage() {
 		return (FsmTracePackage)getEPackage();
 	}
