@@ -56,7 +56,7 @@ Start system tests (UI) from the container:
 ```
 ~/.vnc/xstartup.sh
 cd src/gemoc-studio/dev_support/tycho_full_compilation/
-mvn --projects ../../gemoc_studio/tests/org.eclipse.gemoc.studio.tests.system.lwb,../../gemoc_studio/tests/org.eclipse.gemoc.studio.tests.system.mwb verify
+mvn --projects ../../gemoc_studio/tests/org.eclipse.gemoc.studio.tests.system.lwb,../../gemoc_studio/tests/org.eclipse.gemoc.studio.tests.system.mwb,../../gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.targetplatform verify
 ```
 
 connect to vncserver display from your host using a vnc viewer (for example using remmina) on `localhost:5900` (the password is `123456`)
