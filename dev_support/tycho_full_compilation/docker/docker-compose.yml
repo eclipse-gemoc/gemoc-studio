@@ -1,4 +1,3 @@
-version: '3'
 services:
   gemoc_full_compilation:
     image: "gemoc/gemoc-full-compilation:latest"
