@@ -19,19 +19,36 @@
 ###############################################################
 
 
-FROM ubuntu:16.04
+FROM ubuntu:24.04
 
-### user name recognition at runtime w/ an arbitrary uid - for OpenShift deployments
-COPY scripts/uid_entrypoint /usr/local/bin/uid_entrypoint
-RUN chmod u+x /usr/local/bin/uid_entrypoint && \
-    chgrp 0 /usr/local/bin/uid_entrypoint && \
-    chmod g=u /usr/local/bin/uid_entrypoint /etc/passwd
-ENTRYPOINT [ "uid_entrypoint" ]
+ARG MAVEN_VERSION=3.9.8
+ARG MAVEN_BASE_URL=https://archive.apache.org/dist/maven/maven-3/${MAVEN_VERSION}/binaries
+
+ARG DOCKER_USER=ubuntu
+
+# ubuntu user already exists in base image
+#RUN groupadd  $DOCKER_USER
+#RUN useradd  -ms /bin/bash -d /home/$DOCKER_USER -g $DOCKER_USER $DOCKER_USER
+
+#RUN addgroup "$DOCKER_USER" \
+# 	&& adduser "$DOCKER_USER" -G "$DOCKER_USER"
+ 
+RUN apt update && apt upgrade -y && apt install -y  --no-install-recommends \
+	gosu
+
+COPY scripts/entrypoint /entrypoint
+RUN chmod 0755 /entrypoint \
+	&& sed "s/\$DOCKER_USER/$DOCKER_USER/g" -i /entrypoint
+#RUN chmod u+x /usr/local/bin/uid_entrypoint && \
+#    chgrp 0 /usr/local/bin/uid_entrypoint && \
+#    chmod g=u /usr/local/bin/uid_entrypoint /etc/passwd
+ENTRYPOINT [ "/entrypoint" ]
 
 #ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-	libgtk-3-0=3.18.* \
+# 	libgtk-3-0=3.18.* 
+
+RUN apt update && apt upgrade -y && apt install -y  --no-install-recommends\
 	language-pack-en-base \
 	metacity \
 	x11-xserver-utils \
@@ -44,16 +61,34 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	fonts-freefont-ttf \
 	fonts-dejavu \
 	fonts-dejavu-core \
-	fonts-dejavu-extra
+	fonts-dejavu-extra \
+	moreutils \
+	zip \
+	unzip \
+	curl \
+	wget
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt update && apt install -y   --no-install-recommends \
 	graphviz \
 	xvfb 
 
 RUN apt-get install -y  --no-install-recommends \
-	openjdk-11-jdk \
-	openjfx \
-	maven
+	openjdk-17-jdk \
+	openjfx 
+
+RUN wget https://download2.gluonhq.com/openjfx/17.0.2/openjfx-17.0.2_linux-x64_bin-sdk.zip  -O ${HOME}/openjfx-17.0.2_linux-x64_bin-sdk.zip 
+RUN unzip ${HOME}/openjfx-17.0.2_linux-x64_bin-sdk.zip -d /usr/share/
+RUN rm ${HOME}/openjfx-17.0.2_linux-x64_bin-sdk.zip 
+
+ENV JAVAFX_HOME=/usr/share/javafx-sdk-17.0.2
+	
+# install maven 
+RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
+ && curl -fsSL -o /tmp/apache-maven.tar.gz ${MAVEN_BASE_URL}/apache-maven-${MAVEN_VERSION}-bin.tar.gz \
+ && tar -xzf /tmp/apache-maven.tar.gz -C /usr/share/maven --strip-components=1 \
+ && rm -f /tmp/apache-maven.tar.gz \
+ && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
+ENV MAVEN_HOME=/usr/share/maven
 
 RUN apt-get install -y  --no-install-recommends \	
 	dbus
@@ -67,7 +102,7 @@ RUN apt-get install -y \
 # some cleanup
 RUN rm -rf /var/lib/apt/lists/*
 
-ENV HOME=/home/jenkins
+ENV HOME=/home/$DOCKER_USER
 
 # avoid "library appears to be incorrectly set up; failed to read machine uuid: UUID file '/etc/machine-id' should contain a hex string of length 32" when launching x 
 # cf http://www.torkwrench.com/2011/12/16/d-bus-library-appears-to-be-incorrectly-set-up-failed-to-read-machine-uuid-failed-to-open-varlibdbusmachine-id/ and https://github.com/activatedgeek/docker-videostack/issues/1
@@ -83,7 +118,7 @@ RUN mkdir /tmp/.X11-unix && \
 	chown root /tmp/.X11-unix/
 # probably not required during image build
 RUN Xvfb :99 &
-ENV DISPLAY :99
+ENV DISPLAY=:99
 
 
 
@@ -93,7 +128,7 @@ RUN chmod a+x ${HOME}/build_gemoc.sh
 
 
 # switch to default user
-USER 10001
+#USER 1000
 WORKDIR ${HOME}
 
 #RUN useradd -u 1000 -ms /bin/bash ci

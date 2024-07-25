@@ -2,7 +2,10 @@ services:
   gemoc_full_compilation:
     image: "gemoc/gemoc-full-compilation:latest"
     build: "."
+    environment:
+      UID: 1000
+      GID: 1000
     volumes:
-      - "./cache-m2:/home/jenkins/.m2"
-      - "../../../..:/home/jenkins/src"
+      - "./cache-m2:/home/ubuntu/.m2"
+      - "../../../..:/home/ubuntu/src"
       

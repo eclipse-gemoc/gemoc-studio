@@ -7,7 +7,7 @@ export DISPLAY=:99
 
 #$HOME/.vnc/xstartup.sh
 
-cd $HOME/src/gemoc-studio/dev_support/full_compilation/
+cd $HOME/src/gemoc-studio/dev_support/tycho_full_compilation/
 
 pwd
 
@@ -20,6 +20,9 @@ else
 	"full") 
 		echo "-------- compile full gemoc studio (and install in .m2) --------"
 		mvn clean install --errors  --show-version;;
+	"clean") 
+		echo "-------- clean --------"
+		mvn clean --errors  --show-version;;
 	"linux") 
 		echo "-------- compile gemoc studio for linux only in online (install in .m2) --------"
 		mvn -P test_linux clean install --errors  --show-version;;
@@ -34,9 +37,12 @@ else
 		mvn -o -P test_linux clean install --errors  --show-version;;
 	"linux_system_test_only") 
 		echo "-------- running system tests only ------------"
-		mvn -P test_linux --projects ../../gemoc_studio/tests/org.eclipse.gemoc.studio.tests.system.lwb,../../gemoc_studio/tests/org.eclipse.gemoc.studio.tests.system.mwb verify --errors  --show-version;;
+		mvn -P test_linux --projects ../../gemoc_studio/tests/org.eclipse.gemoc.studio.tests.system.lwb,../../gemoc_studio/tests/org.eclipse.gemoc.studio.tests.system.mwb,../../gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.targetplatform clean verify --errors  --show-version;;
+	"tycho_dependencies") 
+		echo "-------- show tycho dependencies  ------------"
+		mvn -P test_linux org.eclipse.tycho:tycho-p2-plugin:dependency-tree;;
 	*)		
-		echo "command $1 not recognized, possible arguments: linux_system_test_only, linux_no_system_test, linux_no_system_test_offline, full, linux_offline" ;;
+		echo "command $1 not recognized, possible arguments: full, clean, linux, linux_system_test_only, linux_no_system_test, linux_no_system_test_offline, linux_offline, tycho_dependencies" ;;
 	esac
 fi
 
