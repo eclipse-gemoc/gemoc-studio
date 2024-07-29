@@ -1,0 +1,79 @@
+=== Docker support for compiling the GEMOC studio locally (including UI tests)
+
+in many case, it is useful to have a docker image to help compile the studio
+
+either because one doesn't want to install all the tools, or because the UI tests are quite long to run and normal opertion on the PC may interfere. 
+it may also be used by the CI 
+
+
+This Docker image intend to provide some support to launch all the compilation tasks in isolation while allowing to connect (via VNC) to the UI if required.
+
+ 
+
+==== build image
+
+To do a full build using docker: go to the docker folder (*/gemoc-studio/dev_support/full_compilation/docker*), then call the command
+
+[source,bourne]
+----
+docker build -t "gemoc/gemoc_builder:latest" .
+---- 
+
+
+==== Use of the image
+
+
+===== Interactive usage
+
+```
+docker run -it --rm --name gemoc_builder -v $PWD/../../../..:/home/ubuntu/src -v $PWD/cache-m2:/home/ubuntu/.m2 --env UID=$(id -u) --env GID=$(id -g) -p 5901:5901 "gemoc/gemoc_builder:latest" /bin/bash
+```
+
+
+Optionnaly, open the GUI (useful for graphical integration tests)
+
+```
+vncviewer localhost:5901
+```
+
+Where:
+
+- `$PWD/../../../..` points to the root containing all gemoc sources (this suppose that you run the script from the folder containing the `Dockerfile` file)
+- `--env UID=$(id -u) --env GID=$(id -g)`  makes sure to use your user uid (use `id -u` or `echo $UID`to get yours user uid if this isn't 1000)
+- `-p 5901:5901` is the port used to connected to the UI using VNC  
+
+WARNING: you must create the _$PWD/cache-m2_ folder before launching the docker command in order to avoid permission issues.
+
+The image contains several build scripts for various common usages.
+
+- `generate_protocols.sh` with the possible arguments
+** `full` -> npm install; npm run build; npm run generate
+
+- `tycho_build.sh` with the possible arguments
+** `full` -> mvn clean install
+** `clean` -> mvn clean
+** `linux` compile gemoc studio for linux only, online, install in .m2
+** `linux_no_system_test` compile gemoc studio for linux only no system tests, online, install in .m2
+** `linux_no_system_test_offline` compile gemoc studio for linux only no system tests, offline, install in .m2
+** `linux_offline` compile gemoc studio for linux only, offline, install in .m2
+** `linux_system_test_only` running system tests only
+** `tycho_dependencies` display the plugin dependencies computed by tycho
+
+- `pomfirst_build.sh` with the possible arguments
+** `full` -> mvn clean install
+** `clean` -> mvn clean
+   
+TIP: you can timestamp the console and save in a local log by adding `|& ts -s |& tee build.log` at the end of the command (where `ts` comes from the the `moreutils` package)
+
+
+
+===== Description of the docker env
+
+The _Dockerfile_ defines a docker image based on ubuntu 24.04 with maven, oracle java17, xvfb, and graphviz. It embeds an *entrypoint.sh* script that allows to run using your own userId. (To avoid issue about file created as root instead of your local uid, it uses `gosu`  in the entrypoint script (cf. https://stackoverflow.com/questions/57776452/is-it-possible-to-map-a-user-inside-the-docker-container-to-an-outside-user))
+
+The _docker-compose.yml_ will mount the folder containing all gemoc repositories (ie. the place where you've done `git clone`) 
+
+It also mounts a *cache-m2* folder in order to speed up successive compilations.
+
+
+
