@@ -16,7 +16,7 @@ To do a full build using docker: go to the docker folder (*/gemoc-studio/dev_sup
 
 [source,bourne]
 ----
-docker build -t "gemoc/gemoc_builder:latest" .
+docker build -t "gemoc/gemoc-builder:latest" .
 ---- 
 
 
@@ -26,7 +26,7 @@ docker build -t "gemoc/gemoc_builder:latest" .
 ===== Interactive usage
 
 ```
-docker run -it --rm --name gemoc_builder -v $PWD/../../../..:/home/ubuntu/src -v $PWD/cache-m2:/home/ubuntu/.m2 --env UID=$(id -u) --env GID=$(id -g) -p 5901:5901 "gemoc/gemoc_builder:latest" /bin/bash
+docker run -it --rm --name gemoc-builder -v $PWD/../../../..:/home/ubuntu/src -v $PWD/cache-m2:/home/ubuntu/.m2 --env UID=$(id -u) --env GID=$(id -g) -p 5901:5901 "gemoc/gemoc-builder:latest" /bin/bash
 ```
 
 
