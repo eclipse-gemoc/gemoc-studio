@@ -199,7 +199,11 @@ docker compose run gemoc_full_compilation /bin/bash
 or 
 [source,bourne]
 ----
-docker run -it -v $PWD/../../../..:/home/ubuntu/src -v $PWD/cache-m2:/home/ubuntu/.m2 --env UID=$(id -u) --env GID=$(id -g) gemoc/gemoc-full-compilation:latest /bin/bash
+docker run -it --rm \
+-v $PWD/../../../..:/home/ubuntu/src -v $PWD/cache-m2:/home/ubuntu/.m2 \
+--publish 5900:5900 \
+--env UID=$(id -u) --env GID=$(id -g) \
+gemoc/gemoc-full-compilation:latest /bin/bash
 ----
    
 
