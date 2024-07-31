@@ -2,6 +2,9 @@
 
 echo arguments seen: $1
 
+id -a
+echo HOME=$HOME
+
 cd $HOME/src/gemoc-studio/dev_support/pomfirst_full_compilation/
 
 pwd
