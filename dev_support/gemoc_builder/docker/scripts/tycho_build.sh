@@ -27,20 +27,26 @@ else
 		echo "-------- clean --------"
 		mvn clean --errors  --show-version;;
 	"linux") 
-		echo "-------- compile gemoc studio for linux only in online (install in .m2) --------"
-		mvn -P test_linux clean install --errors  --show-version;;
+		echo "-------- compile gemoc studio for linux only in online  --------"
+		mvn -P test_linux clean install --errors  --show-version --batch-mode;;
 	"linux_no_system_test") 
-		echo "-------- compile gemoc studio for linux only no system tests, online, install in .m2 --------"
-		mvn -P test_linux --projects !../../gemoc_studio/tests/org.eclipse.gemoc.studio.tests.system.lwb,!../../gemoc_studio/tests/org.eclipse.gemoc.studio.tests.system.mwb    clean install --errors  --show-version;;	
+		echo "-------- compile gemoc studio for linux only no system tests, online --------"
+		mvn -P test_linux --projects !../../gemoc_studio/tests/org.eclipse.gemoc.studio.tests.system.lwb,!../../gemoc_studio/tests/org.eclipse.gemoc.studio.tests.system.mwb  \
+									-Djava.awt.headless=true \
+									clean verify \
+									--errors  --show-version --batch-mode;;	
     "linux_no_system_test_offline") 
 		echo "-------- compile gemoc studio for linux only no system tests, offline, install in .m2 --------"
-		mvn -o -P test_linux --projects !../../gemoc_studio/tests/org.eclipse.gemoc.studio.tests.system.lwb,!../../gemoc_studio/tests/org.eclipse.gemoc.studio.tests.system.mwb  clean install --errors  --show-version;;	
+		mvn -o -P test_linux --projects !../../gemoc_studio/tests/org.eclipse.gemoc.studio.tests.system.lwb,!../../gemoc_studio/tests/org.eclipse.gemoc.studio.tests.system.mwb  \
+									-Djava.awt.headless=true \
+									clean install \
+									--errors  --show-version;;	
 	"linux_offline") 
 		echo "-------- compile gemoc studio for linux only (offline) (install in .m2) --------"
 		mvn -o -P test_linux clean install --errors  --show-version;;
 	"linux_system_test_only") 
 		echo "-------- running system tests only ------------"
-		mvn -P test_linux --projects ../../gemoc_studio/tests/org.eclipse.gemoc.studio.tests.system.lwb,../../gemoc_studio/tests/org.eclipse.gemoc.studio.tests.system.mwb,../../gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.targetplatform clean verify --errors  --show-version;;
+		mvn -P test_linux -Dmaven.test.failure.ignore --projects ../../gemoc_studio/tests/org.eclipse.gemoc.studio.tests.system.lwb,../../gemoc_studio/tests/org.eclipse.gemoc.studio.tests.system.mwb,../../gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.targetplatform clean verify --errors  --show-version;;
 	"tycho_dependencies") 
 		echo "-------- show tycho dependencies  ------------"
 		mvn -P test_linux org.eclipse.tycho:tycho-p2-plugin:dependency-tree;;

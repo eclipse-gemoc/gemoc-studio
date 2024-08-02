@@ -19,6 +19,13 @@ To do a full build using docker: go to the docker folder (*/gemoc-studio/dev_sup
 docker build -t "gemoc/gemoc-builder:latest" .
 ---- 
 
+or with a fixed date
+
+[source,bourne]
+----
+docker build -t "gemoc/gemoc-builder:2024-08-02" .
+---- 
+
 
 ==== Use of the image
 
@@ -65,7 +72,10 @@ The image contains several build scripts for various common usages.
    
 TIP: you can timestamp the console and save in a local log by adding `|& ts -s |& tee build.log` at the end of the command (where `ts` comes from the the `moreutils` package)
 
-
+typicall use: (for the folder containing all the git repositories
+```
+docker run -it --rm --name gemoc-builder -v $PWD:/home/ubuntu/src -v $PWD/cache-m2:/home/ubuntu/.m2 --env UID=$(id -u) --env GID=$(id -g) -p 5901:5901 "gemoc/gemoc-builder:latest" ./tycho_build.sh linux |& ts -s |& tee linux_build.log
+```
 
 ===== Description of the docker env
 
