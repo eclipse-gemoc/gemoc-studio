@@ -27,13 +27,13 @@ else
 		echo "-------- clean --------"
 		mvn clean --errors  --show-version;;
 	"linux") 
-		echo "-------- compile gemoc studio for linux only in online  --------"
+		echo "-------- compile gemoc studio for linux only in online (and install in .m2)  --------"
 		mvn -P test_linux clean install --errors  --show-version --batch-mode;;
 	"linux_no_system_test") 
-		echo "-------- compile gemoc studio for linux only no system tests, online --------"
+		echo "-------- compile gemoc studio for linux only no system tests, online (and install in .m2) --------"
 		mvn -P test_linux --projects !../../gemoc_studio/tests/org.eclipse.gemoc.studio.tests.system.lwb,!../../gemoc_studio/tests/org.eclipse.gemoc.studio.tests.system.mwb  \
 									-Djava.awt.headless=true \
-									clean verify \
+									clean install \
 									--errors  --show-version --batch-mode;;	
     "linux_no_system_test_offline") 
 		echo "-------- compile gemoc studio for linux only no system tests, offline, install in .m2 --------"
