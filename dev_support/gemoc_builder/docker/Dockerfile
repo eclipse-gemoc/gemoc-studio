@@ -1,6 +1,6 @@
 ###############################################################
 # Image content overview:
-# - ubuntu 16.04
+# - ubuntu 
 # - graphviz
 # - openjdk8, openfx, maven 3.6.0
 # - Xvfb
@@ -23,6 +23,10 @@ FROM ubuntu:24.04
 
 ARG MAVEN_VERSION=3.9.8
 ARG MAVEN_BASE_URL=https://archive.apache.org/dist/maven/maven-3/${MAVEN_VERSION}/binaries
+
+# nvm environment variables
+#ENV NVM_DIR=/usr/local/nvm
+#ENV NODE_VERSION=20.15.1
 
 ARG DOCKER_USER=ubuntu
 
@@ -50,7 +54,6 @@ ENTRYPOINT [ "/entrypoint" ]
 
 RUN apt update && apt upgrade -y && apt install -y  --no-install-recommends\
 	language-pack-en-base \
-	metacity \
 	x11-xserver-utils \
 	libgl1-mesa-dri \
 	xfonts-base \
@@ -66,11 +69,10 @@ RUN apt update && apt upgrade -y && apt install -y  --no-install-recommends\
 	zip \
 	unzip \
 	curl \
-	wget
+	wget \
+	graphviz
 
-RUN apt update && apt install -y   --no-install-recommends \
-	graphviz \
-	xvfb 
+# Java
 
 RUN apt-get install -y  --no-install-recommends \
 	openjdk-17-jdk \
@@ -90,42 +92,95 @@ RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
  && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
 ENV MAVEN_HOME=/usr/share/maven
 
-RUN apt-get install -y  --no-install-recommends \	
-	dbus
+
+
+# Headless UI Management
+
+RUN apt-get install -y  --no-install-recommends \
+	sddm \	
+	openbox \
+	dbus \
+	dbus-x11
 	 
 # added in an attempt to capture a video of the x display while running UI tests
 # cf. https://malinowski.dev/recording-headless-selenium-tests-to-mp4.html
-RUN apt-get install -y \
+RUN apt update && apt upgrade -y && apt install -y  --no-install-recommends\
 	ffmpeg \
 	tmux
 
-# some cleanup
-RUN rm -rf /var/lib/apt/lists/*
-
 ENV HOME=/home/$DOCKER_USER
+
+
+# install NodeJs via nvm
+USER $DOCKER_USER
+ENV NODE_VERSION=20.16.0
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash 
+ENV NVM_DIR=$HOME/.nvm
+RUN . "$NVM_DIR/nvm.sh" && nvm install ${NODE_VERSION}
+RUN . "$NVM_DIR/nvm.sh" && nvm use v${NODE_VERSION}
+RUN . "$NVM_DIR/nvm.sh" && nvm alias default v${NODE_VERSION}
+ENV PATH="${HOME}/.nvm/versions/node/v${NODE_VERSION}/bin/:${PATH}"
+RUN node --version
+RUN npm --version  
+USER root
 
 # avoid "library appears to be incorrectly set up; failed to read machine uuid: UUID file '/etc/machine-id' should contain a hex string of length 32" when launching x 
 # cf http://www.torkwrench.com/2011/12/16/d-bus-library-appears-to-be-incorrectly-set-up-failed-to-read-machine-uuid-failed-to-open-varlibdbusmachine-id/ and https://github.com/activatedgeek/docker-videostack/issues/1
 RUN dbus-uuidgen > /var/lib/dbus/machine-id
 RUN mkdir -p ${HOME}/.cache && \
-	chmod 1777 ${HOME}/.cache
-# explicitly set locale
-ENV LANG=en_US.UTF-8
+	chmod 1777 ${HOME}/.cache \
+    && chown -R $DOCKER_USER:$DOCKER_USER ${HOME}/.cache
 
 # avoid _XSERVTransmkdir: ERROR: euid != 0,directory /tmp/.X11-unix will not be created.
 RUN mkdir /tmp/.X11-unix && \
 	chmod 1777 /tmp/.X11-unix && \
-	chown root /tmp/.X11-unix/
-# probably not required during image build
-RUN Xvfb :99 &
-ENV DISPLAY=:99
+	chown $DOCKER_USER /tmp/.X11-unix/
 
 
+# Create an .Xauthority file
+RUN touch ${HOME}/.Xauthority \
+    && chown -R $DOCKER_USER:$DOCKER_USER ${HOME}/.Xauthority
+
+# Set display resolution (change as needed)
+ENV RESOLUTION=1024x780
+
+ENV DISPLAY=:1
+
+# Expose VNC port
+EXPOSE 5901
+
+# VNC support
+RUN apt update && apt upgrade -y && apt install -y  --no-install-recommends\
+    tightvncserver
+
+RUN apt update && apt upgrade -y && apt install -y  --no-install-recommends\
+    xterm
+
+# Setup VNC server
+RUN mkdir ${HOME}/.vnc \
+    && echo "password" | vncpasswd -f > ${HOME}/.vnc/passwd \
+    && chmod 600 ${HOME}/.vnc/passwd \
+    && chown -R $DOCKER_USER:$DOCKER_USER ${HOME}/.vnc
+    
+# Copy a script to start the VNC server
+COPY scripts/start-vnc.sh ${HOME}/
+RUN chmod +x ${HOME}/start-vnc.sh
 
 # additionnal helper build scripts
-COPY scripts/build_gemoc.sh ${HOME}/
-RUN chmod a+x ${HOME}/build_gemoc.sh
+COPY scripts/tycho_build.sh ${HOME}/
+RUN chmod a+x ${HOME}/tycho_build.sh
+COPY scripts/pomfirst_build.sh ${HOME}/
+RUN chmod a+x ${HOME}/pomfirst_build.sh
+COPY scripts/generate_protocols.sh ${HOME}/
+RUN chmod a+x ${HOME}/generate_protocols.sh
 
+RUN chown -R $DOCKER_USER:$DOCKER_USER ${HOME}
+
+
+
+
+# some cleanup
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # switch to default user
 #USER 1000
@@ -134,7 +189,9 @@ WORKDIR ${HOME}
 #RUN useradd -u 1000 -ms /bin/bash ci
 #RUN useradd -r -u 1000 -g ci ci
 
- 
+# explicitly set locale
+ENV LANG=en_US.UTF-8
+
 
 #USER ci
 

@@ -30,22 +30,36 @@ docker run -it -v $PWD/../../../..:/home/jenkins/src -v $PWD/cache-m2:/home/jenk
 docker run -it -v $PWD/../../../..:/home/jenkins/src -v $PWD/cache-m2:/home/jenkins/.m2 --user 1000 -p 5900:5900 gemoc/gemoc-jenkins-fat-agent:latest /bin/bash
 ----
 
+Generate protocal classes from the container
+
+```
+cd /home/jenkins/src/gemoc-studio-modeldebugging/protocols/generators/ts/JSONSchema2APIProtocolGenerator
+npm install
+npm run build
+npm run generate
+```
+
 Build the studio (no test) from the container
 
 ```
-cd src/gemoc-studio/dev_support/full_compilation/
+cd /home/jenkins/src/gemoc-studio/dev_support/tycho_full_compilation/
 mvn -DskipTests=true -Djava.awt.headless=true -P test_linux install
 ```
 
 
+With timestamped log file
+```
+mvn -DskipTests=true -Djava.awt.headless=true -P test_linux install | ts -s | tee -a /home/jenkins/src/tycho_full_compilation.log
+```
+
 Start system tests (UI) from the container:
 ```
 ~/.vnc/xstartup.sh
-cd src/gemoc-studio/dev_support/full_compilation/
-mvn --projects ../../gemoc_studio/tests/org.eclipse.gemoc.studio.tests.system.lwb,../../gemoc_studio/tests/org.eclipse.gemoc.studio.tests.system.mwb verify
+cd src/gemoc-studio/dev_support/tycho_full_compilation/
+mvn --projects ../../gemoc_studio/tests/org.eclipse.gemoc.studio.tests.system.lwb,../../gemoc_studio/tests/org.eclipse.gemoc.studio.tests.system.mwb,../../gemoc_studio/releng/org.eclipse.gemoc.gemoc_studio.targetplatform verify
 ```
 
-connect to vncserver display from your host using a vnc viewer(for example using remmina) on `localhost:5900` (the password is `123456`)
+connect to vncserver display from your host using a vnc viewer (for example using remmina) on `localhost:5900` (the password is `123456`)
 
 
  

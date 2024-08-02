@@ -88,7 +88,7 @@ You can save some time on the compilation in development mode using some of the 
 
 [NOTE]
 ====
-The current versio compiles using Java11 and Java FX.
+The current version compiles using Java17 and Java FX.
 You need to indicate the location of javafx using an environment variable JAVAFX_HOME indicating the location of your java fx installation.
 ====
 
@@ -105,7 +105,7 @@ To do a full build using docker: go to the docker folder (*/gemoc-studio/dev_sup
 
 [source,bourne]
 ----
-docker-compose down && docker-compose up
+docker compose down && docker compose up
 ----
  or
  
@@ -119,67 +119,93 @@ Changes commited in master branch are automatically built and deployed on docker
 
 
 ===== Manual launch
-A standard full build is done using the command:
+A standard build (mvn clean verify) is done using the `docker compose` command:
+
 [source,bourne]
 ----
-docker run -it -v $PWD/../../../..:/home/jenkins/src -v $PWD/cache-m2:/home/jenkins/.m2 --user 1000 gemoc/gemoc-full-compilation:latest ./build_gemoc.sh
+docker compose run gemoc_full_compilation ./build_gemoc.sh
+----
+
+or the `docker` command
+
+[source,bourne]
+----
+docker run -it -v $PWD/../../../..:/home/ubuntu/src -v $PWD/cache-m2:/home/ubuntu/.m2 --env UID=$(id -u) --env GID=$(id -g) gemoc/gemoc-full-compilation:latest ./build_gemoc.sh
 ---- 
 
 where
  
-- $PWD/../../../.. points to the root containing all gemoc sources
-- --user 1000  makes sure to use your user uid (use `id -u` or `echo $UID`to get yours user uid if this isn't 1000) 
+- `$PWD/../../../..` points to the root containing all gemoc sources (this suppose that you run the script from the folder containing the `docker-compose.yml` file)
+- `--env UID=$(id -u) --env GID=$(id -g)`  makes sure to use your user uid (use `id -u` or `echo $UID`to get yours user uid if this isn't 1000) 
 
 note: you must create the _$PWD/cache-m2_ folder before launching the docker command in order to avoid permission issues.
 
 
 
-Once the full compilation has been done at least once (ie. and filled the m2 cache), you can run the system test only using the command
+Once the full compilation has been done at least once (ie. target folders contain the jars and the m2 cache is populated), you can limit the build to some predefined subset defined in `build_gemoc.sh` by adding one of the following argument:
+
+- `full` -> mvn clean install
+- `clean` -> mvn clean
+- `linux` compile gemoc studio for linux only in online (install in .m2)
+- `linux_no_system_test` compile gemoc studio for linux only no system tests, online, install in .m2
+- `linux_no_system_test_offline` compile gemoc studio for linux only no system tests, offline, install in .m2
+- `linux_offline` compile gemoc studio for linux only (offline) (install in .m2)
+- `linux_system_test_only` running system tests only
+- `tycho_dependencies` display the plugin dependencies computed by tycho
+
+
+   
+TIP: you can timestamp the console and save in a local log by adding `|& ts -s |& tee build.log` at the end of the command (where `ts` comes from the the `moreutils` package)
+
+
+examples
 [source,bourne]
 ----
-docker-compose run gemoc_full_compilation system_test_only
+docker compose run gemoc_full_compilation ./build_gemoc.sh clean |& ts -s |& tee log/clean.log
+docker compose run gemoc_full_compilation ./build_gemoc.sh linux_no_system_test |& ts -s |& tee log/linux_no_system_test.log
+docker compose run gemoc_full_compilation ./build_gemoc.sh linux_no_system_test_offline |& ts -s |& tee log/linux_no_system_test_offline.log
+docker compose run gemoc_full_compilation ./build_gemoc.sh linux_system_test_only |& ts -s |& tee log/linux_system_test_only.log
 ----
 
-Or you can run a full build but including only the linux variant using:
-[source,bourne]
-----
-docker run -it -v $PWD/../../../..:/home/jenkins/src -v $PWD/cache-m2:/home/jenkins/.m2 --user 1000 gemoc/gemoc-full-compilation:latest ./build_gemoc.sh linux
----- 
-or
-[source,bourne]
-----
-docker-compose run gemoc_full_compilation linux_offline
-----
 
-or
-[source,bourne]
-----
-docker-compose run gemoc_full_compilation linux_no_system_test
-----
-or
-[source,bourne]
-----
-docker-compose run gemoc_full_compilation linux_no_system_test_offline
-----
 
 ===== Description of the docker env
 
-The _Dockerfile_ defines a docker image based on ubuntu 16.04 with maven, oracle java8, xvfb, and graphviz. It embeds an *entrypoint.sh* script that calls the maven command.
-The _docker-compose.yml_ will mount the folder containing all gemoc repositories (ie. the place where you've done `git clone`) 
-It also mounts a *cache-m2* folder in order to speed up the compilation.
+The _Dockerfile_ defines a docker image based on ubuntu 24.04 with maven, oracle java17, xvfb, and graphviz. It embeds an *entrypoint.sh* script that allows to run using your own userId. (To avoid issue about file created as root instead of your local uid, it uses `gosu`  in the entrypoint script (cf. https://stackoverflow.com/questions/57776452/is-it-possible-to-map-a-user-inside-the-docker-container-to-an-outside-user))
 
-The docker-compose command is more or less equivalent to:
+The _docker-compose.yml_ will mount the folder containing all gemoc repositories (ie. the place where you've done `git clone`) 
+
+It also mounts a *cache-m2* folder in order to speed up successive compilations.
+
+The `docker compose run gemoc_full_compilation ./build_gemoc.sh` command is more or less equivalent to:
 [source,bourne]
 ----
 docker build -t gemoc/gemoc-full-compilation:latest .
-docker run -v $PWD/../../../..:/home/jenkins/src -v $PWD/cache-m2:/home/jenkins/.m2 gemoc/gemoc-full-compilation:latest
+docker run -v $PWD/../../../..:/home/ubuntu/src -v $PWD/cache-m2:/home/ubuntu/.m2 --env UID=1000 --env GID=1000 gemoc/gemoc-full-compilation:latest ./build_gemoc.sh
 ----
 
 Then you'll have to manually prune unused containers after usage.
 
-If for some reason you wish to access it interactively you can use the following command:
+
+===== Interactive access
+
+If for some reason you wish to access it interactively you can use the following commands:
+
 [source,bourne]
 ----
-docker run -it -v $PWD/../../../..:/home/jenkins/src -v $PWD/cache-m2:/home/jenkins/.m2 --user 1000 gemoc/gemoc-full-compilation:latest /bin/bash
+docker compose run gemoc_full_compilation /bin/bash
 ----
+
+or 
+[source,bourne]
+----
+docker run -it --rm \
+-v $PWD/../../../..:/home/ubuntu/src -v $PWD/cache-m2:/home/ubuntu/.m2 \
+--publish 5900:5900 \
+--env UID=$(id -u) --env GID=$(id -g) \
+gemoc/gemoc-full-compilation:latest /bin/bash
+----
+   
+
+ 
    

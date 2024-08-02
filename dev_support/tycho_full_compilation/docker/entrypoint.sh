@@ -10,7 +10,7 @@ cd /root/src/gemoc-studio
 if [ -z "$1" ]
 then
 	echo "---------- compile full gemoc studio -----------"
-	mvn -f /root/src/gemoc-studio/dev_support/full_compilation/pom.xml clean install --errors
+	mvn -f /root/src/gemoc-studio/dev_support/tycho_full_compilation/pom.xml clean install --errors
 else
 	case $1 in
 	"full") 
