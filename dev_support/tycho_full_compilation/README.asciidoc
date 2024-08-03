@@ -14,7 +14,7 @@ footnote:[asciidoc source of this page:  https://github.com/eclipse/gemoc-studio
 
 ==== Introduction
 
-The source code of the [GEMOC Studio](http://gemoc.org/studio/) is currently spread among different git repositories in Eclipse organization.
+The source code of the [GEMOC Studio](http://gemoc.org) is currently spread among different git repositories in Eclipse organization.
 
 This project relies on the presence of the correct git repositories (cloned with the correct name) to locally build a working studio.
 
