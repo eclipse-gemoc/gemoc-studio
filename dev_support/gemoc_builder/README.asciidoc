@@ -33,15 +33,18 @@ docker build -t "gemoc/gemoc-builder:2024-08-02" .
 ===== Interactive usage
 
 ```
+[source,bourne]
+----
 docker run -it --rm --name gemoc-builder -v $PWD/../../../..:/home/ubuntu/src -v $PWD/cache-m2:/home/ubuntu/.m2 --env UID=$(id -u) --env GID=$(id -g) -p 5901:5901 "gemoc/gemoc-builder:latest" /bin/bash
-```
+----
 
 
 Optionnaly, open the GUI (useful for graphical integration tests)
 
-```
+[source,bourne]
+----
 vncviewer localhost:5901
-```
+----
 
 Where:
 
@@ -72,10 +75,40 @@ The image contains several build scripts for various common usages.
    
 TIP: you can timestamp the console and save in a local log by adding `|& ts -s |& tee build.log` at the end of the command (where `ts` comes from the the `moreutils` package)
 
-typicall use: (for the folder containing all the git repositories
-```
+typical use: (from the folder containing all the git repositories)
+
+[source,bourne]
+----
+mkdir cache-m2
+----
+
+build protocol classes
+
+[source,bourne]
+----
+docker run -it --rm --name gemoc-builder -v $PWD:/home/ubuntu/src -v $PWD/cache-m2:/home/ubuntu/.m2 --env UID=$(id -u) --env GID=$(id -g) -p 5901:5901 "gemoc/gemoc-builder:latest" ./generate_protocols.sh |& ts -s |& tee generate_protocols.log
+----
+
+build eclipse (no system tests)
+
+[source,bourne]
+----
+docker run -it --rm --name gemoc-builder -v $PWD:/home/ubuntu/src -v $PWD/cache-m2:/home/ubuntu/.m2 --env UID=$(id -u) --env GID=$(id -g) -p 5901:5901 "gemoc/gemoc-builder:latest" ./tycho_build.sh linux_no_system_test |& ts -s |& tee linux_build.log
+----
+
+eclipse system tests only
+
+[source,bourne]
+----
+docker run -it --rm --name gemoc-builder -v $PWD:/home/ubuntu/src -v $PWD/cache-m2:/home/ubuntu/.m2 --env UID=$(id -u) --env GID=$(id -g) -p 5901:5901 "gemoc/gemoc-builder:latest" ./tycho_build.sh linux_system_test_only |& ts -s |& tee linux_system_test_only.log
+----
+
+or full build (incl. system tests)
+
+[source,bourne]
+----
 docker run -it --rm --name gemoc-builder -v $PWD:/home/ubuntu/src -v $PWD/cache-m2:/home/ubuntu/.m2 --env UID=$(id -u) --env GID=$(id -g) -p 5901:5901 "gemoc/gemoc-builder:latest" ./tycho_build.sh linux |& ts -s |& tee linux_build.log
-```
+----
 
 ===== Description of the docker env
 
