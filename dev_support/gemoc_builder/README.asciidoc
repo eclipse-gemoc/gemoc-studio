@@ -32,16 +32,18 @@ docker build -t "gemoc/gemoc-builder:2024-08-02" .
 
 ===== Interactive usage
 
-```
+[source,bourne]
+----
 docker run -it --rm --name gemoc-builder -v $PWD/../../../..:/home/ubuntu/src -v $PWD/cache-m2:/home/ubuntu/.m2 --env UID=$(id -u) --env GID=$(id -g) -p 5901:5901 "gemoc/gemoc-builder:latest" /bin/bash
-```
+----
 
 
-Optionnaly, open the GUI (useful for graphical integration tests)
+Optionnaly, open the GUI (useful for graphical integration tests) (vnc password in the image is `password`)
 
-```
+[source,bourne]
+----
 vncviewer localhost:5901
-```
+----
 
 Where:
 
@@ -56,15 +58,20 @@ The image contains several build scripts for various common usages.
 - `generate_protocols.sh` with the possible arguments
 ** `full` -> npm install; npm run build; npm run generate
 
-- `tycho_build.sh` with the possible arguments
-** `full` -> mvn clean install
-** `clean` -> mvn clean
-** `linux` compile gemoc studio for linux only, online, install in .m2
-** `linux_no_system_test` compile gemoc studio for linux only no system tests, online, install in .m2
-** `linux_no_system_test_offline` compile gemoc studio for linux only no system tests, offline, install in .m2
-** `linux_offline` compile gemoc studio for linux only, offline, install in .m2
-** `linux_system_test_only` running system tests only
-** `tycho_dependencies` display the plugin dependencies computed by tycho
+- `tycho_build.sh` 
+** Usage: `./tycho_build.sh [Options]* CommandName`
+** CommandName:  `full clean | no_system_test | system_test_only | tycho_dependencies`
+*** `full` -> `mvn clean install` of all projects (includes system test)
+*** `clean` -> `mvn clean`
+*** `no_system_test` -> `mvn install` of the studio except the system test projects
+*** `system_test_only` -> `mvn verify` of the system test projects
+*** `tycho_dependencies` -> display the plugin dependencies computed by tycho
+** Options: `[-b|--batch-mode] [-d|--debug] [-l|--linux] [-o|--offline] [-r|--debugResolver]`
+*** `batch-mode` -> removes colors extra char, useful when storing in file
+*** `debug` -> enable maven debug output
+*** `linux` -> restrict the build and to the linux platform
+*** `offline` -> maven work offline
+*** `debugResolver` -> enable debug and display tycho resolver debug output
 
 - `pomfirst_build.sh` with the possible arguments
 ** `full` -> mvn clean install
@@ -72,10 +79,13 @@ The image contains several build scripts for various common usages.
    
 TIP: you can timestamp the console and save in a local log by adding `|& ts -s |& tee build.log` at the end of the command (where `ts` comes from the the `moreutils` package)
 
-typicall use: (for the folder containing all the git repositories
-```
-docker run -it --rm --name gemoc-builder -v $PWD:/home/ubuntu/src -v $PWD/cache-m2:/home/ubuntu/.m2 --env UID=$(id -u) --env GID=$(id -g) -p 5901:5901 "gemoc/gemoc-builder:latest" ./tycho_build.sh linux |& ts -s |& tee linux_build.log
-```
+typical use: (from the folder containing all the git repositories
+
+
+[source,bourne]
+----
+docker run -it --rm --name gemoc-builder -v $PWD:/home/ubuntu/src -v $PWD/cache-m2:/home/ubuntu/.m2 --env UID=$(id -u) --env GID=$(id -g) -p 5901:5901 "gemoc/gemoc-builder:latest" ./tycho_build.sh --linux full |& ts -s |& tee linux_full_build.log
+----
 
 ===== Description of the docker env
 
