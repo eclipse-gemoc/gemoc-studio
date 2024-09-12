@@ -58,14 +58,14 @@ public class FsmTraceConstructor implements ITraceConstructor {
 	private boolean addNewObjectToState(org.eclipse.gemoc.example.melangek3fsm.xsfsm.xsfsm.fsm.NamedElement o_cast,
 			fsmTrace.States.SpecificState newState) {
 		boolean added = false;
-		if (o_cast instanceof org.eclipse.gemoc.example.melangek3fsm.xsfsm.xsfsm.fsm.StateMachine) {
+		if (o_cast instanceof org.eclipse.gemoc.example.melangek3fsm.xsfsm.xsfsm.fsm.State) {
+			added = addNewObjectToState((org.eclipse.gemoc.example.melangek3fsm.xsfsm.xsfsm.fsm.State) o_cast,
+					newState);
+		} else if (o_cast instanceof org.eclipse.gemoc.example.melangek3fsm.xsfsm.xsfsm.fsm.StateMachine) {
 			added = addNewObjectToState((org.eclipse.gemoc.example.melangek3fsm.xsfsm.xsfsm.fsm.StateMachine) o_cast,
 					newState);
 		} else if (o_cast instanceof org.eclipse.gemoc.example.melangek3fsm.xsfsm.xsfsm.fsm.Transition) {
 			added = addNewObjectToState((org.eclipse.gemoc.example.melangek3fsm.xsfsm.xsfsm.fsm.Transition) o_cast,
-					newState);
-		} else if (o_cast instanceof org.eclipse.gemoc.example.melangek3fsm.xsfsm.xsfsm.fsm.State) {
-			added = addNewObjectToState((org.eclipse.gemoc.example.melangek3fsm.xsfsm.xsfsm.fsm.State) o_cast,
 					newState);
 		}
 
@@ -206,29 +206,6 @@ public class FsmTraceConstructor implements ITraceConstructor {
 						org.eclipse.gemoc.example.melangek3fsm.xsfsm.xsfsm.fsm.StateMachine o_cast = (org.eclipse.gemoc.example.melangek3fsm.xsfsm.xsfsm.fsm.StateMachine) o;
 
 						if (p.getFeatureID() == org.eclipse.gemoc.example.melangek3fsm.xsfsm.xsfsm.fsm.FsmPackage.eINSTANCE
-								.getStateMachine_UnprocessedString().getFeatureID()) {
-
-							// Rollback: we remove the last value of this field from the new state
-							fsmTrace.States.fsm.TracedStateMachine traced = (fsmTrace.States.fsm.TracedStateMachine) exeToTraced
-									.get(o);
-							fsmTrace.States.StateMachine_unprocessedString_Value lastValue = traced
-									.getStateMachine_unprocessedString_Dimension().getValues()
-									.get(traced.getStateMachine_unprocessedString_Dimension().getValues().size() - 1);
-							newState.getValues().remove(lastValue);
-
-							// And we create a proper new value
-							fsmTrace.States.StateMachine_unprocessedString_Value newValue = fsmTrace.States.StatesFactory.eINSTANCE
-									.createStateMachine_unprocessedString_Value();
-
-							java.lang.String value = o_cast.getUnprocessedString();
-
-							newValue.setUnprocessedString((java.lang.String) value);
-
-							traced.getStateMachine_unprocessedString_Dimension().getValues().add(newValue);
-							newState.getValues().add(newValue);
-						} else
-
-						if (p.getFeatureID() == org.eclipse.gemoc.example.melangek3fsm.xsfsm.xsfsm.fsm.FsmPackage.eINSTANCE
 								.getStateMachine_ConsummedString().getFeatureID()) {
 
 							// Rollback: we remove the last value of this field from the new state
@@ -248,6 +225,29 @@ public class FsmTraceConstructor implements ITraceConstructor {
 							newValue.setConsummedString((java.lang.String) value);
 
 							traced.getStateMachine_consummedString_Dimension().getValues().add(newValue);
+							newState.getValues().add(newValue);
+						} else
+
+						if (p.getFeatureID() == org.eclipse.gemoc.example.melangek3fsm.xsfsm.xsfsm.fsm.FsmPackage.eINSTANCE
+								.getStateMachine_ProducedString().getFeatureID()) {
+
+							// Rollback: we remove the last value of this field from the new state
+							fsmTrace.States.fsm.TracedStateMachine traced = (fsmTrace.States.fsm.TracedStateMachine) exeToTraced
+									.get(o);
+							fsmTrace.States.StateMachine_producedString_Value lastValue = traced
+									.getStateMachine_producedString_Dimension().getValues()
+									.get(traced.getStateMachine_producedString_Dimension().getValues().size() - 1);
+							newState.getValues().remove(lastValue);
+
+							// And we create a proper new value
+							fsmTrace.States.StateMachine_producedString_Value newValue = fsmTrace.States.StatesFactory.eINSTANCE
+									.createStateMachine_producedString_Value();
+
+							java.lang.String value = o_cast.getProducedString();
+
+							newValue.setProducedString((java.lang.String) value);
+
+							traced.getStateMachine_producedString_Dimension().getValues().add(newValue);
 							newState.getValues().add(newValue);
 						} else
 
@@ -279,25 +279,25 @@ public class FsmTraceConstructor implements ITraceConstructor {
 						} else
 
 						if (p.getFeatureID() == org.eclipse.gemoc.example.melangek3fsm.xsfsm.xsfsm.fsm.FsmPackage.eINSTANCE
-								.getStateMachine_ProducedString().getFeatureID()) {
+								.getStateMachine_UnprocessedString().getFeatureID()) {
 
 							// Rollback: we remove the last value of this field from the new state
 							fsmTrace.States.fsm.TracedStateMachine traced = (fsmTrace.States.fsm.TracedStateMachine) exeToTraced
 									.get(o);
-							fsmTrace.States.StateMachine_producedString_Value lastValue = traced
-									.getStateMachine_producedString_Dimension().getValues()
-									.get(traced.getStateMachine_producedString_Dimension().getValues().size() - 1);
+							fsmTrace.States.StateMachine_unprocessedString_Value lastValue = traced
+									.getStateMachine_unprocessedString_Dimension().getValues()
+									.get(traced.getStateMachine_unprocessedString_Dimension().getValues().size() - 1);
 							newState.getValues().remove(lastValue);
 
 							// And we create a proper new value
-							fsmTrace.States.StateMachine_producedString_Value newValue = fsmTrace.States.StatesFactory.eINSTANCE
-									.createStateMachine_producedString_Value();
+							fsmTrace.States.StateMachine_unprocessedString_Value newValue = fsmTrace.States.StatesFactory.eINSTANCE
+									.createStateMachine_unprocessedString_Value();
 
-							java.lang.String value = o_cast.getProducedString();
+							java.lang.String value = o_cast.getUnprocessedString();
 
-							newValue.setProducedString((java.lang.String) value);
+							newValue.setUnprocessedString((java.lang.String) value);
 
-							traced.getStateMachine_producedString_Dimension().getValues().add(newValue);
+							traced.getStateMachine_unprocessedString_Dimension().getValues().add(newValue);
 							newState.getValues().add(newValue);
 						}
 					}

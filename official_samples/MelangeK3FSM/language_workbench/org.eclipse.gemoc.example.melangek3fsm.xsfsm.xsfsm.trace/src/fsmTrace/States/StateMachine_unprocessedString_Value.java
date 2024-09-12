@@ -23,15 +23,12 @@ public interface StateMachine_unprocessedString_Value extends SpecificAttributeV
 	/**
 	 * Returns the value of the '<em><b>Unprocessed String</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Unprocessed String</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Unprocessed String</em>' attribute.
 	 * @see #setUnprocessedString(String)
 	 * @see fsmTrace.States.StatesPackage#getStateMachine_unprocessedString_Value_UnprocessedString()
 	 * @model unique="false"
+	 *        annotation="aspect"
 	 * @generated
 	 */
 	String getUnprocessedString();

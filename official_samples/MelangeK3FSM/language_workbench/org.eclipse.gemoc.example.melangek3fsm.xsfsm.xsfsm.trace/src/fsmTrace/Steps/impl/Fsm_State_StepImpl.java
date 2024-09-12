@@ -72,6 +72,7 @@ public class Fsm_State_StepImpl extends SpecificStepImpl implements Fsm_State_St
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Fsm_State_Step_AbstractSubStep> getSubSteps() {
 		if (subSteps == null) {
 			subSteps = new EObjectContainmentEList<Fsm_State_Step_AbstractSubStep>(Fsm_State_Step_AbstractSubStep.class, this, StepsPackage.FSM_STATE_STEP__SUB_STEPS);
@@ -84,6 +85,7 @@ public class Fsm_State_StepImpl extends SpecificStepImpl implements Fsm_State_St
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TracedState getCaller() {
 		return (fsmTrace.States.fsm.TracedState) this.getMseoccurrence().getMse().getCaller();
 	}

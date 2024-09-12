@@ -45,6 +45,7 @@ public abstract class TracedNamedElementImpl extends SpecificTracedObjectImpl<Sp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<SpecificDimension<?>> getDimensionsInternal() {
 		final EList<SpecificDimension<?>> result = new org.eclipse.emf.ecore.util.BasicInternalEList<SpecificDimension<?>>(Object.class);
 		result.addAll(super.getDimensionsInternal());

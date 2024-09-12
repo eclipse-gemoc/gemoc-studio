@@ -40,10 +40,6 @@ public interface SpecificTrace extends Trace<SequentialStep<? extends SpecificSt
 	 * Returns the value of the '<em><b>Fsm State Machine Initialize Model Sequence</b></em>' reference list.
 	 * The list contents are of type {@link fsmTrace.Steps.Fsm_StateMachine_InitializeModel}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Fsm State Machine Initialize Model Sequence</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Fsm State Machine Initialize Model Sequence</em>' reference list.
 	 * @see fsmTrace.FsmTracePackage#getSpecificTrace_Fsm_StateMachine_InitializeModel_Sequence()
@@ -56,10 +52,6 @@ public interface SpecificTrace extends Trace<SequentialStep<? extends SpecificSt
 	 * Returns the value of the '<em><b>Fsm State Step Sequence</b></em>' reference list.
 	 * The list contents are of type {@link fsmTrace.Steps.Fsm_State_Step}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Fsm State Step Sequence</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Fsm State Step Sequence</em>' reference list.
 	 * @see fsmTrace.FsmTracePackage#getSpecificTrace_Fsm_State_Step_Sequence()
@@ -72,10 +64,6 @@ public interface SpecificTrace extends Trace<SequentialStep<? extends SpecificSt
 	 * Returns the value of the '<em><b>Fsm Transition Fire Sequence</b></em>' reference list.
 	 * The list contents are of type {@link fsmTrace.Steps.Fsm_Transition_Fire}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Fsm Transition Fire Sequence</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Fsm Transition Fire Sequence</em>' reference list.
 	 * @see fsmTrace.FsmTracePackage#getSpecificTrace_Fsm_Transition_Fire_Sequence()

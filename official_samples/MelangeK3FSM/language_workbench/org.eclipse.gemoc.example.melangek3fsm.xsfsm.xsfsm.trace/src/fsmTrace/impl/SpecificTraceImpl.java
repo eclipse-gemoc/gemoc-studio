@@ -139,6 +139,7 @@ public class SpecificTraceImpl extends TraceImpl<SequentialStep<? extends Specif
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Fsm_StateMachine_InitializeModel> getFsm_StateMachine_InitializeModel_Sequence() {
 		if (fsm_StateMachine_InitializeModel_Sequence == null) {
 			fsm_StateMachine_InitializeModel_Sequence = new EObjectResolvingEList<Fsm_StateMachine_InitializeModel>(Fsm_StateMachine_InitializeModel.class, this, FsmTracePackage.SPECIFIC_TRACE__FSM_STATE_MACHINE_INITIALIZE_MODEL_SEQUENCE);
@@ -151,6 +152,7 @@ public class SpecificTraceImpl extends TraceImpl<SequentialStep<? extends Specif
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Fsm_State_Step> getFsm_State_Step_Sequence() {
 		if (fsm_State_Step_Sequence == null) {
 			fsm_State_Step_Sequence = new EObjectResolvingEList<Fsm_State_Step>(Fsm_State_Step.class, this, FsmTracePackage.SPECIFIC_TRACE__FSM_STATE_STEP_SEQUENCE);
@@ -163,6 +165,7 @@ public class SpecificTraceImpl extends TraceImpl<SequentialStep<? extends Specif
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Fsm_Transition_Fire> getFsm_Transition_Fire_Sequence() {
 		if (fsm_Transition_Fire_Sequence == null) {
 			fsm_Transition_Fire_Sequence = new EObjectResolvingEList<Fsm_Transition_Fire>(Fsm_Transition_Fire.class, this, FsmTracePackage.SPECIFIC_TRACE__FSM_TRANSITION_FIRE_SEQUENCE);

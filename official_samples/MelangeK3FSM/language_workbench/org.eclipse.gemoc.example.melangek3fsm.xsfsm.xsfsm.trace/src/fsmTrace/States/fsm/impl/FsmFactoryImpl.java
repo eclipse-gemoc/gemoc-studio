@@ -69,6 +69,7 @@ public class FsmFactoryImpl extends EFactoryImpl implements FsmFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TracedState createTracedState() {
 		TracedStateImpl tracedState = new TracedStateImpl();
 		return tracedState;
@@ -79,6 +80,7 @@ public class FsmFactoryImpl extends EFactoryImpl implements FsmFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TracedStateMachine createTracedStateMachine() {
 		TracedStateMachineImpl tracedStateMachine = new TracedStateMachineImpl();
 		return tracedStateMachine;
@@ -89,6 +91,7 @@ public class FsmFactoryImpl extends EFactoryImpl implements FsmFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TracedTransition createTracedTransition() {
 		TracedTransitionImpl tracedTransition = new TracedTransitionImpl();
 		return tracedTransition;
@@ -99,6 +102,7 @@ public class FsmFactoryImpl extends EFactoryImpl implements FsmFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public FsmPackage getFsmPackage() {
 		return (FsmPackage)getEPackage();
 	}
