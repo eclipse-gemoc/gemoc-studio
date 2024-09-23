@@ -51,6 +51,10 @@ def printAllMax(procs):
     # for p in procs[:86]:
     for p in procs:
         printProc(p['proc'])
+    total_uss = 0
+    for p in procs:
+        total_uss += p['proc']._uss
+    print( "TOTAL USS = " + convert_bytes(total_uss))    
 
 def main():
     ad_pids = []
