@@ -97,21 +97,21 @@ build eclipse (no system tests)
 
 [source,bourne]
 ----
-docker run -it --rm --name gemoc-builder -v $PWD:/home/ubuntu/src -v $PWD/cache-m2:/home/ubuntu/.m2 --env UID=$(id -u) --env GID=$(id -g) -p 5901:5901 "gemoc/gemoc-builder:latest" ./tycho_build.sh linux_no_system_test |& ts -s |& tee linux_build.log
+docker run -it --rm --name gemoc-builder -v $PWD:/home/ubuntu/src -v $PWD/cache-m2:/home/ubuntu/.m2 --env UID=$(id -u) --env GID=$(id -g) -p 5901:5901 "gemoc/gemoc-builder:latest" ./tycho_build.sh --linux no_system_test |& ts -s |& tee linux_build.log
 ----
 
 eclipse system tests only
 
 [source,bourne]
 ----
-docker run -it --rm --name gemoc-builder -v $PWD:/home/ubuntu/src -v $PWD/cache-m2:/home/ubuntu/.m2 --env UID=$(id -u) --env GID=$(id -g) -p 5901:5901 "gemoc/gemoc-builder:latest" ./tycho_build.sh linux_system_test_only |& ts -s |& tee linux_system_test_only.log
+docker run -it --rm --name gemoc-builder -v $PWD:/home/ubuntu/src -v $PWD/cache-m2:/home/ubuntu/.m2 --env UID=$(id -u) --env GID=$(id -g) -p 5901:5901 "gemoc/gemoc-builder:latest" ./tycho_build.sh --linux system_test_only |& ts -s |& tee linux_system_test_only.log
 ----
 
 or full build (incl. system tests)
 
 [source,bourne]
 ----
-docker run -it --rm --name gemoc-builder -v $PWD:/home/ubuntu/src -v $PWD/cache-m2:/home/ubuntu/.m2 --env UID=$(id -u) --env GID=$(id -g) -p 5901:5901 "gemoc/gemoc-builder:latest" ./tycho_build.sh linux |& ts -s |& tee linux_build.log
+docker run -it --rm --name gemoc-builder -v $PWD:/home/ubuntu/src -v $PWD/cache-m2:/home/ubuntu/.m2 --env UID=$(id -u) --env GID=$(id -g) -p 5901:5901 "gemoc/gemoc-builder:latest" ./tycho_build.sh --linux |& ts -s |& tee linux_build.log
 ----
 
 typical use: (from the folder containing all the git repositories
