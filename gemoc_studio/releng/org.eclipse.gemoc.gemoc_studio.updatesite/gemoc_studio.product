@@ -22,6 +22,7 @@
 -Dosgi.instance.area.default=@user.home/eclipse-workspaces/gemoc-workspace
 -Dosgi.dataAreaRequiresExplicitInit=true
 -Dorg.eclipse.swt.graphics.Resource.reportNonDisposed=true
+-Dequinox.resolver.revision.batch.size=10
 -Dosgi.framework.extensions=org.eclipse.fx.osgi
 -Declipse.e4.inject.javax.warning=false
 -Dsun.java.command=GemocStudio
@@ -59,7 +60,6 @@
             winExtraLargeHigh="images/icons/IconeGemocStudio-text/bmp/IconeGemocStudio-text_256x256x32.bmp"/>
       </win>
    </launcher>
-
 
    <vm>
       <linux include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11</linux>
@@ -217,9 +217,6 @@ United States, other countries, or both.
    </plugins>
 
    <features>
-      <!-- all features added here as installMode="root" need to be added to p2.inf as well -->
-
-      <!-- common features that all products have -->
       <feature id="org.eclipse.epp.package.common.feature"/>
       <feature id="org.eclipse.platform"/>
       <feature id="org.eclipse.equinox.p2.user.ui"/>
@@ -229,20 +226,11 @@ United States, other countries, or both.
       <feature id="org.eclipse.egit" installMode="root"/>
       <feature id="org.eclipse.jgit" installMode="root"/>
       <feature id="org.eclipse.mylyn.wikitext_feature" installMode="root"/>
-            
-      <!-- common features to almost all products -->
-      
-      <!-- product specific contents -->
       <feature id="org.eclipse.gemoc.gemoc_studio.branding.feature"/>
       <feature id="org.eclipse.gemoc.gemoc_studio.additions.feature"/>
       <feature id="org.eclipse.fx.runtime.min.feature" installMode="root"/>
-      
-      
       <feature id="org.eclipse.egit.gitflow.feature" installMode="root"/>
-      <!-- either m2e.logback or slf4j.simple should be provided in each package -->
       <feature id="org.eclipse.m2e.logback.feature" installMode="root"/>
-      
-      
    </features>
 
    <configurations>
